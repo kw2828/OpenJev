@@ -52,4 +52,8 @@ Every question gets a fresh prefill. Shared-context caching, batching and persis
 
 There are no automatic inference retries. Context and candidates can still prompt-inject or confuse a language model despite their structured rendering. Stable output IDs constrain syntax, not semantic correctness. This API performs no external action. Application adapters own execution and constraints.
 
-The server is loopback-only with Host/Origin checks, not a multi-user authenticated service. Setup contacts Hugging Face to download the pinned public artifact. Model inference is local and uses the cached revision. The application does not persist arbitrary playground requests; exported JSON is saved only when the user requests it in the browser. Published test receipts contain authored synthetic fixtures only.
+The server defaults to loopback with Host/Origin checks. Hosted deployments explicitly configure their public origin; they are shared demos, not multi-user authenticated services. Setup contacts Hugging Face to download the pinned public artifact. Model inference is local and uses the cached revision. The application does not persist arbitrary playground requests; exported JSON is saved only when the user requests it in the browser. Published test receipts contain authored synthetic fixtures only.
+
+## Hosted instances
+
+The same API runs in the Linux container with a pinned Qwen3-0.6B CPU backend. Model and revision fields reflect the selected backend, including before lazy loading. It uses the checkpoint chat template with thinking disabled. Scores are not interchangeable with the Mac 4B model. See [hosting](hosting.md) for origin configuration, shared-arena behavior, and deployment instructions. `/healthz` is a server liveness probe; `/api/model` reports model state and public-demo mode.

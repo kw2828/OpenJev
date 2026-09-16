@@ -6,6 +6,7 @@ import time
 from contextlib import asynccontextmanager
 from pathlib import Path
 from typing import Literal
+from urllib.parse import urlsplit
 
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.responses import FileResponse
@@ -20,6 +21,20 @@ from .game import Doom
 from .policies import make_policy
 
 STATIC = Path(__file__).parent / "static"
+PUBLIC_DEMO = os.environ.get("OPENJEV_PUBLIC_DEMO") == "1"
+# Explicit deployment configuration, never request-supplied forwarded headers.
+PUBLIC_ORIGIN = os.environ.get("OPENJEV_PUBLIC_ORIGIN", "").rstrip("/")
+if not PUBLIC_ORIGIN and os.environ.get("SPACE_HOST"):
+    PUBLIC_ORIGIN = "https://" + os.environ["SPACE_HOST"]
+ALLOWED_HOSTS = ["127.0.0.1", "localhost", "testserver"]
+if PUBLIC_ORIGIN:
+    parsed_origin = urlsplit(PUBLIC_ORIGIN)
+    if (parsed_origin.scheme not in ("http", "https") or not parsed_origin.hostname
+            or parsed_origin.path or parsed_origin.query or parsed_origin.fragment
+            or parsed_origin.username or parsed_origin.password):
+        raise ValueError("OPENJEV_PUBLIC_ORIGIN must be an http(s) origin without a path or credentials")
+    ALLOWED_HOSTS.append(parsed_origin.hostname)
+
 
 
 class Control(BaseModel):
@@ -166,7 +181,7 @@ class Session:
                             "error": error,
                             "loop_ms": (time.perf_counter() - start) * 1000,
                             "jev_calls": remote_policy.calls if remote_policy else 0,
-                            "jev_available": bool(os.environ.get("TYPESAFE_API_KEY")),
+                            "jev_available": not PUBLIC_DEMO and bool(os.environ.get("TYPESAFE_API_KEY")),
                             "language_response": policy.last_response
                             if isinstance(policy, LanguageDoomPolicy)
                             else None,
@@ -207,7 +222,12 @@ async def lifespan(app):
 
 
 app = FastAPI(title="OpenJev", lifespan=lifespan)
-app.add_middleware(TrustedHostMiddleware, allowed_hosts=["127.0.0.1", "localhost", "testserver"])
+app.add_middleware(TrustedHostMiddleware, allowed_hosts=ALLOWED_HOSTS)
+
+
+@app.get("/healthz")
+def health():
+    return {"status": "ok"}
 
 
 @app.get("/")
@@ -239,20 +259,20 @@ def state(request: Request):
 
 @app.get("/api/model")
 def model_status(request: Request):
-    return request.app.state.decisions.status()
+    return {**request.app.state.decisions.status(), "public_demo": PUBLIC_DEMO}
 
 
-def require_local_request(request):
+def require_same_origin_request(request):
     if request.headers.get("x-openjev") != "1":
         raise HTTPException(403, "Same-origin request header required")
     origin = request.headers.get("origin")
-    if origin and origin != str(request.base_url).rstrip("/"):
+    if origin and origin not in {str(request.base_url).rstrip("/"), PUBLIC_ORIGIN}:
         raise HTTPException(403, "Cross-origin requests are disabled")
 
 
 @app.post("/api/decide", response_model=DecisionResponse)
 def decide(payload: DecisionRequest, request: Request):
-    require_local_request(request)
+    require_same_origin_request(request)
     try:
         return request.app.state.decisions.decide(payload)
     except ModelBusy as exc:
@@ -262,13 +282,15 @@ def decide(payload: DecisionRequest, request: Request):
     except ValueError as exc:
         raise HTTPException(422, str(exc)) from exc
     except Exception as exc:
-        raise HTTPException(500, "Local model inference failed; no fallback scores were returned") from exc
+        raise HTTPException(500, "Model inference failed; no fallback scores were returned") from exc
 
 
 @app.post("/api/control")
 def control(c: Control, request: Request):
     # Custom header + JSON body + no CORS prevent other sites driving a localhost game/API bill.
-    require_local_request(request)
+    require_same_origin_request(request)
+    if c.policy == "jev" and PUBLIC_DEMO:
+        raise HTTPException(403, "Paid Jev API is disabled in public demo mode")
     if c.policy == "jev" and not os.environ.get("TYPESAFE_API_KEY"):
         raise HTTPException(400, "TYPESAFE_API_KEY is not configured on the server")
     request.app.state.session.control(c)

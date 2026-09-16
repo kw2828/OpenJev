@@ -2,17 +2,18 @@
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>OpenJev / Decision playground</title><link rel="icon" href="data:,"><link rel="stylesheet" href="/style.css"></head>
 <body>
-<header><a class="brand" href="/">OPEN<span>JEV</span><small>LAB / 001</small></a><div class="header-right"><span class="dot"></span> LOCAL EXPERIMENT <a href="https://github.com/kw2828/OpenJev" target="_blank" rel="noopener">GITHUB ↗</a></div></header>
+<header><a class="brand" href="/">OPEN<span>JEV</span><small>LAB / 001</small></a><div class="header-right"><span class="dot"></span> OPEN EXPERIMENT <a href="https://github.com/kw2828/OpenJev" target="_blank" rel="noopener">GITHUB ↗</a></div></header>
 <main>
+<p id="hosting-notice" class="hint" hidden>Shared public demo: everyone controls the same Doom arena and can see its instruction. Use sample text only. CPU language inference may be slow.</p>
 <div class="intro"><div><p class="eyebrow">CONTEXT IN. DECISIONS OUT.</p><h1>Your questions.<br><span>Bounded answers.</span></h1></div><p class="lede">Supply context, questions, and choices.<br>Get candidate probabilities and stable IDs.<br>Let your application take the next step.</p></div>
-<nav class="view-tabs" aria-label="Playground"><button id="tab-decisions" class="selected" aria-pressed="true">DECISION PLAYGROUND</button><button id="tab-doom" aria-pressed="false">DOOM APPLICATION</button><span id="model-state">LOCAL MODEL / CHECKING</span></nav>
+<nav class="view-tabs" aria-label="Playground"><button id="tab-decisions" class="selected" aria-pressed="true">DECISION PLAYGROUND</button><button id="tab-doom" aria-pressed="false">DOOM APPLICATION</button><span id="model-state">MODEL / CHECKING</span></nav>
 <section id="decision-view">
 <div class="decision-workspace"><section class="request-panel"><div class="section-title"><span>01</span> DEFINE A DECISION</div>
 <div class="example-row"><label for="example">TRY AN EXAMPLE</label><select id="example"><option value="support">Customer support</option><option value="meeting">Meeting follow-up</option><option value="game">Game tactics</option></select></div>
 <label for="context">CONTEXT</label><textarea id="context" rows="5" maxlength="12000"></textarea>
 <div id="questions"></div><button id="add-question">+ ADD QUESTION</button>
 <div class="request-actions"><button id="run-decision" class="primary">SCORE CANDIDATES →</button><button id="export-request">EXPORT REQUEST</button></div>
-<p class="hint">English-focused preview. Questions and choices are yours to define. First use loads the local model; no hosted inference API.</p>
+<p class="hint">English-focused preview. Questions and choices are yours to define. First use loads the model on the app server. No external inference API is called.</p>
 </section><section class="response-panel"><div class="section-title"><span>02</span> CANDIDATE PROBABILITIES</div>
 <div id="decision-status" role="status" aria-live="polite">Ready when you are.</div><div id="decision-error" role="alert" hidden></div>
 <div id="decision-results"><p class="empty-state">The selected candidate and its alternatives will appear here.</p></div>
@@ -37,9 +38,9 @@
 <label>BASELINE PRESET <span class="muted">/ pacifist also blocks firing</span></label><div class="directives"><button class="selected" data-directive="hunt">HUNT</button><button data-directive="conserve">CONSERVE</button><button data-directive="pacifist">PACIFIST</button></div><p id="directive-description" class="hint">Track enemies. Fire when the target is lined up.</p>
 <div class="seed-row"><label for="seed">EPISODE SEED</label><input id="seed" type="number" min="0" max="2147483647" value="42"></div>
 </section>
-<section class="decision-panel"><div class="section-title"><span>02</span> INSIDE THE DECISION</div><div class="latency"><div><strong id="latency">0.00</strong><span>ms / policy call</span></div><span class="chip" id="backend-chip">LOCAL</span></div><div class="chart-label">STEER <span id="steer">HOLD</span></div><div id="bars"></div><div class="fire-row"><span>FIRE PROBABILITY</span><strong id="fire">0%</strong></div><div class="fire-track"><i id="fire-bar"></i></div><p class="hint">Local scores are uncalibrated model probabilities. They are not a guarantee of a correct action.</p></section>
+<section class="decision-panel"><div class="section-title"><span>02</span> INSIDE THE DECISION</div><div class="latency"><div><strong id="latency">0.00</strong><span>ms / policy call</span></div><span class="chip" id="backend-chip">LOCAL</span></div><div class="chart-label">STEER <span id="steer">HOLD</span></div><div id="bars"></div><div class="fire-row"><span>FIRE PROBABILITY</span><strong id="fire">0%</strong></div><div class="fire-track"><i id="fire-bar"></i></div><p class="hint">Model scores are uncalibrated model probabilities. They are not a guarantee of a correct action.</p></section>
 </aside></div>
 <div id="error" role="alert" hidden></div>
 <section class="pipeline"><div><span class="step">01 / OBSERVE</span><h3>Game state</h3><p id="target">Waiting for a target</p><small>Visible actor labels + game variables</small></div><b>→</b><div><span class="step">02 / DECIDE</span><h3 id="pipeline-title">One forward pass</h3><p id="pipeline-detail">11 features → 64 → 64 → 5 logits</p><small id="pipeline-note">No generated text. Two output heads.</small></div><b>→</b><div><span class="step">03 / ACT</span><h3>Typed controls</h3><p id="action">steer: hold &nbsp; fire: false</p><small>Pacifist and ammo limits enforced in code</small></div></section>
-</section><footer><p>Independent Jev-inspired decision interface. Local Qwen scoring; no generated explanations.<br>Doom uses engine labels, not pixel vision. Tiny imitation baseline available. No Jev affiliation or performance claim.</p><a href="https://typesafe.ai/blog/introducing-system-one-models-and-jev" target="_blank" rel="noopener">READ THE INSPIRATION ↗</a></footer>
+</section><footer><p>Independent Jev-inspired decision interface. Qwen candidate scoring; no generated explanations.<br>Doom uses engine labels, not pixel vision. Tiny imitation baseline available. No Jev affiliation or performance claim.</p><a href="https://typesafe.ai/blog/introducing-system-one-models-and-jev" target="_blank" rel="noopener">READ THE INSPIRATION ↗</a></footer>
 </main><script src="/app.js" defer></script><script src="/decisions.js" defer></script></body></html>

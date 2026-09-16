@@ -1,0 +1,8 @@
+FROM rust:1.94-slim-bookworm AS build
+WORKDIR /bench
+COPY rust/scorebench/ ./
+RUN cargo test --release && cargo build --release
+FROM openjev:hosting
+COPY --from=build /bench/target/release/openjev-scorebench /usr/local/bin/openjev-scorebench
+COPY research/benchmark_scores.py /home/user/benchmark_scores.py
+CMD ["python", "/home/user/benchmark_scores.py", "--rust", "/usr/local/bin/openjev-scorebench"]

@@ -1,0 +1,8 @@
+{
+  "name": "OpenJev CPU demo",
+  "build": {"dockerfile": "../Dockerfile", "context": ".."},
+  "remoteUser": "user",
+  "forwardPorts": [7860],
+  "portsAttributes": {"7860": {"label": "OpenJev demo", "onAutoForward": "openBrowser"}},
+  "postStartCommand": "bash deploy/codespaces-start.sh"
+}

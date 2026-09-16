@@ -3,6 +3,7 @@
 import hashlib
 import json
 import math
+import os
 import threading
 import time
 from concurrent.futures import ThreadPoolExecutor
@@ -13,6 +14,8 @@ from pydantic import BaseModel, ConfigDict, Field, StringConstraints, model_vali
 
 MODEL_ID = "mlx-community/Qwen3-4B-Instruct-2507-4bit"
 MODEL_REVISION = "50d427756c6b1b2fe0c0a10f67fbda1fc8e82c1b"
+CPU_MODEL_ID = "Qwen/Qwen3-0.6B"
+CPU_MODEL_REVISION = "c1899de289a04d12100db370d81485cdf75e47ca"
 MAX_TOKENS = 4096
 LABELS = "ABCDEFGHIJKL"
 SYSTEM = (
@@ -126,13 +129,23 @@ def summarize_logits(logits, label_ids, ordered, question_id, input_tokens, late
     )
 
 
+def model_metadata():
+    backend = os.environ.get("OPENJEV_BACKEND", "mlx")
+    if backend == "mlx":
+        return {"model": MODEL_ID, "revision": MODEL_REVISION, "backend": "mlx-4bit"}
+    if backend == "cpu":
+        return {"model": CPU_MODEL_ID, "revision": CPU_MODEL_REVISION, "backend": "transformers-cpu-float32"}
+    raise ValueError("OPENJEV_BACKEND must be mlx or cpu")
+
+
 def download_model():
     """Explicit setup only. Inference never downloads a missing model."""
     from huggingface_hub import snapshot_download
 
+    metadata = model_metadata()
     return snapshot_download(
-        MODEL_ID,
-        revision=MODEL_REVISION,
+        metadata["model"],
+        revision=metadata["revision"],
         allow_patterns=["*.json", "*.safetensors", "*.jinja", "*.txt"],
     )
 
@@ -212,11 +225,66 @@ class MLXScorer:
         return answers
 
 
+class CPUScorer:
+    """Portable, pinned Qwen3-0.6B. Smaller than the Mac 4B model, not a fallback."""
+
+    def __init__(self):
+        try:
+            import torch
+            from huggingface_hub import snapshot_download
+            from transformers import AutoModelForCausalLM, AutoTokenizer
+        except ImportError as exc:
+            raise ModelUnavailable("Install the hosted extra, then run OPENJEV_BACKEND=cpu openjev setup.") from exc
+        try:
+            path = snapshot_download(
+                CPU_MODEL_ID, revision=CPU_MODEL_REVISION, local_files_only=True,
+                allow_patterns=["*.json", "*.safetensors", "*.jinja", "*.txt"],
+            )
+            self.tokenizer = AutoTokenizer.from_pretrained(path, local_files_only=True, trust_remote_code=False)
+            torch.set_num_threads(int(os.environ.get("OPENJEV_CPU_THREADS", "2")))
+            self.model = AutoModelForCausalLM.from_pretrained(
+                path, local_files_only=True, trust_remote_code=False, dtype=torch.float32,
+                attn_implementation="sdpa",
+            ).eval()
+        except Exception as exc:
+            raise ModelUnavailable("CPU model could not load. Run OPENJEV_BACKEND=cpu openjev setup.") from exc
+        self.torch = torch
+        ids = [self.tokenizer.encode(c, add_special_tokens=False) for c in LABELS]
+        if any(len(x) != 1 for x in ids) or len({x[0] for x in ids}) != len(ids):
+            raise ModelUnavailable("Pinned tokenizer does not support unique single-token answer labels")
+        self.label_ids = [x[0] for x in ids]
+
+    def score(self, request):
+        prepared = []
+        for q in request.questions:
+            messages, ordered = messages_for(request.context, q)
+            tokens = self.tokenizer.apply_chat_template(
+                messages, tokenize=True, return_dict=False, add_generation_prompt=True, enable_thinking=False,
+            )
+            if len(tokens) > MAX_TOKENS:
+                raise ValueError(f"Question {q.id} exceeds {MAX_TOKENS} input tokens; nothing was truncated")
+            prepared.append((q, ordered, tokens))
+        answers = []
+        with self.torch.inference_mode():
+            for q, ordered, tokens in prepared:
+                started = time.perf_counter()
+                # Qwen's logits_to_keep avoids projecting every input position to vocabulary.
+                logits = self.model(
+                    input_ids=self.torch.tensor([tokens]), use_cache=False, logits_to_keep=1,
+                ).logits[0, -1].float().numpy()
+                answers.append(summarize_logits(
+                    logits, self.label_ids, ordered, q.id, len(tokens),
+                    (time.perf_counter() - started) * 1000,
+                ))
+        return answers
+
+
 class DecisionService:
     """One owner thread for the model; at most one running and one queued request."""
 
-    def __init__(self, factory=MLXScorer):
-        self.factory = factory
+    def __init__(self, factory=None):
+        self.metadata = model_metadata()
+        self.factory = factory or (CPUScorer if self.metadata["backend"].startswith("transformers") else MLXScorer)
         self.executor = ThreadPoolExecutor(max_workers=1, thread_name_prefix="openjev-language")
         self.slots = threading.BoundedSemaphore(2)
         self.scorer = None
@@ -224,7 +292,7 @@ class DecisionService:
         self.error = None
 
     def status(self):
-        return {"status": self.state, "model": MODEL_ID, "revision": MODEL_REVISION, "error": self.error}
+        return {"status": self.state, **self.metadata, "error": self.error}
 
     def _decide(self, request):
         started = time.perf_counter()
@@ -242,7 +310,7 @@ class DecisionService:
         self.state = "scoring"
         try:
             answers = self.scorer.score(request)
-            return DecisionResponse(answers=answers, latency_ms=(time.perf_counter() - started) * 1000)
+            return DecisionResponse(**self.metadata, answers=answers, latency_ms=(time.perf_counter() - started) * 1000)
         finally:
             self.state = "ready"
 

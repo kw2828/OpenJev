@@ -88,7 +88,7 @@
     const payload=request(); el('run-decision').disabled=true; el('decision-error').hidden=true;
     const editors=[...document.querySelectorAll('.request-panel input, .request-panel textarea, .request-panel select, .request-panel button')];
     editors.forEach(e=>{e.disabled=true;});
-    el('decision-status').textContent='Scoring locally. First use may take longer while the model loads…';
+    el('decision-status').textContent='Scoring on the app server. First use may take longer while the model loads…';
     result=null; el('export-response').disabled=true; el('decision-results').replaceChildren();
     el('response-json').textContent='Waiting for this request.';
     try {
@@ -112,6 +112,6 @@
       el(`tab-${v}`).classList.toggle('selected',v===view); el(`tab-${v}`).setAttribute('aria-pressed',String(v===view));
     }
   };
-  async function modelStatus(){try{const r=await fetch('/api/model');const s=await r.json();el('model-state').textContent=`LOCAL QWEN / ${s.status.replaceAll('_',' ').toUpperCase()}`;}catch{el('model-state').textContent='MODEL STATUS UNAVAILABLE';}}
+  async function modelStatus(){try{const r=await fetch('/api/model');const s=await r.json();el('model-state').textContent=`${s.model.split('/').pop()} / ${s.status.replaceAll('_',' ').toUpperCase()}`;el('hosting-notice').hidden=!s.public_demo;}catch{el('model-state').textContent='MODEL STATUS UNAVAILABLE';}}
   load('support'); modelStatus(); setInterval(modelStatus,2000);
 })();

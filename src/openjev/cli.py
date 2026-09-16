@@ -9,7 +9,8 @@ def main():
     sub = parser.add_subparsers(dest="command", required=True)
     serve = sub.add_parser("serve", help="Open the local browser cockpit")
     serve.add_argument("--port", type=int, default=8000)
-    sub.add_parser("setup", help="Download the pinned local language model (Apple Silicon)")
+    serve.add_argument("--host", default="127.0.0.1", help="Bind address; containers use 0.0.0.0")
+    sub.add_parser("setup", help="Download the pinned model for OPENJEV_BACKEND (mlx or cpu)")
     decide = sub.add_parser("decide", help="Score context/questions/candidates from a JSON file")
     decide.add_argument("input", help="Path to a DecisionRequest JSON file")
     train = sub.add_parser("train", help="Reproduce the local policy with the train extra")
@@ -46,7 +47,7 @@ def main():
     elif args.command == "serve":
         import uvicorn
 
-        uvicorn.run("openjev.server:app", host="127.0.0.1", port=args.port, access_log=False)
+        uvicorn.run("openjev.server:app", host=args.host, port=args.port, access_log=False)
     elif args.command == "train":
         if args.samples <= 0 or args.epochs <= 0:
             parser.error("samples and epochs must be positive")

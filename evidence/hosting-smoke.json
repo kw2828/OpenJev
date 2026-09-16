@@ -1,0 +1,91 @@
+{
+  "kind": "linux_arm64_container_smoke_not_quality_evaluation",
+  "response": {
+    "model": "Qwen/Qwen3-0.6B",
+    "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+    "backend": "transformers-cpu-float32",
+    "protocol": "candidate-label-v1",
+    "protocol_sha256": "b0f3d040a8385b4b4a243f1efa66c7723d168454131be382b83c9de01326ac31",
+    "calibration": "uncalibrated; relative to supplied candidates, not outcome success",
+    "questions_sequential": true,
+    "generated_tokens": 0,
+    "answers": [
+      {
+        "id": "queue",
+        "choice": "billing",
+        "probabilities": {
+          "billing": 0.9999962687957327,
+          "sales": 3.2206807459388817e-06,
+          "technical": 5.105235215504834e-07
+        },
+        "candidate_token_mass": 0.9998809991964497,
+        "entropy_nats": 5.185603885291561e-05,
+        "input_tokens": 130,
+        "latency_ms": 1782.5795429525897
+      },
+      {
+        "id": "requested_action",
+        "choice": "refund",
+        "probabilities": {
+          "cancel": 1.921669318446167e-06,
+          "refund": 0.9999590021964682,
+          "upgrade": 3.907613421336656e-05
+        },
+        "candidate_token_mass": 0.9999654671294905,
+        "entropy_nats": 0.00046291329225671115,
+        "input_tokens": 132,
+        "latency_ms": 1651.0732090100646
+      }
+    ],
+    "latency_ms": 7468.636877951212
+  },
+  "doom": {
+    "status": "running",
+    "decisions": 3,
+    "stats": {
+      "kills": 0,
+      "health": 100.0,
+      "ammo": 49.0,
+      "reward": -11.0,
+      "game_seconds": 0.5714285714285714,
+      "dead": false,
+      "finished": false
+    },
+    "config": {
+      "policy": "language",
+      "scenario": "basic",
+      "directive": "hunt",
+      "seed": 42,
+      "instruction": "Aim at visible enemies and fire when aligned. Keep scanning when no enemy is visible."
+    },
+    "language_response": {
+      "model": "Qwen/Qwen3-0.6B",
+      "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+      "backend": "transformers-cpu-float32",
+      "protocol": "candidate-label-v1",
+      "protocol_sha256": "b0f3d040a8385b4b4a243f1efa66c7723d168454131be382b83c9de01326ac31",
+      "calibration": "uncalibrated; relative to supplied candidates, not outcome success",
+      "questions_sequential": true,
+      "generated_tokens": 0,
+      "answers": [
+        {
+          "id": "doom_action",
+          "choice": "hold_fire",
+          "probabilities": {
+            "hold_fire": 0.9652288030091714,
+            "hold_wait": 6.0562242131990673e-05,
+            "left_fire": 0.0002010562373349301,
+            "left_wait": 0.0009488375132037946,
+            "right_fire": 0.02339464161298352,
+            "right_wait": 0.010166099385174442
+          },
+          "candidate_token_mass": 0.9998132208279903,
+          "entropy_nats": 0.17756509661951064,
+          "input_tokens": 602,
+          "latency_ms": 7050.353336962871
+        }
+      ],
+      "latency_ms": 7057.203753036447
+    }
+  }
+}
