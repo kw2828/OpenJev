@@ -15,6 +15,8 @@ self.onmessage = async ({data}) => {
   try {
     if (data.type === 'load') {
       if (engine) throw new Error('Model is already loaded.');
+      const adapter = await navigator.gpu?.requestAdapter();
+      if (!adapter || !adapter.features.has('shader-f16')) throw new Error('This model requires a WebGPU adapter with shader-f16 support.');
       const config = prebuiltAppConfig.model_list.find(m=>m.model_id===MODEL_ID);
       if (!config) throw new Error('Pinned model is missing from the runtime catalog.');
       const started = performance.now();

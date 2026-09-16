@@ -55,8 +55,6 @@ el('load').onclick=async()=>{
   if (!navigator.gpu) return status('This browser does not expose WebGPU. Try a recent desktop Chrome or Edge. Recorded gameplay below works without it.',true);
   busy=true; controls(); status('Checking your browser GPU…');
   try {
-    const adapter=await navigator.gpu.requestAdapter();
-    if (!adapter || !adapter.features.has('shader-f16')) throw new Error('This model requires a WebGPU adapter with shader-f16 support.');
     worker=new Worker('./model-worker.mjs',{type:'module'});
     worker.onerror=e=>{release(); status('Model worker could not start: '+e.message,true);};
     worker.onmessage=({data})=>{
