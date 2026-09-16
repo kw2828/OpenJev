@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "openjev"
-version = "0.1.0"
+version = "0.2.0"
 description = "An independent typed-decision model and live ViZDoom playground"
 readme = "README.md"
 requires-python = ">=3.11,<3.14"
@@ -15,6 +15,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+language = ["mlx-lm==0.30.7; sys_platform == 'darwin' and platform_machine == 'arm64'"]
 train = ["torch>=2.6,<3"]
 dev = ["pytest>=8,<10", "ruff>=0.12"]
 

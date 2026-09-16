@@ -145,7 +145,12 @@ class JevPolicy:
         self.client.close()
 
 
-def make_policy(name, seed=0):
+def make_policy(name, seed=0, instruction=None):
+    if name == "language":
+        from .decisions import DecisionService
+        from .doom_adapter import DEFAULT_INSTRUCTION, LanguageDoomPolicy
+
+        return LanguageDoomPolicy(DecisionService(), instruction or DEFAULT_INSTRUCTION, owns_service=True)
     if name == "local":
         return LocalPolicy()
     if name == "rules":

@@ -11,8 +11,8 @@ from .game import Doom
 from .policies import DEFAULT_WEIGHTS, make_policy
 
 
-def run_episode(policy_name, scenario, seed, directive="hunt", record=None):
-    policy = make_policy(policy_name, seed)
+def run_episode(policy_name, scenario, seed, directive="hunt", record=None, instruction=None):
+    policy = make_policy(policy_name, seed, instruction=instruction)
     rows, latencies, frames = [], [], []
     started = time.perf_counter()
     try:
@@ -26,6 +26,8 @@ def run_episode(policy_name, scenario, seed, directive="hunt", record=None):
                 latencies.append(decision.latency_ms)
                 if record:
                     rows.append({"step": steps, "observation": obs.to_dict(), "decision": decision.to_dict()})
+                    if policy_name == "language":
+                        rows[-1]["language_response"] = policy.last_response
                     if steps % 2 == 0:
                         from PIL import Image
 
@@ -37,6 +39,7 @@ def run_episode(policy_name, scenario, seed, directive="hunt", record=None):
                 "scenario": scenario,
                 "seed": seed,
                 "directive": directive,
+                "instruction": getattr(policy, "instruction", None),
                 **doom.stats(),
                 "decisions": steps,
                 "remaining_ammo_before_last_action": last_obs.ammo if last_obs else None,

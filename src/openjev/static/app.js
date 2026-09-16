@@ -1,7 +1,8 @@
 const $ = id => document.getElementById(id);
-const names = {local:'LOCAL NEURAL POLICY',rules:'RULE-BASED TEACHER',random:'RANDOM BASELINE',manual:'KEYBOARD CONTROL',jev:'TYPESAFE JEV API'};
+const names = {language:'QWEN / ENGLISH DECISIONS',local:'TINY IMITATION BASELINE',rules:'RULE-BASED TEACHER',random:'RANDOM BASELINE',manual:'KEYBOARD CONTROL',jev:'TYPESAFE JEV API'};
 const descriptions = {hunt:'Track enemies. Fire when the target is lined up.',conserve:'Wait for a more precise shot before spending ammo.',pacifist:'Track targets without firing. Enforced by the controller.'};
-let latest = null, busy = false;
+let latest = null, busy = false, instructionDirty = false;
+$('instruction').addEventListener('input', () => {instructionDirty = true;});
 for (const name of ['left','hold','right']) {
   const row = document.createElement('div'); row.className = 'bar-row'; row.id = `row-${name}`;
   row.innerHTML = `<span>${name.toUpperCase()}</span><div class="bar-track"><i id="bar-${name}"></i></div><span id="p-${name}">0%</span>`;
@@ -12,11 +13,13 @@ async function control(data) {
     const response = await fetch('/api/control', {method:'POST',headers:{'Content-Type':'application/json','X-OpenJev':'1'},body:JSON.stringify(data)});
     if (!response.ok) { const error = await response.json(); throw Error(typeof error.detail === 'string' ? error.detail : 'Invalid control settings'); }
     $('error').hidden = true;
-  } catch (e) { $('error').textContent = e.message; $('error').hidden = false; }
+    return true;
+  } catch (e) { $('error').textContent = e.message; $('error').hidden = false; return false; }
 }
 $('toggle').onclick = () => control({command:latest?.status === 'running'?'pause':'start'});
 $('restart').onclick = () => control({command:'restart',seed:Number($('seed').value)});
 $('policy').onchange = () => control({command:'configure',policy:$('policy').value});
+$('apply-instruction').onclick = async () => {if(await control({command:'configure',instruction:$('instruction').value})) instructionDirty = false;};
 $('scenario').onchange = () => control({command:'configure',scenario:$('scenario').value});
 $('seed').onchange = () => control({command:'configure',seed:Number($('seed').value)});
 document.querySelectorAll('[data-directive]').forEach(b => b.onclick = () => control({command:'configure',directive:b.dataset.directive}));
@@ -36,7 +39,10 @@ async function poll() {
       $('scenario-label').textContent = s.config.scenario.replaceAll('_',' ').toUpperCase();
       $('feed-policy').textContent = names[s.config.policy];
       $('backend-chip').textContent = s.config.policy.toUpperCase();
+      $('language-settings').hidden = s.config.policy !== 'language';
+      if (document.activeElement !== $('instruction') && !instructionDirty) $('instruction').value = s.config.instruction;
       const detail = {
+        language:['English decision model','Context + instruction + six actions','Qwen candidate scoring. No generated explanation.'],
         local:['One forward pass','11 features → 64 → 64 → 5 logits','No generated text. Two output heads.'],
         rules:['Hand-written rules','Aim and fire thresholds','Deterministic teacher, no neural model.'],
         random:['Random controls','Uniform steering + coin-flip firing','Baseline with the same action space.'],
@@ -64,6 +70,14 @@ async function poll() {
       $('fire').textContent = Math.round(100*d.fire_probability) + '%'; $('fire-bar').style.width = 100*d.fire_probability+'%';
       const fire = d.fire && s.config.directive !== 'pacifist' && s.observation?.ammo > 0;
       $('action').textContent = `steer: ${d.steer}   fire: ${fire}`;
+    } else {
+      $('latency').textContent = '--'; $('steer').textContent = 'PENDING';
+      $('fire').textContent = '--'; $('fire-bar').style.width = '0%';
+      for (const name of ['left','hold','right']) {
+        $(`bar-${name}`).style.width = '0%'; $(`p-${name}`).textContent = '--';
+        $(`row-${name}`).classList.remove('active');
+      }
+      $('action').textContent = 'Waiting for this controller to act';
     }
     $('decisions').textContent = (s.decisions || 0).toLocaleString() + ' decisions';
     $('jev-option').disabled = !s.jev_available;
@@ -74,7 +88,7 @@ async function poll() {
 }
 const keys = new Set();
 window.addEventListener('keydown', e => {
-  if (latest?.config?.policy !== 'manual' || ['INPUT','SELECT'].includes(document.activeElement.tagName)) return;
+  if (latest?.config?.policy !== 'manual' || ['INPUT','SELECT','TEXTAREA'].includes(document.activeElement.tagName)) return;
   if (['ArrowLeft','ArrowRight',' '].includes(e.key)) { e.preventDefault(); keys.add(e.key); }
 });
 window.addEventListener('keyup', e => keys.delete(e.key));

@@ -1,39 +1,100 @@
 # OpenJev
 
-**A small, open model that plays real Doom by emitting controls instead of text.**
+**English context → your questions and candidate answers → candidate probabilities → your application's next step.**
 
-Inspired by [TypeSafe's Jev](https://typesafe.ai/blog/introducing-system-one-models-and-jev).
-Independent implementation, not Jev's architecture, weights, or RLCD training method.
+A local decision interface with an editable playground and a real Doom application. Define questions and candidate descriptions at request time. Responses preserve your candidate IDs and return relative probabilities without generating an explanation.
 
-![A complete OpenJev episode, seed 42](evidence/episode-42.gif)
+Independent and inspired by [TypeSafe Jev](https://typesafe.ai/blog/introducing-system-one-models-and-jev) and the interface direction of [zhihz/openjev](https://github.com/zhihz/openjev). This is not Jev's architecture, weights, or proprietary RLCD method.
 
-*Local neural policy, Defend the Center, seed 42: 16 kills, then death after 23.1 game seconds. This is a complete episode sampled every four game tics, not a highlights reel. [Episode metrics](evidence/episode-42.json) · [Decision trace](evidence/episode-42.jsonl)*
+## Run the English decision model
 
-## Run it
-
-Requires Python 3.11-3.13. Tested on macOS Apple Silicon with Python 3.12; Linux CI has not been run; a workflow template is included. ViZDoom installs the engine and Freedoom assets. No commercial game files or API key needed.
+The language backend currently requires **Apple Silicon macOS** and Python 3.11-3.13. It uses a pinned [Qwen3-4B-Instruct-2507 MLX 4-bit checkpoint](https://huggingface.co/mlx-community/Qwen3-4B-Instruct-2507-4bit), about 2.3 GB of downloaded weights. The pretrained model is multilingual; this interface and its development checks focus on English. No paid API key is required.
 
 ```sh
 git clone https://github.com/kw2828/OpenJev.git
 cd OpenJev
-uv sync --frozen
-uv run openjev serve
+uv sync --frozen --extra language
+uv run --extra language openjev setup
+uv run --extra language openjev serve
 ```
 
-Open **http://127.0.0.1:8000** and click **Run agent**. The server starts paused. An episode stops at death or timeout; restart explicitly. Stop the server with Ctrl-C.
+Open **http://127.0.0.1:8000**. The **Decision playground** lets you edit context, add questions, supply candidate IDs and descriptions, inspect all scores, and export JSON. Model loading is lazy. Setup downloads the pinned artifact; inference uses the local cache and makes no hosted inference calls.
 
-Without uv:
+For the existing tiny Doom baseline only, use `uv sync --frozen` and `uv run openjev serve`. It does not need language weights. Linux language inference is not implemented. The Doom baseline has been tested on macOS; Linux CI remains unverified.
+
+## Reusable API
+
+```json
+{
+  "context": "A customer was charged twice and requests the duplicate payment back.",
+  "questions": [{
+    "id": "queue",
+    "question": "Which team should handle this request?",
+    "candidates": [
+      {"id": "billing", "description": "Billing and payments"},
+      {"id": "technical", "description": "Technical troubleshooting"}
+    ]
+  }]
+}
+```
 
 ```sh
-python3.12 -m venv .venv
-source .venv/bin/activate
-python -m pip install -e .
-openjev serve
+curl http://127.0.0.1:8000/api/decide \
+  -H 'Content-Type: application/json' -H 'X-OpenJev: 1' \
+  --data-binary @examples/support.json
+
+# Or score a file without starting the web server:
+uv run --extra language openjev decide examples/support.json
 ```
 
-The cockpit has live gameplay, action probabilities, policy-call latency, health, ammo, kills, and episode controls. Switch between the neural policy, its rule-based teacher, random controls, and your keyboard. Three objective presets: **hunt**, **conserve**, and **pacifist**. They are fixed modes, not natural-language understanding. Pacifist is also enforced in code.
+Each answer contains `id`, `choice`, `probabilities`, input token count, latency, action-label entropy, and the full-vocabulary probability mass assigned to candidate letters. The response also identifies the model revision and scoring protocol. The runtime constructs JSON; no explanation or probability numbers are generated as text. See [the API contract](docs/decision-api.md).
 
-## What is actually running?
+**Scores are uncalibrated and conditional on the supplied candidates.** A high score does not establish correctness or predict success. Include an explicit "not enough information" candidate if your application needs it. The API does not silently add answers, execute tools, or guarantee understanding of arbitrary new tasks.
+
+The backend reads one next-token label distribution per question. Multiple questions are currently evaluated sequentially and re-encode the context. It still runs a pretrained autoregressive transformer. No shared-prefix optimization, GLiClass backend, conformal guarantee, semantic entropy, new RL training, or latent-recurrence extension is claimed.
+
+## Doom consumes the same contract
+
+Choose **Doom application**, select **Qwen / English decision model**, enter an instruction, click **Apply instruction**, then **Run agent**. Try "Do not fire your weapon, even when an enemy is visible" or "Aim at enemies and fire when aligned."
+
+The adapter supplies the current structured observation and four recent steps as context. It asks one question over six combinations of left/hold/right and fire/no-fire, then maps the selected candidate ID to game buttons. This uses the same `DecisionService` and schema as `/api/decide`. Scores shown for steering and firing are marginals of the six-action distribution; the executed action is the winning joint candidate.
+
+These scenarios only support turning or strafing and firing. Requests to navigate a full level, find cover, or perform unavailable actions cannot be fulfilled by this action space. Observations come from privileged engine labels, not screenshots. Recent history is explicitly serialized, not a learned recurrent memory. Pacifist and empty-ammo firing limits remain enforced in code for every controller.
+
+**The simulation waits while the language model scores each action.** Two game tics advance per decision; wall-clock playback is slower than the tiny baseline. No real-time language-control or speedup claim is made.
+
+```sh
+uv run --extra language openjev play --policy language --seed 42 \
+  --instruction "Aim at visible enemies and fire when aligned. Keep scanning when no enemy is visible." \
+  --record runs/language-episode
+```
+
+### Language model gameplay
+
+![Local Qwen making decisions in Doom](evidence/language-doom-42.gif)
+
+*Complete Defend the Center episode, seed 42: **2 kills, then death after 8.17 game seconds**. The language controller made 138 decisions; this run took 20.61 wall seconds. The GIF plays at game speed, not inference speed. Median policy-call latency was 120 ms on this machine. This is a development demonstration, not an optimized speed benchmark or an improvement over the specialized baseline. [Metrics](evidence/language-doom-42.json) · [Full decision trace](evidence/language-doom-42.jsonl).*
+
+### Tiny model gameplay
+
+![The tiny local imitation baseline playing Doom](evidence/episode-42.gif)
+
+*This earlier GIF shows the 5,253-parameter imitation baseline, not Qwen: 16 kills, then death after 23.1 game seconds. Complete seed-42 episode sampled every four tics. [Metrics](evidence/episode-42.json) · [Trace](evidence/episode-42.jsonl).*
+
+## Verification and limits
+
+- [Language development checks](evidence/language-development.json): **8/8** disclosed text questions, an unchanged distribution under exact candidate reordering, and a paired English Doom instruction check that changed firing to no-firing. These are implementation smoke checks, not an independent benchmark or evidence of calibration.
+- Tests cover invalid requests, duplicate IDs, candidate mapping, excluded probability mass, bounded inference concurrency, no fallback on missing weights, origin protection, and real-engine baseline behavior.
+- The local server binds to loopback. API mutations require `X-OpenJev: 1`; cross-origin requests are rejected. Do not expose this single-user prototype to the internet.
+- [Language model card](docs/language-model-card.md) and [implementation plan](docs/update-plan.md).
+
+```sh
+uv run --extra language python scripts/check_language.py --output runs/my-language-check.json
+uv run --extra dev pytest -q
+uv run --extra dev ruff check src tests scripts
+```
+
+## Tiny imitation baseline
 
 ```text
 ViZDoom visible actor labels + game variables
@@ -56,7 +117,7 @@ The **5,253-parameter model** is trained from scratch on 60,000 synthetic struct
 
 This is **behavioral cloning for a narrow game task**, not a foundation model. It uses privileged engine labels for visible enemies, including bounding boxes and distance. It does not learn vision from screenshots, inspect hidden actors, understand arbitrary text, navigate full campaigns, or reproduce Jev's claimed general capability. Displayed local probabilities are not calibrated confidence.
 
-## Measured gameplay
+## Measured tiny-baseline gameplay
 
 20 complete episodes per policy, same seeds **1000-1019**, default Defend the Center rules, two game tics per decision. The shipped checkpoint was fixed before these gameplay runs. Training seed 7; synthetic evaluation seed 8. Development gameplay used seeds 42-44.
 
@@ -107,12 +168,14 @@ See [the research notes](docs/research.md) for primary sources, the distinction 
 
 ## CI setup
 
-All 27 tests pass locally on macOS. The publishing credential lacks GitHub workflow permission, so CI is not active. To enable it using a credential with that permission, copy [the workflow template](docs/ci-workflow.yml) to `.github/workflows/ci.yml` and commit it. It installs locked dependencies and runs lint plus the real-engine tests on Ubuntu. Linux execution remains unverified until that run passes.
+Automated tests pass locally on macOS. The publishing credential lacks GitHub workflow permission, so CI is not active. To enable it using a credential with that permission, copy [the workflow template](docs/ci-workflow.yml) to `.github/workflows/ci.yml` and commit it. It installs locked dependencies and runs lint plus the real-engine tests on Ubuntu. Language contract tests use explicit test doubles; real MLX inference checks run separately on Apple Silicon. Linux execution remains unverified until that run passes.
 
 ## Project map
 
 | File | Purpose |
 |---|---|
+| `src/openjev/decisions.py` | Game-independent request schema, pinned local language scoring and bounded worker |
+| `src/openjev/doom_adapter.py` | English objective + observed game state to the general decision contract |
 | `src/openjev/domain.py` | Observation features, typed actions, teacher, hard control limits |
 | `src/openjev/game.py` | Real ViZDoom engine and visible-actor extraction |
 | `src/openjev/policies.py` | NumPy model, baselines, optional Jev HTTP adapter |

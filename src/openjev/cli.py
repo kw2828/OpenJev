@@ -9,6 +9,9 @@ def main():
     sub = parser.add_subparsers(dest="command", required=True)
     serve = sub.add_parser("serve", help="Open the local browser cockpit")
     serve.add_argument("--port", type=int, default=8000)
+    sub.add_parser("setup", help="Download the pinned local language model (Apple Silicon)")
+    decide = sub.add_parser("decide", help="Score context/questions/candidates from a JSON file")
+    decide.add_argument("input", help="Path to a DecisionRequest JSON file")
     train = sub.add_parser("train", help="Reproduce the local policy with the train extra")
     train.add_argument("--epochs", type=int, default=40)
     train.add_argument("--samples", type=int, default=60000)
@@ -18,13 +21,29 @@ def main():
     evaluate.add_argument("--scenario", choices=SCENARIOS, default=SCENARIOS[0])
     evaluate.add_argument("--output", default="runs/evaluation.json")
     play = sub.add_parser("play", help="Play one complete headless episode")
-    play.add_argument("--policy", choices=("local", "rules", "random", "jev"), default="local")
+    play.add_argument("--policy", choices=("local", "rules", "random", "jev", "language"), default="local")
+    play.add_argument("--instruction", help="English instruction for the language controller")
     play.add_argument("--scenario", choices=SCENARIOS, default=SCENARIOS[0])
     play.add_argument("--seed", type=int, default=42)
     play.add_argument("--directive", choices=("hunt", "conserve", "pacifist"), default="hunt")
     play.add_argument("--record", help="Output path prefix for GIF, trace and episode metrics")
     args = parser.parse_args()
-    if args.command == "serve":
+    if args.command == "setup":
+        from .decisions import download_model
+
+        print(download_model())
+    elif args.command == "decide":
+        from pathlib import Path
+
+        from .decisions import DecisionRequest, DecisionService
+
+        request = DecisionRequest.model_validate_json(Path(args.input).read_text())
+        service = DecisionService()
+        try:
+            print(service.decide(request).model_dump_json(indent=2))
+        finally:
+            service.close()
+    elif args.command == "serve":
         import uvicorn
 
         uvicorn.run("openjev.server:app", host="127.0.0.1", port=args.port, access_log=False)
@@ -45,7 +64,8 @@ def main():
 
         print(
             json.dumps(
-                run_episode(args.policy, args.scenario, args.seed, args.directive, args.record), indent=2
+                run_episode(args.policy, args.scenario, args.seed, args.directive, args.record, args.instruction),
+                indent=2,
             )
         )
 
