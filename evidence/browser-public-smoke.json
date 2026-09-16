@@ -1,0 +1,35 @@
+{
+  "status": "public_github_pages_model_inference_and_export_verified",
+  "observed_at_utc": "2026-09-16T23:42:59.037870+00:00",
+  "url": "https://kw2828.github.io/DecisionTics/",
+  "tested_release_query": "release=5",
+  "published_app_commit": "75200ff6fee531f04a51f1466398b965814d239f",
+  "environment": "Desktop Chrome on Apple Silicon; dedicated WebGPU worker",
+  "load_seconds_ui": 8.2,
+  "score_ms_worker": 1180.5,
+  "export": "browser-public-support-smoke.json",
+  "checks": [
+    "GitHub Pages build succeeded",
+    "Six published application assets match checkout",
+    "Real model loaded",
+    "Support example selected billing",
+    "Candidate IDs retained and probabilities normalize to one",
+    "JSON export downloaded",
+    "Worker released"
+  ],
+  "asset_sha256": {
+    "index.html": "9ca5ff8b3fad3e79e32bf5bc97fc57854dfcc386164a3e47fa26e155b035e635",
+    "playground.mjs": "68511651fc5df071c4200ba581b9cd4b0948d6f29c02a5df1c93c59b5410d497",
+    "model-worker.mjs": "8fb6609e4909c7967ae6604e6432f485915e236b693e95019d6b44ce48112fde",
+    "decision-core.mjs": "cc3bae46e764f0aa3a4a351233ef9105bc1cef7dadb9bcba802fe7b695bfd690",
+    "playground.css": "bb24a2387456e4377ff0f7f9a1e2dc3dd2f57bf40d3c000dc0ef54e99b906136",
+    "assets/memory-contrasts.png": "15c50a263f5e0d3449786be475afabb5e666b2a6a7b85c68193011be81b43a7a"
+  },
+  "deployment_corrections": [
+    "Move GPU capability check into the cancellable worker",
+    "Version changed module URLs to avoid stale deployments",
+    "Use supported IndexedDB cache for explicit downloads",
+    "Raw GitHub GPU library fetch failed from the public origin; use byte-identical library at a pinned jsDelivr commit and verify its SRI hash"
+  ],
+  "claim_boundary": "Integration smoke, not a benchmark. Prior incorrect game example remains preserved. Browser model is separate from Doom study models; gameplay is recorded."
+}

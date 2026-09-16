@@ -1,0 +1,57 @@
+{
+  "choice": "billing",
+  "probabilities": [
+    {
+      "id": "billing",
+      "description": "Billing and payments",
+      "probability": 0.7259083810120169
+    },
+    {
+      "id": "technical",
+      "description": "Technical troubleshooting",
+      "probability": 0.23306987461392092
+    },
+    {
+      "id": "shipping",
+      "description": "Shipping and delivery",
+      "probability": 0.04102174437406213
+    }
+  ],
+  "candidate_label_mass": 0.7718063812749683,
+  "entropy_nats": 0.7029874379391083,
+  "elapsed_ms": 1180.5,
+  "model": "Qwen3-0.6B-q4f16_1-MLC",
+  "revision": "8c14ce481d4c692769976ad52afea453a102df19",
+  "runtime": "WebLLM 0.2.85 / WebGPU",
+  "scoring": "raw first-position logits normalized over verified A-H tokens; one token sampled and discarded",
+  "usage": {
+    "completion_tokens": 0,
+    "prompt_tokens": 124,
+    "total_tokens": 124,
+    "extra": {
+      "e2e_latency_s": 1.18,
+      "prefill_tokens_per_s": 105.30785562632697,
+      "decode_tokens_per_s": null,
+      "time_to_first_token_s": 1.1775,
+      "time_per_output_token_s": null
+    }
+  },
+  "request": {
+    "context": "A customer was charged twice for one order. They want the duplicate charge refunded.",
+    "question": "Which team should handle this request?",
+    "candidates": [
+      {
+        "id": "billing",
+        "description": "Billing and payments"
+      },
+      {
+        "id": "technical",
+        "description": "Technical troubleshooting"
+      },
+      {
+        "id": "shipping",
+        "description": "Shipping and delivery"
+      }
+    ]
+  }
+}
