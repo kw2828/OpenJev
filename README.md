@@ -43,6 +43,8 @@ For the existing tiny Doom baseline only, use `uv sync --frozen` and `uv run ope
 
 ## Research extensions
 
+[**Benchmark figures and evidence**](docs/benchmarks.md) · [**Paper draft (PDF)**](output/pdf/openjev-paper.pdf) · [**LaTeX source and build instructions**](paper/README.md)
+
 The [research plan](docs/research.md) covers conformal prediction sets, connectome-inspired sparse recurrence, shared-depth latent transformers, recurrent world models, and a Rust/Python score-kernel benchmark. Working modules live under `openjev.research`; they are opt-in and do not change the deployed policy. The architecture modules are untrained, and synthetic checks are not model-quality results. The proposed ICLR direction is uncertainty-guided compute under a fixed budget, with explicit prior-work comparisons and stop rules.
 
 The [Bayesian calibrated-decision pilot](docs/bayesian-rlcd.md) now includes a **440-episode valid development run**: posterior averaging did not establish a control gain, and conservative Bayesian gating reduced utility under scenario shift. It includes fitted outcome models, paired comparisons, public RLCR references, and the preserved earlier measurement failure. These are development results, not an ICLR novelty claim.
@@ -50,6 +52,16 @@ The [Bayesian calibrated-decision pilot](docs/bayesian-rlcd.md) now includes a *
 ![Doom pilot: utility differences versus the learned point estimate, with exploratory 95 percent intervals in two scenarios](evidence/bayesian-doom-v2/utility-comparison.png)
 
 *Higher is better; zero is the learned point estimate (MAP). Bars show exploratory 95% paired crossed-bootstrap intervals. Utility counts successful firing windows minus 0.25 per fire-command window. [Protocol, results, and limitations](docs/bayesian-rlcd.md).*
+
+### Benchmark visualizations
+
+![All original gameplay benchmark episodes for random control, tiny imitation and the rule teacher](evidence/benchmarks/gameplay.png)
+
+*20 matched seeds per policy; dots are episodes and red marks are means. This original two-tic gameplay benchmark uses a different protocol from the Bayesian study above.*
+
+![Rust versus Python and NumPy scoring-kernel timings, showing every timed batch](evidence/benchmarks/score-kernel.png)
+
+*One local score-kernel benchmark: **0.204 ms Rust vs 0.550 ms NumPy** per row at the median, a **2.70x ratio**. Red marks show median and IQR, not confidence intervals. This excludes model inference and Doom, so it is not an end-to-end speedup. [All benchmark scopes, audit plot, and source data](docs/benchmarks.md).*
 
 ## Reusable API
 
