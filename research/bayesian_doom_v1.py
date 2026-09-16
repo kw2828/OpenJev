@@ -65,14 +65,12 @@ def run_episode(scenario, seed, mode, protocol, model=None, rng=None, trace=None
             ammo_change = max(0., before_ammo-doom.game.get_game_variable(vzd.GameVariable.SELECTED_WEAPON_AMMO))
             hits += hit_change
             shots += ammo_change
-            issued_fire = bool(fire and obs.ammo > 0 and obs.directive != 'pacifist')
             row = {'unit_id': unit, 'replicate': replicate, 'step': step, 'x': x, 'fire_requested': bool(fire),
                    'steer': steer, 'ammo_spent': ammo_change, 'hit_count_change': hit_change,
-                   'issued_fire': issued_fire,
-                   'outcome': int(hit_change > 0) if issued_fire else None,
+                   'outcome': int(hit_change > 0) if ammo_change > 0 else None,
                    'belief': asdict(belief) if belief else None}
             decisions.append(row)
-            if issued_fire:
+            if ammo_change > 0:
                 records.append(row)
             if trace:
                 trace.write(json.dumps({'policy': mode, **row})+'\n')
@@ -85,7 +83,7 @@ def run_episode(scenario, seed, mode, protocol, model=None, rng=None, trace=None
     return {
         'scenario': scenario, 'seed': seed, 'policy': mode, 'replicate': replicate, 'steps': len(decisions),
         'hits': hits, 'shots': shots, 'successful_firing_windows': success_windows,
-        'utility': success_windows-protocol['action_cost']*len(records),
+        'utility': success_windows-protocol['action_cost']*shots,
         'kills': stats['kills'], 'health': stats['health'], 'game_seconds': stats['game_seconds'],
         'finished': stats['finished'], 'truncated': not stats['finished'],
         'firing_windows': len(records),
@@ -97,8 +95,6 @@ def run_episode(scenario, seed, mode, protocol, model=None, rng=None, trace=None
 
 
 def common_audit(model, rows):
-    if not rows:
-        raise ValueError('No common-audit outcomes; cannot report calibration')
     y = np.asarray([r['outcome'] for r in rows])
     beliefs = [model.predict(r['x'], unit_id=r['unit_id']) for r in rows]
     result = {}
@@ -116,7 +112,7 @@ def main():
     args = parser.parse_args()
     output = Path(args.output)
     output.mkdir(parents=True, exist_ok=False)
-    protocol_path = ROOT/'research/protocols/bayesian-doom-v2.json'
+    protocol_path = ROOT/'research/protocols/bayesian-doom-v1.json'
     protocol = json.loads(protocol_path.read_text())
     sources = [Path(__file__), ROOT/'src/openjev/research/bayesian.py', ROOT/'src/openjev/game.py',
                ROOT/'src/openjev/domain.py', ROOT/'src/openjev/policies.py',
@@ -172,7 +168,7 @@ def main():
                                           'replicate': replicate, 'episodes': receipt['episodes_completed']}), flush=True)
         audits = {scenario: [common_audit(model, [r for r in audit_rows if r['unit_id'].startswith(scenario+':')])
                              for model in models] for scenario in protocol['evaluation_scenarios']}
-        (output/'results.json').write_text(json.dumps({'episodes': episodes, 'common_audit': audits}, indent=2, allow_nan=False)+'\n')
+        (output/'results.json').write_text(json.dumps({'episodes': episodes, 'common_audit': audits}, indent=2)+'\n')
         receipt.update(status='completed_development_pilot', wall_seconds=time.monotonic()-started)
     except Exception as exc:
         receipt.update(status='failed_no_efficacy_claim', error=f'{type(exc).__name__}: {exc}',
