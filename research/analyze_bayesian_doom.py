@@ -1,5 +1,6 @@
 """Verify and summarize the frozen pilot. CIs are exploratory crossed bootstraps."""
 import argparse
+import gzip
 import hashlib
 import json
 from pathlib import Path
@@ -9,12 +10,21 @@ import numpy as np
 from openjev.research.bayesian import sigmoid
 
 
+def artifact_bytes(root, name):
+    path = root/name
+    if path.exists():
+        return path.read_bytes()
+    return gzip.decompress((root/(name+'.gz')).read_bytes())
+
+
 def summarize(root):
+    if (root/'quality-review.json').exists():
+        raise ValueError('Run has a quality-review exception; do not analyze it as fully valid')
     manifest = json.loads((root/'manifest.json').read_text())
     if manifest['status'] != 'completed_development_pilot':
         raise ValueError('Only a completed pilot can be analyzed')
     for name, expected in manifest['artifact_sha256'].items():
-        actual = hashlib.sha256((root/name).read_bytes()).hexdigest()
+        actual = hashlib.sha256(artifact_bytes(root, name)).hexdigest()
         if actual != expected:
             raise ValueError(f'Artifact changed: {name}')
     result = json.loads((root/'results.json').read_text())
@@ -57,11 +67,10 @@ def summarize(root):
                 'mean_utility_difference': float(difference.mean()),
                 'exploratory_95_interval': np.quantile(draws, [.025, .975]).tolist()}
     train = [[] for _ in range(5)]
-    with (root/'trace.jsonl').open() as f:
-        for line in f:
-            row = json.loads(line)
-            if row['policy'] == 'collect' and row['replicate'] is not None and row['outcome'] is not None:
-                train[row['replicate']].append(row)
+    for line in artifact_bytes(root, 'trace.jsonl').decode().splitlines():
+        row = json.loads(line)
+        if row['policy'] == 'collect' and row['replicate'] is not None and row['outcome'] is not None:
+            train[row['replicate']].append(row)
     output['fit_checks'] = []
     for index, rows in enumerate(train):
         with np.load(root/f'posterior-{index}.npz', allow_pickle=False) as model:

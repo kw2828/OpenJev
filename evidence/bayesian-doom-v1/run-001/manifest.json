@@ -1,0 +1,93 @@
+{
+  "status": "completed_development_pilot",
+  "protocol": {
+    "id": "bayesian-doom-v1",
+    "status": "frozen-development-protocol-not-confirmation",
+    "question": "Does posterior uncertainty improve a learned firing controller beyond the same MAP predictor and simple confidence thresholds?",
+    "scope": "Structured engine observations; rule-based steering; binary hit outcome for an executed firing window. Not Jev RLCD reproduction or language-model RL.",
+    "training_seeds": [
+      101,
+      202,
+      303,
+      404,
+      505
+    ],
+    "training_episodes_per_seed": 16,
+    "training_episode_seed_rule": "10000 + replicate_index * 100 + episode_index",
+    "train_scenario": "defend_the_center",
+    "evaluation_scenarios": [
+      "defend_the_center",
+      "defend_the_line"
+    ],
+    "evaluation_episode_seeds": [
+      30000,
+      30001,
+      30002,
+      30003,
+      30004,
+      30005,
+      30006,
+      30007,
+      30008,
+      30009
+    ],
+    "tics_per_step": 7,
+    "max_steps_per_episode": 180,
+    "training_fire_probability": 0.6,
+    "training_random_steer_probability": 0.2,
+    "feature_definition": "intercept, visible, absolute aim error clipped to 1, half width, distance/1000 clipped to 2, health/100, ammo/30 clipped to 2",
+    "prior_precision": 1.0,
+    "newton_iterations_max": 40,
+    "gauss_hermite_nodes": 20,
+    "action_cost": 0.25,
+    "lower_credible_z": 1.645,
+    "policies": [
+      "rules",
+      "tiny_imitation",
+      "map_hit",
+      "bayes_mean_hit",
+      "bayes_lower_hit"
+    ],
+    "primary_metric": "episode utility = successful firing windows - 0.25 * ammo spent",
+    "secondary_metrics": [
+      "kills",
+      "health",
+      "shots",
+      "hits",
+      "survival",
+      "Brier on executed firing windows",
+      "log loss on executed firing windows",
+      "decision latency"
+    ],
+    "feedback": "Train on actual executed windows with ammo decrease > 0; label hit-count increase > 0. No outcome is fabricated for a wait action.",
+    "evaluation": "Frozen weights; no test-time fitting. Same episode seeds for all policies. Rules and tiny baselines are evaluated once and shared across model replicates. Aggregate within each training replicate, then paired differences across five replicates; shared test seeds limit independence.",
+    "stop_rule": "One run; at most 600 episodes and 30 wall-clock minutes. No paid API. Do not tune based on evaluation results. Mechanical corrections require a separate documented run.",
+    "claim_boundary": "Development pilot. Selected-action calibration does not establish counterfactual calibration, OOD validity, safety, or novel RL methodology. Baselines differ in firing decisions but share steering and action duration. Tiny action preference is not scored as a hit probability.",
+    "common_audit": "One fixed randomized behavior episode per evaluation scenario/seed, shared by every fitted model. Compare MAP and posterior mean on identical executed firing windows; still behavior-distribution calibration, not all-action calibration."
+  },
+  "protocol_sha256": "456bb8dd95c4a97dc0b03b2ea67c233a3bc2c6903c76af2b93c53e56fdd589c1",
+  "source_sha256": {
+    "research/bayesian_doom.py": "50bd8c8fd6eabf04083579c0d9889d46bfe5ff2617635508ed4511c629d8e53a",
+    "src/openjev/research/bayesian.py": "4c398137ac9b1d5a775a4f19c85260325077c26f945195b83ffc458cd07d6a52",
+    "src/openjev/game.py": "019137e51990e52bab83a5a50eff9161533cbe1d533e65ccb7ae8502ade56224",
+    "src/openjev/domain.py": "8d054eb4a451baafee3b6d64d1fc806ac62ec30ef6027a93a079c1accfba5bb8",
+    "src/openjev/policies.py": "483e56d9371c704c45f5b6091e73ce615098f27df1bf8bf06e1f3e033762672d",
+    "src/openjev/weights/doom.npz": "b4d8a5e4da09a32b3198b69a0b96c8ef471e80a6f452509bc9dd2254acdd5b13"
+  },
+  "python": "3.12.13",
+  "platform": "macOS-26.6.1-arm64-arm-64bit",
+  "numpy": "2.5.3",
+  "vizdoom": "1.3.0",
+  "episodes_completed": 440,
+  "wall_seconds": 92.91794754192233,
+  "artifact_sha256": {
+    "posterior-2.npz": "35124a2867ca7579547b40db989dc09bd188f30ecb400dcbd988c10e17acecf8",
+    "posterior-3.npz": "798db0e3a6eadf695cbc136280a1c6a9bae21c59ff995a421fce144f747d2a7b",
+    "posterior-1.npz": "b925b8c38eb5c6cba729a5f33c5f1afaa6ed71d08881de7e20e800a03a2dc985",
+    "results.json": "ccd630702eba8e4cea983bc2dbbb072587ae4e164d300a8c8e2a4c5dd342491a",
+    "posterior-0.npz": "f72306131140bed9021d8fad9e838c1d61ff441435f4224b49ac23ab20cd49a4",
+    "posterior-4.npz": "590910fa09dfc766fe338b91eb1cb4d58864284ca0be0d97c436982126c99d1d",
+    "trace.jsonl": "5aee651d6e79f5534b038da5fcfab179a0ae13e25b42bea2576f2e0d86baaf95",
+    "episodes.jsonl": "4164f0f41eae0552c5a724eb877cad5ab6e42b9efd8b6be023b0598fa6c503d0"
+  }
+}

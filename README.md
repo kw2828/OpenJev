@@ -39,6 +39,8 @@ For the existing tiny Doom baseline only, use `uv sync --frozen` and `uv run ope
 
 The [research plan](docs/research.md) covers conformal prediction sets, connectome-inspired sparse recurrence, shared-depth latent transformers, recurrent world models, and a Rust/Python score-kernel benchmark. Working modules live under `openjev.research`; they are opt-in and do not change the deployed policy. The architecture modules are untrained, and synthetic checks are not model-quality results. The proposed ICLR direction is uncertainty-guided compute under a fixed budget, with explicit prior-work comparisons and stop rules.
 
+The [Bayesian calibrated-decision pilot](docs/bayesian-rlcd.md) now includes a **440-episode valid development run**: posterior averaging did not establish a control gain, and conservative Bayesian gating reduced utility under scenario shift. It includes fitted outcome models, paired comparisons, public RLCR references, and the preserved earlier measurement failure. These are development results, not an ICLR novelty claim.
+
 ## Reusable API
 
 ```json

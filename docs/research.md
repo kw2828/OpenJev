@@ -4,6 +4,8 @@ Status: research infrastructure and hypotheses, not a novelty or submission-read
 
 The [initial Jev source review and baseline notes](jev-background.md) are preserved separately.
 
+The [Bayesian calibrated-decision study](bayesian-rlcd.md) adds a fitted outcome model and real Doom experiments, including a preserved measurement failure and a separate corrected protocol. It distinguishes TypeSafe RLCD, contrastive-distillation RLCD, and public RLCR.
+
 ## A focused research question
 
 **Can uncertainty determine how much computation and memory a bounded decision needs, while improving the quality/latency tradeoff under distribution shift?**

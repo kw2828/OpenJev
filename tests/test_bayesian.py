@@ -36,3 +36,25 @@ def test_no_train_test_overlap_or_invalid_observations():
         model.predict([1], unit_id='x')
     rng = np.random.default_rng(7)
     assert 0 <= model.sample_probability([1, 0], rng) <= 1
+
+
+def test_real_line_scenario_labels_do_not_depend_on_net_ammo():
+    # Regression for v1: this scenario replenishes ammo while shots still hit.
+    import importlib.util
+    import json
+    from pathlib import Path
+
+    root = Path(__file__).resolve().parents[1]
+    spec = importlib.util.spec_from_file_location('bayesian_doom_runner', root/'research/bayesian_doom.py')
+    runner = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(runner)
+    protocol = json.loads((root/'research/protocols/bayesian-doom-v2.json').read_text())
+    protocol['max_steps_per_episode'] = 50
+    summary, rows = runner.run_episode('defend_the_line', 998876, 'collect', protocol,
+                                       rng=np.random.default_rng(123))
+    assert summary['shots'] == 0  # net decrease is zero, not actual shot count
+    assert summary['hits'] > 0 and rows
+    assert all(row['issued_fire'] and row['outcome'] in (0, 1) for row in rows)
+    assert summary['utility'] == sum(r['outcome'] for r in rows)-.25*len(rows)
+    with pytest.raises(ValueError, match='No common-audit'):
+        runner.common_audit(None, [])
