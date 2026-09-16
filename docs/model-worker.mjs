@@ -1,4 +1,12 @@
 import {MODEL_ID, MODEL_REVISION, buildMessages, scoreLogits, validateRequest} from './decision-core.mjs';
+const fetchAsset = self.fetch.bind(self);
+self.fetch = async (input, init) => {
+  const url = typeof input === 'string' ? input : input.url;
+  const name = new URL(url, self.location.href).pathname.split('/').pop();
+  self.postMessage({type:'progress',text:`Downloading ${name}…`});
+  try { return await fetchAsset(input, init); }
+  catch (error) { throw new Error(`Could not download ${name}: ${error.message}`); }
+};
 let engine = null, busy = false, activeCandidates = null, captured = null;
 const processor = {
   processLogits(logits) {
