@@ -7,23 +7,23 @@
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
-\lhead{DecisionTics: development report}
+\lhead{OpenJev: development report}
 \rhead{September 2026}
 \cfoot{\thepage}
 \setlength{\headheight}{14pt}
 \setlength{\parskip}{4pt}
 \setlength{\parindent}{0pt}
-\title{DecisionTics: Bounded Decisions, Causal Memory, and Doom Control}
-\author{DecisionTics project\\\small\url{https://github.com/kw2828/DecisionTics}}
+\title{OpenJev: Bounded Decisions, Causal Memory, and Doom Control}
+\author{OpenJev project\\\small\url{https://github.com/kw2828/OpenJev}}
 \date{September 16, 2026\\\small Working research draft; not a conference submission}
 \begin{document}
 \maketitle
 \begin{abstract}
-DecisionTics, previously named OpenJev, exposes request-defined candidate decisions and a reproducible Doom control testbed. An initial 440-episode Bayesian pilot did not establish a control gain from posterior averaging. We then froze a matched causal-history ablation using the same 80 historical training episodes, five fitted replicates, and 1,980 new evaluation and audit episodes. A 17-feature history head improved mean net utility over the original seven-feature MAP head by 1.779 in Defend the Center and 7.301 in Defend the Line; multiplicity-adjusted bootstrap intervals had positive lower endpoints. However, both comparisons against a 17-feature current-only control remained inconclusive. The predeclared continuation gate therefore failed, and adaptive-compute and second-environment efficacy experiments were not launched. Separate original gameplay and score-kernel measurements are retained with their own protocols. We release causal feature code, frozen protocols, traces, figures, and a browser-local decision playground. The results establish a local improvement over the original model, but do not isolate a memory-specific advantage over richer current-state features, demonstrate a new RL algorithm, or establish superiority over rules.
+OpenJev exposes request-defined candidate decisions and a reproducible Doom control testbed. An initial 440-episode Bayesian pilot did not establish a control gain from posterior averaging. We then froze a matched causal-history ablation using the same 80 historical training episodes, five fitted replicates, and 1,980 new evaluation and audit episodes. A 17-feature history head improved mean net utility over the original seven-feature MAP head by 1.779 in Defend the Center and 7.301 in Defend the Line; multiplicity-adjusted bootstrap intervals had positive lower endpoints. However, both comparisons against a 17-feature current-only control remained inconclusive. The predeclared continuation gate therefore failed, and adaptive-compute and second-environment efficacy experiments were not launched. Separate original gameplay and score-kernel measurements are retained with their own protocols. We release causal feature code, frozen protocols, traces, figures, and a browser-local decision playground. The results establish a local improvement over the original model, but do not isolate a memory-specific advantage over richer current-state features, demonstrate a new RL algorithm, or establish superiority over rules.
 \end{abstract}
 
 \section{Motivation and scope}
-A bounded application decision often needs a stable identifier and a score rather than generated prose. DecisionTics accepts text context, a set of questions, and candidate identifiers with English descriptions. The application maps the returned identifier to an action. A pretrained Qwen language backend scores next-token candidate labels; it remains an autoregressive transformer and is not a new architecture. Questions are processed sequentially, without shared-prefix optimization.
+A bounded application decision often needs a stable identifier and a score rather than generated prose. OpenJev accepts text context, a set of questions, and candidate identifiers with English descriptions. The application maps the returned identifier to an action. A pretrained Qwen language backend scores next-token candidate labels; it remains an autoregressive transformer and is not a new architecture. Questions are processed sequentially, without shared-prefix optimization.
 
 The project is inspired by the typed-decision interface of Jev. It does not reproduce Jev's weights or proprietary Reinforcement Learning for Calibrated Decisions (RLCD). The research model in this report is a separate seven-feature Bayesian logistic outcome predictor. There is no language-model RL training, PPO, GRPO, or Bellman update in the pilot.
 

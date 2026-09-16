@@ -1,6 +1,6 @@
-# DecisionTics benchmark figures
+# OpenJev benchmark figures
 
-[Paper draft (PDF)](../output/pdf/decisiontics-paper.pdf) · [LaTeX source and build instructions](../paper/README.md)
+[Paper draft (PDF)](../output/pdf/openjev-memory-paper.pdf) · [LaTeX source and build instructions](../paper/README.md)
 
 These figures visualize existing development evidence. No new model training or gameplay runs were performed to produce them. Each experiment has a separate scope; they do not form a single leaderboard.
 

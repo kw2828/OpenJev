@@ -1,6 +1,6 @@
-# DecisionTics research draft
+# OpenJev research draft
 
-[Read the compiled paper](../output/pdf/decisiontics-paper.pdf) · [LaTeX source](main.tex) · [References](references.bib)
+[Read the compiled paper](../output/pdf/openjev-memory-paper.pdf) · [LaTeX source](main.tex) · [References](references.bib)
 
 This is a working development report, not a submitted or accepted ICLR paper. It reports the original pilots and the frozen 1,980-episode causal-memory follow-up. The memory continuation gate failed against the capacity control, so the conditional downstream efficacy experiments were not launched. It does not claim proprietary RLCD reproduction or a new RL algorithm. Project-level authorship is used until the authors and affiliations are confirmed.
 
@@ -19,7 +19,7 @@ Compile from `paper/` using a TeX Live installation with `latexmk`:
 cd paper
 latexmk -pdf -interaction=nonstopmode -halt-on-error -outdir=build main.tex
 mkdir -p ../output/pdf
-cp build/main.pdf ../output/pdf/decisiontics-paper.pdf
+cp build/main.pdf ../output/pdf/openjev-memory-paper.pdf
 ```
 
 Alternatively, `tectonic --outdir build main.tex` can compile with its own downloaded bundle after creating `build/`. TeX dependencies may require network access on first use. The checked-in figures and table allow paper compilation without rerunning Python or Doom.
@@ -36,4 +36,4 @@ Figures are available as PNG for README, SVG for editing and PDF for LaTeX. The 
 
 Regenerating figures does not run new experiments. See `docs/bayesian-rlcd.md` for experiment commands and limits. The original gameplay and Bayesian pilot use different protocols and cannot be combined into one policy leaderboard.
 
-The original `output/pdf/openjev-paper.pdf` and `paper/build-receipt.json` are preserved as the earlier baseline draft and its receipt. The renamed, updated draft is `output/pdf/decisiontics-paper.pdf`, with `paper/decisiontics-build-receipt.json`.
+The original `output/pdf/openjev-paper.pdf` and `paper/build-receipt.json` are preserved as the earlier baseline draft and its receipt. The current draft is `output/pdf/openjev-memory-paper.pdf`, with `paper/openjev-memory-build-receipt.json`. The interim DecisionTics draft and its build receipt remain historical artifacts.

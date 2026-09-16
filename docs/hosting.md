@@ -1,15 +1,15 @@
-# Hosting DecisionTics
+# Hosting OpenJev
 
 There are two separate deployments:
 
-- **GitHub Pages browser playground:** [kw2828.github.io/DecisionTics](https://kw2828.github.io/DecisionTics/). WebLLM runs the language model on the visitor's GPU, alongside recorded gameplay. The Python API and live Doom engine are not hosted by Pages. See [browser details](browser-model.md).
+- **GitHub Pages browser playground:** [kw2828.github.io/OpenJev](https://kw2828.github.io/OpenJev/). WebLLM runs the language model on the visitor's GPU, alongside recorded gameplay. The Python API and live Doom engine are not hosted by Pages. See [browser details](browser-model.md).
 - **Interactive app:** the Docker image runs the decision API, CPU language model, real headless ViZDoom, and browser interface together. Use a Docker host or Hugging Face Docker Space. No external inference service or paid API key is required.
 
 ## Run the full app in Docker
 
 ```sh
-git clone https://github.com/kw2828/DecisionTics.git
-cd DecisionTics
+git clone https://github.com/kw2828/OpenJev.git
+cd OpenJev
 docker build -t openjev .
 docker run --rm --name openjev -p 127.0.0.1:7860:7860 --memory=6g --cpus=2 openjev
 ```
@@ -50,7 +50,7 @@ Your reverse proxy must preserve the Host header. Unknown hosts and cross-origin
 
 ## GitHub Codespaces
 
-[Open a Codespace](https://codespaces.new/kw2828/DecisionTics) to build the supplied `.devcontainer` and start the full app on forwarded port 7860. Choose at least 8 GB RAM. The start script configures the Codespaces HTTPS origin; the forwarded port stays private by default. Stop/delete the Codespace when finished. This is a developer launch path, not an always-on public deployment. Codespaces billing and availability depend on your account.
+[Open a Codespace](https://codespaces.new/kw2828/OpenJev) to build the supplied `.devcontainer` and start the full app on forwarded port 7860. Choose at least 8 GB RAM. The start script configures the Codespaces HTTPS origin; the forwarded port stays private by default. Stop/delete the Codespace when finished. This is a developer launch path, not an always-on public deployment. Codespaces billing and availability depend on your account.
 
 ## GitHub Pages
 

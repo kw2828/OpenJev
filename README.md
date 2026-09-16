@@ -1,12 +1,12 @@
-# DecisionTics
+# OpenJev
 
-Previously `kw2828/OpenJev`. The project is now named DecisionTics to distinguish it from existing OpenJev projects. The `openjev` Python package, CLI, environment variables, and API header remain compatible with earlier experiments.
+The project remains named OpenJev. The `openjev` Python package, CLI, environment variables, and API header remain compatible with earlier experiments.
 
 **English context → your questions and candidate answers → candidate probabilities → your application's next step.**
 
 A local decision interface with an editable playground and a real Doom application. Define questions and candidate descriptions at request time. Responses preserve your candidate IDs and return relative probabilities without generating an explanation.
 
-Independently implemented, with interface inspiration from [TypeSafe Jev](https://typesafe.ai/blog/introducing-system-one-models-and-jev) and the interface direction of [zhihz/openjev](https://github.com/zhihz/openjev). The [openjev.com browser lab](https://openjev.com/) also demonstrates browser-local candidate scoring. DecisionTics is independent of these projects and does not reproduce Jev's architecture, weights, or proprietary RLCD method.
+Independently implemented, with interface inspiration from [TypeSafe Jev](https://typesafe.ai/blog/introducing-system-one-models-and-jev) and the interface direction of [zhihz/openjev](https://github.com/zhihz/openjev). The [openjev.com browser lab](https://openjev.com/) also demonstrates browser-local candidate scoring. OpenJev is independent of these projects and does not reproduce Jev's architecture, weights, or proprietary RLCD method.
 
 ## Watch the local model play Doom
 
@@ -16,7 +16,7 @@ Independently implemented, with interface inspiration from [TypeSafe Jev](https:
 
 ## Hosted demo and deployment
 
-[**Try the free browser playground**](https://kw2828.github.io/DecisionTics/) · [**Run the full app**](docs/hosting.md) · [Open in Codespaces](https://codespaces.new/kw2828/DecisionTics)
+[**Try the free browser playground**](https://kw2828.github.io/OpenJev/) · [**Run the full app**](docs/hosting.md) · [Open in Codespaces](https://codespaces.new/kw2828/OpenJev)
 
 The Pages site runs a pinned Qwen3-0.6B model in your browser through WebLLM and displays recorded Doom gameplay. Load the model to score your own candidates without an inference server. See [browser requirements and scoring limits](docs/browser-model.md). The interactive app has a Linux Docker deployment for Hugging Face Spaces or another container host. It runs the API, **Qwen3-0.6B on CPU**, and real ViZDoom together. This smaller hosted checkpoint is distinct from the Mac 4B model below; responses identify which model produced the scores. The Pages playground needs no backend; the full live Doom app still runs separately. See [hosting instructions and shared-arena limits](docs/hosting.md).
 
@@ -32,8 +32,8 @@ Open http://localhost:7860. Public mode disables the paid Jev API. Model weights
 The MLX language backend requires **Apple Silicon macOS** and Python 3.11-3.13. It uses a pinned [Qwen3-4B-Instruct-2507 MLX 4-bit checkpoint](https://huggingface.co/mlx-community/Qwen3-4B-Instruct-2507-4bit), about 2.3 GB of downloaded weights. The pretrained model is multilingual; this interface and its development checks focus on English. No paid API key is required.
 
 ```sh
-git clone https://github.com/kw2828/DecisionTics.git
-cd DecisionTics
+git clone https://github.com/kw2828/OpenJev.git
+cd OpenJev
 uv sync --frozen --extra language
 uv run --extra language openjev setup
 uv run --extra language openjev serve
@@ -49,7 +49,7 @@ For the existing tiny Doom baseline only, use `uv sync --frozen` and `uv run ope
 
 ![Memory ablation primary contrasts](evidence/memory-doom-v1/memory-contrasts.png)
 
-[**Benchmark figures and evidence**](docs/benchmarks.md) · [**Paper draft (PDF)**](output/pdf/decisiontics-paper.pdf) · [**LaTeX source and build instructions**](paper/README.md)
+[**Benchmark figures and evidence**](docs/benchmarks.md) · [**Paper draft (PDF)**](output/pdf/openjev-memory-paper.pdf) · [**LaTeX source and build instructions**](paper/README.md)
 
 The [research plan](docs/research.md) covers conformal prediction sets, connectome-inspired sparse recurrence, shared-depth latent transformers, recurrent world models, and a Rust/Python score-kernel benchmark. Working modules live under `openjev.research`; they are opt-in and do not change the deployed policy. The architecture modules are untrained, and synthetic checks are not model-quality results. The proposed ICLR direction is uncertainty-guided compute under a fixed budget, with explicit prior-work comparisons and stop rules.
 
@@ -170,7 +170,7 @@ This is **behavioral cloning for a narrow game task**, not a foundation model. I
 
 | Controller | Mean kills | Mean reward | Mean survival, game seconds |
 |---|---:|---:|---:|
-| DecisionTics local model | 17.55 | 16.55 | 25.32 |
+| OpenJev local model | 17.55 | 16.55 | 25.32 |
 | Rule-based teacher | 17.60 | 16.60 | 25.77 |
 | Random controls | 0.95 | -0.05 | 8.65 |
 

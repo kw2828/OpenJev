@@ -1,4 +1,4 @@
-# DecisionTics language backend v0.2
+# OpenJev language backend v0.2
 
 ## Identity
 

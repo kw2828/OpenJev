@@ -1,6 +1,6 @@
 # Research directions toward ICLR 2027
 
-Status: research infrastructure and hypotheses, not a novelty or submission-readiness claim. DecisionTics's current deployed model is still a pretrained transformer used as a candidate scorer. None of the experimental architectures below is trained or connected to the public demo.
+Status: research infrastructure and hypotheses, not a novelty or submission-readiness claim. OpenJev's current deployed model is still a pretrained transformer used as a candidate scorer. None of the experimental architectures below is trained or connected to the public demo.
 
 The [initial Jev source review and baseline notes](jev-background.md) are preserved separately.
 

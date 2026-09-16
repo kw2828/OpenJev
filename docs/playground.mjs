@@ -79,7 +79,7 @@ el('add').onclick=()=>addCandidate();
 el('example').onchange=()=>example(el('example').value);
 el('export').onclick=()=>{
   const url=URL.createObjectURL(new Blob([JSON.stringify(result,null,2)],{type:'application/json'}));
-  const a=document.createElement('a'); a.href=url; a.download='decisiontics-result.json'; a.click(); setTimeout(()=>URL.revokeObjectURL(url),1000);
+  const a=document.createElement('a'); a.href=url; a.download='openjev-result.json'; a.click(); setTimeout(()=>URL.revokeObjectURL(url),1000);
 };
 example('support'); controls();
 if (!navigator.gpu) status('WebGPU is unavailable here. Try a recent desktop Chrome or Edge, or view the recorded Doom episodes below.',true);

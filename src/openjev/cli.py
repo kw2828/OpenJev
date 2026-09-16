@@ -5,7 +5,7 @@ from .domain import SCENARIOS
 
 
 def main():
-    parser = argparse.ArgumentParser(description="DecisionTics: typed decisions, real Doom")
+    parser = argparse.ArgumentParser(description="OpenJev: typed decisions, real Doom")
     sub = parser.add_subparsers(dest="command", required=True)
     serve = sub.add_parser("serve", help="Open the local browser cockpit")
     serve.add_argument("--port", type=int, default=8000)

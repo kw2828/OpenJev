@@ -221,7 +221,7 @@ async def lifespan(app):
     app.state.session.thread.join(timeout=7)
 
 
-app = FastAPI(title="DecisionTics", lifespan=lifespan)
+app = FastAPI(title="OpenJev", lifespan=lifespan)
 app.add_middleware(TrustedHostMiddleware, allowed_hosts=ALLOWED_HOSTS)
 
 

@@ -40,7 +40,7 @@ An answer with 0.99 relative probability can still have low candidate-token mass
 
 The pinned Qwen instruction model receives context, the question, and descriptions associated with letters A-L. Each letter must be one unique tokenizer token. The model performs a prefill, projects the final hidden position to vocabulary logits, and a softmax restricted to the candidate letters yields relative probabilities. The runtime maps letters back to caller IDs. No output tokens are decoded and no rationale is generated. All quantities come from the same frozen model; no teacher or rule fallback is used.
 
-Every question gets a fresh prefill. Shared-context caching, batching and persistent KV reuse are future optimizations. The checkpoint is a third-party MLX quantization of Qwen, not a newly trained DecisionTics foundation model or a numerically identical full-precision copy.
+Every question gets a fresh prefill. Shared-context caching, batching and persistent KV reuse are future optimizations. The checkpoint is a third-party MLX quantization of Qwen, not a newly trained OpenJev foundation model or a numerically identical full-precision copy.
 
 ## Errors and execution boundary
 

@@ -1,6 +1,6 @@
-# DecisionTics browser playground
+# OpenJev browser playground
 
-[Open the free playground](https://kw2828.github.io/DecisionTics/)
+[Open the free playground](https://kw2828.github.io/OpenJev/)
 
 The static page runs language inference on the visitor's GPU, through a dedicated Web Worker. It accepts one English question, text context and two to eight candidate IDs/descriptions, then returns all candidate scores and an exportable receipt. The recorded Doom episodes use separate local models. This page does not run a live Doom engine or the memory-ablation policy.
 
