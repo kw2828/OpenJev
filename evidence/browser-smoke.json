@@ -1,0 +1,27 @@
+{
+  "status": "actual_local_browser_inference_verified",
+  "environment": "Desktop Chrome on the local Apple Silicon workstation; WebGPU via dedicated worker",
+  "checks": [
+    "Model download/load completed",
+    "Support request scored and exported with original IDs",
+    "Game request scored and exported with original IDs",
+    "Scores normalized to one",
+    "Duplicate IDs rejected before inference",
+    "Release terminates worker"
+  ],
+  "semantic_observations": {
+    "support": "billing, expected",
+    "game": "fire, contradicts the empty-ammunition instruction"
+  },
+  "claim_boundary": "Two disclosed integration examples, not an accuracy benchmark or calibration result. The incorrect game answer is preserved. Candidate output is not executed in Doom by this browser page.",
+  "source_sha256": {
+    "docs/model-worker.mjs": "2e3057089c09e054b86d269346c5fb67bfefb1e4fb04aff141df8bedacee2627",
+    "docs/decision-core.mjs": "cc3bae46e764f0aa3a4a351233ef9105bc1cef7dadb9bcba802fe7b695bfd690",
+    "docs/playground.mjs": "01165433f72ef32d87893ac52704f0bfffd66647695a555f78cd0c604ec16854"
+  },
+  "exports": [
+    "browser-support-smoke.json",
+    "browser-game-smoke.json"
+  ],
+  "preflight_correction": "browser-preflight-correction.json"
+}

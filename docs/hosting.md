@@ -1,15 +1,15 @@
-# Hosting OpenJev
+# Hosting DecisionTics
 
 There are two separate deployments:
 
-- **GitHub Pages showcase:** [kw2828.github.io/OpenJev](https://kw2828.github.io/OpenJev/). Recorded gameplay, model labels, and launch instructions. Static hosting does not run the model or Doom engine.
+- **GitHub Pages browser playground:** [kw2828.github.io/DecisionTics](https://kw2828.github.io/DecisionTics/). WebLLM runs the language model on the visitor's GPU, alongside recorded gameplay. The Python API and live Doom engine are not hosted by Pages. See [browser details](browser-model.md).
 - **Interactive app:** the Docker image runs the decision API, CPU language model, real headless ViZDoom, and browser interface together. Use a Docker host or Hugging Face Docker Space. No external inference service or paid API key is required.
 
 ## Run the full app in Docker
 
 ```sh
-git clone https://github.com/kw2828/OpenJev.git
-cd OpenJev
+git clone https://github.com/kw2828/DecisionTics.git
+cd DecisionTics
 docker build -t openjev .
 docker run --rm --name openjev -p 127.0.0.1:7860:7860 --memory=6g --cpus=2 openjev
 ```
@@ -26,7 +26,7 @@ The image was built and exercised on Linux ARM64 through Docker Desktop: real CP
 
 ## Hugging Face Docker Space
 
-1. Create a Space in your own Hugging Face account, choose **Docker**, and select CPU hardware. Review the host's current resource limits and pricing before changing hardware.
+1. Create a Space in your own Hugging Face account, choose **Docker**, and select CPU hardware. Current Hugging Face policy requires a paid plan to create Docker Spaces even though CPU Basic has no hourly charge. This is not the free-hosting path; use GitHub Pages for the browser playground. Verify [current policy](https://huggingface.co/docs/hub/spaces-overview) before provisioning.
 2. Upload this repo's `Dockerfile`, `pyproject.toml`, `LICENSE`, and `src/` directory. Copy `deploy/space-README.md` to the Space's root as `README.md`. That file supplies `sdk: docker` and port 7860.
 3. Let the image build. `SPACE_HOST` supplies the public HTTPS origin automatically. If the host does not expose it, set `OPENJEV_PUBLIC_ORIGIN=https://YOUR-SPACE.hf.space` in the Space variables.
 4. Open the app. Confirm `/api/model` shows the CPU checkpoint, score a request, then start Doom. A cold start or sleeping Space may take time.
@@ -50,8 +50,8 @@ Your reverse proxy must preserve the Host header. Unknown hosts and cross-origin
 
 ## GitHub Codespaces
 
-[Open a Codespace](https://codespaces.new/kw2828/OpenJev) to build the supplied `.devcontainer` and start the full app on forwarded port 7860. Choose at least 8 GB RAM. The start script configures the Codespaces HTTPS origin; the forwarded port stays private by default. Stop/delete the Codespace when finished. This is a developer launch path, not an always-on public deployment. Codespaces billing and availability depend on your account.
+[Open a Codespace](https://codespaces.new/kw2828/DecisionTics) to build the supplied `.devcontainer` and start the full app on forwarded port 7860. Choose at least 8 GB RAM. The start script configures the Codespaces HTTPS origin; the forwarded port stays private by default. Stop/delete the Codespace when finished. This is a developer launch path, not an always-on public deployment. Codespaces billing and availability depend on your account.
 
 ## GitHub Pages
 
-Pages serves `docs/index.html` from `main:/docs` with `.nojekyll`. It shows the recorded 4B and tiny-baseline runs with explicit model labels. It cannot execute Python, MLX, Transformers, or ViZDoom; see [GitHub's Pages documentation](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages). No backend API keys or model weights are published into the static site.
+Pages serves `docs/index.html` from `main:/docs` with `.nojekyll`. The WebLLM worker runs Qwen3-0.6B on the visitor's GPU; separate recorded 4B and tiny-baseline runs retain explicit labels. Pages does not execute the Python API or ViZDoom engine; see [GitHub's Pages documentation](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages). No backend API keys or model weights are published into the static site.

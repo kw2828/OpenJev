@@ -1,0 +1,57 @@
+{
+  "choice": "fire",
+  "probabilities": [
+    {
+      "id": "hold_fire",
+      "description": "Hold fire and scan for targets",
+      "probability": 0.4406587960336035
+    },
+    {
+      "id": "fire",
+      "description": "Fire at the visible enemy",
+      "probability": 0.5206351118723629
+    },
+    {
+      "id": "uncertain",
+      "description": "Not enough information",
+      "probability": 0.0387060920940337
+    }
+  ],
+  "candidate_label_mass": 0.6964316674715629,
+  "entropy_nats": 0.8267974477836169,
+  "elapsed_ms": 520.8999999761581,
+  "model": "Qwen3-0.6B-q4f16_1-MLC",
+  "revision": "8c14ce481d4c692769976ad52afea453a102df19",
+  "runtime": "WebLLM 0.2.85 / WebGPU",
+  "scoring": "raw first-position logits normalized over verified A-H tokens; one token sampled and discarded",
+  "usage": {
+    "completion_tokens": 0,
+    "prompt_tokens": 136,
+    "total_tokens": 136,
+    "extra": {
+      "e2e_latency_s": 0.521,
+      "prefill_tokens_per_s": 261.8405853027392,
+      "decode_tokens_per_s": null,
+      "time_to_first_token_s": 0.5193999999761582,
+      "time_per_output_token_s": null
+    }
+  },
+  "request": {
+    "context": "An enemy is visible near the crosshair. The player has no ammunition remaining.",
+    "question": "Which action follows the instruction to avoid firing with an empty weapon?",
+    "candidates": [
+      {
+        "id": "hold_fire",
+        "description": "Hold fire and scan for targets"
+      },
+      {
+        "id": "fire",
+        "description": "Fire at the visible enemy"
+      },
+      {
+        "id": "uncertain",
+        "description": "Not enough information"
+      }
+    ]
+  }
+}

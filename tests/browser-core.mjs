@@ -1,0 +1,14 @@
+import assert from 'node:assert/strict';
+import {validateRequest,scoreLogits,buildMessages,TOKEN_IDS} from '../docs/decision-core.mjs';
+const r={context:'x',question:'q',candidates:[{id:'no',description:'No'},{id:'yes',description:'Yes'}]};
+assert.equal(validateRequest(r),r);
+assert.throws(()=>validateRequest({...r,candidates:[r.candidates[0],r.candidates[0]]}),/unique/);
+assert.throws(()=>validateRequest({...r,context:''}));
+const logits=new Float32Array(60).fill(-1000); logits[TOKEN_IDS[0]]=1000;logits[TOKEN_IDS[1]]=999;
+const s=scoreLogits(logits,r.candidates);
+assert.equal(s.choice,'no');assert.ok(Math.abs(s.probabilities[0].probability-1/(1+Math.exp(-1)))<1e-10);
+assert.ok(Math.abs(s.candidate_label_mass-1)<1e-10);
+assert.equal(s.probabilities[1].id,'yes');
+assert.equal(buildMessages(r).length,2);
+logits[TOKEN_IDS[0]]=NaN;assert.throws(()=>scoreLogits(logits,r.candidates),/invalid/);
+console.log('Browser request validation, stable IDs and logit normalization passed');

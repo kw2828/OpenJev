@@ -1,0 +1,14 @@
+{
+  "status": "mechanical_prompt_format_error_corrected_before_release",
+  "observed_example": "Duplicate charge, route to billing",
+  "initial_choice": "shipping",
+  "initial_displayed_candidate_percentages": [
+    25.4,
+    4.1,
+    70.5
+  ],
+  "initial_candidate_mass_display": "0.000%",
+  "cause": "WebLLM 0.2.85 reads enable_thinking from request.extra_body; the initial caller passed it at top level. Raw first-position scoring therefore did not reliably follow the empty thinking prefix.",
+  "correction": "Use extra_body: {enable_thinking: false}, as verified in pinned engine source; then reload and rerun browser smoke.",
+  "scope": "Browser integration smoke, separate from all Doom research runs. No benchmark or calibration claim."
+}

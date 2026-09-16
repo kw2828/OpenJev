@@ -1,6 +1,6 @@
 # Research directions toward ICLR 2027
 
-Status: research infrastructure and hypotheses, not a novelty or submission-readiness claim. OpenJev's current deployed model is still a pretrained transformer used as a candidate scorer. None of the experimental architectures below is trained or connected to the public demo.
+Status: research infrastructure and hypotheses, not a novelty or submission-readiness claim. DecisionTics's current deployed model is still a pretrained transformer used as a candidate scorer. None of the experimental architectures below is trained or connected to the public demo.
 
 The [initial Jev source review and baseline notes](jev-background.md) are preserved separately.
 
@@ -88,3 +88,7 @@ The initial run measured median **0.550 ms per row for NumPy versus 0.204 ms for
 - [Looped World Models, June 2026](https://arxiv.org/abs/2606.18208): shared transformer recurrence for latent environment prediction is already proposed. Combining recurrence with a world model is not a defensible new claim by itself.
 
 This is an initial primary-source review as of September 16, 2026, not an exhaustive novelty audit. Before choosing a paper claim, audit uncertainty-based adaptive computation and conformal decision/planning literature in depth and compare directly with the closest methods.
+
+## Memory ablation decision
+
+The [frozen 1,980-episode history ablation](memory-ablation.md) improved utility over the original head but failed its full continuation gate against the same-dimensional current-only control. Adaptive-compute and second-environment efficacy experiments were not launched. This closes the current bounded experiment; the architectural hypotheses above remain unvalidated.

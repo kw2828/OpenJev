@@ -31,3 +31,20 @@ def test_capacity_control_uses_no_history_and_keeps_current_features():
     np.testing.assert_array_equal(result[:7], x)
     with pytest.raises(ValueError):
         expanded_current([float('nan')]*7)
+
+
+def test_saved_training_uses_identical_windows_and_current_features():
+    import importlib.util
+    import json
+    from pathlib import Path
+    root=Path(__file__).resolve().parents[1]
+    spec=importlib.util.spec_from_file_location('memory_doom',root/'research/memory_doom.py')
+    runner=importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(runner)
+    protocol=json.loads((root/'research/protocols/memory-doom-v1.json').read_text())
+    xs,ys,units=runner.training_data(protocol)
+    assert [len(y) for y in ys]==[565,609,631,628,522]
+    for rep in range(5):
+        assert len(set(units[rep]))==16
+        np.testing.assert_array_equal(np.array(xs['history'][rep])[:,:7],xs['current'][rep])
+        np.testing.assert_array_equal(np.array(xs['expanded'][rep])[:,:7],xs['current'][rep])

@@ -1,4 +1,4 @@
-# OpenJev Doom v0.1 model card
+# DecisionTics Doom v0.1 model card
 
 ## Intended use
 

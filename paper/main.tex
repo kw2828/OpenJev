@@ -7,27 +7,27 @@
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
-\lhead{OpenJev: development report}
+\lhead{DecisionTics: development report}
 \rhead{September 2026}
 \cfoot{\thepage}
 \setlength{\headheight}{14pt}
 \setlength{\parskip}{4pt}
 \setlength{\parindent}{0pt}
-\title{OpenJev: Bounded Decision Interfaces and a Bayesian Doom Control Pilot}
-\author{OpenJev project\\\small\url{https://github.com/kw2828/OpenJev}}
+\title{DecisionTics: Bounded Decisions, Causal Memory, and Doom Control}
+\author{DecisionTics project\\\small\url{https://github.com/kw2828/DecisionTics}}
 \date{September 16, 2026\\\small Working research draft; not a conference submission}
 \begin{document}
 \maketitle
 \begin{abstract}
-OpenJev exposes request-defined questions and candidate answers as a typed decision interface, and uses those decisions to control a restricted Doom environment. We report three separate development measurements: a tiny imitation controller, a Bayesian firing-policy pilot, and a Rust/NumPy scoring-kernel comparison. In the valid 440-episode Bayesian study, posterior averaging did not establish a utility gain over the same logistic model's maximum a posteriori estimate. On the shifted scenario, mean utility was 5.140 versus 5.715, despite a descriptive improvement in shared-audit Brier score from 0.230733 to 0.226479. Conservative posterior gating reduced utility to 0.575. Separately, a 5,253-parameter imitation controller approximately matched its teacher over 20 paired seeds, while the median NumPy-to-Rust elapsed-time ratio was 2.70 in one local scoring-kernel microbenchmark. The study preserves a prior measurement failure and releases protocols, traces and plotting code. These results support further investigation of decision-aware information gathering; they do not establish a novel RL algorithm, calibrated action probabilities, or end-to-end acceleration.
+DecisionTics, previously named OpenJev, exposes request-defined candidate decisions and a reproducible Doom control testbed. An initial 440-episode Bayesian pilot did not establish a control gain from posterior averaging. We then froze a matched causal-history ablation using the same 80 historical training episodes, five fitted replicates, and 1,980 new evaluation and audit episodes. A 17-feature history head improved mean net utility over the original seven-feature MAP head by 1.779 in Defend the Center and 7.301 in Defend the Line; multiplicity-adjusted bootstrap intervals had positive lower endpoints. However, both comparisons against a 17-feature current-only control remained inconclusive. The predeclared continuation gate therefore failed, and adaptive-compute and second-environment efficacy experiments were not launched. Separate original gameplay and score-kernel measurements are retained with their own protocols. We release causal feature code, frozen protocols, traces, figures, and a browser-local decision playground. The results establish a local improvement over the original model, but do not isolate a memory-specific advantage over richer current-state features, demonstrate a new RL algorithm, or establish superiority over rules.
 \end{abstract}
 
 \section{Motivation and scope}
-A bounded application decision often needs a stable identifier and a score rather than generated prose. OpenJev accepts text context, a set of questions, and candidate identifiers with English descriptions. The application maps the returned identifier to an action. A pretrained Qwen language backend scores next-token candidate labels; it remains an autoregressive transformer and is not a new architecture. Questions are processed sequentially, without shared-prefix optimization.
+A bounded application decision often needs a stable identifier and a score rather than generated prose. DecisionTics accepts text context, a set of questions, and candidate identifiers with English descriptions. The application maps the returned identifier to an action. A pretrained Qwen language backend scores next-token candidate labels; it remains an autoregressive transformer and is not a new architecture. Questions are processed sequentially, without shared-prefix optimization.
 
 The project is inspired by the typed-decision interface of Jev. It does not reproduce Jev's weights or proprietary Reinforcement Learning for Calibrated Decisions (RLCD). The research model in this report is a separate seven-feature Bayesian logistic outcome predictor. There is no language-model RL training, PPO, GRPO, or Bellman update in the pilot.
 
-Our empirical question is narrow: \emph{does approximate Bayesian averaging or a conservative posterior bound improve firing decisions relative to the point estimate of the same learned model?} The original language-controller recording is a demonstration, not one of the fitted models or a baseline in this experiment.
+The initial pilot asks: \emph{does approximate Bayesian averaging or a conservative posterior bound improve firing decisions relative to the point estimate of the same learned model?} The original language-controller recording is a demonstration, not one of the fitted models or a baseline in this experiment.
 
 \section{Decision interface and outcome model}
 For candidate logits $z_1,\ldots,z_K$, the interface returns the conditional choice distribution
@@ -87,6 +87,40 @@ Bayesian mean minus MAP utility was $+0.015$ in the center scenario (exploratory
 
 On the shared line audit, the mean Brier score decreased descriptively from 0.230733 to 0.226479 with Bayesian averaging; in the center it changed from 0.122786 to 0.122836. Brier score measures overall probability accuracy and is not an isolated calibration diagnostic. No uncertainty interval is reported for this descriptive audit comparison. Its apparent improvement in the shifted scenario did not coincide with better mean control utility. This local result motivates measuring prediction and decision performance separately, rather than treating one as a substitute for the other.
 
+\section{Frozen causal-memory follow-up}
+The initial head omitted temporal state. We therefore tested a history extension against both the original seven-feature model and a 17-feature current-only expansion. The protocol and runner were committed at \texttt{04ce32d} before evaluation. All variants reuse exactly the same 80 historical training episodes and commanded-fire labels. The five original MAP weight vectors were reproduced exactly, ruling out changed fitting data as the source of the comparison.
+
+History appends the previous six non-intercept observation features, previous issued-fire and observed-hit indicators, time since the last issued fire command (capped at ten windows and scaled), and a has-previous indicator. History resets per episode, is updated only after action feedback, and contains no current-window outcome or hidden weapon readiness. The current-only expansion instead appends squares and four interactions. It matches feature count, but does not ensure identical effective capacity or regularization geometry. Both MAP and posterior mean are evaluated for each representation.
+
+The new run uses untouched evaluation seeds 50000--50029 and separate audit seeds 60000--60029 in each scenario. It comprises 1,920 policy evaluations and 60 common-audit episodes; reused training episodes are not counted as new executions. All policies share rule steering, seven-tic windows and a cost of 0.25 per issued fire window. The episode cap remains 180 decisions. Some line episodes hit this cap, so results concern a capped horizon. Evaluation job order is randomized.
+
+\paragraph{Continuation rule.}
+For each scenario, history MAP must improve over both original MAP and expanded MAP by at least 0.5 mean net utility, with a positive lower endpoint of a Bonferroni-adjusted 98.75\% interval. Net utility is raw utility minus one unit per second of accumulated decision computation. Four primary contrasts use 20,000 paired crossed-bootstrap draws over five fits and 30 seeds. These are finite-sample exploratory intervals, not a guaranteed test or external confirmation. History must also use no more than three times the original model's aggregate decision time, with every episode's p95 decision time below 1 ms.
+
+Timing includes feature construction, steering, prediction, decision construction and history updates. It excludes engine observation/advance and trace I/O. MAP uses a direct dot product; posterior averaging includes quadrature. Lightweight document editing occurred concurrently on the workstation; browser GPU inference began only after this run ended. The timing screen is local, not a controlled systems benchmark.
+
+\begin{table}[H]
+\centering\small
+\input{generated/memory-table.tex}
+\caption{New memory-ablation results: raw command-window utility $U$ and mean decision time in milliseconds. Each learned policy has 150 episodes per scenario; each fixed baseline has 30. Rules and imitation remain strong controls.}
+\end{table}
+
+History MAP improved net utility over original MAP by $+1.779$ in Center (adjusted interval $[0.277,3.564]$) and $+7.301$ in Line ($[0.351,14.180]$). Against expanded MAP, the differences were $+1.591$ ($[-0.349,3.571]$) and $+8.950$ ($[-0.972,16.998]$). Both timing gates passed: history used approximately 1.92 and 1.94 times the original per-decision compute, and maximum episode p95 times were 0.135 and 0.123 ms. The two capacity-control intervals nevertheless include zero. Thus the full continuation gate failed.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{../evidence/memory-doom-v1/memory-contrasts.pdf}
+\caption{All four predeclared memory contrasts. A positive mean alone is insufficient for continuation; both capacity-control intervals cross zero. The dotted vertical line marks the minimum required mean improvement of 0.5.}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{../evidence/memory-doom-v1/memory-tradeoff.pdf}
+\caption{Measured utility and decision compute for the six learned policies. These descriptive points do not establish a statistically dominant frontier. Gate decisions use the paired primary contrasts and timing limits, not visual selection of the best point.}
+\end{figure}
+
+Shared-audit mean MAP Brier scores changed from 0.131446 to 0.119535 in Center and 0.243435 to 0.228333 in Line with history. These descriptive probability-accuracy results do not replace the primary control comparisons. No improvement uniquely attributable to Bayesian inference or learned recurrent computation is established. Adaptive-compute and second-environment efficacy runs were not launched, as required by the frozen failure rule; no new tuning run was used to obtain a pass. The evidence suggests weakness in the original memoryless specification but does not isolate history as the cause relative to the richer current-only representation.
+
 \section{Separate gameplay and systems benchmarks}
 \paragraph{Original imitation benchmark.}
 The shipped 5,253-parameter MLP uses 11 numeric features and two 64-unit hidden layers, with separate steering and firing heads. It was trained on 60,000 synthetic states labeled by an explicit rule controller. On 20 matched center-scenario seeds (1000--1019), mean kills were 17.55 for imitation, 17.60 for the teacher, and 0.95 for random control. These runs use two-tic actions and complete steering policies. Their kill counts must not be merged with or directly ranked against the seven-tic firing-only Bayesian study.
@@ -111,16 +145,18 @@ This measurement used Linux ARM64 in Docker with a two-CPU limit, Python 3.12.14
 \section{Related work and limitations}
 Calibration for learned dynamics and control is established research \citep{malik2019calibrated}. The Laplace approximation used here is also established \citep{daxberger2021laplace}; applying it to this logistic head is not a new Bayesian method. RLCR combines correctness and calibration rewards for reasoning language models \citep{damani2025beyond}. We do not train or reproduce RLCR, and its results cannot be transferred to our firing-policy experiment.
 
-The pilot's linear features omit weapon cooldown and temporal state. Its conditional-independence likelihood ignores within-episode correlation, which may invalidate the posterior's uncertainty interpretation. The lower-bound policy may suppress useful firing, but this study does not isolate the mechanism. Two scenarios from one game, five training sets and ten evaluation seeds are insufficient to establish robust generality. Neither the eight disclosed language development questions nor a single gameplay GIF is an independent language benchmark. No evaluated connectome-inspired architecture, latent transformer, recurrent world model, semantic-entropy method or conformal decision guarantee is established by this report.
+The initial pilot's linear features omit weapon cooldown and temporal state; the follow-up adds handcrafted history but not a learned recurrent state. Its conditional-independence likelihood ignores within-episode correlation, which may invalidate the posterior's uncertainty interpretation. The lower-bound policy may suppress useful firing, but this study does not isolate the mechanism. Both studies use only two scenarios from one game and five training sets. The initial pilot uses ten evaluation seeds per scenario, and the memory follow-up uses thirty; this remains limited evidence for generality. Neither the eight disclosed language development questions nor a single gameplay GIF is an independent language benchmark. No evaluated connectome-inspired architecture, latent transformer, recurrent world model, semantic-entropy method or conformal decision guarantee is established by this report.
 
-\section{Next hypothesis and reproducibility}
-A follow-up should ask whether additional observations or recurrent computation improve the \emph{decision}, conditional on their cost. Forecast learning and action selection should remain separately measurable. A proposed controller would allocate extra work only when estimated decision improvement exceeds its cost, rather than using posterior width alone. This is a research hypothesis, not an implemented contribution in these results.
+\section{Continuation decision and reproducibility}
+Conditional on a future separately justified protocol, a follow-up could ask whether additional observations or recurrent computation improve the \emph{decision}, conditional on their cost. Forecast learning and action selection should remain separately measurable. A proposed controller would allocate extra work only when estimated decision improvement exceeds its cost, rather than using posterior width alone. This is a research hypothesis, not an implemented contribution in these results. The present continuation gate failed, so this work is deferred.
 
 Required controls include the same head without Bayes, fixed extra computation, scalar probability and entropy gates, and matched-data/compute ensembles. Random audit actions need known propensities and support checks. Development and confirmation splits should be fixed before tuning, with a second environment and an English decision task. Literature review must establish a distinct method or theoretical result before any ICLR novelty claim.
 
 The repository retains the v1 and v2 execution snapshots at commits \texttt{4007e64} and \texttt{f59ca5c}, frozen protocols, source hashes, episode summaries, posterior weights and losslessly compressed traces. Hashes of raw traces refer to decompressed bytes. V2 completed in 85.18 workstation seconds; this duration is not a portable throughput benchmark. All five fits had gradient norms below $8\times10^{-8}$ and positive covariance eigenvalues, validating numerical mechanics rather than model specification.
 
-\texttt{research/plot\_benchmarks.py} regenerates the new figures and table from checked-in evidence and writes a source-hash manifest. The paper's build instructions distinguish regeneration of figures from rerunning experiments. The v1 quality exception remains visible; invalid cross-scenario observations are not pooled into v2. Code and artifacts are available at \url{https://github.com/kw2828/OpenJev}.
+The memory run completed 1,980 new episodes in 412.13 workstation seconds. Its preserved analysis records the failed continuation gate. The browser demo uses pinned Qwen3-0.6B weights through WebLLM and runs separately from these numerical controllers; it is not a live Doom port or a quality benchmark. The historical Python package remains \texttt{openjev} for compatibility.\par
+
+The plotting scripts regenerate figures and tables from preserved JSON, separately from experiment execution. Source and artifact hashes accompany the runs. Invalid v1 observations are not pooled into valid studies. The renamed repository retains historical artifacts and compatibility commands.
 
 \bibliographystyle{plainnat}
 \bibliography{references}
