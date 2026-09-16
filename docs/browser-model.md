@@ -9,18 +9,18 @@ The static page runs language inference on the visitor's GPU, through a dedicate
 - Runtime: [WebLLM 0.2.85](https://github.com/mlc-ai/web-llm/tree/v0.2.85), loaded from a versioned jsDelivr module.
 - Model: `mlc-ai/Qwen3-0.6B-q4f16_1-MLC`, pinned revision `8c14ce481d4c692769976ad52afea453a102df19`.
 - Token labels A-H were verified as IDs 32-39 in that revision's tokenizer.
-- The official runtime catalog supplies the WebGPU model library; the model revision pins weights/tokenizer assets, while the runtime version pins the catalog reference. Runtime/CDN availability is still an external dependency.
+- The WebGPU model library is served through jsDelivr at binary-library commit `025bcaf3780fa8254f5e5efd3bfea0a5397248f4`; WebLLM checks its SHA-256 integrity (`sha256-TbgAskEZIE4aA4booS4ITVASqmD3fFv/rTYvIEmN+RI=`). The model revision pins weights/tokenizer assets. Runtime/CDN availability is still an external dependency.
 - `extra_body.enable_thinking=false` asks this pinned runtime to prefill Qwen's empty thinking block. `LogitProcessor.processLogits` captures raw first-answer-position logits before sampling. The runtime samples and discards one token; the UI does not parse a generated explanation or generated probability numbers.
 - Candidate scores use a numerically stable softmax over the supplied label logits. Full-vocabulary candidate-label mass is also reported. No logit bias, top-logprob truncation, or grouping approximation is used.
 - Scores remain conditional, uncalibrated label preferences, not probabilities of successful actions. Candidate order and prompt wording can affect them.
 
 ## Requirements and limits
 
-Use a current WebGPU-capable desktop browser whose adapter supports `shader-f16`. Allow approximately 350 MB of model downloads and about 1.5 GB of GPU memory. Downloads start only after clicking Load; browser caching can reduce subsequent downloads. The load button performs an explicit capability check. Cancellation terminates the worker; scoring then requires reloading the model.
+Use a current WebGPU-capable desktop browser whose adapter supports `shader-f16`. Allow approximately 350 MB of model downloads and about 1.5 GB of GPU memory. Downloads start only after clicking Load; browser caching can reduce subsequent downloads. The worker performs an explicit capability check. Downloads use the supported IndexedDB cache; loading status identifies requested assets. Cancellation terminates the worker; scoring then requires reloading the model.
 
 The model uses a 4,096-token context configuration. Input fields have character limits, but these are not tokenizer guarantees. Requests that exceed model limits return a visible runtime error, rather than silently truncating context. First scoring may include compilation; displayed time covers work inside the model worker, not page load or model download. There is no controlled speed comparison in this UI.
 
-Inputs stay in the page and worker; this app does not upload them to an inference API, save them to browser storage, or use analytics. Model weights and runtime assets come from Hugging Face, GitHub-hosted model libraries and jsDelivr. Those hosts receive ordinary asset requests and may log network metadata. Downloaded weights may remain in the browser cache. JSON export includes the user's input and only occurs on request.
+Inputs stay in the page and worker; this app does not upload them to an inference API, save them to browser storage, or use analytics. Model weights and runtime assets come from Hugging Face, jsDelivr-hosted model libraries and runtime code. Those hosts receive ordinary asset requests and may log network metadata. Downloaded weights may remain in the browser cache. JSON export includes the user's input and only occurs on request.
 
 The existing Python CLI remains `openjev` for compatibility. The browser implementation is independent of its MLX/Transformers backends, and those backends' results do not establish the quality of this smaller model.
 

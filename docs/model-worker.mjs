@@ -33,6 +33,8 @@ self.onmessage = async ({data}) => {
       const started = performance.now();
       engine = await CreateMLCEngine(MODEL_ID, {
         appConfig:{cacheBackend:'indexeddb',model_list:[{...config,
+          model_lib:'https://cdn.jsdelivr.net/gh/mlc-ai/binary-mlc-llm-libs@025bcaf3780fa8254f5e5efd3bfea0a5397248f4/web-llm-models/v0_2_84/base/Qwen3-0.6B-q4f16_1_cs1k-webgpu.wasm',
+          integrity:{model_lib:'sha256-TbgAskEZIE4aA4booS4ITVASqmD3fFv/rTYvIEmN+RI=',onFailure:'error'},
           model:`https://huggingface.co/mlc-ai/${MODEL_ID}/resolve/${MODEL_REVISION}/`} ]},
         logitProcessorRegistry:new Map([[MODEL_ID,processor]]),
         initProgressCallback: r=>self.postMessage({type:'progress',text:r.text,progress:r.progress})
