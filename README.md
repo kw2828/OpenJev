@@ -6,6 +6,12 @@ A local decision interface with an editable playground and a real Doom applicati
 
 Independent and inspired by [TypeSafe Jev](https://typesafe.ai/blog/introducing-system-one-models-and-jev) and the interface direction of [zhihz/openjev](https://github.com/zhihz/openjev). This is not Jev's architecture, weights, or proprietary RLCD method.
 
+## Watch the local model play Doom
+
+![Local Qwen3-4B choosing actions in a complete Doom episode](evidence/language-doom-42.gif)
+
+*Recorded on Apple Silicon with the local Qwen3-4B language controller: **2 kills in 8.17 game seconds**, then death. Playback is at game speed; inference took **20.61 wall seconds**. This is a gameplay demonstration, separate from the Bayesian experiment below. [Recording details and trace](#language-model-gameplay) · [Tiny imitation model gameplay](#tiny-model-gameplay).*
+
 ## Hosted demo and deployment
 
 [**View the GitHub Pages showcase**](https://kw2828.github.io/OpenJev/) · [**Run the full app**](docs/hosting.md) · [Open in Codespaces](https://codespaces.new/kw2828/OpenJev)
@@ -40,6 +46,10 @@ For the existing tiny Doom baseline only, use `uv sync --frozen` and `uv run ope
 The [research plan](docs/research.md) covers conformal prediction sets, connectome-inspired sparse recurrence, shared-depth latent transformers, recurrent world models, and a Rust/Python score-kernel benchmark. Working modules live under `openjev.research`; they are opt-in and do not change the deployed policy. The architecture modules are untrained, and synthetic checks are not model-quality results. The proposed ICLR direction is uncertainty-guided compute under a fixed budget, with explicit prior-work comparisons and stop rules.
 
 The [Bayesian calibrated-decision pilot](docs/bayesian-rlcd.md) now includes a **440-episode valid development run**: posterior averaging did not establish a control gain, and conservative Bayesian gating reduced utility under scenario shift. It includes fitted outcome models, paired comparisons, public RLCR references, and the preserved earlier measurement failure. These are development results, not an ICLR novelty claim.
+
+![Doom pilot: utility differences versus the learned point estimate, with exploratory 95 percent intervals in two scenarios](evidence/bayesian-doom-v2/utility-comparison.png)
+
+*Higher is better; zero is the learned point estimate (MAP). Bars show exploratory 95% paired crossed-bootstrap intervals. Utility counts successful firing windows minus 0.25 per fire-command window. [Protocol, results, and limitations](docs/bayesian-rlcd.md).*
 
 ## Reusable API
 
@@ -90,7 +100,7 @@ uv run --extra language openjev play --policy language --seed 42 \
 
 ### Language model gameplay
 
-![Local Qwen making decisions in Doom](evidence/language-doom-42.gif)
+[Watch the recording at the top of this README](#watch-the-local-model-play-doom).
 
 *Complete Defend the Center episode, seed 42: **2 kills, then death after 8.17 game seconds**. The language controller made 138 decisions; this run took 20.61 wall seconds. The GIF plays at game speed, not inference speed. Median policy-call latency was 120 ms on this machine. This is a development demonstration, not an optimized speed benchmark or an improvement over the specialized baseline. [Metrics](evidence/language-doom-42.json) · [Full decision trace](evidence/language-doom-42.jsonl).*
 
