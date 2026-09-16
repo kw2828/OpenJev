@@ -1,4 +1,3 @@
-import {CreateMLCEngine, prebuiltAppConfig} from 'https://cdn.jsdelivr.net/npm/@mlc-ai/web-llm@0.2.85/lib/index.js';
 import {MODEL_ID, MODEL_REVISION, buildMessages, scoreLogits, validateRequest} from './decision-core.mjs';
 let engine = null, busy = false, activeCandidates = null, captured = null;
 const processor = {
@@ -15,8 +14,12 @@ self.onmessage = async ({data}) => {
   try {
     if (data.type === 'load') {
       if (engine) throw new Error('Model is already loaded.');
+      self.postMessage({type:'progress',text:'Checking GPU support in the model worker…'});
       const adapter = await navigator.gpu?.requestAdapter();
       if (!adapter || !adapter.features.has('shader-f16')) throw new Error('This model requires a WebGPU adapter with shader-f16 support.');
+      self.postMessage({type:'progress',text:'Downloading the WebLLM runtime…'});
+      const {CreateMLCEngine, prebuiltAppConfig} = await import('https://cdn.jsdelivr.net/npm/@mlc-ai/web-llm@0.2.85/lib/index.js');
+      self.postMessage({type:'progress',text:'Loading model configuration and GPU library…'});
       const config = prebuiltAppConfig.model_list.find(m=>m.model_id===MODEL_ID);
       if (!config) throw new Error('Pinned model is missing from the runtime catalog.');
       const started = performance.now();
