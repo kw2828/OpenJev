@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OpenJev / Doom control room</title><link rel="icon" href="data:,"><link rel="stylesheet" href="/style.css"></head>
+<body>
+<header><a class="brand" href="/">OPEN<span>JEV</span><small>LAB / 001</small></a><div class="header-right"><span class="dot"></span> LOCAL EXPERIMENT <a href="https://github.com/kw2828/OpenJev" target="_blank" rel="noopener">GITHUB ↗</a></div></header>
+<main>
+<div class="intro"><div><p class="eyebrow">DECISIONS AT THE SPEED OF PLAY</p><h1>Less talk.<br><span>More Doom.</span></h1></div><p class="lede">A small neural policy. Two decision heads.<br>A real Doom engine. Watch the model<br>turn game state into action.</p></div>
+<div class="workspace">
+<section class="arena"><div class="panel-heading"><div><span class="live-dot" id="live-dot"></span> <span id="status">CONNECTING</span></div><span id="scenario-label">DEFEND THE CENTER</span><span>VIZDOOM / 35 HZ</span></div>
+<div class="viewport"><img id="game" tabindex="0" alt="Live ViZDoom game view"><div id="loading">STARTING DOOM ENGINE...</div><div class="view-tag">LIVE ENGINE FEED<span id="feed-policy">LOCAL NEURAL POLICY</span></div></div>
+<div class="scoreboard"><div><label>KILLS</label><strong id="kills">0</strong></div><div><label>HEALTH</label><strong id="health">100<span>%</span></strong></div><div><label>AMMO</label><strong id="ammo">26</strong></div><div><label>SURVIVED</label><strong id="time">0<span>s</span></strong></div></div>
+<div class="transport"><button id="toggle" class="primary">▶ RUN AGENT</button><button id="restart" aria-label="Restart episode">↻ RESTART</button><span id="decisions">0 decisions</span></div>
+<p class="manual-help" id="manual-help" hidden>Click the game. Hold ← / → to steer. Space to fire. Controls release when you leave the window.</p>
+</section>
+<aside>
+<section class="control-panel"><div class="section-title"><span>01</span> MISSION CONTROL</div>
+<label for="policy">CONTROLLER</label><select id="policy"><option value="local">OpenJev / local neural policy</option><option value="rules">Rules / teacher baseline</option><option value="random">Random / control baseline</option><option value="manual">You / keyboard controls</option><option id="jev-option" value="jev" disabled>Jev API / key required</option></select>
+<label for="scenario">SCENARIO</label><select id="scenario"><option value="defend_the_center">Defend the Center</option><option value="defend_the_line">Defend the Line</option><option value="basic">Basic / target practice</option></select>
+<label>OBJECTIVE <span class="muted">/ fixed presets</span></label><div class="directives"><button class="selected" data-directive="hunt">HUNT</button><button data-directive="conserve">CONSERVE</button><button data-directive="pacifist">PACIFIST</button></div><p id="directive-description" class="hint">Track enemies. Fire when the target is lined up.</p>
+<div class="seed-row"><label for="seed">EPISODE SEED</label><input id="seed" type="number" min="0" max="2147483647" value="42"></div>
+</section>
+<section class="decision-panel"><div class="section-title"><span>02</span> INSIDE THE DECISION</div><div class="latency"><div><strong id="latency">0.00</strong><span>ms / policy call</span></div><span class="chip" id="backend-chip">LOCAL</span></div><div class="chart-label">STEER <span id="steer">HOLD</span></div><div id="bars"></div><div class="fire-row"><span>FIRE PROBABILITY</span><strong id="fire">0%</strong></div><div class="fire-track"><i id="fire-bar"></i></div><p class="hint">Local scores are uncalibrated model probabilities. They are not a guarantee of a correct action.</p></section>
+</aside></div>
+<div id="error" role="alert" hidden></div>
+<section class="pipeline"><div><span class="step">01 / OBSERVE</span><h3>Game state</h3><p id="target">Waiting for a target</p><small>Visible actor labels + game variables</small></div><b>→</b><div><span class="step">02 / DECIDE</span><h3 id="pipeline-title">One forward pass</h3><p id="pipeline-detail">11 features → 64 → 64 → 5 logits</p><small id="pipeline-note">No generated text. Two output heads.</small></div><b>→</b><div><span class="step">03 / ACT</span><h3>Typed controls</h3><p id="action">steer: hold &nbsp; fire: false</p><small>Pacifist and ammo limits enforced in code</small></div></section>
+<footer><p>Independent experiment inspired by TypeSafe's Jev. Local model trained by teacher imitation.<br>Uses engine-provided state, not pixel vision. No affiliation or Jev performance claim.</p><a href="https://typesafe.ai/blog/introducing-system-one-models-and-jev" target="_blank" rel="noopener">READ THE INSPIRATION ↗</a></footer>
+</main><script src="/app.js" defer></script></body></html>

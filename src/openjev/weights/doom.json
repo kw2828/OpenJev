@@ -1,0 +1,35 @@
+{
+  "method": "supervised imitation of teacher_action on synthetic structured states",
+  "not_rlcd": true,
+  "seed": 7,
+  "train_samples": 60000,
+  "epochs": 40,
+  "test_seed": 8,
+  "synthetic_test_samples": 10000,
+  "features": [
+    "target_visible",
+    "aim_error_x10",
+    "abs_aim_error_x10",
+    "target_half_width_x10",
+    "distance_1000",
+    "health_100",
+    "ammo_30",
+    "hunt",
+    "conserve",
+    "pacifist",
+    "basic"
+  ],
+  "architecture": [
+    11,
+    64,
+    64,
+    5
+  ],
+  "parameters": 5253,
+  "steer_teacher_agreement": 0.9972,
+  "fire_teacher_agreement": 0.9968,
+  "fire_brier_vs_teacher": 0.0022778282904975275,
+  "training_seconds": 1.5076404580613598,
+  "weights_sha256": "b4d8a5e4da09a32b3198b69a0b96c8ef471e80a6f452509bc9dd2254acdd5b13",
+  "limitations": "Synthetic teacher agreement is not gameplay ability or real-world calibration."
+}
