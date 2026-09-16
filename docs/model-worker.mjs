@@ -1,7 +1,7 @@
 import {MODEL_ID, MODEL_REVISION, buildMessages, scoreLogits, validateRequest} from './decision-core.mjs';
 const fetchAsset = self.fetch.bind(self);
 self.fetch = async (input, init) => {
-  const url = typeof input === 'string' ? input : input.url;
+  const url = typeof input === 'string' || input instanceof URL ? String(input) : input.url;
   const name = new URL(url, self.location.href).pathname.split('/').pop();
   self.postMessage({type:'progress',text:`Downloading ${name}…`});
   try { return await fetchAsset(input, init); }
@@ -32,7 +32,7 @@ self.onmessage = async ({data}) => {
       if (!config) throw new Error('Pinned model is missing from the runtime catalog.');
       const started = performance.now();
       engine = await CreateMLCEngine(MODEL_ID, {
-        appConfig:{model_list:[{...config,
+        appConfig:{cacheBackend:'indexeddb',model_list:[{...config,
           model:`https://huggingface.co/mlc-ai/${MODEL_ID}/resolve/${MODEL_REVISION}/`} ]},
         logitProcessorRegistry:new Map([[MODEL_ID,processor]]),
         initProgressCallback: r=>self.postMessage({type:'progress',text:r.text,progress:r.progress})

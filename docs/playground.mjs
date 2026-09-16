@@ -55,7 +55,7 @@ el('load').onclick=async()=>{
   if (!navigator.gpu) return status('This browser does not expose WebGPU. Try a recent desktop Chrome or Edge. Recorded gameplay below works without it.',true);
   busy=true; controls(); status('Checking your browser GPU…');
   try {
-    worker=new Worker('./model-worker.mjs?v=3',{type:'module'});
+    worker=new Worker('./model-worker.mjs?v=4',{type:'module'});
     worker.onerror=e=>{release(); status('Model worker could not start: '+e.message,true);};
     worker.onmessage=({data})=>{
       if (data.type==='progress') status(data.text);
