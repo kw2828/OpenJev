@@ -1,0 +1,65 @@
+{
+  "id": "bayesian-doom-v1",
+  "status": "frozen-development-protocol-not-confirmation",
+  "question": "Does posterior uncertainty improve a learned firing controller beyond the same MAP predictor and simple confidence thresholds?",
+  "scope": "Structured engine observations; rule-based steering; binary hit outcome for an executed firing window. Not Jev RLCD reproduction or language-model RL.",
+  "training_seeds": [
+    101,
+    202,
+    303,
+    404,
+    505
+  ],
+  "training_episodes_per_seed": 16,
+  "training_episode_seed_rule": "10000 + replicate_index * 100 + episode_index",
+  "train_scenario": "defend_the_center",
+  "evaluation_scenarios": [
+    "defend_the_center",
+    "defend_the_line"
+  ],
+  "evaluation_episode_seeds": [
+    30000,
+    30001,
+    30002,
+    30003,
+    30004,
+    30005,
+    30006,
+    30007,
+    30008,
+    30009
+  ],
+  "tics_per_step": 7,
+  "max_steps_per_episode": 180,
+  "training_fire_probability": 0.6,
+  "training_random_steer_probability": 0.2,
+  "feature_definition": "intercept, visible, absolute aim error clipped to 1, half width, distance/1000 clipped to 2, health/100, ammo/30 clipped to 2",
+  "prior_precision": 1.0,
+  "newton_iterations_max": 40,
+  "gauss_hermite_nodes": 20,
+  "action_cost": 0.25,
+  "lower_credible_z": 1.645,
+  "policies": [
+    "rules",
+    "tiny_imitation",
+    "map_hit",
+    "bayes_mean_hit",
+    "bayes_lower_hit"
+  ],
+  "primary_metric": "episode utility = successful firing windows - 0.25 * ammo spent",
+  "secondary_metrics": [
+    "kills",
+    "health",
+    "shots",
+    "hits",
+    "survival",
+    "Brier on executed firing windows",
+    "log loss on executed firing windows",
+    "decision latency"
+  ],
+  "feedback": "Train on actual executed windows with ammo decrease > 0; label hit-count increase > 0. No outcome is fabricated for a wait action.",
+  "evaluation": "Frozen weights; no test-time fitting. Same episode seeds for all policies. Rules and tiny baselines are evaluated once and shared across model replicates. Aggregate within each training replicate, then paired differences across five replicates; shared test seeds limit independence.",
+  "stop_rule": "One run; at most 600 episodes and 30 wall-clock minutes. No paid API. Do not tune based on evaluation results. Mechanical corrections require a separate documented run.",
+  "claim_boundary": "Development pilot. Selected-action calibration does not establish counterfactual calibration, OOD validity, safety, or novel RL methodology. Baselines differ in firing decisions but share steering and action duration. Tiny action preference is not scored as a hit probability.",
+  "common_audit": "One fixed randomized behavior episode per evaluation scenario/seed, shared by every fitted model. Compare MAP and posterior mean on identical executed firing windows; still behavior-distribution calibration, not all-action calibration."
+}
