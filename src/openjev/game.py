@@ -52,6 +52,7 @@ class Doom:
         if self.buttons != expected:
             raise ValueError(f"Unexpected scenario controls: {self.buttons}")
         g.init()
+        self.elapsed_tics = g.get_episode_time()
 
     def observe(self, directive="hunt"):
         g = self.game
@@ -83,7 +84,13 @@ class Doom:
         return state.screen_buffer.copy() if state else None
 
     def step(self, decision, observation, tics=2):
-        return self.game.make_action(decision.buttons(observation), tics)
+        before = self.game.get_episode_time()
+        reward = self.game.make_action(decision.buttons(observation), tics)
+        after = self.game.get_episode_time()
+        # Level-completion scripts can reset the engine timer. In that case the
+        # final action's end time is an upper bound within at most `tics - 1` tics.
+        self.elapsed_tics = after if after >= before else before + tics
+        return reward
 
     def stats(self):
         g = self.game
@@ -92,7 +99,7 @@ class Doom:
             "health": max(0, g.get_game_variable(vzd.GameVariable.HEALTH)),
             "ammo": g.get_game_variable(vzd.GameVariable.SELECTED_WEAPON_AMMO),
             "reward": g.get_total_reward(),
-            "game_seconds": g.get_episode_time() / 35,
+            "game_seconds": self.elapsed_tics / 35,
             "dead": g.is_player_dead(),
             "finished": g.is_episode_finished(),
         }

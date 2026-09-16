@@ -107,7 +107,7 @@ See [the research notes](docs/research.md) for primary sources, the distinction 
 
 ## CI setup
 
-All 26 tests pass locally on macOS. The publishing credential lacks GitHub workflow permission, so CI is not active. To enable it using a credential with that permission, copy [the workflow template](docs/ci-workflow.yml) to `.github/workflows/ci.yml` and commit it. It installs locked dependencies and runs lint plus the real-engine tests on Ubuntu. Linux execution remains unverified until that run passes.
+All 27 tests pass locally on macOS. The publishing credential lacks GitHub workflow permission, so CI is not active. To enable it using a credential with that permission, copy [the workflow template](docs/ci-workflow.yml) to `.github/workflows/ci.yml` and commit it. It installs locked dependencies and runs lint plus the real-engine tests on Ubuntu. Linux execution remains unverified until that run passes.
 
 ## Project map
 

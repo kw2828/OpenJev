@@ -21,6 +21,12 @@ def test_learned_policy_scores_in_real_game():
     assert result["kills"] >= 5
 
 
+def test_level_completion_does_not_reset_displayed_time():
+    result = run_episode("local", "basic", 42)
+    assert result["finished"] and result["kills"] == 1
+    assert result["game_seconds"] > 0
+
+
 def test_pacifist_never_spends_ammo():
     with Doom(seed=42) as doom:
         initial = doom.observe("pacifist").ammo
