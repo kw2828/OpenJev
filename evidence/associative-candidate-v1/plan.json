@@ -1,0 +1,137 @@
+{
+  "protocol": {
+    "version": "associative-candidate-v1",
+    "modes": [
+      "gru",
+      "feedforward",
+      "fast_global",
+      "fast_selective"
+    ],
+    "seeds": [
+      101,
+      113,
+      127
+    ],
+    "train_size": 11,
+    "evaluation_sizes": [
+      11,
+      17,
+      23
+    ],
+    "updates": 500,
+    "batch_size": 4,
+    "optimizer": "Adam",
+    "learning_rate": 0.001,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "epsilon": 1e-08,
+    "weight_decay": 0.0,
+    "gradient_clipping": null,
+    "torch_threads": 1,
+    "hidden": 64,
+    "store_dim": 16,
+    "adapter_hidden": 33,
+    "training_context_seed_start": 70000000,
+    "training_seed_search_limit": 10000,
+    "context_selection": "First native training-size seed for each cue/upper-branch key/ball combination",
+    "forced_path": "Action2 from x1 east to fork; final target0(top) or1(bottom) from visible objects",
+    "objective": "Final turn logits0:2 cross entropy; unchanged seven-output model and complete sequence gradients",
+    "batch": "All four unique balanced native contexts in fixed canonical order at every update",
+    "evaluation": "Report both seven-action and two-candidate probabilities; same four selected seeds at every length",
+    "conditions": [
+      "intact",
+      "reset_all",
+      "reset_store"
+    ],
+    "fit_order_seed": 731017,
+    "state_ablation": "reset_all clears GRU/store each step; reset_store clears only matrix before each write",
+    "selection": "No early stopping, checkpoint selection, budget extension or accuracy-based retuning",
+    "scope": "Four-context supervised candidate choice and forced-path length transfer only",
+    "rl_warmstart": false,
+    "unseen_unique_map_test": false,
+    "novelty_established": false,
+    "teacher_protocol": "associative-learnability-v1",
+    "sole_training_intervention": "Cross entropy normalizes over candidates0,1 instead of all seven actions",
+    "telemetry": "Post-fit intact sequences only; write strengths and opposite-cue state distances are descriptive",
+    "continuation": {
+      "candidate": "fast_selective",
+      "accuracy2_each_fit_each_size": 1.0,
+      "conditional_ce_each_fit_each_size_strictly_below": 0.05,
+      "longest_size_store_reset_accuracy2_drop_minimum": 0.25,
+      "longest_size_accuracy2_gain_each_control_minimum": 0.25,
+      "controls": [
+        "gru",
+        "feedforward",
+        "fast_global"
+      ],
+      "scope": "Development continuation only, not robust generalization, gameplay, RL or novelty"
+    },
+    "comparison": "Post-run exact tensor equality of freshly trained GRU fits versus memory-optimization-v1 recursive ce2",
+    "independent_confirmation": false
+  },
+  "source_sha256": {
+    "scripts/associative_candidate_diagnostic.py": "df43d4730d220e886c7ca12c6ca9a7a86e1ea6c8c5627fc3645f5e42149b961a",
+    "tests/test_associative_candidate_diagnostic.py": "6d569c8d04d90f8eec28e4c402b7887f27ee88145a57efe4b0f6d5300f357683",
+    "scripts/associative_learnability.py": "de0568a91648f8c80f8fa9efb6e7ee77d9800b9404df75eab74f905803a4e2d3",
+    "tests/test_associative_learnability.py": "2193d31c918f049e0750935295ebc668cd1e5fe19cb0bff8f66e28ceac029e1a",
+    "src/openjev/research/associative_policy.py": "e4d8ad1741c040f11a2a96fd5e2bd77bca024a846e704635bd99e21c35ee0833",
+    "src/openjev/research/predictive_memory.py": "ae851d5aa715c6adb73374d663d6aae0817aea0f1c9e7c9e1f513204706a60aa",
+    "src/openjev/research/cue_memory_env.py": "a7b4ce334e9808e52a8e13d85a981746af64767372b5ceac7c67936d4d5c442c",
+    "src/openjev/research/memory_env.py": "4e3c613984b2f1e4ced3a2d24f074e087eb201fe4bff9014559b7d15cb3e4c49"
+  },
+  "training_data": {
+    "size": 11,
+    "contexts": [
+      {
+        "seed": 70000000,
+        "cue": 5,
+        "upper_branch": 5,
+        "target_turn": 0,
+        "observations_sha256": "00d073cfcb8e6e49b6954ba7adda967e937d11fcaea497fff6fd60fea2e34742"
+      },
+      {
+        "seed": 70000007,
+        "cue": 5,
+        "upper_branch": 6,
+        "target_turn": 1,
+        "observations_sha256": "7ff91e4a32390ad7125026177e4d825367f8464cb91b2195d7654cff959bc339"
+      },
+      {
+        "seed": 70000002,
+        "cue": 6,
+        "upper_branch": 5,
+        "target_turn": 1,
+        "observations_sha256": "9220d48515b7fa1fd2c1c5b9b1d7f0331c83cf4cc3981e224d969e796768e880"
+      },
+      {
+        "seed": 70000005,
+        "cue": 6,
+        "upper_branch": 6,
+        "target_turn": 0,
+        "observations_sha256": "6c5018f5e463592d2f84df330609c8bdf6d0f2d8be4fb82a01750491d52b9e55"
+      }
+    ],
+    "array_sha256": {
+      "observations": "300862d3243cc2e71b687eaf087aef6969a6219123a467288a3952ecbbe7313a",
+      "previous": "d729fcc6a1c49f29aa797c6ad5ddbc3c0453ca18859fc8f367821a391226cb27",
+      "resets": "0db2f52b5152b81c03c768e9e06b4bb2cd1159cd052c67fb220c290855acaaa3",
+      "labels": "0f719199aed51a4b1a51f41cab5395bf45b4cfdaca1fa82f15284c5bd14488ce"
+    },
+    "unique_observation_sequences": 4,
+    "target_counts": {
+      "0": 2,
+      "1": 2
+    },
+    "seeds_searched": 8
+  },
+  "dependencies": {
+    "minigrid": "3.0.0",
+    "gymnasium": "1.3.0",
+    "torch": "2.14.0",
+    "numpy": "2.5.3"
+  },
+  "python": "3.12.13",
+  "lock_sha256": "833d01b398f7dae71fd3c565c3dbb05c87b337aac7917d7f0ccf3eef01ba1e0e"
+}
