@@ -1,8 +1,20 @@
 # OpenJev benchmark figures
 
-[Paper draft (PDF)](../output/pdf/openjev-memory-paper.pdf) · [LaTeX source and build instructions](../paper/README.md)
+[Paper draft (PDF)](../output/pdf/openjev-improvement-paper.pdf) · [LaTeX source and build instructions](../paper/README.md)
 
 These figures visualize existing development evidence. No new model training or gameplay runs were performed to produce them. Each experiment has a separate scope; they do not form a single leaderboard.
+
+## Prospective improvement studies
+
+[All three studies and failed continuation gates](improvement-studies.md). These ran 6,408 new episodes; the figures below were generated from preserved results. Each confirmation uses 96 paired seeds in both scenarios. Bars are exploratory 99.375% bootstrap intervals, adjusted within the primary comparison family of each study.
+
+![Event-memory confirmation](../evidence/event-cadence-doom-v1/confirmation-contrasts.png)
+
+The combined event-memory rule reduces redundant commands with identical paired kills, but fails the broader comparisons against historical models.
+
+![Portable model confirmation](../evidence/portable-head-doom-v1/confirmation-contrasts.png)
+
+The selected fitted model improves utility over rules, but does not establish kill noninferiority in Line or clear the historical-bank comparisons. [All component comparisons](portable-head-study.md).
 
 ## Original gameplay
 

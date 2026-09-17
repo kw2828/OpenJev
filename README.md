@@ -45,11 +45,21 @@ For the existing tiny Doom baseline only, use `uv sync --frozen` and `uv run ope
 
 ## Research extensions
 
-**New: [frozen memory ablation](docs/memory-ablation.md), 1,980 fresh episodes.** Causal history improved utility over the original model on both scenarios, but did not clear the predeclared comparisons against the equally sized current-only control. The continuation gate failed; adaptive-compute and second-environment efficacy experiments stopped.
+**New: [three improvement studies, 6,408 fresh episodes](docs/improvement-studies.md).** Remembering observed ammo decreases or hits improved net utility over rules by **+0.82 in Center and +5.43 in Line**, with kills identical in all 192 paired confirmation episodes. It avoids redundant fire commands under the stated command cost. All three broader continuation gates failed; this is an engineering gain, not established ICLR novelty.
+
+![Event-memory confirmation and its failed broader comparisons](evidence/event-cadence-doom-v1/confirmation-contrasts.png)
+
+The final learned-model study also isolates the event gate: adding it to the same fitted head gained +0.76 utility in Center and +4.85 in Line, with identical paired kills. These exploratory secondary comparisons do not establish better combat performance. [Full comparisons and limits](docs/portable-head-study.md).
+
+![Local numerical ensemble replaying the first confirmation seed](docs/assets/portable-current-event-101000.gif)
+
+*Fitted four-feature ensemble plus event memory, first confirmation seed 101000: 6 kills in 9.20 game seconds, then death. Gameplay matches the preserved evaluation episode. Separate from Qwen and from the tiny imitation model. [Recording receipt](docs/assets/portable-current-event-101000.json).*
+
+**Earlier: [frozen memory ablation](docs/memory-ablation.md), 1,980 fresh episodes.** Causal history improved utility over the original model on both scenarios, but did not clear the predeclared comparisons against the equally sized current-only control. The continuation gate failed; adaptive-compute and second-environment efficacy experiments stopped.
 
 ![Memory ablation primary contrasts](evidence/memory-doom-v1/memory-contrasts.png)
 
-[**Benchmark figures and evidence**](docs/benchmarks.md) · [**Paper draft (PDF)**](output/pdf/openjev-memory-paper.pdf) · [**LaTeX source and build instructions**](paper/README.md)
+[**Benchmark figures and evidence**](docs/benchmarks.md) · [**Paper draft (PDF)**](output/pdf/openjev-improvement-paper.pdf) · [**LaTeX source and build instructions**](paper/README.md)
 
 The [research plan](docs/research.md) covers conformal prediction sets, connectome-inspired sparse recurrence, shared-depth latent transformers, recurrent world models, and a Rust/Python score-kernel benchmark. Working modules live under `openjev.research`; they are opt-in and do not change the deployed policy. The architecture modules are untrained, and synthetic checks are not model-quality results. The proposed ICLR direction is uncertainty-guided compute under a fixed budget, with explicit prior-work comparisons and stop rules.
 
