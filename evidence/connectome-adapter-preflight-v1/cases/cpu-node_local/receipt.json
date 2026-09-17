@@ -1,0 +1,198 @@
+{
+  "adapter_forward_calls": 4,
+  "backbone_hash_unchanged": true,
+  "backbone_matches_fresh_random_source": true,
+  "backbone_sha256_after": "f16d83fe86fad93b85cf298146018e3fe83c3a955d79562e680d1402c0798f90",
+  "backbone_sha256_before": "f16d83fe86fad93b85cf298146018e3fe83c3a955d79562e680d1402c0798f90",
+  "backbone_stayed_eval": true,
+  "case": {
+    "batch_size": 8,
+    "device": "cpu",
+    "id": "cpu-node_local",
+    "mode": "node_local"
+  },
+  "config": {
+    "alpha": 0.5,
+    "anatomical_counts_used": false,
+    "architecture": "frozen-direct-root4-signed-graph-residual-adapter-v1",
+    "backbone_root_depth": 4,
+    "backbone_seed": 211,
+    "backbone_width": 32,
+    "edges": 1409,
+    "execution": "Dense matrix assembly and dense matmul in every mode",
+    "graph_steps": 4,
+    "mapping_seed": 227,
+    "mapping_sha256": "7383a32a658f32b44241981dd6774b85c29003ea5bfb4951e8ea5011b7a0dbb1",
+    "mode": "node_local",
+    "node_interface": "Artificial balanced channels-first spatial slot mapping, all nodes driven/read",
+    "nodes": 1409,
+    "normalization": "Each signed edge divided by destination stored-edge indegree, clamped at one",
+    "residual": "Occupancy-mean of final-minus-initial node state; zero-initialized output projection",
+    "seed": 223,
+    "slot_channels": 16,
+    "slot_count": 1024,
+    "source_graph_sha256": "2fe223a4dcf17b8928f118bd0bcf7301cde8d47216d6b825fb903d91d229a1b9",
+    "state": "Fresh h0=tanh(projected board drive) per call; no cross-move state"
+  },
+  "direct_baseline_forward_calls": 1,
+  "ended_utc": "2026-09-17T20:13:27.326508+00:00",
+  "environment": {
+    "default_dtype": "torch.float32",
+    "deterministic_algorithms": false,
+    "environment_flags": {
+      "MKL_NUM_THREADS": null,
+      "OMP_NUM_THREADS": null,
+      "PYTORCH_ENABLE_MPS_FALLBACK": null,
+      "PYTORCH_MPS_FAST_MATH": null,
+      "PYTORCH_MPS_HIGH_WATERMARK_RATIO": null,
+      "PYTORCH_MPS_LOW_WATERMARK_RATIO": null
+    },
+    "executable": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/python",
+    "float32_matmul_precision": "highest",
+    "logical_cpus": 18,
+    "machine": "arm64",
+    "mps_available": true,
+    "mps_built": true,
+    "numpy": "2.5.3",
+    "python": "3.12.13 (main, Jul 23 2026, 14:33:47) [Clang 22.1.3 ]",
+    "release": "25.6.0",
+    "system": "Darwin",
+    "torch": "2.14.0",
+    "torch_interop_threads": 1,
+    "torch_threads": 2
+  },
+  "environment_sha256": "b519eb70c2d23cd3099ccaaaaf33e0a9e2ea951e2e7f960c0073e20ee4d19f39",
+  "final_memory": {
+    "process_peak_rss_bytes": 1339998208
+  },
+  "forward_computation": {
+    "accounted_dense_mac_total": 105107744,
+    "batch_size": 8,
+    "candidate_branch_evaluations": 0,
+    "candidate_score_slots": 64,
+    "candidate_slots_per_position": 8,
+    "frozen_root_conv_macs": 40550400,
+    "frozen_root_iterations": 32,
+    "graph_dense_matmul_macs": 63528992,
+    "graph_edge_gain_evaluations": 1409,
+    "graph_matrix_entries_materialized": 1985281,
+    "graph_structural_message_products": 45088,
+    "input_projection_macs": 262144,
+    "native_successors": 0,
+    "node_state_updates": 45088,
+    "output_projection_macs": 262144,
+    "policy_head_macs": 495616,
+    "scope": "Selected actual dense MACs plus separate structural counts; not total FLOPs or measured latency",
+    "slot_gather_values": 11272,
+    "slot_occupancy_divisions": 8192,
+    "slot_pool_accumulations": 11272,
+    "value_head_macs": 8448
+  },
+  "graph": {
+    "edges": 44090,
+    "graph_assets_or_weights_saved": false,
+    "graph_sha256": "2fe223a4dcf17b8928f118bd0bcf7301cde8d47216d6b825fb903d91d229a1b9",
+    "negative_edges": 14754,
+    "nodes": 1409,
+    "positive_edges": 29336,
+    "provenance": {
+      "dataset": "FlyWire FAFB v783, Shiu et al. author release",
+      "external_license": "FlyWire non-commercial terms; model card license: other",
+      "graph_raw_sha256": "700a443c885ef2eec25f97136ea14b9a2575fb270321190f4edc4e6f5c49e13d",
+      "meta_sha256": "4405c948ffaa490eeb5ce4577e6c2ce9fc06113c014732f3491a62248eb3b693",
+      "neurons_raw_sha256": "a245f2f2195ff82a4bd1af8dab70e9d213eca29fd5c7add607b3d983ed7bedfa",
+      "node_identity": "Original packed indices, not FlyWire root IDs",
+      "operation": "exact_induced_subgraph",
+      "source_graph_sha256": "56b5e2f8543e2c5fc3cc8529e03fb611f7077aedd59c18b32ea93b3f33008fc0",
+      "space_revision": "375374bf58f1c828ad7d33905b64f1fa6ac4906f"
+    },
+    "selected_node_ids_sha256": "a7a88d57f79880e9150a538728823fe26d8d5ac3ac4d4613492373d9ba06c9e2",
+    "selection": "All and only packed neurons with coarse group 3 (descending)"
+  },
+  "graph_load_validation_seconds": 0.6428479169262573,
+  "observed_case_seconds": 1.0855272089829668,
+  "optimizer_updates_completed": 3,
+  "optimizer_updates_started": 3,
+  "parameter_counts": {
+    "active_frozen_backbone": 33185,
+    "edge_magnitudes": 1409,
+    "frozen_backbone": 43854,
+    "inactive_frozen_backbone": 10669,
+    "input_projection": 528,
+    "node_bias": 1409,
+    "output_projection": 544,
+    "stored": 47744,
+    "trainable": 3890
+  },
+  "protocol_sha256": "e43cda823e2f5a2a6986f18467637787f99a0933cba3657e8a55d8d1b7ecee96",
+  "random_model_and_inputs_seconds": 0.010188332991674542,
+  "source_sha256": {
+    "pyproject.toml": "64436d48af2351450b9dc774f601091fa2a8b6c87d743088a3d26baa5d459aba",
+    "scripts/preflight_chess_connectome_adapter.py": "d515a82497231078ee52b66e3510293d81c7c2ae4ce7acf3c0d0bb01239b2e04",
+    "src/openjev/research/chess_anchor.py": "791be15f6b20bb40c2ff075ef824b4c725887592d32b966fe1fef38ac115210b",
+    "src/openjev/research/chess_candidate.py": "3f09247154d5ed47d300c00fb71729a3808d4504b344af62423571b8f12cd3fa",
+    "src/openjev/research/chess_connectome_adapter.py": "97602fc3f1a08b4b4a9a8817ec41d930c2bfa0fddcc16ca63d5589145a151d33",
+    "src/openjev/research/chess_spatial.py": "49e6e53d33cd52511c0e4a08074b9a7f0dc2244727df2879f3fb7fd1aa886ab4",
+    "src/openjev/research/connectome_graph.py": "a185e4dcfc16c23b541e28cf6c2079cfc71f07d1bb1dfb9bf66813eab7246d8b",
+    "uv.lock": "833d01b398f7dae71fd3c565c3dbb05c87b337aac7917d7f0ccf3eef01ba1e0e"
+  },
+  "started_utc": "2026-09-17T20:13:26.240985+00:00",
+  "status": "completed",
+  "synthetic_input_tensor_sha256": {
+    "candidates": "eb10192fe40f0540a2ab9c68b25cb471f530d89aa72972fb2f73a7632d2bc943",
+    "legal_mask": "d707fdf6f49f23fefe74944929b62b3233b365cf4fdfe5b19d259f1bb0d7ad8f",
+    "observations": "901a631277db124c44617fd017e6b31615c70f85d852d5d31b9ef199d1219452",
+    "policy_targets": "a5d329ad37b903cb4caeff0feb835efa24f84226b78375a9a7b5603f2aa9147e",
+    "value_targets": "9db19ed5d82d0018cc3f6ebde321f75399cd40a8244847efbcc00a708f38ec68"
+  },
+  "updates": [
+    {
+      "gradient_l2": {
+        "edge_log_gain": 0.0,
+        "input_projection": 0.0,
+        "node_bias": 0.0,
+        "output_projection": 0.034837799583870434
+      },
+      "memory": {
+        "process_peak_rss_bytes": 1339834368
+      },
+      "observed_update_audit_seconds": 0.008272957988083363,
+      "synthetic_loss_before_update": 2.0836949348449707,
+      "update": 1
+    },
+    {
+      "gradient_l2": {
+        "edge_log_gain": 1.2318696319390993e-05,
+        "input_projection": 0.0007439955192015652,
+        "node_bias": 8.635105013145357e-05,
+        "output_projection": 0.03314750058175949
+      },
+      "memory": {
+        "process_peak_rss_bytes": 1339965440
+      },
+      "observed_update_audit_seconds": 0.00594762503169477,
+      "synthetic_loss_before_update": 2.083188056945801,
+      "update": 2
+    },
+    {
+      "gradient_l2": {
+        "edge_log_gain": 2.3622536653137688e-05,
+        "input_projection": 0.0013379060964558295,
+        "node_bias": 0.00015925001406521362,
+        "output_projection": 0.031222567960489504
+      },
+      "memory": {
+        "process_peak_rss_bytes": 1339981824
+      },
+      "observed_update_audit_seconds": 0.005380999995395541,
+      "synthetic_loss_before_update": 2.0826947689056396,
+      "update": 3
+    }
+  ],
+  "version": "openjev-connectome-adapter-synthetic-resource-preflight-v1",
+  "zero_init_exact_equal": {
+    "hidden": true,
+    "logits": true,
+    "value": true
+  }
+}

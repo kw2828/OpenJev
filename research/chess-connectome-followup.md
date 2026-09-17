@@ -1,6 +1,6 @@
 # Biological topology as a chess-model prior
 
-Status: graph-only loading, exact induced extraction and matched rewiring controls implemented; 40 synthetic tests pass. The [real-asset audit and three-control structural preflight](../evidence/connectome-graph-v1/README.md) completed independently of pretrained weights. No new biological-topology model has been trained. This follow-up does not alter the completed candidate-v2 experiment or its success criteria.
+Status: graph-only loading, exact induced extraction and matched rewiring controls implemented; 40 synthetic graph tests pass. The [real-asset audit and three-control structural preflight](../evidence/connectome-graph-v1/README.md) completed independently of pretrained weights. The [residual adapter](chess-connectome-adapter-pilot.md) passed 51 synthetic unit tests and six full-size CPU/MPS cases with 18 synthetic optimizer updates. No biological-topology adapter has been trained on chess labels or evaluated for chess effectiveness. This follow-up does not alter the completed candidate-v2 experiment or its success criteria.
 
 ## Why this needs a new comparison
 
@@ -25,7 +25,7 @@ The structural preflight used all 1,409 descending neurons, containing 44,090 co
 
 ## Proposed comparison, not yet frozen
 
-Select a small induced subgraph by a fixed anatomical or graph-only rule before training. Record selected node indices, signs, coarse groups, input/readout mapping, excluded self or parallel edges if any, and the boundary edges lost by induction. Keep the same selected nodes and mapping in every arm. Subgraph size and selection rule remain to be decided; no chess score should select them.
+The current residual-adapter proposal uses all 1,409 descending nodes by a fixed coarse-group rule. Record selected node identities, signs, groups, input/readout mapping and the boundary edges lost by induction. Keep the same selected nodes and mapping in every arm. No chess score selected this graph, and the executable training protocol is not yet frozen.
 
 Compare biological wiring with several independently rewired graphs, a random sparse control and dense recurrence. For the primary rewiring control, swap edges only within the same source-group, destination-group and sign bucket. This preserves each node's signed degrees and its incident group composition, as well as total group mixing. The operation changes higher-order wiring while retaining these local statistics. Use topology signs with freshly initialized learned magnitudes; anatomical connection counts are provenance rather than an implicitly preserved strength distribution.
 

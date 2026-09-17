@@ -31,7 +31,10 @@ from openjev.research.connectome_graph import SignedGraph, graph_sha256
 MODES = ('sparse', 'dense', 'node_local')
 MAX_NODES = 4096
 ROOT_DEPTH = 4
-INITIAL_MAGNITUDE = 0.1
+# Degree normalization starts each nonempty row at absolute edge mass one
+# before any signed parallel-edge contributions are combined.
+# The tanh/leaky updates bound node states without suppressing messages by 10x.
+INITIAL_MAGNITUDE = 1.0
 
 
 def _integer(value, name: str, *, minimum=0):

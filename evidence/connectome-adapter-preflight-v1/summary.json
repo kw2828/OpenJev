@@ -1,0 +1,105 @@
+{
+  "cases": [
+    {
+      "case": {
+        "batch_size": 8,
+        "device": "cpu",
+        "id": "cpu-sparse",
+        "mode": "sparse"
+      },
+      "optimizer_updates_completed": 3,
+      "optimizer_updates_started": 3,
+      "receipt": "cases/cpu-sparse/receipt.json",
+      "receipt_sha256": "a86242de9f4888d7df7da4ab99cc296633ab58520361a3348fcb6c956605a8f9",
+      "status": "completed"
+    },
+    {
+      "case": {
+        "batch_size": 8,
+        "device": "cpu",
+        "id": "cpu-dense",
+        "mode": "dense"
+      },
+      "optimizer_updates_completed": 3,
+      "optimizer_updates_started": 3,
+      "receipt": "cases/cpu-dense/receipt.json",
+      "receipt_sha256": "5e95d27b0cc45771f3817d007a208a320cc33c8791e1cb6f8094dd1c87ed977b",
+      "status": "completed"
+    },
+    {
+      "case": {
+        "batch_size": 8,
+        "device": "cpu",
+        "id": "cpu-node_local",
+        "mode": "node_local"
+      },
+      "optimizer_updates_completed": 3,
+      "optimizer_updates_started": 3,
+      "receipt": "cases/cpu-node_local/receipt.json",
+      "receipt_sha256": "9456d11b61f990cdbd1110ff6120fca49378e814b1e63be37c36d69debf12bce",
+      "status": "completed"
+    },
+    {
+      "case": {
+        "batch_size": 128,
+        "device": "mps",
+        "id": "mps-sparse",
+        "mode": "sparse"
+      },
+      "optimizer_updates_completed": 3,
+      "optimizer_updates_started": 3,
+      "receipt": "cases/mps-sparse/receipt.json",
+      "receipt_sha256": "a4a85565ac05388d15c936263d8725bf4108516c3ea2a757ece7c0484e16a35b",
+      "status": "completed"
+    },
+    {
+      "case": {
+        "batch_size": 128,
+        "device": "mps",
+        "id": "mps-dense",
+        "mode": "dense"
+      },
+      "optimizer_updates_completed": 3,
+      "optimizer_updates_started": 3,
+      "receipt": "cases/mps-dense/receipt.json",
+      "receipt_sha256": "34cbe4c170e2e8869828eb094b732152d057a0e0cde3d9bdea0543b123f94fb6",
+      "status": "completed"
+    },
+    {
+      "case": {
+        "batch_size": 128,
+        "device": "mps",
+        "id": "mps-node_local",
+        "mode": "node_local"
+      },
+      "optimizer_updates_completed": 3,
+      "optimizer_updates_started": 3,
+      "receipt": "cases/mps-node_local/receipt.json",
+      "receipt_sha256": "c01cdfc5c91fac8f9fadce9f0ccea59413d78eb7614b28524a728bebff9e7f2c",
+      "status": "completed"
+    }
+  ],
+  "concurrent_work": {
+    "command_supplied_by_parent": ".venv/bin/python scripts/chessbench_transfer_study.py report --plan evidence/chessbench-transfer-v1/protocol/plan.json --execution runs/chessbench-transfer-v1/execution --out runs/chessbench-transfer-v1/report",
+    "other_work_supplied_by_parent": "Report audit completed before launch; archive packaging may overlap this preflight",
+    "pid_exists_at_check": false,
+    "reported_concurrent_audit_pid": 4472,
+    "timing_limit": "Concurrent report-audit and other host work can interfere; timings are not isolated benchmarks"
+  },
+  "concurrent_work_at_end": {
+    "command_supplied_by_parent": ".venv/bin/python scripts/chessbench_transfer_study.py report --plan evidence/chessbench-transfer-v1/protocol/plan.json --execution runs/chessbench-transfer-v1/execution --out runs/chessbench-transfer-v1/report",
+    "other_work_supplied_by_parent": "Report audit completed before launch; archive packaging may overlap this preflight",
+    "pid_exists_at_check": false,
+    "reported_concurrent_audit_pid": 4472,
+    "timing_limit": "Concurrent report-audit and other host work can interfere; timings are not isolated benchmarks"
+  },
+  "ended_utc": "2026-09-17T20:13:34.964369+00:00",
+  "interpretation": "Synthetic resource/implementation feasibility only; no chess efficacy or clean speed comparison",
+  "observed_total_seconds": 15.145971292047761,
+  "protocol_sha256": "e43cda823e2f5a2a6986f18467637787f99a0933cba3657e8a55d8d1b7ecee96",
+  "started_utc": "2026-09-17T20:13:19.830557+00:00",
+  "status": "completed",
+  "total_optimizer_updates_completed": 18,
+  "total_optimizer_updates_started": 18,
+  "version": "openjev-connectome-adapter-synthetic-resource-preflight-v1"
+}

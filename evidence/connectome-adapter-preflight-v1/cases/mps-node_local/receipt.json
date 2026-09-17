@@ -1,0 +1,206 @@
+{
+  "adapter_forward_calls": 4,
+  "backbone_hash_unchanged": true,
+  "backbone_matches_fresh_random_source": true,
+  "backbone_sha256_after": "f16d83fe86fad93b85cf298146018e3fe83c3a955d79562e680d1402c0798f90",
+  "backbone_sha256_before": "f16d83fe86fad93b85cf298146018e3fe83c3a955d79562e680d1402c0798f90",
+  "backbone_stayed_eval": true,
+  "case": {
+    "batch_size": 128,
+    "device": "mps",
+    "id": "mps-node_local",
+    "mode": "node_local"
+  },
+  "config": {
+    "alpha": 0.5,
+    "anatomical_counts_used": false,
+    "architecture": "frozen-direct-root4-signed-graph-residual-adapter-v1",
+    "backbone_root_depth": 4,
+    "backbone_seed": 211,
+    "backbone_width": 32,
+    "edges": 1409,
+    "execution": "Dense matrix assembly and dense matmul in every mode",
+    "graph_steps": 4,
+    "mapping_seed": 227,
+    "mapping_sha256": "7383a32a658f32b44241981dd6774b85c29003ea5bfb4951e8ea5011b7a0dbb1",
+    "mode": "node_local",
+    "node_interface": "Artificial balanced channels-first spatial slot mapping, all nodes driven/read",
+    "nodes": 1409,
+    "normalization": "Each signed edge divided by destination stored-edge indegree, clamped at one",
+    "residual": "Occupancy-mean of final-minus-initial node state; zero-initialized output projection",
+    "seed": 223,
+    "slot_channels": 16,
+    "slot_count": 1024,
+    "source_graph_sha256": "2fe223a4dcf17b8928f118bd0bcf7301cde8d47216d6b825fb903d91d229a1b9",
+    "state": "Fresh h0=tanh(projected board drive) per call; no cross-move state"
+  },
+  "direct_baseline_forward_calls": 1,
+  "ended_utc": "2026-09-17T20:13:34.616876+00:00",
+  "environment": {
+    "default_dtype": "torch.float32",
+    "deterministic_algorithms": false,
+    "environment_flags": {
+      "MKL_NUM_THREADS": null,
+      "OMP_NUM_THREADS": null,
+      "PYTORCH_ENABLE_MPS_FALLBACK": null,
+      "PYTORCH_MPS_FAST_MATH": null,
+      "PYTORCH_MPS_HIGH_WATERMARK_RATIO": null,
+      "PYTORCH_MPS_LOW_WATERMARK_RATIO": null
+    },
+    "executable": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/python",
+    "float32_matmul_precision": "highest",
+    "logical_cpus": 18,
+    "machine": "arm64",
+    "mps_available": true,
+    "mps_built": true,
+    "numpy": "2.5.3",
+    "python": "3.12.13 (main, Jul 23 2026, 14:33:47) [Clang 22.1.3 ]",
+    "release": "25.6.0",
+    "system": "Darwin",
+    "torch": "2.14.0",
+    "torch_interop_threads": 1,
+    "torch_threads": 2
+  },
+  "environment_sha256": "b519eb70c2d23cd3099ccaaaaf33e0a9e2ea951e2e7f960c0073e20ee4d19f39",
+  "final_memory": {
+    "mps_current_allocated_bytes": 2035968,
+    "mps_driver_allocated_bytes": 70008832,
+    "process_peak_rss_bytes": 1500184576
+  },
+  "forward_computation": {
+    "accounted_dense_mac_total": 1681723904,
+    "batch_size": 128,
+    "candidate_branch_evaluations": 0,
+    "candidate_score_slots": 1024,
+    "candidate_slots_per_position": 8,
+    "frozen_root_conv_macs": 648806400,
+    "frozen_root_iterations": 512,
+    "graph_dense_matmul_macs": 1016463872,
+    "graph_edge_gain_evaluations": 1409,
+    "graph_matrix_entries_materialized": 1985281,
+    "graph_structural_message_products": 721408,
+    "input_projection_macs": 4194304,
+    "native_successors": 0,
+    "node_state_updates": 721408,
+    "output_projection_macs": 4194304,
+    "policy_head_macs": 7929856,
+    "scope": "Selected actual dense MACs plus separate structural counts; not total FLOPs or measured latency",
+    "slot_gather_values": 180352,
+    "slot_occupancy_divisions": 131072,
+    "slot_pool_accumulations": 180352,
+    "value_head_macs": 135168
+  },
+  "graph": {
+    "edges": 44090,
+    "graph_assets_or_weights_saved": false,
+    "graph_sha256": "2fe223a4dcf17b8928f118bd0bcf7301cde8d47216d6b825fb903d91d229a1b9",
+    "negative_edges": 14754,
+    "nodes": 1409,
+    "positive_edges": 29336,
+    "provenance": {
+      "dataset": "FlyWire FAFB v783, Shiu et al. author release",
+      "external_license": "FlyWire non-commercial terms; model card license: other",
+      "graph_raw_sha256": "700a443c885ef2eec25f97136ea14b9a2575fb270321190f4edc4e6f5c49e13d",
+      "meta_sha256": "4405c948ffaa490eeb5ce4577e6c2ce9fc06113c014732f3491a62248eb3b693",
+      "neurons_raw_sha256": "a245f2f2195ff82a4bd1af8dab70e9d213eca29fd5c7add607b3d983ed7bedfa",
+      "node_identity": "Original packed indices, not FlyWire root IDs",
+      "operation": "exact_induced_subgraph",
+      "source_graph_sha256": "56b5e2f8543e2c5fc3cc8529e03fb611f7077aedd59c18b32ea93b3f33008fc0",
+      "space_revision": "375374bf58f1c828ad7d33905b64f1fa6ac4906f"
+    },
+    "selected_node_ids_sha256": "a7a88d57f79880e9150a538728823fe26d8d5ac3ac4d4613492373d9ba06c9e2",
+    "selection": "All and only packed neurons with coarse group 3 (descending)"
+  },
+  "graph_load_validation_seconds": 0.512991041992791,
+  "observed_case_seconds": 1.185906458995305,
+  "optimizer_updates_completed": 3,
+  "optimizer_updates_started": 3,
+  "parameter_counts": {
+    "active_frozen_backbone": 33185,
+    "edge_magnitudes": 1409,
+    "frozen_backbone": 43854,
+    "inactive_frozen_backbone": 10669,
+    "input_projection": 528,
+    "node_bias": 1409,
+    "output_projection": 544,
+    "stored": 47744,
+    "trainable": 3890
+  },
+  "protocol_sha256": "e43cda823e2f5a2a6986f18467637787f99a0933cba3657e8a55d8d1b7ecee96",
+  "random_model_and_inputs_seconds": 0.03154937503859401,
+  "source_sha256": {
+    "pyproject.toml": "64436d48af2351450b9dc774f601091fa2a8b6c87d743088a3d26baa5d459aba",
+    "scripts/preflight_chess_connectome_adapter.py": "d515a82497231078ee52b66e3510293d81c7c2ae4ce7acf3c0d0bb01239b2e04",
+    "src/openjev/research/chess_anchor.py": "791be15f6b20bb40c2ff075ef824b4c725887592d32b966fe1fef38ac115210b",
+    "src/openjev/research/chess_candidate.py": "3f09247154d5ed47d300c00fb71729a3808d4504b344af62423571b8f12cd3fa",
+    "src/openjev/research/chess_connectome_adapter.py": "97602fc3f1a08b4b4a9a8817ec41d930c2bfa0fddcc16ca63d5589145a151d33",
+    "src/openjev/research/chess_spatial.py": "49e6e53d33cd52511c0e4a08074b9a7f0dc2244727df2879f3fb7fd1aa886ab4",
+    "src/openjev/research/connectome_graph.py": "a185e4dcfc16c23b541e28cf6c2079cfc71f07d1bb1dfb9bf66813eab7246d8b",
+    "uv.lock": "833d01b398f7dae71fd3c565c3dbb05c87b337aac7917d7f0ccf3eef01ba1e0e"
+  },
+  "started_utc": "2026-09-17T20:13:33.430974+00:00",
+  "status": "completed",
+  "synthetic_input_tensor_sha256": {
+    "candidates": "05efdc47195e5ef92fb7a00a63f4946009c74a38e72888534be2c8cfcdbffcc8",
+    "legal_mask": "f7320e1566b3de21152031ab21945968f26bdd6ab169da2f2b234ca0baafe541",
+    "observations": "da8992b5769f8b43f54ec42b1f6e0c74dc7dd285693d9fb3914f1b1d5149b480",
+    "policy_targets": "aff9857b5d4e820efe119f130ce978f13a603c0c7f7c8ec277a2aebb4b1b9726",
+    "value_targets": "b13956a6e227f7656184b7c925a94d5ef7d66dc01d9404f0ae9d67afda4438af"
+  },
+  "updates": [
+    {
+      "gradient_l2": {
+        "edge_log_gain": 0.0,
+        "input_projection": 0.0,
+        "node_bias": 0.0,
+        "output_projection": 0.03487467592953613
+      },
+      "memory": {
+        "mps_current_allocated_bytes": 2035968,
+        "mps_driver_allocated_bytes": 70008832,
+        "process_peak_rss_bytes": 1499889664
+      },
+      "observed_update_audit_seconds": 0.09957033302634954,
+      "synthetic_loss_before_update": 2.0843520164489746,
+      "update": 1
+    },
+    {
+      "gradient_l2": {
+        "edge_log_gain": 1.0106942575681882e-05,
+        "input_projection": 0.0008543400024915414,
+        "node_bias": 8.664497207082602e-05,
+        "output_projection": 0.03301868594679639
+      },
+      "memory": {
+        "mps_current_allocated_bytes": 2035968,
+        "mps_driver_allocated_bytes": 70008832,
+        "process_peak_rss_bytes": 1500135424
+      },
+      "observed_update_audit_seconds": 0.02268170891329646,
+      "synthetic_loss_before_update": 2.0838425159454346,
+      "update": 2
+    },
+    {
+      "gradient_l2": {
+        "edge_log_gain": 1.9084328061624865e-05,
+        "input_projection": 0.0015723301294500152,
+        "node_bias": 0.0001602129943626466,
+        "output_projection": 0.0312691793594718
+      },
+      "memory": {
+        "mps_current_allocated_bytes": 2035968,
+        "mps_driver_allocated_bytes": 70008832,
+        "process_peak_rss_bytes": 1500151808
+      },
+      "observed_update_audit_seconds": 0.014416250050999224,
+      "synthetic_loss_before_update": 2.083345890045166,
+      "update": 3
+    }
+  ],
+  "version": "openjev-connectome-adapter-synthetic-resource-preflight-v1",
+  "zero_init_exact_equal": {
+    "hidden": true,
+    "logits": true,
+    "value": true
+  }
+}
