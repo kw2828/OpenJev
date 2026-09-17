@@ -51,7 +51,7 @@ The full analysis includes duration, policy latency, per-fit means, all control 
 
 ## Recorded policy
 
-![First JEPA-trained policy and first evaluation seed](assets/jepa-policy-181000.gif)
+![First JEPA-trained policy and first evaluation seed](assets/jepa-policy-181000-preview.gif)
 
 First fit, first Center evaluation seed 181000: **13 kills in 19.26 game seconds**. The replay matches the preserved outcome. This small policy was trained using JEPA rewards; JEPA is not running during gameplay. One illustrative recording, not a selected best episode or an inference benchmark. [Recording receipt](assets/jepa-policy-181000.json).
 

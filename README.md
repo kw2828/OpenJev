@@ -8,11 +8,13 @@ Score choices you define at request time, with stable candidate IDs. Explore tex
 
 ## See it work
 
-![Local Doom policy trained with V-JEPA 2 rewards](docs/assets/jepa-policy-181000.gif)
+[![Local Doom policy trained with V-JEPA 2 rewards](docs/assets/jepa-policy-181000-preview.gif)](docs/assets/jepa-policy-181000.gif)
+
+[Open animation](docs/assets/jepa-policy-181000-preview.gif) · [Original recording](docs/assets/jepa-policy-181000.gif)
 
 **13 kills in 19.26 game seconds**, first fit and first evaluation seed. JEPA scored training clips; a small policy plays this recorded game. [Recording receipt](docs/assets/jepa-policy-181000.json).
 
-[![Browser decision playground before loading its model](docs/assets/browser-playground.png)](https://kw2828.github.io/OpenJev/)
+[![Browser decision playground before loading its model](docs/assets/browser-playground.jpg)](https://kw2828.github.io/OpenJev/)
 
 The free browser demo runs Qwen3-0.6B through WebGPU. It is separate from the Doom policy and the research students below.
 

@@ -14,7 +14,7 @@ Independently implemented, with interface inspiration from [TypeSafe Jev](https:
 
 ### JEPA-trained firing policy
 
-![Local policy trained with pretrained V-JEPA 2 rewards](../docs/assets/jepa-policy-181000.gif)
+![Local policy trained with pretrained V-JEPA 2 rewards](../docs/assets/jepa-policy-181000-preview.gif)
 
 *First fit, first evaluation seed 181000: **13 kills in 19.26 game seconds**. JEPA supplies training rewards; the small policy acts during gameplay. Replay matches the preserved evaluation. [Recording receipt](../docs/assets/jepa-policy-181000.json).*
 
@@ -30,7 +30,7 @@ Independently implemented, with interface inspiration from [TypeSafe Jev](https:
 
 [**Try the free browser playground**](https://kw2828.github.io/OpenJev/) · [**Run the full app**](../docs/hosting.md) · [Open in Codespaces](https://codespaces.new/kw2828/OpenJev)
 
-[![OpenJev browser playground showing editable context, question and candidate answers](../docs/assets/browser-playground.png)](https://kw2828.github.io/OpenJev/)
+[![OpenJev browser playground showing editable context, question and candidate answers](../docs/assets/browser-playground.jpg)](https://kw2828.github.io/OpenJev/)
 
 *Screenshot of the live browser playground before loading its Qwen3-0.6B model. Click the image to try it. Doom gameplay above is a separate recorded controller.*
 
