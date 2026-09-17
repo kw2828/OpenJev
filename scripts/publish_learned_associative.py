@@ -50,7 +50,7 @@ def main():
     axes[0].set(ylim=(93.5, 96), ylabel='In-scope development accuracy (%)', title='Three fits per head; all 68,481 parameters')
     axes[1].set(ylim=(0, 60), ylabel='Mean per-fit median head time (microseconds)', title='CPU, one request; encoder and rejection excluded')
     fig.suptitle('Learning helps; tested recurrence does not beat the metric control', fontsize=14, fontweight='bold')
-    fig.savefig(args.out/'development.png', dpi=160)
+    fig.savefig(args.out/'development.png', dpi=160, bbox_inches='tight', pad_inches=.12)
     plt.close(fig)
 
 
