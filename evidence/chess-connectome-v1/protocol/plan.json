@@ -1,0 +1,532 @@
+{
+  "protocol": {
+    "version": "chess-connectome-v1",
+    "paired_seeds": [
+      97,
+      109,
+      127
+    ],
+    "variants": [
+      "biological",
+      "rewire151",
+      "rewire163",
+      "rewire179",
+      "dense",
+      "node_local"
+    ],
+    "fit_order_seed": 11500017,
+    "batch_order_seed_base": 11500029,
+    "torch_threads": 2,
+    "deterministic_algorithms": false,
+    "dtype": "float32",
+    "all_final_fits_before_neural_evaluation": true,
+    "regret_positions_per_split": 128,
+    "regret_selection_seed": 11500043,
+    "regret_nodes": 20000,
+    "regret_call_ceiling": 5632,
+    "regret_node_ceiling": 112640000,
+    "latency_positions_per_split": 64,
+    "latency_selection_seed": 11500059,
+    "latency_warmups": 3,
+    "relative_loss_reduction": 0.1,
+    "gate_absolute_tolerance": 1e-12,
+    "gate": "Biological mean signed bounded engine-score loss at least10% lower than EACH of three rewires on BOTH panels, all reference means positive. Biological strictly lower in EVERY paired seed than each rewire, and no worse than its own unchanged direct baseline in EVERY paired seed on both panels. Absolute arithmetic tolerance1e-12, incomplete/nonfinite evidence cannot pass.",
+    "graph": "All1409 descending nodes and44090 signed edges; fixed original identities, degree normalization, no anatomical-count initialization. Three audited degree-preserving rewires151/163/179.",
+    "interface": "Frozen complete direct backbone width32/rootdepth4. Paired seeded balanced1409node-to1024slot mapping;16channels per square; four scalar leaky graph steps alpha0.5; zero-initialized residual output projection; fresh states per decision.",
+    "matching": "All eighteen fits use original32768 training positions, labels and paired minibatch order, sixepochs,1536updates. Primary biological-vs-rewire topology comparison matches parameters and operations. Dense/local parameter counts differ. Every mode uses dense matmuls.",
+    "pretraining": "All three direct candidate-v2 final backbones are reused. Original backbone pretraining and earlier failed attempts remain part of the cost/provenance; no low-data sample-efficiency claim.",
+    "arena": "Stage1 has no arena or Elo estimate. Only a passed topology screen can justify a separately frozen arena replication; no game-strength claim from this stage.",
+    "selection": "All fixed seeds and final fits, no best epoch, retries, replacements, resume or budget extension. A failed attempt is retained.",
+    "uncertainty": "Descriptive equal-seed means and paired seed differences on two development panels; no independent-position or seed-population confidence interval.",
+    "scope": "Wiring-prior mechanism screen, not an intact fly circuit, learned world model, search policy, calibrated confidence or established novelty. Historical generators have been studied.",
+    "asset_policy": "Graph arrays, rewires and derived checkpoints remain local in runs/; no MIT redistribution of external biological assets or derivatives.",
+    "timing": "Full CPU choose call including native board/menu construction. Three starting-board warmups separately charged; fixed64positions per split. No concurrent planned heavy study during timing. Shared interactive host, not isolated latency; record load averages before and after each measurement."
+  },
+  "training_settings": {
+    "train_examples": 32768,
+    "epochs": 6,
+    "batch_size": 128,
+    "device": "mps",
+    "learning_rate": 0.001,
+    "gradient_clip": 1.0,
+    "batch_order_seed_base": 11500029,
+    "torch_threads": 2,
+    "deterministic_algorithms": false
+  },
+  "data_config": {
+    "teacher_nodes": 2000,
+    "value_cp_scale": 600.0,
+    "mate_cp": 10000,
+    "teacher_threads": 1,
+    "teacher_hash_mb": 16,
+    "aux_actions": 4,
+    "admission": {
+      "version": "root-and-all-legal-successors-v1",
+      "prior": "Accepted root and every legal successor avoid all prior natural and mirrored states",
+      "across_splits": "Accepted root-plus-successor exposure sets are disjoint across splits",
+      "within_split": "Successors may repeat or overlap other accepted roots; accepted roots remain globally mirror-unique",
+      "state_identity": "Literal-EP first four FEN fields, ignoring move counters; reserve both color/rank mirrors"
+    },
+    "splits": [
+      {
+        "name": "dev",
+        "examples": 2048,
+        "game_cap": 600,
+        "max_plies": 64,
+        "random_move_probability": 0.5,
+        "seed_base": 115000000
+      },
+      {
+        "name": "shift",
+        "examples": 2048,
+        "game_cap": 600,
+        "max_plies": 96,
+        "random_move_probability": 0.1,
+        "seed_base": 116000000
+      }
+    ]
+  },
+  "configurations": [
+    {
+      "name": "biological-127",
+      "variant": "biological",
+      "mode": "sparse",
+      "seed": 127,
+      "mapping_seed": 127,
+      "backbone_seed": 127
+    },
+    {
+      "name": "node_local-97",
+      "variant": "node_local",
+      "mode": "node_local",
+      "seed": 97,
+      "mapping_seed": 97,
+      "backbone_seed": 97
+    },
+    {
+      "name": "dense-109",
+      "variant": "dense",
+      "mode": "dense",
+      "seed": 109,
+      "mapping_seed": 109,
+      "backbone_seed": 109
+    },
+    {
+      "name": "rewire163-109",
+      "variant": "rewire163",
+      "mode": "sparse",
+      "seed": 109,
+      "mapping_seed": 109,
+      "backbone_seed": 109
+    },
+    {
+      "name": "rewire163-127",
+      "variant": "rewire163",
+      "mode": "sparse",
+      "seed": 127,
+      "mapping_seed": 127,
+      "backbone_seed": 127
+    },
+    {
+      "name": "rewire179-97",
+      "variant": "rewire179",
+      "mode": "sparse",
+      "seed": 97,
+      "mapping_seed": 97,
+      "backbone_seed": 97
+    },
+    {
+      "name": "rewire179-109",
+      "variant": "rewire179",
+      "mode": "sparse",
+      "seed": 109,
+      "mapping_seed": 109,
+      "backbone_seed": 109
+    },
+    {
+      "name": "rewire151-127",
+      "variant": "rewire151",
+      "mode": "sparse",
+      "seed": 127,
+      "mapping_seed": 127,
+      "backbone_seed": 127
+    },
+    {
+      "name": "dense-97",
+      "variant": "dense",
+      "mode": "dense",
+      "seed": 97,
+      "mapping_seed": 97,
+      "backbone_seed": 97
+    },
+    {
+      "name": "dense-127",
+      "variant": "dense",
+      "mode": "dense",
+      "seed": 127,
+      "mapping_seed": 127,
+      "backbone_seed": 127
+    },
+    {
+      "name": "biological-97",
+      "variant": "biological",
+      "mode": "sparse",
+      "seed": 97,
+      "mapping_seed": 97,
+      "backbone_seed": 97
+    },
+    {
+      "name": "rewire163-97",
+      "variant": "rewire163",
+      "mode": "sparse",
+      "seed": 97,
+      "mapping_seed": 97,
+      "backbone_seed": 97
+    },
+    {
+      "name": "node_local-109",
+      "variant": "node_local",
+      "mode": "node_local",
+      "seed": 109,
+      "mapping_seed": 109,
+      "backbone_seed": 109
+    },
+    {
+      "name": "rewire151-97",
+      "variant": "rewire151",
+      "mode": "sparse",
+      "seed": 97,
+      "mapping_seed": 97,
+      "backbone_seed": 97
+    },
+    {
+      "name": "rewire179-127",
+      "variant": "rewire179",
+      "mode": "sparse",
+      "seed": 127,
+      "mapping_seed": 127,
+      "backbone_seed": 127
+    },
+    {
+      "name": "biological-109",
+      "variant": "biological",
+      "mode": "sparse",
+      "seed": 109,
+      "mapping_seed": 109,
+      "backbone_seed": 109
+    },
+    {
+      "name": "node_local-127",
+      "variant": "node_local",
+      "mode": "node_local",
+      "seed": 127,
+      "mapping_seed": 127,
+      "backbone_seed": 127
+    },
+    {
+      "name": "rewire151-109",
+      "variant": "rewire151",
+      "mode": "sparse",
+      "seed": 109,
+      "mapping_seed": 109,
+      "backbone_seed": 109
+    }
+  ],
+  "baselines": [
+    {
+      "name": "direct-97",
+      "variant": "direct",
+      "mode": "direct",
+      "seed": 97,
+      "mapping_seed": 97,
+      "backbone_seed": 97
+    },
+    {
+      "name": "direct-109",
+      "variant": "direct",
+      "mode": "direct",
+      "seed": 109,
+      "mapping_seed": 109,
+      "backbone_seed": 109
+    },
+    {
+      "name": "direct-127",
+      "variant": "direct",
+      "mode": "direct",
+      "seed": 127,
+      "mapping_seed": 127,
+      "backbone_seed": 127
+    }
+  ],
+  "binding": {
+    "sources": {
+      "scripts/chess_candidate_recovery.py": "3d968cf761e25625a1d0ae4f764c3d0f4bf6ac6fdeddf98cb16c5df0e939b3b6",
+      "scripts/chess_candidate_study.py": "aa192ee3a93da336afb4f6e27eb4ad57059d7a7acfcf2e2874924764b0d2e3d6",
+      "scripts/chess_compute_study.py": "3f3495f75a232cce52ee5b570dccc1c98c833086f46963272bc98b653ec66582",
+      "scripts/chess_connectome_study.py": "982a50e85a5c51a1641e044fb563d18ae1d28422a106d48ea5c32b6d36c97404",
+      "scripts/preflight_chess_candidate.py": "c84b49b54acac197473337c56bec82d556471867aa0a544632e78d91169c6c51",
+      "scripts/preflight_chess_candidate_128.py": "251764c844b2fcc8d33530548db7ce6f3f009f82d520b78a59f6ed4c6df3c436",
+      "src/openjev/research/chess_anchor.py": "791be15f6b20bb40c2ff075ef824b4c725887592d32b966fe1fef38ac115210b",
+      "src/openjev/research/chess_anchor_data.py": "3bc6d724ab5448aa7d859f1b392697e89b7dea625fdbe10f35f0a907976fc85c",
+      "src/openjev/research/chess_anchor_eval.py": "c9069096a805d867e780f214528f5c2340b796238ae5433e5de9dc80c0d45210",
+      "src/openjev/research/chess_arena.py": "a9a5be6ccb982d2c43b4365a0f0e9dd68c3a8c4fb11ea8c5cf950076b7046702",
+      "src/openjev/research/chess_candidate.py": "3f09247154d5ed47d300c00fb71729a3808d4504b344af62423571b8f12cd3fa",
+      "src/openjev/research/chess_candidate_arena.py": "65e96d4fe993042404f1a542bdf0d207f731703e5295d9478e2203529a5f27ae",
+      "src/openjev/research/chess_candidate_attempt.py": "fdf25a76f62bf6c87deb849f908e18a6fe2c3c934e146402efeae1b01b12417d",
+      "src/openjev/research/chess_candidate_data.py": "d62a7ce582a9fe44c20f0637bf0e7bd8fc2cc0c673cb693b0d428fdcaefc956e",
+      "src/openjev/research/chess_candidate_eval.py": "c32adb06f38969e2af8c85c8606e0f988996a38a61e3bd870b53efd28aebe60e",
+      "src/openjev/research/chess_capacity_arena.py": "86dde83de5b85333f79011e2d023265f33c81bf68eed4d80dff3262e6c5d887e",
+      "src/openjev/research/chess_capacity_data.py": "1c4a3fdf0853544a0f4dd2ee34ea495d02245bee150b9ae6404b77ec773d6ad3",
+      "src/openjev/research/chess_compute.py": "a1ec1a4618a92b4dc37a9a8f510f5f37ba45081e9e0db0d89714c689f88f537f",
+      "src/openjev/research/chess_connectome_adapter.py": "97602fc3f1a08b4b4a9a8817ec41d930c2bfa0fddcc16ca63d5589145a151d33",
+      "src/openjev/research/chess_connectome_data.py": "4d2825cc684d7e4871671ce4bececb0714422a1d38c9dda136c7a1c5ffd5a43f",
+      "src/openjev/research/chess_connectome_study.py": "b7499d8152bb45f0666c14c22d56fe2e47b9428fc8741e5f083329bac0bb60d0",
+      "src/openjev/research/chess_spatial.py": "49e6e53d33cd52511c0e4a08074b9a7f0dc2244727df2879f3fb7fd1aa886ab4",
+      "src/openjev/research/chess_spatial_baselines.py": "9824212fdfe5678fafe2591eeb5f3962790713bd1b4dece4803648b696ae8942",
+      "src/openjev/research/chess_spatial_data.py": "70d6e94799cd59c7e4e097eb783a44e3288cad903fb7d4637e3fabd86003cf3e",
+      "src/openjev/research/chessbench_data.py": "19ee690fe67f80566411ed55bd16c588952c8d0e60b530843f0ddb7934715505",
+      "src/openjev/research/connectome_graph.py": "a185e4dcfc16c23b541e28cf6c2079cfc71f07d1bb1dfb9bf66813eab7246d8b",
+      "tests/test_chess_candidate.py": "a75252e8c17397bf2a378826f5e8392c8f8119fc0ff54a56b8c28452ee7298fc",
+      "tests/test_chess_candidate_arena.py": "ea0691eec975d9413dfac9c4a1201de691fe811c7932715ae613553283ecb23f",
+      "tests/test_chess_candidate_attempt.py": "d80984b35d2b4c39bd85b0532820c606e974c8ef07c1d5685ab44621ffd609b6",
+      "tests/test_chess_candidate_data.py": "50c66d970ce858cda8cbae1b9e24554f87ba4668324d77da4c1c7611ea43b542",
+      "tests/test_chess_candidate_eval.py": "4e7ca667f1c3139e6730d2e25fb84cd953c95c092705b45b38eaa0354fae3007",
+      "tests/test_chess_candidate_integration.py": "54e75c3d9dc46b8808fb706cf3474642f4668ea700e5af0ff5fe328802be9eae",
+      "tests/test_chess_candidate_study.py": "1bf9fa7d8cc58ce84d8a7a6ffca60e40e818a048ad7861e87ad55608dc4ec82f",
+      "tests/test_chess_connectome_adapter.py": "7c0e9a8bfd10be063aa497dc5f92a9e552546bb02db6dbae3e5461d781d36503",
+      "tests/test_chess_connectome_data.py": "b7ba12521cc36a8b69eb54694b23915ca502766fa26dd210374cbf7d74f0456e",
+      "tests/test_chess_connectome_runner.py": "c434f34641df3160583016c7035bad4fa47517d980e2312aa9ce8d703a0e8c5a",
+      "tests/test_chess_connectome_study.py": "9bcdb4195e4ecfe42bd4bb8b79985f4845c1bf2c6ff7ada7d1984ada885ad4bb",
+      "tests/test_chessbench_data.py": "0b217f7f0fc7b9b8d7f904d91e6304bfcebd2d8f59722aa390a29525faec84af",
+      "tests/test_connectome_graph.py": "e60ea0f8e4a400c45a90b7935a745a8d5f86e79bcd7702e74d55493110c12332"
+    },
+    "environment": {
+      "python": "3.12.13",
+      "platform": "macOS-26.6.1-arm64-arm-64bit",
+      "machine": "arm64",
+      "mps_available": true,
+      "dependencies": {
+        "torch": "2.14.0",
+        "chess": "1.11.2",
+        "numpy": "2.5.3"
+      },
+      "lock_sha256": "833d01b398f7dae71fd3c565c3dbb05c87b337aac7917d7f0ccf3eef01ba1e0e",
+      "pyproject_sha256": "64436d48af2351450b9dc774f601091fa2a8b6c87d743088a3d26baa5d459aba"
+    },
+    "backbones": {
+      "127": {
+        "arm": "direct",
+        "width": 32,
+        "seed": 127,
+        "name": "direct-127",
+        "path": "models/chess-candidate-v2/direct-127/weights.pt",
+        "sha256": "b51b9685680a1a754b7e2fe70836116d42b0583f4c110785cae5d06219e4db55"
+      },
+      "97": {
+        "arm": "direct",
+        "width": 32,
+        "seed": 97,
+        "name": "direct-97",
+        "path": "models/chess-candidate-v2/direct-97/weights.pt",
+        "sha256": "fa83e320149eda2925f584e8ec807d06b404fa2643508655e105acf9e37f29b3"
+      },
+      "109": {
+        "arm": "direct",
+        "width": 32,
+        "seed": 109,
+        "name": "direct-109",
+        "path": "models/chess-candidate-v2/direct-109/weights.pt",
+        "sha256": "a7280a9f4aca07e462a7b3c12f447a9113a963ee3c13c1b01245e34a2d44fb1b"
+      }
+    },
+    "backbone_plan_sha256": "0cdcf5b9f9e64b5dde6f0a951fa4249475d050470e9036ce5c8ab76cf181c106",
+    "backbone_pretraining_protocol": {
+      "version": "chess-candidate-v2",
+      "arms": [
+        "direct",
+        "action_only",
+        "delta",
+        "full_afterstate"
+      ],
+      "width": 32,
+      "seeds": [
+        97,
+        109,
+        127
+      ],
+      "depth": 4,
+      "branch_depth": 2,
+      "train_examples": 32768,
+      "epochs": 6,
+      "batch_size": 128,
+      "microbatch_size": 128,
+      "candidate_chunk_size": 128,
+      "updates_per_fit": 1536,
+      "training_device": "mps",
+      "evaluation_device": "cpu",
+      "torch_threads": 2,
+      "deterministic_algorithms": false,
+      "optimizer": {
+        "name": "Adam",
+        "lr": 0.001,
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "eps": 1e-08,
+        "weight_decay": 0.0
+      },
+      "gradient_clip": 1.0,
+      "value_loss_weight": 0.5,
+      "loss": "Legal-candidate CE + 0.5 root-value MSE once per position; unused auxiliary decoder.",
+      "batch_order_seed_base": 11300029,
+      "fit_order_seed": 11300017,
+      "regret_positions_per_split": 128,
+      "regret_selection_seed": 11300043,
+      "regret_nodes": 20000,
+      "regret_call_ceiling": 3328,
+      "regret_node_ceiling": 66560000,
+      "latency_positions_per_split": 64,
+      "latency_selection_seed": 11300059,
+      "latency_warmups": 3,
+      "bootstrap_replicates": 2000,
+      "bootstrap_seed": 11300071,
+      "permutation_seed": 11300083,
+      "permutation_scope": "Delta only, fixed nonidentity within-root cyclic shift; singleton menus unchanged and reported separately; exploratory corruption diagnostic.",
+      "relative_regret_reduction": 0.2,
+      "gate_absolute_tolerance": 1e-12,
+      "arena_score_threshold": 0.6,
+      "gate": "Delta must reduce mean signed bounded regret by20% versus BOTH direct/action_only on BOTH panels, positive reference means required; AND arena lower point bound at least60% versus each, zero failures across288 games.",
+      "selection": "All final fits. One explicitly recorded recovery from fresh initialization after v1 output-pipe failure; no best epoch/seed, further retries, replacement games or budget extension.",
+      "matching": "Same labels, positions, minibatches, updates and shared root initialization. Parameters, FLOPs and wall time are NOT matched. All three refinement arms share active modules.",
+      "uncertainty": "Pointwise source-game bootstrap conditional on three fitted seeds; not simultaneous or seed-population uncertainty. Shared afterstates across same-panel source games can leave residual dependence.",
+      "scope": "Development mechanism diagnostic on previously studied generators. Native one-ply consequences are not learned dynamics. No Elo, novelty, calibration or world-model benefit established."
+    },
+    "backbone_pretraining_costs": {
+      "97": {
+        "receipt": "runs/chess-candidate-v2/execution/direct-97/training.json",
+        "sha256": "646981e8a698cfaa86eb6028f5c65db2bda88d1ba0a643ee42f4efe8808850a2",
+        "updates": 1536,
+        "examples_seen": 196608,
+        "training_seconds": 20.494025166030042,
+        "computation": {
+          "candidate_evaluations": 5808216,
+          "root_core_iterations": 786432,
+          "candidate_refinement_iterations": 0,
+          "successor_root_iterations": 0,
+          "total_core_iterations": 786432,
+          "delta_convolutions": 0,
+          "successor_encoders": 0
+        }
+      },
+      "109": {
+        "receipt": "runs/chess-candidate-v2/execution/direct-109/training.json",
+        "sha256": "a1580eaeed724bece072e8b5948e779c29667f1db891faa144a3c2f1504eee1a",
+        "updates": 1536,
+        "examples_seen": 196608,
+        "training_seconds": 19.269699166994542,
+        "computation": {
+          "candidate_evaluations": 5808216,
+          "root_core_iterations": 786432,
+          "candidate_refinement_iterations": 0,
+          "successor_root_iterations": 0,
+          "total_core_iterations": 786432,
+          "delta_convolutions": 0,
+          "successor_encoders": 0
+        }
+      },
+      "127": {
+        "receipt": "runs/chess-candidate-v2/execution/direct-127/training.json",
+        "sha256": "2b4e82a925f2b71e81cd2728ef319897a58a871087ad7ee61ec7a32c441cb1b3",
+        "updates": 1536,
+        "examples_seen": 196608,
+        "training_seconds": 20.653893167036586,
+        "computation": {
+          "candidate_evaluations": 5808216,
+          "root_core_iterations": 786432,
+          "candidate_refinement_iterations": 0,
+          "successor_root_iterations": 0,
+          "total_core_iterations": 786432,
+          "delta_convolutions": 0,
+          "successor_encoders": 0
+        }
+      }
+    },
+    "backbone_execution_receipt_sha256": "02eaa4ebdc2ef92288079d7976727c6f66c27a1c0ca58871f6730748fbd19a5e",
+    "preflight_files": {
+      "README.md": "689e222148a6a1f759e22b8428776408c63430f6154120d88d00f8d22a288710",
+      "cases/cpu-dense/console.log": "19150d244f2f18f372c23f9f75562c4e464da28abd3fe8c1375e28fb060112b2",
+      "cases/cpu-dense/events.jsonl": "272e48f4a1dd2392a52f02a34ea52a8663059b85a76b6cf2d64db90f8626ff93",
+      "cases/cpu-dense/launch.json": "6d30e2942cff92fe825742178456289f126951f61a09647fde257aa5c8e7807f",
+      "cases/cpu-dense/receipt.json": "5e95d27b0cc45771f3817d007a208a320cc33c8791e1cb6f8094dd1c87ed977b",
+      "cases/cpu-node_local/console.log": "59f67d7658110eb33faa5333d1a39fc7bf0f0689aacdbec16d27ea3bc154a8fd",
+      "cases/cpu-node_local/events.jsonl": "1fa91ab65d7d4ebf4ec41c971b320b5e92e73a8bca3c66a3380efd9860048d50",
+      "cases/cpu-node_local/launch.json": "2bb16505f9e129c0311129958138a47ad5a682369facbeb3ccf9605d5ddc65de",
+      "cases/cpu-node_local/receipt.json": "9456d11b61f990cdbd1110ff6120fca49378e814b1e63be37c36d69debf12bce",
+      "cases/cpu-sparse/console.log": "28c1bd8f669d06f82845feccdcf0075a5739c5e7f99f99d64832214978b6510f",
+      "cases/cpu-sparse/events.jsonl": "85a80c8109c3531615e5cb585a0abb74bf020c764d6fc498526ea4f1d01aba6f",
+      "cases/cpu-sparse/launch.json": "ab1265176fb548645bcabdb038ae344856bb39fd0e576314c059a1e5fb8854db",
+      "cases/cpu-sparse/receipt.json": "a86242de9f4888d7df7da4ab99cc296633ab58520361a3348fcb6c956605a8f9",
+      "cases/mps-dense/console.log": "e37811ca99b7884f8a48085b2ead189ced9707701b87d379ed032fa38c542471",
+      "cases/mps-dense/events.jsonl": "f87ae62c0c61b2d691df2cbedb62ebb82dafcfc78e50245fdd95ce31c46a71ee",
+      "cases/mps-dense/launch.json": "6607e8b4b7f3defbeeb75462794f5c91456f83bfc0cf2691385451c699a1089e",
+      "cases/mps-dense/receipt.json": "34cbe4c170e2e8869828eb094b732152d057a0e0cde3d9bdea0543b123f94fb6",
+      "cases/mps-node_local/console.log": "6f36b05a44bbd8e019f34e309ae13100f71725baad991768c866353eca51725d",
+      "cases/mps-node_local/events.jsonl": "a0b7ebe8e857523615049b8df2f505a17b5e09ea22952d50c078855f7d78ae1b",
+      "cases/mps-node_local/launch.json": "45ee7710b8f6fb623631cfe27c80f5c663dff41817bf97f29657d5fd499798db",
+      "cases/mps-node_local/receipt.json": "c01cdfc5c91fac8f9fadce9f0ccea59413d78eb7614b28524a728bebff9e7f2c",
+      "cases/mps-sparse/console.log": "eecbee22dea8f8f767fc2fa196f96ea0647288da9ef367ee54f7effdb3a172bf",
+      "cases/mps-sparse/events.jsonl": "53dd03f01b6cb28b7cff29c897acbe3cff3df0ab273c0d2ba3b2e5304439c6fb",
+      "cases/mps-sparse/launch.json": "f19f8aaca83e759d164bdce4b676747d2bc5f47e5dd141d627920501353b5646",
+      "cases/mps-sparse/receipt.json": "a4a85565ac05388d15c936263d8725bf4108516c3ea2a757ece7c0484e16a35b",
+      "manifest.json": "ef4a0d56f966b58886d3f86d6ddd3ef8f907ea3b0811a79fb68032999ba1b117",
+      "protocol.json": "e43cda823e2f5a2a6986f18467637787f99a0933cba3657e8a55d8d1b7ecee96",
+      "started.json": "1faadd399dcc3ddd7bc0e81af69d1f25ee1f205bb95106d73d895f553920dc87",
+      "summary.json": "dca5986c6e5661884acbec92f6dc35b6224454ba8ae2c42c066221544e98d5b0"
+    },
+    "graph_audit_sha256": "d2e9483e21bcbb3db161507a922976e595236df2afc5967157c603e9b668bb00",
+    "graph_hashes": {
+      "biological": "2fe223a4dcf17b8928f118bd0bcf7301cde8d47216d6b825fb903d91d229a1b9",
+      "rewire151": "f9bb8bc89e16e4a17a722af19ccaaf09c2e997d9b3a5c497177c0f5730679cd7",
+      "rewire163": "d553b315981eecc8bb3d610468a4840446b90edf47179b1669000504b2352755",
+      "rewire179": "62fe5f018b8c53a5004d2c0b1602421f5678fd8c6fcb742b7f95345e68e35d07"
+    },
+    "asset_files": {
+      "runs/chessfly-source-audit/assets/connectome.bin.gz": "a90aadf847f6939b306b2fe707134dc22213431b6eec3d5a7b4c45d62c98ff8a",
+      "runs/chessfly-source-audit/assets/neurons.bin.gz": "4d801ed09ee0c4114ca7cae5a18b6ed2decc84dd115c9c30ae8f4a46a4294842",
+      "runs/chessfly-source-audit/assets/meta.json": "4405c948ffaa490eeb5ce4577e6c2ce9fc06113c014732f3491a62248eb3b693"
+    },
+    "engine": "runs/chess-inputs/stockfish/stockfish-macos-universal",
+    "engine_sha256": "8eed61129d1493c5d1f2fd9323f0c54c47ac49319911fbde18c6b9c87e8b13c5",
+    "training_source": "runs/chess-spatial-v1/execution/data/train.jsonl",
+    "training_source_sha256": "582d86e65e8dc368f73e9419789f9bdf13a1f3a2ecbb11ad12aca485d0168e4e"
+  },
+  "exclusion_files": {
+    "evidence/chessbench-transfer-v1/protocol/excluded-states.json.gz": "932ae7262f28674f31112458be6181491d10a7cadf4245cbe6f7f2e888d11adc",
+    "evidence/chessbench-transfer-v1/protocol/plan.json": "10c280ddd417965b2a24aef85d564b34e0a5b171138d416e880327a2c2304323",
+    "evidence/chessbench-transfer-v1/results/chessbench-transfer-v1.tar.gz": "2e109ce9d4e088ce060e86d67fe5b6ec9274a6f3c80acdf31973e1a5e9ac2656",
+    "evidence/chessbench-transfer-v1/results/completed.json": "865702ee8f65e5013983074ad31b5e34ddd881c08cb82ced5626d0538a1e685b",
+    "evidence/chessbench-transfer-v1/results/download.json": "805d2b6d11f344034f88cda1e0193c1a473bc80c56683779b37dac4865f900a6",
+    "evidence/chessbench-transfer-v1/results/execution-completed.json": "63e0f786cb72616ca2f42b83bd81feccb9eae640ea110a3a419a4416e1ee5423",
+    "evidence/chessbench-transfer-v1/results/manifest.json": "0deae7a77ab1ccf3cd28bb6733e824bfda28749f919d806c276a144c859d460e",
+    "evidence/chessbench-transfer-v1/results/plan.json": "10c280ddd417965b2a24aef85d564b34e0a5b171138d416e880327a2c2304323",
+    "evidence/chessbench-transfer-v1/results/report-completed.json": "4c76c203c7b5f85f288d8609cc56efc709a51b2686b36ac3d4e12681db266814",
+    "evidence/chessbench-transfer-v1/results/reproduce_package.py": "03622091b42af6f44ec2df95a4ce270c5f50de8f65cbc7fc2d0edd85dc995075",
+    "evidence/chessbench-transfer-v1/results/scope.md": "bea00263c0106d2fc3463bdca6ccbe56edb1d3271701919c613df1fc9bfe5c8e",
+    "evidence/chessbench-transfer-v1/results/source-attribution.md": "6ca2dfd02df1bd67238528891b33af727960ea0de1f38bb77821e12a8ac8731d",
+    "evidence/chessbench-transfer-v1/results/summary.json": "2124bc7278d9f9a77e731bccbde62f3b67c4fc0c1311c6c208789177b1e9720c",
+    "runs/chessbench-inputs-v1/behavioral_cloning_data.bag": "fc1d27fc98baae3a7f15fee85439b499f4a6f1815dffde26d047a77f02cc50b1"
+  },
+  "exposure": {
+    "inherited_natural_states": 2007245,
+    "chessbench_source_rows": 62561,
+    "distinct_roots": 62178,
+    "native_successor_visits": 1828710,
+    "total_natural_states": 3826350
+  },
+  "exclusion_scope": "Inherited transfer exclusions plus ALL decoded ChessBench roots and legal successors; both mirrors excluded by admission. No historical labels enter new inputs.",
+  "exclusion_file": "excluded-states.json.gz",
+  "exclusion_sha256": "1b98b5cee3ca9a34a4f7a344105c5d8e4dd92eb01bf3becae670698b4d195b34",
+  "exclusion_uncompressed_sha256": "b7fcbdf9a689a255626623e233517b0ac3656436fde48fbcd7505ca1d919f130",
+  "new_panel_generation_or_training_started": false
+}

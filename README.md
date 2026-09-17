@@ -18,6 +18,8 @@ Exact-delta matched Stockfish on **33.15%** of ordinary positions versus **31.75
 
 On a separate **4,096-position ChessBench transfer panel**, the four model families average **26.03-26.79%** move agreement. The gains remain small. [Transfer results](docs/chessbench-transfer.md).
 
+The [connectome study](research/chess-connectome-study.md) now has a frozen protocol: biological wiring versus three rewired controls, dense recurrence and node-local recurrence, across three seeds. Results are pending.
+
 [Results and all twelve weights](docs/chess-candidate.md) · [Connectome controls](research/chess-connectome-followup.md) · [Earlier capacity study](docs/chess-capacity.md)
 
 [Earlier predictive models and paper](docs/chess-spatial.md) · [Astra, ChessFly and ChessLFM comparison](docs/chess.md)
