@@ -1,0 +1,68 @@
+{
+  "started_unix": 1789660179.046533,
+  "config": {
+    "version": "chess-student-v1",
+    "modes": [
+      "gru",
+      "circuit",
+      "rewired"
+    ],
+    "seeds": [
+      17,
+      29,
+      43
+    ],
+    "width": 64,
+    "depth": 4,
+    "input_size": 841,
+    "vocabulary_size": 1968,
+    "vocabulary_sha256": "0f3d8ae00e01f531b6bf366fdada38feff7bbc6ce3b6a1e19c31e5016c963833",
+    "train_examples": 4096,
+    "dev_examples": 1024,
+    "train_game_cap": 160,
+    "dev_game_cap": 64,
+    "game_max_plies": 40,
+    "game_seed_base": 81000000,
+    "random_move_probability": 0.5,
+    "teacher": "Stockfish 19",
+    "teacher_nodes": 2000,
+    "teacher_threads": 1,
+    "teacher_hash_mb": 16,
+    "clear_hash_each_analysis": true,
+    "teacher_history": "FEN only, no earlier move stack",
+    "value_target": "tanh(side-to-move centipawns / 600); mate score represented as signed 10000 cp",
+    "value_cp_scale": 600.0,
+    "mate_cp": 10000,
+    "value_loss_weight": 0.5,
+    "epochs": 3,
+    "batch_size": 64,
+    "optimizer": "Adam",
+    "learning_rate": 0.001,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "epsilon": 1e-08,
+    "weight_decay": 0.0,
+    "gradient_clip": 1.0,
+    "torch_threads": 2,
+    "device": "cpu",
+    "fit_order_seed": 815017,
+    "epoch_order_seed_base": 815029,
+    "data_split": "Disjoint generated game IDs; global exact state dedup ignores halfmove/fullmove counters",
+    "topology": "Synthetic signed 16 sensory/24 inter/16 command/8 motor circuit, 352 edges",
+    "control": "20000 double-edge-swap proposals preserve each node signed in/out degrees",
+    "observation": "Numeric FEN pieces, side, castling, EP and counters; no teacher scores or history input",
+    "loss": "Final-depth legal-masked move cross entropy plus 0.5 bounded-value MSE",
+    "evaluation": "All final checkpoints on the same 1024 generated development positions",
+    "selection": "No early stopping, checkpoint selection, retries, replacements or budget extension",
+    "claim_scope": "Initial supervised chess distillation baseline, not RL, Elo, novelty or imported biology",
+    "continuation_gate": {
+      "circuit_mean_agreement_gain_over_rewired": 0.03,
+      "circuit_mean_agreement_max_deficit_to_gru": 0.03,
+      "circuit_paired_seed_max_deficit_to_rewired": 0.05,
+      "circuit_mean_value_mae_max_excess_over_rewired": 0.03,
+      "scope": "Descriptive development gate to consider a larger study, not efficacy or publication evidence"
+    }
+  }
+}

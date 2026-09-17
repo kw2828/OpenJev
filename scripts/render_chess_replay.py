@@ -164,7 +164,8 @@ def normalize_game(game, caption=None):
         raise ValueError('Final position differs from the last accepted move')
     # A flag fall may change the clocks without creating another legal move.
     final_clocks = clocks(game.get('clocks', game.get('final_clocks', frames[-1]['clocks'])))
-    frames.append({**frames[-1], 'clocks': final_clocks, 'label': f'Final: {termination}', 'final': True})
+    frames.append({**frames[-1], 'clocks': final_clocks,
+                   'label': f'Final: {termination.replace("_", " ")}', 'final': True})
     normalized['frames'] = frames
     return normalized
 
@@ -253,7 +254,8 @@ def draw_frame(game, frame, font_file, width=640):
     draw.text((28, 928), detail, font=fonts[14], fill='#afbecd')
     status = f'Recorded result: {game["result"]}  /  {game["termination"].replace("_", " ")}'
     draw.text((28, 955), shortened(draw, status, fonts[14], 584), font=fonts[14], fill='#afbecd')
-    draw.text((28, 991), 'Actual positions. Recorded clocks. Replay timing is accelerated.', font=fonts[12], fill='#899bab')
+    draw.text((28, 991), 'Actual positions. Recorded clocks. Playback timing is illustrative.',
+              font=fonts[12], fill='#899bab')
     if width != 640:
         image = image.resize((width, round(image.height * width / image.width)), Image.Resampling.LANCZOS)
     return image
