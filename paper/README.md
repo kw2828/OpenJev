@@ -4,6 +4,12 @@
 
 This is a working development report, not a submitted or accepted ICLR paper. It reports the original pilots, the frozen 1,980-episode causal-memory follow-up, and three prospective engineering studies totaling 6,408 further episodes. Event memory improves command efficiency, but all three earlier broader continuation gates failed. The memory continuation gate failed against the capacity control, so the conditional downstream efficacy experiments were not launched. A subsequent PPO/DQN study trained nine fits for 294,912 interactions. History-PPO passed its separately frozen combat gate on fresh seeds; Line behavior matches always-fire. The report includes this distinction and the delayed-hit limitation of the earlier command metric. It does not claim proprietary RLCD reproduction or a new RL algorithm. Project-level authorship is used until the authors and affiliations are confirmed.
 
+## Chess development report
+
+[Chess paper (PDF)](../output/pdf/openjev-chess-study.pdf) · [Standalone LaTeX](chess-study.tex) · [Models and results](../docs/chess-student.md) · [Arena](../docs/chess.md)
+
+Nine original chess students, a 24-position public puzzle panel and 18 recorded games are complete. The circuit topology gate failed. This separate six-page development report includes a proposed memory/state-transition experiment; that proposal has not been run and is not an established ICLR contribution. Build with `latexmk -pdf -outdir=build/chess chess-study.tex` from this directory.
+
 ## Build
 
 From the repository root, regenerate figures and the evidence-derived table:

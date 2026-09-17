@@ -1,0 +1,260 @@
+{
+  "ChessFly direct": {
+    "declared_spec": {
+      "artifacts": [],
+      "asset_dir": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/runs/chessfly-source-audit/assets",
+      "kind": "chessfly",
+      "threads": 2,
+      "warmup_calls": 2
+    },
+    "metadata": {
+      "actions": 1968,
+      "alpha": 0.5,
+      "asset_space_revision": "375374bf58f1c828ad7d33905b64f1fa6ac4906f",
+      "audited_worker_sha256": "2766a2769cab622f4a65298e3cd1aa34d6920b416019bac318f362bb3e47c281",
+      "carry_state_between_moves": false,
+      "device": "cpu",
+      "dtype": "float32",
+      "edges": 15091983,
+      "external_license": "FlyWire non-commercial terms; model card license: other",
+      "features": 780,
+      "graph_sha256": "700a443c885ef2eec25f97136ea14b9a2575fb270321190f4edc4e6f5c49e13d",
+      "hidden": 512,
+      "inputs": 10855,
+      "meta_sha256": "4405c948ffaa490eeb5ce4577e6c2ce9fc06113c014732f3491a62248eb3b693",
+      "model": "mlabonne/chessfly",
+      "model_metadata": {
+        "alpha": "0.5",
+        "best_move_acc": "0.3038",
+        "gains": "trained",
+        "hidden": "512",
+        "positions": "4391074",
+        "readout": "central",
+        "step": "12000",
+        "steps": "5",
+        "value_mae": "0.0814",
+        "version": "chessfly-flynet-v2"
+      },
+      "model_revision": "ed6744ec984ba401f06d6b0a966a2661b1458f53",
+      "neuron_groups_sha256": "a245f2f2195ff82a4bd1af8dab70e9d213eca29fd5c7add607b3d983ed7bedfa",
+      "neurons": 138639,
+      "parity_scope": "same mathematical recurrence; float32 reduction order differs",
+      "policy_kind": "published_chessfly_neural_policy_no_search",
+      "readout_neurons": 41692,
+      "recurrent_steps": 5,
+      "search_depth": 0,
+      "threads": 2,
+      "weights_sha256": "e05a675c35726b6784c563f6c29ab3fe6afac249e0b143560286a81eab9380d5"
+    },
+    "wall_seconds": 2.757289458066225
+  },
+  "ChessLFM direct": {
+    "declared_spec": {
+      "artifacts": [],
+      "device": "cpu",
+      "kind": "lfm",
+      "model_id": "mlabonne/LFM2.5-230M-Chess",
+      "model_path": "/Users/kevinwu/.cache/huggingface/hub/models--mlabonne--LFM2.5-230M-Chess/snapshots/341bfd2ea4b696cda7d2016d4a721f27eb9cf34d",
+      "revision": "341bfd2ea4b696cda7d2016d4a721f27eb9cf34d",
+      "threads": 2,
+      "warmup_calls": 2
+    },
+    "metadata": {
+      "backend": "torch-cpu-float32",
+      "calibration": "none",
+      "forward_passes_per_move": 2,
+      "load_ms": 265.5137920519337,
+      "model": "mlabonne/LFM2.5-230M-Chess",
+      "protocol": "published-80-token-value-then-move",
+      "revision": "341bfd2ea4b696cda7d2016d4a721f27eb9cf34d",
+      "search": "none",
+      "threads": 2
+    },
+    "wall_seconds": 1.91974954190664
+  },
+  "GPT-6 Astra via Codex": {
+    "declared_spec": {
+      "artifacts": [],
+      "bridge_dir": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/runs/chess-v1/astra-bridge",
+      "kind": "astra_codex",
+      "model_id": "gpt-6-astra",
+      "timeout_seconds": 120,
+      "warmup_calls": 0
+    },
+    "metadata": {
+      "calibration": "not returned",
+      "model": "gpt-6-astra",
+      "probabilities": "not requested or fabricated",
+      "provider_attested_model": false,
+      "route": "Codex agent filesystem bridge",
+      "timeout_seconds": 120.0,
+      "timing": "wall time including agent orchestration and tool calls"
+    },
+    "wall_seconds": 0.0009612089488655329
+  },
+  "Greedy material": {
+    "declared_spec": {
+      "artifacts": [],
+      "kind": "greedy",
+      "warmup_calls": 0
+    },
+    "metadata": {},
+    "wall_seconds": 1.0208925232291222e-05
+  },
+  "OpenJev GRU": {
+    "declared_spec": {
+      "artifacts": [],
+      "checkpoint_path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/runs/chess-student-v1/execution/gru-17/weights.pt",
+      "device": "cpu",
+      "expected_training_plan_sha256": "b798fc8a421a6e72479085b990c8439b9069d915ff0cd8c888151ff440e70d45",
+      "kind": "chess_student",
+      "mode": "gru",
+      "seed": 17,
+      "threads": 2,
+      "warmup_calls": 2
+    },
+    "metadata": {
+      "checkpoint_path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/runs/chess-student-v1/execution/gru-17/weights.pt",
+      "checkpoint_selection": "Exact named final checkpoint; no seed or metric selection",
+      "checkpoint_sha256": "45cba8d37c37bd3ac3ee9274e7e29ffbed926fea0b5b19e0a76cab86144027d9",
+      "depth": 4,
+      "device": "cpu",
+      "kind": "chess_student",
+      "mode": "gru",
+      "model": "openjev-chess-student/gru",
+      "parameter_count": 206833,
+      "revision": "b798fc8a421a6e72479085b990c8439b9069d915ff0cd8c888151ff440e70d45",
+      "scope": "Stockfish-distilled compact model; circuits are synthetic, not imported connectomes",
+      "seed": 17,
+      "threads": 2,
+      "timing_route": "local CPU numeric FEN encoder and depth-four policy",
+      "training_plan_sha256": "b798fc8a421a6e72479085b990c8439b9069d915ff0cd8c888151ff440e70d45",
+      "vocabulary_sha256": "0f3d8ae00e01f531b6bf366fdada38feff7bbc6ce3b6a1e19c31e5016c963833"
+    },
+    "wall_seconds": 0.00795195798855275
+  },
+  "OpenJev Qwen direct": {
+    "declared_spec": {
+      "artifacts": [],
+      "kind": "qwen",
+      "model_id": "mlx-community/Qwen3-4B-Instruct-2507-4bit",
+      "model_path": "/Users/kevinwu/.cache/huggingface/hub/models--mlx-community--Qwen3-4B-Instruct-2507-4bit/snapshots/50d427756c6b1b2fe0c0a10f67fbda1fc8e82c1b",
+      "revision": "50d427756c6b1b2fe0c0a10f67fbda1fc8e82c1b",
+      "warmup_calls": 2
+    },
+    "metadata": {
+      "backend": "mlx-4bit",
+      "calibration": "none",
+      "generated_tokens": 0,
+      "history_plies": 16,
+      "label_pool_sha256": "8fbdd3df3d86eb374bac3c2ac2b18f0517d1d8d864f1b5df981662c53a9f85b2",
+      "labels": "A-Z then AA-ZZ, retaining unique single tokens in the pinned tokenizer",
+      "load_ms": 1103.4390409477055,
+      "max_input_tokens": 4096,
+      "model": "mlx-community/Qwen3-4B-Instruct-2507-4bit",
+      "ordering": "UCI ascending; fixed single-token uppercase labels",
+      "readout": "one forward pass, next-token logits restricted to all legal candidates",
+      "revision": "50d427756c6b1b2fe0c0a10f67fbda1fc8e82c1b",
+      "search": "none",
+      "system": "You play chess. Choose the strongest legal move for the side to move. Use the supplied board and move history. All candidate moves are legal. Respond only with the selected candidate label. Do not explain.",
+      "version": "chess-candidate-label-v1"
+    },
+    "wall_seconds": 1.1543751670978963
+  },
+  "OpenJev circuit": {
+    "declared_spec": {
+      "artifacts": [],
+      "checkpoint_path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/runs/chess-student-v1/execution/circuit-17/weights.pt",
+      "device": "cpu",
+      "expected_training_plan_sha256": "b798fc8a421a6e72479085b990c8439b9069d915ff0cd8c888151ff440e70d45",
+      "kind": "chess_student",
+      "mode": "circuit",
+      "seed": 17,
+      "threads": 2,
+      "warmup_calls": 2
+    },
+    "metadata": {
+      "checkpoint_path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/runs/chess-student-v1/execution/circuit-17/weights.pt",
+      "checkpoint_selection": "Exact named final checkpoint; no seed or metric selection",
+      "checkpoint_sha256": "db1ced9ad72228e11716db5840b4fafac72d00833800bbc4f0acc4ca738463dd",
+      "depth": 4,
+      "device": "cpu",
+      "kind": "chess_student",
+      "mode": "circuit",
+      "model": "openjev-chess-student/circuit",
+      "parameter_count": 182289,
+      "revision": "b798fc8a421a6e72479085b990c8439b9069d915ff0cd8c888151ff440e70d45",
+      "scope": "Stockfish-distilled compact model; circuits are synthetic, not imported connectomes",
+      "seed": 17,
+      "threads": 2,
+      "timing_route": "local CPU numeric FEN encoder and depth-four policy",
+      "training_plan_sha256": "b798fc8a421a6e72479085b990c8439b9069d915ff0cd8c888151ff440e70d45",
+      "vocabulary_sha256": "0f3d8ae00e01f531b6bf366fdada38feff7bbc6ce3b6a1e19c31e5016c963833"
+    },
+    "wall_seconds": 0.5923061659559608
+  },
+  "OpenJev rewired": {
+    "declared_spec": {
+      "artifacts": [],
+      "checkpoint_path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/runs/chess-student-v1/execution/rewired-17/weights.pt",
+      "device": "cpu",
+      "expected_training_plan_sha256": "b798fc8a421a6e72479085b990c8439b9069d915ff0cd8c888151ff440e70d45",
+      "kind": "chess_student",
+      "mode": "rewired",
+      "seed": 17,
+      "threads": 2,
+      "warmup_calls": 2
+    },
+    "metadata": {
+      "checkpoint_path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/runs/chess-student-v1/execution/rewired-17/weights.pt",
+      "checkpoint_selection": "Exact named final checkpoint; no seed or metric selection",
+      "checkpoint_sha256": "bc5e2e9443e91f5e208856746a2889f5fb91cf7a60a8dc853ed78b2a9abd5dca",
+      "depth": 4,
+      "device": "cpu",
+      "kind": "chess_student",
+      "mode": "rewired",
+      "model": "openjev-chess-student/rewired",
+      "parameter_count": 182289,
+      "revision": "b798fc8a421a6e72479085b990c8439b9069d915ff0cd8c888151ff440e70d45",
+      "scope": "Stockfish-distilled compact model; circuits are synthetic, not imported connectomes",
+      "seed": 17,
+      "threads": 2,
+      "timing_route": "local CPU numeric FEN encoder and depth-four policy",
+      "training_plan_sha256": "b798fc8a421a6e72479085b990c8439b9069d915ff0cd8c888151ff440e70d45",
+      "vocabulary_sha256": "0f3d8ae00e01f531b6bf366fdada38feff7bbc6ce3b6a1e19c31e5016c963833"
+    },
+    "wall_seconds": 0.01995083293877542
+  },
+  "Stockfish 1000 nodes": {
+    "declared_spec": {
+      "artifacts": [],
+      "engine_path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/runs/chess-inputs/stockfish/stockfish-macos-universal",
+      "kind": "stockfish",
+      "nodes": 1000,
+      "warmup_calls": 0
+    },
+    "metadata": {
+      "engine_id": {
+        "author": "the Stockfish developers (see AUTHORS file)",
+        "name": "Stockfish 19"
+      },
+      "fresh_hash_each_decision": true,
+      "hash_mb": 16,
+      "kind": "stockfish",
+      "nodes": 1000,
+      "threads": 1,
+      "timing_route": "local UCI subprocess"
+    },
+    "wall_seconds": 0.16870020900387317
+  },
+  "Uniform random": {
+    "declared_spec": {
+      "artifacts": [],
+      "kind": "random",
+      "seed": 20260917,
+      "warmup_calls": 0
+    },
+    "metadata": {},
+    "wall_seconds": 2.2999942302703857e-05
+  }
+}

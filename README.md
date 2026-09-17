@@ -2,21 +2,27 @@
 
 **Context → questions and candidate answers → probabilities → your application's next step.**
 
-Score choices you define at request time, with stable candidate IDs. Explore text decisions in your browser and locally trained policies playing Doom.
+Score choices with stable IDs. Try text decisions in your browser, run local Doom policies, or train a small chess model.
 
-[**Try the demo**](https://kw2828.github.io/OpenJev/) · [API examples](docs/decision-api.md) · [Benchmarks](docs/benchmarks.md) · [Setup and project reference](docs/project-reference.md)
+[**Text demo**](https://kw2828.github.io/OpenJev/) · [**Chess replay**](https://kw2828.github.io/OpenJev/chess-replay.html) · [API](docs/decision-api.md) · [Benchmarks](docs/benchmarks.md) · [Setup](docs/project-reference.md)
 
-## See it work
+## Chess
 
-[![Local Doom policy trained with V-JEPA 2 rewards](docs/assets/jepa-policy-181000-preview.gif)](docs/assets/jepa-policy-181000.gif)
+[![Our trained recurrent circuit playing ChessFly, first scheduled game](docs/assets/chess-game-01.gif)](https://kw2828.github.io/OpenJev/chess-replay.html)
 
-[Open animation](docs/assets/jepa-policy-181000-preview.gif) · [Original recording](docs/assets/jepa-policy-181000.gif)
+Our **182k-parameter circuit** learns from Stockfish and plays without search. Compare it with ChessFly, ChessLFM, Qwen and Astra. The GIF is the first scheduled game, not a selected win.
 
-**13 kills in 19.26 game seconds**, first fit and first evaluation seed. JEPA scored training clips; a small policy plays this recorded game. [Recording receipt](docs/assets/jepa-policy-181000.json).
+![Controlled chess training results](docs/assets/chess-student-results.png)
 
-[![Browser decision playground before loading its model](docs/assets/browser-playground.jpg)](https://kw2828.github.io/OpenJev/)
+Across three fits, the circuit matched Stockfish on **14.36%** of development positions, versus **14.19% rewired** and **14.52% GRU**. The topology improvement criterion failed. These are development results, not Elo or an established novel architecture.
 
-The free browser demo runs Qwen3-0.6B through WebGPU. It is separate from the Doom policy and the research students below.
+[Models and training](docs/chess-student.md) · [Games, puzzle scores and timing](docs/chess.md) · [World-model research plan](research/chess-research-plan.md) · [Chess paper draft](output/pdf/openjev-chess-study.pdf)
+
+## Doom
+
+[![Locally trained Doom policy](docs/assets/jepa-policy-181000-preview.gif)](docs/assets/jepa-policy-181000.gif)
+
+**13 kills in 19.26 game seconds**, first fit and first evaluation seed. JEPA scored training clips; a small policy plays the recording. [Results and limits](docs/jepa-rl-study.md) · [Recording receipt](docs/assets/jepa-policy-181000.json).
 
 ## Run locally
 
@@ -30,25 +36,14 @@ uv run --extra language openjev setup
 uv run --extra language openjev serve
 ```
 
-Open **http://127.0.0.1:8000**. Local text scoring uses Qwen3-4B. [Linux, Docker and hosting](docs/hosting.md).
+Open **http://127.0.0.1:8000**. Local text scoring uses Qwen3-4B; the free browser demo uses Qwen3-0.6B through WebGPU. [Linux, Docker and hosting](docs/hosting.md).
 
-## Train a text model with Astra
+## More experiments
 
-Astra labeled 128 training examples through Codex; three MiniLM student fits are complete. Mean accuracy reached **62.1% on domain routing** versus 9.5% untrained, but **51.2% on BoolQ** remained near chance. The combined continuation rule failed.
+- [Astra-trained text students](docs/codex-astra-distillation.md): routing improved; BoolQ remained near chance.
+- [Recurrent world models](docs/recurrent-world-model-study.md) and [associative-memory PPO](docs/associative-ppo-study.md): no established memory advantage. [Initialization follow-up](docs/zero-critic-ppo-study.md).
+- [Doom PPO/DQN](docs/rl-study.md), [JEPA + RL](docs/jepa-rl-study.md), [all figures](docs/benchmarks.md) and [paper sources](paper/README.md).
 
-[Results, benchmark scope and local checkpoints](docs/codex-astra-distillation.md). This uses previously scored development examples. The separate [Responses API plan](docs/text-distillation.md) remains unrun.
+Candidate scores are uncalibrated and relative to the supplied choices. These experiments use different models and protocols. MIT for project code and original weights; third-party licenses apply separately.
 
-## Research results
-
-![Recurrent world-model experiment, controls and training costs](evidence/recurrent-world-v1/world-model-results.png)
-
-- **Memory and world models:** associative stores retain cues in a [four-example supervised diagnostic](docs/associative-learnability.md), but [autonomous PPO](docs/associative-ppo-study.md) reached 17.2% success versus 34.4% for GRU and showed no cue-dependent branch choices. Earlier [world-model RL](docs/recurrent-world-model-study.md) also found no advantage.
-- **Text routing:** 95.35% development accuracy on 150 intents. The recurrent gain fell below our continuation threshold. [Study](docs/corrective-associative-study.md).
-- **Rule reasoning:** a 225-parameter operator scores 100% on 949 new development questions using a restricted English parser. A fixed logical solver matches it; novelty is unproven. [Study and runnable model](docs/bound-rule-study.md).
-- **Doom:** history-PPO improved Center combat. JEPA + RL reached 12.40 mean Center kills without establishing an advantage over GRPO or pixel similarity; Line policies matched always-fire. [PPO/DQN](docs/rl-study.md) · [JEPA + RL](docs/jepa-rl-study.md).
-
-[All charts and limitations](docs/benchmarks.md) · [Paper draft](output/pdf/openjev-rl-paper.pdf) · [LaTeX](paper/README.md)
-
-Scores are uncalibrated and relative to the supplied choices. Doom uses structured observations and restricted controls. [Model card](docs/language-model-card.md) · [Research notes](docs/research.md).
-
-Independent of [TypeSafe Jev](https://typesafe.ai/blog/introducing-system-one-models-and-jev), [zhihz/openjev](https://github.com/zhihz/openjev) and [openjev.com](https://openjev.com/). No proprietary RLCD reproduction or new RL algorithm is claimed. MIT for project code and original weights; third-party licenses still apply.
+Independent of [TypeSafe Jev](https://typesafe.ai/blog/introducing-system-one-models-and-jev), [zhihz/openjev](https://github.com/zhihz/openjev) and [openjev.com](https://openjev.com/). No proprietary RLCD reproduction or established new RL algorithm is claimed.

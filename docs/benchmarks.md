@@ -4,6 +4,14 @@
 
 These figures visualize existing development evidence. No new model training or gameplay runs were performed to produce them. Each experiment has a separate scope; they do not form a single leaderboard.
 
+## Chess
+
+![Controlled recurrent circuit training](assets/chess-student-results.png)
+
+Nine original chess students trained on the same 4,096 Stockfish-labeled positions. Across three fits, teacher agreement on 1,024 development positions was 14.36% for the circuit, 14.19% for rewired and 14.52% for GRU. The circuit's 0.16-point gain missed the required 3-point improvement. [All fits, weights and protocol](chess-student.md).
+
+[The separate arena](chess.md) compares the fixed seed-17 students with ChessFly, ChessLFM, Qwen and Astra through Codex. It reports 24 public first-move puzzles and an 18-game color-paired schedule. These models differ in training and compute; the panel is not an Elo estimate or a matched architecture comparison.
+
 ## Recurrent world models
 
 ![Autonomous associative-memory PPO and interventions](../evidence/associative-ppo-v1/associative-ppo-evaluation.png)
@@ -17,6 +25,10 @@ These figures visualize existing development evidence. No new model training or 
 The initial seven-action supervised check failed across four memory architectures. A separate factorial diagnostic found that training over the two relevant candidates solves the four training examples, while ordinary recurrence remains unreliable on longer routes. With the corrected objective, both associative stores reach 100% at every length and fall to 50% under store-only resets. Selective writes tie global writes and fail the superiority gate. These are four-context supervised diagnostics, not gameplay or unseen-task scores. [Protocols, all fits and interpretation](associative-learnability.md).
 
 An [initialization audit](ppo-initialization-probe.md) found nonzero actor and critic gradients before any reward in twelve initial PPO rollouts. Zeroing the value head removes those gradients on the same data. This is a measured initialization effect, not evidence that the change improves learning.
+
+![PPO critic initialization comparison](../evidence/zero-critic-ppo-v1/results/zero-critic-comparison.png)
+
+The completed [zero-critic follow-up](zero-critic-ppo-study.md) reused all original controls and trained twelve fresh fits. Same-size success rose to 50.52% for the adapter and both stores, but GRU fell from 34.38% to 17.19%. No cue swap changed the recorded behavior, and resetting the selective store changed no outcomes. Both continuation rules failed. This is an initialization effect on previously scored development seeds, not acquired memory or independent confirmation.
 
 ![Cue-visible task and paired memory interventions](../evidence/cue-memory-v1/cue-memory-results.png)
 
