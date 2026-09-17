@@ -45,7 +45,25 @@ For the existing tiny Doom baseline only, use `uv sync --frozen` and `uv run ope
 
 ## Research extensions
 
-**New: [three improvement studies, 6,408 fresh episodes](docs/improvement-studies.md).** Remembering observed ammo decreases or hits improved net utility over rules by **+0.82 in Center and +5.43 in Line**, with kills identical in all 192 paired confirmation episodes. It avoids redundant fire commands under the stated command cost. All three broader continuation gates failed; this is an engineering gain, not established ICLR novelty.
+**New: [PPO and DQN experiments](docs/rl-study.md).** Nine fits used **294,912 training interactions**, followed by 1,536 fresh confirmation episodes and separate simple-policy checks. History-PPO passed its predeclared combat gate:
+
+| Controller | Center mean kills | Line mean kills |
+|---|---:|---:|
+| Event-memory rules | 6.38 | 25.36 |
+| PPO current observations | 9.37 | 28.01 |
+| **PPO with history** | **11.56** | **28.08** |
+| Always fire | 8.54 | 28.08 |
+
+Center's improvement survives the simple controls. On Line, every learned-policy action sequence matches always-fire, so that gain does not demonstrate learned memory. DQN failed the development transfer screen. The old command-window utility can miss delayed hits during waits; the new kill-based result does not replace earlier utility gates. [Full methods, intervals and limitations](docs/rl-study.md).
+
+![Fresh RL confirmation with simple-policy controls](evidence/rl-doom-v1/confirmation-results.png)
+
+![Local PPO history controller, first confirmation seed](docs/assets/ppo-history-141000.gif)
+
+*First confirmation seed 141000, first training fit: **11 kills in 25.09 game seconds**, then death. Replay matches the preserved episode. Structured engine observations and rule steering; separate from the Qwen language model. [Recording receipt](docs/assets/ppo-history-141000.json).*
+
+
+**Earlier: [three improvement studies, 6,408 fresh episodes](docs/improvement-studies.md).** Remembering observed ammo decreases or hits improved net utility over rules by **+0.82 in Center and +5.43 in Line**, with kills identical in all 192 paired confirmation episodes. It avoids redundant fire commands under the stated command cost. All three broader continuation gates failed; this is an engineering gain, not established ICLR novelty.
 
 ![Event-memory confirmation and its failed broader comparisons](evidence/event-cadence-doom-v1/confirmation-contrasts.png)
 
@@ -59,7 +77,7 @@ The final learned-model study also isolates the event gate: adding it to the sam
 
 ![Memory ablation primary contrasts](evidence/memory-doom-v1/memory-contrasts.png)
 
-[**Benchmark figures and evidence**](docs/benchmarks.md) · [**Paper draft (PDF)**](output/pdf/openjev-improvement-paper.pdf) · [**LaTeX source and build instructions**](paper/README.md)
+[**Benchmark figures and evidence**](docs/benchmarks.md) · [**Paper draft (PDF)**](output/pdf/openjev-rl-paper.pdf) · [**LaTeX source and build instructions**](paper/README.md)
 
 The [research plan](docs/research.md) covers conformal prediction sets, connectome-inspired sparse recurrence, shared-depth latent transformers, recurrent world models, and a Rust/Python score-kernel benchmark. Working modules live under `openjev.research`; they are opt-in and do not change the deployed policy. The architecture modules are untrained, and synthetic checks are not model-quality results. The proposed ICLR direction is uncertainty-guided compute under a fixed budget, with explicit prior-work comparisons and stop rules.
 

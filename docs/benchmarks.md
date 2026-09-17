@@ -1,8 +1,18 @@
 # OpenJev benchmark figures
 
-[Paper draft (PDF)](../output/pdf/openjev-improvement-paper.pdf) · [LaTeX source and build instructions](../paper/README.md)
+[Paper draft (PDF)](../output/pdf/openjev-rl-paper.pdf) · [LaTeX source and build instructions](../paper/README.md)
 
 These figures visualize existing development evidence. No new model training or gameplay runs were performed to produce them. Each experiment has a separate scope; they do not form a single leaderboard.
+
+## Direct reinforcement learning
+
+![RL confirmation including simple controls](../evidence/rl-doom-v1/confirmation-results.png)
+
+PPO with history passed the frozen combat gate against event-memory rules on 96 new seeds per scenario, retaining all three training fits. It also improved Center kills against current-only PPO and the simple controls in exploratory secondary comparisons. Line actions match always-fire. Dots are means; crosses show each training fit's mean kills, not confidence intervals. [Full report and intervals](rl-study.md).
+
+![All nine RL training curves](../evidence/rl-doom-v1/learning-curves.png)
+
+The training curves show trailing 20-episode means, including exploration, and do not substitute for held-out evaluation. The old command-window metric can miss delayed hits under alternate fire/wait schedules. The new study uses kills and duration as its primary outcomes.
 
 ## Prospective improvement studies
 
