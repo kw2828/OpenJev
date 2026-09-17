@@ -1,0 +1,381 @@
+{
+  "protocol": {
+    "version": "astra-text-distillation-v1",
+    "student": "sentence-transformers/all-MiniLM-L6-v2",
+    "student_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "teacher": "gpt-6-astra",
+    "reasoning": "low",
+    "max_output_tokens": 1024,
+    "selection_seed": 76219,
+    "fit_seeds": [
+      17,
+      29,
+      43
+    ],
+    "arms": [
+      "untrained",
+      "gold",
+      "astra"
+    ],
+    "epochs": 3,
+    "learning_rate": 2e-05,
+    "weight_decay": 0.01,
+    "gradient_clip": 1.0,
+    "max_pair_tokens": 512,
+    "boolq_train_per_class": 32,
+    "boolq_eval_per_class": 42,
+    "clinc_train_per_domain": 6,
+    "clinc_train_oos": 4,
+    "clinc_eval_per_class": 8,
+    "teacher_cost_ceiling_usd": 20.0,
+    "sources": {
+      "boolq": {
+        "repo": "google/boolq",
+        "revision": "35b264d03638db9f4ce671b711558bf7ff0f80d5",
+        "train": "train",
+        "evaluation": "validation",
+        "license": "CC-BY-SA-3.0"
+      },
+      "clinc": {
+        "repo": "clinc/oos-eval",
+        "revision": "828f8093932c8fe6ca7936c3d2e52903b1c523de",
+        "train": "train+oos_train",
+        "evaluation": "test+oos_test",
+        "license": "CC-BY-3.0"
+      }
+    },
+    "scope": "Balanced small-data pilot; CLINC is 10-domain-plus-OOS adaptation, not 150-intent benchmark",
+    "selection": "Filter >512 tokens and duplicates before seeded class-stratified sampling; train priority",
+    "fit": "All encoder weights plus shared scalar head; CE over candidates; one question per update",
+    "calibration": "none; candidate-score softmax, not teacher/token probabilities",
+    "continuation": {
+      "each_task_astra_minus_untrained_accuracy_min": 0.1,
+      "each_task_astra_minus_gold_accuracy_min": -0.05,
+      "interpretation": "Descriptive screening rule, not significance or novelty evidence"
+    }
+  },
+  "packet_sha256": "a2ea4c57d480a5c7eb509b6d44a133753388ad6dda19fd7b215ea9e4c9007df6",
+  "status": "controls_only",
+  "arms": {
+    "untrained": {
+      "tasks": {
+        "boolq": {
+          "per_fit": [
+            {
+              "seed": 17,
+              "examples": 84,
+              "accuracy": 0.5357142857142857,
+              "macro_class_accuracy": 0.5357142857142857,
+              "class_accuracy": {
+                "no": 0.2857142857142857,
+                "yes": 0.7857142857142857
+              },
+              "nll": 0.692872049602786,
+              "multiclass_brier": 0.4997248738455927,
+              "median_latency_ms": 16.3705829763785,
+              "p95_latency_ms": 61.43062859773634
+            },
+            {
+              "seed": 29,
+              "examples": 84,
+              "accuracy": 0.4880952380952381,
+              "macro_class_accuracy": 0.48809523809523814,
+              "class_accuracy": {
+                "no": 0.5238095238095238,
+                "yes": 0.4523809523809524
+              },
+              "nll": 0.6930364474883676,
+              "multiclass_brier": 0.49988927205003414,
+              "median_latency_ms": 14.037207991350442,
+              "p95_latency_ms": 18.450366077013314
+            },
+            {
+              "seed": 43,
+              "examples": 84,
+              "accuracy": 0.5357142857142857,
+              "macro_class_accuracy": 0.5357142857142857,
+              "class_accuracy": {
+                "no": 0.6666666666666666,
+                "yes": 0.40476190476190477
+              },
+              "nll": 0.6930762037552549,
+              "multiclass_brier": 0.4999290250798138,
+              "median_latency_ms": 9.323334030341357,
+              "p95_latency_ms": 19.0012187755201
+            }
+          ],
+          "mean_across_fits": {
+            "accuracy": 0.5198412698412698,
+            "macro_class_accuracy": 0.5198412698412698,
+            "nll": 0.6929949002821362,
+            "multiclass_brier": 0.49984772365848024,
+            "median_latency_ms": 13.2437083326901,
+            "p95_latency_ms": 32.960737816756584
+          }
+        },
+        "clinc_domains": {
+          "per_fit": [
+            {
+              "seed": 17,
+              "examples": 88,
+              "accuracy": 0.125,
+              "macro_class_accuracy": 0.125,
+              "class_accuracy": {
+                "banking": 0.0,
+                "meta": 0.0,
+                "kitchen_and_dining": 0.0,
+                "utility": 0.125,
+                "home": 0.125,
+                "small_talk": 0.125,
+                "work": 0.0,
+                "auto_and_commute": 0.0,
+                "travel": 0.0,
+                "oos": 0.875,
+                "credit_cards": 0.125
+              },
+              "nll": 2.3983367255357915,
+              "multiclass_brier": 0.9091447455568992,
+              "median_latency_ms": 12.952021032106131,
+              "p95_latency_ms": 26.302890229271725
+            },
+            {
+              "seed": 29,
+              "examples": 88,
+              "accuracy": 0.07954545454545454,
+              "macro_class_accuracy": 0.07954545454545454,
+              "class_accuracy": {
+                "banking": 0.0,
+                "meta": 0.0,
+                "kitchen_and_dining": 0.0,
+                "utility": 0.0,
+                "home": 0.0,
+                "small_talk": 0.0,
+                "work": 0.875,
+                "auto_and_commute": 0.0,
+                "travel": 0.0,
+                "oos": 0.0,
+                "credit_cards": 0.0
+              },
+              "nll": 2.3992348000598542,
+              "multiclass_brier": 0.9093376706412197,
+              "median_latency_ms": 11.475334002170712,
+              "p95_latency_ms": 21.98751432006246
+            },
+            {
+              "seed": 43,
+              "examples": 88,
+              "accuracy": 0.07954545454545454,
+              "macro_class_accuracy": 0.07954545454545454,
+              "class_accuracy": {
+                "banking": 0.0,
+                "meta": 0.0,
+                "kitchen_and_dining": 0.875,
+                "utility": 0.0,
+                "home": 0.0,
+                "small_talk": 0.0,
+                "work": 0.0,
+                "auto_and_commute": 0.0,
+                "travel": 0.0,
+                "oos": 0.0,
+                "credit_cards": 0.0
+              },
+              "nll": 2.398350227816864,
+              "multiclass_brier": 0.9091865061705956,
+              "median_latency_ms": 16.472020535729825,
+              "p95_latency_ms": 23.925935366423793
+            }
+          ],
+          "mean_across_fits": {
+            "accuracy": 0.09469696969696968,
+            "macro_class_accuracy": 0.09469696969696968,
+            "nll": 2.3986405844708365,
+            "multiclass_brier": 0.9092229741229049,
+            "median_latency_ms": 13.633125190002223,
+            "p95_latency_ms": 24.072113305252657
+          }
+        }
+      },
+      "total_training_seconds": 0.0
+    },
+    "gold": {
+      "tasks": {
+        "boolq": {
+          "per_fit": [
+            {
+              "seed": 17,
+              "examples": 84,
+              "accuracy": 0.4880952380952381,
+              "macro_class_accuracy": 0.48809523809523814,
+              "class_accuracy": {
+                "no": 0.4523809523809524,
+                "yes": 0.5238095238095238
+              },
+              "nll": 0.701675849115406,
+              "multiclass_brier": 0.5083928319841691,
+              "median_latency_ms": 11.097770475316793,
+              "p95_latency_ms": 18.034125090343878
+            },
+            {
+              "seed": 29,
+              "examples": 84,
+              "accuracy": 0.4880952380952381,
+              "macro_class_accuracy": 0.48809523809523814,
+              "class_accuracy": {
+                "no": 0.6428571428571429,
+                "yes": 0.3333333333333333
+              },
+              "nll": 0.6926881385321336,
+              "multiclass_brier": 0.4995404910954888,
+              "median_latency_ms": 9.361083502881229,
+              "p95_latency_ms": 15.210957895033062
+            },
+            {
+              "seed": 43,
+              "examples": 84,
+              "accuracy": 0.5357142857142857,
+              "macro_class_accuracy": 0.5357142857142857,
+              "class_accuracy": {
+                "no": 0.38095238095238093,
+                "yes": 0.6904761904761905
+              },
+              "nll": 0.6978393436366528,
+              "multiclass_brier": 0.5046374156079353,
+              "median_latency_ms": 9.716541564557701,
+              "p95_latency_ms": 16.01471621543169
+            }
+          ],
+          "mean_across_fits": {
+            "accuracy": 0.503968253968254,
+            "macro_class_accuracy": 0.503968253968254,
+            "nll": 0.6974011104280642,
+            "multiclass_brier": 0.5041902462291977,
+            "median_latency_ms": 10.058465180918574,
+            "p95_latency_ms": 16.41993306693621
+          }
+        },
+        "clinc_domains": {
+          "per_fit": [
+            {
+              "seed": 17,
+              "examples": 88,
+              "accuracy": 0.7613636363636364,
+              "macro_class_accuracy": 0.7613636363636364,
+              "class_accuracy": {
+                "banking": 1.0,
+                "meta": 0.875,
+                "kitchen_and_dining": 0.875,
+                "utility": 0.625,
+                "home": 0.875,
+                "small_talk": 0.75,
+                "work": 0.625,
+                "auto_and_commute": 0.875,
+                "travel": 0.875,
+                "oos": 0.125,
+                "credit_cards": 0.875
+              },
+              "nll": 1.0017519644762605,
+              "multiclass_brier": 0.40485495412801614,
+              "median_latency_ms": 13.477874977979809,
+              "p95_latency_ms": 22.488868754589923
+            },
+            {
+              "seed": 29,
+              "examples": 88,
+              "accuracy": 0.36363636363636365,
+              "macro_class_accuracy": 0.36363636363636365,
+              "class_accuracy": {
+                "banking": 0.0,
+                "meta": 0.0,
+                "kitchen_and_dining": 0.875,
+                "utility": 0.0,
+                "home": 0.375,
+                "small_talk": 0.125,
+                "work": 0.25,
+                "auto_and_commute": 1.0,
+                "travel": 0.375,
+                "oos": 0.0,
+                "credit_cards": 1.0
+              },
+              "nll": 2.3767528046651645,
+              "multiclass_brier": 0.9027775672938287,
+              "median_latency_ms": 12.617083441000432,
+              "p95_latency_ms": 20.13143135118298
+            },
+            {
+              "seed": 43,
+              "examples": 88,
+              "accuracy": 0.6818181818181818,
+              "macro_class_accuracy": 0.6818181818181818,
+              "class_accuracy": {
+                "banking": 1.0,
+                "meta": 1.0,
+                "kitchen_and_dining": 0.75,
+                "utility": 0.5,
+                "home": 0.75,
+                "small_talk": 0.375,
+                "work": 0.625,
+                "auto_and_commute": 0.875,
+                "travel": 0.875,
+                "oos": 0.0,
+                "credit_cards": 0.75
+              },
+              "nll": 1.0760283402411326,
+              "multiclass_brier": 0.4460105216479919,
+              "median_latency_ms": 13.438166992273182,
+              "p95_latency_ms": 21.368270984385145
+            }
+          ],
+          "mean_across_fits": {
+            "accuracy": 0.6022727272727272,
+            "macro_class_accuracy": 0.6022727272727272,
+            "nll": 1.484844369794186,
+            "multiclass_brier": 0.5845476810232789,
+            "median_latency_ms": 13.177708470417807,
+            "p95_latency_ms": 21.32952369671935
+          }
+        }
+      },
+      "total_training_seconds": 67.4218506240286
+    }
+  },
+  "contrasts": {
+    "boolq": {
+      "gold_minus_untrained": {
+        "delta": -0.015873015873015872,
+        "exploratory_95_percent_interval": [
+          -0.12301587301587301,
+          0.09126984126984126
+        ]
+      }
+    },
+    "clinc_domains": {
+      "gold_minus_untrained": {
+        "delta": 0.5075757575757576,
+        "exploratory_95_percent_interval": [
+          0.29545454545454547,
+          0.6704545454545454
+        ]
+      }
+    }
+  },
+  "teacher": {
+    "status": "not_run",
+    "note": "No Astra efficacy result available"
+  },
+  "continuation": "not_assessed_missing_astra",
+  "evidence_sha256": {
+    "untrained/result-17.json": "fabd37250ae2db852da60a43cde303a0adb282f6a205513bfaa4a2969d6b3be3",
+    "untrained/result-29.json": "f7a4707126ef4a3dbae670c232e8e4ee097a0192836130345dfd287c08f3fa8b",
+    "untrained/result-43.json": "936920315d78d2923bb833bcafd390c4ac5a065ee2e7bfca0edd4a2a034b9295",
+    "gold/result-17.json": "aba7a047a3e597b805ffb1ee36c738f41246d7c78e731f69a610ccdbeda7d08f",
+    "gold/result-29.json": "9b57e79aafe511d970d60c3383b896cd93ba35268c153d91bf0ef08aa7bf0096",
+    "gold/result-43.json": "59f07a93d07cfe450d0675880e9d9334b06d5c9d213fafe83b2c83195bc79b37"
+  },
+  "caveats": [
+    "Balanced, filtered, public subsets; prior model exposure is possible.",
+    "Three fits reuse the same evaluation items; they are not independent new test sets.",
+    "Intervals are exploratory, class-stratified and paired; no population claim.",
+    "Training and inference costs exclude encoder pretraining and model loading.",
+    "No claim of RL, JEPA transfer, novelty, calibration or production readiness."
+  ]
+}

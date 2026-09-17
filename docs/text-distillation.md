@@ -2,7 +2,27 @@
 
 This experiment trains a small English candidate scorer using **gpt-6-astra as a frozen teacher**. It is supervised hard-label distillation. It does not fine-tune Astra, use reinforcement learning, or transfer the Doom JEPA policy.
 
-**Status:** pipeline implemented; Astra labeling awaits accessible API credentials. No Astra-trained model or efficacy result exists yet. The existing browser demo continues to use Qwen3-0.6B.
+**Status:** three gold-supervised student fits and three untrained-head controls completed; Astra labeling awaits accessible API credentials. No Astra-trained model or efficacy result exists yet. The existing browser demo continues to use Qwen3-0.6B.
+
+## Control results
+
+![Text student controls, with Astra training pending](../evidence/text-distillation-v1/controls.png)
+
+Bars show means; dots show the three fits. This is a small benchmark subset, not a published full-benchmark score.
+
+| Supervision | BoolQ accuracy | CLINC domain accuracy | CLINC accuracy by fit |
+| --- | ---: | ---: | --- |
+| Untrained head | 52.0% | 9.5% | 12.5%, 8.0%, 8.0% |
+| Gold training labels | 50.4% | 60.2% | 76.1%, 36.4%, 68.2% |
+| Astra training labels | Not run | Not run | Awaiting API access |
+
+Gold supervision improved this routing subset by 50.8 percentage points (exploratory paired interval 29.5 to 67.0 points), but did not improve BoolQ (-1.6 points; interval -12.3 to 9.1). Routing is unstable across fits, and gold-trained out-of-scope accuracy is only **4.2%**, averaged across fits. The model is not ready for reliable routing or abstention.
+
+The three gold fits used 1,152 total updates and 67.42 seconds of training on an Apple M5 Max with MPS. Mean per-fit median inference latency was 10.06 ms for BoolQ and 13.18 ms for 11-way routing. These are local measurements, not a speed comparison with Astra or the existing Qwen scorer. Gold-label NLL/Brier were 0.697/0.504 for BoolQ and 1.485/0.585 for routing; probability calibration remains unestablished.
+
+[Aggregate metrics and paired intervals](../evidence/text-distillation-v1/summary.json) · [Frozen selection and code hashes](../evidence/text-distillation-v1/manifest.json) · [Selection exclusions](../evidence/text-distillation-v1/selection-audit.json) · [Execution receipt](../evidence/text-distillation-v1/execution.json)
+
+The code was frozen in commit `793a55e` before fitting. The pending Astra plan contains 128 requests with a conservative estimated reservation of **$17.14** below its $20 ceiling. No paid requests have been sent. The Astra continuation rule remains **unassessed**.
 
 ## Benchmarks
 
@@ -70,9 +90,10 @@ Use `--device cpu` or `--device cuda` on other machines. Every paid request gets
 
 Checkpoints remain local under each arm's `seed-*` directories. They can be loaded with `CandidateStudent.load(path, device='cpu')` from `openjev.research.text_student` and used with `decide_record` or the existing `DecisionRequest` via `score`. This research adapter is not wired into the public API; it deliberately does not fabricate vocabulary token-mass fields.
 
-Generate an aggregate report and figure in a new directory (requires Matplotlib in the execution environment):
+Generate an aggregate report and figure in a new directory:
 
 ```sh
+uv pip install --python .venv/bin/python matplotlib==3.11.2
 .venv/bin/python -m openjev.research.text_report \
   --packet runs/text-distill-v1/packet --runs runs/text-distill-v1 \
   --teacher runs/text-distill-v1/teacher --out evidence/text-distillation-v1

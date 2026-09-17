@@ -40,7 +40,7 @@ Supply a context, a question and 2-12 candidates. Receive the selected ID and pr
 
 ## What we have measured
 
-- **Text:** the original eight development checks were smoke tests. The Astra teacher/student benchmark is documented in [text distillation](docs/text-distillation.md); its status and results are kept separate from Doom.
+- **Text:** a small gold-label-trained student reached **60.2% routing accuracy** and **50.4% BoolQ accuracy**, averaged across three fits. Astra teacher training is pending API access. [Benchmark and training pipeline](docs/text-distillation.md).
 - **Doom:** history-PPO improved Center combat in a frozen comparison. On Line, learned policies matched always-fire. [PPO/DQN study](docs/rl-study.md).
 - **JEPA + RL:** 27 fits and 992 evaluation episodes. Pretrained JEPA had the highest Center mean, **12.40 kills**, but did not establish a reliable advantage over GRPO or pixel similarity. [Full comparison](docs/jepa-rl-study.md).
 
