@@ -1,6 +1,6 @@
 # Candidate-conditioned chess study
 
-**Status: implementation planning, before data generation, fitting or evaluation.** The capacity study failed its continuation rule. This is a bounded width-32 mechanism diagnostic. The executable protocol, source hashes, exclusions, environment and complete game schedule must be frozen together before a real run. No trained candidate-refinement checkpoint or efficacy result exists yet.
+**Status: protocol frozen, before data generation, fitting or evaluation.** The capacity study failed its continuation rule. This is a bounded width-32 mechanism diagnostic. The [executable plan](../evidence/chess-candidate-v1/protocol/plan.json) binds source hashes, prior-data exclusions, environment and all 288 scheduled games. The model, data, evaluation, arena, training and integration checks pass 259 focused synthetic tests. No trained candidate-refinement checkpoint or efficacy result exists yet.
 
 ## Question and controls
 
@@ -21,13 +21,15 @@ Keep the pre-move player's perspective for every successor. Native transitions m
 
 Use the original 32,768 spatial training positions, six epochs, logical batches of 128 and paired seeds 97, 109 and 127. This is 1,536 optimizer updates per fit and twelve final fits. All arms receive the same labels, logical minibatches, microbatch boundaries and optimizer settings: Adam at 0.001, betas 0.9/0.999, epsilon 1e-8, no weight decay, gradient norm clipped at 1. The loss remains legal-menu cross entropy plus 0.5 bounded root-value MSE.
 
-Accumulate gradients by complete positions and weight each microbatch by its share of the logical batch. Freeze the microbatch size after a synthetic memory/timing preflight, before fitting. Do not split the softmax into separately normalized candidate subsets. Derived encodings may be cached, with construction time, memory, source hashes and actual native-transition counts recorded. No additional successor teacher labels are acquired.
+The synthetic backward-only preflights tested 16 and 128 positions without changing weights. The executable protocol uses **128 positions per microbatch**, matching the logical batch, and chunks candidate computation at 128 actions. The largest allocation sampled in the 128-position preflight was about 415 MiB for full afterstate; these samples are not measured memory peaks or training-speed results. Both [16-position](../evidence/chess-candidate-v1/preflight.json) and [128-position](../evidence/chess-candidate-v1/preflight-128.json) records are retained.
+
+Accumulate gradients by complete positions and weight each microbatch by its share of the logical batch. Do not split the softmax into separately normalized candidate subsets. Derived encodings are cached with construction time, memory, source hashes and actual native-transition counts recorded. No additional successor teacher labels are acquired.
 
 All final fits finish before fresh neural evaluation. No best-epoch or best-seed selection. Match data, labels, logical updates and shared initialization, while reporting actual active/stored parameters, candidate computations and wall time. Full-afterstate processing is deliberately more expensive than reusing the root latent.
 
 ## Planned evaluation and decision rule
 
-Generate 2,048 fresh ordinary and 2,048 fresh shifted positions using the established 50% and 10% random-rollout generators. Freeze generator seeds and quotas in the executable plan. Exclude all prior inputs and recorded successors/games, mirrored equivalents, and **every legal successor of this study's training positions**. Fresh roots and their supplied candidate afterstates must also be checked for cross-panel or training overlap. The same generators have been examined before, so fresh positions still constitute development evidence.
+Generate 2,048 fresh ordinary and 2,048 fresh shifted positions using the established 50% and 10% random-rollout generators. Generator seeds start at 111000000 and 112000000, with 600 games per panel and 64/96 plies per game. Exclude all prior inputs and recorded successors/games, mirrored equivalents, and **every legal successor of this study's training positions**. Every admitted root and all its legal afterstates must avoid prior exposure sets and the opposite panel's accepted exposure set. Roots remain globally mirror-unique; within-panel successor overlap is allowed so consecutive rollout positions remain possible. This can leave dependence across source games beyond the game-cluster bootstrap. The same generators have been examined before, so fresh positions still constitute development evidence. All visited teacher calls count, including discarded positions; exhaustion of a fixed quota is a failed attempt.
 
 Use the existing 2,000-node labels for teacher agreement. Grade every fit on the same fixed 128 positions per panel using 20,000-node Stockfish calls. Retain all signed bounded score losses, raw centipawn losses, mate scores, calls and node costs. Best-move agreement is secondary.
 

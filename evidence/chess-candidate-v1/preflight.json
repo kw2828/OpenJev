@@ -1,0 +1,166 @@
+{
+  "status": "completed",
+  "scope": "Synthetic memory/timing preflight, no optimizer or benchmark labels.",
+  "microbatch_positions": 16,
+  "candidate_chunk_size": 128,
+  "warmups": 2,
+  "samples": 3,
+  "platform": "macOS-26.6.1-arm64-arm-64bit",
+  "torch": "2.14.0",
+  "python": "3.12.13",
+  "sources": {
+    "scripts/preflight_chess_candidate.py": "c84b49b54acac197473337c56bec82d556471867aa0a544632e78d91169c6c51",
+    "src/openjev/research/chess_candidate.py": "3f09247154d5ed47d300c00fb71729a3808d4504b344af62423571b8f12cd3fa",
+    "src/openjev/research/chess_anchor.py": "791be15f6b20bb40c2ff075ef824b4c725887592d32b966fe1fef38ac115210b",
+    "src/openjev/research/chess_spatial.py": "49e6e53d33cd52511c0e4a08074b9a7f0dc2244727df2879f3fb7fd1aa886ab4"
+  },
+  "positions": [
+    "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+    "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1",
+    "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6 0 2",
+    "rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2",
+    "r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 2 3",
+    "r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3",
+    "r1bqkbnr/1ppp1ppp/p1n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+    "r1bqkbnr/1ppp1ppp/p1n5/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 1 4",
+    "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+    "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1",
+    "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6 0 2",
+    "rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2",
+    "r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 2 3",
+    "r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3",
+    "r1bqkbnr/1ppp1ppp/p1n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+    "r1bqkbnr/1ppp1ppp/p1n5/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 1 4"
+  ],
+  "arms": {
+    "direct": {
+      "seconds": [
+        0.007926916005089879,
+        0.0050835000583902,
+        0.005534583004191518
+      ],
+      "median_seconds": 0.005534583004191518,
+      "preparation_seconds": 0.005610166932456195,
+      "sampled_allocations": [
+        {
+          "after_forward": 1842944,
+          "after_backward": 544256
+        },
+        {
+          "after_forward": 1842944,
+          "after_backward": 544256
+        },
+        {
+          "after_forward": 1842944,
+          "after_backward": 544256
+        }
+      ],
+      "positions": 16,
+      "legal_candidates": 438,
+      "parameters": {
+        "stored": 43854,
+        "active": 33185,
+        "inactive_auxiliary": 10541,
+        "inactive_action_projection": 128
+      },
+      "weights_unchanged": true
+    },
+    "action_only": {
+      "seconds": [
+        0.026717999950051308,
+        0.01603916601743549,
+        0.01540708402171731
+      ],
+      "median_seconds": 0.01603916601743549,
+      "preparation_seconds": 0.0020878749201074243,
+      "sampled_allocations": [
+        {
+          "after_forward": 20093184,
+          "after_backward": 545024
+        },
+        {
+          "after_forward": 20093184,
+          "after_backward": 545024
+        },
+        {
+          "after_forward": 20093184,
+          "after_backward": 545024
+        }
+      ],
+      "positions": 16,
+      "legal_candidates": 438,
+      "parameters": {
+        "stored": 43854,
+        "active": 33313,
+        "inactive_auxiliary": 10541,
+        "inactive_action_projection": 0
+      },
+      "weights_unchanged": true
+    },
+    "delta": {
+      "seconds": [
+        0.01342495798598975,
+        0.016427083988673985,
+        0.013215790968388319
+      ],
+      "median_seconds": 0.01342495798598975,
+      "preparation_seconds": 0.01828016701620072,
+      "sampled_allocations": [
+        {
+          "after_forward": 24386304,
+          "after_backward": 2707712
+        },
+        {
+          "after_forward": 24386304,
+          "after_backward": 2707712
+        },
+        {
+          "after_forward": 24386304,
+          "after_backward": 2707712
+        }
+      ],
+      "positions": 16,
+      "legal_candidates": 438,
+      "parameters": {
+        "stored": 43854,
+        "active": 33313,
+        "inactive_auxiliary": 10541,
+        "inactive_action_projection": 0
+      },
+      "weights_unchanged": true
+    },
+    "full_afterstate": {
+      "seconds": [
+        0.019200833048671484,
+        0.014537416980601847,
+        0.014367417083121836
+      ],
+      "median_seconds": 0.014537416980601847,
+      "preparation_seconds": 0.017020750092342496,
+      "sampled_allocations": [
+        {
+          "after_forward": 54541568,
+          "after_backward": 2707712
+        },
+        {
+          "after_forward": 54541568,
+          "after_backward": 2707712
+        },
+        {
+          "after_forward": 54541568,
+          "after_backward": 2707712
+        }
+      ],
+      "positions": 16,
+      "legal_candidates": 438,
+      "parameters": {
+        "stored": 43854,
+        "active": 33313,
+        "inactive_auxiliary": 10541,
+        "inactive_action_projection": 0
+      },
+      "weights_unchanged": true
+    }
+  },
+  "memory_scope": "Allocated bytes sampled after forward and backward, not a measured peak."
+}
