@@ -1,12 +1,14 @@
 # Candidate-conditioned chess refinement
 
-**Status: proposed, not implemented or run.** Proceed conditionally on the audited capacity results. Freeze a separate protocol, sources, budgets and fresh panels before execution. No improvement or novelty is established.
+**Status: prototype implemented and tested, not trained or benchmarked.** The audited capacity gate failed, so the planned diagnostic uses width 32. [Architecture](../src/openjev/research/chess_candidate.py) · [64 invariant tests](../tests/test_chess_candidate.py) · [Prospective study](chess-candidate-study.md). Freeze a separate executable protocol, sources, budgets and fresh panels before execution. No improvement or novelty is established.
 
 Hypothesis: candidate-specific processing across the board improves on the current source-square, destination-square and pooled-feature head. This proposes an inductive bias, not a proof of greater expressivity.
 
 For each legal move, give a shared recurrent branch the root representation, action encoding and exact board changes. Score its output in the legal-move softmax. Use two internal refinement steps for one successor position, not two chess plies or cross-move memory. Train branch and ranking head jointly with legal-move cross-entropy plus 0.5 root-value MSE; omit reconstruction loss.
 
 If the capacity gate passes, use width 128 as reference. Otherwise, limit this to a width-32 diagnostic before attempting multi-step rollouts. Do not select seeds or depths after results.
+
+The prototype shares the existing encoder, residual core and source/destination/pooled scoring head. It adds a 1-by-1 action projection with 128 parameters at width 32. All four variants store 43,854 parameters, including the unused auxiliary decoder; the direct control has 33,185 active parameters and each refinement arm has 33,313. Exact delta reuses the encoder's convolution weights without its bias or activation to project the complete encoded input change. Full afterstate runs the complete four-step trunk on every child before the two shared refinement steps. It is native one-ply lookahead, not learned dynamics.
 
 ## Exact transition contract
 
