@@ -6,6 +6,8 @@ These figures visualize existing development evidence. No new model training or 
 
 ## Text student controls
 
+[Corrective-recurrence follow-up](corrective-associative-study.md): 18 fits produced a small development gain, 95.35% versus 95.10%, below the predeclared improvement threshold. Confirmation stayed closed. This is not an established novel-method benefit.
+
 [Learned-head follow-up](learned-associative-study.md): 12 matched-parameter fits raised development accuracy to 95.10% for the linear metric control. Dense and sparse recurrence did not improve it. The independent confirmation set remains unscored.
 
 [Associative architecture follow-up](associative-text-study.md): a full-training-bank prototype reached 91.6% in-scope accuracy on development data and outperformed the tested recurrent retrieval. Confirmation was not opened. This is a different task and data budget from the small student pilot below.

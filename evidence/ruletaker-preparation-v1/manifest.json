@@ -1,0 +1,98 @@
+{
+  "source_url": "https://aristo-data-public.s3-us-west-2.amazonaws.com/ruletaker/rule-reasoning-dataset-V2020.2.5.zip",
+  "source_sha256": "080c8bca836603d9fea040e5a242bbd281f631255ca83428b7141ebf7f3deb0c",
+  "selection_seed": 59271,
+  "code_sha256": "ecaa2ce5c8ccc7e311f72e5d724487e653fe62015a272df21d2ec5d7c0f38297",
+  "max_questions_per_world": 12,
+  "parts": {
+    "train": {
+      "upstream_directory": "depth-2",
+      "upstream_split": "train",
+      "eligible_worlds": 6270,
+      "selected_worlds": 2000,
+      "allowed_annotated_depths": [
+        0,
+        1,
+        2
+      ],
+      "selected_questions": 19809,
+      "excluded": {
+        "question_depth_outside_selection": 418,
+        "not_in_problog_release": 7649,
+        "no_eligible_questions": 44
+      },
+      "label_by_depth": {
+        "false:0": 5079,
+        "false:1": 2755,
+        "false:2": 1996,
+        "true:0": 4156,
+        "true:1": 3685,
+        "true:2": 2138
+      },
+      "file_sha256": "f94fb239544ef019f4d457ed12c8ea9f1b8a84a89ebaf3783c926aafc96d7937"
+    },
+    "dev_in": {
+      "upstream_directory": "depth-2",
+      "upstream_split": "dev",
+      "eligible_worlds": 900,
+      "selected_worlds": 300,
+      "allowed_annotated_depths": [
+        0,
+        1,
+        2
+      ],
+      "selected_questions": 2947,
+      "excluded": {
+        "not_in_problog_release": 1088,
+        "question_depth_outside_selection": 84,
+        "no_eligible_questions": 3
+      },
+      "label_by_depth": {
+        "false:0": 756,
+        "false:1": 412,
+        "false:2": 300,
+        "true:0": 609,
+        "true:1": 539,
+        "true:2": 331
+      },
+      "file_sha256": "89fe954596e225a4131e154da5304feb3493d48e8589fd254cca82056cb21956"
+    },
+    "dev_shift": {
+      "upstream_directory": "depth-5",
+      "upstream_split": "dev",
+      "eligible_worlds": 461,
+      "selected_worlds": 300,
+      "allowed_annotated_depths": [
+        3,
+        4,
+        5
+      ],
+      "selected_questions": 1941,
+      "excluded": {
+        "not_in_problog_release": 582,
+        "question_depth_outside_selection": 6520,
+        "no_eligible_questions": 23
+      },
+      "label_by_depth": {
+        "false:3": 357,
+        "false:4": 313,
+        "false:5": 297,
+        "true:3": 360,
+        "true:4": 314,
+        "true:5": 300
+      },
+      "file_sha256": "32e4f0eea75313b5e485c6c42295cd724ab991b4b6f5c141ddeb6623b2c50311"
+    }
+  },
+  "model_inputs": "English context, English question and true/false candidate descriptions only",
+  "test_members_opened": false,
+  "models_trained": false,
+  "source_scope": "Original English text intersected with consistent Problog labels",
+  "license_note": "Upstream repository is Apache-2.0; archive has no separate license file. Raw data kept local.",
+  "audit": {
+    "worlds_disjoint": true,
+    "allowed_depths_verified": true,
+    "source_and_packet_hashes_verified": true,
+    "input_allowlist_tested": true
+  }
+}
