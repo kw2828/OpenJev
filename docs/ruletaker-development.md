@@ -1,6 +1,6 @@
 # Multi-step text reasoning: prepared data
 
-**Status: data prepared and audited; the [18-fit memory study](rule-memory-study.md) is complete.** Recurrence failed its continuation rule. A [full-context representation follow-up](rule-crossencoder-study.md) tests the next explanation. The preparation manifest is a historical receipt from before model training.
+**Status: data prepared and audited; 24 fitted conditions completed.** The [18-fit memory study](rule-memory-study.md) failed its continuation rule. The [full-context follow-up](rule-crossencoder-study.md) found higher raw accuracy but near-50% performance after accounting for a strong negation shortcut. The preparation manifest is a historical receipt from before model training.
 
 [RuleTaker](https://github.com/allenai/ruletaker) supplies English facts, rules and true/false questions. Its [original paper](https://arxiv.org/abs/2002.05867) already reported strong transformer results and deeper-chain generalization. This is an established reasoning benchmark, not a new dataset or an automatic novelty claim.
 
