@@ -1,0 +1,102 @@
+{
+  "protocol": {
+    "attempts_per_batch": 1,
+    "batch_shuffle_seed": 9172026,
+    "batching": "Deterministically shuffle all training items without reading gold, then split into four groups of 32",
+    "calibration": "None; student probabilities are softmax candidate scores, not teacher confidence",
+    "claim": "Hard-label distillation from explicitly requested Astra Codex workers; not the original Responses API arm",
+    "codex_usage_cost": "Unavailable; do not claim free compute or fabricate usage counters",
+    "continuation": {
+      "each_task_teacher_minus_gold_accuracy_min": -0.05,
+      "each_task_teacher_minus_untrained_accuracy_min": 0.1
+    },
+    "controls": "Reuse the completed original gold and untrained fits, with result hashes fixed before teacher queries",
+    "direct_paid_api_calls": 0,
+    "epochs": 3,
+    "evaluation": "Same 172 previously scored public pilot items; reused development, not independent confirmation",
+    "evaluation_questions": 172,
+    "fit": "Unchanged CandidateStudent and fit_student; all encoder weights plus candidate-scoring head",
+    "fit_seeds": [
+      17,
+      29,
+      43
+    ],
+    "fork_turns": "none",
+    "gradient_clip": 1.0,
+    "independent_confirmation": false,
+    "items_per_batch": 32,
+    "learning_rate": 2e-05,
+    "model_identity": "Explicit parent spawn configuration, not independently provider-attested API identity",
+    "novelty_established": false,
+    "producer": "codex_collaboration",
+    "reasoning_and_output_limit": "Low effort requested; no API-equivalent hard output-token limit exposed by spawn",
+    "reasoning_effort": "low",
+    "requested_model": "gpt-6-astra",
+    "response": "Strict batch_id plus choices of opaque item ID and candidate ID only",
+    "selection": "All three final fits, fixed recipe, no teacher-label correction, no tuning or best-seed selection",
+    "student": "sentence-transformers/all-MiniLM-L6-v2",
+    "student_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "teacher_batches": 4,
+    "teacher_items": 128,
+    "training_questions": 128,
+    "version": "codex-astra-text-v1",
+    "weight_decay": 0.01,
+    "worker_access": "Instruction allowlist: read assigned packet, write assigned response; no other tools or files",
+    "worker_isolation": "Fresh conversation; shared filesystem is not a technical isolation boundary"
+  },
+  "sources_sha256": {
+    "scripts/codex_astra_distillation.py": "abc6fa997162024b93b6d21571f2f19ae50159a20094af53651c84a2a382affe",
+    "src/openjev/research/text_distillation.py": "c6afa11dfa17ecf70a2739c0aae26a832d930bd0cbca44982b54414916407ba1",
+    "src/openjev/research/text_report.py": "119db6e8b43ee4a86a8d46a8564618cb64dfcebb4e7ffe3f96e263d23dcac3b9",
+    "src/openjev/research/text_student.py": "d86928cfdb105a5dc03f7b88d6611ce36023fbff51e6349b46536de6ae393f07",
+    "src/openjev/research/text_teacher.py": "29c13b832ffe58afb3a6cc4a20bbcd643ab3a628e1a75e954648825b126691e3",
+    "tests/test_codex_astra_distillation.py": "94834669249d9972ecdb4f4f83b17e139300a529b52d0a3aa4d8f2698c9fcb83"
+  },
+  "dependencies": {
+    "numpy": "2.5.3",
+    "torch": "2.14.0",
+    "transformers": "5.17.0"
+  },
+  "lock_sha256": "833d01b398f7dae71fd3c565c3dbb05c87b337aac7917d7f0ccf3eef01ba1e0e",
+  "source_packet_sha256": "a2ea4c57d480a5c7eb509b6d44a133753388ad6dda19fd7b215ea9e4c9007df6",
+  "source_manifest_sha256": "9b9ed8880ef96e5717ea8557c3f3eaada5d2f5067c63aed79832954085c28f97",
+  "private_mapping_sha256": "4ab71546f758a645443df2f19c4b10ef01b323be2bd547683bc64cbcd3a97ea1",
+  "batches": [
+    {
+      "batch_id": "batch-000",
+      "items": 32,
+      "packet_sha256": "6fced4c88e53d1bb669f912ad1284653c217db89ba5f7d40bd59c2487a5141c8",
+      "request_sha256": "f0c4b81754d97e3544e297513c5f394a90daf965a1650ce093a578bf6946c031"
+    },
+    {
+      "batch_id": "batch-001",
+      "items": 32,
+      "packet_sha256": "c51b574f7a859c00981d52cef9456f2f64de8f139a15a02d116598c267a7e606",
+      "request_sha256": "3e6b5e103a5e6dbf3eef469e9766df880207ac7263238e4bb23b307da42d34f8"
+    },
+    {
+      "batch_id": "batch-002",
+      "items": 32,
+      "packet_sha256": "671fef924fbfa59809d1e542ceb17f8f199ee80634a636591887dc8562a6b40f",
+      "request_sha256": "06fc54321240d65ee57532d62e3d2356fc6a5a2a46d6a6d3c412b1686251f84d"
+    },
+    {
+      "batch_id": "batch-003",
+      "items": 32,
+      "packet_sha256": "22549f9835151aff7ee32a7cdd8f1ed440bae4ae50ecbe09ed9ea3b886936780",
+      "request_sha256": "aeef829715134517e8bf2a435c7fec14837aebbfeca33ddea9f25a17d00d3d76"
+    }
+  ],
+  "control_results_sha256": {
+    "gold/completed.json": "4d6a3190d694b6f3a744cef0d503bbd3b68f484bb60ca45d67c8126e7e4f8fa7",
+    "gold/result-17.json": "aba7a047a3e597b805ffb1ee36c738f41246d7c78e731f69a610ccdbeda7d08f",
+    "gold/result-29.json": "9b57e79aafe511d970d60c3383b896cd93ba35268c153d91bf0ef08aa7bf0096",
+    "gold/result-43.json": "59f07a93d07cfe450d0675880e9d9334b06d5c9d213fafe83b2c83195bc79b37",
+    "untrained/completed.json": "76689363b9d6dc3b5407937707abc36a81c929b08061619f5087e99751fab1db",
+    "untrained/result-17.json": "fabd37250ae2db852da60a43cde303a0adb282f6a205513bfaa4a2969d6b3be3",
+    "untrained/result-29.json": "f7a4707126ef4a3dbae670c232e8e4ee097a0192836130345dfd287c08f3fa8b",
+    "untrained/result-43.json": "936920315d78d2923bb833bcafd390c4ac5a065ee2e7bfca0edd4a2a034b9295"
+  },
+  "full_local_plan_sha256": "8f35eebc20ce02727a13b2529bab42796164e885ad5b0ed26c9c836950996187",
+  "redaction": "Filesystem locations omitted; full frozen plan and all teacher payloads remain local"
+}
