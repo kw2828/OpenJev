@@ -1,0 +1,187 @@
+{
+  "protocol": {
+    "version": "chessbench-transfer-v1",
+    "positions": 4096,
+    "selection_seed": 11400001,
+    "batch_size": 16,
+    "device": "cpu",
+    "torch_threads": 2,
+    "root_depth": 4,
+    "branch_depth": 2,
+    "selection": "All twelve candidate-v2 final checkpoints; no best seed or model selection, retries or replacement panel.",
+    "metrics": "Target-move agreement and legal-menu NLL; per-seed and equal-seed means. No value target, value MAE, engine regret or winning probability.",
+    "exposure": "Prior candidate-data exclusions plus every visited candidate-v2 generator and arena root and every legal successor, with mirrored-state exclusion. FEN-available automatic terminal roots excluded; repetition history unavailable.",
+    "uncertainty": "Descriptive paired differences over this public selected panel. Source-game IDs are unavailable; no invented independent-game intervals.",
+    "timing": "Uncached CPU batch construction, forward and output writing; not single-decision latency. No timing pass concurrent with candidate-v2 execution.",
+    "scope": "Separate public development transfer panel. Does not alter the candidate-v2 gates. No Elo, calibration or novelty established."
+  },
+  "sources": {
+    "scripts/chessbench_transfer_study.py": "a22e2ef562443df68fe7a3d640cc3517a41cb1043b74776045c24a90b8111ba0",
+    "tests/test_chessbench_transfer_study.py": "0a71479372ecd0419ca8f9e845734716f249a799ae51a0e52b88636c020df723",
+    "src/openjev/research/chessbench_data.py": "19ee690fe67f80566411ed55bd16c588952c8d0e60b530843f0ddb7934715505",
+    "tests/test_chessbench_data.py": "0b217f7f0fc7b9b8d7f904d91e6304bfcebd2d8f59722aa390a29525faec84af",
+    "src/openjev/research/chessbench_eval.py": "20e3ecd9052ace07c348a99dac77774f92c3aa72b6886f3bbfe63b206ce42416",
+    "tests/test_chessbench_eval.py": "d3e15c6d333baf5e7dab61c300ce0c6a7c0259b25b5b559d2ea41e2619aa8a08",
+    "scripts/publish_chess_candidate.py": "95925b93634d686d78d4df7eb88cff5d5ecd9bada8073b9f5fded782a118179d"
+  },
+  "environment": {
+    "python": "3.12.13",
+    "platform": "macOS-26.6.1-arm64-arm-64bit",
+    "dependencies": {
+      "torch": "2.14.0",
+      "chess": "1.11.2",
+      "numpy": "2.5.3"
+    },
+    "lock_sha256": "833d01b398f7dae71fd3c565c3dbb05c87b337aac7917d7f0ccf3eef01ba1e0e",
+    "pyproject_sha256": "64436d48af2351450b9dc774f601091fa2a8b6c87d743088a3d26baa5d459aba"
+  },
+  "candidate_plan": "evidence/chess-candidate-v2/protocol/plan.json",
+  "candidate_plan_sha256": "0cdcf5b9f9e64b5dde6f0a951fa4249475d050470e9036ce5c8ab76cf181c106",
+  "publication_manifest_sha256": "3f6d05e63dd52f1f0dbde6a319677ac41895b3c4dc390f2f6eeed1079b5eb2f8",
+  "publication_receipt_sha256": "56cef141a467ccff3599009e01272452203a24d9e2009e787d34b87b4bb4d117",
+  "input": "runs/chessbench-inputs-v1/behavioral_cloning_data.bag",
+  "input_sha256": "fc1d27fc98baae3a7f15fee85439b499f4a6f1815dffde26d047a77f02cc50b1",
+  "input_bytes": 4351421,
+  "download_receipt": {
+    "status": "downloaded",
+    "url": "https://storage.googleapis.com/searchless_chess/data/test/behavioral_cloning_data.bag",
+    "sha256": "fc1d27fc98baae3a7f15fee85439b499f4a6f1815dffde26d047a77f02cc50b1",
+    "bytes": 4351421,
+    "downloaded_unix": 1789672129.807153,
+    "headers": {
+      "Content-Type": "application/octet-stream",
+      "X-GUploader-UploadID": "AJjja9ZFc3NqvV2YhnL5hAjv48iIKMJHydCPwn42bceIBCu6Xe2DZSgddYzEkZy5KIgy1LtXrYW5Cjg",
+      "Expires": "Thu, 17 Sep 2026 20:08:49 GMT",
+      "Date": "Thu, 17 Sep 2026 19:08:49 GMT",
+      "Cache-Control": "public, max-age=3600",
+      "Last-Modified": "Thu, 29 Feb 2024 11:37:31 GMT",
+      "ETag": "\"5b311d2a8096f2bea3aa81c5278f36d1\"",
+      "x-goog-generation": "1709206651108115",
+      "x-goog-metageneration": "1",
+      "x-goog-stored-content-encoding": "identity",
+      "x-goog-stored-content-length": "4351421",
+      "x-goog-hash": "md5=WzEdKoCW8r6jqoHFJ4820Q==",
+      "x-goog-storage-class": "STANDARD",
+      "Accept-Ranges": "bytes",
+      "Content-Length": "4351421",
+      "Server": "UploadServer",
+      "Alt-Svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+      "Connection": "close"
+    },
+    "source_repository": "https://github.com/google-deepmind/searchless_chess",
+    "source_revision": "90ae0e6b121673fc3079aaeffa047580bb600c0a",
+    "usage": "Opaque bytes only at acquisition; no records decoded or neural inference performed.",
+    "dataset_license_notice": "Some portions CC0 from Lichess; remainder CC-BY-4.0, per source repository README.",
+    "license_source": "https://github.com/google-deepmind/searchless_chess/blob/90ae0e6b121673fc3079aaeffa047580bb600c0a/README.md"
+  },
+  "download_receipt_sha256": "805d2b6d11f344034f88cda1e0193c1a473bc80c56683779b37dac4865f900a6",
+  "exclusion_file": "excluded-states.json.gz",
+  "exclusion_sha256": "932ae7262f28674f31112458be6181491d10a7cadf4245cbe6f7f2e888d11adc",
+  "exclusion_uncompressed_sha256": "488e6698b068474aeb0080d4520a4128bc7f11cbe5e7fe4c9b3f32de0f33369f",
+  "exposure": {
+    "prior_states": 1392975,
+    "candidate_distinct_roots": 27375,
+    "candidate_native_successor_visits": 624228,
+    "total_natural_states": 2007245,
+    "scope": "Prior candidate-data exclusions plus every visited candidate-v2 generator and arena root and every legal successor, with mirrored-state exclusion. FEN-available automatic terminal roots excluded; repetition history unavailable."
+  },
+  "configurations": [
+    {
+      "arm": "action_only",
+      "width": 32,
+      "seed": 97,
+      "name": "action_only-97",
+      "path": "models/chess-candidate-v2/action_only-97/weights.pt",
+      "sha256": "fa9ec93131c74b83f6a48a7536a6750cfe3fd1a4425638514442a5750ccddaad"
+    },
+    {
+      "arm": "delta",
+      "width": 32,
+      "seed": 127,
+      "name": "delta-127",
+      "path": "models/chess-candidate-v2/delta-127/weights.pt",
+      "sha256": "53dc4ca75fdcc1e837135ef93298e3732360b45e581f553ff3834a10d4e6a587"
+    },
+    {
+      "arm": "delta",
+      "width": 32,
+      "seed": 109,
+      "name": "delta-109",
+      "path": "models/chess-candidate-v2/delta-109/weights.pt",
+      "sha256": "7b821cfa5ba0bdb4b75461ff6d47eb9ab9802f1395182896f3351ac2afd2943c"
+    },
+    {
+      "arm": "full_afterstate",
+      "width": 32,
+      "seed": 97,
+      "name": "full_afterstate-97",
+      "path": "models/chess-candidate-v2/full_afterstate-97/weights.pt",
+      "sha256": "00ace08baf2b7892826e3979abfe7648e3160950b3a6016320e80eb20d7a1df6"
+    },
+    {
+      "arm": "direct",
+      "width": 32,
+      "seed": 127,
+      "name": "direct-127",
+      "path": "models/chess-candidate-v2/direct-127/weights.pt",
+      "sha256": "b51b9685680a1a754b7e2fe70836116d42b0583f4c110785cae5d06219e4db55"
+    },
+    {
+      "arm": "direct",
+      "width": 32,
+      "seed": 97,
+      "name": "direct-97",
+      "path": "models/chess-candidate-v2/direct-97/weights.pt",
+      "sha256": "fa83e320149eda2925f584e8ec807d06b404fa2643508655e105acf9e37f29b3"
+    },
+    {
+      "arm": "direct",
+      "width": 32,
+      "seed": 109,
+      "name": "direct-109",
+      "path": "models/chess-candidate-v2/direct-109/weights.pt",
+      "sha256": "a7280a9f4aca07e462a7b3c12f447a9113a963ee3c13c1b01245e34a2d44fb1b"
+    },
+    {
+      "arm": "full_afterstate",
+      "width": 32,
+      "seed": 109,
+      "name": "full_afterstate-109",
+      "path": "models/chess-candidate-v2/full_afterstate-109/weights.pt",
+      "sha256": "7b56aa654d4739ca5abc571f1e17e5a7233f5282c324e3f75783561162465d0f"
+    },
+    {
+      "arm": "action_only",
+      "width": 32,
+      "seed": 109,
+      "name": "action_only-109",
+      "path": "models/chess-candidate-v2/action_only-109/weights.pt",
+      "sha256": "a098868fba3c7be8d1cf52c80dde95cfdd13d3364070bf4095e29983f834aa9a"
+    },
+    {
+      "arm": "delta",
+      "width": 32,
+      "seed": 97,
+      "name": "delta-97",
+      "path": "models/chess-candidate-v2/delta-97/weights.pt",
+      "sha256": "9c3fd6a7e4bf43eced7a1f832e18af8e9630bb368176fea98bb1effed71d860d"
+    },
+    {
+      "arm": "full_afterstate",
+      "width": 32,
+      "seed": 127,
+      "name": "full_afterstate-127",
+      "path": "models/chess-candidate-v2/full_afterstate-127/weights.pt",
+      "sha256": "c7358c4f632b7240ea065ac089404fe7fc7a41e65e2d01e59cbfba72abea3d7b"
+    },
+    {
+      "arm": "action_only",
+      "width": 32,
+      "seed": 127,
+      "name": "action_only-127",
+      "path": "models/chess-candidate-v2/action_only-127/weights.pt",
+      "sha256": "cb7b0a6fd7bcc9dd02141adf0dd295ddf5fefd2ea17ddefb443588b1519a099f"
+    }
+  ],
+  "decoded_benchmark_before_freeze": false
+}
