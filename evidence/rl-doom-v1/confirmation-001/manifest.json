@@ -1,0 +1,301 @@
+{
+  "status": "completed_confirmation",
+  "stage": "confirmation",
+  "protocol": {
+    "id": "rl-doom-v1",
+    "status": "prospective_bounded_algorithm_screen_and_conditional_confirmation",
+    "authorization": "User requested trying other approaches including RL after completed engineering studies.",
+    "hypothesis": "Direct sequential reward optimization may improve actual combat, where supervised command-outcome heads mainly improved command efficiency.",
+    "arms": {
+      "ppo_current": {
+        "algorithm": "PPO",
+        "features": "current"
+      },
+      "ppo_history": {
+        "algorithm": "PPO",
+        "features": "history"
+      },
+      "dqn_history": {
+        "algorithm": "DQN",
+        "features": "history"
+      }
+    },
+    "replicates": 3,
+    "model_seeds": [
+      111,
+      222,
+      333
+    ],
+    "training_seed_starts": [
+      200000,
+      300000,
+      400000
+    ],
+    "training_scenario": "defend_the_center",
+    "steps_per_fit": 32768,
+    "scenarios": [
+      "defend_the_center",
+      "defend_the_line"
+    ],
+    "development_seeds": [
+      131000,
+      131001,
+      131002,
+      131003,
+      131004,
+      131005,
+      131006,
+      131007,
+      131008,
+      131009,
+      131010,
+      131011,
+      131012,
+      131013,
+      131014,
+      131015,
+      131016,
+      131017,
+      131018,
+      131019,
+      131020,
+      131021,
+      131022,
+      131023
+    ],
+    "confirmation_seeds": [
+      141000,
+      141001,
+      141002,
+      141003,
+      141004,
+      141005,
+      141006,
+      141007,
+      141008,
+      141009,
+      141010,
+      141011,
+      141012,
+      141013,
+      141014,
+      141015,
+      141016,
+      141017,
+      141018,
+      141019,
+      141020,
+      141021,
+      141022,
+      141023,
+      141024,
+      141025,
+      141026,
+      141027,
+      141028,
+      141029,
+      141030,
+      141031,
+      141032,
+      141033,
+      141034,
+      141035,
+      141036,
+      141037,
+      141038,
+      141039,
+      141040,
+      141041,
+      141042,
+      141043,
+      141044,
+      141045,
+      141046,
+      141047,
+      141048,
+      141049,
+      141050,
+      141051,
+      141052,
+      141053,
+      141054,
+      141055,
+      141056,
+      141057,
+      141058,
+      141059,
+      141060,
+      141061,
+      141062,
+      141063,
+      141064,
+      141065,
+      141066,
+      141067,
+      141068,
+      141069,
+      141070,
+      141071,
+      141072,
+      141073,
+      141074,
+      141075,
+      141076,
+      141077,
+      141078,
+      141079,
+      141080,
+      141081,
+      141082,
+      141083,
+      141084,
+      141085,
+      141086,
+      141087,
+      141088,
+      141089,
+      141090,
+      141091,
+      141092,
+      141093,
+      141094,
+      141095
+    ],
+    "horizon": 180,
+    "tics": 7,
+    "features": "18 inputs: seven current features (bias, visibility, capped aim-error / target-width tolerance scaled to [0,1], width, clipped distance, health, ammo); ten previous-observation/action/outcome/age history features or ten zeros; normalized remaining horizon. Current and history PPO have identical network parameter counts, but differing information and effective capacity.",
+    "action_space": "Binary fire/wait. Original rule steering and hard no-ammo/pacifist constraints are shared. No hidden state or pixels.",
+    "reward": "Kill-count increase minus 1 on death minus .01 per issued-fire window. No successful-command-window reward. Primary evaluation is kills and game duration, independent of the prior .25 command utility.",
+    "horizon_handling": "An explicitly observed finite 180-decision horizon. Engine end or horizon cap terminates value bootstrap; never mislabel the finite horizon as an unobserved artificial timeout.",
+    "ppo": {
+      "learning_rate": 0.0003,
+      "n_steps": 1024,
+      "batch_size": 64,
+      "n_epochs": 10,
+      "gamma": 0.99,
+      "gae_lambda": 0.95,
+      "clip_range": 0.2,
+      "ent_coef": 0.01,
+      "vf_coef": 0.5,
+      "max_grad_norm": 0.5,
+      "target_kl": 0.03
+    },
+    "dqn": {
+      "learning_rate": 0.0003,
+      "buffer_size": 50000,
+      "learning_starts": 2048,
+      "batch_size": 64,
+      "gamma": 0.99,
+      "train_freq": 4,
+      "gradient_steps": 1,
+      "target_update_interval": 1000,
+      "exploration_fraction": 0.5,
+      "exploration_final_eps": 0.05,
+      "max_grad_norm": 10.0
+    },
+    "architecture": "SB3 MlpPolicy, [64,64] hidden layers, library default activation; CPU one torch thread. PPO separate actor/value networks; DQN value/target networks. Same interaction count, not identical update compute or data trajectories.",
+    "selection": "Aggregate all three final fits; no best-seed or checkpoint selection. Require Center mean kill gain >= .5 and Line kill difference >= -.5 versus event-memory rules, and duration differences >= -.5 seconds in both. Among eligible families choose highest Center mean kill gain, ties by arm name. No confirmation fallback.",
+    "confirmation": "Evaluate selected family and PPO-current reference (deduplicated), all three fits, plus rules and event-memory rules. No fitting, tuning, threshold changes, or fallback.",
+    "primary": "Against event-memory rules: Center kills difference >=1 and interval lower >0; Line kills lower >-1; both game-duration lower bounds >-1 second. Also each episode p95 decision latency <1 ms. Four primary statistical contrasts, 98.75 percent intervals. Command utility is secondary.",
+    "bootstrap_draws": 20000,
+    "bootstrap_seed": 62917,
+    "interval_quantiles": [
+      0.00625,
+      0.99375
+    ],
+    "bootstrap": "Paired crossed bootstrap over game seeds and three model seeds; pair model replicates for learned-family comparisons. Small-replicate exploratory inference. Four-way Bonferroni only for confirmation primary contrasts; development and secondary intervals descriptive. No correction across the adaptive research sequence.",
+    "training_order_seed": 88719,
+    "development_order_seed": 88729,
+    "confirmation_order_seed": 88739,
+    "max_stage_wall_seconds": 1800,
+    "max_training_interactions": 294912,
+    "max_development_evaluation_episodes": 528,
+    "max_confirmation_evaluation_episodes": 1536,
+    "paid_api_calls": 0,
+    "claim_boundary": "A bounded test of established PPO and vanilla DQN using newly collected RL experience. Prior supervised models used different data; no matched-data superiority claim. No new RL algorithm, Bayesian RLCD, recurrent neural memory, or conference novelty claim. Center-only training; both scenarios inspected in development, so Line confirmation is fresh-seed transfer, not an unseen-task holdout.",
+    "references": [
+      "https://stable-baselines3.readthedocs.io/en/master/modules/ppo.html",
+      "https://stable-baselines3.readthedocs.io/en/master/modules/dqn.html",
+      "https://gymnasium.farama.org/tutorials/gymnasium_basics/handling_time_limits/"
+    ]
+  },
+  "protocol_sha256": "246f8f90c8afa85b861cc65ffa6fdd4cef67069bd997edc5727909a1c3167c3a",
+  "source_sha256": {
+    "research/rl_doom.py": "5d7e33d1b50fd6e1bed24d6adf2f54629c56c1d550d12865373c29ca9846f353",
+    "research/analyze_rl_doom.py": "b1266385d2bb2829d09f82e3761598bb61e451eb159cd30d27f024949b1edda5",
+    "src/openjev/research/rl_env.py": "35eaf2b8d0edfb17f519cb40ced77e658529555b5c9646a706af46d9e98a4d6f",
+    "src/openjev/research/memory.py": "151758b6a7493c2c31af9866257d75d3c74c46c9f4dd72483896181e7e5235b5",
+    "src/openjev/research/event_cadence.py": "24a9038f9b8251a713860509e3d86033b77743f50a07408ec463ef7f25fd6ce4",
+    "src/openjev/research/cadence.py": "faab6841953c2380f9a6826504caa33384e0173d856d5f121fce45d5f9ba8372",
+    "src/openjev/game.py": "019137e51990e52bab83a5a50eff9161533cbe1d533e65ccb7ae8502ade56224",
+    "src/openjev/domain.py": "8d054eb4a451baafee3b6d64d1fc806ac62ec30ef6027a93a079c1accfba5bb8",
+    "uv.lock": "833d01b398f7dae71fd3c565c3dbb05c87b337aac7917d7f0ccf3eef01ba1e0e"
+  },
+  "versions": {
+    "stable-baselines3": "2.9.0",
+    "torch": "2.14.0",
+    "gymnasium": "1.3.0",
+    "numpy": "2.5.3",
+    "vizdoom": "1.3.0"
+  },
+  "platform": "macOS-26.6.1-arm64-arm-64bit",
+  "python": "3.12.13",
+  "selection": {
+    "selected": "ppo_history",
+    "eligible": [
+      "ppo_current",
+      "ppo_history"
+    ],
+    "mean_differences_vs_event_rule": {
+      "ppo_current": {
+        "defend_the_center": {
+          "kills": 1.7777777777777786,
+          "game_seconds": 2.046428571428569,
+          "utility": -5.440972222222222
+        },
+        "defend_the_line": {
+          "kills": 4.027777777777779,
+          "game_seconds": 3.041666666666668,
+          "utility": -10.82986111111111
+        }
+      },
+      "ppo_history": {
+        "defend_the_center": {
+          "kills": 3.2777777777777786,
+          "game_seconds": 3.2936507936507926,
+          "utility": -2.0972222222222223
+        },
+        "defend_the_line": {
+          "kills": 4.291666666666668,
+          "game_seconds": 3.195238095238089,
+          "utility": -10.531249999999998
+        }
+      },
+      "dqn_history": {
+        "defend_the_center": {
+          "kills": 2.3472222222222214,
+          "game_seconds": 2.198412698412694,
+          "utility": -1.3854166666666665
+        },
+        "defend_the_line": {
+          "kills": -5.194444444444443,
+          "game_seconds": -3.5722222222222264,
+          "utility": -14.604166666666664
+        }
+      }
+    },
+    "status": "selected_for_confirmation"
+  },
+  "arms": [
+    "ppo_current",
+    "ppo_history"
+  ],
+  "training_steps_completed": 0,
+  "evaluation_episodes_completed": 1536,
+  "development_manifest_sha256": "bef1f9d725e51d2b67ffde7d05e8af02a15e9612384ff1ecc077903371f4c840",
+  "wall_seconds": 380.9718895830447,
+  "artifact_sha256": {
+    "evaluation-trace.jsonl.gz": "c837a635c5440e21179e10de4f2503d15967e3532ecb430672af10a91c68fc1e",
+    "episodes.jsonl": "6d3559cd318be224c440996538e792099ac564bf0a30b54bc6c4b979c189de9a"
+  }
+}
