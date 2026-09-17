@@ -1,0 +1,82 @@
+{
+  "status": "completed",
+  "scope": "Structural feasibility only, no model or training-subgraph selection.",
+  "node_selection": "All and only nodes with packed coarse group descending (3).",
+  "training_run": false,
+  "model_inference_run": false,
+  "weights_loaded": false,
+  "chess_positions_or_labels_read": false,
+  "nodes": 1409,
+  "connections": 44090,
+  "boundary_connections_removed_by_induction": 430912,
+  "positive_connections": 29336,
+  "negative_connections": 14754,
+  "isolated_nodes": 6,
+  "dense_float32_adjacency_bytes": 7941124,
+  "source_graph_sha256": "2fe223a4dcf17b8928f118bd0bcf7301cde8d47216d6b825fb903d91d229a1b9",
+  "provenance": {
+    "dataset": "FlyWire FAFB v783, Shiu et al. author release",
+    "space_revision": "375374bf58f1c828ad7d33905b64f1fa6ac4906f",
+    "meta_sha256": "4405c948ffaa490eeb5ce4577e6c2ce9fc06113c014732f3491a62248eb3b693",
+    "graph_raw_sha256": "700a443c885ef2eec25f97136ea14b9a2575fb270321190f4edc4e6f5c49e13d",
+    "neurons_raw_sha256": "a245f2f2195ff82a4bd1af8dab70e9d213eca29fd5c7add607b3d983ed7bedfa",
+    "external_license": "FlyWire non-commercial terms; model card license: other",
+    "node_identity": "Original packed indices, not FlyWire root IDs",
+    "operation": "exact_induced_subgraph",
+    "source_graph_sha256": "56b5e2f8543e2c5fc3cc8529e03fb611f7077aedd59c18b32ea93b3f33008fc0"
+  },
+  "protocol": {
+    "seeds": [
+      151,
+      163,
+      179
+    ],
+    "accepted_swaps_per_edge": 10,
+    "attempts_per_requested_swap": 100,
+    "minimum_change_gate": null,
+    "selection": "Every listed seed; no retry or replacement controls."
+  },
+  "controls": [
+    {
+      "status": "completed",
+      "seed": 151,
+      "graph_sha256": "f9bb8bc89e16e4a17a722af19ccaaf09c2e997d9b3a5c497177c0f5730679cd7",
+      "attempted_swaps": 535231,
+      "accepted_swaps": 440900,
+      "changed_edge_fraction": 0.9118847811295078,
+      "signed_degrees_preserved": true,
+      "anatomical_strengths_preserved": false,
+      "wall_seconds": 2.7115815420402214
+    },
+    {
+      "status": "completed",
+      "seed": 163,
+      "graph_sha256": "d553b315981eecc8bb3d610468a4840446b90edf47179b1669000504b2352755",
+      "attempted_swaps": 535355,
+      "accepted_swaps": 440900,
+      "changed_edge_fraction": 0.9083465638466772,
+      "signed_degrees_preserved": true,
+      "anatomical_strengths_preserved": false,
+      "wall_seconds": 2.410547542036511
+    },
+    {
+      "status": "completed",
+      "seed": 179,
+      "graph_sha256": "62fe5f018b8c53a5004d2c0b1602421f5678fd8c6fcb742b7f95345e68e35d07",
+      "attempted_swaps": 534982,
+      "accepted_swaps": 440900,
+      "changed_edge_fraction": 0.9091177137672942,
+      "signed_degrees_preserved": true,
+      "anatomical_strengths_preserved": false,
+      "wall_seconds": 2.3597952499985695
+    }
+  ],
+  "sources": {
+    "scripts/preflight_connectome_controls.py": "7609aa9c42b145af2767b0be4972b7f023da1aeff3b89749dc0daaae63988ecf",
+    "src/openjev/research/connectome_graph.py": "a185e4dcfc16c23b541e28cf6c2079cfc71f07d1bb1dfb9bf66813eab7246d8b",
+    "tests/test_connectome_graph.py": "e60ea0f8e4a400c45a90b7935a745a8d5f86e79bcd7702e74d55493110c12332"
+  },
+  "wall_seconds": 8.347997165983543,
+  "created_unix": 1789673521.195379,
+  "limits": "No chess performance measured. This group-induced graph omits all connections to other groups and is not a complete functional circuit. Swap counts and overlap do not establish uniform graph sampling. No graph byte arrays or node lists are published."
+}

@@ -1,0 +1,175 @@
+{
+  "status": "completed",
+  "scope": "Anatomical graph-byte and structure audit only.",
+  "training_run": false,
+  "model_inference_run": false,
+  "weights_loaded": false,
+  "chess_positions_or_labels_read": false,
+  "created_unix": 1789673413.69195,
+  "graph_sha256": "56b5e2f8543e2c5fc3cc8529e03fb611f7077aedd59c18b32ea93b3f33008fc0",
+  "provenance": {
+    "dataset": "FlyWire FAFB v783, Shiu et al. author release",
+    "space_revision": "375374bf58f1c828ad7d33905b64f1fa6ac4906f",
+    "meta_sha256": "4405c948ffaa490eeb5ce4577e6c2ce9fc06113c014732f3491a62248eb3b693",
+    "graph_raw_sha256": "700a443c885ef2eec25f97136ea14b9a2575fb270321190f4edc4e6f5c49e13d",
+    "neurons_raw_sha256": "a245f2f2195ff82a4bd1af8dab70e9d213eca29fd5c7add607b3d983ed7bedfa",
+    "external_license": "FlyWire non-commercial terms; model card license: other",
+    "node_identity": "Original packed indices, not FlyWire root IDs",
+    "operation": "pinned_graph_only_load"
+  },
+  "nodes": 138639,
+  "connections": 15091983,
+  "positive_connections": 9059302,
+  "negative_connections": 6032681,
+  "anatomical_synapses": 54492922,
+  "self_connections": 0,
+  "duplicate_directed_pairs": 0,
+  "node_groups": {
+    "other": 40283,
+    "optic": 86092,
+    "input": 10855,
+    "descending": 1409
+  },
+  "group_connections": [
+    {
+      "source_group": "other",
+      "destination_group": "other",
+      "connections": 5099050,
+      "positive": 3235664,
+      "negative": 1863386,
+      "synapses": 20585183
+    },
+    {
+      "source_group": "other",
+      "destination_group": "optic",
+      "connections": 175129,
+      "positive": 74814,
+      "negative": 100315,
+      "synapses": 743577
+    },
+    {
+      "source_group": "other",
+      "destination_group": "input",
+      "connections": 0,
+      "positive": 0,
+      "negative": 0,
+      "synapses": 0
+    },
+    {
+      "source_group": "other",
+      "destination_group": "descending",
+      "connections": 280427,
+      "positive": 165749,
+      "negative": 114678,
+      "synapses": 1986967
+    },
+    {
+      "source_group": "optic",
+      "destination_group": "other",
+      "connections": 436692,
+      "positive": 365912,
+      "negative": 70780,
+      "synapses": 2123074
+    },
+    {
+      "source_group": "optic",
+      "destination_group": "optic",
+      "connections": 8821052,
+      "positive": 5018829,
+      "negative": 3802223,
+      "synapses": 27760186
+    },
+    {
+      "source_group": "optic",
+      "destination_group": "input",
+      "connections": 27439,
+      "positive": 19410,
+      "negative": 8029,
+      "synapses": 63172
+    },
+    {
+      "source_group": "optic",
+      "destination_group": "descending",
+      "connections": 27411,
+      "positive": 21524,
+      "negative": 5887,
+      "synapses": 169809
+    },
+    {
+      "source_group": "input",
+      "destination_group": "other",
+      "connections": 1,
+      "positive": 1,
+      "negative": 0,
+      "synapses": 2
+    },
+    {
+      "source_group": "input",
+      "destination_group": "optic",
+      "connections": 54536,
+      "positive": 37347,
+      "negative": 17189,
+      "synapses": 306170
+    },
+    {
+      "source_group": "input",
+      "destination_group": "input",
+      "connections": 3082,
+      "positive": 2212,
+      "negative": 870,
+      "synapses": 8953
+    },
+    {
+      "source_group": "input",
+      "destination_group": "descending",
+      "connections": 145,
+      "positive": 137,
+      "negative": 8,
+      "synapses": 656
+    },
+    {
+      "source_group": "descending",
+      "destination_group": "other",
+      "connections": 113884,
+      "positive": 80321,
+      "negative": 33563,
+      "synapses": 423116
+    },
+    {
+      "source_group": "descending",
+      "destination_group": "optic",
+      "connections": 9034,
+      "positive": 8040,
+      "negative": 994,
+      "synapses": 21187
+    },
+    {
+      "source_group": "descending",
+      "destination_group": "input",
+      "connections": 11,
+      "positive": 6,
+      "negative": 5,
+      "synapses": 22
+    },
+    {
+      "source_group": "descending",
+      "destination_group": "descending",
+      "connections": 44090,
+      "positive": 29336,
+      "negative": 14754,
+      "synapses": 300848
+    }
+  ],
+  "dense_float32_adjacency_bytes": 76883089284,
+  "sources": {
+    "src/openjev/research/connectome_graph.py": "a185e4dcfc16c23b541e28cf6c2079cfc71f07d1bb1dfb9bf66813eab7246d8b",
+    "tests/test_connectome_graph.py": "73ad004200f3de99f6c29679db306b397fc35227a6a5c8658be04883bf6ed44c",
+    "scripts/audit_connectome_graph.py": "c99ebc7d1cf2ea853c819885950fdae6e3ea803ea8e635f1b02e909da0c8704e"
+  },
+  "environment": {
+    "python": "3.12.13",
+    "numpy": "2.5.3"
+  },
+  "wall_seconds": 6.510227916995063,
+  "limits": "No subgraph or model selected. Counts are for the pinned packed asset. Packed indices are not original FlyWire root IDs. No graph byte arrays, coordinates or selected-node lists are distributed in this receipt."
+}
