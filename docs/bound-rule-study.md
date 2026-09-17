@@ -1,6 +1,26 @@
 # Entity-bound recurrent rule operators
 
-**Status: frozen before training.** The [previous text comparison](rule-crossencoder-study.md) scored near chance after controlling for a question-negation shortcut. This experiment tests explicit entity binding and repeated rule application on previously unused development worlds.
+**Result: explicit binding plus recurrence solves these controlled-English questions. The fixed logical solver also solves them.** All 12 learned fits and three fixed controls completed. The [previous text comparison](rule-crossencoder-study.md) scored near chance after controlling for a question-negation shortcut. This experiment tests explicit entity binding and repeated rule application on previously unused development worlds.
+
+![Bound-rule operator results](../evidence/bound-rules-v1/development.png)
+
+| Condition | Same-depth macro accuracy | Shift macro accuracy | Counterfactual pair success |
+| --- | ---: | ---: | ---: |
+| Facts only | 67.44% | 50.00% | 0.00% |
+| Fixed one step | 84.92% | 50.00% | 0.00% |
+| Learned one step | 86.61% | 51.40% | 0.00% |
+| Collapsed entities, 16 steps | 61.75% | 56.67% | 0.00% |
+| Learned six steps | 100.00% | 100.00% | 66.67% |
+| Learned sixteen steps | 100.00% | 100.00% | 100.00% |
+| Fixed solver, 32 steps | 100.00% | 100.00% | 100.00% |
+
+Both recurrent variants answered all 2,941 same-depth and 949 shifted development questions correctly in every seed. Sixteen steps also answered all 960 constructed challenge questions correctly in every seed. Six steps failed longer support chains, despite perfect RuleTaker development accuracy. Merging entity identities reduced shift macro accuracy to 56.67%; the one-step model reached 51.40%. This isolates a useful role for binding and recurrence within the supplied grammar and logical operations.
+
+The **frozen selector chose six steps**: both recurrent candidates tied on the primary metric, and six appeared first in the predeclared ordering. Its 66.67% pair success failed the required 95%, so the recorded continuation gate remains failed. We do not silently substitute the sixteen-step candidate to turn that gate into a pass. The sixteen-step result is nevertheless preserved as a successful tested condition and is available for a local demonstration. It is not an independent confirmation or a win over the fixed solver.
+
+Training required 15,360 optimizer updates and 50.53 summed CPU seconds. Parsing and grounding the two entity conditions and challenges took 0.86 seconds. The handwritten parser covered all 2,450 source worlds; no unsupported world was dropped. Timing excludes final evaluation, checkpoint writing and plotting. A runtime advantage over a conventional solver has not been measured.
+
+[All fits and frozen selection](../evidence/bound-rules-v1/summary.json) · [Execution receipt](../evidence/bound-rules-v1/receipt.json) · [Fresh-world data manifest](../evidence/bound-rules-v1/data-manifest.json) · [All 12 compact weight files](../evidence/bound-rules-v1/weights/)
 
 The model parses only the English context and questions. A handwritten parser supports the controlled RuleTaker grammar, including unary properties, directed relations, conjunctions, variables and negation. It grounds variable rules over named entities. It cannot be presented as general English understanding. Dataset proof strings and supplied logical forms are never model inputs.
 
@@ -40,6 +60,16 @@ Select six or sixteen recurrent steps by shift macro accuracy. The functional co
 
 ## Reproduce
 
+Try the sixteen-step model without downloading an encoder. This demonstration uses the first predefined seed, 17, and fixed true/false candidates:
+
+```sh
+uv run --extra train python scripts/bound_rule_demo.py examples/bound-rules.json
+```
+
+It returns caller-owned question IDs, a choice and both candidate scores. The example concludes that Mira is kind and Nemi is not. Reversing `Mira visits Nemi` to `Nemi visits Mira` changes the first conclusion. The parser supports this controlled grammar; unsupported syntax raises an error. Existing Qwen and Doom demos are separate models.
+
+To reproduce the study:
+
 ```sh
 .venv/bin/python scripts/prepare_bound_rules.py \
   --archive runs/ruletaker-source/rule-reasoning-dataset-V2020.2.5.zip \
@@ -55,3 +85,7 @@ Select six or sixteen recurrent steps by shift macro accuracy. The functional co
 ```
 
 Code, packet, plan and checkpoint hashes are checked. Raw source worlds and per-question probabilities stay local. Outputs are bounded truth probabilities under supplied logical structure, not calibrated confidence in arbitrary English claims. Astra supervision has not run.
+
+## Next mechanism to test
+
+The demonstrated weakness is now computation depth: six steps can be confidently wrong on an eight-step chain. A confidence-only gate may stop before a relevant fact reaches the query. The next comparison should freeze an adaptive rule-propagation policy against fixed budgets, entropy gating, a query-dependency residual heuristic, and a conventional solver that stops when settled. Charge the gate, parsing and graph analysis to total runtime. Dependency analysis and fixed-point stopping are established techniques; any novelty claim requires a distinct mechanism and stronger evidence than these perfect grammar-bound scores.

@@ -6,6 +6,10 @@ These figures visualize existing development evidence. No new model training or 
 
 ## Text student controls
 
+![Explicit entity binding and recurrent rule application](../evidence/bound-rules-v1/development.png)
+
+[Bound-rule follow-up](bound-rule-study.md): 12 learned fits and three fixed controls on previously unused development worlds. A 225-parameter operator with a handwritten parser and explicit logical operations reaches 100% shift macro accuracy. Sixteen recurrent steps also solve all 240 constructed counterfactual pairs. The fixed solver matches 100%; novelty and a runtime advantage remain unproven. The frozen selector chose six steps on a tie and failed its longer-chain challenge gate.
+
 ![Full-context text models and a shortcut control](../evidence/rule-crossencoder-v1/shortcut-audit.png)
 
 [Full-context follow-up](rule-crossencoder-study.md): three fine-tuned MiniLM fits reached 69.81% raw shift accuracy but only 49.36% after equal weighting of label/negation groups. A training-fitted word-only control scores 87.89% raw and 50% balanced. The shortcut audit is post-hoc; no reasoning or novelty gain is established.

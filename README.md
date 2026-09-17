@@ -41,19 +41,19 @@ Supply a context, a question and 2-12 candidates. Receive the selected ID and pr
 ## What we have measured
 
 - **Text routing:** **95.35% development accuracy** on 150 intents; the small recurrent gain failed our continuation rule. [Study](docs/corrective-associative-study.md) · [Astra teacher training, awaiting API access](docs/text-distillation.md).
-- **Text reasoning:** on the RuleTaker development shift, fine-tuning reached 69.81% raw accuracy but 49.36% after balancing label/negation groups. [24-fit study and controls](docs/rule-crossencoder-study.md).
+- **Text reasoning:** a 225-parameter rule operator reaches 100% on 949 fresh development questions with explicit English parsing and entity binding. A fixed logical solver matches it. [Results, limits and runnable model](docs/bound-rule-study.md).
 - **Doom:** history-PPO improved Center combat in a frozen comparison. On Line, learned policies matched always-fire. [PPO/DQN study](docs/rl-study.md).
 - **JEPA + RL:** 27 fits and 992 evaluation episodes. Pretrained JEPA had the highest Center mean, **12.40 kills**, but did not establish a reliable advantage over GRPO or pixel similarity. [Full comparison](docs/jepa-rl-study.md).
 
-![Text reasoning benchmark and shortcut audit](evidence/rule-crossencoder-v1/shortcut-audit.png)
+![Entity-bound rule reasoning and fixed logical controls](evidence/bound-rules-v1/development.png)
 
-Development results, three fits per model. A word-only shortcut scores 87.89%; the balanced breakdown prevents that from looking like reasoning. [Protocol and limits](docs/rule-crossencoder-study.md).
+Three fits per learned condition; controlled grammar and supplied logical operations. Six steps fail longer chains; sixteen solve the constructed cases. [Earlier shortcut audit](docs/rule-crossencoder-study.md).
 
 [All charts and earlier results](docs/benchmarks.md) · [Paper draft](output/pdf/openjev-rl-paper.pdf) · [LaTeX](paper/README.md)
 
 ## Limits
 
-Scores are **uncalibrated probabilities relative to your supplied choices**, not guarantees of correctness. The text scorer is a pretrained transformer; the Doom policies use structured game observations and restricted controls. See the [text model card](docs/language-model-card.md) and [research notes](docs/research.md).
+Scores are **uncalibrated probabilities relative to your supplied choices**, not guarantees of correctness. General text scoring uses a pretrained transformer; the rule operator uses a restricted grammar. Doom policies use structured game observations and restricted controls. See the [text model card](docs/language-model-card.md) and [research notes](docs/research.md).
 
 OpenJev is independent of [TypeSafe Jev](https://typesafe.ai/blog/introducing-system-one-models-and-jev), [zhihz/openjev](https://github.com/zhihz/openjev) and [openjev.com](https://openjev.com/). It does not reproduce proprietary RLCD or claim a new RL algorithm.
 
