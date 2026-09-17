@@ -2,6 +2,8 @@
 
 The input-anchor experiment preserved accuracy at greater recurrent depth but did not pass either quality criterion. This study tests whether a larger policy can learn substantially stronger chess before further architectural changes.
 
+**Status: completed and audited; continuation failed.** All six fits, twelve evaluations and 96 scheduled games are retained. [Results and chart](../docs/chess-capacity.md) · [Complete evidence](../evidence/chess-capacity-v1/results/) · [All checkpoints](../models/chess-capacity-v1/) · [First scheduled replay](../docs/chess-capacity-replay.html).
+
 ## Fixed comparison
 
 | | Small control | Larger policy |
@@ -35,6 +37,14 @@ The larger model must earn at least 60% of all available points, using zero for 
 
 ## Research scope
 
-Capacity and data scaling are established directions, including [Amortized Planning with Large-Scale Transformers: A Case Study on Chess](https://arxiv.org/html/2402.04494v2). This study supplies a stronger controlled baseline for later recurrent/world-model work; it is not itself a novel architecture. A synthetic local preflight suggested that six fits are feasible in minutes of training, excluding data preparation, logging and evaluation. Actual costs will replace that estimate in the report.
+Capacity and data scaling are established directions, including [Amortized Planning with Large-Scale Transformers: A Case Study on Chess](https://arxiv.org/html/2402.04494v2). This is a controlled capacity comparison for later recurrent/world-model work, not a novel architecture. Its failed continuation gate does not justify promoting the larger policy as a stronger reference model.
 
-Status: implementation and synthetic validation, before any real generation or fitting. The first scheduled larger-model game is the fixed replay selection, regardless of its outcome.
+## Recorded results
+
+Across all three seeds, ordinary teacher agreement increases from 35.13% to 35.75%; shifted agreement increases from 26.69% to 26.88%. Mean bounded score loss falls from 0.10547 to 0.08122 on ordinary positions (22.99%) and from 0.15987 to 0.14507 on shifted positions (9.26%). The shifted result misses the required 20%. Raw shifted centipawn loss instead worsens from 177.01 to 231.08, so the bounded improvement is not a general reduction in every error measure.
+
+The larger policy records 18 wins, 64 draws, 12 losses and two unfinished games, with no failed games. Its point bound is 52.08-54.17%, below the required 60% lower bound. Both criteria must pass, so the overall continuation rule fails. The first scheduled replay is a fivefold-repetition draw, retained regardless of outcome.
+
+Training used 36,864 optimizer updates, 147,456 recurrent iterations and 362.53 seconds of MPS fit time. Mean full CPU decision latency was 0.595 ms for width 32 and 0.911 ms for width 128. Fresh data required 80,229 teacher calls and 160.458 million requested nodes; grading required 828 calls and 16.56 million requested nodes. These costs exclude the earlier creation of the reused training labels. Full execution took 814.20 seconds.
+
+The [posthoc finishing diagnostic](../evidence/chess-capacity-v1/finishing-diagnostic/summary.json) is exploratory and separate from these frozen criteria. It counts missed immediate mates in the existing game traces without new model or engine calls, and changes neither outcomes nor the continuation gate. No Elo, calibrated-confidence, novel-architecture or world-model benefit claim follows from this study.

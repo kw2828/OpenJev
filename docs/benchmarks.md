@@ -6,6 +6,10 @@ These figures visualize existing development evidence. No new model training or 
 
 ## Chess
 
+![All six chess capacity fits and the 96-game paired arena](assets/chess-capacity-results-v2.png)
+
+The larger policy reduces bounded engine-score loss by 22.99% on ordinary positions and 9.26% on shifted positions, below the required 20% on both. Raw shifted centipawn loss worsens. Its 18 wins, 64 draws, 12 losses and two unfinished games give a 52.08-54.17% point bound, below the 60% continuation threshold. Parameters and compute are unequal. [Capacity results, all six weights and replay](chess-capacity.md).
+
 ![Controlled recurrent circuit training](assets/chess-student-results.png)
 
 Nine original chess students trained on the same 4,096 Stockfish-labeled positions. Across three fits, teacher agreement on 1,024 development positions was 14.36% for the circuit, 14.19% for rewired and 14.52% for GRU. The circuit's 0.16-point gain missed the required 3-point improvement. [All fits, weights and protocol](chess-student.md).

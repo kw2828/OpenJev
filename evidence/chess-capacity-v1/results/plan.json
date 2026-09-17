@@ -1,0 +1,4524 @@
+{
+  "protocol": {
+    "version": "chess-capacity-v1",
+    "widths": [
+      32,
+      128
+    ],
+    "seeds": [
+      53,
+      67,
+      83
+    ],
+    "depth": 4,
+    "train_examples": 98304,
+    "epochs": 8,
+    "batch_size": 128,
+    "updates_per_fit": 6144,
+    "core_iterations_per_fit": 24576,
+    "training_device": "mps",
+    "evaluation_device": "cpu",
+    "torch_threads": 2,
+    "deterministic_algorithms": false,
+    "optimizer": {
+      "name": "Adam",
+      "lr": 0.001,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0.0
+    },
+    "gradient_clip": 1.0,
+    "value_loss_weight": 0.5,
+    "loss": "Legal-move CE + 0.5 bounded-value MSE; auxiliary head unused.",
+    "recurrence": "Ordinary residual at depth four; width changes encoder, recurrent core and heads together.",
+    "batch_order_seed_base": 10800029,
+    "fit_order_seed": 10800017,
+    "regret_positions_per_split": 128,
+    "regret_selection_seed": 10800043,
+    "regret_nodes": 20000,
+    "regret_call_ceiling": 1792,
+    "regret_node_ceiling": 35840000,
+    "latency_positions_per_split": 64,
+    "latency_selection_seed": 10800059,
+    "latency_warmups": 3,
+    "bootstrap_replicates": 2000,
+    "bootstrap_seed": 10800071,
+    "relative_regret_reduction": 0.2,
+    "gate_absolute_tolerance": 1e-12,
+    "arena_score_threshold": 0.6,
+    "gate": "At least20% lower mean signed bounded engine-score loss on both fresh panels, requiring positive reference means, AND the96-game arena lower point bound at least60% with no failed games.",
+    "selection": "All final checkpoints. No early stopping, retries, replacement games, selected seeds or budget extension.",
+    "matching": "Same data, minibatches, optimizer updates and recurrent depth; parameter count, FLOPs and wall time are NOT matched.",
+    "uncertainty": "Pointwise game-cluster bootstrap, conditional on these three trained seeds; not simultaneous or seed-population uncertainty.",
+    "scope": "Controlled capacity scaling on previously studied generators and shift. No Elo, new architecture, calibrated confidence or world-model planning claim."
+  },
+  "data_config": {
+    "teacher_nodes": 2000,
+    "value_cp_scale": 600.0,
+    "mate_cp": 10000,
+    "teacher_threads": 1,
+    "teacher_hash_mb": 16,
+    "aux_actions": 4,
+    "splits": [
+      {
+        "name": "train",
+        "examples": 65536,
+        "game_cap": 2400,
+        "max_plies": 64,
+        "random_move_probability": 0.5,
+        "seed_base": 105000000
+      },
+      {
+        "name": "dev",
+        "examples": 4096,
+        "game_cap": 300,
+        "max_plies": 64,
+        "random_move_probability": 0.5,
+        "seed_base": 106000000
+      },
+      {
+        "name": "shift",
+        "examples": 4096,
+        "game_cap": 300,
+        "max_plies": 96,
+        "random_move_probability": 0.1,
+        "seed_base": 107000000
+      }
+    ]
+  },
+  "configurations": [
+    {
+      "width": 32,
+      "seed": 67,
+      "name": "width32-67"
+    },
+    {
+      "width": 32,
+      "seed": 83,
+      "name": "width32-83"
+    },
+    {
+      "width": 128,
+      "seed": 53,
+      "name": "width128-53"
+    },
+    {
+      "width": 128,
+      "seed": 83,
+      "name": "width128-83"
+    },
+    {
+      "width": 128,
+      "seed": 67,
+      "name": "width128-67"
+    },
+    {
+      "width": 32,
+      "seed": 53,
+      "name": "width32-53"
+    }
+  ],
+  "openings": [
+    {
+      "id": "opening-01",
+      "name": "Ruy Lopez",
+      "moves": [
+        "e2e4",
+        "e7e5",
+        "g1f3",
+        "b8c6",
+        "f1b5",
+        "a7a6"
+      ]
+    },
+    {
+      "id": "opening-02",
+      "name": "Italian Game",
+      "moves": [
+        "e2e4",
+        "e7e5",
+        "g1f3",
+        "b8c6",
+        "f1c4",
+        "f8c5"
+      ]
+    },
+    {
+      "id": "opening-03",
+      "name": "Scotch Game",
+      "moves": [
+        "e2e4",
+        "e7e5",
+        "g1f3",
+        "b8c6",
+        "d2d4",
+        "e5d4"
+      ]
+    },
+    {
+      "id": "opening-04",
+      "name": "Petrov Defense",
+      "moves": [
+        "e2e4",
+        "e7e5",
+        "g1f3",
+        "g8f6",
+        "f3e5",
+        "d7d6"
+      ]
+    },
+    {
+      "id": "opening-05",
+      "name": "Philidor Defense",
+      "moves": [
+        "e2e4",
+        "e7e5",
+        "g1f3",
+        "d7d6",
+        "d2d4",
+        "g8f6"
+      ]
+    },
+    {
+      "id": "opening-06",
+      "name": "Sicilian Defense",
+      "moves": [
+        "e2e4",
+        "c7c5",
+        "g1f3",
+        "d7d6",
+        "d2d4",
+        "c5d4"
+      ]
+    },
+    {
+      "id": "opening-07",
+      "name": "French Defense",
+      "moves": [
+        "e2e4",
+        "e7e6",
+        "d2d4",
+        "d7d5",
+        "b1c3",
+        "g8f6"
+      ]
+    },
+    {
+      "id": "opening-08",
+      "name": "Caro-Kann Defense",
+      "moves": [
+        "e2e4",
+        "c7c6",
+        "d2d4",
+        "d7d5",
+        "b1c3",
+        "d5e4"
+      ]
+    },
+    {
+      "id": "opening-09",
+      "name": "Queen's Gambit Declined",
+      "moves": [
+        "d2d4",
+        "d7d5",
+        "c2c4",
+        "e7e6",
+        "b1c3",
+        "g8f6"
+      ]
+    },
+    {
+      "id": "opening-10",
+      "name": "Slav Defense",
+      "moves": [
+        "d2d4",
+        "d7d5",
+        "c2c4",
+        "c7c6",
+        "g1f3",
+        "g8f6"
+      ]
+    },
+    {
+      "id": "opening-11",
+      "name": "Queen's Gambit Accepted",
+      "moves": [
+        "d2d4",
+        "d7d5",
+        "c2c4",
+        "d5c4",
+        "g1f3",
+        "g8f6"
+      ]
+    },
+    {
+      "id": "opening-12",
+      "name": "King's Indian Defense",
+      "moves": [
+        "d2d4",
+        "g8f6",
+        "c2c4",
+        "g7g6",
+        "b1c3",
+        "f8g7"
+      ]
+    },
+    {
+      "id": "opening-13",
+      "name": "Nimzo-Indian Defense",
+      "moves": [
+        "d2d4",
+        "g8f6",
+        "c2c4",
+        "e7e6",
+        "b1c3",
+        "f8b4"
+      ]
+    },
+    {
+      "id": "opening-14",
+      "name": "Grunfeld Defense",
+      "moves": [
+        "d2d4",
+        "g8f6",
+        "c2c4",
+        "g7g6",
+        "b1c3",
+        "d7d5"
+      ]
+    },
+    {
+      "id": "opening-15",
+      "name": "English Opening",
+      "moves": [
+        "c2c4",
+        "e7e5",
+        "b1c3",
+        "g8f6",
+        "g1f3",
+        "b8c6"
+      ]
+    },
+    {
+      "id": "opening-16",
+      "name": "Reti Opening",
+      "moves": [
+        "g1f3",
+        "d7d5",
+        "g2g3",
+        "g8f6",
+        "f1g2",
+        "e7e6"
+      ]
+    }
+  ],
+  "arena_schedule": [
+    {
+      "id": "game-001",
+      "opening_id": "opening-01",
+      "opening_name": "Ruy Lopez",
+      "opening_moves": [
+        "e2e4",
+        "e7e5",
+        "g1f3",
+        "b8c6",
+        "f1b5",
+        "a7a6"
+      ],
+      "seed": 53,
+      "white": "width128-53",
+      "black": "width32-53",
+      "white_width": 128,
+      "black_width": 32
+    },
+    {
+      "id": "game-002",
+      "opening_id": "opening-01",
+      "opening_name": "Ruy Lopez",
+      "opening_moves": [
+        "e2e4",
+        "e7e5",
+        "g1f3",
+        "b8c6",
+        "f1b5",
+        "a7a6"
+      ],
+      "seed": 53,
+      "white": "width32-53",
+      "black": "width128-53",
+      "white_width": 32,
+      "black_width": 128
+    },
+    {
+      "id": "game-003",
+      "opening_id": "opening-01",
+      "opening_name": "Ruy Lopez",
+      "opening_moves": [
+        "e2e4",
+        "e7e5",
+        "g1f3",
+        "b8c6",
+        "f1b5",
+        "a7a6"
+      ],
+      "seed": 67,
+      "white": "width128-67",
+      "black": "width32-67",
+      "white_width": 128,
+      "black_width": 32
+    },
+    {
+      "id": "game-004",
+      "opening_id": "opening-01",
+      "opening_name": "Ruy Lopez",
+      "opening_moves": [
+        "e2e4",
+        "e7e5",
+        "g1f3",
+        "b8c6",
+        "f1b5",
+        "a7a6"
+      ],
+      "seed": 67,
+      "white": "width32-67",
+      "black": "width128-67",
+      "white_width": 32,
+      "black_width": 128
+    },
+    {
+      "id": "game-005",
+      "opening_id": "opening-01",
+      "opening_name": "Ruy Lopez",
+      "opening_moves": [
+        "e2e4",
+        "e7e5",
+        "g1f3",
+        "b8c6",
+        "f1b5",
+        "a7a6"
+      ],
+      "seed": 83,
+      "white": "width128-83",
+      "black": "width32-83",
+      "white_width": 128,
+      "black_width": 32
+    },
+    {
+      "id": "game-006",
+      "opening_id": "opening-01",
+      "opening_name": "Ruy Lopez",
+      "opening_moves": [
+        "e2e4",
+        "e7e5",
+        "g1f3",
+        "b8c6",
+        "f1b5",
+        "a7a6"
+      ],
+      "seed": 83,
+      "white": "width32-83",
+      "black": "width128-83",
+      "white_width": 32,
+      "black_width": 128
+    },
+    {
+      "id": "game-007",
+      "opening_id": "opening-02",
+      "opening_name": "Italian Game",
+      "opening_moves": [
+        "e2e4",
+        "e7e5",
+        "g1f3",
+        "b8c6",
+        "f1c4",
+        "f8c5"
+      ],
+      "seed": 53,
+      "white": "width128-53",
+      "black": "width32-53",
+      "white_width": 128,
+      "black_width": 32
+    },
+    {
+      "id": "game-008",
+      "opening_id": "opening-02",
+      "opening_name": "Italian Game",
+      "opening_moves": [
+        "e2e4",
+        "e7e5",
+        "g1f3",
+        "b8c6",
+        "f1c4",
+        "f8c5"
+      ],
+      "seed": 53,
+      "white": "width32-53",
+      "black": "width128-53",
+      "white_width": 32,
+      "black_width": 128
+    },
+    {
+      "id": "game-009",
+      "opening_id": "opening-02",
+      "opening_name": "Italian Game",
+      "opening_moves": [
+        "e2e4",
+        "e7e5",
+        "g1f3",
+        "b8c6",
+        "f1c4",
+        "f8c5"
+      ],
+      "seed": 67,
+      "white": "width128-67",
+      "black": "width32-67",
+      "white_width": 128,
+      "black_width": 32
+    },
+    {
+      "id": "game-010",
+      "opening_id": "opening-02",
+      "opening_name": "Italian Game",
+      "opening_moves": [
+        "e2e4",
+        "e7e5",
+        "g1f3",
+        "b8c6",
+        "f1c4",
+        "f8c5"
+      ],
+      "seed": 67,
+      "white": "width32-67",
+      "black": "width128-67",
+      "white_width": 32,
+      "black_width": 128
+    },
+    {
+      "id": "game-011",
+      "opening_id": "opening-02",
+      "opening_name": "Italian Game",
+      "opening_moves": [
+        "e2e4",
+        "e7e5",
+        "g1f3",
+        "b8c6",
+        "f1c4",
+        "f8c5"
+      ],
+      "seed": 83,
+      "white": "width128-83",
+      "black": "width32-83",
+      "white_width": 128,
+      "black_width": 32
+    },
+    {
+      "id": "game-012",
+      "opening_id": "opening-02",
+      "opening_name": "Italian Game",
+      "opening_moves": [
+        "e2e4",
+        "e7e5",
+        "g1f3",
+        "b8c6",
+        "f1c4",
+        "f8c5"
+      ],
+      "seed": 83,
+      "white": "width32-83",
+      "black": "width128-83",
+      "white_width": 32,
+      "black_width": 128
+    },
+    {
+      "id": "game-013",
+      "opening_id": "opening-03",
+      "opening_name": "Scotch Game",
+      "opening_moves": [
+        "e2e4",
+        "e7e5",
+        "g1f3",
+        "b8c6",
+        "d2d4",
+        "e5d4"
+      ],
+      "seed": 53,
+      "white": "width128-53",
+      "black": "width32-53",
+      "white_width": 128,
+      "black_width": 32
+    },
+    {
+      "id": "game-014",
+      "opening_id": "opening-03",
+      "opening_name": "Scotch Game",
+      "opening_moves": [
+        "e2e4",
+        "e7e5",
+        "g1f3",
+        "b8c6",
+        "d2d4",
+        "e5d4"
+      ],
+      "seed": 53,
+      "white": "width32-53",
+      "black": "width128-53",
+      "white_width": 32,
+      "black_width": 128
+    },
+    {
+      "id": "game-015",
+      "opening_id": "opening-03",
+      "opening_name": "Scotch Game",
+      "opening_moves": [
+        "e2e4",
+        "e7e5",
+        "g1f3",
+        "b8c6",
+        "d2d4",
+        "e5d4"
+      ],
+      "seed": 67,
+      "white": "width128-67",
+      "black": "width32-67",
+      "white_width": 128,
+      "black_width": 32
+    },
+    {
+      "id": "game-016",
+      "opening_id": "opening-03",
+      "opening_name": "Scotch Game",
+      "opening_moves": [
+        "e2e4",
+        "e7e5",
+        "g1f3",
+        "b8c6",
+        "d2d4",
+        "e5d4"
+      ],
+      "seed": 67,
+      "white": "width32-67",
+      "black": "width128-67",
+      "white_width": 32,
+      "black_width": 128
+    },
+    {
+      "id": "game-017",
+      "opening_id": "opening-03",
+      "opening_name": "Scotch Game",
+      "opening_moves": [
+        "e2e4",
+        "e7e5",
+        "g1f3",
+        "b8c6",
+        "d2d4",
+        "e5d4"
+      ],
+      "seed": 83,
+      "white": "width128-83",
+      "black": "width32-83",
+      "white_width": 128,
+      "black_width": 32
+    },
+    {
+      "id": "game-018",
+      "opening_id": "opening-03",
+      "opening_name": "Scotch Game",
+      "opening_moves": [
+        "e2e4",
+        "e7e5",
+        "g1f3",
+        "b8c6",
+        "d2d4",
+        "e5d4"
+      ],
+      "seed": 83,
+      "white": "width32-83",
+      "black": "width128-83",
+      "white_width": 32,
+      "black_width": 128
+    },
+    {
+      "id": "game-019",
+      "opening_id": "opening-04",
+      "opening_name": "Petrov Defense",
+      "opening_moves": [
+        "e2e4",
+        "e7e5",
+        "g1f3",
+        "g8f6",
+        "f3e5",
+        "d7d6"
+      ],
+      "seed": 53,
+      "white": "width128-53",
+      "black": "width32-53",
+      "white_width": 128,
+      "black_width": 32
+    },
+    {
+      "id": "game-020",
+      "opening_id": "opening-04",
+      "opening_name": "Petrov Defense",
+      "opening_moves": [
+        "e2e4",
+        "e7e5",
+        "g1f3",
+        "g8f6",
+        "f3e5",
+        "d7d6"
+      ],
+      "seed": 53,
+      "white": "width32-53",
+      "black": "width128-53",
+      "white_width": 32,
+      "black_width": 128
+    },
+    {
+      "id": "game-021",
+      "opening_id": "opening-04",
+      "opening_name": "Petrov Defense",
+      "opening_moves": [
+        "e2e4",
+        "e7e5",
+        "g1f3",
+        "g8f6",
+        "f3e5",
+        "d7d6"
+      ],
+      "seed": 67,
+      "white": "width128-67",
+      "black": "width32-67",
+      "white_width": 128,
+      "black_width": 32
+    },
+    {
+      "id": "game-022",
+      "opening_id": "opening-04",
+      "opening_name": "Petrov Defense",
+      "opening_moves": [
+        "e2e4",
+        "e7e5",
+        "g1f3",
+        "g8f6",
+        "f3e5",
+        "d7d6"
+      ],
+      "seed": 67,
+      "white": "width32-67",
+      "black": "width128-67",
+      "white_width": 32,
+      "black_width": 128
+    },
+    {
+      "id": "game-023",
+      "opening_id": "opening-04",
+      "opening_name": "Petrov Defense",
+      "opening_moves": [
+        "e2e4",
+        "e7e5",
+        "g1f3",
+        "g8f6",
+        "f3e5",
+        "d7d6"
+      ],
+      "seed": 83,
+      "white": "width128-83",
+      "black": "width32-83",
+      "white_width": 128,
+      "black_width": 32
+    },
+    {
+      "id": "game-024",
+      "opening_id": "opening-04",
+      "opening_name": "Petrov Defense",
+      "opening_moves": [
+        "e2e4",
+        "e7e5",
+        "g1f3",
+        "g8f6",
+        "f3e5",
+        "d7d6"
+      ],
+      "seed": 83,
+      "white": "width32-83",
+      "black": "width128-83",
+      "white_width": 32,
+      "black_width": 128
+    },
+    {
+      "id": "game-025",
+      "opening_id": "opening-05",
+      "opening_name": "Philidor Defense",
+      "opening_moves": [
+        "e2e4",
+        "e7e5",
+        "g1f3",
+        "d7d6",
+        "d2d4",
+        "g8f6"
+      ],
+      "seed": 53,
+      "white": "width128-53",
+      "black": "width32-53",
+      "white_width": 128,
+      "black_width": 32
+    },
+    {
+      "id": "game-026",
+      "opening_id": "opening-05",
+      "opening_name": "Philidor Defense",
+      "opening_moves": [
+        "e2e4",
+        "e7e5",
+        "g1f3",
+        "d7d6",
+        "d2d4",
+        "g8f6"
+      ],
+      "seed": 53,
+      "white": "width32-53",
+      "black": "width128-53",
+      "white_width": 32,
+      "black_width": 128
+    },
+    {
+      "id": "game-027",
+      "opening_id": "opening-05",
+      "opening_name": "Philidor Defense",
+      "opening_moves": [
+        "e2e4",
+        "e7e5",
+        "g1f3",
+        "d7d6",
+        "d2d4",
+        "g8f6"
+      ],
+      "seed": 67,
+      "white": "width128-67",
+      "black": "width32-67",
+      "white_width": 128,
+      "black_width": 32
+    },
+    {
+      "id": "game-028",
+      "opening_id": "opening-05",
+      "opening_name": "Philidor Defense",
+      "opening_moves": [
+        "e2e4",
+        "e7e5",
+        "g1f3",
+        "d7d6",
+        "d2d4",
+        "g8f6"
+      ],
+      "seed": 67,
+      "white": "width32-67",
+      "black": "width128-67",
+      "white_width": 32,
+      "black_width": 128
+    },
+    {
+      "id": "game-029",
+      "opening_id": "opening-05",
+      "opening_name": "Philidor Defense",
+      "opening_moves": [
+        "e2e4",
+        "e7e5",
+        "g1f3",
+        "d7d6",
+        "d2d4",
+        "g8f6"
+      ],
+      "seed": 83,
+      "white": "width128-83",
+      "black": "width32-83",
+      "white_width": 128,
+      "black_width": 32
+    },
+    {
+      "id": "game-030",
+      "opening_id": "opening-05",
+      "opening_name": "Philidor Defense",
+      "opening_moves": [
+        "e2e4",
+        "e7e5",
+        "g1f3",
+        "d7d6",
+        "d2d4",
+        "g8f6"
+      ],
+      "seed": 83,
+      "white": "width32-83",
+      "black": "width128-83",
+      "white_width": 32,
+      "black_width": 128
+    },
+    {
+      "id": "game-031",
+      "opening_id": "opening-06",
+      "opening_name": "Sicilian Defense",
+      "opening_moves": [
+        "e2e4",
+        "c7c5",
+        "g1f3",
+        "d7d6",
+        "d2d4",
+        "c5d4"
+      ],
+      "seed": 53,
+      "white": "width128-53",
+      "black": "width32-53",
+      "white_width": 128,
+      "black_width": 32
+    },
+    {
+      "id": "game-032",
+      "opening_id": "opening-06",
+      "opening_name": "Sicilian Defense",
+      "opening_moves": [
+        "e2e4",
+        "c7c5",
+        "g1f3",
+        "d7d6",
+        "d2d4",
+        "c5d4"
+      ],
+      "seed": 53,
+      "white": "width32-53",
+      "black": "width128-53",
+      "white_width": 32,
+      "black_width": 128
+    },
+    {
+      "id": "game-033",
+      "opening_id": "opening-06",
+      "opening_name": "Sicilian Defense",
+      "opening_moves": [
+        "e2e4",
+        "c7c5",
+        "g1f3",
+        "d7d6",
+        "d2d4",
+        "c5d4"
+      ],
+      "seed": 67,
+      "white": "width128-67",
+      "black": "width32-67",
+      "white_width": 128,
+      "black_width": 32
+    },
+    {
+      "id": "game-034",
+      "opening_id": "opening-06",
+      "opening_name": "Sicilian Defense",
+      "opening_moves": [
+        "e2e4",
+        "c7c5",
+        "g1f3",
+        "d7d6",
+        "d2d4",
+        "c5d4"
+      ],
+      "seed": 67,
+      "white": "width32-67",
+      "black": "width128-67",
+      "white_width": 32,
+      "black_width": 128
+    },
+    {
+      "id": "game-035",
+      "opening_id": "opening-06",
+      "opening_name": "Sicilian Defense",
+      "opening_moves": [
+        "e2e4",
+        "c7c5",
+        "g1f3",
+        "d7d6",
+        "d2d4",
+        "c5d4"
+      ],
+      "seed": 83,
+      "white": "width128-83",
+      "black": "width32-83",
+      "white_width": 128,
+      "black_width": 32
+    },
+    {
+      "id": "game-036",
+      "opening_id": "opening-06",
+      "opening_name": "Sicilian Defense",
+      "opening_moves": [
+        "e2e4",
+        "c7c5",
+        "g1f3",
+        "d7d6",
+        "d2d4",
+        "c5d4"
+      ],
+      "seed": 83,
+      "white": "width32-83",
+      "black": "width128-83",
+      "white_width": 32,
+      "black_width": 128
+    },
+    {
+      "id": "game-037",
+      "opening_id": "opening-07",
+      "opening_name": "French Defense",
+      "opening_moves": [
+        "e2e4",
+        "e7e6",
+        "d2d4",
+        "d7d5",
+        "b1c3",
+        "g8f6"
+      ],
+      "seed": 53,
+      "white": "width128-53",
+      "black": "width32-53",
+      "white_width": 128,
+      "black_width": 32
+    },
+    {
+      "id": "game-038",
+      "opening_id": "opening-07",
+      "opening_name": "French Defense",
+      "opening_moves": [
+        "e2e4",
+        "e7e6",
+        "d2d4",
+        "d7d5",
+        "b1c3",
+        "g8f6"
+      ],
+      "seed": 53,
+      "white": "width32-53",
+      "black": "width128-53",
+      "white_width": 32,
+      "black_width": 128
+    },
+    {
+      "id": "game-039",
+      "opening_id": "opening-07",
+      "opening_name": "French Defense",
+      "opening_moves": [
+        "e2e4",
+        "e7e6",
+        "d2d4",
+        "d7d5",
+        "b1c3",
+        "g8f6"
+      ],
+      "seed": 67,
+      "white": "width128-67",
+      "black": "width32-67",
+      "white_width": 128,
+      "black_width": 32
+    },
+    {
+      "id": "game-040",
+      "opening_id": "opening-07",
+      "opening_name": "French Defense",
+      "opening_moves": [
+        "e2e4",
+        "e7e6",
+        "d2d4",
+        "d7d5",
+        "b1c3",
+        "g8f6"
+      ],
+      "seed": 67,
+      "white": "width32-67",
+      "black": "width128-67",
+      "white_width": 32,
+      "black_width": 128
+    },
+    {
+      "id": "game-041",
+      "opening_id": "opening-07",
+      "opening_name": "French Defense",
+      "opening_moves": [
+        "e2e4",
+        "e7e6",
+        "d2d4",
+        "d7d5",
+        "b1c3",
+        "g8f6"
+      ],
+      "seed": 83,
+      "white": "width128-83",
+      "black": "width32-83",
+      "white_width": 128,
+      "black_width": 32
+    },
+    {
+      "id": "game-042",
+      "opening_id": "opening-07",
+      "opening_name": "French Defense",
+      "opening_moves": [
+        "e2e4",
+        "e7e6",
+        "d2d4",
+        "d7d5",
+        "b1c3",
+        "g8f6"
+      ],
+      "seed": 83,
+      "white": "width32-83",
+      "black": "width128-83",
+      "white_width": 32,
+      "black_width": 128
+    },
+    {
+      "id": "game-043",
+      "opening_id": "opening-08",
+      "opening_name": "Caro-Kann Defense",
+      "opening_moves": [
+        "e2e4",
+        "c7c6",
+        "d2d4",
+        "d7d5",
+        "b1c3",
+        "d5e4"
+      ],
+      "seed": 53,
+      "white": "width128-53",
+      "black": "width32-53",
+      "white_width": 128,
+      "black_width": 32
+    },
+    {
+      "id": "game-044",
+      "opening_id": "opening-08",
+      "opening_name": "Caro-Kann Defense",
+      "opening_moves": [
+        "e2e4",
+        "c7c6",
+        "d2d4",
+        "d7d5",
+        "b1c3",
+        "d5e4"
+      ],
+      "seed": 53,
+      "white": "width32-53",
+      "black": "width128-53",
+      "white_width": 32,
+      "black_width": 128
+    },
+    {
+      "id": "game-045",
+      "opening_id": "opening-08",
+      "opening_name": "Caro-Kann Defense",
+      "opening_moves": [
+        "e2e4",
+        "c7c6",
+        "d2d4",
+        "d7d5",
+        "b1c3",
+        "d5e4"
+      ],
+      "seed": 67,
+      "white": "width128-67",
+      "black": "width32-67",
+      "white_width": 128,
+      "black_width": 32
+    },
+    {
+      "id": "game-046",
+      "opening_id": "opening-08",
+      "opening_name": "Caro-Kann Defense",
+      "opening_moves": [
+        "e2e4",
+        "c7c6",
+        "d2d4",
+        "d7d5",
+        "b1c3",
+        "d5e4"
+      ],
+      "seed": 67,
+      "white": "width32-67",
+      "black": "width128-67",
+      "white_width": 32,
+      "black_width": 128
+    },
+    {
+      "id": "game-047",
+      "opening_id": "opening-08",
+      "opening_name": "Caro-Kann Defense",
+      "opening_moves": [
+        "e2e4",
+        "c7c6",
+        "d2d4",
+        "d7d5",
+        "b1c3",
+        "d5e4"
+      ],
+      "seed": 83,
+      "white": "width128-83",
+      "black": "width32-83",
+      "white_width": 128,
+      "black_width": 32
+    },
+    {
+      "id": "game-048",
+      "opening_id": "opening-08",
+      "opening_name": "Caro-Kann Defense",
+      "opening_moves": [
+        "e2e4",
+        "c7c6",
+        "d2d4",
+        "d7d5",
+        "b1c3",
+        "d5e4"
+      ],
+      "seed": 83,
+      "white": "width32-83",
+      "black": "width128-83",
+      "white_width": 32,
+      "black_width": 128
+    },
+    {
+      "id": "game-049",
+      "opening_id": "opening-09",
+      "opening_name": "Queen's Gambit Declined",
+      "opening_moves": [
+        "d2d4",
+        "d7d5",
+        "c2c4",
+        "e7e6",
+        "b1c3",
+        "g8f6"
+      ],
+      "seed": 53,
+      "white": "width128-53",
+      "black": "width32-53",
+      "white_width": 128,
+      "black_width": 32
+    },
+    {
+      "id": "game-050",
+      "opening_id": "opening-09",
+      "opening_name": "Queen's Gambit Declined",
+      "opening_moves": [
+        "d2d4",
+        "d7d5",
+        "c2c4",
+        "e7e6",
+        "b1c3",
+        "g8f6"
+      ],
+      "seed": 53,
+      "white": "width32-53",
+      "black": "width128-53",
+      "white_width": 32,
+      "black_width": 128
+    },
+    {
+      "id": "game-051",
+      "opening_id": "opening-09",
+      "opening_name": "Queen's Gambit Declined",
+      "opening_moves": [
+        "d2d4",
+        "d7d5",
+        "c2c4",
+        "e7e6",
+        "b1c3",
+        "g8f6"
+      ],
+      "seed": 67,
+      "white": "width128-67",
+      "black": "width32-67",
+      "white_width": 128,
+      "black_width": 32
+    },
+    {
+      "id": "game-052",
+      "opening_id": "opening-09",
+      "opening_name": "Queen's Gambit Declined",
+      "opening_moves": [
+        "d2d4",
+        "d7d5",
+        "c2c4",
+        "e7e6",
+        "b1c3",
+        "g8f6"
+      ],
+      "seed": 67,
+      "white": "width32-67",
+      "black": "width128-67",
+      "white_width": 32,
+      "black_width": 128
+    },
+    {
+      "id": "game-053",
+      "opening_id": "opening-09",
+      "opening_name": "Queen's Gambit Declined",
+      "opening_moves": [
+        "d2d4",
+        "d7d5",
+        "c2c4",
+        "e7e6",
+        "b1c3",
+        "g8f6"
+      ],
+      "seed": 83,
+      "white": "width128-83",
+      "black": "width32-83",
+      "white_width": 128,
+      "black_width": 32
+    },
+    {
+      "id": "game-054",
+      "opening_id": "opening-09",
+      "opening_name": "Queen's Gambit Declined",
+      "opening_moves": [
+        "d2d4",
+        "d7d5",
+        "c2c4",
+        "e7e6",
+        "b1c3",
+        "g8f6"
+      ],
+      "seed": 83,
+      "white": "width32-83",
+      "black": "width128-83",
+      "white_width": 32,
+      "black_width": 128
+    },
+    {
+      "id": "game-055",
+      "opening_id": "opening-10",
+      "opening_name": "Slav Defense",
+      "opening_moves": [
+        "d2d4",
+        "d7d5",
+        "c2c4",
+        "c7c6",
+        "g1f3",
+        "g8f6"
+      ],
+      "seed": 53,
+      "white": "width128-53",
+      "black": "width32-53",
+      "white_width": 128,
+      "black_width": 32
+    },
+    {
+      "id": "game-056",
+      "opening_id": "opening-10",
+      "opening_name": "Slav Defense",
+      "opening_moves": [
+        "d2d4",
+        "d7d5",
+        "c2c4",
+        "c7c6",
+        "g1f3",
+        "g8f6"
+      ],
+      "seed": 53,
+      "white": "width32-53",
+      "black": "width128-53",
+      "white_width": 32,
+      "black_width": 128
+    },
+    {
+      "id": "game-057",
+      "opening_id": "opening-10",
+      "opening_name": "Slav Defense",
+      "opening_moves": [
+        "d2d4",
+        "d7d5",
+        "c2c4",
+        "c7c6",
+        "g1f3",
+        "g8f6"
+      ],
+      "seed": 67,
+      "white": "width128-67",
+      "black": "width32-67",
+      "white_width": 128,
+      "black_width": 32
+    },
+    {
+      "id": "game-058",
+      "opening_id": "opening-10",
+      "opening_name": "Slav Defense",
+      "opening_moves": [
+        "d2d4",
+        "d7d5",
+        "c2c4",
+        "c7c6",
+        "g1f3",
+        "g8f6"
+      ],
+      "seed": 67,
+      "white": "width32-67",
+      "black": "width128-67",
+      "white_width": 32,
+      "black_width": 128
+    },
+    {
+      "id": "game-059",
+      "opening_id": "opening-10",
+      "opening_name": "Slav Defense",
+      "opening_moves": [
+        "d2d4",
+        "d7d5",
+        "c2c4",
+        "c7c6",
+        "g1f3",
+        "g8f6"
+      ],
+      "seed": 83,
+      "white": "width128-83",
+      "black": "width32-83",
+      "white_width": 128,
+      "black_width": 32
+    },
+    {
+      "id": "game-060",
+      "opening_id": "opening-10",
+      "opening_name": "Slav Defense",
+      "opening_moves": [
+        "d2d4",
+        "d7d5",
+        "c2c4",
+        "c7c6",
+        "g1f3",
+        "g8f6"
+      ],
+      "seed": 83,
+      "white": "width32-83",
+      "black": "width128-83",
+      "white_width": 32,
+      "black_width": 128
+    },
+    {
+      "id": "game-061",
+      "opening_id": "opening-11",
+      "opening_name": "Queen's Gambit Accepted",
+      "opening_moves": [
+        "d2d4",
+        "d7d5",
+        "c2c4",
+        "d5c4",
+        "g1f3",
+        "g8f6"
+      ],
+      "seed": 53,
+      "white": "width128-53",
+      "black": "width32-53",
+      "white_width": 128,
+      "black_width": 32
+    },
+    {
+      "id": "game-062",
+      "opening_id": "opening-11",
+      "opening_name": "Queen's Gambit Accepted",
+      "opening_moves": [
+        "d2d4",
+        "d7d5",
+        "c2c4",
+        "d5c4",
+        "g1f3",
+        "g8f6"
+      ],
+      "seed": 53,
+      "white": "width32-53",
+      "black": "width128-53",
+      "white_width": 32,
+      "black_width": 128
+    },
+    {
+      "id": "game-063",
+      "opening_id": "opening-11",
+      "opening_name": "Queen's Gambit Accepted",
+      "opening_moves": [
+        "d2d4",
+        "d7d5",
+        "c2c4",
+        "d5c4",
+        "g1f3",
+        "g8f6"
+      ],
+      "seed": 67,
+      "white": "width128-67",
+      "black": "width32-67",
+      "white_width": 128,
+      "black_width": 32
+    },
+    {
+      "id": "game-064",
+      "opening_id": "opening-11",
+      "opening_name": "Queen's Gambit Accepted",
+      "opening_moves": [
+        "d2d4",
+        "d7d5",
+        "c2c4",
+        "d5c4",
+        "g1f3",
+        "g8f6"
+      ],
+      "seed": 67,
+      "white": "width32-67",
+      "black": "width128-67",
+      "white_width": 32,
+      "black_width": 128
+    },
+    {
+      "id": "game-065",
+      "opening_id": "opening-11",
+      "opening_name": "Queen's Gambit Accepted",
+      "opening_moves": [
+        "d2d4",
+        "d7d5",
+        "c2c4",
+        "d5c4",
+        "g1f3",
+        "g8f6"
+      ],
+      "seed": 83,
+      "white": "width128-83",
+      "black": "width32-83",
+      "white_width": 128,
+      "black_width": 32
+    },
+    {
+      "id": "game-066",
+      "opening_id": "opening-11",
+      "opening_name": "Queen's Gambit Accepted",
+      "opening_moves": [
+        "d2d4",
+        "d7d5",
+        "c2c4",
+        "d5c4",
+        "g1f3",
+        "g8f6"
+      ],
+      "seed": 83,
+      "white": "width32-83",
+      "black": "width128-83",
+      "white_width": 32,
+      "black_width": 128
+    },
+    {
+      "id": "game-067",
+      "opening_id": "opening-12",
+      "opening_name": "King's Indian Defense",
+      "opening_moves": [
+        "d2d4",
+        "g8f6",
+        "c2c4",
+        "g7g6",
+        "b1c3",
+        "f8g7"
+      ],
+      "seed": 53,
+      "white": "width128-53",
+      "black": "width32-53",
+      "white_width": 128,
+      "black_width": 32
+    },
+    {
+      "id": "game-068",
+      "opening_id": "opening-12",
+      "opening_name": "King's Indian Defense",
+      "opening_moves": [
+        "d2d4",
+        "g8f6",
+        "c2c4",
+        "g7g6",
+        "b1c3",
+        "f8g7"
+      ],
+      "seed": 53,
+      "white": "width32-53",
+      "black": "width128-53",
+      "white_width": 32,
+      "black_width": 128
+    },
+    {
+      "id": "game-069",
+      "opening_id": "opening-12",
+      "opening_name": "King's Indian Defense",
+      "opening_moves": [
+        "d2d4",
+        "g8f6",
+        "c2c4",
+        "g7g6",
+        "b1c3",
+        "f8g7"
+      ],
+      "seed": 67,
+      "white": "width128-67",
+      "black": "width32-67",
+      "white_width": 128,
+      "black_width": 32
+    },
+    {
+      "id": "game-070",
+      "opening_id": "opening-12",
+      "opening_name": "King's Indian Defense",
+      "opening_moves": [
+        "d2d4",
+        "g8f6",
+        "c2c4",
+        "g7g6",
+        "b1c3",
+        "f8g7"
+      ],
+      "seed": 67,
+      "white": "width32-67",
+      "black": "width128-67",
+      "white_width": 32,
+      "black_width": 128
+    },
+    {
+      "id": "game-071",
+      "opening_id": "opening-12",
+      "opening_name": "King's Indian Defense",
+      "opening_moves": [
+        "d2d4",
+        "g8f6",
+        "c2c4",
+        "g7g6",
+        "b1c3",
+        "f8g7"
+      ],
+      "seed": 83,
+      "white": "width128-83",
+      "black": "width32-83",
+      "white_width": 128,
+      "black_width": 32
+    },
+    {
+      "id": "game-072",
+      "opening_id": "opening-12",
+      "opening_name": "King's Indian Defense",
+      "opening_moves": [
+        "d2d4",
+        "g8f6",
+        "c2c4",
+        "g7g6",
+        "b1c3",
+        "f8g7"
+      ],
+      "seed": 83,
+      "white": "width32-83",
+      "black": "width128-83",
+      "white_width": 32,
+      "black_width": 128
+    },
+    {
+      "id": "game-073",
+      "opening_id": "opening-13",
+      "opening_name": "Nimzo-Indian Defense",
+      "opening_moves": [
+        "d2d4",
+        "g8f6",
+        "c2c4",
+        "e7e6",
+        "b1c3",
+        "f8b4"
+      ],
+      "seed": 53,
+      "white": "width128-53",
+      "black": "width32-53",
+      "white_width": 128,
+      "black_width": 32
+    },
+    {
+      "id": "game-074",
+      "opening_id": "opening-13",
+      "opening_name": "Nimzo-Indian Defense",
+      "opening_moves": [
+        "d2d4",
+        "g8f6",
+        "c2c4",
+        "e7e6",
+        "b1c3",
+        "f8b4"
+      ],
+      "seed": 53,
+      "white": "width32-53",
+      "black": "width128-53",
+      "white_width": 32,
+      "black_width": 128
+    },
+    {
+      "id": "game-075",
+      "opening_id": "opening-13",
+      "opening_name": "Nimzo-Indian Defense",
+      "opening_moves": [
+        "d2d4",
+        "g8f6",
+        "c2c4",
+        "e7e6",
+        "b1c3",
+        "f8b4"
+      ],
+      "seed": 67,
+      "white": "width128-67",
+      "black": "width32-67",
+      "white_width": 128,
+      "black_width": 32
+    },
+    {
+      "id": "game-076",
+      "opening_id": "opening-13",
+      "opening_name": "Nimzo-Indian Defense",
+      "opening_moves": [
+        "d2d4",
+        "g8f6",
+        "c2c4",
+        "e7e6",
+        "b1c3",
+        "f8b4"
+      ],
+      "seed": 67,
+      "white": "width32-67",
+      "black": "width128-67",
+      "white_width": 32,
+      "black_width": 128
+    },
+    {
+      "id": "game-077",
+      "opening_id": "opening-13",
+      "opening_name": "Nimzo-Indian Defense",
+      "opening_moves": [
+        "d2d4",
+        "g8f6",
+        "c2c4",
+        "e7e6",
+        "b1c3",
+        "f8b4"
+      ],
+      "seed": 83,
+      "white": "width128-83",
+      "black": "width32-83",
+      "white_width": 128,
+      "black_width": 32
+    },
+    {
+      "id": "game-078",
+      "opening_id": "opening-13",
+      "opening_name": "Nimzo-Indian Defense",
+      "opening_moves": [
+        "d2d4",
+        "g8f6",
+        "c2c4",
+        "e7e6",
+        "b1c3",
+        "f8b4"
+      ],
+      "seed": 83,
+      "white": "width32-83",
+      "black": "width128-83",
+      "white_width": 32,
+      "black_width": 128
+    },
+    {
+      "id": "game-079",
+      "opening_id": "opening-14",
+      "opening_name": "Grunfeld Defense",
+      "opening_moves": [
+        "d2d4",
+        "g8f6",
+        "c2c4",
+        "g7g6",
+        "b1c3",
+        "d7d5"
+      ],
+      "seed": 53,
+      "white": "width128-53",
+      "black": "width32-53",
+      "white_width": 128,
+      "black_width": 32
+    },
+    {
+      "id": "game-080",
+      "opening_id": "opening-14",
+      "opening_name": "Grunfeld Defense",
+      "opening_moves": [
+        "d2d4",
+        "g8f6",
+        "c2c4",
+        "g7g6",
+        "b1c3",
+        "d7d5"
+      ],
+      "seed": 53,
+      "white": "width32-53",
+      "black": "width128-53",
+      "white_width": 32,
+      "black_width": 128
+    },
+    {
+      "id": "game-081",
+      "opening_id": "opening-14",
+      "opening_name": "Grunfeld Defense",
+      "opening_moves": [
+        "d2d4",
+        "g8f6",
+        "c2c4",
+        "g7g6",
+        "b1c3",
+        "d7d5"
+      ],
+      "seed": 67,
+      "white": "width128-67",
+      "black": "width32-67",
+      "white_width": 128,
+      "black_width": 32
+    },
+    {
+      "id": "game-082",
+      "opening_id": "opening-14",
+      "opening_name": "Grunfeld Defense",
+      "opening_moves": [
+        "d2d4",
+        "g8f6",
+        "c2c4",
+        "g7g6",
+        "b1c3",
+        "d7d5"
+      ],
+      "seed": 67,
+      "white": "width32-67",
+      "black": "width128-67",
+      "white_width": 32,
+      "black_width": 128
+    },
+    {
+      "id": "game-083",
+      "opening_id": "opening-14",
+      "opening_name": "Grunfeld Defense",
+      "opening_moves": [
+        "d2d4",
+        "g8f6",
+        "c2c4",
+        "g7g6",
+        "b1c3",
+        "d7d5"
+      ],
+      "seed": 83,
+      "white": "width128-83",
+      "black": "width32-83",
+      "white_width": 128,
+      "black_width": 32
+    },
+    {
+      "id": "game-084",
+      "opening_id": "opening-14",
+      "opening_name": "Grunfeld Defense",
+      "opening_moves": [
+        "d2d4",
+        "g8f6",
+        "c2c4",
+        "g7g6",
+        "b1c3",
+        "d7d5"
+      ],
+      "seed": 83,
+      "white": "width32-83",
+      "black": "width128-83",
+      "white_width": 32,
+      "black_width": 128
+    },
+    {
+      "id": "game-085",
+      "opening_id": "opening-15",
+      "opening_name": "English Opening",
+      "opening_moves": [
+        "c2c4",
+        "e7e5",
+        "b1c3",
+        "g8f6",
+        "g1f3",
+        "b8c6"
+      ],
+      "seed": 53,
+      "white": "width128-53",
+      "black": "width32-53",
+      "white_width": 128,
+      "black_width": 32
+    },
+    {
+      "id": "game-086",
+      "opening_id": "opening-15",
+      "opening_name": "English Opening",
+      "opening_moves": [
+        "c2c4",
+        "e7e5",
+        "b1c3",
+        "g8f6",
+        "g1f3",
+        "b8c6"
+      ],
+      "seed": 53,
+      "white": "width32-53",
+      "black": "width128-53",
+      "white_width": 32,
+      "black_width": 128
+    },
+    {
+      "id": "game-087",
+      "opening_id": "opening-15",
+      "opening_name": "English Opening",
+      "opening_moves": [
+        "c2c4",
+        "e7e5",
+        "b1c3",
+        "g8f6",
+        "g1f3",
+        "b8c6"
+      ],
+      "seed": 67,
+      "white": "width128-67",
+      "black": "width32-67",
+      "white_width": 128,
+      "black_width": 32
+    },
+    {
+      "id": "game-088",
+      "opening_id": "opening-15",
+      "opening_name": "English Opening",
+      "opening_moves": [
+        "c2c4",
+        "e7e5",
+        "b1c3",
+        "g8f6",
+        "g1f3",
+        "b8c6"
+      ],
+      "seed": 67,
+      "white": "width32-67",
+      "black": "width128-67",
+      "white_width": 32,
+      "black_width": 128
+    },
+    {
+      "id": "game-089",
+      "opening_id": "opening-15",
+      "opening_name": "English Opening",
+      "opening_moves": [
+        "c2c4",
+        "e7e5",
+        "b1c3",
+        "g8f6",
+        "g1f3",
+        "b8c6"
+      ],
+      "seed": 83,
+      "white": "width128-83",
+      "black": "width32-83",
+      "white_width": 128,
+      "black_width": 32
+    },
+    {
+      "id": "game-090",
+      "opening_id": "opening-15",
+      "opening_name": "English Opening",
+      "opening_moves": [
+        "c2c4",
+        "e7e5",
+        "b1c3",
+        "g8f6",
+        "g1f3",
+        "b8c6"
+      ],
+      "seed": 83,
+      "white": "width32-83",
+      "black": "width128-83",
+      "white_width": 32,
+      "black_width": 128
+    },
+    {
+      "id": "game-091",
+      "opening_id": "opening-16",
+      "opening_name": "Reti Opening",
+      "opening_moves": [
+        "g1f3",
+        "d7d5",
+        "g2g3",
+        "g8f6",
+        "f1g2",
+        "e7e6"
+      ],
+      "seed": 53,
+      "white": "width128-53",
+      "black": "width32-53",
+      "white_width": 128,
+      "black_width": 32
+    },
+    {
+      "id": "game-092",
+      "opening_id": "opening-16",
+      "opening_name": "Reti Opening",
+      "opening_moves": [
+        "g1f3",
+        "d7d5",
+        "g2g3",
+        "g8f6",
+        "f1g2",
+        "e7e6"
+      ],
+      "seed": 53,
+      "white": "width32-53",
+      "black": "width128-53",
+      "white_width": 32,
+      "black_width": 128
+    },
+    {
+      "id": "game-093",
+      "opening_id": "opening-16",
+      "opening_name": "Reti Opening",
+      "opening_moves": [
+        "g1f3",
+        "d7d5",
+        "g2g3",
+        "g8f6",
+        "f1g2",
+        "e7e6"
+      ],
+      "seed": 67,
+      "white": "width128-67",
+      "black": "width32-67",
+      "white_width": 128,
+      "black_width": 32
+    },
+    {
+      "id": "game-094",
+      "opening_id": "opening-16",
+      "opening_name": "Reti Opening",
+      "opening_moves": [
+        "g1f3",
+        "d7d5",
+        "g2g3",
+        "g8f6",
+        "f1g2",
+        "e7e6"
+      ],
+      "seed": 67,
+      "white": "width32-67",
+      "black": "width128-67",
+      "white_width": 32,
+      "black_width": 128
+    },
+    {
+      "id": "game-095",
+      "opening_id": "opening-16",
+      "opening_name": "Reti Opening",
+      "opening_moves": [
+        "g1f3",
+        "d7d5",
+        "g2g3",
+        "g8f6",
+        "f1g2",
+        "e7e6"
+      ],
+      "seed": 83,
+      "white": "width128-83",
+      "black": "width32-83",
+      "white_width": 128,
+      "black_width": 32
+    },
+    {
+      "id": "game-096",
+      "opening_id": "opening-16",
+      "opening_name": "Reti Opening",
+      "opening_moves": [
+        "g1f3",
+        "d7d5",
+        "g2g3",
+        "g8f6",
+        "f1g2",
+        "e7e6"
+      ],
+      "seed": 83,
+      "white": "width32-83",
+      "black": "width128-83",
+      "white_width": 32,
+      "black_width": 128
+    }
+  ],
+  "arena_protocol": {
+    "openings": [
+      {
+        "id": "opening-01",
+        "name": "Ruy Lopez",
+        "moves": [
+          "e2e4",
+          "e7e5",
+          "g1f3",
+          "b8c6",
+          "f1b5",
+          "a7a6"
+        ]
+      },
+      {
+        "id": "opening-02",
+        "name": "Italian Game",
+        "moves": [
+          "e2e4",
+          "e7e5",
+          "g1f3",
+          "b8c6",
+          "f1c4",
+          "f8c5"
+        ]
+      },
+      {
+        "id": "opening-03",
+        "name": "Scotch Game",
+        "moves": [
+          "e2e4",
+          "e7e5",
+          "g1f3",
+          "b8c6",
+          "d2d4",
+          "e5d4"
+        ]
+      },
+      {
+        "id": "opening-04",
+        "name": "Petrov Defense",
+        "moves": [
+          "e2e4",
+          "e7e5",
+          "g1f3",
+          "g8f6",
+          "f3e5",
+          "d7d6"
+        ]
+      },
+      {
+        "id": "opening-05",
+        "name": "Philidor Defense",
+        "moves": [
+          "e2e4",
+          "e7e5",
+          "g1f3",
+          "d7d6",
+          "d2d4",
+          "g8f6"
+        ]
+      },
+      {
+        "id": "opening-06",
+        "name": "Sicilian Defense",
+        "moves": [
+          "e2e4",
+          "c7c5",
+          "g1f3",
+          "d7d6",
+          "d2d4",
+          "c5d4"
+        ]
+      },
+      {
+        "id": "opening-07",
+        "name": "French Defense",
+        "moves": [
+          "e2e4",
+          "e7e6",
+          "d2d4",
+          "d7d5",
+          "b1c3",
+          "g8f6"
+        ]
+      },
+      {
+        "id": "opening-08",
+        "name": "Caro-Kann Defense",
+        "moves": [
+          "e2e4",
+          "c7c6",
+          "d2d4",
+          "d7d5",
+          "b1c3",
+          "d5e4"
+        ]
+      },
+      {
+        "id": "opening-09",
+        "name": "Queen's Gambit Declined",
+        "moves": [
+          "d2d4",
+          "d7d5",
+          "c2c4",
+          "e7e6",
+          "b1c3",
+          "g8f6"
+        ]
+      },
+      {
+        "id": "opening-10",
+        "name": "Slav Defense",
+        "moves": [
+          "d2d4",
+          "d7d5",
+          "c2c4",
+          "c7c6",
+          "g1f3",
+          "g8f6"
+        ]
+      },
+      {
+        "id": "opening-11",
+        "name": "Queen's Gambit Accepted",
+        "moves": [
+          "d2d4",
+          "d7d5",
+          "c2c4",
+          "d5c4",
+          "g1f3",
+          "g8f6"
+        ]
+      },
+      {
+        "id": "opening-12",
+        "name": "King's Indian Defense",
+        "moves": [
+          "d2d4",
+          "g8f6",
+          "c2c4",
+          "g7g6",
+          "b1c3",
+          "f8g7"
+        ]
+      },
+      {
+        "id": "opening-13",
+        "name": "Nimzo-Indian Defense",
+        "moves": [
+          "d2d4",
+          "g8f6",
+          "c2c4",
+          "e7e6",
+          "b1c3",
+          "f8b4"
+        ]
+      },
+      {
+        "id": "opening-14",
+        "name": "Grunfeld Defense",
+        "moves": [
+          "d2d4",
+          "g8f6",
+          "c2c4",
+          "g7g6",
+          "b1c3",
+          "d7d5"
+        ]
+      },
+      {
+        "id": "opening-15",
+        "name": "English Opening",
+        "moves": [
+          "c2c4",
+          "e7e5",
+          "b1c3",
+          "g8f6",
+          "g1f3",
+          "b8c6"
+        ]
+      },
+      {
+        "id": "opening-16",
+        "name": "Reti Opening",
+        "moves": [
+          "g1f3",
+          "d7d5",
+          "g2g3",
+          "g8f6",
+          "f1g2",
+          "e7e6"
+        ]
+      }
+    ],
+    "games": [
+      {
+        "id": "game-001",
+        "opening_id": "opening-01",
+        "opening_name": "Ruy Lopez",
+        "opening_moves": [
+          "e2e4",
+          "e7e5",
+          "g1f3",
+          "b8c6",
+          "f1b5",
+          "a7a6"
+        ],
+        "seed": 53,
+        "white": "width128-53",
+        "black": "width32-53",
+        "white_width": 128,
+        "black_width": 32
+      },
+      {
+        "id": "game-002",
+        "opening_id": "opening-01",
+        "opening_name": "Ruy Lopez",
+        "opening_moves": [
+          "e2e4",
+          "e7e5",
+          "g1f3",
+          "b8c6",
+          "f1b5",
+          "a7a6"
+        ],
+        "seed": 53,
+        "white": "width32-53",
+        "black": "width128-53",
+        "white_width": 32,
+        "black_width": 128
+      },
+      {
+        "id": "game-003",
+        "opening_id": "opening-01",
+        "opening_name": "Ruy Lopez",
+        "opening_moves": [
+          "e2e4",
+          "e7e5",
+          "g1f3",
+          "b8c6",
+          "f1b5",
+          "a7a6"
+        ],
+        "seed": 67,
+        "white": "width128-67",
+        "black": "width32-67",
+        "white_width": 128,
+        "black_width": 32
+      },
+      {
+        "id": "game-004",
+        "opening_id": "opening-01",
+        "opening_name": "Ruy Lopez",
+        "opening_moves": [
+          "e2e4",
+          "e7e5",
+          "g1f3",
+          "b8c6",
+          "f1b5",
+          "a7a6"
+        ],
+        "seed": 67,
+        "white": "width32-67",
+        "black": "width128-67",
+        "white_width": 32,
+        "black_width": 128
+      },
+      {
+        "id": "game-005",
+        "opening_id": "opening-01",
+        "opening_name": "Ruy Lopez",
+        "opening_moves": [
+          "e2e4",
+          "e7e5",
+          "g1f3",
+          "b8c6",
+          "f1b5",
+          "a7a6"
+        ],
+        "seed": 83,
+        "white": "width128-83",
+        "black": "width32-83",
+        "white_width": 128,
+        "black_width": 32
+      },
+      {
+        "id": "game-006",
+        "opening_id": "opening-01",
+        "opening_name": "Ruy Lopez",
+        "opening_moves": [
+          "e2e4",
+          "e7e5",
+          "g1f3",
+          "b8c6",
+          "f1b5",
+          "a7a6"
+        ],
+        "seed": 83,
+        "white": "width32-83",
+        "black": "width128-83",
+        "white_width": 32,
+        "black_width": 128
+      },
+      {
+        "id": "game-007",
+        "opening_id": "opening-02",
+        "opening_name": "Italian Game",
+        "opening_moves": [
+          "e2e4",
+          "e7e5",
+          "g1f3",
+          "b8c6",
+          "f1c4",
+          "f8c5"
+        ],
+        "seed": 53,
+        "white": "width128-53",
+        "black": "width32-53",
+        "white_width": 128,
+        "black_width": 32
+      },
+      {
+        "id": "game-008",
+        "opening_id": "opening-02",
+        "opening_name": "Italian Game",
+        "opening_moves": [
+          "e2e4",
+          "e7e5",
+          "g1f3",
+          "b8c6",
+          "f1c4",
+          "f8c5"
+        ],
+        "seed": 53,
+        "white": "width32-53",
+        "black": "width128-53",
+        "white_width": 32,
+        "black_width": 128
+      },
+      {
+        "id": "game-009",
+        "opening_id": "opening-02",
+        "opening_name": "Italian Game",
+        "opening_moves": [
+          "e2e4",
+          "e7e5",
+          "g1f3",
+          "b8c6",
+          "f1c4",
+          "f8c5"
+        ],
+        "seed": 67,
+        "white": "width128-67",
+        "black": "width32-67",
+        "white_width": 128,
+        "black_width": 32
+      },
+      {
+        "id": "game-010",
+        "opening_id": "opening-02",
+        "opening_name": "Italian Game",
+        "opening_moves": [
+          "e2e4",
+          "e7e5",
+          "g1f3",
+          "b8c6",
+          "f1c4",
+          "f8c5"
+        ],
+        "seed": 67,
+        "white": "width32-67",
+        "black": "width128-67",
+        "white_width": 32,
+        "black_width": 128
+      },
+      {
+        "id": "game-011",
+        "opening_id": "opening-02",
+        "opening_name": "Italian Game",
+        "opening_moves": [
+          "e2e4",
+          "e7e5",
+          "g1f3",
+          "b8c6",
+          "f1c4",
+          "f8c5"
+        ],
+        "seed": 83,
+        "white": "width128-83",
+        "black": "width32-83",
+        "white_width": 128,
+        "black_width": 32
+      },
+      {
+        "id": "game-012",
+        "opening_id": "opening-02",
+        "opening_name": "Italian Game",
+        "opening_moves": [
+          "e2e4",
+          "e7e5",
+          "g1f3",
+          "b8c6",
+          "f1c4",
+          "f8c5"
+        ],
+        "seed": 83,
+        "white": "width32-83",
+        "black": "width128-83",
+        "white_width": 32,
+        "black_width": 128
+      },
+      {
+        "id": "game-013",
+        "opening_id": "opening-03",
+        "opening_name": "Scotch Game",
+        "opening_moves": [
+          "e2e4",
+          "e7e5",
+          "g1f3",
+          "b8c6",
+          "d2d4",
+          "e5d4"
+        ],
+        "seed": 53,
+        "white": "width128-53",
+        "black": "width32-53",
+        "white_width": 128,
+        "black_width": 32
+      },
+      {
+        "id": "game-014",
+        "opening_id": "opening-03",
+        "opening_name": "Scotch Game",
+        "opening_moves": [
+          "e2e4",
+          "e7e5",
+          "g1f3",
+          "b8c6",
+          "d2d4",
+          "e5d4"
+        ],
+        "seed": 53,
+        "white": "width32-53",
+        "black": "width128-53",
+        "white_width": 32,
+        "black_width": 128
+      },
+      {
+        "id": "game-015",
+        "opening_id": "opening-03",
+        "opening_name": "Scotch Game",
+        "opening_moves": [
+          "e2e4",
+          "e7e5",
+          "g1f3",
+          "b8c6",
+          "d2d4",
+          "e5d4"
+        ],
+        "seed": 67,
+        "white": "width128-67",
+        "black": "width32-67",
+        "white_width": 128,
+        "black_width": 32
+      },
+      {
+        "id": "game-016",
+        "opening_id": "opening-03",
+        "opening_name": "Scotch Game",
+        "opening_moves": [
+          "e2e4",
+          "e7e5",
+          "g1f3",
+          "b8c6",
+          "d2d4",
+          "e5d4"
+        ],
+        "seed": 67,
+        "white": "width32-67",
+        "black": "width128-67",
+        "white_width": 32,
+        "black_width": 128
+      },
+      {
+        "id": "game-017",
+        "opening_id": "opening-03",
+        "opening_name": "Scotch Game",
+        "opening_moves": [
+          "e2e4",
+          "e7e5",
+          "g1f3",
+          "b8c6",
+          "d2d4",
+          "e5d4"
+        ],
+        "seed": 83,
+        "white": "width128-83",
+        "black": "width32-83",
+        "white_width": 128,
+        "black_width": 32
+      },
+      {
+        "id": "game-018",
+        "opening_id": "opening-03",
+        "opening_name": "Scotch Game",
+        "opening_moves": [
+          "e2e4",
+          "e7e5",
+          "g1f3",
+          "b8c6",
+          "d2d4",
+          "e5d4"
+        ],
+        "seed": 83,
+        "white": "width32-83",
+        "black": "width128-83",
+        "white_width": 32,
+        "black_width": 128
+      },
+      {
+        "id": "game-019",
+        "opening_id": "opening-04",
+        "opening_name": "Petrov Defense",
+        "opening_moves": [
+          "e2e4",
+          "e7e5",
+          "g1f3",
+          "g8f6",
+          "f3e5",
+          "d7d6"
+        ],
+        "seed": 53,
+        "white": "width128-53",
+        "black": "width32-53",
+        "white_width": 128,
+        "black_width": 32
+      },
+      {
+        "id": "game-020",
+        "opening_id": "opening-04",
+        "opening_name": "Petrov Defense",
+        "opening_moves": [
+          "e2e4",
+          "e7e5",
+          "g1f3",
+          "g8f6",
+          "f3e5",
+          "d7d6"
+        ],
+        "seed": 53,
+        "white": "width32-53",
+        "black": "width128-53",
+        "white_width": 32,
+        "black_width": 128
+      },
+      {
+        "id": "game-021",
+        "opening_id": "opening-04",
+        "opening_name": "Petrov Defense",
+        "opening_moves": [
+          "e2e4",
+          "e7e5",
+          "g1f3",
+          "g8f6",
+          "f3e5",
+          "d7d6"
+        ],
+        "seed": 67,
+        "white": "width128-67",
+        "black": "width32-67",
+        "white_width": 128,
+        "black_width": 32
+      },
+      {
+        "id": "game-022",
+        "opening_id": "opening-04",
+        "opening_name": "Petrov Defense",
+        "opening_moves": [
+          "e2e4",
+          "e7e5",
+          "g1f3",
+          "g8f6",
+          "f3e5",
+          "d7d6"
+        ],
+        "seed": 67,
+        "white": "width32-67",
+        "black": "width128-67",
+        "white_width": 32,
+        "black_width": 128
+      },
+      {
+        "id": "game-023",
+        "opening_id": "opening-04",
+        "opening_name": "Petrov Defense",
+        "opening_moves": [
+          "e2e4",
+          "e7e5",
+          "g1f3",
+          "g8f6",
+          "f3e5",
+          "d7d6"
+        ],
+        "seed": 83,
+        "white": "width128-83",
+        "black": "width32-83",
+        "white_width": 128,
+        "black_width": 32
+      },
+      {
+        "id": "game-024",
+        "opening_id": "opening-04",
+        "opening_name": "Petrov Defense",
+        "opening_moves": [
+          "e2e4",
+          "e7e5",
+          "g1f3",
+          "g8f6",
+          "f3e5",
+          "d7d6"
+        ],
+        "seed": 83,
+        "white": "width32-83",
+        "black": "width128-83",
+        "white_width": 32,
+        "black_width": 128
+      },
+      {
+        "id": "game-025",
+        "opening_id": "opening-05",
+        "opening_name": "Philidor Defense",
+        "opening_moves": [
+          "e2e4",
+          "e7e5",
+          "g1f3",
+          "d7d6",
+          "d2d4",
+          "g8f6"
+        ],
+        "seed": 53,
+        "white": "width128-53",
+        "black": "width32-53",
+        "white_width": 128,
+        "black_width": 32
+      },
+      {
+        "id": "game-026",
+        "opening_id": "opening-05",
+        "opening_name": "Philidor Defense",
+        "opening_moves": [
+          "e2e4",
+          "e7e5",
+          "g1f3",
+          "d7d6",
+          "d2d4",
+          "g8f6"
+        ],
+        "seed": 53,
+        "white": "width32-53",
+        "black": "width128-53",
+        "white_width": 32,
+        "black_width": 128
+      },
+      {
+        "id": "game-027",
+        "opening_id": "opening-05",
+        "opening_name": "Philidor Defense",
+        "opening_moves": [
+          "e2e4",
+          "e7e5",
+          "g1f3",
+          "d7d6",
+          "d2d4",
+          "g8f6"
+        ],
+        "seed": 67,
+        "white": "width128-67",
+        "black": "width32-67",
+        "white_width": 128,
+        "black_width": 32
+      },
+      {
+        "id": "game-028",
+        "opening_id": "opening-05",
+        "opening_name": "Philidor Defense",
+        "opening_moves": [
+          "e2e4",
+          "e7e5",
+          "g1f3",
+          "d7d6",
+          "d2d4",
+          "g8f6"
+        ],
+        "seed": 67,
+        "white": "width32-67",
+        "black": "width128-67",
+        "white_width": 32,
+        "black_width": 128
+      },
+      {
+        "id": "game-029",
+        "opening_id": "opening-05",
+        "opening_name": "Philidor Defense",
+        "opening_moves": [
+          "e2e4",
+          "e7e5",
+          "g1f3",
+          "d7d6",
+          "d2d4",
+          "g8f6"
+        ],
+        "seed": 83,
+        "white": "width128-83",
+        "black": "width32-83",
+        "white_width": 128,
+        "black_width": 32
+      },
+      {
+        "id": "game-030",
+        "opening_id": "opening-05",
+        "opening_name": "Philidor Defense",
+        "opening_moves": [
+          "e2e4",
+          "e7e5",
+          "g1f3",
+          "d7d6",
+          "d2d4",
+          "g8f6"
+        ],
+        "seed": 83,
+        "white": "width32-83",
+        "black": "width128-83",
+        "white_width": 32,
+        "black_width": 128
+      },
+      {
+        "id": "game-031",
+        "opening_id": "opening-06",
+        "opening_name": "Sicilian Defense",
+        "opening_moves": [
+          "e2e4",
+          "c7c5",
+          "g1f3",
+          "d7d6",
+          "d2d4",
+          "c5d4"
+        ],
+        "seed": 53,
+        "white": "width128-53",
+        "black": "width32-53",
+        "white_width": 128,
+        "black_width": 32
+      },
+      {
+        "id": "game-032",
+        "opening_id": "opening-06",
+        "opening_name": "Sicilian Defense",
+        "opening_moves": [
+          "e2e4",
+          "c7c5",
+          "g1f3",
+          "d7d6",
+          "d2d4",
+          "c5d4"
+        ],
+        "seed": 53,
+        "white": "width32-53",
+        "black": "width128-53",
+        "white_width": 32,
+        "black_width": 128
+      },
+      {
+        "id": "game-033",
+        "opening_id": "opening-06",
+        "opening_name": "Sicilian Defense",
+        "opening_moves": [
+          "e2e4",
+          "c7c5",
+          "g1f3",
+          "d7d6",
+          "d2d4",
+          "c5d4"
+        ],
+        "seed": 67,
+        "white": "width128-67",
+        "black": "width32-67",
+        "white_width": 128,
+        "black_width": 32
+      },
+      {
+        "id": "game-034",
+        "opening_id": "opening-06",
+        "opening_name": "Sicilian Defense",
+        "opening_moves": [
+          "e2e4",
+          "c7c5",
+          "g1f3",
+          "d7d6",
+          "d2d4",
+          "c5d4"
+        ],
+        "seed": 67,
+        "white": "width32-67",
+        "black": "width128-67",
+        "white_width": 32,
+        "black_width": 128
+      },
+      {
+        "id": "game-035",
+        "opening_id": "opening-06",
+        "opening_name": "Sicilian Defense",
+        "opening_moves": [
+          "e2e4",
+          "c7c5",
+          "g1f3",
+          "d7d6",
+          "d2d4",
+          "c5d4"
+        ],
+        "seed": 83,
+        "white": "width128-83",
+        "black": "width32-83",
+        "white_width": 128,
+        "black_width": 32
+      },
+      {
+        "id": "game-036",
+        "opening_id": "opening-06",
+        "opening_name": "Sicilian Defense",
+        "opening_moves": [
+          "e2e4",
+          "c7c5",
+          "g1f3",
+          "d7d6",
+          "d2d4",
+          "c5d4"
+        ],
+        "seed": 83,
+        "white": "width32-83",
+        "black": "width128-83",
+        "white_width": 32,
+        "black_width": 128
+      },
+      {
+        "id": "game-037",
+        "opening_id": "opening-07",
+        "opening_name": "French Defense",
+        "opening_moves": [
+          "e2e4",
+          "e7e6",
+          "d2d4",
+          "d7d5",
+          "b1c3",
+          "g8f6"
+        ],
+        "seed": 53,
+        "white": "width128-53",
+        "black": "width32-53",
+        "white_width": 128,
+        "black_width": 32
+      },
+      {
+        "id": "game-038",
+        "opening_id": "opening-07",
+        "opening_name": "French Defense",
+        "opening_moves": [
+          "e2e4",
+          "e7e6",
+          "d2d4",
+          "d7d5",
+          "b1c3",
+          "g8f6"
+        ],
+        "seed": 53,
+        "white": "width32-53",
+        "black": "width128-53",
+        "white_width": 32,
+        "black_width": 128
+      },
+      {
+        "id": "game-039",
+        "opening_id": "opening-07",
+        "opening_name": "French Defense",
+        "opening_moves": [
+          "e2e4",
+          "e7e6",
+          "d2d4",
+          "d7d5",
+          "b1c3",
+          "g8f6"
+        ],
+        "seed": 67,
+        "white": "width128-67",
+        "black": "width32-67",
+        "white_width": 128,
+        "black_width": 32
+      },
+      {
+        "id": "game-040",
+        "opening_id": "opening-07",
+        "opening_name": "French Defense",
+        "opening_moves": [
+          "e2e4",
+          "e7e6",
+          "d2d4",
+          "d7d5",
+          "b1c3",
+          "g8f6"
+        ],
+        "seed": 67,
+        "white": "width32-67",
+        "black": "width128-67",
+        "white_width": 32,
+        "black_width": 128
+      },
+      {
+        "id": "game-041",
+        "opening_id": "opening-07",
+        "opening_name": "French Defense",
+        "opening_moves": [
+          "e2e4",
+          "e7e6",
+          "d2d4",
+          "d7d5",
+          "b1c3",
+          "g8f6"
+        ],
+        "seed": 83,
+        "white": "width128-83",
+        "black": "width32-83",
+        "white_width": 128,
+        "black_width": 32
+      },
+      {
+        "id": "game-042",
+        "opening_id": "opening-07",
+        "opening_name": "French Defense",
+        "opening_moves": [
+          "e2e4",
+          "e7e6",
+          "d2d4",
+          "d7d5",
+          "b1c3",
+          "g8f6"
+        ],
+        "seed": 83,
+        "white": "width32-83",
+        "black": "width128-83",
+        "white_width": 32,
+        "black_width": 128
+      },
+      {
+        "id": "game-043",
+        "opening_id": "opening-08",
+        "opening_name": "Caro-Kann Defense",
+        "opening_moves": [
+          "e2e4",
+          "c7c6",
+          "d2d4",
+          "d7d5",
+          "b1c3",
+          "d5e4"
+        ],
+        "seed": 53,
+        "white": "width128-53",
+        "black": "width32-53",
+        "white_width": 128,
+        "black_width": 32
+      },
+      {
+        "id": "game-044",
+        "opening_id": "opening-08",
+        "opening_name": "Caro-Kann Defense",
+        "opening_moves": [
+          "e2e4",
+          "c7c6",
+          "d2d4",
+          "d7d5",
+          "b1c3",
+          "d5e4"
+        ],
+        "seed": 53,
+        "white": "width32-53",
+        "black": "width128-53",
+        "white_width": 32,
+        "black_width": 128
+      },
+      {
+        "id": "game-045",
+        "opening_id": "opening-08",
+        "opening_name": "Caro-Kann Defense",
+        "opening_moves": [
+          "e2e4",
+          "c7c6",
+          "d2d4",
+          "d7d5",
+          "b1c3",
+          "d5e4"
+        ],
+        "seed": 67,
+        "white": "width128-67",
+        "black": "width32-67",
+        "white_width": 128,
+        "black_width": 32
+      },
+      {
+        "id": "game-046",
+        "opening_id": "opening-08",
+        "opening_name": "Caro-Kann Defense",
+        "opening_moves": [
+          "e2e4",
+          "c7c6",
+          "d2d4",
+          "d7d5",
+          "b1c3",
+          "d5e4"
+        ],
+        "seed": 67,
+        "white": "width32-67",
+        "black": "width128-67",
+        "white_width": 32,
+        "black_width": 128
+      },
+      {
+        "id": "game-047",
+        "opening_id": "opening-08",
+        "opening_name": "Caro-Kann Defense",
+        "opening_moves": [
+          "e2e4",
+          "c7c6",
+          "d2d4",
+          "d7d5",
+          "b1c3",
+          "d5e4"
+        ],
+        "seed": 83,
+        "white": "width128-83",
+        "black": "width32-83",
+        "white_width": 128,
+        "black_width": 32
+      },
+      {
+        "id": "game-048",
+        "opening_id": "opening-08",
+        "opening_name": "Caro-Kann Defense",
+        "opening_moves": [
+          "e2e4",
+          "c7c6",
+          "d2d4",
+          "d7d5",
+          "b1c3",
+          "d5e4"
+        ],
+        "seed": 83,
+        "white": "width32-83",
+        "black": "width128-83",
+        "white_width": 32,
+        "black_width": 128
+      },
+      {
+        "id": "game-049",
+        "opening_id": "opening-09",
+        "opening_name": "Queen's Gambit Declined",
+        "opening_moves": [
+          "d2d4",
+          "d7d5",
+          "c2c4",
+          "e7e6",
+          "b1c3",
+          "g8f6"
+        ],
+        "seed": 53,
+        "white": "width128-53",
+        "black": "width32-53",
+        "white_width": 128,
+        "black_width": 32
+      },
+      {
+        "id": "game-050",
+        "opening_id": "opening-09",
+        "opening_name": "Queen's Gambit Declined",
+        "opening_moves": [
+          "d2d4",
+          "d7d5",
+          "c2c4",
+          "e7e6",
+          "b1c3",
+          "g8f6"
+        ],
+        "seed": 53,
+        "white": "width32-53",
+        "black": "width128-53",
+        "white_width": 32,
+        "black_width": 128
+      },
+      {
+        "id": "game-051",
+        "opening_id": "opening-09",
+        "opening_name": "Queen's Gambit Declined",
+        "opening_moves": [
+          "d2d4",
+          "d7d5",
+          "c2c4",
+          "e7e6",
+          "b1c3",
+          "g8f6"
+        ],
+        "seed": 67,
+        "white": "width128-67",
+        "black": "width32-67",
+        "white_width": 128,
+        "black_width": 32
+      },
+      {
+        "id": "game-052",
+        "opening_id": "opening-09",
+        "opening_name": "Queen's Gambit Declined",
+        "opening_moves": [
+          "d2d4",
+          "d7d5",
+          "c2c4",
+          "e7e6",
+          "b1c3",
+          "g8f6"
+        ],
+        "seed": 67,
+        "white": "width32-67",
+        "black": "width128-67",
+        "white_width": 32,
+        "black_width": 128
+      },
+      {
+        "id": "game-053",
+        "opening_id": "opening-09",
+        "opening_name": "Queen's Gambit Declined",
+        "opening_moves": [
+          "d2d4",
+          "d7d5",
+          "c2c4",
+          "e7e6",
+          "b1c3",
+          "g8f6"
+        ],
+        "seed": 83,
+        "white": "width128-83",
+        "black": "width32-83",
+        "white_width": 128,
+        "black_width": 32
+      },
+      {
+        "id": "game-054",
+        "opening_id": "opening-09",
+        "opening_name": "Queen's Gambit Declined",
+        "opening_moves": [
+          "d2d4",
+          "d7d5",
+          "c2c4",
+          "e7e6",
+          "b1c3",
+          "g8f6"
+        ],
+        "seed": 83,
+        "white": "width32-83",
+        "black": "width128-83",
+        "white_width": 32,
+        "black_width": 128
+      },
+      {
+        "id": "game-055",
+        "opening_id": "opening-10",
+        "opening_name": "Slav Defense",
+        "opening_moves": [
+          "d2d4",
+          "d7d5",
+          "c2c4",
+          "c7c6",
+          "g1f3",
+          "g8f6"
+        ],
+        "seed": 53,
+        "white": "width128-53",
+        "black": "width32-53",
+        "white_width": 128,
+        "black_width": 32
+      },
+      {
+        "id": "game-056",
+        "opening_id": "opening-10",
+        "opening_name": "Slav Defense",
+        "opening_moves": [
+          "d2d4",
+          "d7d5",
+          "c2c4",
+          "c7c6",
+          "g1f3",
+          "g8f6"
+        ],
+        "seed": 53,
+        "white": "width32-53",
+        "black": "width128-53",
+        "white_width": 32,
+        "black_width": 128
+      },
+      {
+        "id": "game-057",
+        "opening_id": "opening-10",
+        "opening_name": "Slav Defense",
+        "opening_moves": [
+          "d2d4",
+          "d7d5",
+          "c2c4",
+          "c7c6",
+          "g1f3",
+          "g8f6"
+        ],
+        "seed": 67,
+        "white": "width128-67",
+        "black": "width32-67",
+        "white_width": 128,
+        "black_width": 32
+      },
+      {
+        "id": "game-058",
+        "opening_id": "opening-10",
+        "opening_name": "Slav Defense",
+        "opening_moves": [
+          "d2d4",
+          "d7d5",
+          "c2c4",
+          "c7c6",
+          "g1f3",
+          "g8f6"
+        ],
+        "seed": 67,
+        "white": "width32-67",
+        "black": "width128-67",
+        "white_width": 32,
+        "black_width": 128
+      },
+      {
+        "id": "game-059",
+        "opening_id": "opening-10",
+        "opening_name": "Slav Defense",
+        "opening_moves": [
+          "d2d4",
+          "d7d5",
+          "c2c4",
+          "c7c6",
+          "g1f3",
+          "g8f6"
+        ],
+        "seed": 83,
+        "white": "width128-83",
+        "black": "width32-83",
+        "white_width": 128,
+        "black_width": 32
+      },
+      {
+        "id": "game-060",
+        "opening_id": "opening-10",
+        "opening_name": "Slav Defense",
+        "opening_moves": [
+          "d2d4",
+          "d7d5",
+          "c2c4",
+          "c7c6",
+          "g1f3",
+          "g8f6"
+        ],
+        "seed": 83,
+        "white": "width32-83",
+        "black": "width128-83",
+        "white_width": 32,
+        "black_width": 128
+      },
+      {
+        "id": "game-061",
+        "opening_id": "opening-11",
+        "opening_name": "Queen's Gambit Accepted",
+        "opening_moves": [
+          "d2d4",
+          "d7d5",
+          "c2c4",
+          "d5c4",
+          "g1f3",
+          "g8f6"
+        ],
+        "seed": 53,
+        "white": "width128-53",
+        "black": "width32-53",
+        "white_width": 128,
+        "black_width": 32
+      },
+      {
+        "id": "game-062",
+        "opening_id": "opening-11",
+        "opening_name": "Queen's Gambit Accepted",
+        "opening_moves": [
+          "d2d4",
+          "d7d5",
+          "c2c4",
+          "d5c4",
+          "g1f3",
+          "g8f6"
+        ],
+        "seed": 53,
+        "white": "width32-53",
+        "black": "width128-53",
+        "white_width": 32,
+        "black_width": 128
+      },
+      {
+        "id": "game-063",
+        "opening_id": "opening-11",
+        "opening_name": "Queen's Gambit Accepted",
+        "opening_moves": [
+          "d2d4",
+          "d7d5",
+          "c2c4",
+          "d5c4",
+          "g1f3",
+          "g8f6"
+        ],
+        "seed": 67,
+        "white": "width128-67",
+        "black": "width32-67",
+        "white_width": 128,
+        "black_width": 32
+      },
+      {
+        "id": "game-064",
+        "opening_id": "opening-11",
+        "opening_name": "Queen's Gambit Accepted",
+        "opening_moves": [
+          "d2d4",
+          "d7d5",
+          "c2c4",
+          "d5c4",
+          "g1f3",
+          "g8f6"
+        ],
+        "seed": 67,
+        "white": "width32-67",
+        "black": "width128-67",
+        "white_width": 32,
+        "black_width": 128
+      },
+      {
+        "id": "game-065",
+        "opening_id": "opening-11",
+        "opening_name": "Queen's Gambit Accepted",
+        "opening_moves": [
+          "d2d4",
+          "d7d5",
+          "c2c4",
+          "d5c4",
+          "g1f3",
+          "g8f6"
+        ],
+        "seed": 83,
+        "white": "width128-83",
+        "black": "width32-83",
+        "white_width": 128,
+        "black_width": 32
+      },
+      {
+        "id": "game-066",
+        "opening_id": "opening-11",
+        "opening_name": "Queen's Gambit Accepted",
+        "opening_moves": [
+          "d2d4",
+          "d7d5",
+          "c2c4",
+          "d5c4",
+          "g1f3",
+          "g8f6"
+        ],
+        "seed": 83,
+        "white": "width32-83",
+        "black": "width128-83",
+        "white_width": 32,
+        "black_width": 128
+      },
+      {
+        "id": "game-067",
+        "opening_id": "opening-12",
+        "opening_name": "King's Indian Defense",
+        "opening_moves": [
+          "d2d4",
+          "g8f6",
+          "c2c4",
+          "g7g6",
+          "b1c3",
+          "f8g7"
+        ],
+        "seed": 53,
+        "white": "width128-53",
+        "black": "width32-53",
+        "white_width": 128,
+        "black_width": 32
+      },
+      {
+        "id": "game-068",
+        "opening_id": "opening-12",
+        "opening_name": "King's Indian Defense",
+        "opening_moves": [
+          "d2d4",
+          "g8f6",
+          "c2c4",
+          "g7g6",
+          "b1c3",
+          "f8g7"
+        ],
+        "seed": 53,
+        "white": "width32-53",
+        "black": "width128-53",
+        "white_width": 32,
+        "black_width": 128
+      },
+      {
+        "id": "game-069",
+        "opening_id": "opening-12",
+        "opening_name": "King's Indian Defense",
+        "opening_moves": [
+          "d2d4",
+          "g8f6",
+          "c2c4",
+          "g7g6",
+          "b1c3",
+          "f8g7"
+        ],
+        "seed": 67,
+        "white": "width128-67",
+        "black": "width32-67",
+        "white_width": 128,
+        "black_width": 32
+      },
+      {
+        "id": "game-070",
+        "opening_id": "opening-12",
+        "opening_name": "King's Indian Defense",
+        "opening_moves": [
+          "d2d4",
+          "g8f6",
+          "c2c4",
+          "g7g6",
+          "b1c3",
+          "f8g7"
+        ],
+        "seed": 67,
+        "white": "width32-67",
+        "black": "width128-67",
+        "white_width": 32,
+        "black_width": 128
+      },
+      {
+        "id": "game-071",
+        "opening_id": "opening-12",
+        "opening_name": "King's Indian Defense",
+        "opening_moves": [
+          "d2d4",
+          "g8f6",
+          "c2c4",
+          "g7g6",
+          "b1c3",
+          "f8g7"
+        ],
+        "seed": 83,
+        "white": "width128-83",
+        "black": "width32-83",
+        "white_width": 128,
+        "black_width": 32
+      },
+      {
+        "id": "game-072",
+        "opening_id": "opening-12",
+        "opening_name": "King's Indian Defense",
+        "opening_moves": [
+          "d2d4",
+          "g8f6",
+          "c2c4",
+          "g7g6",
+          "b1c3",
+          "f8g7"
+        ],
+        "seed": 83,
+        "white": "width32-83",
+        "black": "width128-83",
+        "white_width": 32,
+        "black_width": 128
+      },
+      {
+        "id": "game-073",
+        "opening_id": "opening-13",
+        "opening_name": "Nimzo-Indian Defense",
+        "opening_moves": [
+          "d2d4",
+          "g8f6",
+          "c2c4",
+          "e7e6",
+          "b1c3",
+          "f8b4"
+        ],
+        "seed": 53,
+        "white": "width128-53",
+        "black": "width32-53",
+        "white_width": 128,
+        "black_width": 32
+      },
+      {
+        "id": "game-074",
+        "opening_id": "opening-13",
+        "opening_name": "Nimzo-Indian Defense",
+        "opening_moves": [
+          "d2d4",
+          "g8f6",
+          "c2c4",
+          "e7e6",
+          "b1c3",
+          "f8b4"
+        ],
+        "seed": 53,
+        "white": "width32-53",
+        "black": "width128-53",
+        "white_width": 32,
+        "black_width": 128
+      },
+      {
+        "id": "game-075",
+        "opening_id": "opening-13",
+        "opening_name": "Nimzo-Indian Defense",
+        "opening_moves": [
+          "d2d4",
+          "g8f6",
+          "c2c4",
+          "e7e6",
+          "b1c3",
+          "f8b4"
+        ],
+        "seed": 67,
+        "white": "width128-67",
+        "black": "width32-67",
+        "white_width": 128,
+        "black_width": 32
+      },
+      {
+        "id": "game-076",
+        "opening_id": "opening-13",
+        "opening_name": "Nimzo-Indian Defense",
+        "opening_moves": [
+          "d2d4",
+          "g8f6",
+          "c2c4",
+          "e7e6",
+          "b1c3",
+          "f8b4"
+        ],
+        "seed": 67,
+        "white": "width32-67",
+        "black": "width128-67",
+        "white_width": 32,
+        "black_width": 128
+      },
+      {
+        "id": "game-077",
+        "opening_id": "opening-13",
+        "opening_name": "Nimzo-Indian Defense",
+        "opening_moves": [
+          "d2d4",
+          "g8f6",
+          "c2c4",
+          "e7e6",
+          "b1c3",
+          "f8b4"
+        ],
+        "seed": 83,
+        "white": "width128-83",
+        "black": "width32-83",
+        "white_width": 128,
+        "black_width": 32
+      },
+      {
+        "id": "game-078",
+        "opening_id": "opening-13",
+        "opening_name": "Nimzo-Indian Defense",
+        "opening_moves": [
+          "d2d4",
+          "g8f6",
+          "c2c4",
+          "e7e6",
+          "b1c3",
+          "f8b4"
+        ],
+        "seed": 83,
+        "white": "width32-83",
+        "black": "width128-83",
+        "white_width": 32,
+        "black_width": 128
+      },
+      {
+        "id": "game-079",
+        "opening_id": "opening-14",
+        "opening_name": "Grunfeld Defense",
+        "opening_moves": [
+          "d2d4",
+          "g8f6",
+          "c2c4",
+          "g7g6",
+          "b1c3",
+          "d7d5"
+        ],
+        "seed": 53,
+        "white": "width128-53",
+        "black": "width32-53",
+        "white_width": 128,
+        "black_width": 32
+      },
+      {
+        "id": "game-080",
+        "opening_id": "opening-14",
+        "opening_name": "Grunfeld Defense",
+        "opening_moves": [
+          "d2d4",
+          "g8f6",
+          "c2c4",
+          "g7g6",
+          "b1c3",
+          "d7d5"
+        ],
+        "seed": 53,
+        "white": "width32-53",
+        "black": "width128-53",
+        "white_width": 32,
+        "black_width": 128
+      },
+      {
+        "id": "game-081",
+        "opening_id": "opening-14",
+        "opening_name": "Grunfeld Defense",
+        "opening_moves": [
+          "d2d4",
+          "g8f6",
+          "c2c4",
+          "g7g6",
+          "b1c3",
+          "d7d5"
+        ],
+        "seed": 67,
+        "white": "width128-67",
+        "black": "width32-67",
+        "white_width": 128,
+        "black_width": 32
+      },
+      {
+        "id": "game-082",
+        "opening_id": "opening-14",
+        "opening_name": "Grunfeld Defense",
+        "opening_moves": [
+          "d2d4",
+          "g8f6",
+          "c2c4",
+          "g7g6",
+          "b1c3",
+          "d7d5"
+        ],
+        "seed": 67,
+        "white": "width32-67",
+        "black": "width128-67",
+        "white_width": 32,
+        "black_width": 128
+      },
+      {
+        "id": "game-083",
+        "opening_id": "opening-14",
+        "opening_name": "Grunfeld Defense",
+        "opening_moves": [
+          "d2d4",
+          "g8f6",
+          "c2c4",
+          "g7g6",
+          "b1c3",
+          "d7d5"
+        ],
+        "seed": 83,
+        "white": "width128-83",
+        "black": "width32-83",
+        "white_width": 128,
+        "black_width": 32
+      },
+      {
+        "id": "game-084",
+        "opening_id": "opening-14",
+        "opening_name": "Grunfeld Defense",
+        "opening_moves": [
+          "d2d4",
+          "g8f6",
+          "c2c4",
+          "g7g6",
+          "b1c3",
+          "d7d5"
+        ],
+        "seed": 83,
+        "white": "width32-83",
+        "black": "width128-83",
+        "white_width": 32,
+        "black_width": 128
+      },
+      {
+        "id": "game-085",
+        "opening_id": "opening-15",
+        "opening_name": "English Opening",
+        "opening_moves": [
+          "c2c4",
+          "e7e5",
+          "b1c3",
+          "g8f6",
+          "g1f3",
+          "b8c6"
+        ],
+        "seed": 53,
+        "white": "width128-53",
+        "black": "width32-53",
+        "white_width": 128,
+        "black_width": 32
+      },
+      {
+        "id": "game-086",
+        "opening_id": "opening-15",
+        "opening_name": "English Opening",
+        "opening_moves": [
+          "c2c4",
+          "e7e5",
+          "b1c3",
+          "g8f6",
+          "g1f3",
+          "b8c6"
+        ],
+        "seed": 53,
+        "white": "width32-53",
+        "black": "width128-53",
+        "white_width": 32,
+        "black_width": 128
+      },
+      {
+        "id": "game-087",
+        "opening_id": "opening-15",
+        "opening_name": "English Opening",
+        "opening_moves": [
+          "c2c4",
+          "e7e5",
+          "b1c3",
+          "g8f6",
+          "g1f3",
+          "b8c6"
+        ],
+        "seed": 67,
+        "white": "width128-67",
+        "black": "width32-67",
+        "white_width": 128,
+        "black_width": 32
+      },
+      {
+        "id": "game-088",
+        "opening_id": "opening-15",
+        "opening_name": "English Opening",
+        "opening_moves": [
+          "c2c4",
+          "e7e5",
+          "b1c3",
+          "g8f6",
+          "g1f3",
+          "b8c6"
+        ],
+        "seed": 67,
+        "white": "width32-67",
+        "black": "width128-67",
+        "white_width": 32,
+        "black_width": 128
+      },
+      {
+        "id": "game-089",
+        "opening_id": "opening-15",
+        "opening_name": "English Opening",
+        "opening_moves": [
+          "c2c4",
+          "e7e5",
+          "b1c3",
+          "g8f6",
+          "g1f3",
+          "b8c6"
+        ],
+        "seed": 83,
+        "white": "width128-83",
+        "black": "width32-83",
+        "white_width": 128,
+        "black_width": 32
+      },
+      {
+        "id": "game-090",
+        "opening_id": "opening-15",
+        "opening_name": "English Opening",
+        "opening_moves": [
+          "c2c4",
+          "e7e5",
+          "b1c3",
+          "g8f6",
+          "g1f3",
+          "b8c6"
+        ],
+        "seed": 83,
+        "white": "width32-83",
+        "black": "width128-83",
+        "white_width": 32,
+        "black_width": 128
+      },
+      {
+        "id": "game-091",
+        "opening_id": "opening-16",
+        "opening_name": "Reti Opening",
+        "opening_moves": [
+          "g1f3",
+          "d7d5",
+          "g2g3",
+          "g8f6",
+          "f1g2",
+          "e7e6"
+        ],
+        "seed": 53,
+        "white": "width128-53",
+        "black": "width32-53",
+        "white_width": 128,
+        "black_width": 32
+      },
+      {
+        "id": "game-092",
+        "opening_id": "opening-16",
+        "opening_name": "Reti Opening",
+        "opening_moves": [
+          "g1f3",
+          "d7d5",
+          "g2g3",
+          "g8f6",
+          "f1g2",
+          "e7e6"
+        ],
+        "seed": 53,
+        "white": "width32-53",
+        "black": "width128-53",
+        "white_width": 32,
+        "black_width": 128
+      },
+      {
+        "id": "game-093",
+        "opening_id": "opening-16",
+        "opening_name": "Reti Opening",
+        "opening_moves": [
+          "g1f3",
+          "d7d5",
+          "g2g3",
+          "g8f6",
+          "f1g2",
+          "e7e6"
+        ],
+        "seed": 67,
+        "white": "width128-67",
+        "black": "width32-67",
+        "white_width": 128,
+        "black_width": 32
+      },
+      {
+        "id": "game-094",
+        "opening_id": "opening-16",
+        "opening_name": "Reti Opening",
+        "opening_moves": [
+          "g1f3",
+          "d7d5",
+          "g2g3",
+          "g8f6",
+          "f1g2",
+          "e7e6"
+        ],
+        "seed": 67,
+        "white": "width32-67",
+        "black": "width128-67",
+        "white_width": 32,
+        "black_width": 128
+      },
+      {
+        "id": "game-095",
+        "opening_id": "opening-16",
+        "opening_name": "Reti Opening",
+        "opening_moves": [
+          "g1f3",
+          "d7d5",
+          "g2g3",
+          "g8f6",
+          "f1g2",
+          "e7e6"
+        ],
+        "seed": 83,
+        "white": "width128-83",
+        "black": "width32-83",
+        "white_width": 128,
+        "black_width": 32
+      },
+      {
+        "id": "game-096",
+        "opening_id": "opening-16",
+        "opening_name": "Reti Opening",
+        "opening_moves": [
+          "g1f3",
+          "d7d5",
+          "g2g3",
+          "g8f6",
+          "f1g2",
+          "e7e6"
+        ],
+        "seed": 83,
+        "white": "width32-83",
+        "black": "width128-83",
+        "white_width": 32,
+        "black_width": 128
+      }
+    ],
+    "clock_seconds": 300.0,
+    "increment": 0,
+    "max_played_plies": 240,
+    "claim_draw": false,
+    "device": "cpu",
+    "torch_threads": 2,
+    "depth": 4,
+    "initial_fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+    "bootstrap_replicates": 2000,
+    "bootstrap_seed": 10800111,
+    "gate_lower_score": 0.6,
+    "scope": "Paired common-opening development games, conditional on three fitted seeds; no Elo or broad strength claim",
+    "opening_scope": "Six prescribed legal plies, no clock debit; common openings, not engine-certified balance",
+    "clock_scope": "Synchronous CPU policy call wall time; no increment, retries, warmups or fallback; model loading excluded",
+    "timeout_scope": "Clock expiry loses unless python-chess recognizes the opponent's material as insufficient; calls are timed on return"
+  },
+  "sources": {
+    "scripts/chess_capacity_study.py": "d3ab4f96aa86915161bef08c2cf9f572441ce8bf8b69bdd686cb58b30e5f245e",
+    "tests/test_chess_capacity_study.py": "2d6270113c5ca81b2d0c2b5262f5202c507cff1b138df153fa564f17acb6cc1c",
+    "src/openjev/research/chess_capacity_data.py": "1c4a3fdf0853544a0f4dd2ee34ea495d02245bee150b9ae6404b77ec773d6ad3",
+    "tests/test_chess_capacity_data.py": "ffc4b52c36e0b22769db5710995b31818133a832a3fd0935603ce1a90119bf7c",
+    "src/openjev/research/chess_capacity_arena.py": "86dde83de5b85333f79011e2d023265f33c81bf68eed4d80dff3262e6c5d887e",
+    "tests/test_chess_capacity_arena.py": "6b293aa01d14bf38b2a42f0329c8308de6973bcca928f5a3afe7ec6cf20aeb44",
+    "src/openjev/research/chess_anchor.py": "791be15f6b20bb40c2ff075ef824b4c725887592d32b966fe1fef38ac115210b",
+    "src/openjev/research/chess_anchor_data.py": "3bc6d724ab5448aa7d859f1b392697e89b7dea625fdbe10f35f0a907976fc85c",
+    "src/openjev/research/chess_anchor_eval.py": "c9069096a805d867e780f214528f5c2340b796238ae5433e5de9dc80c0d45210",
+    "src/openjev/research/chess_spatial.py": "49e6e53d33cd52511c0e4a08074b9a7f0dc2244727df2879f3fb7fd1aa886ab4",
+    "src/openjev/research/chess_spatial_data.py": "70d6e94799cd59c7e4e097eb783a44e3288cad903fb7d4637e3fabd86003cf3e",
+    "src/openjev/research/chess_spatial_baselines.py": "9824212fdfe5678fafe2591eeb5f3962790713bd1b4dece4803648b696ae8942",
+    "src/openjev/research/chess_arena.py": "a9a5be6ccb982d2c43b4365a0f0e9dd68c3a8c4fb11ea8c5cf950076b7046702",
+    "scripts/chess_compute_study.py": "3f3495f75a232cce52ee5b570dccc1c98c833086f46963272bc98b653ec66582",
+    "src/openjev/research/chess_compute.py": "a1ec1a4618a92b4dc37a9a8f510f5f37ba45081e9e0db0d89714c689f88f537f"
+  },
+  "exclusion_files": {
+    "evidence/chess-mate-arena-v1/results/game-01.json": "cc9766851e6442bf96050fc441f1f3a6c9cdc3ff8cabf5d7f58a21da4083c474",
+    "evidence/chess-mate-arena-v1/results/game-02.json": "16aaeca29ead41e2b2fe908594a2cc8507eace132f16932fe99cd0c3acadff58",
+    "evidence/chess-mate-arena-v1/results/game-03.json": "1d3da5078bdd905a5a9bcd332463073b6fb293ff499ffd3183c700901ce7d6b5",
+    "evidence/chess-mate-arena-v1/results/game-04.json": "91e9a6cf61fc0004ee726a10ca197b393e6fe3c35ca4075e504af7a48735b838",
+    "evidence/chess-mate-arena-v1/results/game-05.json": "abb47351374b8e9c9a91a71c757f5a4c9ecff0cfeb29a85309ec4093747aaceb",
+    "evidence/chess-mate-arena-v1/results/game-06.json": "c29a6b68a2bdc178d829490b2a88cbeae861872f9eef9278709d83b19b4f94d0",
+    "evidence/chess-mate-arena-v1/results/game-07.json": "8c06c166cb354a9b633624f70d051f8923ced6c274ceb8027ddb7e4d2388c4a8",
+    "evidence/chess-mate-arena-v1/results/game-08.json": "b8adf964c3b21bd17a7290e1564ef8904b8fbd654161777e4d9b90a090e843f4",
+    "evidence/chess-mate-arena-v1/results/game-09.json": "56fb43c9288b86a7d0d965e4e3fcc6756ccbd7bcd27cb32fba104ef36d540624",
+    "evidence/chess-mate-arena-v1/results/game-10.json": "a582994a2e9f891f61eda1cb6cac86ba4096e98be7155d253d7370752d15cfa8",
+    "evidence/chess-mate-arena-v1/results/game-11.json": "18dffc41a6ae263c1108be71a21447949cffe9645b27c8406f45cc6782e6d97c",
+    "evidence/chess-mate-arena-v1/results/game-12.json": "26f5319596869f39c751629887505f029cc84ae2f72dc149987334691811f1d8",
+    "evidence/chess-mate-arena-v1/results/game-13.json": "e813fe1cfbe131e548a4a308c904a7c7c6f3daba6ec7bc74809ea789943208ff",
+    "evidence/chess-mate-arena-v1/results/game-14.json": "0d716c3d68fea5834bc1bd5e3d7213a61eeb9b4bbc466dd47020ffa8eb33c354",
+    "evidence/chess-mate-arena-v1/results/game-15.json": "2dbb16714a11bef6d782d002062e42bd2d41cf829d2c65ac2c0194dc0cefefa7",
+    "evidence/chess-mate-arena-v1/results/game-16.json": "8dccaf1548414811cecaf23eb25ba49c59d933fc8fcb8855b65527c3dbc7e6c1",
+    "evidence/chess-mate-v1/selection.json": "6034a7400b0f42e902670e7ed588d87f9b58ba9f8d47511178c2039914fb4dab",
+    "evidence/chess-spatial-arena-v1/results/game-01.json": "a8fae372e89589cc465cf074a8e7c5efcd04ff4f270a3bc318e863f672124067",
+    "evidence/chess-spatial-arena-v1/results/game-02.json": "6fa7e5d8dc23b05bc876c0e04a097d5ddb982937018997485ddc21a10b14c967",
+    "evidence/chess-spatial-arena-v1/results/game-03.json": "494dff260c2eabceca318176bc02fb559ea7a63537f7c7f512aa3858d209b567",
+    "evidence/chess-spatial-arena-v1/results/game-04.json": "2174ef96221c49f4bfc7b5af7811b914889f9db37324cd5dae906da77d93e486",
+    "evidence/chess-spatial-arena-v1/results/game-05.json": "bfd956f2efcb2be517ecf9bdd782a5c9021dd7b43a676fcd7fe5f11743c1c39e",
+    "evidence/chess-spatial-arena-v1/results/game-06.json": "07e6d849ed320b9246c0ae0736766cf746464d6166a0ca689fa6530107bd3d9b",
+    "evidence/chess-spatial-arena-v1/results/game-07.json": "f2a2f1ff0bdd61bc475541ce7951e53c73ee17bdc578038c9cfb74065a1a7234",
+    "evidence/chess-spatial-arena-v1/results/game-08.json": "6d820e18e2b8b03609ffd2189d6926bbb7e74b56a9b43bcca764abd54ad4fc48",
+    "evidence/chess-spatial-arena-v1/results/game-09.json": "d4e66c5355dd2abc47c03cab2ea841e43d861ed7717481748f975a8a9cc24213",
+    "evidence/chess-spatial-arena-v1/results/game-10.json": "44794c747817d5721a213c6ec0829955878705adddcd78d128ca3730eac90396",
+    "evidence/chess-spatial-arena-v1/results/game-11.json": "fc780f464d17c7a072fa6ac70da233ccfed4910b916128fe1cf67d528e64890d",
+    "evidence/chess-spatial-arena-v1/results/game-12.json": "105aa36c2e3a09f2fdc866c4dd206d6655276f9afc4a22ef51e32fe63ce12134",
+    "evidence/chess-spatial-arena-v1/results/game-13.json": "aa44c2ee6b3ff345dcb997fb6d07cd1939ced4396d13446e7821cd71d498869c",
+    "evidence/chess-spatial-arena-v1/results/game-14.json": "07ae34d1f3b866b76eeda82a61a4e91f538c1f117d0200426f0b55d9f09f1ca9",
+    "evidence/chess-spatial-arena-v1/results/game-15.json": "52ecb69c5afd349e25b56ba2cc0c496406e04e505e07cacef327390059dfc321",
+    "evidence/chess-spatial-arena-v1/results/game-16.json": "9fb8a127a2f7421c2f0e1e540c1e4cfe569e450f308f92616f8f057a89cee500",
+    "evidence/chess-student-v1/results/execution/data/dev.jsonl": "b095397b48bd80f70840943bd524e4dde8c3712a225cb3818c411fe5ad34142a",
+    "evidence/chess-student-v1/results/execution/data/train.jsonl": "078c977cd0c26908bfcae81a606500df738eecb37f3daea45378761b09e56a45",
+    "evidence/chess-v1/plan.json": "f25ea5482911b20fcb27786e3c3e2f12f3b80d33634903239395ee68286863aa",
+    "evidence/chess-v1/results/game-game-01.json": "f1a69a64ef19408ea726f1b3b394c51640754ce53e7df579881c1121c18e7657",
+    "evidence/chess-v1/results/game-game-02.json": "dbeece141b6741c146f2b1626fd9d7580bdc91d12c1a16425f75ff6f5defd72f",
+    "evidence/chess-v1/results/game-game-03.json": "48dce7fd01a8f4c5b8ade1e5632039cfd2701cd43cda9339524b7881cff5e729",
+    "evidence/chess-v1/results/game-game-04.json": "ab567ae30ae11ae4736553bc484b04b8cb3e07db78f2272f6c585798fcf11cb3",
+    "evidence/chess-v1/results/game-game-05.json": "51a8d5fcadf9c45ceaf3095ccdf6d2768bfb9056a978a730de0ad07f5124fc0d",
+    "evidence/chess-v1/results/game-game-06.json": "a03d6e1b79a3a0875b7b303f2a5e1ad73e71df65f60088b784d92ab2739a1be8",
+    "evidence/chess-v1/results/game-game-07.json": "a912d2534bbd3f8f8030126e7e8e7840560c618aee92ed93673fa65fa3d7f77f",
+    "evidence/chess-v1/results/game-game-08.json": "e37d39d0f1680957ac5f33a7abe8be66c7c4cf3298f95adfe3ae1f83e0266723",
+    "evidence/chess-v1/results/game-game-09.json": "2af2ca393448f1bf8a153d4335f571edf72fef0b940198b3089fbbf2c7f87652",
+    "evidence/chess-v1/results/game-game-10.json": "ce7914dcbb9907f08721a5c36f6ade956e61be91fb8a4bccf1a6734901f20840",
+    "evidence/chess-v1/results/game-game-11.json": "5d3f861dd3924adb8918ccdd6d02ca5744dfae3499da9c88ea46e88f930705fc",
+    "evidence/chess-v1/results/game-game-12.json": "9df2364dfbc7589d25cfbc62a121595285da4aef23b243f28b12c9363c058b61",
+    "evidence/chess-v1/results/game-game-13.json": "a41b4fae47990ee3a9fa2813a865674bd1f1f9b603f761bc64b802bf324e0af1",
+    "evidence/chess-v1/results/game-game-14.json": "1a8ca25d843003adaba9c833a0be4a09df7f161dc929594897c53f6bc0c40198",
+    "evidence/chess-v1/results/game-game-15.json": "b12dd90f0fb300ad2ff5f5fbca12ac79fd93c431576cff017108cbcfb245307a",
+    "evidence/chess-v1/results/game-game-16.json": "859b0d78fe3e88ce981cda9ff39d6c49ba653f89ca325eb8decb9de1134f3192",
+    "evidence/chess-v1/results/game-game-17.json": "4d168433b6261e7846ff972900d08399c28a5e72f5b78794be8ac398b6e51877",
+    "evidence/chess-v1/results/game-game-18.json": "eaaf4dfd58cd9341abeb46a32098e46c81ba018066f48f1ffbde67bb46610dcf",
+    "runs/chess-anchor-v1/execution/completed.json": "c0ab9f55c370f575d59d1c7c20ef2080c01edd46ee14f7473a6435c15a1d20d9",
+    "runs/chess-anchor-v1/execution/data/analyses.jsonl": "cf9b8a1716005f9907e1281de77dfdaccfb812fe3c81af5c3cf0961b4e03943b",
+    "runs/chess-anchor-v1/execution/data/completed.json": "9fc48efcbad6d8fcde9cd2876d82adaac6eb962be6d0da0ffdb8992c92637fa7",
+    "runs/chess-anchor-v1/execution/data/dev.jsonl": "54a9aa34bb53d7853a824feb5f35362bcb730c176334abc64b15d66c353a0163",
+    "runs/chess-anchor-v1/execution/data/excluded-states.json": "5585248dfd382aa9818358449e92897d29cd50c86a6f340ae08ad9e82020c141",
+    "runs/chess-anchor-v1/execution/data/games.jsonl": "22de27bbc754af8da612ed12627bd5686a1f13c409d861808a5742912640b470",
+    "runs/chess-anchor-v1/execution/data/shift.jsonl": "7b03d8f196307154dc2166e4cb65834eb132d04c8abfd0e670c25cada726c9ab",
+    "runs/chess-anchor-v1/execution/data/started.json": "4498fd89d4063e930eaffc2db4b45f07d4131ea9b5fcb16cb6a853b7e515a357",
+    "runs/chess-spatial-v1/execution/data/completed.json": "312d97c0ed6bcf1c9ecd267621c2b48532cd1f521a7237e16986e83d99d50bda",
+    "runs/chess-spatial-v1/execution/data/dev.jsonl": "d4b5783d4cc1da266292a15c3a93286ad5cda3d1d22be8cdae64975569f210bf",
+    "runs/chess-spatial-v1/execution/data/shift.jsonl": "b693b9b553308d8377346ee682dc1d23de6af013f11dcfc048b2bf4f1f9bc21a",
+    "runs/chess-spatial-v1/execution/data/train.jsonl": "582d86e65e8dc368f73e9419789f9bdf13a1f3a2ecbb11ad12aca485d0168e4e"
+  },
+  "exclusion_counts": {
+    "source_files": 66,
+    "observed_positions": 278163,
+    "unique_state_keys": 223697,
+    "unique_mirror_classes": 223683,
+    "dataset_rows": 50176,
+    "dataset_input_positions": 50176,
+    "dataset_behavior_successor_positions": 45056,
+    "dataset_auxiliary_successor_positions": 177454,
+    "mate_selection_rows": 1792,
+    "old_puzzle_solver_positions": 24,
+    "arena_games": 50,
+    "arena_positions": 3661,
+    "by_file": {
+      "evidence/chess-mate-arena-v1/results/game-01.json": {
+        "kind": "arena_game",
+        "rows": 1,
+        "positions": 115,
+        "accepted_moves": 114
+      },
+      "evidence/chess-mate-arena-v1/results/game-02.json": {
+        "kind": "arena_game",
+        "rows": 1,
+        "positions": 61,
+        "accepted_moves": 60
+      },
+      "evidence/chess-mate-arena-v1/results/game-03.json": {
+        "kind": "arena_game",
+        "rows": 1,
+        "positions": 134,
+        "accepted_moves": 133
+      },
+      "evidence/chess-mate-arena-v1/results/game-04.json": {
+        "kind": "arena_game",
+        "rows": 1,
+        "positions": 77,
+        "accepted_moves": 76
+      },
+      "evidence/chess-mate-arena-v1/results/game-05.json": {
+        "kind": "arena_game",
+        "rows": 1,
+        "positions": 64,
+        "accepted_moves": 63
+      },
+      "evidence/chess-mate-arena-v1/results/game-06.json": {
+        "kind": "arena_game",
+        "rows": 1,
+        "positions": 37,
+        "accepted_moves": 36
+      },
+      "evidence/chess-mate-arena-v1/results/game-07.json": {
+        "kind": "arena_game",
+        "rows": 1,
+        "positions": 43,
+        "accepted_moves": 42
+      },
+      "evidence/chess-mate-arena-v1/results/game-08.json": {
+        "kind": "arena_game",
+        "rows": 1,
+        "positions": 104,
+        "accepted_moves": 103
+      },
+      "evidence/chess-mate-arena-v1/results/game-09.json": {
+        "kind": "arena_game",
+        "rows": 1,
+        "positions": 134,
+        "accepted_moves": 133
+      },
+      "evidence/chess-mate-arena-v1/results/game-10.json": {
+        "kind": "arena_game",
+        "rows": 1,
+        "positions": 37,
+        "accepted_moves": 36
+      },
+      "evidence/chess-mate-arena-v1/results/game-11.json": {
+        "kind": "arena_game",
+        "rows": 1,
+        "positions": 43,
+        "accepted_moves": 42
+      },
+      "evidence/chess-mate-arena-v1/results/game-12.json": {
+        "kind": "arena_game",
+        "rows": 1,
+        "positions": 104,
+        "accepted_moves": 103
+      },
+      "evidence/chess-mate-arena-v1/results/game-13.json": {
+        "kind": "arena_game",
+        "rows": 1,
+        "positions": 66,
+        "accepted_moves": 65
+      },
+      "evidence/chess-mate-arena-v1/results/game-14.json": {
+        "kind": "arena_game",
+        "rows": 1,
+        "positions": 55,
+        "accepted_moves": 54
+      },
+      "evidence/chess-mate-arena-v1/results/game-15.json": {
+        "kind": "arena_game",
+        "rows": 1,
+        "positions": 134,
+        "accepted_moves": 133
+      },
+      "evidence/chess-mate-arena-v1/results/game-16.json": {
+        "kind": "arena_game",
+        "rows": 1,
+        "positions": 77,
+        "accepted_moves": 76
+      },
+      "evidence/chess-mate-v1/selection.json": {
+        "kind": "mate_selection",
+        "rows": 1792,
+        "positions": 1792,
+        "splits": {
+          "train": 1024,
+          "dev": 256,
+          "confirm": 512
+        }
+      },
+      "evidence/chess-spatial-arena-v1/results/game-01.json": {
+        "kind": "arena_game",
+        "rows": 1,
+        "positions": 115,
+        "accepted_moves": 114
+      },
+      "evidence/chess-spatial-arena-v1/results/game-02.json": {
+        "kind": "arena_game",
+        "rows": 1,
+        "positions": 61,
+        "accepted_moves": 60
+      },
+      "evidence/chess-spatial-arena-v1/results/game-03.json": {
+        "kind": "arena_game",
+        "rows": 1,
+        "positions": 58,
+        "accepted_moves": 57
+      },
+      "evidence/chess-spatial-arena-v1/results/game-04.json": {
+        "kind": "arena_game",
+        "rows": 1,
+        "positions": 83,
+        "accepted_moves": 82
+      },
+      "evidence/chess-spatial-arena-v1/results/game-05.json": {
+        "kind": "arena_game",
+        "rows": 1,
+        "positions": 32,
+        "accepted_moves": 31
+      },
+      "evidence/chess-spatial-arena-v1/results/game-06.json": {
+        "kind": "arena_game",
+        "rows": 1,
+        "positions": 80,
+        "accepted_moves": 79
+      },
+      "evidence/chess-spatial-arena-v1/results/game-07.json": {
+        "kind": "arena_game",
+        "rows": 1,
+        "positions": 51,
+        "accepted_moves": 50
+      },
+      "evidence/chess-spatial-arena-v1/results/game-08.json": {
+        "kind": "arena_game",
+        "rows": 1,
+        "positions": 83,
+        "accepted_moves": 82
+      },
+      "evidence/chess-spatial-arena-v1/results/game-09.json": {
+        "kind": "arena_game",
+        "rows": 1,
+        "positions": 63,
+        "accepted_moves": 62
+      },
+      "evidence/chess-spatial-arena-v1/results/game-10.json": {
+        "kind": "arena_game",
+        "rows": 1,
+        "positions": 137,
+        "accepted_moves": 136
+      },
+      "evidence/chess-spatial-arena-v1/results/game-11.json": {
+        "kind": "arena_game",
+        "rows": 1,
+        "positions": 46,
+        "accepted_moves": 45
+      },
+      "evidence/chess-spatial-arena-v1/results/game-12.json": {
+        "kind": "arena_game",
+        "rows": 1,
+        "positions": 64,
+        "accepted_moves": 63
+      },
+      "evidence/chess-spatial-arena-v1/results/game-13.json": {
+        "kind": "arena_game",
+        "rows": 1,
+        "positions": 104,
+        "accepted_moves": 103
+      },
+      "evidence/chess-spatial-arena-v1/results/game-14.json": {
+        "kind": "arena_game",
+        "rows": 1,
+        "positions": 45,
+        "accepted_moves": 44
+      },
+      "evidence/chess-spatial-arena-v1/results/game-15.json": {
+        "kind": "arena_game",
+        "rows": 1,
+        "positions": 76,
+        "accepted_moves": 75
+      },
+      "evidence/chess-spatial-arena-v1/results/game-16.json": {
+        "kind": "arena_game",
+        "rows": 1,
+        "positions": 56,
+        "accepted_moves": 55
+      },
+      "evidence/chess-student-v1/results/execution/data/dev.jsonl": {
+        "kind": "dataset",
+        "rows": 1024,
+        "input_positions": 1024,
+        "behavior_successor_positions": 0,
+        "auxiliary_successor_positions": 0,
+        "positions": 1024
+      },
+      "evidence/chess-student-v1/results/execution/data/train.jsonl": {
+        "kind": "dataset",
+        "rows": 4096,
+        "input_positions": 4096,
+        "behavior_successor_positions": 0,
+        "auxiliary_successor_positions": 0,
+        "positions": 4096
+      },
+      "evidence/chess-v1/plan.json": {
+        "kind": "old_puzzle_solver_boards",
+        "rows": 24,
+        "positions": 24
+      },
+      "evidence/chess-v1/results/game-game-01.json": {
+        "kind": "arena_game",
+        "rows": 1,
+        "positions": 59,
+        "accepted_moves": 58
+      },
+      "evidence/chess-v1/results/game-game-02.json": {
+        "kind": "arena_game",
+        "rows": 1,
+        "positions": 36,
+        "accepted_moves": 35
+      },
+      "evidence/chess-v1/results/game-game-03.json": {
+        "kind": "arena_game",
+        "rows": 1,
+        "positions": 39,
+        "accepted_moves": 38
+      },
+      "evidence/chess-v1/results/game-game-04.json": {
+        "kind": "arena_game",
+        "rows": 1,
+        "positions": 32,
+        "accepted_moves": 31
+      },
+      "evidence/chess-v1/results/game-game-05.json": {
+        "kind": "arena_game",
+        "rows": 1,
+        "positions": 49,
+        "accepted_moves": 48
+      },
+      "evidence/chess-v1/results/game-game-06.json": {
+        "kind": "arena_game",
+        "rows": 1,
+        "positions": 46,
+        "accepted_moves": 45
+      },
+      "evidence/chess-v1/results/game-game-07.json": {
+        "kind": "arena_game",
+        "rows": 1,
+        "positions": 59,
+        "accepted_moves": 58
+      },
+      "evidence/chess-v1/results/game-game-08.json": {
+        "kind": "arena_game",
+        "rows": 1,
+        "positions": 102,
+        "accepted_moves": 101
+      },
+      "evidence/chess-v1/results/game-game-09.json": {
+        "kind": "arena_game",
+        "rows": 1,
+        "positions": 104,
+        "accepted_moves": 103
+      },
+      "evidence/chess-v1/results/game-game-10.json": {
+        "kind": "arena_game",
+        "rows": 1,
+        "positions": 34,
+        "accepted_moves": 33
+      },
+      "evidence/chess-v1/results/game-game-11.json": {
+        "kind": "arena_game",
+        "rows": 1,
+        "positions": 83,
+        "accepted_moves": 82
+      },
+      "evidence/chess-v1/results/game-game-12.json": {
+        "kind": "arena_game",
+        "rows": 1,
+        "positions": 65,
+        "accepted_moves": 64
+      },
+      "evidence/chess-v1/results/game-game-13.json": {
+        "kind": "arena_game",
+        "rows": 1,
+        "positions": 95,
+        "accepted_moves": 94
+      },
+      "evidence/chess-v1/results/game-game-14.json": {
+        "kind": "arena_game",
+        "rows": 1,
+        "positions": 104,
+        "accepted_moves": 103
+      },
+      "evidence/chess-v1/results/game-game-15.json": {
+        "kind": "arena_game",
+        "rows": 1,
+        "positions": 80,
+        "accepted_moves": 79
+      },
+      "evidence/chess-v1/results/game-game-16.json": {
+        "kind": "arena_game",
+        "rows": 1,
+        "positions": 93,
+        "accepted_moves": 92
+      },
+      "evidence/chess-v1/results/game-game-17.json": {
+        "kind": "arena_game",
+        "rows": 1,
+        "positions": 44,
+        "accepted_moves": 43
+      },
+      "evidence/chess-v1/results/game-game-18.json": {
+        "kind": "arena_game",
+        "rows": 1,
+        "positions": 98,
+        "accepted_moves": 97
+      },
+      "runs/chess-anchor-v1/execution/completed.json": {
+        "kind": "anchor_execution_receipt",
+        "rows": 0,
+        "positions": 0
+      },
+      "runs/chess-anchor-v1/execution/data/analyses.jsonl": {
+        "kind": "anchor_data_receipt_member",
+        "rows": 0,
+        "positions": 0
+      },
+      "runs/chess-anchor-v1/execution/data/completed.json": {
+        "kind": "anchor_data_receipt_member",
+        "rows": 0,
+        "positions": 0
+      },
+      "runs/chess-anchor-v1/execution/data/dev.jsonl": {
+        "kind": "anchor_dataset",
+        "rows": 2048,
+        "input_positions": 2048,
+        "behavior_successor_positions": 2048,
+        "auxiliary_successor_positions": 8055,
+        "positions": 12151
+      },
+      "runs/chess-anchor-v1/execution/data/excluded-states.json": {
+        "kind": "anchor_data_receipt_member",
+        "rows": 0,
+        "positions": 0
+      },
+      "runs/chess-anchor-v1/execution/data/games.jsonl": {
+        "kind": "anchor_data_receipt_member",
+        "rows": 0,
+        "positions": 0
+      },
+      "runs/chess-anchor-v1/execution/data/shift.jsonl": {
+        "kind": "anchor_dataset",
+        "rows": 2048,
+        "input_positions": 2048,
+        "behavior_successor_positions": 2048,
+        "auxiliary_successor_positions": 7996,
+        "positions": 12092
+      },
+      "runs/chess-anchor-v1/execution/data/started.json": {
+        "kind": "anchor_data_receipt_member",
+        "rows": 0,
+        "positions": 0
+      },
+      "runs/chess-spatial-v1/execution/data/completed.json": {
+        "kind": "original_training_receipt",
+        "rows": 0,
+        "positions": 0
+      },
+      "runs/chess-spatial-v1/execution/data/dev.jsonl": {
+        "kind": "dataset",
+        "rows": 4096,
+        "input_positions": 4096,
+        "behavior_successor_positions": 4096,
+        "auxiliary_successor_positions": 16147,
+        "positions": 24339
+      },
+      "runs/chess-spatial-v1/execution/data/shift.jsonl": {
+        "kind": "dataset",
+        "rows": 4096,
+        "input_positions": 4096,
+        "behavior_successor_positions": 4096,
+        "auxiliary_successor_positions": 16055,
+        "positions": 24247
+      },
+      "runs/chess-spatial-v1/execution/data/train.jsonl": {
+        "kind": "dataset",
+        "rows": 32768,
+        "input_positions": 32768,
+        "behavior_successor_positions": 32768,
+        "auxiliary_successor_positions": 129201,
+        "positions": 194737
+      }
+    },
+    "anchor_input_positions": 4096,
+    "anchor_behavior_successor_positions": 4096,
+    "anchor_auxiliary_successor_positions": 16051
+  },
+  "exclusion_states_sha256": "e30cd1ad081ed7b600057506f0f57ec81b0180a95d8eb7105efc202da0e8a54f",
+  "engine_sha256": "8eed61129d1493c5d1f2fd9323f0c54c47ac49319911fbde18c6b9c87e8b13c5",
+  "parameters": {
+    "32": {
+      "stored": 43726,
+      "active": 33185
+    },
+    "128": {
+      "stored": 591790,
+      "active": 439073
+    }
+  },
+  "environment": {
+    "python": "3.12.13",
+    "platform": "macOS-26.6.1-arm64-arm-64bit",
+    "machine": "arm64",
+    "mps_available": true,
+    "dependencies": {
+      "torch": "2.14.0",
+      "chess": "1.11.2",
+      "numpy": "2.5.3"
+    },
+    "lock_sha256": "833d01b398f7dae71fd3c565c3dbb05c87b337aac7917d7f0ccf3eef01ba1e0e",
+    "pyproject_sha256": "64436d48af2351450b9dc774f601091fa2a8b6c87d743088a3d26baa5d459aba"
+  }
+}
