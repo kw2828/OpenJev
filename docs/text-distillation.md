@@ -2,7 +2,7 @@
 
 This experiment trains a small English candidate scorer using **gpt-6-astra as a frozen teacher**. It is supervised hard-label distillation. It does not fine-tune Astra, use reinforcement learning, or transfer the Doom JEPA policy.
 
-**Status:** three gold-supervised student fits and three untrained-head controls completed; Astra labeling awaits accessible API credentials. No Astra-trained model or efficacy result exists yet. The existing browser demo continues to use Qwen3-0.6B.
+**This API protocol remains unrun.** Three gold-supervised student fits and three untrained-head controls completed. A [separate Codex-Astra route](codex-astra-distillation.md) has now trained three students and failed its combined continuation rule. Its results do not fill the unexecuted Responses API arm below. The browser demo continues to use Qwen3-0.6B.
 
 ## Control results
 
@@ -14,7 +14,7 @@ Bars show means; dots show the three fits. This is a small benchmark subset, not
 | --- | ---: | ---: | --- |
 | Untrained head | 52.0% | 9.5% | 12.5%, 8.0%, 8.0% |
 | Gold training labels | 50.4% | 60.2% | 76.1%, 36.4%, 68.2% |
-| Astra training labels | Not run | Not run | Awaiting API access |
+| Astra through Responses API | Not run | Not run | Awaiting API access |
 
 Gold supervision improved this routing subset by 50.8 percentage points (exploratory paired interval 29.5 to 67.0 points), but did not improve BoolQ (-1.6 points; interval -12.3 to 9.1). Routing is unstable across fits, and gold-trained out-of-scope accuracy is only **4.2%**, averaged across fits. The model is not ready for reliable routing or abstention.
 

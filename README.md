@@ -34,9 +34,9 @@ Open **http://127.0.0.1:8000**. Local text scoring uses Qwen3-4B. [Linux, Docker
 
 ## Train a text model with Astra
 
-Astra selects answers for training examples; a small MiniLM student learns to score candidate answers. The frozen pilot uses **BoolQ yes/no questions and CLINC domain routing**, with 128 teacher requests and a $20 ceiling. Evaluation labels stay out of teacher requests.
+Astra labeled 128 training examples through Codex; three MiniLM student fits are complete. Mean accuracy reached **62.1% on domain routing** versus 9.5% untrained, but **51.2% on BoolQ** remained near chance. The combined continuation rule failed.
 
-**Awaiting API credentials.** Gold-label controls are complete; no Astra-trained result exists yet. [Training commands, controls and evaluation plan](docs/text-distillation.md).
+[Results, benchmark scope and local checkpoints](docs/codex-astra-distillation.md). This uses previously scored development examples. The separate [Responses API plan](docs/text-distillation.md) remains unrun.
 
 ## Research results
 

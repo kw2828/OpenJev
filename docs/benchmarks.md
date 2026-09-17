@@ -22,6 +22,10 @@ Twelve fits completed 6,291,456 training interactions and 8,448 evaluation episo
 
 ## Text student controls
 
+![Astra-supervised text students and reused controls](../evidence/codex-astra-text-v1/student-results.png)
+
+[Astra through Codex](codex-astra-distillation.md): four fresh teacher batches labeled 128 training examples, then three MiniLM students reached 62.12% domain-routing accuracy versus 9.47% untrained and 60.23% gold-supervised. BoolQ remained at 51.19% and failed the combined continuation rule. All three fits are shown on the same 172 previously scored development examples; this is hard-label distillation, not an independent confirmation or architecture result.
+
 ![Explicit entity binding and recurrent rule application](../evidence/bound-rules-v1/development.png)
 
 [Bound-rule follow-up](bound-rule-study.md): 12 learned fits and three fixed controls on previously unused development worlds. A 225-parameter operator with a handwritten parser and explicit logical operations reaches 100% shift macro accuracy. Sixteen recurrent steps also solve all 240 constructed counterfactual pairs. The fixed solver matches 100%; novelty and a runtime advantage remain unproven. The frozen selector chose six steps on a tie and failed its longer-chain challenge gate.
@@ -42,7 +46,7 @@ Twelve fits completed 6,291,456 training interactions and 8,448 evaluation episo
 
 ![Text student controls, with Astra supervision pending](../evidence/text-distillation-v1/controls.png)
 
-Gold-label training raised CLINC domain-routing accuracy from 9.5% to 60.2%, averaged across three fits, with substantial fit-to-fit variation. BoolQ remained near chance. These are balanced, filtered subsets, not full benchmark scores. Astra teacher training awaits API access and has no efficacy result yet. [Protocol, all fits and limitations](text-distillation.md).
+Gold-label training raised CLINC domain-routing accuracy from 9.5% to 60.2%, averaged across three fits, with substantial fit-to-fit variation. BoolQ remained near chance. These are balanced, filtered subsets, not full benchmark scores. This original Responses API teacher arm remains unrun; the separate Codex result appears above. [Protocol, all fits and limitations](text-distillation.md).
 
 ## JEPA rewards and RL variants
 
