@@ -1,0 +1,73 @@
+{
+  "protocol": {
+    "version": "rule-memory-v1",
+    "modes": [
+      "question_only",
+      "mean_context",
+      "single_read",
+      "recurrent_3",
+      "recurrent_6",
+      "coverage_3"
+    ],
+    "seeds": [
+      17,
+      29,
+      43
+    ],
+    "encoder": "sentence-transformers/all-MiniLM-L6-v2",
+    "encoder_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "encoder_max_tokens": 256,
+    "encoder_batch": 128,
+    "latent_dim": 128,
+    "epochs": 20,
+    "batch_size": 256,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "clip_gradient": 1.0,
+    "cpu_threads": 4,
+    "label_order": [
+      "false",
+      "true"
+    ],
+    "loss": "Final binary cross entropy; same minibatch order for all heads within a seed",
+    "features": "Frozen normalized mean-pooled MiniLM per English clause and assertion; no truncation",
+    "selection": "Final epoch only; all three seeds; no checkpoint or seed selection",
+    "controls": [
+      "question_only",
+      "mean_context",
+      "single_read"
+    ],
+    "candidates": [
+      "recurrent_3",
+      "recurrent_6",
+      "coverage_3"
+    ],
+    "coverage": "Subtract cumulative prior attention weights from logits with fixed coefficient 1",
+    "latency_repeats": 200,
+    "latency_warmup": 30,
+    "bootstrap_draws": 2000,
+    "bootstrap_seed": 5279,
+    "continuation": {
+      "min_shift_accuracy_gain": 0.02,
+      "max_in_accuracy_loss": 0.01,
+      "max_shift_nll_increase": 0.0,
+      "min_paired_seed_wins": 2,
+      "min_world_bootstrap_lower_bound": 0.0,
+      "max_head_mac_ratio": 3.0,
+      "scope": "Development selection, not independent evidence or a novelty claim"
+    }
+  },
+  "code": {
+    "driver": "98ceda96b6036ccd4852d0533a075018eedc608429ba486251a36f9f22adac62",
+    "architecture": "d08c4d2d063010fe51e557a4a3dbb47a2339cf0edbd5a33836fc8051b02ac199"
+  },
+  "packet_sha256": "085a2ef07cb541cc6e600ca87166ef6c1daf355ec3d163048e60af441b34bd56",
+  "created_at": "2026-09-17T12:41:49Z",
+  "environment": {
+    "torch": "2.14.0",
+    "numpy": "2.5.3",
+    "transformers": "5.17.0"
+  },
+  "platform": "macOS-26.6.1-arm64-arm-64bit",
+  "python": "3.12.13"
+}
