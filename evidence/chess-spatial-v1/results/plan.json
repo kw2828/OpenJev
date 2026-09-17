@@ -1,0 +1,138 @@
+{
+  "protocol": {
+    "version": "chess-spatial-v1",
+    "modes": [
+      "cnn",
+      "recurrent",
+      "reconstruct",
+      "predict"
+    ],
+    "seeds": [
+      17,
+      29,
+      43
+    ],
+    "width": 32,
+    "depth": 4,
+    "input_channels": 19,
+    "splits": [
+      {
+        "name": "train",
+        "examples": 32768,
+        "game_cap": 1200,
+        "max_plies": 64,
+        "random_move_probability": 0.5,
+        "seed_base": 92000000
+      },
+      {
+        "name": "dev",
+        "examples": 4096,
+        "game_cap": 200,
+        "max_plies": 64,
+        "random_move_probability": 0.5,
+        "seed_base": 93000000
+      },
+      {
+        "name": "shift",
+        "examples": 4096,
+        "game_cap": 200,
+        "max_plies": 96,
+        "random_move_probability": 0.1,
+        "seed_base": 94000000
+      }
+    ],
+    "teacher": "Stockfish 19",
+    "teacher_nodes": 2000,
+    "teacher_threads": 1,
+    "teacher_hash_mb": 16,
+    "value_cp_scale": 600.0,
+    "mate_cp": 10000,
+    "aux_actions": 4,
+    "epochs": 6,
+    "batch_size": 128,
+    "learning_rate": 0.001,
+    "value_loss_weight": 0.5,
+    "aux_loss_weight": 0.25,
+    "gradient_clip": 1.0,
+    "torch_threads": 2,
+    "device": "mps",
+    "deterministic_algorithms": false,
+    "reproducibility": "Fixed data, seeds, initial weights and batch order; MPS indexing gradients are not bitwise deterministic",
+    "fit_order_seed": 920017,
+    "epoch_order_seed_base": 920029,
+    "optimizer": {
+      "name": "Adam",
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0.0
+    },
+    "loss": "Legal candidate CE + 0.5 bounded value MSE + 0.25 auxiliary CE for reconstruct/predict only",
+    "auxiliary": "Four fixed distinct uniformly sampled legal actions per board, or all if fewer; same in all fits",
+    "aux_loss": "Equal weight per example-action to mean changed-square and unchanged-square CE; masks from true transition",
+    "targets": "predict: successor pieces in original mover perspective; reconstruct: current pieces; other arms aux weight zero",
+    "compute": "Every arm computes and backpropagates through the auxiliary branch, including zero-weight controls",
+    "initialization": "All recurrent modes have identical same-seed initial state; CNN starts with four copies of the same core",
+    "comparison": "Recurrent aux arms match parameters and operations; CNN has more parameters at equal depth operations",
+    "split": "Separate generated games; global dedup of pieces/side/castling/EP and mirrored equivalents; exclude all v1 states",
+    "inference": "Four internal refinements per FEN, shared source/destination scorer, no search or across-move memory",
+    "regret_nodes": 20000,
+    "regret_positions_per_split": 128,
+    "regret_selection_seed": 950001,
+    "regret": "Secondary: fresh unrestricted and each unique chosen root move at fixed nodes; bounded tanh score difference, can be negative",
+    "selection": "Final checkpoints only, no early stopping, retries, budget extension or test-driven depth selection",
+    "evaluation": "Every final fit on all dev and shifted positions; both are development, not untouched confirmation",
+    "continuation_gate": {
+      "min_mean_agreement_gain": 0.02,
+      "max_paired_seed_deficit": 0.01,
+      "min_future_changed_accuracy": 0.7,
+      "comparison_modes": [
+        "cnn",
+        "recurrent",
+        "reconstruct"
+      ],
+      "scope": "Descriptive development gate only; fresh confirmation required for efficacy claims"
+    },
+    "claim_scope": "Dynamics-supervised representation learning; no novel planning, world-model control, biological or Elo claim"
+  },
+  "sources": {
+    "scripts/train_chess_spatial.py": "7400a3af506fda1610ba423bb29f90035e07d9c082e6218e03a1303af612ec46",
+    "src/openjev/research/chess_spatial.py": "49e6e53d33cd52511c0e4a08074b9a7f0dc2244727df2879f3fb7fd1aa886ab4",
+    "src/openjev/research/chess_spatial_data.py": "70d6e94799cd59c7e4e097eb783a44e3288cad903fb7d4637e3fabd86003cf3e",
+    "tests/test_chess_spatial.py": "22a38540c2d813985248dd44e4b597cd685b4d393e941a1a5fddc313f7b03e7a",
+    "tests/test_chess_spatial_data.py": "6f37500a11001b000f10983d3643a29c02c16669534fa04e88cf1023956fb3ec",
+    "tests/test_chess_spatial_study.py": "35b11c1120e5c26a4d5117ed674ede0990619cda626615d55c60bc47eda4ae3c",
+    "src/openjev/research/chess_spatial_baselines.py": "9824212fdfe5678fafe2591eeb5f3962790713bd1b4dece4803648b696ae8942",
+    "src/openjev/research/chess_arena.py": "a9a5be6ccb982d2c43b4365a0f0e9dd68c3a8c4fb11ea8c5cf950076b7046702",
+    "src/openjev/research/chess_student.py": "4792d923bde61af847e7d1d1affe329bd74c225e57feb4f777c3727d670c0d70",
+    "src/openjev/research/chess_spatial_regret.py": "32922ee3665a7ec14df9ef2752e806778e314f74906431d12bee3b7b871e9121",
+    "tests/test_chess_spatial_regret.py": "8fe369af94fbf9506b220ad00a1028812b2c3f2d59803032234a5d2aea89c309"
+  },
+  "exclusions": {
+    "evidence/chess-student-v1/results/execution/data/train.jsonl": "078c977cd0c26908bfcae81a606500df738eecb37f3daea45378761b09e56a45",
+    "evidence/chess-student-v1/results/execution/data/dev.jsonl": "b095397b48bd80f70840943bd524e4dde8c3712a225cb3818c411fe5ad34142a"
+  },
+  "excluded_positions": 5120,
+  "engine": {
+    "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/runs/chess-inputs/stockfish/stockfish-macos-universal",
+    "sha256": "8eed61129d1493c5d1f2fd9323f0c54c47ac49319911fbde18c6b9c87e8b13c5"
+  },
+  "dependencies": {
+    "chess": "1.11.2",
+    "torch": "2.14.0",
+    "numpy": "2.5.3"
+  },
+  "python": "3.12.13",
+  "hardware": "arm64",
+  "platform": "macOS-26.6.1-arm64-arm-64bit",
+  "lock_sha256": "833d01b398f7dae71fd3c565c3dbb05c87b337aac7917d7f0ccf3eef01ba1e0e",
+  "pyproject_sha256": "64436d48af2351450b9dc774f601091fa2a8b6c87d743088a3d26baa5d459aba",
+  "parameters": {
+    "cnn": 99214,
+    "recurrent": 43726,
+    "reconstruct": 43726,
+    "predict": 43726
+  }
+}

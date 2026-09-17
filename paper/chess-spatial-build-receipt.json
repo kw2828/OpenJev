@@ -1,0 +1,22 @@
+{
+  "status": "completed",
+  "created_unix": 1789663371.884557,
+  "inputs": {
+    "paper/chess-spatial-study.tex": "c8053cc4eaa0f5eaebff3bb9e7e23b1216b9f8c01d8be99104f76d7660ca1993",
+    "paper/chess-spatial-results.tex": "9f9468100b4e5fc382eb12415cb142eecdf4b25b477a18771389e94258f1c9d9",
+    "paper/chess-spatial-tables.tex": "04058804d6ab1380b419d10d8af82f042b16e4d5a2f6713644a36c3f08c8752a",
+    "scripts/write_chess_spatial_paper.py": "89bf169092afb9c1e8e91b7ee6a521bd01e6ee8a52b908b6d3c35ff5324c33d0",
+    "docs/assets/chess-spatial-results.png": "92148122c559be256dad674567f02fbd54a50aa6454259a45dc498825d869c60",
+    "evidence/chess-spatial-v1/results/summary.json": "88e9fd00ce685971b078ed269c7c9079bc070afb2a732d77c4e36fc55b5a6376"
+  },
+  "output": "output/pdf/openjev-chess-spatial-study.pdf",
+  "output_sha256": "dc019dd61638b9cea27bdb3ba3ef507d3a5c3426e8d34589d95ac038f08b58d4",
+  "pages": 4,
+  "build": "latexmk -pdf -interaction=nonstopmode -halt-on-error -outdir=build/chess-spatial chess-spatial-study.tex",
+  "container_image": "sha256:4984977ccf5afe883cb382d0163f267de0d029d140bb7a9e8f4c19f0b781d57b",
+  "network": "disabled",
+  "render": "pdftoppm -r 90 -png",
+  "all_pages_visually_reviewed": true,
+  "overfull_boxes": 0,
+  "undefined_references": 0
+}

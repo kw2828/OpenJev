@@ -1,0 +1,31 @@
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{lrrrrr}
+\toprule
+& & \multicolumn{2}{c}{Teacher agreement (\%)} & \multicolumn{2}{c}{Bounded engine difference} \\
+Model & Parameters & Dev & Shift & Dev & Shift \\
+\midrule
+CNN & 99,214 & 33.02 & 25.33 & 0.108 & 0.137 \\
+Recurrent & 43,726 & 32.90 & 25.58 & 0.103 & 0.120 \\
+Reconstruct & 43,726 & 32.69 & 25.22 & 0.113 & 0.124 \\
+Predict & 43,726 & 32.97 & 25.43 & 0.102 & 0.132 \\
+\midrule
+Material heuristic & 0 & 25.61 & 19.51 & 0.226 & 0.269 \\
+\bottomrule
+\end{tabular}
+\caption{Mean of three fits for learned models. Higher agreement is better; lower bounded engine difference is better. Engine differences use 128 fixed positions per split and may be negative because searches are finite.}
+\end{table}
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{llrrr}
+\toprule
+Model & Split & Changed squares (\%) & All squares (\%) & Exact boards (\%) \\
+\midrule
+Reconstruct & Dev & 0.69 & 93.64 & 0.00 \\
+Reconstruct & Shift & 0.50 & 93.72 & 0.00 \\
+Predict & Dev & 79.20 & 90.37 & 1.04 \\
+Predict & Shift & 76.14 & 90.39 & 0.38 \\
+\bottomrule
+\end{tabular}
+\caption{Decoder predictions assessed against actual successors. Reconstruction is trained to output current pieces, so this table is not an equal-objective reconstruction-quality comparison.}
+\end{table}

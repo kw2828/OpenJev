@@ -133,3 +133,9 @@ uv run --no-sync --with matplotlib==3.11.2 python research/plot_benchmarks.py
 ```
 
 This creates PNG, SVG and PDF figures, a LaTeX results table, and a [source-hash manifest](../evidence/benchmarks/manifest.json). It does not rerun experiments or overwrite their measurements. The earlier utility comparison has its own `research/plot_bayesian_doom.py` renderer.
+
+## Board-aware chess follow-up
+
+![Controlled spatial chess study](assets/chess-spatial-results.png)
+
+Twelve final fits improve on the material heuristic, but future prediction does not beat the matched spatial controls. [Full results and models](chess-spatial.md) · [Frozen protocol](../research/chess-spatial-study.md).

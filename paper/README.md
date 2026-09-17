@@ -62,3 +62,7 @@ The original `output/pdf/openjev-paper.pdf` and `paper/build-receipt.json` are p
 The subsequent [SRPO adaptation pilot](../docs/srpo-study.md) is reported separately. This PDF covers studies through PPO/DQN and does not include the later SRPO pilot.
 
 The subsequent [pretrained JEPA and nine-method RL pilot](../docs/jepa-rl-study.md) is also reported separately, with its frozen protocol and complete evidence. The PDF has not been expanded to claim these later results.
+
+## Spatial chess follow-up
+
+[Paper PDF](../output/pdf/openjev-chess-spatial-study.pdf) and [LaTeX source](chess-spatial-study.tex) report all twelve board-aware chess fits. Future prediction did not pass its continuation criterion. The tables are generated from the audited completed release by `scripts/write_chess_spatial_paper.py`.

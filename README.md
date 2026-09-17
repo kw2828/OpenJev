@@ -4,19 +4,19 @@
 
 Score choices with stable IDs. Try text decisions in your browser, run local Doom policies, or train a small chess model.
 
-[**Text demo**](https://kw2828.github.io/OpenJev/) · [**Chess replay**](https://kw2828.github.io/OpenJev/chess-replay.html) · [API](docs/decision-api.md) · [Benchmarks](docs/benchmarks.md) · [Setup](docs/project-reference.md)
+[**Text demo**](https://kw2828.github.io/OpenJev/) · [**Chess replay**](https://kw2828.github.io/OpenJev/chess-spatial-replay.html) · [API](docs/decision-api.md) · [Benchmarks](docs/benchmarks.md) · [Setup](docs/project-reference.md)
 
 ## Chess
 
-[![Our trained recurrent circuit playing ChessFly, first scheduled game](docs/assets/chess-game-01.gif)](https://kw2828.github.io/OpenJev/chess-replay.html)
+[![Our locally trained recurrent model playing chess, first scheduled game](docs/assets/chess-spatial-game-01.gif)](https://kw2828.github.io/OpenJev/chess-spatial-replay.html)
 
-Our **182k-parameter circuit** learns from Stockfish and plays without search. Compare it with ChessFly, ChessLFM, Qwen and Astra. The GIF is the first scheduled game, not a selected win.
+Our newest **43,726-parameter recurrent model** scores every legal move without search. It learns from Stockfish, with an optional future-board prediction objective. The GIF shows the first scheduled game, a draw.
 
-![Controlled chess training results](docs/assets/chess-student-results.png)
+![All spatial chess models and controls](docs/assets/chess-spatial-results.png)
 
-Across three fits, the circuit matched Stockfish on **14.36%** of development positions, versus **14.19% rewired** and **14.52% GRU**. The topology improvement criterion failed. These are development results, not Elo or an established novel architecture.
+The prediction model matched Stockfish on **32.97%** of ordinary development positions versus **25.61%** for a material heuristic, and **25.43% versus 19.51%** on shifted development games. Future prediction did not beat the matched spatial controls. These are development results, not Elo or an established novel architecture.
 
-[Models and training](docs/chess-student.md) · [Games, puzzle scores and timing](docs/chess.md) · [World-model research plan](research/chess-research-plan.md) · [Chess paper draft](output/pdf/openjev-chess-study.pdf)
+[Load the models](docs/chess-spatial.md) · [Results and protocol](research/chess-spatial-study.md) · [Paper](output/pdf/openjev-chess-spatial-study.pdf) · [Earlier Astra, ChessFly and ChessLFM comparison](docs/chess.md)
 
 ## Doom
 
