@@ -6,6 +6,10 @@ These figures visualize existing development evidence. No new model training or 
 
 ## Recurrent world models
 
+![Cue-visible task and paired memory interventions](../evidence/cue-memory-v1/cue-memory-results.png)
+
+The follow-up made the cue visible at the start: 12 fits, 6,291,456 training interactions and 17,664 evaluation episodes. Recurrent and predictive PPO both reached 29.2% same-size success versus 52.1% for current-only PPO. No scored branch choice changed under a cue swap, and state clearing changed no outcomes. [Results, learning curves, transfer and retention probe](cue-memory-study.md).
+
 ![Predictive recurrent PPO and matched controls](../evidence/recurrent-world-v1/world-model-results.png)
 
 Twelve fits completed 6,291,456 training interactions and 8,448 evaluation episodes on an adapted MiniGrid Memory task. Full prediction reached 30.2% same-size success versus 51.6% for recurrent PPO and failed the predeclared continuation rule. Clearing recurrent state left all scored episode outcomes unchanged; a replay audit found that no policy acquired an initially unseen cue. [Protocol, all fits, learning curves and actual policy GIF](recurrent-world-model-study.md).

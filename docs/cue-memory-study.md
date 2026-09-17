@@ -1,6 +1,48 @@
 # Does a visible cue make recurrence useful?
 
-**Status: protocol prepared; scored training has not run.** The [previous memory study](recurrent-world-model-study.md) found that none of its policies acquired a cue that was initially unseen. This follow-up removes that search requirement and tests the same four controllers. It is a development diagnostic, not independent confirmation or evidence of a new algorithm.
+**Status: completed; both continuation gates failed.** Giving the cue at the start did not produce useful memory under this training recipe. Twelve fits completed **6,291,456 training interactions** and **17,664 evaluation episodes**, including paired interventions and transfer. The source and protocol were frozen in commit `b3f7223` before training. Measured local CPU training totaled **767.5 seconds**; concurrent development work makes this a descriptive timing, not an isolated systems benchmark. No Astra calls were made.
+
+![Cue-visible task scores and paired memory interventions](../evidence/cue-memory-v1/cue-memory-results.png)
+
+| Final policy | Size 11 | Size 17 | Size 23 |
+| --- | ---: | ---: | ---: |
+| Current-only PPO | 52.08% | 49.74% | 48.96% |
+| Recurrent PPO | 29.17% | 33.85% | 35.42% |
+| + reward / termination prediction | 33.33% | 33.33% | 33.33% |
+| + full world prediction | 29.17% | 33.85% | 35.42% |
+| Uniform random | 0.78% | 0.00% | 0.00% |
+
+Each learned value averages all three training fits, with 128 evaluation episodes per fit and size. Random uses one fixed evaluation sample. Recurrent seed 73, reward-prediction seed 61 and full-prediction seed 61 timed out on every scored intact episode; no fit was excluded. Full prediction's same-size gap to current-only was minus 22.92 percentage points, and its gap to recurrent PPO was zero. Neither predictive training nor ordinary recurrence passed its predeclared gate.
+
+**Clearing recurrent state changed none of the scored episode outcomes, returns or lengths. Swapping the cue also changed none.** Across 4,608 assigned intact/swap pairs there were zero physical branch reversals. Both members reached a branch in 3,456 pairs; the remainder timed out. Keeping all pairs in the denominator avoids hiding intervention-induced failures.
+
+Native-start transfer had exactly the same success rates for every fit and size. Returns and path lengths can change with the starting location. This is consistent with policies that do not use the cue; it does not establish successful transfer of a memory strategy.
+
+![Transfer back to the original random starting position](../evidence/cue-memory-v1/cue-memory-native-start.png)
+
+![All twelve learning trajectories](../evidence/cue-memory-v1/cue-memory-learning.png)
+
+Mean training times per fit were 57.2 seconds for current-only, 56.2 for recurrent PPO, 61.3 for reward prediction and 81.1 for full prediction. Training curves describe the latest 100 completed training episodes, not held-out accuracy.
+
+### Where the cue signal goes
+
+A separately frozen mechanism probe forced the same forward actions in paired worlds differing only in cue identity. It covered all 12 final checkpoints, three sizes and 16 worlds per size: **576 paired model rollouts**, reusing 48 world seeds across the checkpoints. It was designed during the development run and frozen in `a3e78ad` before final checkpoint analysis. It does not change either continuation gate.
+
+Only the initial observation differs; every subsequent observation and action is identical within a pair. Across the 27 recurrent fit/size conditions, the mean fork-to-initial hidden-state RMS difference ratio ranged from zero to **0.0954**. The largest mean difference between action-probability vectors at the fork was **0.0000301 in L1 distance**, and no pair changed its greedy action there. The current-only control had exact equality after the initial observation.
+
+Some cue-dependent state differences survive, but their size does not establish that they encode usable memory. The forced route bypasses learned navigation and can visit states a failed policy never reaches. These measurements support investigating how the cue is represented, retained and used; they do not isolate one training failure or prove that insufficient training budget caused it.
+
+![Cue-dependent state and action-probability differences along forced routes](../evidence/cue-memory-v1/cue-retention.png)
+
+[Retention summaries](../evidence/cue-memory-v1/retention-summary.json) · [Compressed per-pair probe data](../evidence/cue-memory-v1/retention.json.gz) · [Probe plan](../evidence/cue-memory-v1/retention-plan.json)
+
+The next architecture comparison will separate the reactive GRU state from a small associative store, with constant-write, selective-write and extra-capacity controls. The [implementation and prior-art note](associative-memory.md) documents that candidate. It is not trained yet. A useful result still requires reliable task success, meaningful memory interventions, matched controls and later independent confirmation.
+
+[All primary scores](../evidence/cue-memory-v1/summary.json) · [Paired interventions](../evidence/cue-memory-v1/diagnostic.json) · [Frozen plan](../evidence/cue-memory-v1/plan.json) · [Completed report receipt](../evidence/cue-memory-v1/report-completed.json)
+
+## Frozen study design
+
+The [previous memory study](recurrent-world-model-study.md) found that none of its policies acquired a cue that was initially unseen. This follow-up removes that search requirement and tests the same four controllers. It is a development diagnostic, not independent confirmation or evidence of a new algorithm.
 
 ## Intervention
 
