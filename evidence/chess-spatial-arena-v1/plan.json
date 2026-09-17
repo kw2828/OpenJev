@@ -1,0 +1,128 @@
+{
+  "format": "openjev-chess-spatial-arena-v1",
+  "training_plan": {
+    "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/evidence/chess-spatial-v1/plan.json",
+    "sha256": "4c76d5ef33df5fdd31956bc34c2b3f591a6b46e3be49c2b92a5b610e201c25af"
+  },
+  "training_execution": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/runs/chess-spatial-v1/execution",
+  "old_gru": {
+    "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/models/chess-student-v1/gru-17/weights.pt",
+    "sha256": "45cba8d37c37bd3ac3ee9274e7e29ffbed926fea0b5b19e0a76cab86144027d9",
+    "mode": "gru",
+    "seed": 17,
+    "training_plan_path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/evidence/chess-student-v1/plan.json",
+    "training_plan_sha256": "b798fc8a421a6e72479085b990c8439b9069d915ff0cd8c888151ff440e70d45"
+  },
+  "sources": {
+    "scripts/chess_spatial_arena.py": "6e69d6f09dfff0f69d8d7a717d2082d209396d34ce3fa9b8e6769691f0784a4e",
+    "tests/test_chess_spatial_arena.py": "c7d9d22342cfbe5bc4ce2cdf45032392ca05002e0e798f61cb688160b2fa2ec1",
+    "src/openjev/research/chess_spatial.py": "49e6e53d33cd52511c0e4a08074b9a7f0dc2244727df2879f3fb7fd1aa886ab4",
+    "src/openjev/research/chess_student.py": "4792d923bde61af847e7d1d1affe329bd74c225e57feb4f777c3727d670c0d70",
+    "src/openjev/research/chess_arena.py": "a9a5be6ccb982d2c43b4365a0f0e9dd68c3a8c4fb11ea8c5cf950076b7046702",
+    "pyproject.toml": "64436d48af2351450b9dc774f601091fa2a8b6c87d743088a3d26baa5d459aba",
+    "uv.lock": "833d01b398f7dae71fd3c565c3dbb05c87b337aac7917d7f0ccf3eef01ba1e0e"
+  },
+  "dependencies": {
+    "chess": "1.11.2",
+    "torch": "2.14.0"
+  },
+  "python": "3.12.13",
+  "protocol": {
+    "initial_fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+    "clock_seconds": 300.0,
+    "max_plies": 160,
+    "claim_draw": false,
+    "device": "cpu",
+    "torch_threads": 2,
+    "spatial_seed": 17,
+    "spatial_depth": 4,
+    "games": [
+      {
+        "id": "game-01",
+        "white": "predict-17",
+        "black": "greedy_material"
+      },
+      {
+        "id": "game-02",
+        "white": "greedy_material",
+        "black": "predict-17"
+      },
+      {
+        "id": "game-03",
+        "white": "predict-17",
+        "black": "gru_v1"
+      },
+      {
+        "id": "game-04",
+        "white": "gru_v1",
+        "black": "predict-17"
+      },
+      {
+        "id": "game-05",
+        "white": "reconstruct-17",
+        "black": "greedy_material"
+      },
+      {
+        "id": "game-06",
+        "white": "greedy_material",
+        "black": "reconstruct-17"
+      },
+      {
+        "id": "game-07",
+        "white": "reconstruct-17",
+        "black": "gru_v1"
+      },
+      {
+        "id": "game-08",
+        "white": "gru_v1",
+        "black": "reconstruct-17"
+      },
+      {
+        "id": "game-09",
+        "white": "recurrent-17",
+        "black": "greedy_material"
+      },
+      {
+        "id": "game-10",
+        "white": "greedy_material",
+        "black": "recurrent-17"
+      },
+      {
+        "id": "game-11",
+        "white": "recurrent-17",
+        "black": "gru_v1"
+      },
+      {
+        "id": "game-12",
+        "white": "gru_v1",
+        "black": "recurrent-17"
+      },
+      {
+        "id": "game-13",
+        "white": "cnn-17",
+        "black": "greedy_material"
+      },
+      {
+        "id": "game-14",
+        "white": "greedy_material",
+        "black": "cnn-17"
+      },
+      {
+        "id": "game-15",
+        "white": "cnn-17",
+        "black": "gru_v1"
+      },
+      {
+        "id": "game-16",
+        "white": "gru_v1",
+        "black": "cnn-17"
+      }
+    ],
+    "illustrative_game": "game-01",
+    "illustration_selection": "First scheduled game, before outcomes; every accepted move",
+    "timing": "Policy call wall time on CPU, including candidate encoding; model load excluded; no warmups",
+    "scope": "Deterministic development games, not Elo, independent confirmation or a strength ranking",
+    "retries": 0,
+    "fallback": null
+  }
+}

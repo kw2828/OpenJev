@@ -1,0 +1,9 @@
+{
+  "scope": "Post-hoc diagnosis of existing v1 train/development data; no new holdout, fitting, tuning, teacher calls, or efficacy claim",
+  "plan_sha256": "b798fc8a421a6e72479085b990c8439b9069d915ff0cd8c888151ff440e70d45",
+  "source_sha256": "1f690d4325532e302e0bb0efd1d218b953ce1987228f8c0fb4eff95dcd2336cf",
+  "evaluations": "All 9 final weights: 4096 training +1024 development +fixed circularly permuted development features; backward only on first64 original training examples; no optimizer",
+  "permutation": "torch.roll(torch.arange(1024), shifts=137); retain original legal mask, targets and labels",
+  "feature_permutation_scope": "Post-hoc sensitivity ablation, invalid feature/mask combinations; legal masks retain position information, not an unbiased efficacy estimate",
+  "heuristic_scope": "Existing deterministic one-ply greedy material, scored on the already inspected development set"
+}

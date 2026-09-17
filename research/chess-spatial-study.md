@@ -1,6 +1,6 @@
 # Board-aware recurrent chess study
 
-The first OpenJev chess pilot produced weak policies. Its synthetic circuit matched Stockfish on 14.36% of development positions, and its topology criterion failed. A post-hoc diagnostic found that most choices barely changed when board inputs were shuffled while legal menus were preserved. This motivates improving the representation before making further topology claims.
+The first OpenJev chess pilot produced weak policies. Its synthetic circuit matched Stockfish on 14.36% of development positions, and its topology criterion failed. A [post-hoc diagnostic](../evidence/chess-student-v1/posthoc-diagnostic/report.md) found that most choices barely changed when board inputs were shuffled while legal menus were preserved. This motivates improving the representation before making further topology claims.
 
 ## Question
 
