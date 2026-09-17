@@ -5,18 +5,23 @@ from pathlib import Path
 import pytest
 
 
-def analysis_module(monkeypatch):
+def analysis_module(monkeypatch, name):
     monkeypatch.syspath_prepend(str(Path(__file__).resolve().parents[1]/'research'))
-    return importlib.import_module('analyze_cadence_doom')
+    return importlib.import_module(name)
 
 
+@pytest.mark.parametrize('module_name', ['analyze_cadence_doom','analyze_event_cadence_doom','analyze_portable_head_doom'])
 @pytest.mark.parametrize(('candidate_kills','expected'), [(5,True),(3,False)])
-def test_confirmation_requires_utility_gain_and_kill_noninferiority(tmp_path, monkeypatch, candidate_kills, expected):
-    module = analysis_module(monkeypatch)
+def test_confirmation_requires_utility_gain_and_kill_noninferiority(tmp_path, monkeypatch, candidate_kills, expected, module_name):
+    module = analysis_module(monkeypatch, module_name)
     protocol = json.loads((Path(__file__).resolve().parents[1]/'research/protocols/cadence-doom-v1.json').read_text())
     protocol.update(confirmation_seeds=[81000,81001,81002], bootstrap_draws=100)
     rows = []
-    arms = ['selected','rules','matched_no_rest','command_rest1','history_map']
+    arms = ['selected','rules','command_rest1','history_map']
+    if module_name == 'analyze_portable_head_doom':
+        arms += ['original_ensemble','rule_event','selected_no_gate']
+    else:
+        arms += ['ammo_only','hit_only'] if module_name == 'analyze_event_cadence_doom' else ['matched_no_rest']
     for scenario in protocol['confirmation_scenarios']:
         for seed in protocol['confirmation_seeds']:
             for arm in arms:
