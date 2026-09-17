@@ -1,0 +1,177 @@
+{
+  "policies": {
+    "OpenJev circuit": {
+      "kind": "chess_student",
+      "checkpoint_path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/runs/chess-student-v1/execution/circuit-17/weights.pt",
+      "expected_training_plan_sha256": "b798fc8a421a6e72479085b990c8439b9069d915ff0cd8c888151ff440e70d45",
+      "mode": "circuit",
+      "seed": 17,
+      "threads": 2,
+      "device": "cpu"
+    },
+    "ChessFly direct": {
+      "kind": "chessfly",
+      "asset_dir": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/runs/chessfly-source-audit/assets",
+      "threads": 2
+    },
+    "ChessLFM direct": {
+      "kind": "lfm",
+      "model_path": "/Users/kevinwu/.cache/huggingface/hub/models--mlabonne--LFM2.5-230M-Chess/snapshots/341bfd2ea4b696cda7d2016d4a721f27eb9cf34d",
+      "model_id": "mlabonne/LFM2.5-230M-Chess",
+      "revision": "341bfd2ea4b696cda7d2016d4a721f27eb9cf34d",
+      "threads": 2,
+      "device": "cpu"
+    },
+    "GPT-6 Astra via Codex": {
+      "kind": "astra_codex",
+      "bridge_dir": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/runs/chess-v1/astra-bridge",
+      "model_id": "gpt-6-astra",
+      "timeout_seconds": 120,
+      "warmup_calls": 0
+    },
+    "OpenJev Qwen direct": {
+      "kind": "qwen",
+      "model_path": "/Users/kevinwu/.cache/huggingface/hub/models--mlx-community--Qwen3-4B-Instruct-2507-4bit/snapshots/50d427756c6b1b2fe0c0a10f67fbda1fc8e82c1b",
+      "model_id": "mlx-community/Qwen3-4B-Instruct-2507-4bit",
+      "revision": "50d427756c6b1b2fe0c0a10f67fbda1fc8e82c1b"
+    },
+    "OpenJev GRU": {
+      "kind": "chess_student",
+      "checkpoint_path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/runs/chess-student-v1/execution/gru-17/weights.pt",
+      "expected_training_plan_sha256": "b798fc8a421a6e72479085b990c8439b9069d915ff0cd8c888151ff440e70d45",
+      "mode": "gru",
+      "seed": 17,
+      "threads": 2,
+      "device": "cpu"
+    },
+    "OpenJev rewired": {
+      "kind": "chess_student",
+      "checkpoint_path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/runs/chess-student-v1/execution/rewired-17/weights.pt",
+      "expected_training_plan_sha256": "b798fc8a421a6e72479085b990c8439b9069d915ff0cd8c888151ff440e70d45",
+      "mode": "rewired",
+      "seed": 17,
+      "threads": 2,
+      "device": "cpu"
+    },
+    "Stockfish 1000 nodes": {
+      "kind": "stockfish",
+      "engine_path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/runs/chess-inputs/stockfish/stockfish-macos-universal",
+      "nodes": 1000
+    },
+    "Greedy material": {
+      "kind": "greedy"
+    },
+    "Uniform random": {
+      "kind": "random",
+      "seed": 20260917
+    }
+  },
+  "games": [
+    {
+      "id": "game-01",
+      "white": "OpenJev circuit",
+      "black": "ChessFly direct"
+    },
+    {
+      "id": "game-02",
+      "white": "ChessFly direct",
+      "black": "OpenJev circuit"
+    },
+    {
+      "id": "game-03",
+      "white": "OpenJev circuit",
+      "black": "ChessLFM direct"
+    },
+    {
+      "id": "game-04",
+      "white": "ChessLFM direct",
+      "black": "OpenJev circuit"
+    },
+    {
+      "id": "game-05",
+      "white": "OpenJev circuit",
+      "black": "GPT-6 Astra via Codex"
+    },
+    {
+      "id": "game-06",
+      "white": "GPT-6 Astra via Codex",
+      "black": "OpenJev circuit"
+    },
+    {
+      "id": "game-07",
+      "white": "ChessFly direct",
+      "black": "ChessLFM direct"
+    },
+    {
+      "id": "game-08",
+      "white": "ChessLFM direct",
+      "black": "ChessFly direct"
+    },
+    {
+      "id": "game-09",
+      "white": "ChessFly direct",
+      "black": "GPT-6 Astra via Codex"
+    },
+    {
+      "id": "game-10",
+      "white": "GPT-6 Astra via Codex",
+      "black": "ChessFly direct"
+    },
+    {
+      "id": "game-11",
+      "white": "ChessLFM direct",
+      "black": "GPT-6 Astra via Codex"
+    },
+    {
+      "id": "game-12",
+      "white": "GPT-6 Astra via Codex",
+      "black": "ChessLFM direct"
+    },
+    {
+      "id": "game-13",
+      "white": "OpenJev circuit",
+      "black": "OpenJev Qwen direct"
+    },
+    {
+      "id": "game-14",
+      "white": "OpenJev Qwen direct",
+      "black": "OpenJev circuit"
+    },
+    {
+      "id": "game-15",
+      "white": "OpenJev circuit",
+      "black": "OpenJev GRU"
+    },
+    {
+      "id": "game-16",
+      "white": "OpenJev GRU",
+      "black": "OpenJev circuit"
+    },
+    {
+      "id": "game-17",
+      "white": "OpenJev circuit",
+      "black": "OpenJev rewired"
+    },
+    {
+      "id": "game-18",
+      "white": "OpenJev rewired",
+      "black": "OpenJev circuit"
+    }
+  ],
+  "puzzle_policies": [
+    "OpenJev circuit",
+    "ChessFly direct",
+    "ChessLFM direct",
+    "GPT-6 Astra via Codex",
+    "OpenJev Qwen direct",
+    "OpenJev GRU",
+    "OpenJev rewired",
+    "Stockfish 1000 nodes",
+    "Greedy material",
+    "Uniform random"
+  ],
+  "clock_seconds": 300,
+  "max_plies": 120,
+  "claim_draw": false,
+  "extra_sources": []
+}
