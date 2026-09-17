@@ -29,3 +29,9 @@ uv run python research/analyze_portable_head_doom.py evidence/portable-head-doom
 ```
 
 Use new output paths. Source, protocol, fitted models and run outputs are hashed. No paid API is used.
+
+## Development result
+
+The frozen selection rule chose `portable_current_event`: five four-feature logistic heads averaged into one score, followed by the fixed event-memory gate. Its minimum scenario gain was +3.520 net utility. Against rules, development differences were +3.520 utility and +2.708 kills in Center, and +7.352 utility and +1.167 kills in Line. Six candidates qualified; the original ensemble without event memory missed the Center utility threshold. Learned-history variants were not selected.
+
+[All candidate development results](../evidence/portable-head-doom-v1/development-001/selection.json). These results select a candidate; fresh confirmation must determine whether it passes the broader gate.

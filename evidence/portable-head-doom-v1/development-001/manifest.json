@@ -1,0 +1,291 @@
+{
+  "status": "completed_development",
+  "stage": "development",
+  "protocol": {
+    "id": "portable-head-doom-v1",
+    "status": "prospective-development-and-confirmation",
+    "authorization": "User explicitly requested further improvement iteration after the failed memory study. This is a new study; the old gate and conclusions remain unchanged.",
+    "hypothesis": "Removing absolute ammo/health/distance inputs may reduce transfer sensitivity; compare with ordinary averaging of the original history models and explicit observable-event gating.",
+    "arms": {
+      "rules": {
+        "head": "rules",
+        "gate": false
+      },
+      "rule_event": {
+        "head": "rules",
+        "gate": true
+      },
+      "original_ensemble": {
+        "head": "original",
+        "gate": false
+      },
+      "original_event": {
+        "head": "original",
+        "gate": true
+      },
+      "portable_current": {
+        "head": "portable_current",
+        "gate": false
+      },
+      "portable_current_event": {
+        "head": "portable_current",
+        "gate": true
+      },
+      "portable_history": {
+        "head": "portable_history",
+        "gate": false
+      },
+      "portable_history_event": {
+        "head": "portable_history",
+        "gate": true
+      }
+    },
+    "development_scenarios": [
+      "defend_the_center",
+      "defend_the_line"
+    ],
+    "development_seeds": [
+      73000,
+      73001,
+      73002,
+      73003,
+      73004,
+      73005,
+      73006,
+      73007,
+      73008,
+      73009,
+      73010,
+      73011,
+      73012,
+      73013,
+      73014,
+      73015,
+      73016,
+      73017,
+      73018,
+      73019,
+      73020,
+      73021,
+      73022,
+      73023
+    ],
+    "confirmation_scenarios": [
+      "defend_the_center",
+      "defend_the_line"
+    ],
+    "confirmation_seeds": [
+      101000,
+      101001,
+      101002,
+      101003,
+      101004,
+      101005,
+      101006,
+      101007,
+      101008,
+      101009,
+      101010,
+      101011,
+      101012,
+      101013,
+      101014,
+      101015,
+      101016,
+      101017,
+      101018,
+      101019,
+      101020,
+      101021,
+      101022,
+      101023,
+      101024,
+      101025,
+      101026,
+      101027,
+      101028,
+      101029,
+      101030,
+      101031,
+      101032,
+      101033,
+      101034,
+      101035,
+      101036,
+      101037,
+      101038,
+      101039,
+      101040,
+      101041,
+      101042,
+      101043,
+      101044,
+      101045,
+      101046,
+      101047,
+      101048,
+      101049,
+      101050,
+      101051,
+      101052,
+      101053,
+      101054,
+      101055,
+      101056,
+      101057,
+      101058,
+      101059,
+      101060,
+      101061,
+      101062,
+      101063,
+      101064,
+      101065,
+      101066,
+      101067,
+      101068,
+      101069,
+      101070,
+      101071,
+      101072,
+      101073,
+      101074,
+      101075,
+      101076,
+      101077,
+      101078,
+      101079,
+      101080,
+      101081,
+      101082,
+      101083,
+      101084,
+      101085,
+      101086,
+      101087,
+      101088,
+      101089,
+      101090,
+      101091,
+      101092,
+      101093,
+      101094,
+      101095
+    ],
+    "action_cost": 0.25,
+    "tics_per_step": 7,
+    "max_steps_per_episode": 180,
+    "net_utility_compute_cost_per_second": 1.0,
+    "selection": {
+      "minimum_development_net_gain_vs_rules": 0.5,
+      "minimum_development_kill_difference_vs_rules": -0.5,
+      "rank": "Eligible candidates must meet utility and kill thresholds against rules in both development scenarios. Choose largest minimum net-utility gain across the two scenarios; ties by arm name. Select once; no confirmation fallback."
+    },
+    "confirmation_arms": "Selected candidate, rules, original-history probability ensemble, rule with event memory, selected head with event memory disabled, and each of five preserved history_MAP policies. Matched seeds, steering, seven-tic windows and costs.",
+    "history_run": "evidence/memory-doom-v1/run-001",
+    "history_replicates": 5,
+    "primary": "Selected minus rules and selected minus the mean of the five preserved history_MAP fits in each of two scenarios.",
+    "confirmation_gate": {
+      "all_required": true,
+      "minimum_mean_net_gain": 0.5,
+      "minimum_net_interval_lower": 0.0,
+      "minimum_kill_interval_lower": -1.0,
+      "maximum_candidate_p95_decision_ms": 1.0,
+      "interval_quantiles": [
+        0.003125,
+        0.996875
+      ],
+      "interval": "99.375% two-sided paired percentile bootstrap, Bonferroni for four utility and four kill comparisons. Resample seeds and history training fits. Exploratory finite-sample evidence, not guaranteed coverage."
+    },
+    "secondary": "Matched no-rest and command-rest controls identify simpler explanations; kills, ammo used, actual engine reward, truncations, success and firing windows, total decision compute.",
+    "bootstrap_draws": 20000,
+    "bootstrap_seed": 7184026,
+    "development_schedule_seed": 98471,
+    "confirmation_schedule_seed": 98481,
+    "max_development_episodes": 384,
+    "max_confirmation_episodes": 1920,
+    "max_stage_wall_seconds": 1200,
+    "paid_api_calls": 0,
+    "claim_boundary": "Engineering comparison of feature selection, bagging and event memory. No new algorithm or Bayesian gain claim. Both scenarios used in development; fresh-seed confirmation is not unseen-task validation. Probability ensembles use five training fits, so compare against the original ensemble before attributing a gain to representation. Keep the old failed studies unchanged.",
+    "design_evidence": "Historical training is Center-only; prior confirmation showed wide between-fit variation. This follow-up is exploratory adaptation to completed studies and uses wholly new development/confirmation seeds.",
+    "training_source": "evidence/bayesian-doom-v2/run-001/trace.jsonl.gz",
+    "training": "Reuse exactly the five disjoint historical Center training replicates from memory-doom-v1, with the same issued-fire labels. Each ensemble averages the five MAP probabilities. Original ensemble uses preserved 17-feature fits. New current head has four features; new history head has eight. Same Gaussian prior precision 1 and maximum 40 Newton iterations. No new labels or weights selected by confirmation.",
+    "portable_features": "bias, visible, min(abs_aim/max(.04,.65*half_width),3), half_width; history adds previous issued-fire, previous observed-hit, capped age since issued-fire, has-previous. No absolute ammo, health or distance. This changes representation and dimensionality; it does not isolate each removed feature.",
+    "ensemble": "Mean sigmoid prediction over five fitted weight vectors, not sigmoid of the mean weights. All ensemble policies receive the same total 80 historical training episodes.",
+    "event_gate": "A one-window rest following observed ammo decrease or previous hit. Gate also requires visible target; this additional constraint is documented and matched by no-gate ensemble controls. Rule-based steering always retained."
+  },
+  "protocol_sha256": "569cb7d1a96c8af1b5f31c1b16b59b435353c26904157d4092da243fab8d5586",
+  "source_sha256": {
+    "research/portable_head_doom.py": "6a1c89a845d84ff215f44ec543b54c97ef8bae08ec4d4e7bb54a3321d0e4f52e",
+    "research/analyze_portable_head_doom.py": "0f4c60e058c5eabc4215cde03917e1fa85df0e8df0e887972f2131cdc471d7c6",
+    "src/openjev/research/portable.py": "e883b6d820d5a47fb5355071b5d54ae7dddc823cf8bde5022ebfb7ae8f195d69",
+    "research/protocols/memory-doom-v1.json": "1cfa2c308e0b32c3d6457e17aad372cba5e83ba4f10d43c6feea9743cda6dea0",
+    "src/openjev/research/event_cadence.py": "24a9038f9b8251a713860509e3d86033b77743f50a07408ec463ef7f25fd6ce4",
+    "research/memory_doom.py": "6ed4cbc033c7e9cdf873cced01ad8ce0d17c1381d7df8861cd0e7ce3c2988b93",
+    "src/openjev/research/cadence.py": "faab6841953c2380f9a6826504caa33384e0173d856d5f121fce45d5f9ba8372",
+    "src/openjev/research/memory.py": "151758b6a7493c2c31af9866257d75d3c74c46c9f4dd72483896181e7e5235b5",
+    "src/openjev/research/bayesian.py": "4c398137ac9b1d5a775a4f19c85260325077c26f945195b83ffc458cd07d6a52",
+    "src/openjev/domain.py": "8d054eb4a451baafee3b6d64d1fc806ac62ec30ef6027a93a079c1accfba5bb8",
+    "src/openjev/game.py": "019137e51990e52bab83a5a50eff9161533cbe1d533e65ccb7ae8502ade56224"
+  },
+  "platform": "macOS-26.6.1-arm64-arm-64bit",
+  "python": "3.12.13",
+  "numpy": "2.5.3",
+  "vizdoom": "1.3.0",
+  "episodes_completed": 384,
+  "selection": null,
+  "arms": {
+    "rules": {
+      "head": "rules",
+      "gate": false
+    },
+    "rule_event": {
+      "head": "rules",
+      "gate": true
+    },
+    "original_ensemble": {
+      "head": "original",
+      "gate": false
+    },
+    "original_event": {
+      "head": "original",
+      "gate": true
+    },
+    "portable_current": {
+      "head": "portable_current",
+      "gate": false
+    },
+    "portable_current_event": {
+      "head": "portable_current",
+      "gate": true
+    },
+    "portable_history": {
+      "head": "portable_history",
+      "gate": false
+    },
+    "portable_history_event": {
+      "head": "portable_history",
+      "gate": true
+    }
+  },
+  "history_receipt": {
+    "manifest_sha256": "71f9cc80a8b8f2b3112c96f55efa035ad644a96e32949d2ee27ac233a3401fda",
+    "model_hashes": {
+      "history-0.npz": "96360687d305b21e06a853ae2f8e254eab8fe200f2377bf4de14f0e9c73b9e08",
+      "history-1.npz": "6f2511acc59333e3b5643f826eaa495277316eaa7c79b4f57b5eff7b621945ae",
+      "history-2.npz": "748f7776182e84dd49fa29dbd3e3b5f46321620865638a9d68ce44f1d9fcceff",
+      "history-3.npz": "90780f3975be8f4bbd659284ca730e50518016620a6a75ba42fc27b1a9ee0f9b",
+      "history-4.npz": "ea6341afad1b674526350204a618b89083bf48bef374b05f8de7e3bd539835a7"
+    }
+  },
+  "training_source_sha256": "b9bc8f33a9a9c5fe234eea0e77354ae7d2721ae5cae600c917c1868f4ba20885",
+  "wall_seconds": 86.46396812493913,
+  "artifact_sha256": {
+    "fit-checks.json": "568250bb7f39e2ced173374bbee3a613708fc3a0b6c0f61cf70e54acddec3066",
+    "portable_current.npz": "001d3947e77107961fe71f7945143850e2567c18455afa76cfe134fa09c7fded",
+    "selection.json": "af834f3ed132290fe1c81acb8e9013344bb73a2ca5689cbb07f688d5c2508446",
+    "trace.jsonl.gz": "a8646a43427b9cb3583e226e823dc86b03c1997d08e9ddc78fd4dd938386223a",
+    "portable_history.npz": "0158926de8b4a2ba63fb5dffdffde19645f9624f7fa49e88c41bad30fcf7e3b8",
+    "episodes.jsonl": "89932d1844cd3c9ef22538cc29a3fe1800234b1a3b73575a798de49eba97e83a"
+  }
+}
