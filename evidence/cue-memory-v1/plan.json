@@ -1,0 +1,97 @@
+{
+  "protocol": {
+    "version": "cue-memory-v1",
+    "seeds": [
+      61,
+      73,
+      89
+    ],
+    "arms": [
+      "current_ppo",
+      "recurrent_ppo",
+      "reward_prediction",
+      "world_prediction"
+    ],
+    "train_size": 11,
+    "eval_sizes": [
+      11,
+      17,
+      23
+    ],
+    "view_size": 7,
+    "max_steps": 128,
+    "environments": 16,
+    "rollout": 64,
+    "updates": 512,
+    "epochs": 2,
+    "minibatch_envs": 8,
+    "hidden": 64,
+    "learning_rate": 0.0003,
+    "gamma": 0.99,
+    "gae_lambda": 0.95,
+    "clip": 0.2,
+    "value_coefficient": 0.5,
+    "entropy_coefficient": 0.01,
+    "auxiliary_coefficient": 0.1,
+    "gradient_clip": 0.5,
+    "prediction_horizons": [
+      1,
+      2,
+      4
+    ],
+    "evaluation_episodes": 128,
+    "evaluation_seed_start": 40000000,
+    "training_seed_base": 20000000,
+    "probe_seed_start": 50000000,
+    "probe_length": 64,
+    "fit_order_seed": 91637,
+    "torch_threads": 1,
+    "evaluation_actions": "greedy_argmax",
+    "diagnostic": "zero_state_every_step",
+    "native_observation": "partial categorical image plus direction; previous action; no hidden map",
+    "episode_cap": "env.max_steps=128 changes native reward denominator; not reward shaping",
+    "selection": "final snapshot only; all three training seeds; no tuned selection",
+    "continuation": {
+      "candidate": "world_prediction",
+      "same_size_success_minimum": 0.8,
+      "minimum_gain_each_size_vs_each_control": 0.05,
+      "controls": [
+        "recurrent_ppo",
+        "reward_prediction"
+      ]
+    },
+    "claim": "Cue-visible development diagnostic; not independent confirmation, Astra training or novelty",
+    "start_intervention": "After native map generation: center row, x=1, facing east; no other change",
+    "additional_evaluations": [
+      "cue_swapped",
+      "native_start"
+    ],
+    "cue_swapped": "Exchange cue key/ball after reset; preserve original stored reward goal and branch objects",
+    "memory_diagnostic": {
+      "candidate": "recurrent_ppo",
+      "same_size_success_minimum": 0.8,
+      "each_fit_same_size_success_minimum": 0.7,
+      "same_size_gain_vs_current_minimum": 0.2,
+      "same_size_drop_on_reset_minimum": 0.2
+    }
+  },
+  "source_hashes": {
+    "scripts/recurrent_world_study.py": "bb3c3464915155dd381fe4b839a6e2241238a418bbae242edbbbdeadc6f5cfe1",
+    "src/openjev/research/predictive_memory.py": "ae851d5aa715c6adb73374d663d6aae0817aea0f1c9e7c9e1f513204706a60aa",
+    "src/openjev/research/memory_env.py": "4e3c613984b2f1e4ced3a2d24f074e087eb201fe4bff9014559b7d15cb3e4c49",
+    "scripts/cue_memory_study.py": "ad9ce2622bc9fcc1510a0fab0f3e2d4573e1bb71966a73612e363d039045b035",
+    "src/openjev/research/cue_memory_env.py": "a7b4ce334e9808e52a8e13d85a981746af64767372b5ceac7c67936d4d5c442c",
+    "tests/test_cue_memory_env.py": "698b6c6162393e842767a2cb9363f782d96cfa356851f3eaa626768fa5754812",
+    "tests/test_cue_memory_study.py": "1a46c018fd4772694d0db0879593fb572fbc095d2ef9e1dc70ed769dbde23449"
+  },
+  "environment_source_sha256": "d208b6b0cfb20a8ed00d55a0ea6012697f2a0da0e54e4da7d8378eb1da52df8c",
+  "dependencies": {
+    "torch": "2.14.0",
+    "numpy": "2.5.3",
+    "gymnasium": "1.3.0",
+    "minigrid": "3.0.0"
+  },
+  "python": "3.12.13",
+  "platform": "macOS-26.6.1-arm64-arm-64bit",
+  "lock_sha256": "833d01b398f7dae71fd3c565c3dbb05c87b337aac7917d7f0ccf3eef01ba1e0e"
+}
