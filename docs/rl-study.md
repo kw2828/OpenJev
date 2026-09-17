@@ -22,3 +22,8 @@ uv run --extra rl python research/analyze_rl_doom.py evidence/rl-doom-v1/confirm
 ```
 
 Use new output paths. No paid API calls. A hard 30-minute wall limit bounds each stage; partial or failed stages cannot establish efficacy. The development budget is 294,912 interactions plus 528 evaluation episodes. Confirmation is at most 1,536 episodes. Protocol, code, runtime versions, final checkpoints, logs and compressed traces are preserved with hashes.
+
+
+## Simple-control addendum
+
+While training was running, before any development evaluations, we separately froze [two diagnostic policies](../research/protocols/rl-doom-v1-simple-controls.json): always fire and alternating fire/wait. They use the same rule steering and hard constraints. They test whether any learned advantage has a trivial firing-pattern explanation. They do not modify the main protocol, family selection, or primary confirmation gate. Each completed stage can run these controls on its same game seeds, with separate traces and receipts. A positive primary gate alone would not establish a nontrivial learned mechanism if these controls explain the result.

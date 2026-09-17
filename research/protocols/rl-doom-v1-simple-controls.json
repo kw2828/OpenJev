@@ -1,0 +1,17 @@
+{
+  "id": "rl-doom-v1-simple-controls",
+  "status": "prospective_diagnostic_addendum",
+  "parent_protocol": "research/protocols/rl-doom-v1.json",
+  "arms": [
+    "always_fire",
+    "alternating_fire"
+  ],
+  "actions": "Always issue fire, or alternate fire/wait starting with fire. Both retain the exact rule steering and hard no-ammo/pacifist constraints. Reset step parity per episode.",
+  "design_timing": "Added after main training started but before any development evaluation results were available. Frozen main protocol, sources, selection and primary gate remain unchanged.",
+  "reason": "A learned firing controller could improve rules by learning a trivial firing pattern. These explicit simple policies bound that interpretation.",
+  "seeds": "Exactly the completed parent development or confirmation seeds; no additional model fitting or selection.",
+  "max_episodes_per_run": 384,
+  "max_wall_seconds": 300,
+  "schedule_seed": 89351,
+  "claim_boundary": "Additional descriptive controls, outside the original primary comparison family. They cannot rescue or change the frozen gate. A gain over rules alone cannot establish a nontrivial learned mechanism if these controls explain it."
+}
