@@ -1,0 +1,23 @@
+# ChessBench transfer check
+
+Status: adapter, evaluator and runner implemented; 176 synthetic tests pass. Source bytes were acquired without decoding records. No benchmark model evaluation has run. The executable plan will be frozen after candidate-v2 is completed and published, which the runner requires. This is a separate proposed transfer panel, not an amendment to the candidate study's success criteria.
+
+The [official ChessBench repository](https://github.com/google-deepmind/searchless_chess/tree/90ae0e6b121673fc3079aaeffa047580bb600c0a) supplies a behavioral-cloning test file containing FEN and target move. Its annotations come from Stockfish 16. The project describes mixed CC0/CC-BY-4.0 dataset licensing. Our acquired file is 4,351,421 bytes, SHA-256 `fc1d27fc98baae3a7f15fee85439b499f4a6f1815dffde26d047a77f02cc50b1`; the download receipt retains its URL and server metadata. Source code revision and data hash are separate identities because the hosted data URL is not a Git object.
+
+The purpose is to measure transfer away from our engine-rollout generator. Agreement with the supplied move is neither winning probability nor Elo; another strong move can disagree with a single reference label. This file has no supplied candidate score distribution or per-position value target, so this check must not report engine regret, value MAE or calibrated win probabilities from it.
+
+## Prospective comparison
+
+Before decoding data or producing model predictions, freeze a separate executable protocol and tests. Require the candidate-v2 execution to have completed, then bind all twelve final checkpoint hashes without selecting a seed or model. Record every historical position exposure, including the completed candidate study, and reject any benchmark root or legal successor that overlaps prior natural or mirrored states. Preserve all exclusions and source row indices.
+
+Exclude automatic terminal positions detectable from the supplied FEN, including insufficient material and the 75-move rule; repetition history is unavailable. Select 4,096 eligible, root/mirror-unique positions using a label-independent hash order with seed 11400001. Candidate successors may overlap within this evaluation panel, as in the candidate study. No source-game IDs are supplied, so do not invent independent game-cluster intervals. If the fixed source cannot supply the quota, report that outcome without changing the sampler or supplementing the file.
+
+Evaluate the same panel once for all four architectures and all three seeds. Report target-move agreement, legal-menu negative log likelihood, and paired agreement differences against the direct and action-only controls. Retain per-row predictions and per-seed results, including disagreement cases and failures. Do not turn the best seed into the headline. If timing is measured, do so after the main experiment has finished and include native legal-move and successor construction.
+
+This panel is public. It is not a sealed challenge set, and the training exposure of external pretrained models is unknown. Results from our locally trained models can establish measured transfer under the documented exclusions; they cannot establish universal unseen-data performance or architectural novelty. The current candidate study's engine-loss and arena gates stay unchanged regardless of this result.
+
+## Implementation
+
+[Strict data adapter](../src/openjev/research/chessbench_data.py) · [Policy evaluator](../src/openjev/research/chessbench_eval.py) · [Study runner](../scripts/chessbench_transfer_study.py). Tests use synthetic files and boards, not benchmark labels. The evaluator retains ordered legal moves and raw logits so the report can reproduce probabilities and NLL without another forward pass. Its report also checks the actual checkpoint tensors, model identity, input hashes and native computation counts.
+
+The runner requires the completed candidate-v2 publication before `prepare`. Preparation binds opaque input bytes, all twelve checkpoint hashes, source files, dependencies and a compressed prior-exposure snapshot. It does not decode benchmark records. `run` then makes one fixed selection and records every model result. `report` reconstructs that selection and saved-output arithmetic. All three commands create new directories and retain failures; execution output should go to a regular log file outside those directories.
