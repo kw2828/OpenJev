@@ -10,9 +10,11 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 LABELS={'ppo_current':'PPO current','ppo_history':'PPO history','dqn_history':'DQN history',
-        'rules':'Rules','rule_event':'Rules + event memory'}
+        'rules':'Rules','rule_event':'Rules + event memory','always_fire':'Always fire',
+        'alternating_fire':'Alternate fire/wait','visible_fire':'Visible-target fire'}
 COLORS={'ppo_current':'#346c9c','ppo_history':'#3a8b65','dqn_history':'#9d6539',
-        'rules':'#777777','rule_event':'#ad4144'}
+        'rules':'#777777','rule_event':'#ad4144','always_fire':'#8860a6',
+        'alternating_fire':'#9974b0','visible_fire':'#ae866e'}
 
 
 def main():
@@ -20,8 +22,14 @@ def main():
     ap.add_argument('analysis',type=Path)
     ap.add_argument('--prefix',type=Path,required=True)
     ap.add_argument('--training',type=Path)
+    ap.add_argument('--controls',type=Path)
     args=ap.parse_args()
     data=json.loads(args.analysis.read_text())
+    if args.controls:
+        controls=json.loads(args.controls.read_text())
+        for scenario,values in controls.items():
+            for arm,row in values.items():
+                data['summary'][scenario][arm]={**row,'per_fit_kills':[row['kills']]}
     stage='Confirmation' if 'confirmation_passed' in data else 'Development screen'
     fig,axes=plt.subplots(2,2,figsize=(11,7.8),layout='constrained')
     for row,(scenario,values) in enumerate(data['summary'].items()):
@@ -42,7 +50,7 @@ def main():
             for spine in ('top','right'):
                 ax.spines[spine].set_visible(False)
     chosen=data['selection']['selected']
-    status=(('full gate passed' if data['confirmation_passed'] else 'full gate failed') if 'confirmation_passed' in data
+    status=(('primary gate vs event rules passed' if data['confirmation_passed'] else 'primary gate vs event rules failed') if 'confirmation_passed' in data
             else (f'selected {LABELS[chosen]}' if chosen else 'no family qualified'))
     fig.suptitle(f'OpenJev RL | {stage}: {status}',fontsize=14)
     footer = ('Fresh confirmation seeds; all selected training fits retained.' if 'confirmation_passed' in data
@@ -65,7 +73,7 @@ def main():
             ax.set_title(LABELS[arm]);ax.set_xlabel('Training interactions');ax.grid(alpha=.2)
         axes[0].set_ylabel('Kills per episode: trailing 20 mean')
         axes[-1].legend(fontsize=8)
-        fig.suptitle('Center training only | on-policy exploration differs across algorithms')
+        fig.suptitle('Center training only | training behavior differs across algorithms')
         for ext in ('png','svg','pdf'):
             fig.savefig(args.prefix.parent/f'learning-curves.{ext}',dpi=180)
 
