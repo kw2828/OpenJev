@@ -1,0 +1,145 @@
+{
+  "format": "openjev-chess-mate-arena-v1",
+  "training_plan": {
+    "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/evidence/chess-mate-v1/plan.json",
+    "sha256": "ebbe1ec7b4176c88912e73f327ed410ba1259e91c61652a00381d0a0519b0a90"
+  },
+  "training_execution": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/runs/chess-mate-v1/execution",
+  "originals": {
+    "frozen_predict17": {
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/models/chess-spatial-v1/predict-17/weights.pt",
+      "sha256": "63538cd8682a6fd114d5c309086b87d4b70cbc9c911c9122507bb05f310758cc",
+      "mode": "predict",
+      "seed": 17,
+      "training_plan_path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/evidence/chess-spatial-v1/plan.json",
+      "training_plan_sha256": "4c76d5ef33df5fdd31956bc34c2b3f591a6b46e3be49c2b92a5b610e201c25af"
+    },
+    "cnn17": {
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/models/chess-spatial-v1/cnn-17/weights.pt",
+      "sha256": "86bbd8d43489d8d55b823e52645f973b8183cf05aab151a2147911983aacdb7c",
+      "mode": "cnn",
+      "seed": 17,
+      "training_plan_path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/evidence/chess-spatial-v1/plan.json",
+      "training_plan_sha256": "4c76d5ef33df5fdd31956bc34c2b3f591a6b46e3be49c2b92a5b610e201c25af"
+    }
+  },
+  "sources": {
+    "scripts/chess_mate_arena.py": "e8079f2c9237ca0eb782c1dc5c8f84221917b5e6cc1ab7ba47b75b8e873c82e6",
+    "tests/test_chess_mate_arena.py": "2c91e839a1c7865f4c200276609961738fe23a1771de3ff7a562595dc8a60aae",
+    "scripts/chess_spatial_arena.py": "6e69d6f09dfff0f69d8d7a717d2082d209396d34ce3fa9b8e6769691f0784a4e",
+    "src/openjev/research/chess_arena.py": "a9a5be6ccb982d2c43b4365a0f0e9dd68c3a8c4fb11ea8c5cf950076b7046702",
+    "src/openjev/research/chess_compute.py": "a1ec1a4618a92b4dc37a9a8f510f5f37ba45081e9e0db0d89714c689f88f537f",
+    "src/openjev/research/chess_spatial.py": "49e6e53d33cd52511c0e4a08074b9a7f0dc2244727df2879f3fb7fd1aa886ab4",
+    "src/openjev/research/chess_student.py": "4792d923bde61af847e7d1d1affe329bd74c225e57feb4f777c3727d670c0d70",
+    "pyproject.toml": "64436d48af2351450b9dc774f601091fa2a8b6c87d743088a3d26baa5d459aba",
+    "uv.lock": "833d01b398f7dae71fd3c565c3dbb05c87b337aac7917d7f0ccf3eef01ba1e0e"
+  },
+  "dependencies": {
+    "chess": "1.11.2",
+    "torch": "2.14.0",
+    "numpy": "2.5.3"
+  },
+  "python": "3.12.13",
+  "platform": "macOS-26.6.1-arm64-arm-64bit",
+  "protocol": {
+    "initial_fen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+    "clock_seconds": 300.0,
+    "max_plies": 160,
+    "claim_draw": false,
+    "device": "cpu",
+    "torch_threads": 2,
+    "model_seed": 17,
+    "depth": 4,
+    "games": [
+      {
+        "id": "game-01",
+        "white": "frozen_predict17",
+        "black": "greedy_material"
+      },
+      {
+        "id": "game-02",
+        "white": "greedy_material",
+        "black": "frozen_predict17"
+      },
+      {
+        "id": "game-03",
+        "white": "frozen_predict17",
+        "black": "cnn17"
+      },
+      {
+        "id": "game-04",
+        "white": "cnn17",
+        "black": "frozen_predict17"
+      },
+      {
+        "id": "game-05",
+        "white": "single17",
+        "black": "greedy_material"
+      },
+      {
+        "id": "game-06",
+        "white": "greedy_material",
+        "black": "single17"
+      },
+      {
+        "id": "game-07",
+        "white": "single17",
+        "black": "cnn17"
+      },
+      {
+        "id": "game-08",
+        "white": "cnn17",
+        "black": "single17"
+      },
+      {
+        "id": "game-09",
+        "white": "set17",
+        "black": "greedy_material"
+      },
+      {
+        "id": "game-10",
+        "white": "greedy_material",
+        "black": "set17"
+      },
+      {
+        "id": "game-11",
+        "white": "set17",
+        "black": "cnn17"
+      },
+      {
+        "id": "game-12",
+        "white": "cnn17",
+        "black": "set17"
+      },
+      {
+        "id": "game-13",
+        "white": "guarded_frozen_predict17",
+        "black": "greedy_material"
+      },
+      {
+        "id": "game-14",
+        "white": "greedy_material",
+        "black": "guarded_frozen_predict17"
+      },
+      {
+        "id": "game-15",
+        "white": "guarded_frozen_predict17",
+        "black": "cnn17"
+      },
+      {
+        "id": "game-16",
+        "white": "cnn17",
+        "black": "guarded_frozen_predict17"
+      }
+    ],
+    "illustrative_game": "game-01",
+    "additional_illustration": "game-09",
+    "illustration_selection": "game-01 is the first frozen-reference game; game-09 is the first set-model game. Both fixed before outcomes, every accepted move.",
+    "illustration_caption": "Predetermined development game, not a best game or strength estimate. Learned policies use depth4; the guarded reference explicitly checks native mate-in-one.",
+    "timing": "CPU policy call wall time includes board/candidate processing and any explicit mate scan; model load excluded; no warmups",
+    "scope": "Small deterministic development arena, not Elo, an independent strength confirmation or a model ranking",
+    "warmups": 0,
+    "retries": 0,
+    "fallback": null
+  }
+}
