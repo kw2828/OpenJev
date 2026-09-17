@@ -30,4 +30,16 @@ No paid API calls or new model-weight training are used. The fixed history model
 
 The fixed combined-event policy qualified on the 24 development seeds per scenario. Mean utility rose from 2.729 to 3.521 in Center and from 14.042 to 19.865 in Line, with identical kills to rules in each paired episode. Ammo-only matched the combination in Center; hit-only matched it in Line. The command-rest control reached 22.646 utility in Line, showing that a simpler schedule remains a strong competitor. These are development comparisons, not confirmation.
 
-[Full development result](../evidence/event-cadence-doom-v1/development-001/selection.json). Confirmation is running under the frozen protocol.
+[Full development result](../evidence/event-cadence-doom-v1/development-001/selection.json). Confirmation has completed under the frozen protocol.
+
+## Confirmation result
+
+The combined-event controller improved net utility over rules by **+0.823 in Center** (99.375% interval [0.643, 1.025]) and **+5.435 in Line** ([4.812, 6.070]). Kills were identical to rules in all 192 paired episodes. This confirms fewer costly, unproductive commands at the tested horizon, rather than more kills or demonstrated per-shot accuracy.
+
+The full gate still failed. Against the history-model bank, net-utility intervals included zero in both scenarios, and the kill noninferiority checks did not pass. Center mean kills were 1.221 below the historical-model mean. Neither secondary results nor the gain over rules overrides this outcome.
+
+![Combined-event confirmation](../evidence/event-cadence-doom-v1/confirmation-contrasts.png)
+
+[Full analysis](../evidence/event-cadence-doom-v1/analysis-001.json) · [Confirmation manifest](../evidence/event-cadence-doom-v1/confirmation-001/manifest.json) · [Portable-head and ensemble follow-up](portable-head-study.md).
+
+Intervals are adjusted within this study, not across the complete adaptive research sequence. Lightweight coding and reporting occurred concurrently; timing remains a workstation screen.

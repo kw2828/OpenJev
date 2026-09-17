@@ -37,7 +37,12 @@ def main():
             ax.spines[['top','right']].set_visible(False)
             ax.grid(axis='x',alpha=.15)
     result = 'passed' if data['confirmation_passed'] else 'not met'
-    fig.suptitle(f"{data['selected']}: confirmation gate {result}",fontsize=14)
+    labels = {'ammo_rest1':'Ammo-triggered rest','combined_rest1':'Combined event memory',
+              'portable_history_event':'Portable history + events','portable_current_event':'Portable current state + events',
+              'original_event':'Original history ensemble + events','original_ensemble':'Original history ensemble',
+              'portable_history':'Portable history ensemble','portable_current':'Portable current-state ensemble',
+              'rule_event':'Rules + event memory'}
+    fig.suptitle(f"{labels.get(data['selected'], data['selected'])}: confirmation gate {result}",fontsize=14)
     fig.text(.5,.025,'96 fresh paired seeds per scenario; five preserved history fits. 99.375% paired bootstrap intervals.\n'
              'Require utility gain and kill noninferiority in both scenarios. Decision compute excludes engine and I/O.',
              ha='center',fontsize=9)
