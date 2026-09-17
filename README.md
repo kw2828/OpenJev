@@ -2,19 +2,19 @@
 
 **Context → questions and candidate answers → probabilities → your application's next step.**
 
-OpenJev scores choices you define at request time. Use it for text routing, bounded decisions and a local Doom demo. Candidate IDs stay stable, so your application can use the result directly.
+Score choices you define at request time, with stable candidate IDs. Explore text decisions in your browser and locally trained policies playing Doom.
 
-[**Try the browser demo**](https://kw2828.github.io/OpenJev/) · [API](docs/decision-api.md) · [Benchmarks](docs/benchmarks.md) · [Detailed reference](docs/project-reference.md)
+[**Try the demo**](https://kw2828.github.io/OpenJev/) · [API examples](docs/decision-api.md) · [Benchmarks](docs/benchmarks.md) · [Setup and project reference](docs/project-reference.md)
 
 ## See it work
 
 ![Local Doom policy trained with V-JEPA 2 rewards](docs/assets/jepa-policy-181000.gif)
 
-First training fit, first evaluation seed: **13 kills in 19.26 game seconds**. JEPA scored training clips; a small policy controls this recorded game. [Recording receipt](docs/assets/jepa-policy-181000.json).
+**13 kills in 19.26 game seconds**, first fit and first evaluation seed. JEPA scored training clips; a small policy plays this recorded game. [Recording receipt](docs/assets/jepa-policy-181000.json).
 
-[![OpenJev browser decision playground](docs/assets/browser-playground.png)](https://kw2828.github.io/OpenJev/)
+[![Browser decision playground before loading its model](docs/assets/browser-playground.png)](https://kw2828.github.io/OpenJev/)
 
-The free browser playground runs Qwen3-0.6B locally through WebGPU. The screenshot shows its initial state before loading. Browser inference and the recorded Doom policy are separate models.
+The free browser demo runs Qwen3-0.6B through WebGPU. It is separate from the Doom policy and the research students below.
 
 ## Run locally
 
@@ -28,33 +28,24 @@ uv run --extra language openjev setup
 uv run --extra language openjev serve
 ```
 
-Open **http://127.0.0.1:8000**. The Mac text scorer uses a pinned Qwen3-4B model. For Linux/Docker and free hosting options, see [deployment instructions](docs/hosting.md).
+Open **http://127.0.0.1:8000**. Local text scoring uses Qwen3-4B. [Linux, Docker and hosting](docs/hosting.md).
 
-Score a request without starting the server:
+## Train a text model with Astra
 
-```sh
-uv run --extra language openjev decide examples/support.json
-```
+Astra selects answers for training examples; a small MiniLM student learns to score candidate answers. The frozen pilot uses **BoolQ yes/no questions and CLINC domain routing**, with 128 teacher requests and a $20 ceiling. Evaluation labels stay out of teacher requests.
 
-Supply a context, a question and 2-12 candidates. Receive the selected ID and probabilities for every candidate. [Request and response examples](docs/decision-api.md).
+**Awaiting API credentials.** Gold-label controls are complete; no Astra-trained result exists yet. [Training commands, controls and evaluation plan](docs/text-distillation.md).
 
-## What we have measured
-
-- **Text routing:** **95.35% development accuracy** on 150 intents; the small recurrent gain failed our continuation rule. [Study](docs/corrective-associative-study.md) · [Astra teacher training, awaiting API access](docs/text-distillation.md).
-- **Text reasoning:** a 225-parameter rule operator reaches 100% on 949 fresh development questions with explicit English parsing and entity binding. A fixed logical solver matches it. [Results, limits and runnable model](docs/bound-rule-study.md).
-- **Doom:** history-PPO improved Center combat in a frozen comparison. On Line, learned policies matched always-fire. [PPO/DQN study](docs/rl-study.md).
-- **JEPA + RL:** 27 fits and 992 evaluation episodes. Pretrained JEPA had the highest Center mean, **12.40 kills**, but did not establish a reliable advantage over GRPO or pixel similarity. [Full comparison](docs/jepa-rl-study.md).
+## Research results
 
 ![Entity-bound rule reasoning and fixed logical controls](evidence/bound-rules-v1/development.png)
 
-Three fits per learned condition; controlled grammar and supplied logical operations. Six steps fail longer chains; sixteen solve the constructed cases. [Earlier shortcut audit](docs/rule-crossencoder-study.md).
+- **Text routing:** 95.35% development accuracy on 150 intents. The recurrent gain fell below our continuation threshold. [Study](docs/corrective-associative-study.md).
+- **Rule reasoning:** a 225-parameter operator scores 100% on 949 new development questions using a restricted English parser. A fixed logical solver matches it; novelty is unproven. [Study and runnable model](docs/bound-rule-study.md).
+- **Doom:** history-PPO improved Center combat. JEPA + RL reached 12.40 mean Center kills without establishing an advantage over GRPO or pixel similarity; Line policies matched always-fire. [PPO/DQN](docs/rl-study.md) · [JEPA + RL](docs/jepa-rl-study.md).
 
-[All charts and earlier results](docs/benchmarks.md) · [Paper draft](output/pdf/openjev-rl-paper.pdf) · [LaTeX](paper/README.md)
+[All charts and limitations](docs/benchmarks.md) · [Paper draft](output/pdf/openjev-rl-paper.pdf) · [LaTeX](paper/README.md)
 
-## Limits
+Scores are uncalibrated and relative to the supplied choices. Doom uses structured observations and restricted controls. [Model card](docs/language-model-card.md) · [Research notes](docs/research.md).
 
-Scores are **uncalibrated probabilities relative to your supplied choices**, not guarantees of correctness. General text scoring uses a pretrained transformer; the rule operator uses a restricted grammar. Doom policies use structured game observations and restricted controls. See the [text model card](docs/language-model-card.md) and [research notes](docs/research.md).
-
-OpenJev is independent of [TypeSafe Jev](https://typesafe.ai/blog/introducing-system-one-models-and-jev), [zhihz/openjev](https://github.com/zhihz/openjev) and [openjev.com](https://openjev.com/). It does not reproduce proprietary RLCD or claim a new RL algorithm.
-
-MIT license for this project's code and original trained weights. Third-party models, datasets and game assets retain their own licenses. [Detailed setup, tests and project map](docs/project-reference.md).
+Independent of [TypeSafe Jev](https://typesafe.ai/blog/introducing-system-one-models-and-jev), [zhihz/openjev](https://github.com/zhihz/openjev) and [openjev.com](https://openjev.com/). No proprietary RLCD reproduction or new RL algorithm is claimed. MIT for project code and original weights; third-party licenses still apply.
