@@ -1,6 +1,6 @@
 # Do associative stores help autonomous reward learning?
 
-**Status: protocol prepared; no scored RL result yet.** The [supervised diagnostic](associative-learnability.md) established that both global and selective stores can retain a useful cue along forced routes. It did not train navigation or establish a selective-writing advantage. This study tests autonomous PPO from fresh initialization.
+**Status: running; no scored RL result yet.** The protocol and sources were frozen in `34970a9` before execution. The [supervised diagnostic](associative-learnability.md) established that both global and selective stores can retain a useful cue along forced routes. It did not train navigation or establish a selective-writing advantage. This study tests autonomous PPO from fresh initialization.
 
 ## Matched comparison
 

@@ -6,9 +6,11 @@ These figures visualize existing development evidence. No new model training or 
 
 ## Recurrent world models
 
+![Learned associative memory and matched controls](../evidence/associative-candidate-v1/associative-candidate.png)
+
 ![Four-context supervised loss and memory-path diagnostic](../evidence/memory-optimization-v1/memory-optimization.png)
 
-The initial seven-action supervised check failed across four memory architectures. A separate factorial diagnostic found that training over the two relevant candidates solves the four training examples, while ordinary recurrence remains unreliable on longer routes. Explicitly caching the first state is a working endpoint-memory control. These are supervised diagnostics, not gameplay or unseen-task scores. [Both protocols, all fits and interpretation](associative-learnability.md).
+The initial seven-action supervised check failed across four memory architectures. A separate factorial diagnostic found that training over the two relevant candidates solves the four training examples, while ordinary recurrence remains unreliable on longer routes. With the corrected objective, both associative stores reach 100% at every length and fall to 50% under store-only resets. Selective writes tie global writes and fail the superiority gate. These are four-context supervised diagnostics, not gameplay or unseen-task scores. [Protocols, all fits and interpretation](associative-learnability.md).
 
 ![Cue-visible task and paired memory interventions](../evidence/cue-memory-v1/cue-memory-results.png)
 

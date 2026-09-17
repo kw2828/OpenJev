@@ -57,9 +57,30 @@ A post-hoc audit of the recursive two-candidate fits found **nine errors among 2
 
 This is a descriptive audit of these reused contexts, not a calibrated gate evaluation. It motivates testing memory-sensitive signals alongside entropy when investigating adaptive computation. [Saved-probability audit](../evidence/memory-optimization-v1/confidence-audit.json).
 
+## Learned associative memory with the corrected objective
+
+The next comparison changes only the supervised loss from seven-action normalization to the two turn candidates for all four architectures. It keeps the original data, initialization, seeds, 500-update budget and optimizer, trains all 12 fits afresh, and evaluates every final checkpoint. The protocol and continuation rule were frozen in `656b645` before training.
+
+![Associative memory accuracy, store resets and conditional loss](../evidence/associative-candidate-v1/associative-candidate.png)
+
+| Architecture | Size 11 | Size 17 | Size 23 | Size 23, store reset |
+| --- | ---: | ---: | ---: | ---: |
+| GRU | 100% | 75.00% | 50% | 50% |
+| + feedforward adapter | 100% | 83.33% | 50% | 50% |
+| + global associative writes | 100% | 100% | 100% | 50% |
+| + selective associative writes | 100% | 100% | 100% | 50% |
+
+Both associative stores succeed on every fit and length. Clearing the matrix before each observation, while preserving the GRU, reduces their accuracy to 50%. The global store's mean conditional loss at size 23 is **0.000926 nats**; the selective store's is **0.0000203 nats**. Seven-action and two-candidate argmax accuracies agree in these recorded results, but the models have only been trained to choose a final turn after forced navigation.
+
+The GRU controls reproduce the factorial's recursive two-candidate checkpoints exactly. The feedforward control's three fits score **100/75/50**, **100/100/50**, and **100/75/50** across the sizes, giving the means above. Twelve new fits completed 6,000 optimizer updates in **12.46 measured local CPU seconds**.
+
+**The selective-writing continuation rule failed.** Every other criterion passed, but selective writes did not beat global writes by the required 25 percentage points on the longest route. Their lower conditional loss is a descriptive difference, not a replacement success criterion. These results support usable associative storage in this small task; they do not establish a need for input-dependent write strength or novel architecture.
+
+[Frozen candidate plan](../evidence/associative-candidate-v1/plan.json) · [All candidate results and gates](../evidence/associative-candidate-v1/summary.json) · [GRU reproduction receipt](../evidence/associative-candidate-v1/gru-reproduction.json) · [Prediction replay and figure receipt](../evidence/associative-candidate-v1/associative-candidate-figures.json)
+
 ## What this changes next
 
-Use the candidate-conditioned objective to compare all four associative architectures before spending a larger RL budget. Require confident success across every fit, longer-route retention, and a meaningful store-only reset effect. Selective writes must outperform both global writes and the extra-capacity control before attributing a benefit to selectivity.
+The simple global-write store is now a working retention baseline. A separately frozen [autonomous PPO comparison](associative-ppo-study.md) is running from fresh initialization with all seven native actions. It has no scored results yet. Any later selective-writing claim must still beat global writes and extra capacity under matched training and evaluation.
 
 Solving these four contexts is a prerequisite, not the project goal. A useful policy still needs autonomous navigation, matched gameplay controls, new scenarios and a second environment. A loss change or a fixed first-frame cache alone is not an ICLR novelty claim.
 
@@ -74,6 +95,9 @@ Use the environment and pinned dependencies recorded in each plan. The research 
 .venv/bin/python scripts/memory_optimization_diagnostic.py run \
   --plan evidence/memory-optimization-v1/plan.json \
   --out runs/memory-optimization-reproduction
+.venv/bin/python scripts/associative_candidate_diagnostic.py run \
+  --plan evidence/associative-candidate-v1/plan.json \
+  --out runs/associative-candidate-reproduction
 ```
 
 Local timing includes concurrent development work and is not an isolated systems benchmark. Repeated optimizer exposure to four examples does not increase the number of unique training contexts.
