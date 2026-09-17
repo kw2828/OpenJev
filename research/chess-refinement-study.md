@@ -39,4 +39,13 @@ The narrow skill gate requires a 20-point mean mate-accuracy gain over the froze
 
 [Prior recurrent-network work](https://arxiv.org/abs/2202.05826) studies extra computation and overthinking. [Large-scale chess distillation](https://arxiv.org/abs/2402.04494) already studies policy, action-value and state-value models. These pilots should identify a concrete failure that a later architectural experiment can address, rather than claim novelty from combining known parts.
 
-Status: implementation and pre-run validation. Results will be appended after the frozen runs finish.
+## Completed results
+
+Both frozen runs completed without retries. [Results and model loading](../docs/chess-refinement.md) provide the complete tables and released checkpoints.
+
+- Extra-depth gate failed: prediction-model eight-step agreement fell by 4.95 points on ordinary and 2.34 points on shifted positions.
+- Targeted mate skill passed: confirmation accuracy rose from 20.18% to 53.71% for set supervision.
+- Ordinary retention failed: agreement fell by 3.54 and 4.21 points.
+- Set-objective gate failed: confirmation accuracy was 0.39 points below single-answer fine-tuning.
+
+These outcomes support investigating stable recurrence and preventing task forgetting. They do not establish a better general player or a novel architecture.

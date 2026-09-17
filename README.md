@@ -10,11 +10,13 @@ Score choices with stable IDs. Try text decisions in your browser, run local Doo
 
 [![Our locally trained recurrent model playing chess, first scheduled game](docs/assets/chess-spatial-game-01.gif)](https://kw2828.github.io/OpenJev/chess-spatial-replay.html)
 
-Our newest **43,726-parameter recurrent model** scores every legal move without search. It learns from Stockfish, with an optional future-board prediction objective. The GIF shows the first scheduled game, a draw.
+Our **43,726-parameter recurrent reference model** scores every legal move without search. It learns from Stockfish, with an optional future-board prediction objective. The GIF shows the first scheduled game, a draw.
 
 ![All spatial chess models and controls](docs/assets/chess-spatial-results.png)
 
 The prediction model matched Stockfish on **32.97%** of ordinary development positions versus **25.61%** for a material heuristic, and **25.43% versus 19.51%** on shifted development games. Future prediction did not beat the matched spatial controls. These are development results, not Elo or an established novel architecture.
+
+**Latest follow-up:** targeted training raised mate-in-one accuracy from 20.2% to about 54%, but weakened ordinary decisions. Extra recurrent steps also hurt. [Charts, six new checkpoints and limits](docs/chess-refinement.md) · [New model replay](https://kw2828.github.io/OpenJev/chess-mate-replay.html).
 
 [Load the models](docs/chess-spatial.md) · [Results and protocol](research/chess-spatial-study.md) · [Paper](output/pdf/openjev-chess-spatial-study.pdf) · [Earlier Astra, ChessFly and ChessLFM comparison](docs/chess.md)
 

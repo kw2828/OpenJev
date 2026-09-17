@@ -139,3 +139,9 @@ This creates PNG, SVG and PDF figures, a LaTeX results table, and a [source-hash
 ![Controlled spatial chess study](assets/chess-spatial-results.png)
 
 Twelve final fits improve on the material heuristic, but future prediction does not beat the matched spatial controls. [Full results and models](chess-spatial.md) · [Frozen protocol](../research/chess-spatial-study.md).
+
+## Chess refinement
+
+![Compute and mate-training comparison](assets/chess-refinement-results.png)
+
+Targeted mating accuracy improved, while ordinary decisions regressed. More untrained recurrent steps also hurt. [All results and scope](chess-refinement.md).
