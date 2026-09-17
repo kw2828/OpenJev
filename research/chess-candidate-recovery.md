@@ -1,6 +1,6 @@
 # Candidate study: explicit recovery amendment
 
-Status: preparing a separately frozen attempt after the terminal `chess-candidate-v1` failure. This is an infrastructure recovery, not a change selected from chess-quality results.
+Status: v2 protocol frozen and execution started after the terminal `chess-candidate-v1` failure. [Frozen plan](../evidence/chess-candidate-v2/protocol/plan.json), SHA-256 `0cdcf5b9f9e64b5dde6f0a951fa4249475d050470e9036ce5c8ab76cf181c106`. This is an infrastructure recovery, not a change selected from chess-quality results. All twelve fits precede neural evaluation. No completed efficacy result is available yet.
 
 The first attempt generated all 4,096 evaluation positions, validated them, constructed its training cache and recorded 128 optimizer updates for `action_only-97`. It then recorded `[Errno 32] Broken pipe` and terminated. There is no complete checkpoint, neural evaluation, stronger-engine grading or arena game. The flushed journal ends immediately before the scheduled step-128 stdout print, consistent with that being the failing call; the failure receipt contains no traceback, so the callsite is an inference.
 

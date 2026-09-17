@@ -1,6 +1,6 @@
 # Candidate-conditioned chess refinement
 
-**Status: prototype implemented and tested, not trained or benchmarked.** The audited capacity gate failed, so the planned diagnostic uses width 32. [Architecture](../src/openjev/research/chess_candidate.py) · [64 invariant tests](../tests/test_chess_candidate.py) · [Prospective study](chess-candidate-study.md). Freeze a separate executable protocol, sources, budgets and fresh panels before execution. No improvement or novelty is established.
+**Status: implemented; the separately frozen v2 recovery attempt is running.** The audited capacity gate failed, so this is a width-32 diagnostic. [Architecture](../src/openjev/research/chess_candidate.py) · [Prospective study](chess-candidate-study.md) · [Failure and recovery accounting](chess-candidate-recovery.md). The v1 attempt stopped after 128 updates without a checkpoint or neural evaluation. No improvement or novelty is established.
 
 Hypothesis: candidate-specific processing across the board improves on the current source-square, destination-square and pooled-feature head. This proposes an inductive bias, not a proof of greater expressivity.
 
