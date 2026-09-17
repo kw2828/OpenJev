@@ -36,7 +36,7 @@ Some cue-dependent state differences survive, but their size does not establish 
 
 [Retention summaries](../evidence/cue-memory-v1/retention-summary.json) · [Compressed per-pair probe data](../evidence/cue-memory-v1/retention.json.gz) · [Probe plan](../evidence/cue-memory-v1/retention-plan.json)
 
-The next architecture comparison will separate the reactive GRU state from a small associative store, with constant-write, selective-write and extra-capacity controls. The [implementation and prior-art note](associative-memory.md) documents that candidate. It is not trained yet. A useful result still requires reliable task success, meaningful memory interventions, matched controls and later independent confirmation.
+The next architecture comparison separates the reactive GRU state from a small associative store, with global-write, selective-write and extra-capacity controls. The [implementation note](associative-memory.md) documents that candidate. A subsequent [supervised learnability diagnostic](associative-learnability.md) found an objective-dependent optimization failure and unreliable longer-route retention. No associative-policy RL result exists yet. A useful result still requires reliable task success, meaningful memory interventions, matched controls and later independent confirmation.
 
 [All primary scores](../evidence/cue-memory-v1/summary.json) · [Paired interventions](../evidence/cue-memory-v1/diagnostic.json) · [Frozen plan](../evidence/cue-memory-v1/plan.json) · [Completed report receipt](../evidence/cue-memory-v1/report-completed.json)
 

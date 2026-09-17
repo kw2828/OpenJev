@@ -42,7 +42,7 @@ Astra selects answers for training examples; a small MiniLM student learns to sc
 
 ![Recurrent world-model experiment, controls and training costs](evidence/recurrent-world-v1/world-model-results.png)
 
-- **Recurrent world models:** the initial [12-fit study and GIF](docs/recurrent-world-model-study.md) found no advantage. A [cue-visible follow-up](docs/cue-memory-study.md) also failed: 29.2% for recurrent and predictive PPO versus 52.1% for current-only PPO, with no response to cue swaps.
+- **Recurrent world models:** the [12-fit study and GIF](docs/recurrent-world-model-study.md) and [cue-visible follow-up](docs/cue-memory-study.md) found no advantage. A [supervised memory diagnostic](docs/associative-learnability.md) found an objective-dependent training failure and unreliable retention. Its four-example results are not gameplay scores.
 - **Text routing:** 95.35% development accuracy on 150 intents. The recurrent gain fell below our continuation threshold. [Study](docs/corrective-associative-study.md).
 - **Rule reasoning:** a 225-parameter operator scores 100% on 949 new development questions using a restricted English parser. A fixed logical solver matches it; novelty is unproven. [Study and runnable model](docs/bound-rule-study.md).
 - **Doom:** history-PPO improved Center combat. JEPA + RL reached 12.40 mean Center kills without establishing an advantage over GRPO or pixel similarity; Line policies matched always-fire. [PPO/DQN](docs/rl-study.md) · [JEPA + RL](docs/jepa-rl-study.md).

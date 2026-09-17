@@ -1,6 +1,6 @@
 # Separating reactive state from an associative store
 
-**Status: implementation and mechanics tests only. No trained result yet.** This is a candidate for the next controlled architecture comparison, after the [cue-visible diagnostic](cue-memory-study.md). It is not a new fast-weight algorithm or a reproduction of Titans, Gated DeltaNet or Dreamer.
+**Status: supervised learnability diagnostic completed; no associative-policy RL result yet.** The initial seven-action check did not learn a robust solution. A [separate controlled follow-up](associative-learnability.md) found that candidate-conditioned training lets the GRU learn four examples, while ordinary recurrence remains unreliable on longer routes. This is not a new fast-weight algorithm or a reproduction of Titans, Gated DeltaNet or Dreamer.
 
 The existing controller compresses everything into one 64-dimensional GRU state. The candidate adds a separate 16 by 16 matrix that can retain associations across an episode. Its 256 state values are runtime memory, not additional persistent learned weights. The controller still acts from the same partial observation and previous action.
 

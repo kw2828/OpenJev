@@ -6,6 +6,10 @@ These figures visualize existing development evidence. No new model training or 
 
 ## Recurrent world models
 
+![Four-context supervised loss and memory-path diagnostic](../evidence/memory-optimization-v1/memory-optimization.png)
+
+The initial seven-action supervised check failed across four memory architectures. A separate factorial diagnostic found that training over the two relevant candidates solves the four training examples, while ordinary recurrence remains unreliable on longer routes. Explicitly caching the first state is a working endpoint-memory control. These are supervised diagnostics, not gameplay or unseen-task scores. [Both protocols, all fits and interpretation](associative-learnability.md).
+
 ![Cue-visible task and paired memory interventions](../evidence/cue-memory-v1/cue-memory-results.png)
 
 The follow-up made the cue visible at the start: 12 fits, 6,291,456 training interactions and 17,664 evaluation episodes. Recurrent and predictive PPO both reached 29.2% same-size success versus 52.1% for current-only PPO. No scored branch choice changed under a cue swap, and state clearing changed no outcomes. [Results, learning curves, transfer and retention probe](cue-memory-study.md).
