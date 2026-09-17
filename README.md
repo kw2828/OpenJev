@@ -40,8 +40,9 @@ Astra selects answers for training examples; a small MiniLM student learns to sc
 
 ## Research results
 
-![Entity-bound rule reasoning and fixed logical controls](evidence/bound-rules-v1/development.png)
+![Recurrent world-model experiment, controls and training costs](evidence/recurrent-world-v1/world-model-results.png)
 
+- **Recurrent world models:** 12 fits and 6.3M training steps. Predictive PPO scored 30.2% versus recurrent PPO's 51.6% on the training-size memory task; the continuation gate failed. [Results and GIF](docs/recurrent-world-model-study.md).
 - **Text routing:** 95.35% development accuracy on 150 intents. The recurrent gain fell below our continuation threshold. [Study](docs/corrective-associative-study.md).
 - **Rule reasoning:** a 225-parameter operator scores 100% on 949 new development questions using a restricted English parser. A fixed logical solver matches it; novelty is unproven. [Study and runnable model](docs/bound-rule-study.md).
 - **Doom:** history-PPO improved Center combat. JEPA + RL reached 12.40 mean Center kills without establishing an advantage over GRPO or pixel similarity; Line policies matched always-fire. [PPO/DQN](docs/rl-study.md) · [JEPA + RL](docs/jepa-rl-study.md).

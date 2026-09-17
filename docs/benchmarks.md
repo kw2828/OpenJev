@@ -4,6 +4,12 @@
 
 These figures visualize existing development evidence. No new model training or gameplay runs were performed to produce them. Each experiment has a separate scope; they do not form a single leaderboard.
 
+## Recurrent world models
+
+![Predictive recurrent PPO and matched controls](../evidence/recurrent-world-v1/world-model-results.png)
+
+Twelve fits completed 6,291,456 training interactions and 8,448 evaluation episodes on an adapted MiniGrid Memory task. Full prediction reached 30.2% same-size success versus 51.6% for recurrent PPO and failed the predeclared continuation rule. Clearing recurrent state left all scored episode outcomes unchanged; a replay audit found that no policy acquired an initially unseen cue. [Protocol, all fits, learning curves and actual policy GIF](recurrent-world-model-study.md).
+
 ## Text student controls
 
 ![Explicit entity binding and recurrent rule application](../evidence/bound-rules-v1/development.png)

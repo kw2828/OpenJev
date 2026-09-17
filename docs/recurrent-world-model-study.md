@@ -1,6 +1,46 @@
 # Recurrent prediction on a memory task
 
-**Status: planned, not run. No effectiveness result is available.** This pilot tests whether memory helps a small policy, then whether predicting future observations and latent states adds value beyond reward prediction. It uses MiniGrid Memory rather than the Doom firing task. There is no Astra supervision, imagined-policy training or planning in this stage.
+**Status: completed; continuation criteria not met.** Twelve fits completed **6,291,456 training interactions** and **8,448 evaluation episodes**, including memory-reset diagnostics and the random baseline. Measured local CPU training on an Apple M5 Max totaled **765.4 seconds**. The protocol and code were frozen in commit `8c582bf` before the scored run. No Astra calls were made.
+
+![Memory-task success, recurrence intervention and training cost](../evidence/recurrent-world-v1/world-model-results.png)
+
+| Final policy | Size 11 | Size 17 | Size 23 |
+| --- | ---: | ---: | ---: |
+| PPO without recurrent state | 48.44% | 51.56% | 50.78% |
+| Recurrent PPO | 51.56% | 48.44% | 49.22% |
+| + reward / termination prediction | 33.33% | 33.33% | 33.33% |
+| + full world prediction | 30.21% | 36.46% | 34.90% |
+| Uniform random | 14.06% | 3.12% | 5.47% |
+
+Values average all three training fits; random uses one fixed evaluation sample per size. Each fit has 128 episodes per size. Full prediction lost 21.35, 11.98 and 14.32 percentage points against recurrent PPO, respectively. It did not meet the 80% same-size requirement or the five-point gains against both controls. This pilot does not establish a useful world-model or memory advantage.
+
+**Resetting recurrent state at every evaluation step changed none of the recorded episode outcomes, returns or lengths** for any of the nine recurrent-policy fits. Both predictive arms' seed-29 fits chose the native no-op action throughout all their greedy evaluation episodes, producing timeouts. The other fits achieved approximately chance-level matching by consistently choosing one branch. A successful single replay is therefore not evidence of remembering the cue.
+
+The [posthoc cue audit](../evidence/recurrent-world-v1/cue-audit-summary.json) exactly reproduced all **4,608 intact-policy episode outcomes**. In every arm, the cue was visible initially in 13.28%, 10.16% and 6.25% of episodes on sizes 11, 17 and 23. **No initially unseen cue became visible later.** The policies failed to gather the information needed for the task. Even conditional on initial visibility, this analysis does not establish memory use. Replaying the same worlds is an audit, not independent confirmation; conditional success is descriptive, not a causal cue-revelation effect.
+
+The full model's one-step latent prediction error was **0.93 to 1.56 times** the copy-current-state baseline across the nine fit/size probes. The stopped policy's low training losses did not imply useful behavior. Raw latent errors cannot be ranked across differently scaled learned representations, and these probes do not establish reliable long imagined rollouts.
+
+All conditions register 167,970 parameters, but the counts receiving gradient tensors are 89,864 for the PPO controls, 104,010 for reward prediction and 167,970 for full prediction. This counts parameters present in the training graph, not a guarantee that every gradient entry is nonzero; the current-only condition discards recurrent state. The extra heads are unused during action selection. Mean training times were 56.7, 57.3, 60.0 and 81.2 seconds per fit in table order, excluding random. These are descriptive local CPU timings with occasional development work running, not an isolated systems benchmark.
+
+![All twelve training trajectories](../evidence/recurrent-world-v1/world-model-learning.png)
+
+[Full scores and prediction diagnostics](../evidence/recurrent-world-v1/summary.json) · [Frozen plan](../evidence/recurrent-world-v1/plan.json) · [Compressed per-episode cue audit](../evidence/recurrent-world-v1/cue-audit.json.gz)
+
+### Actual recorded policy
+
+![First full-prediction fit on its first size-11 evaluation seed](assets/world-model-memory-8110000.gif)
+
+First training seed 17, first evaluation seed 8110000: eight actions and a correct terminal choice. The replay matches its preserved outcome; the broader study shows that this policy's fixed-branch behavior does not solve the memory task. The full map is for viewers only; policy input remains the partial 7x7 observation. Playback uses 150 ms per action for readability, not measured inference speed. [Recording receipt](assets/world-model-memory-8110000.json) · [Original trained checkpoint](../evidence/recurrent-world-v1/weights/world_prediction-17.pt).
+
+```sh
+.venv/bin/python scripts/record_memory_policy.py --checkpoint evidence/recurrent-world-v1/weights/world_prediction-17.pt --seed 8110000 --size 11 --output runs/memory-replay.gif
+```
+
+This result makes information acquisition the next diagnostic priority. A separately frozen cue-exposure intervention should compare the same controllers with the cue guaranteed visible initially, then return to the original search-and-memory task. That would separate failure to acquire information from failure to retain/use it. It would not replace this failed gate, prove novelty, or justify moving directly to imagined planning.
+
+## Frozen study design
+
+This pilot tests whether memory helps a small policy, then whether predicting future observations and latent states adds value beyond reward prediction. It uses MiniGrid Memory rather than the Doom firing task. There is no Astra supervision, imagined-policy training or planning in this stage.
 
 ## Question and controls
 
@@ -13,7 +53,7 @@ All conditions share a small observation encoder, a 64-unit GRU, and policy/valu
 | `reward_prediction` | Retained within an episode | Action-conditioned reward and termination prediction |
 | `world_prediction` | Retained within an episode | The same reward and termination objectives, plus future observation and latent-state prediction |
 
-The first comparison tests the benefit of recurrent state under this training recipe. The primary comparison is `world_prediction` against both `recurrent_ppo` and `reward_prediction`. An advantage over ordinary recurrent PPO alone would not isolate the contribution of latent or observation prediction. Extra predictive heads also add training parameters and compute; the design matches interactions, not total training cost.
+The first comparison tests the benefit of recurrent state under this training recipe. The primary comparison is `world_prediction` against both `recurrent_ppo` and `reward_prediction`. An advantage over ordinary recurrent PPO alone would not isolate the contribution of latent or observation prediction. Extra predictive heads also add training parameters and compute; the design matches interactions, not total training cost. On-policy trajectories and the number of completed training episodes can differ between conditions, even with matched initial seed streams.
 
 The two prediction conditions use the same action-conditioned recurrent transition at horizons one, two and four. Starting from the policy's current latent state, the transition rolls forward using recorded actions. It must not consume future observations during this rollout. Future posterior states computed from the actual trajectory provide stop-gradient targets for the full prediction arm. Observation targets are categorical MiniGrid object, color and state channels. Reward and termination supervision comes from the environment. Transitions crossing an episode reset are excluded from predictive targets.
 
@@ -65,7 +105,7 @@ These thresholds are a pilot continuation rule, not a statistical significance t
 
 For each recurrent checkpoint, also evaluate an otherwise identical policy whose hidden state is cleared **before every step**. Retain the same current observation, previous-action input, greedy action rule and environment seeds. This tests aggregate reliance on retained state; it does not train a new agent or replace the primary comparisons. It is not a selective removal of cue memory.
 
-Use a shared, fixed uniform-random-action probe of **64 sequences of 16 steps per size** to assess the learned predictive representation. Freeze its seeds and action RNG before scoring, and use the same recorded probe trajectories across conditions and training seeds. Report one-step latent prediction mean squared error beside the persistence baseline that copies the current state, latent feature variance, and future-observation, reward and termination losses. Keep episode-boundary masking consistent with training. These diagnostics evaluate prediction on the probe's state distribution; they are not gameplay efficacy, calibration or evidence of reliable long imagined rollouts, and do not select checkpoints or change the continuation rule.
+Use a shared, fixed uniform-random-action probe of **16 environment streams of 64 steps per size** to assess the learned predictive representation. Freeze its seeds and action RNG before scoring, and use the same recorded probe trajectories across conditions and training seeds. Report one-step latent prediction mean squared error beside the persistence baseline that copies the current state, latent feature variance, and future-observation, reward and termination losses. Keep episode-boundary masking consistent with training. These diagnostics evaluate prediction on the probe's state distribution; they are not gameplay efficacy, calibration or evidence of reliable long imagined rollouts, and do not select checkpoints or change the continuation rule.
 
 Record training and evaluation time separately, including auxiliary prediction computation. Report parameter counts and inference cost with and without unused auxiliary heads. A fixed interaction budget can establish a sample-efficiency difference under this recipe; it does not by itself establish a compute-efficiency difference.
 
@@ -94,4 +134,4 @@ uv pip install --python .venv/bin/python minigrid==3.0.0
 .venv/bin/python scripts/recurrent_world_study.py report --plan runs/recurrent-world-v1/plan.json --run runs/recurrent-world-v1/execution --out runs/recurrent-world-v1/report
 ```
 
-Fresh output directories are required. An interrupted run retains its started receipts, per-update learning logs and completed fits; inspect the existing process and evidence before taking a recovery action. The runner does not silently restart or select partial fits. Trained checkpoints and raw logs stay local; the public report contains the protocol, all per-fit scores and per-episode evaluation outcomes.
+Fresh output directories are required. An interrupted run retains its started receipts, per-update learning logs and completed fits; inspect the existing process and evidence before taking a recovery action. The runner does not silently restart or select partial fits. The first full-prediction checkpoint is exported for the recorded replay; the remaining checkpoints and raw training logs stay local. The public report contains the protocol, all per-fit scores and per-episode evaluation outcomes.
