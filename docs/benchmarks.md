@@ -6,6 +6,8 @@ These figures visualize existing development evidence. No new model training or 
 
 ## Text student controls
 
+[Associative architecture follow-up](associative-text-study.md): a full-training-bank prototype reached 91.6% in-scope accuracy on development data and outperformed the tested recurrent retrieval. Confirmation was not opened. This is a different task and data budget from the small student pilot below.
+
 ![Text student controls, with Astra supervision pending](../evidence/text-distillation-v1/controls.png)
 
 Gold-label training raised CLINC domain-routing accuracy from 9.5% to 60.2%, averaged across three fits, with substantial fit-to-fit variation. BoolQ remained near chance. These are balanced, filtered subsets, not full benchmark scores. Astra teacher training awaits API access and has no efficacy result yet. [Protocol, all fits and limitations](text-distillation.md).

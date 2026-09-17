@@ -4,6 +4,23 @@ This follow-up tests a sparse recurrent decision head over a frozen MiniLM sente
 
 The earlier 128-example text pilot was weak on BoolQ and unstable on routing. This study tests a different question: can a fast prototype decision plus selective associative retrieval preserve strong retrieval accuracy while using fewer memory searches? It uses the full known-intent CLINC training bank, not the tiny earlier training set. Any gain over that pilot would mix more data, a different task and a different architecture; the direct comparisons are only between arms in this study.
 
+## Development result: stop this design
+
+![Associative-routing development utility versus memory searches](../evidence/associative-text-v1/development.png)
+
+| Head | In-scope accuracy before rejection | Balanced utility | Full-bank searches/query |
+| --- | ---: | ---: | ---: |
+| Prototype | 91.6% | 91.4% | 0 |
+| Nearest | 87.4% | 87.0% | 1 |
+| Always recurrent | 87.9% | 87.2% | 2 |
+| Development-selected recurrent gate | 88.0% | 86.5% | 1.50 |
+
+These are **development results**, used to decide what to build next. The new 5,410-example confirmation split and the 1,550-example calibration split have not been scored. All 15,000 training examples were encoded into the memory bank; the development set contains 1,497 in-scope and just 50 out-of-scope examples. The prototype rejected 7.1% of in-scope requests and detected 96% of the 50 OOS development requests, after selecting its threshold on those same data. Neither number is independent confirmation.
+
+The simplest prototype head dominates the tested recurrence on both development utility and search cost. The selected recurrent gate also exceeds the desired compute ceiling. We stopped before confirmation rather than spend the holdout on an already weak architecture. [All nine development configurations, hashes and execution status](../evidence/associative-text-v1/development.json).
+
+The next direction is a learned metric and recurrent head with parameter-matched feedforward and zero-step controls. It must first beat this stronger prototype control on development data. No Astra supervision or novel-method effectiveness has been established by this screen.
+
 ## Frozen comparison
 
 - **Prototype:** cosine similarity to each of 150 intent centroids.
