@@ -1,6 +1,6 @@
 # Candidate-conditioned chess study
 
-**Status: protocol frozen, before data generation, fitting or evaluation.** The capacity study failed its continuation rule. This is a bounded width-32 mechanism diagnostic. The [executable plan](../evidence/chess-candidate-v1/protocol/plan.json) binds source hashes, prior-data exclusions, environment and all 288 scheduled games. The model, data, evaluation, arena, training and integration checks pass 259 focused synthetic tests. No trained candidate-refinement checkpoint or efficacy result exists yet.
+**Status: v1 failed during its first fit after 128 updates; no completed checkpoint or neural evaluation.** The original protocol and all failed evidence are preserved. See the [explicit recovery amendment](chess-candidate-recovery.md) for the separate v2 attempt. The architecture and evaluation controls below remain the original frozen specification.
 
 ## Question and controls
 

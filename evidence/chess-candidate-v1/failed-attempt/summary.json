@@ -1,0 +1,200 @@
+{
+  "status": "failed",
+  "study": "chess-candidate-v1",
+  "plan_sha256": "8a49f3b7b16f8eb5b43fd7a54aca7c7510c31075988960bc44feb16b6bd84b3b",
+  "failure": {
+    "status": "failed",
+    "plan_sha256": "8a49f3b7b16f8eb5b43fd7a54aca7c7510c31075988960bc44feb16b6bd84b3b",
+    "error": "[Errno 32] Broken pipe",
+    "wall_seconds": 457.019860124914
+  },
+  "partial_fit": {
+    "configuration": "action_only-97",
+    "recorded_optimizer_updates": 128,
+    "planned_updates_per_fit": 1536,
+    "computation": {
+      "examples": 16384,
+      "microbatches": 128,
+      "candidate_evaluations": 484721,
+      "root_core_iterations": 65536,
+      "candidate_refinement_iterations": 969442,
+      "successor_root_iterations": 0,
+      "total_core_iterations": 1034978,
+      "delta_convolutions": 0,
+      "successor_encoders": 0
+    },
+    "journal_sha256": "6f9bc2c871773201074203e7476475be3c485008d9f3e09db04d165d7ba78472",
+    "journal_scope": "Each row is flushed after optimizer.step; no checkpoint was saved.",
+    "training_wall_seconds": null,
+    "timing_limit": "No completed fit receipt exists; total attempt wall time includes data and cache work."
+  },
+  "complete_checkpoints": 0,
+  "complete_fits": 0,
+  "neural_evaluation_files": 0,
+  "latency_files": 0,
+  "engine_grading_calls": 0,
+  "arena_games": 0,
+  "native_baselines_present": true,
+  "training_cache": {
+    "version": "candidate-position-cache-v1",
+    "encoding": "side-relative-rank-mirror-19-v1",
+    "input_rows_sha256": "febca498cdf0b0ef4516b2c5ac93c3c6778580ac2ee22036ccfa1178d3478cce",
+    "labels_sha256": "80974c0934ac6780aac93ffb42ffaeac661ad33d9204d9c085eb347bebffb576",
+    "include_successors": true,
+    "tensors": {
+      "observations": {
+        "shape": [
+          32768,
+          19,
+          8,
+          8
+        ],
+        "dtype": "torch.float32",
+        "bytes": 159383552,
+        "sha256": "d6597223da6763380a13ddae8840ffd57b08db6e906f80f452a15cd43c3fd1a7"
+      },
+      "candidates": {
+        "shape": [
+          968036,
+          5
+        ],
+        "dtype": "torch.int64",
+        "bytes": 38721440,
+        "sha256": "0708b1603830a759ff18e83e6b6efba47a2eb9ddf4a9a7ab92546bb90bea9b60"
+      },
+      "counts": {
+        "shape": [
+          32768
+        ],
+        "dtype": "torch.int64",
+        "bytes": 262144,
+        "sha256": "cb32fce7cf6adc2a809dc20c9c5f24e3db60b228e1b09493609b94b082a8a077"
+      },
+      "offsets": {
+        "shape": [
+          32769
+        ],
+        "dtype": "torch.int64",
+        "bytes": 262152,
+        "sha256": "45a6558504ecff2006194484f29c36b5ddbda90fe8c7171825307355bdd18e02"
+      },
+      "targets": {
+        "shape": [
+          32768
+        ],
+        "dtype": "torch.int64",
+        "bytes": 262144,
+        "sha256": "391c158df19676739d24684c48e7bd86d88acaece3ef1335ca8a492c99fb3241"
+      },
+      "values": {
+        "shape": [
+          32768
+        ],
+        "dtype": "torch.float32",
+        "bytes": 131072,
+        "sha256": "c2f08e8c4133a671713ac9b342a6d00efa60dbe027705ae7e5d480350d4cd0d5"
+      },
+      "successors": {
+        "shape": [
+          968036,
+          19,
+          8,
+          8
+        ],
+        "dtype": "torch.float32",
+        "bytes": 4708527104,
+        "sha256": "502207bf20a8943257b6bddbeda1e4605cc7940cc8c9ba5b7c95fad7e28b366f"
+      }
+    },
+    "cache_sha256": "087c0b36cf6941c310bc57f7c6e7f156ad7a9950695cfcd8e319c5f28e1a0f5d",
+    "positions": 32768,
+    "legal_candidates": 968036,
+    "root_encodings": 32768,
+    "native_successors": 968036,
+    "native_board_copies": 968036,
+    "native_pushes": 968036,
+    "successor_encodings": 968036,
+    "cpu_tensor_bytes": 4907549608,
+    "byte_scope": "Allocated CPU tensor storage only; excludes Python rows/menus, temporary batches and device copies.",
+    "native_construction_wall_seconds": 25.27198750001844,
+    "construction_scope": "Two passes over root FENs: legal menus/counts, allocation, encoding and optional native child copies/pushes. No hashing or model calls.",
+    "fingerprinting_wall_seconds": 3.1014421250438318,
+    "source_sha256": "c32adb06f38969e2af8c85c8606e0f988996a38a61e3bd870b53efd28aebe60e",
+    "encoding_source_sha256": "49e6e53d33cd52511c0e4a08074b9a7f0dc2244727df2879f3fb7fd1aa886ab4",
+    "total_wall_seconds": 28.380092542036436
+  },
+  "fresh_data_cost": {
+    "status": "completed",
+    "started_unix": 1789670095.868428,
+    "completed_unix": 1789670120.140618,
+    "counts": {
+      "dev": 2048,
+      "shift": 2048
+    },
+    "unique_states": 4096,
+    "excluded_states": 1392975,
+    "excluded_symmetry_classes": 1392814,
+    "reserved_state_keys": 2793820,
+    "teacher_calls": 4756,
+    "successful_teacher_calls": 4756,
+    "requested_nodes": 9512000,
+    "reported_nodes": 9497297,
+    "known_node_calls": 4756,
+    "generated_games": 70,
+    "teacher_wall_seconds": 15.95819416071754,
+    "teacher_call_wall_seconds": 16.20179053163156,
+    "unknown_node_calls": 0,
+    "rollout_only_teacher_calls": 660,
+    "teacher_cost_scope": "One call per visited nonterminal state, including every admission rejection",
+    "auxiliary_cost_scope": "Four independent native auxiliary transitions plus every native legal candidate; no extra teacher labels",
+    "admission": {
+      "rules": {
+        "version": "root-and-all-legal-successors-v1",
+        "prior": "Accepted root and every legal successor avoid all prior natural and mirrored states",
+        "across_splits": "Accepted root-plus-successor exposure sets are disjoint across splits",
+        "within_split": "Successors may repeat or overlap other accepted roots; accepted roots remain globally mirror-unique",
+        "state_identity": "Literal-EP first four FEN fields, ignoring move counters; reserve both color/rank mirrors"
+      },
+      "rejection_counts": {
+        "prior_root": 620,
+        "duplicate_root": 4,
+        "cross_split_root": 0,
+        "prior_successor": 35,
+        "cross_split_successor": 1
+      },
+      "native_successor_evaluations": 120549,
+      "accepted_candidate_successors": 119487,
+      "exposure_state_keys_by_split": {
+        "dev": 121086,
+        "shift": 117822
+      },
+      "exposure_mirror_classes_by_split": {
+        "dev": 60543,
+        "shift": 58911
+      }
+    },
+    "files": {
+      "analyses.jsonl": "f484e8f2e112dc22cf837296616bd637b67e73c0550e4a4c797214c39b3aa269",
+      "dev.jsonl": "eda4bca525439c42060ea5f52ad12f27b04b8d7cf7a4d55ffcf184e6aee5b285",
+      "excluded-states.json": "fd5f236ebaefd4942b7072d848c820443a41910043018f551744b1bdd3fc5773",
+      "games.jsonl": "b1e561c27878735cbeaf3f8eef256513e50b237fe9443d804249adb48eeba4f5",
+      "shift.jsonl": "7bc3e4630981f9a51829fa13e24e70feda2d64cd7275854e563371e1dc2c07d8",
+      "started.json": "c9511a96a4f8981af72fea2ebcf565aecaa20accee632c80ffbcb5e7441e34a5"
+    }
+  },
+  "data_generation_wall_seconds": 24.27219009399414,
+  "cause_evidence": {
+    "observed": "Terminal receipt reports [Errno 32] Broken pipe; journal ends at update 128.",
+    "inference": "The first stdout progress print follows the flushed update-128 journal row; failure is consistent with that print.",
+    "limit": "No traceback was saved, so the exact failing callsite is not independently established."
+  },
+  "accounting": {
+    "original_attempt_retained": true,
+    "success_claim": false,
+    "automatic_retry": false,
+    "recovery_requires_separate_amendment": true,
+    "extra_updates_to_charge_if_restarted": 128,
+    "reuse_data_rule": "A separately declared recovery may bind these exact completed data bytes; do not silently regenerate, replace or relabel them."
+  },
+  "archive_scope": "Every regular file present in the terminal execution, byte for byte; no model inference or training was run by this publisher."
+}

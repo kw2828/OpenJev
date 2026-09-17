@@ -1,0 +1,13 @@
+# Candidate study: explicit recovery amendment
+
+Status: preparing a separately frozen attempt after the terminal `chess-candidate-v1` failure. This is an infrastructure recovery, not a change selected from chess-quality results.
+
+The first attempt generated all 4,096 evaluation positions, validated them, constructed its training cache and recorded 128 optimizer updates for `action_only-97`. It then recorded `[Errno 32] Broken pipe` and terminated. There is no complete checkpoint, neural evaluation, stronger-engine grading or arena game. The flushed journal ends immediately before the scheduled step-128 stdout print, consistent with that being the failing call; the failure receipt contains no traceback, so the callsite is an inference.
+
+The [failed attempt](../evidence/chess-candidate-v1/failed-attempt/README.md) remains a failed study. Its original source and protocol are unchanged. The amended `chess-candidate-v2` protocol explicitly permits one new attempt and accounts for the discarded 128 updates, 16,384 presentations and 457.0199 seconds of execution. That duration includes generation, validation, cache construction and the partial fit; no separate partial-fit duration is available.
+
+The new attempt starts every model from its original initialization. All architectures, seeds, minibatch orders, labels, updates, evaluation selections, 288 scheduled games and continuation thresholds stay fixed. No partial weights or optimizer state are reused. The same generated development panels are copied byte for byte and revalidated. They are not described as a second fresh sample. Their 4,756 teacher calls and 9,512,000 requested nodes were incurred once in the failed attempt, not again during recovery.
+
+The amended runner is [chess_candidate_recovery.py](../scripts/chess_candidate_recovery.py), a narrow versioned copy of the frozen runner. [Attempt accounting](../src/openjev/research/chess_candidate_attempt.py) rejects additional prior output, changed source evidence or a different failure and binds every failed-attempt file into the new plan. Execution sends stdout and stderr to a regular log file outside the immutable execution directory, preventing progress printing from depending on a live tool output pipe. No further retries or replacement games are permitted in this amended attempt.
+
+The final fits still receive 18,432 optimizer updates in total, plus the separately recorded 128 discarded updates: 18,560 across the two attempts. This changes overall study cost, not the training budget of any reported checkpoint. No efficacy or novelty claim follows from the recovery.
