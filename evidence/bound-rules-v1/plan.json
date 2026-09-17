@@ -1,0 +1,68 @@
+{
+  "protocol": {
+    "version": "bound-rules-v1",
+    "seeds": [
+      17,
+      29,
+      43
+    ],
+    "epochs": 40,
+    "world_batch": 64,
+    "learning_rate": 0.01,
+    "weight_decay": 0.0001,
+    "gradient_clip": 1.0,
+    "cpu_threads": 4,
+    "variants": {
+      "learned_1": [
+        1,
+        false
+      ],
+      "learned_6": [
+        6,
+        false
+      ],
+      "learned_16": [
+        16,
+        false
+      ],
+      "collapsed_16": [
+        16,
+        true
+      ]
+    },
+    "controls": {
+      "facts_only": 0,
+      "fixed_1": 1,
+      "fixed_32": 32
+    },
+    "supervision": "Question truth labels only; no supplied proof or logical representation",
+    "architecture_prior": "Handwritten controlled-English parser, exact binding, negation, max-OR and inhibition",
+    "learned_component": "225-parameter shared conjunction MLP; random initialization; no truth-table pretraining",
+    "training": "Identical 2000 worlds and 19809 gold questions; same world shuffles per seed; final epoch",
+    "primary_metric": "Equal weight to four gold-label/question-negation groups on fresh depth-3-5 development worlds",
+    "challenge_seed": 48597,
+    "challenge_pairs": 240,
+    "challenge_depths": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "continuation": {
+      "min_macro_accuracy": 0.95,
+      "max_macro_gap_to_fixed_solver": 0.01,
+      "min_gain_over_collapsed": 0.1,
+      "min_counterfactual_pair_success": 0.95,
+      "interpretation": "Functional candidate only; matching a classical solver is not novelty"
+    }
+  },
+  "code": {
+    "driver": "2c19585b6b0d39cda7479e9295770b24f3dd897b15afa552331d3aa546239121",
+    "architecture": "8ad38ecad4862636c03b5cd6ba80fbd328ae741a51329b28a9a3ca773ee603b6"
+  },
+  "packet_sha256": "a7480b892b2f13566e223d9e91f67a24e50bd4b4d91d9b866c6556cf266ce976",
+  "challenge_sha256": "1b16a94adbc27e79acfba0419f8cecf0b2777d8b308d1473aeccf1dfd0b9c7ca",
+  "created_at": "2026-09-17T13:12:29Z"
+}
