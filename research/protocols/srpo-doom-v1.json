@@ -1,0 +1,92 @@
+{
+  "id": "srpo-doom-v1",
+  "status": "prospective_bounded_development_pilot",
+  "name": "Structured-observation adaptation of Self-Referential Policy Optimization",
+  "authorization": "User confirmed SRPO after asking to try other RL methods.",
+  "references": [
+    "https://arxiv.org/abs/2511.15605v2",
+    "https://github.com/sii-research/siiRL/blob/89d8764b6133ea78557a22eef32c68ad92946d45/siirl/utils/reward_score/embodied.py"
+  ],
+  "upstream_commit": "89d8764b6133ea78557a22eef32c68ad92946d45",
+  "upstream_reward_source_sha256": "8120e7d484445286aeaeee477d88c4478c9a6a127bf01c18325eb7c12733fa15",
+  "arms": [
+    "group_binary",
+    "srpo_raw",
+    "srpo_latent"
+  ],
+  "replicates": 3,
+  "model_seeds": [
+    711,
+    722,
+    733
+  ],
+  "initial_run": "evidence/rl-doom-v1/development-001",
+  "initial_checkpoints": "All three ppo_history final fits, paired across every arm; no best-seed selection. Historical training costs are shared and retained in original receipts.",
+  "groups_per_fit": 16,
+  "group_size": 8,
+  "success_kills": 10,
+  "training_seed_starts": [
+    510000,
+    520000,
+    530000
+  ],
+  "grouping": "Eight stochastic full trajectories from the same Center game seed, on-policy within each group. Same seed schedule per corresponding fit and arm. No group refill, no homogeneous-group filtering. All-failure or all-success groups yield zero update.",
+  "evaluation_seeds": [
+    161000,
+    161001,
+    161002,
+    161003,
+    161004,
+    161005,
+    161006,
+    161007,
+    161008,
+    161009,
+    161010,
+    161011,
+    161012,
+    161013,
+    161014,
+    161015,
+    161016,
+    161017,
+    161018,
+    161019,
+    161020,
+    161021,
+    161022,
+    161023
+  ],
+  "scenarios": [
+    "defend_the_center",
+    "defend_the_line"
+  ],
+  "training_scenario": "defend_the_center",
+  "horizon": 180,
+  "tics": 7,
+  "policy": "Same 18-dimensional history input and 64x64 SB3 PPO actor initialized from corresponding historical fit. Optimize actor only; inherited critic frozen and verified. Fixed original steering and constraints. Deterministic final evaluation.",
+  "encoder_updates": 512,
+  "encoder": "Six observable current features exclude bias, history, horizon, kill/death labels and terminal flags. MLP 6->32 tanh->8 tanh; action-conditioned decoder 9->32 tanh->6 predicts next observation, MSE, Adam .001, 512 batches of 128. Only consecutive nonterminal observations within same historical training episode. One encoder per paired fit; frozen during actor training. Mean and last pre-action latent form 16-dimensional trajectory embedding. No terminal observation is fabricated.",
+  "raw_representation": "Mean and last of same six pre-action observation features, 12-dimensional. No learned encoder. Different dimension/geometry is a limitation.",
+  "reward": "Terminal >=10 kills is success=1. Failures use nearest in-group success center Euclidean distance. Standardize success embeddings; DBSCAN eps=.5 min_samples=2; noise excluded, fallback overall success mean. Min-max failure distances; ties map to .5. Reward=.6*sigmoid(10*(.5-normalized_distance)). No successes => all zero. No other task/seed group references, no archive.",
+  "paper_code_difference": "Pinned official code uses min-max Euclidean distance and .6 maximum failure reward; paper eq5 and appendix describe standardized squared distances and .8. This pilot follows pinned code reward direction/scaling; does not claim exact paper replication.",
+  "failure_reward_weight": 0.6,
+  "learning_rate": 0.0001,
+  "epochs": 4,
+  "loss": {
+    "clip": 0.2,
+    "kl_weight": 0.01,
+    "entropy_weight": 0.01
+  },
+  "optimization": "Group reward mean and sample standard deviation; same trajectory advantage for its actions. Four full-group Adam updates, clipped importance ratio, exact categorical new||initial KL penalty, entropy bonus, norm clip .5. Equal trajectory weighting, no padded steps. Homogeneous groups skip optimizer entirely. Code/paper aggregation and KL implementation may differ.",
+  "budget": "16 groups x 8 completed episodes for each of nine fits: 1152 episodes, at most 207360 transitions. Equal episode and optimizer-opportunity budgets, not equal transitions/updates/wall time. Report actual counts, homogeneous groups and encoder costs. Frozen PPO reference receives no additional training and is not a matched-compute comparator.",
+  "max_training_interactions": 207360,
+  "max_evaluation_episodes": 624,
+  "max_wall_seconds": 1800,
+  "order_seed": 93241,
+  "bootstrap_seed": 93251,
+  "bootstrap_draws": 10000,
+  "continuation": "Latent variant must exceed each of binary, raw, frozen PPO and always-fire by >=.5 mean Center kills; Line kill and both duration differences must be >=-.5; each latent episode p95 decision time <1ms. These are descriptive development thresholds. Report crossed paired 95% bootstrap intervals with only three model seeds, no multiplicity correction. Never treat pilot as confirmation. No fallback or tuning if gate fails; a positive pilot only motivates a separately frozen fresh confirmation.",
+  "claim_boundary": "Doom adaptation using privileged structured observations, pretrained PPO policy and small locally learned one-step dynamics representation, not SRPO V-JEPA/OpenVLA/LIBERO replication. Sparse >=10-kill goal differs from earlier dense PPO objective. Both scenarios previously seen; not unseen-task generalization. No new RL algorithm, Bayesian inference or conference novelty claim.",
+  "paid_api_calls": 0
+}
