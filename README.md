@@ -10,6 +10,16 @@ Independently implemented, with interface inspiration from [TypeSafe Jev](https:
 
 ## Watch the local model play Doom
 
+### JEPA-trained firing policy
+
+![Local policy trained with pretrained V-JEPA 2 rewards](docs/assets/jepa-policy-181000.gif)
+
+*First fit, first evaluation seed 181000: **13 kills in 19.26 game seconds**. JEPA supplies training rewards; the small policy acts during gameplay. Replay matches the preserved evaluation. [Recording receipt](docs/assets/jepa-policy-181000.json).*
+
+*This is one recorded episode. The [full nine-method comparison](docs/jepa-rl-study.md) did not establish a reliable JEPA advantage.*
+
+### Local Qwen language controller
+
 ![Local Qwen3-4B choosing actions in a complete Doom episode](evidence/language-doom-42.gif)
 
 *Recorded on Apple Silicon with the local Qwen3-4B language controller: **2 kills in 8.17 game seconds**, then death. Playback is at game speed; inference took **20.61 wall seconds**. This is a gameplay demonstration, separate from the Bayesian experiment below. [Recording details and trace](#language-model-gameplay) · [Tiny imitation model gameplay](#tiny-model-gameplay).*
@@ -17,6 +27,10 @@ Independently implemented, with interface inspiration from [TypeSafe Jev](https:
 ## Hosted demo and deployment
 
 [**Try the free browser playground**](https://kw2828.github.io/OpenJev/) · [**Run the full app**](docs/hosting.md) · [Open in Codespaces](https://codespaces.new/kw2828/OpenJev)
+
+[![OpenJev browser playground showing editable context, question and candidate answers](docs/assets/browser-playground.png)](https://kw2828.github.io/OpenJev/)
+
+*Screenshot of the live browser playground before loading its Qwen3-0.6B model. Click the image to try it. Doom gameplay above is a separate recorded controller.*
 
 The Pages site runs a pinned Qwen3-0.6B model in your browser through WebLLM and displays recorded Doom gameplay. Load the model to score your own candidates without an inference server. See [browser requirements and scoring limits](docs/browser-model.md). The interactive app has a Linux Docker deployment for Hugging Face Spaces or another container host. It runs the API, **Qwen3-0.6B on CPU**, and real ViZDoom together. This smaller hosted checkpoint is distinct from the Mac 4B model below; responses identify which model produced the scores. The Pages playground needs no backend; the full live Doom app still runs separately. See [hosting instructions and shared-arena limits](docs/hosting.md).
 
@@ -49,9 +63,7 @@ For the existing tiny Doom baseline only, use `uv sync --frozen` and `uv run ope
 
 ![JEPA and nine-method RL pilot](evidence/jepa-rl-doom-v1/pilot-results.png)
 
-![Local policy trained with pretrained V-JEPA 2 rewards](docs/assets/jepa-policy-181000.gif)
-
-*First fit, first evaluation seed 181000: **13 kills in 19.26 game seconds**. JEPA supplies training rewards; the small policy acts during gameplay. Replay matches the preserved evaluation. [Recording receipt](docs/assets/jepa-policy-181000.json).*
+[Watch the JEPA-trained policy above](#jepa-trained-firing-policy).
 
 **Earlier: [SRPO adaptation pilot](docs/srpo-study.md), continuation criteria not met.** Nine warm-start fits used 113,861 new interactions and 624 evaluation episodes. Latent self-reference averaged **10.65 Center kills**, versus **11.88** for binary rewards, **11.89** for raw similarity and **11.29** for unchanged PPO. All averaged 30.17 on Line. This structured-observation adaptation uses a small dynamics encoder, not V-JEPA/OpenVLA. The result does not establish a benefit, and no further tuning or confirmation followed. All checkpoints, traces, costs and exploratory intervals are preserved.
 
