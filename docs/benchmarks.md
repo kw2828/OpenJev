@@ -6,6 +6,10 @@ These figures visualize existing development evidence. No new model training or 
 
 ## Chess
 
+![All twelve final fits on the public ChessBench transfer panel](assets/chessbench-transfer-results.png)
+
+All twelve published candidate-policy fits were evaluated on the same 4,096 externally sourced positions after excluding previously encountered roots and legal successors, including mirrors. Mean move agreement is 26.03% for direct, 26.36% for action only, 26.47% for exact delta and 26.79% for full afterstate. These small descriptive differences do not change the earlier failed continuation criteria. [Transfer results and evidence](chessbench-transfer.md).
+
 ![All twelve candidate-policy fits and 288 scheduled games](assets/chess-candidate-results.png)
 
 Exact native candidate consequences give a small agreement gain: 33.15% ordinary and 27.10% shifted for delta versus 31.75% and 26.81% for direct scoring. All four required bounded-loss comparisons and both required game-score thresholds fail. Delta's full CPU decision averages 3.415 ms versus 0.617 ms for direct. All twelve fits, 286 scored games and two unfinished games are retained. [Candidate results, weights and first scheduled replay](chess-candidate.md).
