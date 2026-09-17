@@ -1,12 +1,58 @@
 # Does zero critic initialization improve PPO learning?
 
-**Running; no scored follow-up result yet.** Protocol and sources were frozen in `5a3a08d` before the full run. Seed 7, two-update smoke checks and 25 focused tests passed. This is an optimization comparison of existing architectures, not a new RL algorithm.
+**Completed. Both continuation gates failed.** Zeroing the initial value head improved three architectures but reduced GRU success. The improved policies reached a branch on every assigned episode and succeeded about half the time. The interventions do not establish useful cue memory or a selective-writing advantage.
 
-The completed [original PPO study](associative-ppo-study.md) achieved mean same-size success of 34.375% for GRU, 0% for the feedforward adapter and 17.1875% for each associative store. Its selective-writing gate failed. The separate [initialization probe](ppo-initialization-probe.md) found nonzero actor and critic gradients on unrewarded first rollouts; zeroing the value head removed both. That observation motivates a training test but does not establish that initialization caused the earlier failures.
+Protocol and sources were frozen in `5a3a08d` before the full run. All twelve additional fits and all 55 evaluation records are retained. This is an optimization comparison of existing architectures on reused development seeds, not a new RL algorithm or independent confirmation.
+
+![Every fit before and after zero critic initialization, with cue and memory interventions](../evidence/zero-critic-ppo-v1/results/zero-critic-comparison.png)
+
+## Results
+
+Mean success on size 11, over three training seeds and the same 128 evaluation seeds per fit:
+
+| Architecture | Original head | Zero head | Change |
+| --- | ---: | ---: | ---: |
+| GRU | 34.38% | 17.19% | -17.19 pp |
+| GRU + feedforward adapter | 0.00% | 50.52% | +50.52 pp |
+| Global-write memory | 17.19% | 50.52% | +33.33 pp |
+| Selective-write memory | 17.19% | 50.52% | +33.33 pp |
+
+The three improving arms each had **zero timeouts** after zero initialization. Their remaining failures were wrong-branch choices. GRU seeds 101 and 113 timed out on every evaluation episode; seed 127 reached a branch on every episode. The GRU mean therefore combines two failed fits with one approximately 50% fit.
+
+| Zero-head architecture | Size 11 | Size 17 | Size 23 |
+| --- | ---: | ---: | ---: |
+| GRU | 17.19% | 18.23% | 16.41% |
+| GRU + feedforward adapter | 50.52% | 51.56% | 49.74% |
+| Global-write memory | 50.52% | 51.56% | 49.74% |
+| Selective-write memory | 50.52% | 51.56% | 49.74% |
+
+These are paired development results on a small structured task. The 384 assigned episodes per architecture and size are not 384 independent training runs. The uniform-random reference achieved 0.78%, 0% and 0% across the three sizes; it often failed to navigate to either branch. Beating that reference does not by itself demonstrate memory.
+
+The **optimization gate failed**: three arms exceeded the required ten-point improvement, but GRU's 17.19-point decline violated the maximum five-point degradation. The **selective-writing gate also failed**, with nine of twelve checks failing. Selective writes matched global writes and the feedforward adapter, stayed below the 80% target and showed no store-reset success loss.
+
+## What the interventions show
+
+- Swapping the initial cue while leaving reward goals fixed left all **4,608 saved paired episode records unchanged** across the twelve zero-head fits and three sizes.
+- Resetting all recurrent state at each observation also left all **4,608 saved paired episode records unchanged**.
+- Resetting only the selective store left all **1,152 saved paired episode records unchanged**.
+- Global-write seed 113 fell from 51.56% success to 0% on size 11 after a store-only reset, with every episode timing out. The other two global-write seeds retained their outcomes. Because cue swaps and full-state resets did not change the saved records, this isolated disruption is not evidence of useful stored cue information.
+
+Episode identity here means the recorded seed, outcome, return, length and action counts match. The files do not contain complete per-step action sequences. No fresh policy replay was performed for publication.
+
+The additional training consumed **12,582,912 interactions**, **49,152 optimizer steps** and **1,772.40 recorded training seconds**. The original controls consumed the same interaction budget and 1,731.49 seconds. Their runs were not interleaved, so the timing difference is not an initialization-speed result. Fit timers include environment setup, collection, optimization, logging and checkpoint saves; they exclude model/optimizer initialization and evaluation.
+
+## Evidence
+
+- [Compact audited summary](../evidence/zero-critic-ppo-v1/results/summary.json), [all aggregate conditions](../evidence/zero-critic-ppo-v1/results/aggregate-results.csv), and [all 162 paired fit/condition/size comparisons](../evidence/zero-critic-ppo-v1/results/paired-fit-results.csv).
+- [Original comparison report](../evidence/zero-critic-ppo-v1/results/comparison.json), [saved-episode identity audit](../evidence/zero-critic-ppo-v1/results/episode-identity-audit.csv), [publication receipt](../evidence/zero-critic-ppo-v1/results/publication.json), and [visual/integrity QA](../evidence/zero-critic-ppo-v1/results/quality-assurance.json). Six in-memory corruption checks were rejected, including changed budgets, outcomes and gate results.
+- [Lossless raw-evidence archive](../evidence/zero-critic-ppo-v1/results/raw-evidence.tar.gz), 10.8 MB, contains all new run/report artifacts, the twelve new and twelve reused control checkpoints and logs, every evaluation record, the prerequisite probe evidence, and the frozen study sources. All 251 archived files were checked byte-for-byte against their [SHA256 manifest](../evidence/zero-critic-ppo-v1/results/raw-evidence-manifest.json).
+- [Frozen plan](../evidence/zero-critic-ppo-v1/plan.json) and [separate publisher/auditor](../scripts/publish_zero_critic_ppo.py). Publication did not change the frozen study or execute new training/inference.
+
+The completed [original PPO study](associative-ppo-study.md) and [initialization probe](ppo-initialization-probe.md) motivated this follow-up. The probe found nonzero actor and critic gradients on unrewarded first rollouts; zeroing the value head removed both. The completed comparison shows that initialization affected learning outcomes, but it did not consistently improve every architecture or establish useful memory.
 
 ## One training change
 
-Run the same four architectures and seeds with the fresh value-head weight and bias set to zero immediately after normal initialization. Keep that head trainable. The wrapper imports the original trainer unchanged and checks that all other parameters, policy logits, recurrent states and random-number state remain identical before optimization. No pretrained checkpoint is used.
+The same four architectures and seeds were trained with fresh value-head weight and bias set to zero immediately after normal initialization. The head remained trainable. The wrapper imported the original trainer unchanged and checked that all other parameters, policy logits, recurrent states and random-number state remained identical before optimization. No pretrained checkpoint was used.
 
 | Setting | Frozen value |
 | --- | --- |
@@ -47,7 +93,7 @@ This reused development panel cannot provide independent confirmation. Zeroing t
 
 ## Preparation and reproduction
 
-The commands below describe the planned execution. Preparation binds the completed original controls and probe before any full zero-head training starts. Use fresh output paths; existing artifacts are never overwritten.
+The commands below document the completed procedure. Preparation bound the completed original controls and probe before zero-head training started. For an independent reproduction, use fresh output paths; existing artifacts are never overwritten.
 
 ```sh
 .venv/bin/python scripts/zero_critic_ppo_study.py prepare \
@@ -66,4 +112,16 @@ The commands below describe the planned execution. Preparation binds the complet
   --out runs/zero-critic-ppo-v1/report
 ```
 
-The report preserves the inherited per-fit and intervention results under `core/`, and writes paired initialization comparisons and separate gate outcomes to `comparison.json`. Its completion receipt confirms repeated random-episode identity. The wrapper's 25 focused tests cover initialization parity, exception cleanup, preparation requirements, pairing and gate failures. Full reproduction requires the bound local control artifacts in addition to the published plans.
+The report preserves the inherited per-fit and intervention results under `core/`, and writes paired initialization comparisons and separate gate outcomes to `comparison.json`. Its completion receipt confirms repeated random-episode identity. The wrapper's 25 focused tests cover initialization parity, exception cleanup, preparation requirements, pairing and gate failures. The archive preserves the bound control artifacts required for verification.
+
+To audit completed records and reproduce the compact publication without model inference:
+
+```sh
+.venv/bin/python scripts/publish_zero_critic_ppo.py \
+  --plan evidence/zero-critic-ppo-v1/plan.json \
+  --execution runs/zero-critic-ppo-v1/execution \
+  --report runs/zero-critic-ppo-v1/report \
+  --out evidence/zero-critic-ppo-v1/results
+```
+
+The publisher requires a fresh destination. It rechecks the frozen signatures, both twelve-fit budgets, all 55 records and 21,120 episodes in each panel, native rewards, checkpoint hashes, initialization invariants, paired comparisons and both continuation gates before writing.

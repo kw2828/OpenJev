@@ -1,0 +1,47 @@
+{
+  "status": "passed",
+  "publication_sha256": "aaebb23bd0d0a8446d74014f117333a8945feb9654e6e155e9905d746695b066",
+  "publisher_sha256": "37c1c2d0b9416751da00cbd712bc1eb3e67d7744c6edb96b0f1f4dbf50e0ec8b",
+  "checked_artifacts": 10,
+  "in_memory_corruption_rejections": [
+    {
+      "case": "aggregate_changed",
+      "rejected": true,
+      "reason": "Zero-head averages.gru.intact.11.success: 0.99 does not agree with 0.171875"
+    },
+    {
+      "case": "training_budget_changed",
+      "rejected": true,
+      "reason": "Training receipt differs"
+    },
+    {
+      "case": "episode_changed",
+      "rejected": true,
+      "reason": "Evaluation coverage or lossless report records differ"
+    },
+    {
+      "case": "gate_reversed",
+      "rejected": true,
+      "reason": "All 162 paired initialization comparisons and both gates.optimization_continuation_passed: value changed"
+    },
+    {
+      "case": "initialization_invariant_false",
+      "rejected": true,
+      "reason": "Initialization intervention invariant failed: rng_unchanged"
+    },
+    {
+      "case": "missing_fit",
+      "rejected": true,
+      "reason": "Incomplete zero-critic execution coverage"
+    }
+  ],
+  "visual_review": {
+    "image": "zero-critic-comparison.png",
+    "readable": true,
+    "no_clipped_labels": true,
+    "all_fit_markers_present": true,
+    "both_failed_gates_visible": true
+  },
+  "archive_validation": "All 251 members were verified byte-for-byte during publication; no extraction or policy replay",
+  "new_training_or_inference": false
+}
