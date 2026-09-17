@@ -1,0 +1,58 @@
+{
+  "protocol": {
+    "version": "cue-retention-probe-v1",
+    "study": "cue-memory-v1",
+    "arms": [
+      "current_ppo",
+      "recurrent_ppo",
+      "reward_prediction",
+      "world_prediction"
+    ],
+    "training_seeds": [
+      61,
+      73,
+      89
+    ],
+    "sizes": [
+      11,
+      17,
+      23
+    ],
+    "pairs_per_size": 16,
+    "seed_base": 60000000,
+    "size_seed_multiplier": 10000,
+    "view_size": 7,
+    "max_steps": 128,
+    "torch_threads": 1,
+    "path": "Native forward action2 repeated size-3 times, from x1 east to fork center",
+    "intervention": "Swap key/ball cue only; retain branch objects and original stored reward goals",
+    "policy_inputs": "Partial observation, previous forced action and causal recurrent state",
+    "normalized_distance": "RMS(h_native-h_swapped)/max(sqrt(mean((h_native^2+h_swapped^2)/2)),1e-8)",
+    "metrics": [
+      "hidden_l2_distance",
+      "hidden_rms_distance",
+      "latent_rms_normalized_distance",
+      "policy_probability_l1_distance",
+      "argmax_disagreement",
+      "cue_visible_fraction"
+    ],
+    "current_control": "Exact hidden-state and policy equality wherever current observations are identical",
+    "interpretation": "Cue-dependent state retention and output sensitivity, not task performance or decoded memory",
+    "new_training": false,
+    "independent_confirmation": false
+  },
+  "source_sha256": {
+    "scripts/probe_cue_retention.py": "0874b465d32e93e109e30d581473b8372412bdd766f575ff40e819da122a04a8",
+    "src/openjev/research/cue_memory_env.py": "a7b4ce334e9808e52a8e13d85a981746af64767372b5ceac7c67936d4d5c442c",
+    "src/openjev/research/memory_env.py": "4e3c613984b2f1e4ced3a2d24f074e087eb201fe4bff9014559b7d15cb3e4c49",
+    "src/openjev/research/predictive_memory.py": "ae851d5aa715c6adb73374d663d6aae0817aea0f1c9e7c9e1f513204706a60aa",
+    "tests/test_probe_cue_retention.py": "000aa8f52adb2f125b068792de7aba3f831befff438cf9f1497769193438cfee"
+  },
+  "dependencies": {
+    "minigrid": "3.0.0",
+    "gymnasium": "1.3.0",
+    "torch": "2.14.0",
+    "numpy": "2.5.3"
+  },
+  "python": "3.12.13"
+}
