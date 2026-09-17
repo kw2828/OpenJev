@@ -4,21 +4,21 @@
 
 Score choices with stable IDs. Try text decisions in your browser, run local Doom policies, or train a small chess model.
 
-[**Text demo**](https://kw2828.github.io/OpenJev/) · [**Chess replay**](https://kw2828.github.io/OpenJev/chess-spatial-replay.html) · [API](docs/decision-api.md) · [Benchmarks](docs/benchmarks.md) · [Setup](docs/project-reference.md)
+[**Text demo**](https://kw2828.github.io/OpenJev/) · [**Chess replay**](https://kw2828.github.io/OpenJev/chess-candidate-replay.html) · [API](docs/decision-api.md) · [Benchmarks](docs/benchmarks.md) · [Setup](docs/project-reference.md)
 
 ## Chess
 
-[![Our locally trained recurrent model playing chess, first scheduled game](docs/assets/chess-spatial-game-01.gif)](https://kw2828.github.io/OpenJev/chess-spatial-replay.html)
+[![Our locally trained candidate policy playing the first scheduled game, a draw](docs/assets/chess-candidate-game-001.gif)](https://kw2828.github.io/OpenJev/chess-candidate-replay.html)
 
-Our **43,726-parameter recurrent reference model** scores every legal move without search. It learns from Stockfish, with an optional future-board prediction objective. The GIF shows the first scheduled game, a draw.
+Our latest experiment compares **four small chess policies across twelve fits and 288 games**. Each scores every legal move. Two variants use exact next-board states from native chess rules. The GIF shows the first scheduled game, drawn by repetition.
 
-![All spatial chess models and controls](docs/assets/chess-spatial-results.png)
+![All twelve candidate-policy fits, move quality, games and computation cost](docs/assets/chess-candidate-results.png)
 
-The prediction model matched Stockfish on **32.97%** of ordinary development positions versus **25.61%** for a material heuristic, and **25.43% versus 19.51%** on shifted development games. Future prediction did not beat the matched spatial controls. These are development results, not Elo or an established novel architecture.
+Exact-delta matched Stockfish on **33.15%** of ordinary positions versus **31.75%** for direct scoring, and **27.10% versus 26.81%** on shifted positions. It costs more compute and **fails the engine-loss and game-score continuation criteria**. These development results establish neither a learned world model nor an Elo rating.
 
-**Latest follow-up:** six fits test a larger chess policy. Gains are modest, and the shifted-position and 96-game continuation criteria fail. [Results, all weights and replay](docs/chess-capacity.md) · [Earlier recurrence study](docs/chess-anchor.md).
+[Results and all twelve weights](docs/chess-candidate.md) · [Connectome controls](research/chess-connectome-followup.md) · [Earlier capacity study](docs/chess-capacity.md)
 
-[Load the models](docs/chess-spatial.md) · [Results and protocol](research/chess-spatial-study.md) · [Paper](output/pdf/openjev-chess-spatial-study.pdf) · [Earlier Astra, ChessFly and ChessLFM comparison](docs/chess.md)
+[Earlier predictive models and paper](docs/chess-spatial.md) · [Astra, ChessFly and ChessLFM comparison](docs/chess.md)
 
 ## Doom
 

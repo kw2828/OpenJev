@@ -1,6 +1,6 @@
 # Biological topology as a chess-model prior
 
-Status: graph-only loading, exact induced extraction and matched rewiring controls implemented; 40 synthetic tests pass. The [real-asset audit and three-control structural preflight](../evidence/connectome-graph-v1/README.md) completed independently of pretrained weights. No new biological-topology model has been trained. This follow-up does not alter the running candidate-v2 experiment or its success criteria.
+Status: graph-only loading, exact induced extraction and matched rewiring controls implemented; 40 synthetic tests pass. The [real-asset audit and three-control structural preflight](../evidence/connectome-graph-v1/README.md) completed independently of pretrained weights. No new biological-topology model has been trained. This follow-up does not alter the completed candidate-v2 experiment or its success criteria.
 
 ## Why this needs a new comparison
 

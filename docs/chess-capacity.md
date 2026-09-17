@@ -61,4 +61,4 @@ The [evidence package](../evidence/chess-capacity-v1/results/) retains the froze
 
 A [separate posthoc replay audit](../evidence/chess-capacity-v1/finishing-diagnostic/summary.json) finds 104 recorded turns with an available immediate mate: 30 were taken and 74 missed. These are dependent turns in the existing games, not 104 independent test positions. No selected move caused stalemate. The audit uses native chess rules, with no new model calls, engine calls or training; it does not change any result or continuation criterion.
 
-The [candidate-refinement proposal](../research/chess-candidate-refinement.md) is a separate, unrun hypothesis. This capacity comparison establishes neither a novel architecture nor useful recurrent world-model computation.
+The subsequent [candidate-refinement comparison](chess-candidate.md) separately tests native one-ply consequences. This capacity comparison establishes neither a novel architecture nor useful recurrent world-model computation.

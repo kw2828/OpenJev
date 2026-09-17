@@ -1,6 +1,6 @@
 # Choosing the next chess mechanism
 
-This is a conditional research note written while the candidate comparison runs. It does not select an architecture from partial results or alter the current protocol.
+This conditional research note was written while the candidate comparison ran. The [completed candidate report](../docs/chess-candidate.md) now fails every required bounded-loss comparison and both game-score thresholds. Delta is about 5.5 times slower than direct scoring and offers no consistent stronger-engine benefit. These results do not support prioritizing compression of an advantageous oracle yet. The representation follow-up below remains a hypothesis; this comparison alone does not identify the cause of weak play. The separate external transfer check comes before a new training study.
 
 ## If exact afterstates help
 

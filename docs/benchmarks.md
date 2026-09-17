@@ -6,6 +6,10 @@ These figures visualize existing development evidence. No new model training or 
 
 ## Chess
 
+![All twelve candidate-policy fits and 288 scheduled games](assets/chess-candidate-results.png)
+
+Exact native candidate consequences give a small agreement gain: 33.15% ordinary and 27.10% shifted for delta versus 31.75% and 26.81% for direct scoring. All four required bounded-loss comparisons and both required game-score thresholds fail. Delta's full CPU decision averages 3.415 ms versus 0.617 ms for direct. All twelve fits, 286 scored games and two unfinished games are retained. [Candidate results, weights and first scheduled replay](chess-candidate.md).
+
 ![All six chess capacity fits and the 96-game paired arena](assets/chess-capacity-results-v2.png)
 
 The larger policy reduces bounded engine-score loss by 22.99% on ordinary positions and 9.26% on shifted positions, below the required 20% on both. Raw shifted centipawn loss worsens. Its 18 wins, 64 draws, 12 losses and two unfinished games give a 52.08-54.17% point bound, below the 60% continuation threshold. Parameters and compute are unequal. [Capacity results, all six weights and replay](chess-capacity.md).
