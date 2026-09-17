@@ -42,7 +42,7 @@ Astra labeled 128 training examples through Codex; three MiniLM student fits are
 
 ![Recurrent world-model experiment, controls and training costs](evidence/recurrent-world-v1/world-model-results.png)
 
-- **Recurrent world models:** the [RL studies](docs/recurrent-world-model-study.md) found no advantage. In a [supervised memory diagnostic](docs/associative-learnability.md), associative stores retain 100% versus 50% for GRU on the longest route. This uses only four examples and forced navigation; selective writes tie simpler global writes.
+- **Memory and world models:** associative stores retain cues in a [four-example supervised diagnostic](docs/associative-learnability.md), but [autonomous PPO](docs/associative-ppo-study.md) reached 17.2% success versus 34.4% for GRU and showed no cue-dependent branch choices. Earlier [world-model RL](docs/recurrent-world-model-study.md) also found no advantage.
 - **Text routing:** 95.35% development accuracy on 150 intents. The recurrent gain fell below our continuation threshold. [Study](docs/corrective-associative-study.md).
 - **Rule reasoning:** a 225-parameter operator scores 100% on 949 new development questions using a restricted English parser. A fixed logical solver matches it; novelty is unproven. [Study and runnable model](docs/bound-rule-study.md).
 - **Doom:** history-PPO improved Center combat. JEPA + RL reached 12.40 mean Center kills without establishing an advantage over GRPO or pixel similarity; Line policies matched always-fire. [PPO/DQN](docs/rl-study.md) · [JEPA + RL](docs/jepa-rl-study.md).

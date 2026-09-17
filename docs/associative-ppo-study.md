@@ -1,6 +1,34 @@
 # Do associative stores help autonomous reward learning?
 
-**Status: running; no scored RL result yet.** The protocol and sources were frozen in `34970a9` before execution. The [supervised diagnostic](associative-learnability.md) established that both global and selective stores can retain a useful cue along forced routes. It did not train navigation or establish a selective-writing advantage. This study tests autonomous PPO from fresh initialization.
+**Completed: the selective-memory continuation rule failed.** Across three fits, both stores reached 17.19% same-size success versus 34.38% for GRU. No cue swap changed a scored branch choice. The protocol and sources were frozen in `34970a9` before execution. This study tests autonomous PPO from fresh initialization, following the [supervised four-context diagnostic](associative-learnability.md).
+
+![Autonomous PPO outcomes and paired interventions](../evidence/associative-ppo-v1/associative-ppo-evaluation.png)
+
+## Results
+
+All twelve final fits completed 12,582,912 training interactions and 49,152 optimizer steps. Evaluation covered 21,120 assigned episodes across 55 fit/condition records and three map sizes. There was no checkpoint or seed selection.
+
+| Architecture | Size 11 | Size 17 | Size 23 | Size 11 by seed 101 / 113 / 127 |
+| --- | ---: | ---: | ---: | --- |
+| GRU | 34.38% | 36.46% | 32.81% | 0% / 51.56% / 51.56% |
+| Feedforward adapter | 0% | 0% | 0% | 0% / 0% / 0% |
+| Global writes | 17.19% | 18.23% | 16.41% | 0% / 0% / 51.56% |
+| Selective writes | 17.19% | 18.23% | 16.41% | 0% / 0% / 51.56% |
+| Uniform random reference | 0.78% | 0% | 0% | One seeded reference |
+
+Eight of twelve trained fits timed out on every intact evaluation episode. The four surviving fits reached a branch on every episode but succeeded only about half the time. These descriptive means do not establish a statistical architecture advantage.
+
+Swapping the visible cue, while preserving the original reward targets, changed no scored branch choices for any fit at any size. Clearing state left outcomes unchanged for GRU, the adapter and selective writes. The global-write fit with seed 127 became entirely timeout-prone when its store was cleared. That ablation establishes sensitivity to the store, but the unchanged cue-swap choices do not demonstrate use of the remembered cue. Native-start outcomes matched the intact outcomes in this panel.
+
+Nine of the twelve selective-writing checks failed, including same-size utility, every-fit utility, the store-reset effect, and superiority to GRU and global writes at all three sizes. Only comparisons against the failed feedforward adapter passed. The selective-writing continuation rule remains failed.
+
+![Training histories, full budget and native-start transfer](../evidence/associative-ppo-v1/associative-ppo-training.png)
+
+Recorded fit timers total **1,731.49 seconds**, covering environment setup, rollouts, optimization, logging and checkpoint saves. They exclude model/optimizer initialization and evaluation. Other local work ran concurrently, so these timings are descriptive rather than an isolated speed comparison.
+
+The [training-log audit](../evidence/associative-ppo-v1/training-discovery-audit.json) found some rewarded training episodes in every current fit, including policies that later stopped succeeding. Windows overlap and sometimes omit episodes, so their counts are not exact reward-event totals. The separate [initialization probe](ppo-initialization-probe.md) motivates a [single-factor value-head follow-up](zero-critic-ppo-study.md), now running; its gradients alone do not explain the scored failure.
+
+[Full episode results](../evidence/associative-ppo-v1/summary.json) · [Completed report](../evidence/associative-ppo-v1/completed.json) · [Figure and accounting audit](../evidence/associative-ppo-v1/associative-ppo-figures.json)
 
 ## Matched comparison
 
@@ -36,6 +64,14 @@ The predeclared selective-writing continuation rule requires all of:
 If both stores improve equally, report the simpler global store's observed comparison with the controls while retaining a failed selective-writing gate. Do not replace the gate with another metric after seeing results. Stronger initial writes, lower losses or isolated successful episodes do not establish a selective-writing advantage.
 
 These are development comparisons of established fast-weight mechanisms. They do not establish architectural novelty or independent confirmation. The earlier supervised seven-action loss failure does not prove that PPO will fail: it is a different learning objective.
+
+## Comparison with established implementations
+
+Conclusions apply to this compact training recipe. [Farama recommends rl-starter-files](https://github.com/Farama-Foundation/Minigrid#training-an-agent), whose [model](https://github.com/lcswillems/rl-starter-files/blob/master/model.py) uses a convolutional encoder and optional LSTM64. Its [training CLI](https://github.com/lcswillems/rl-starter-files/blob/master/scripts/train.py) defaults to ten million interactions and requires recurrence greater than one to enable memory. OpenJev uses a flattened symbolic encoder, GRU64 and about one million interactions per fit.
+
+The Memory Gym authors' [recurrent PPO configuration](https://github.com/MarcoMeter/recurrent-ppo-truncated-bptt/blob/main/configs/minigrid.yaml) sets 500 updates, 16 workers and 256 rollout steps, or 2,048,000 interactions, with eight-step sequences and LSTM256. Its [Memory wrapper](https://github.com/MarcoMeter/recurrent-ppo-truncated-bptt/blob/main/environments/minigrid_env.py) restricts actions to left/right/forward and renders a 3x3 view as 84x84 RGB. The configuration also retains hidden state between episodes. These are configuration comparisons, not reproduced performance results.
+
+[Native Memory](https://github.com/Farama-Foundation/Minigrid/blob/v3.0.0/minigrid/envs/memory.py) defaults to `5 * size ** 2` steps, or 605 at size 11. This study's 128-step cap and seven actions change exploration difficulty; the cap also changes the denominator of the time-sensitive native reward. A separately frozen starter CNN+LSTM control on OpenJev's exact task would help test whether the custom recipe explains its learning difficulty. No such baseline has been run here.
 
 ## Run
 

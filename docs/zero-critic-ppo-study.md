@@ -1,6 +1,6 @@
 # Does zero critic initialization improve PPO learning?
 
-**Protocol frozen; ready to run. No scored follow-up result yet.** Seed 7, two-update smoke checks have completed. This is an optimization comparison of existing architectures, not a new RL algorithm.
+**Running; no scored follow-up result yet.** Protocol and sources were frozen in `5a3a08d` before the full run. Seed 7, two-update smoke checks and 25 focused tests passed. This is an optimization comparison of existing architectures, not a new RL algorithm.
 
 The completed [original PPO study](associative-ppo-study.md) achieved mean same-size success of 34.375% for GRU, 0% for the feedforward adapter and 17.1875% for each associative store. Its selective-writing gate failed. The separate [initialization probe](ppo-initialization-probe.md) found nonzero actor and critic gradients on unrewarded first rollouts; zeroing the value head removed both. That observation motivates a training test but does not establish that initialization caused the earlier failures.
 

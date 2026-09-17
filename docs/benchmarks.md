@@ -6,6 +6,10 @@ These figures visualize existing development evidence. No new model training or 
 
 ## Recurrent world models
 
+![Autonomous associative-memory PPO and interventions](../evidence/associative-ppo-v1/associative-ppo-evaluation.png)
+
+[Autonomous follow-up](associative-ppo-study.md): twelve fresh fits completed 12.58 million training interactions. Same-size success averaged 17.19% for either store versus 34.38% for GRU; eight fits timed out on every intact evaluation episode. No cue swap changed a scored branch choice. Selective writing failed its continuation rule, despite the supervised retention result below.
+
 ![Learned associative memory and matched controls](../evidence/associative-candidate-v1/associative-candidate.png)
 
 ![Four-context supervised loss and memory-path diagnostic](../evidence/memory-optimization-v1/memory-optimization.png)

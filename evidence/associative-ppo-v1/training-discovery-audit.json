@@ -1,0 +1,3025 @@
+{
+  "version": "ppo-training-discovery-audit-v1",
+  "status": "provisional_training_log_audit",
+  "created_utc": "2026-09-17T15:19:23.750257+00:00",
+  "audit_source_sha256": "778917e1f1143934b7fae9f32cfcb856195486545571c2a98603befe88af5366",
+  "studies": [
+    {
+      "schema": "cue",
+      "fits_root": "runs/cue-memory-v1/execution/core/fits",
+      "completed_fits_at_snapshot": 12,
+      "incomplete_fit_directories_skipped": [],
+      "fits": [
+        {
+          "arm": "current_ppo",
+          "seed": 61,
+          "schema": "cue",
+          "directory": "runs/cue-memory-v1/execution/core/fits/current_ppo-61",
+          "receipt_sha256": "f1bf1056ef863517ee02b1b0182af97a2dc79b645a7d63226d39d64120369649",
+          "learning_sha256": "2a858a7ebd75e2e336bd1074d3a39f14bda4e13faaf332cef7f6a55548881e06",
+          "checkpoint_sha256_from_receipt": "a5b9a83609fe3c3eec5a8eff3c2bf042d0b4e98eec34273507f895decb2e65ce",
+          "checkpoint_loaded_or_verified": false,
+          "updates": 512,
+          "interactions": 524288,
+          "completed_episodes": 32455,
+          "training_seconds": 55.57418745895848,
+          "loss_fields": [
+            "total_objective",
+            "policy_entropy_nats",
+            "aux_reward_mse",
+            "aux_termination_bce",
+            "aux_latent_mse",
+            "aux_observation_ce"
+          ],
+          "validation": {
+            "completion_and_log_hash": true,
+            "sequential_fixed_interaction_updates": true,
+            "monotonic_completed_episodes_and_clock": true,
+            "final_receipt_counters": true
+          },
+          "snapshots": {
+            "first": {
+              "update": 1,
+              "interactions": 1024,
+              "completed_episodes": 0,
+              "recent_success": null,
+              "recent_return": null,
+              "losses": {
+                "total_objective": -0.018836400937289,
+                "policy_entropy_nats": 1.945908099412918,
+                "aux_reward_mse": 0.0,
+                "aux_termination_bce": 0.0,
+                "aux_latent_mse": 0.0,
+                "aux_observation_ce": 0.0
+              }
+            },
+            "65536": {
+              "update": 64,
+              "interactions": 65536,
+              "completed_episodes": 512,
+              "recent_success": 0.01,
+              "recent_return": 0.0031796875000000002,
+              "losses": {
+                "total_objective": -0.01948373019695282,
+                "policy_entropy_nats": 1.9325873255729675,
+                "aux_reward_mse": 0.0,
+                "aux_termination_bce": 0.0,
+                "aux_latent_mse": 0.0,
+                "aux_observation_ce": 0.0
+              }
+            },
+            "262144": {
+              "update": 256,
+              "interactions": 262144,
+              "completed_episodes": 12036,
+              "recent_success": 0.4,
+              "recent_return": 0.366953125,
+              "losses": {
+                "total_objective": 0.04562424402683973,
+                "policy_entropy_nats": 0.701465055346489,
+                "aux_reward_mse": 0.0,
+                "aux_termination_bce": 0.0,
+                "aux_latent_mse": 0.0,
+                "aux_observation_ce": 0.0
+              }
+            },
+            "final": {
+              "update": 512,
+              "interactions": 524288,
+              "completed_episodes": 32455,
+              "recent_success": 0.49,
+              "recent_return": 0.4419765625,
+              "losses": {
+                "total_objective": 0.03733896114863455,
+                "policy_entropy_nats": 0.9535929709672928,
+                "aux_reward_mse": 0.0,
+                "aux_termination_bce": 0.0,
+                "aux_latent_mse": 0.0,
+                "aux_observation_ce": 0.0
+              }
+            }
+          },
+          "reward_windows": {
+            "window_size_completed_episodes": 100,
+            "logged_nonempty_windows": 511,
+            "positive_windows": 488,
+            "zero_windows": 23,
+            "first_logged_positive": {
+              "update": 8,
+              "interactions": 8192,
+              "completed_episodes": 64,
+              "recent_success": 0.015625,
+              "recent_return": 0.0034301757812499993,
+              "losses": {
+                "total_objective": -0.019285792484879494,
+                "policy_entropy_nats": 1.9457841217517853,
+                "aux_reward_mse": 0.0,
+                "aux_termination_bce": 0.0,
+                "aux_latent_mse": 0.0,
+                "aux_observation_ce": 0.0
+              }
+            },
+            "last_logged_positive": {
+              "update": 512,
+              "interactions": 524288,
+              "completed_episodes": 32455,
+              "recent_success": 0.49,
+              "recent_return": 0.4419765625,
+              "losses": {
+                "total_objective": 0.03733896114863455,
+                "policy_entropy_nats": 0.9535929709672928,
+                "aux_reward_mse": 0.0,
+                "aux_termination_bce": 0.0,
+                "aux_latent_mse": 0.0,
+                "aux_observation_ce": 0.0
+              }
+            },
+            "maximum_logged_success_fraction": 0.61,
+            "updates_since_last_positive_window": 0,
+            "covered_completed_episodes": 32455,
+            "uncovered_completed_episodes": 0,
+            "covered_fraction": 1.0,
+            "maximum_episode_count_increment": 96,
+            "positive_episodes_exact_if_provably_zero": null,
+            "interpretation": "Window counts overlap. Positive windows are not unique rewarded episodes. Full coverage with no positive window establishes zero rewarded completed episodes."
+          }
+        },
+        {
+          "arm": "current_ppo",
+          "seed": 73,
+          "schema": "cue",
+          "directory": "runs/cue-memory-v1/execution/core/fits/current_ppo-73",
+          "receipt_sha256": "a7a4aa97f79951aa923cdd4e8f2f11ee2c7edf485c271d6bd71209ab7249241a",
+          "learning_sha256": "6ed364e1a9d3cbe1f6be7b3969f00377206c4cc253697f1cdf2d4e0b60409a17",
+          "checkpoint_sha256_from_receipt": "dcd15f2d9d586d0fa710a5d62c892905a5fff04a7cc61b680abdac1a677d7503",
+          "checkpoint_loaded_or_verified": false,
+          "updates": 512,
+          "interactions": 524288,
+          "completed_episodes": 33645,
+          "training_seconds": 59.235674374969676,
+          "loss_fields": [
+            "total_objective",
+            "policy_entropy_nats",
+            "aux_reward_mse",
+            "aux_termination_bce",
+            "aux_latent_mse",
+            "aux_observation_ce"
+          ],
+          "validation": {
+            "completion_and_log_hash": true,
+            "sequential_fixed_interaction_updates": true,
+            "monotonic_completed_episodes_and_clock": true,
+            "final_receipt_counters": true
+          },
+          "snapshots": {
+            "first": {
+              "update": 1,
+              "interactions": 1024,
+              "completed_episodes": 0,
+              "recent_success": null,
+              "recent_return": null,
+              "losses": {
+                "total_objective": -0.01784340455196798,
+                "policy_entropy_nats": 1.9459081590175629,
+                "aux_reward_mse": 0.0,
+                "aux_termination_bce": 0.0,
+                "aux_latent_mse": 0.0,
+                "aux_observation_ce": 0.0
+              }
+            },
+            "65536": {
+              "update": 64,
+              "interactions": 65536,
+              "completed_episodes": 512,
+              "recent_success": 0.03,
+              "recent_return": 0.005531249999999999,
+              "losses": {
+                "total_objective": -0.019820332992821932,
+                "policy_entropy_nats": 1.8977164328098297,
+                "aux_reward_mse": 0.0,
+                "aux_termination_bce": 0.0,
+                "aux_latent_mse": 0.0,
+                "aux_observation_ce": 0.0
+              }
+            },
+            "262144": {
+              "update": 256,
+              "interactions": 262144,
+              "completed_episodes": 13607,
+              "recent_success": 0.42,
+              "recent_return": 0.3783046875,
+              "losses": {
+                "total_objective": 0.03789932164363563,
+                "policy_entropy_nats": 0.9561893939971924,
+                "aux_reward_mse": 0.0,
+                "aux_termination_bce": 0.0,
+                "aux_latent_mse": 0.0,
+                "aux_observation_ce": 0.0
+              }
+            },
+            "final": {
+              "update": 512,
+              "interactions": 524288,
+              "completed_episodes": 33645,
+              "recent_success": 0.59,
+              "recent_return": 0.5379687499999999,
+              "losses": {
+                "total_objective": 0.04338832013309002,
+                "policy_entropy_nats": 0.8143588453531265,
+                "aux_reward_mse": 0.0,
+                "aux_termination_bce": 0.0,
+                "aux_latent_mse": 0.0,
+                "aux_observation_ce": 0.0
+              }
+            }
+          },
+          "reward_windows": {
+            "window_size_completed_episodes": 100,
+            "logged_nonempty_windows": 511,
+            "positive_windows": 497,
+            "zero_windows": 14,
+            "first_logged_positive": {
+              "update": 16,
+              "interactions": 16384,
+              "completed_episodes": 128,
+              "recent_success": 0.01,
+              "recent_return": 0.0021953124999999993,
+              "losses": {
+                "total_objective": -0.01926802471280098,
+                "policy_entropy_nats": 1.9430655539035797,
+                "aux_reward_mse": 0.0,
+                "aux_termination_bce": 0.0,
+                "aux_latent_mse": 0.0,
+                "aux_observation_ce": 0.0
+              }
+            },
+            "last_logged_positive": {
+              "update": 512,
+              "interactions": 524288,
+              "completed_episodes": 33645,
+              "recent_success": 0.59,
+              "recent_return": 0.5379687499999999,
+              "losses": {
+                "total_objective": 0.04338832013309002,
+                "policy_entropy_nats": 0.8143588453531265,
+                "aux_reward_mse": 0.0,
+                "aux_termination_bce": 0.0,
+                "aux_latent_mse": 0.0,
+                "aux_observation_ce": 0.0
+              }
+            },
+            "maximum_logged_success_fraction": 0.64,
+            "updates_since_last_positive_window": 0,
+            "covered_completed_episodes": 33645,
+            "uncovered_completed_episodes": 0,
+            "covered_fraction": 1.0,
+            "maximum_episode_count_increment": 93,
+            "positive_episodes_exact_if_provably_zero": null,
+            "interpretation": "Window counts overlap. Positive windows are not unique rewarded episodes. Full coverage with no positive window establishes zero rewarded completed episodes."
+          }
+        },
+        {
+          "arm": "current_ppo",
+          "seed": 89,
+          "schema": "cue",
+          "directory": "runs/cue-memory-v1/execution/core/fits/current_ppo-89",
+          "receipt_sha256": "de64e36419dc70d2f33788e56e9e614997a16098a662dcee22288478c93fac2f",
+          "learning_sha256": "88bc0530c962f0f661df055d1f62490672c6072002423d375b27829e7b3bb1b3",
+          "checkpoint_sha256_from_receipt": "4f3e647d342a3ac5db1f08896d4c00e6048ad408ff00e8779bc455db7e86f8ef",
+          "checkpoint_loaded_or_verified": false,
+          "updates": 512,
+          "interactions": 524288,
+          "completed_episodes": 36299,
+          "training_seconds": 56.841422167024575,
+          "loss_fields": [
+            "total_objective",
+            "policy_entropy_nats",
+            "aux_reward_mse",
+            "aux_termination_bce",
+            "aux_latent_mse",
+            "aux_observation_ce"
+          ],
+          "validation": {
+            "completion_and_log_hash": true,
+            "sequential_fixed_interaction_updates": true,
+            "monotonic_completed_episodes_and_clock": true,
+            "final_receipt_counters": true
+          },
+          "snapshots": {
+            "first": {
+              "update": 1,
+              "interactions": 1024,
+              "completed_episodes": 0,
+              "recent_success": null,
+              "recent_return": null,
+              "losses": {
+                "total_objective": -0.01812543487176299,
+                "policy_entropy_nats": 1.9459092319011688,
+                "aux_reward_mse": 0.0,
+                "aux_termination_bce": 0.0,
+                "aux_latent_mse": 0.0,
+                "aux_observation_ce": 0.0
+              }
+            },
+            "65536": {
+              "update": 64,
+              "interactions": 65536,
+              "completed_episodes": 587,
+              "recent_success": 0.26,
+              "recent_return": 0.16528906250000003,
+              "losses": {
+                "total_objective": -0.012419328093528748,
+                "policy_entropy_nats": 1.7958644926548004,
+                "aux_reward_mse": 0.0,
+                "aux_termination_bce": 0.0,
+                "aux_latent_mse": 0.0,
+                "aux_observation_ce": 0.0
+              }
+            },
+            "262144": {
+              "update": 256,
+              "interactions": 262144,
+              "completed_episodes": 14706,
+              "recent_success": 0.45,
+              "recent_return": 0.4133671875,
+              "losses": {
+                "total_objective": 0.048275552690029144,
+                "policy_entropy_nats": 0.6982419490814209,
+                "aux_reward_mse": 0.0,
+                "aux_termination_bce": 0.0,
+                "aux_latent_mse": 0.0,
+                "aux_observation_ce": 0.0
+              }
+            },
+            "final": {
+              "update": 512,
+              "interactions": 524288,
+              "completed_episodes": 36299,
+              "recent_success": 0.47,
+              "recent_return": 0.4298515625000001,
+              "losses": {
+                "total_objective": 0.04519855882972479,
+                "policy_entropy_nats": 0.7695287019014359,
+                "aux_reward_mse": 0.0,
+                "aux_termination_bce": 0.0,
+                "aux_latent_mse": 0.0,
+                "aux_observation_ce": 0.0
+              }
+            }
+          },
+          "reward_windows": {
+            "window_size_completed_episodes": 100,
+            "logged_nonempty_windows": 511,
+            "positive_windows": 511,
+            "zero_windows": 0,
+            "first_logged_positive": {
+              "update": 2,
+              "interactions": 2048,
+              "completed_episodes": 16,
+              "recent_success": 0.0625,
+              "recent_return": 0.027783203124999996,
+              "losses": {
+                "total_objective": -0.01809124369174242,
+                "policy_entropy_nats": 1.945905476808548,
+                "aux_reward_mse": 0.0,
+                "aux_termination_bce": 0.0,
+                "aux_latent_mse": 0.0,
+                "aux_observation_ce": 0.0
+              }
+            },
+            "last_logged_positive": {
+              "update": 512,
+              "interactions": 524288,
+              "completed_episodes": 36299,
+              "recent_success": 0.47,
+              "recent_return": 0.4298515625000001,
+              "losses": {
+                "total_objective": 0.04519855882972479,
+                "policy_entropy_nats": 0.7695287019014359,
+                "aux_reward_mse": 0.0,
+                "aux_termination_bce": 0.0,
+                "aux_latent_mse": 0.0,
+                "aux_observation_ce": 0.0
+              }
+            },
+            "maximum_logged_success_fraction": 0.63,
+            "updates_since_last_positive_window": 0,
+            "covered_completed_episodes": 36299,
+            "uncovered_completed_episodes": 0,
+            "covered_fraction": 1.0,
+            "maximum_episode_count_increment": 96,
+            "positive_episodes_exact_if_provably_zero": null,
+            "interpretation": "Window counts overlap. Positive windows are not unique rewarded episodes. Full coverage with no positive window establishes zero rewarded completed episodes."
+          }
+        },
+        {
+          "arm": "recurrent_ppo",
+          "seed": 61,
+          "schema": "cue",
+          "directory": "runs/cue-memory-v1/execution/core/fits/recurrent_ppo-61",
+          "receipt_sha256": "1af884b529082b2e560f1c6edc9606e92a11f5a0f621320cfe1ea93a17780109",
+          "learning_sha256": "68f599ec80a3afc7b83ac0143635a3a883154afdc148ecd774a197f8d87b3abc",
+          "checkpoint_sha256_from_receipt": "81c04b609ac3422b9de9b7b01a88d430e04bc01ce251d9e345ed4708d40583db",
+          "checkpoint_loaded_or_verified": false,
+          "updates": 512,
+          "interactions": 524288,
+          "completed_episodes": 30642,
+          "training_seconds": 57.1240326249972,
+          "loss_fields": [
+            "total_objective",
+            "policy_entropy_nats",
+            "aux_reward_mse",
+            "aux_termination_bce",
+            "aux_latent_mse",
+            "aux_observation_ce"
+          ],
+          "validation": {
+            "completion_and_log_hash": true,
+            "sequential_fixed_interaction_updates": true,
+            "monotonic_completed_episodes_and_clock": true,
+            "final_receipt_counters": true
+          },
+          "snapshots": {
+            "first": {
+              "update": 1,
+              "interactions": 1024,
+              "completed_episodes": 0,
+              "recent_success": null,
+              "recent_return": null,
+              "losses": {
+                "total_objective": -0.016333422157913446,
+                "policy_entropy_nats": 1.9459019005298615,
+                "aux_reward_mse": 0.0,
+                "aux_termination_bce": 0.0,
+                "aux_latent_mse": 0.0,
+                "aux_observation_ce": 0.0
+              }
+            },
+            "65536": {
+              "update": 64,
+              "interactions": 65536,
+              "completed_episodes": 512,
+              "recent_success": 0.0,
+              "recent_return": 0.0,
+              "losses": {
+                "total_objective": -0.017147756181657314,
+                "policy_entropy_nats": 1.6293509900569916,
+                "aux_reward_mse": 0.0,
+                "aux_termination_bce": 0.0,
+                "aux_latent_mse": 0.0,
+                "aux_observation_ce": 0.0
+              }
+            },
+            "262144": {
+              "update": 256,
+              "interactions": 262144,
+              "completed_episodes": 10204,
+              "recent_success": 0.5,
+              "recent_return": 0.46153906250000015,
+              "losses": {
+                "total_objective": 0.05172745930030942,
+                "policy_entropy_nats": 0.4487173482775688,
+                "aux_reward_mse": 0.0,
+                "aux_termination_bce": 0.0,
+                "aux_latent_mse": 0.0,
+                "aux_observation_ce": 0.0
+              }
+            },
+            "final": {
+              "update": 512,
+              "interactions": 524288,
+              "completed_episodes": 30642,
+              "recent_success": 0.48,
+              "recent_return": 0.4389375,
+              "losses": {
+                "total_objective": 0.04502187483012676,
+                "policy_entropy_nats": 0.7844161987304688,
+                "aux_reward_mse": 0.0,
+                "aux_termination_bce": 0.0,
+                "aux_latent_mse": 0.0,
+                "aux_observation_ce": 0.0
+              }
+            }
+          },
+          "reward_windows": {
+            "window_size_completed_episodes": 100,
+            "logged_nonempty_windows": 511,
+            "positive_windows": 409,
+            "zero_windows": 102,
+            "first_logged_positive": {
+              "update": 8,
+              "interactions": 8192,
+              "completed_episodes": 64,
+              "recent_success": 0.015625,
+              "recent_return": 0.0034301757812499993,
+              "losses": {
+                "total_objective": -0.019393227994441986,
+                "policy_entropy_nats": 1.9437677562236786,
+                "aux_reward_mse": 0.0,
+                "aux_termination_bce": 0.0,
+                "aux_latent_mse": 0.0,
+                "aux_observation_ce": 0.0
+              }
+            },
+            "last_logged_positive": {
+              "update": 512,
+              "interactions": 524288,
+              "completed_episodes": 30642,
+              "recent_success": 0.48,
+              "recent_return": 0.4389375,
+              "losses": {
+                "total_objective": 0.04502187483012676,
+                "policy_entropy_nats": 0.7844161987304688,
+                "aux_reward_mse": 0.0,
+                "aux_termination_bce": 0.0,
+                "aux_latent_mse": 0.0,
+                "aux_observation_ce": 0.0
+              }
+            },
+            "maximum_logged_success_fraction": 0.63,
+            "updates_since_last_positive_window": 0,
+            "covered_completed_episodes": 30642,
+            "uncovered_completed_episodes": 0,
+            "covered_fraction": 1.0,
+            "maximum_episode_count_increment": 96,
+            "positive_episodes_exact_if_provably_zero": null,
+            "interpretation": "Window counts overlap. Positive windows are not unique rewarded episodes. Full coverage with no positive window establishes zero rewarded completed episodes."
+          }
+        },
+        {
+          "arm": "recurrent_ppo",
+          "seed": 73,
+          "schema": "cue",
+          "directory": "runs/cue-memory-v1/execution/core/fits/recurrent_ppo-73",
+          "receipt_sha256": "9b69e7566e9afba8d4ec3e55de406fe0ee21f5d7feccd09e1dd8edd66a1c4c83",
+          "learning_sha256": "13f31855ce8466c451f288b9f79dd690d53f8d44d9ea9a552e21e32bdbb3f3fb",
+          "checkpoint_sha256_from_receipt": "3c03fd303694115dd31c585bb51eb7f5004f03f1cabd37d434180929a02b0052",
+          "checkpoint_loaded_or_verified": false,
+          "updates": 512,
+          "interactions": 524288,
+          "completed_episodes": 4111,
+          "training_seconds": 53.81163750006817,
+          "loss_fields": [
+            "total_objective",
+            "policy_entropy_nats",
+            "aux_reward_mse",
+            "aux_termination_bce",
+            "aux_latent_mse",
+            "aux_observation_ce"
+          ],
+          "validation": {
+            "completion_and_log_hash": true,
+            "sequential_fixed_interaction_updates": true,
+            "monotonic_completed_episodes_and_clock": true,
+            "final_receipt_counters": true
+          },
+          "snapshots": {
+            "first": {
+              "update": 1,
+              "interactions": 1024,
+              "completed_episodes": 0,
+              "recent_success": null,
+              "recent_return": null,
+              "losses": {
+                "total_objective": -0.012882839422672987,
+                "policy_entropy_nats": 1.9459038376808167,
+                "aux_reward_mse": 0.0,
+                "aux_termination_bce": 0.0,
+                "aux_latent_mse": 0.0,
+                "aux_observation_ce": 0.0
+              }
+            },
+            "65536": {
+              "update": 64,
+              "interactions": 65536,
+              "completed_episodes": 518,
+              "recent_success": 0.03,
+              "recent_return": 0.0137578125,
+              "losses": {
+                "total_objective": -0.010903749614953995,
+                "policy_entropy_nats": 1.097891390323639,
+                "aux_reward_mse": 0.0,
+                "aux_termination_bce": 0.0,
+                "aux_latent_mse": 0.0,
+                "aux_observation_ce": 0.0
+              }
+            },
+            "262144": {
+              "update": 256,
+              "interactions": 262144,
+              "completed_episodes": 2061,
+              "recent_success": 0.0,
+              "recent_return": 0.0,
+              "losses": {
+                "total_objective": -0.0034765854943543673,
+                "policy_entropy_nats": 0.3378971293568611,
+                "aux_reward_mse": 0.0,
+                "aux_termination_bce": 0.0,
+                "aux_latent_mse": 0.0,
+                "aux_observation_ce": 0.0
+              }
+            },
+            "final": {
+              "update": 512,
+              "interactions": 524288,
+              "completed_episodes": 4111,
+              "recent_success": 0.0,
+              "recent_return": 0.0,
+              "losses": {
+                "total_objective": -0.002312411554157734,
+                "policy_entropy_nats": 0.22564449161291122,
+                "aux_reward_mse": 0.0,
+                "aux_termination_bce": 0.0,
+                "aux_latent_mse": 0.0,
+                "aux_observation_ce": 0.0
+              }
+            }
+          },
+          "reward_windows": {
+            "window_size_completed_episodes": 100,
+            "logged_nonempty_windows": 511,
+            "positive_windows": 169,
+            "zero_windows": 342,
+            "first_logged_positive": {
+              "update": 4,
+              "interactions": 4096,
+              "completed_episodes": 32,
+              "recent_success": 0.03125,
+              "recent_return": 0.007958984374999999,
+              "losses": {
+                "total_objective": -0.01727266237139702,
+                "policy_entropy_nats": 1.945748209953308,
+                "aux_reward_mse": 0.0,
+                "aux_termination_bce": 0.0,
+                "aux_latent_mse": 0.0,
+                "aux_observation_ce": 0.0
+              }
+            },
+            "last_logged_positive": {
+              "update": 385,
+              "interactions": 394240,
+              "completed_episodes": 3093,
+              "recent_success": 0.01,
+              "recent_return": 0.002125,
+              "losses": {
+                "total_objective": -0.018821221310645342,
+                "policy_entropy_nats": 1.6063331067562103,
+                "aux_reward_mse": 0.0,
+                "aux_termination_bce": 0.0,
+                "aux_latent_mse": 0.0,
+                "aux_observation_ce": 0.0
+              }
+            },
+            "maximum_logged_success_fraction": 0.07,
+            "updates_since_last_positive_window": 127,
+            "covered_completed_episodes": 4111,
+            "uncovered_completed_episodes": 0,
+            "covered_fraction": 1.0,
+            "maximum_episode_count_increment": 16,
+            "positive_episodes_exact_if_provably_zero": null,
+            "interpretation": "Window counts overlap. Positive windows are not unique rewarded episodes. Full coverage with no positive window establishes zero rewarded completed episodes."
+          }
+        },
+        {
+          "arm": "recurrent_ppo",
+          "seed": 89,
+          "schema": "cue",
+          "directory": "runs/cue-memory-v1/execution/core/fits/recurrent_ppo-89",
+          "receipt_sha256": "e57756134f01a9e54061e445bad986b5a4444b91d6378ff2fcfd25ef1292c993",
+          "learning_sha256": "6c401a3da09fecebd9ae41ed6b629eb1a7339e662b1ffe2797532931fe7c764b",
+          "checkpoint_sha256_from_receipt": "f1b6a70d0a256c1847441ee064f0caf8a99305cf1cf3ea8d012776fe3d516ca7",
+          "checkpoint_loaded_or_verified": false,
+          "updates": 512,
+          "interactions": 524288,
+          "completed_episodes": 35248,
+          "training_seconds": 57.699783582938835,
+          "loss_fields": [
+            "total_objective",
+            "policy_entropy_nats",
+            "aux_reward_mse",
+            "aux_termination_bce",
+            "aux_latent_mse",
+            "aux_observation_ce"
+          ],
+          "validation": {
+            "completion_and_log_hash": true,
+            "sequential_fixed_interaction_updates": true,
+            "monotonic_completed_episodes_and_clock": true,
+            "final_receipt_counters": true
+          },
+          "snapshots": {
+            "first": {
+              "update": 1,
+              "interactions": 1024,
+              "completed_episodes": 0,
+              "recent_success": null,
+              "recent_return": null,
+              "losses": {
+                "total_objective": -0.013013103976845741,
+                "policy_entropy_nats": 1.945907711982727,
+                "aux_reward_mse": 0.0,
+                "aux_termination_bce": 0.0,
+                "aux_latent_mse": 0.0,
+                "aux_observation_ce": 0.0
+              }
+            },
+            "65536": {
+              "update": 64,
+              "interactions": 65536,
+              "completed_episodes": 680,
+              "recent_success": 0.34,
+              "recent_return": 0.21878124999999998,
+              "losses": {
+                "total_objective": -0.006734788417816162,
+                "policy_entropy_nats": 1.1195352673530579,
+                "aux_reward_mse": 0.0,
+                "aux_termination_bce": 0.0,
+                "aux_latent_mse": 0.0,
+                "aux_observation_ce": 0.0
+              }
+            },
+            "262144": {
+              "update": 256,
+              "interactions": 262144,
+              "completed_episodes": 13731,
+              "recent_success": 0.53,
+              "recent_return": 0.48303125,
+              "losses": {
+                "total_objective": 0.04470907326322049,
+                "policy_entropy_nats": 0.7879540622234344,
+                "aux_reward_mse": 0.0,
+                "aux_termination_bce": 0.0,
+                "aux_latent_mse": 0.0,
+                "aux_observation_ce": 0.0
+              }
+            },
+            "final": {
+              "update": 512,
+              "interactions": 524288,
+              "completed_episodes": 35248,
+              "recent_success": 0.5,
+              "recent_return": 0.45331250000000006,
+              "losses": {
+                "total_objective": 0.038440488278865814,
+                "policy_entropy_nats": 0.8975827544927597,
+                "aux_reward_mse": 0.0,
+                "aux_termination_bce": 0.0,
+                "aux_latent_mse": 0.0,
+                "aux_observation_ce": 0.0
+              }
+            }
+          },
+          "reward_windows": {
+            "window_size_completed_episodes": 100,
+            "logged_nonempty_windows": 511,
+            "positive_windows": 511,
+            "zero_windows": 0,
+            "first_logged_positive": {
+              "update": 2,
+              "interactions": 2048,
+              "completed_episodes": 16,
+              "recent_success": 0.0625,
+              "recent_return": 0.027783203124999996,
+              "losses": {
+                "total_objective": -0.017077963333576918,
+                "policy_entropy_nats": 1.945893108844757,
+                "aux_reward_mse": 0.0,
+                "aux_termination_bce": 0.0,
+                "aux_latent_mse": 0.0,
+                "aux_observation_ce": 0.0
+              }
+            },
+            "last_logged_positive": {
+              "update": 512,
+              "interactions": 524288,
+              "completed_episodes": 35248,
+              "recent_success": 0.5,
+              "recent_return": 0.45331250000000006,
+              "losses": {
+                "total_objective": 0.038440488278865814,
+                "policy_entropy_nats": 0.8975827544927597,
+                "aux_reward_mse": 0.0,
+                "aux_termination_bce": 0.0,
+                "aux_latent_mse": 0.0,
+                "aux_observation_ce": 0.0
+              }
+            },
+            "maximum_logged_success_fraction": 0.65,
+            "updates_since_last_positive_window": 0,
+            "covered_completed_episodes": 35248,
+            "uncovered_completed_episodes": 0,
+            "covered_fraction": 1.0,
+            "maximum_episode_count_increment": 94,
+            "positive_episodes_exact_if_provably_zero": null,
+            "interpretation": "Window counts overlap. Positive windows are not unique rewarded episodes. Full coverage with no positive window establishes zero rewarded completed episodes."
+          }
+        },
+        {
+          "arm": "reward_prediction",
+          "seed": 61,
+          "schema": "cue",
+          "directory": "runs/cue-memory-v1/execution/core/fits/reward_prediction-61",
+          "receipt_sha256": "0da57417e65854083f499bde44d8ca34a77524c41dcbe834597a0bc7a2aa5c92",
+          "learning_sha256": "dd56b5ddfaaa4c9f1a87bd3b4ebdab82b1ee61734a11f0e6694d3e6c596f9b8c",
+          "checkpoint_sha256_from_receipt": "38d713d649582ad99afdc32d3687bb5cadff3cf31962ced5ef9ec9b972932bfc",
+          "checkpoint_loaded_or_verified": false,
+          "updates": 512,
+          "interactions": 524288,
+          "completed_episodes": 4096,
+          "training_seconds": 57.8697817500215,
+          "loss_fields": [
+            "total_objective",
+            "policy_entropy_nats",
+            "aux_reward_mse",
+            "aux_termination_bce",
+            "aux_latent_mse",
+            "aux_observation_ce"
+          ],
+          "validation": {
+            "completion_and_log_hash": true,
+            "sequential_fixed_interaction_updates": true,
+            "monotonic_completed_episodes_and_clock": true,
+            "final_receipt_counters": true
+          },
+          "snapshots": {
+            "first": {
+              "update": 1,
+              "interactions": 1024,
+              "completed_episodes": 0,
+              "recent_success": null,
+              "recent_return": null,
+              "losses": {
+                "total_objective": 0.044650763273239136,
+                "policy_entropy_nats": 1.9458996951580048,
+                "aux_reward_mse": 0.009503925684839487,
+                "aux_termination_bce": 0.6219650357961655,
+                "aux_latent_mse": 0.0,
+                "aux_observation_ce": 0.0
+              }
+            },
+            "65536": {
+              "update": 64,
+              "interactions": 65536,
+              "completed_episodes": 512,
+              "recent_success": 0.0,
+              "recent_return": 0.0,
+              "losses": {
+                "total_objective": -0.003000891301780939,
+                "policy_entropy_nats": 0.3349410891532898,
+                "aux_reward_mse": 2.05371847528113e-06,
+                "aux_termination_bce": 0.004563605762086809,
+                "aux_latent_mse": 0.0,
+                "aux_observation_ce": 0.0
+              }
+            },
+            "262144": {
+              "update": 256,
+              "interactions": 262144,
+              "completed_episodes": 2048,
+              "recent_success": 0.0,
+              "recent_return": 0.0,
+              "losses": {
+                "total_objective": 1.6030473489081487e-05,
+                "policy_entropy_nats": 0.0049535795114934444,
+                "aux_reward_mse": 8.004122342697428e-08,
+                "aux_termination_bce": 0.0006577769963769242,
+                "aux_latent_mse": 0.0,
+                "aux_observation_ce": 0.0
+              }
+            },
+            "final": {
+              "update": 512,
+              "interactions": 524288,
+              "completed_episodes": 4096,
+              "recent_success": 0.0,
+              "recent_return": 0.0,
+              "losses": {
+                "total_objective": 5.082692950963974e-06,
+                "policy_entropy_nats": 0.0015744238917250186,
+                "aux_reward_mse": 4.036437051269104e-08,
+                "aux_termination_bce": 0.00020845730978180654,
+                "aux_latent_mse": 0.0,
+                "aux_observation_ce": 0.0
+              }
+            }
+          },
+          "reward_windows": {
+            "window_size_completed_episodes": 100,
+            "logged_nonempty_windows": 511,
+            "positive_windows": 0,
+            "zero_windows": 511,
+            "first_logged_positive": null,
+            "last_logged_positive": null,
+            "maximum_logged_success_fraction": 0.0,
+            "updates_since_last_positive_window": 512,
+            "covered_completed_episodes": 4096,
+            "uncovered_completed_episodes": 0,
+            "covered_fraction": 1.0,
+            "maximum_episode_count_increment": 16,
+            "positive_episodes_exact_if_provably_zero": 0,
+            "interpretation": "Window counts overlap. Positive windows are not unique rewarded episodes. Full coverage with no positive window establishes zero rewarded completed episodes."
+          }
+        },
+        {
+          "arm": "reward_prediction",
+          "seed": 73,
+          "schema": "cue",
+          "directory": "runs/cue-memory-v1/execution/core/fits/reward_prediction-73",
+          "receipt_sha256": "a457638682c397b7381eea9410f21dc8596218230f0a921064feb8b305007f5e",
+          "learning_sha256": "f44909d3845f88e6eadb7872f82ec87c073b36348b08acd6cf8576e799d8215c",
+          "checkpoint_sha256_from_receipt": "690cec9ab7011938f94b6cc57a6a9dfdb6956fb7879b7e251d3ff48a4883e333",
+          "checkpoint_loaded_or_verified": false,
+          "updates": 512,
+          "interactions": 524288,
+          "completed_episodes": 31488,
+          "training_seconds": 62.053366207983345,
+          "loss_fields": [
+            "total_objective",
+            "policy_entropy_nats",
+            "aux_reward_mse",
+            "aux_termination_bce",
+            "aux_latent_mse",
+            "aux_observation_ce"
+          ],
+          "validation": {
+            "completion_and_log_hash": true,
+            "sequential_fixed_interaction_updates": true,
+            "monotonic_completed_episodes_and_clock": true,
+            "final_receipt_counters": true
+          },
+          "snapshots": {
+            "first": {
+              "update": 1,
+              "interactions": 1024,
+              "completed_episodes": 0,
+              "recent_success": null,
+              "recent_return": null,
+              "losses": {
+                "total_objective": 0.06009521894156933,
+                "policy_entropy_nats": 1.9459045231342316,
+                "aux_reward_mse": 0.015819008462131023,
+                "aux_termination_bce": 0.731033056974411,
+                "aux_latent_mse": 0.0,
+                "aux_observation_ce": 0.0
+              }
+            },
+            "65536": {
+              "update": 64,
+              "interactions": 65536,
+              "completed_episodes": 621,
+              "recent_success": 0.3,
+              "recent_return": 0.19600781250000002,
+              "losses": {
+                "total_objective": -0.0056280940771102905,
+                "policy_entropy_nats": 1.1204162538051605,
+                "aux_reward_mse": 0.0011198527790838853,
+                "aux_termination_bce": 0.03264971682801843,
+                "aux_latent_mse": 0.0,
+                "aux_observation_ce": 0.0
+              }
+            },
+            "262144": {
+              "update": 256,
+              "interactions": 262144,
+              "completed_episodes": 8673,
+              "recent_success": 0.5,
+              "recent_return": 0.4566875,
+              "losses": {
+                "total_objective": 0.0662231333553791,
+                "policy_entropy_nats": 0.49654169380664825,
+                "aux_reward_mse": 0.024044972378760576,
+                "aux_termination_bce": 0.16078269109129906,
+                "aux_latent_mse": 0.0,
+                "aux_observation_ce": 0.0
+              }
+            },
+            "final": {
+              "update": 512,
+              "interactions": 524288,
+              "completed_episodes": 31488,
+              "recent_success": 0.46,
+              "recent_return": 0.42259375000000005,
+              "losses": {
+                "total_objective": 0.05636553606018424,
+                "policy_entropy_nats": 0.4334625378251076,
+                "aux_reward_mse": 0.022843732964247465,
+                "aux_termination_bce": 0.023297667503356934,
+                "aux_latent_mse": 0.0,
+                "aux_observation_ce": 0.0
+              }
+            }
+          },
+          "reward_windows": {
+            "window_size_completed_episodes": 100,
+            "logged_nonempty_windows": 511,
+            "positive_windows": 505,
+            "zero_windows": 6,
+            "first_logged_positive": {
+              "update": 4,
+              "interactions": 4096,
+              "completed_episodes": 32,
+              "recent_success": 0.03125,
+              "recent_return": 0.007958984374999999,
+              "losses": {
+                "total_objective": 0.04431957006454468,
+                "policy_entropy_nats": 1.9457572996616364,
+                "aux_reward_mse": 0.0026237110723741353,
+                "aux_termination_bce": 0.612213209271431,
+                "aux_latent_mse": 0.0,
+                "aux_observation_ce": 0.0
+              }
+            },
+            "last_logged_positive": {
+              "update": 512,
+              "interactions": 524288,
+              "completed_episodes": 31488,
+              "recent_success": 0.46,
+              "recent_return": 0.42259375000000005,
+              "losses": {
+                "total_objective": 0.05636553606018424,
+                "policy_entropy_nats": 0.4334625378251076,
+                "aux_reward_mse": 0.022843732964247465,
+                "aux_termination_bce": 0.023297667503356934,
+                "aux_latent_mse": 0.0,
+                "aux_observation_ce": 0.0
+              }
+            },
+            "maximum_logged_success_fraction": 0.65,
+            "updates_since_last_positive_window": 0,
+            "covered_completed_episodes": 31488,
+            "uncovered_completed_episodes": 0,
+            "covered_fraction": 1.0,
+            "maximum_episode_count_increment": 97,
+            "positive_episodes_exact_if_provably_zero": null,
+            "interpretation": "Window counts overlap. Positive windows are not unique rewarded episodes. Full coverage with no positive window establishes zero rewarded completed episodes."
+          }
+        },
+        {
+          "arm": "reward_prediction",
+          "seed": 89,
+          "schema": "cue",
+          "directory": "runs/cue-memory-v1/execution/core/fits/reward_prediction-89",
+          "receipt_sha256": "0f52399ae1d355b2597c89ce257d0ddabf822913b10b2c071357ee7354c38972",
+          "learning_sha256": "d415d32f8159c391bb44851816ace7c7a18c404bc00ee7046e8bc469fe1429fd",
+          "checkpoint_sha256_from_receipt": "75d3a5de3f566ccdcc2ad2c9ac4de6f03ca03a7433eeb733d273b1b97729db27",
+          "checkpoint_loaded_or_verified": false,
+          "updates": 512,
+          "interactions": 524288,
+          "completed_episodes": 31440,
+          "training_seconds": 63.833411125000566,
+          "loss_fields": [
+            "total_objective",
+            "policy_entropy_nats",
+            "aux_reward_mse",
+            "aux_termination_bce",
+            "aux_latent_mse",
+            "aux_observation_ce"
+          ],
+          "validation": {
+            "completion_and_log_hash": true,
+            "sequential_fixed_interaction_updates": true,
+            "monotonic_completed_episodes_and_clock": true,
+            "final_receipt_counters": true
+          },
+          "snapshots": {
+            "first": {
+              "update": 1,
+              "interactions": 1024,
+              "completed_episodes": 0,
+              "recent_success": null,
+              "recent_return": null,
+              "losses": {
+                "total_objective": 0.048621563240885735,
+                "policy_entropy_nats": 1.9459078013896942,
+                "aux_reward_mse": 0.00611406285315752,
+                "aux_termination_bce": 0.6217626631259918,
+                "aux_latent_mse": 0.0,
+                "aux_observation_ce": 0.0
+              }
+            },
+            "65536": {
+              "update": 64,
+              "interactions": 65536,
+              "completed_episodes": 585,
+              "recent_success": 0.18,
+              "recent_return": 0.10047656249999999,
+              "losses": {
+                "total_objective": -0.010661688167601824,
+                "policy_entropy_nats": 1.5399830043315887,
+                "aux_reward_mse": 0.0003805362439379678,
+                "aux_termination_bce": 0.03736822120845318,
+                "aux_latent_mse": 0.0,
+                "aux_observation_ce": 0.0
+              }
+            },
+            "262144": {
+              "update": 256,
+              "interactions": 262144,
+              "completed_episodes": 10338,
+              "recent_success": 0.47,
+              "recent_return": 0.4283046875,
+              "losses": {
+                "total_objective": 0.05839035101234913,
+                "policy_entropy_nats": 0.793051078915596,
+                "aux_reward_mse": 0.023738763760775328,
+                "aux_termination_bce": 0.08529172465205193,
+                "aux_latent_mse": 0.0,
+                "aux_observation_ce": 0.0
+              }
+            },
+            "final": {
+              "update": 512,
+              "interactions": 524288,
+              "completed_episodes": 31440,
+              "recent_success": 0.44,
+              "recent_return": 0.40139843750000004,
+              "losses": {
+                "total_objective": 0.047987959696911275,
+                "policy_entropy_nats": 0.681114912033081,
+                "aux_reward_mse": 0.01995128719136119,
+                "aux_termination_bce": 0.0070057319244369864,
+                "aux_latent_mse": 0.0,
+                "aux_observation_ce": 0.0
+              }
+            }
+          },
+          "reward_windows": {
+            "window_size_completed_episodes": 100,
+            "logged_nonempty_windows": 511,
+            "positive_windows": 511,
+            "zero_windows": 0,
+            "first_logged_positive": {
+              "update": 2,
+              "interactions": 2048,
+              "completed_episodes": 16,
+              "recent_success": 0.0625,
+              "recent_return": 0.027783203124999996,
+              "losses": {
+                "total_objective": 0.04310091212391853,
+                "policy_entropy_nats": 1.94589164853096,
+                "aux_reward_mse": 0.005854275310412049,
+                "aux_termination_bce": 0.5974637418985367,
+                "aux_latent_mse": 0.0,
+                "aux_observation_ce": 0.0
+              }
+            },
+            "last_logged_positive": {
+              "update": 512,
+              "interactions": 524288,
+              "completed_episodes": 31440,
+              "recent_success": 0.44,
+              "recent_return": 0.40139843750000004,
+              "losses": {
+                "total_objective": 0.047987959696911275,
+                "policy_entropy_nats": 0.681114912033081,
+                "aux_reward_mse": 0.01995128719136119,
+                "aux_termination_bce": 0.0070057319244369864,
+                "aux_latent_mse": 0.0,
+                "aux_observation_ce": 0.0
+              }
+            },
+            "maximum_logged_success_fraction": 0.63,
+            "updates_since_last_positive_window": 0,
+            "covered_completed_episodes": 31440,
+            "uncovered_completed_episodes": 0,
+            "covered_fraction": 1.0,
+            "maximum_episode_count_increment": 91,
+            "positive_episodes_exact_if_provably_zero": null,
+            "interpretation": "Window counts overlap. Positive windows are not unique rewarded episodes. Full coverage with no positive window establishes zero rewarded completed episodes."
+          }
+        },
+        {
+          "arm": "world_prediction",
+          "seed": 61,
+          "schema": "cue",
+          "directory": "runs/cue-memory-v1/execution/core/fits/world_prediction-61",
+          "receipt_sha256": "79f29824966578b97d8e6388601d4437f4b9cda1e7bf57fb5cdc5f225aca8284",
+          "learning_sha256": "aed5f78190df3266999c7bd415016a4c4765c737e598d823d113f8342e3cefb0",
+          "checkpoint_sha256_from_receipt": "4bb281095c72c3422cedc411844eb63309103788240393fef02ef2452dac02f8",
+          "checkpoint_loaded_or_verified": false,
+          "updates": 512,
+          "interactions": 524288,
+          "completed_episodes": 4096,
+          "training_seconds": 79.91417991591152,
+          "loss_fields": [
+            "total_objective",
+            "policy_entropy_nats",
+            "aux_reward_mse",
+            "aux_termination_bce",
+            "aux_latent_mse",
+            "aux_observation_ce"
+          ],
+          "validation": {
+            "completion_and_log_hash": true,
+            "sequential_fixed_interaction_updates": true,
+            "monotonic_completed_episodes_and_clock": true,
+            "final_receipt_counters": true
+          },
+          "snapshots": {
+            "first": {
+              "update": 1,
+              "interactions": 1024,
+              "completed_episodes": 0,
+              "recent_success": null,
+              "recent_return": null,
+              "losses": {
+                "total_objective": 0.21372904628515244,
+                "policy_entropy_nats": 1.9458995163440704,
+                "aux_reward_mse": 0.009761997382156551,
+                "aux_termination_bce": 0.6213885396718979,
+                "aux_latent_mse": 0.023202669341117144,
+                "aux_observation_ce": 1.6683738827705383
+              }
+            },
+            "65536": {
+              "update": 64,
+              "interactions": 65536,
+              "completed_episodes": 512,
+              "recent_success": 0.0,
+              "recent_return": 0.0,
+              "losses": {
+                "total_objective": 0.059100731275975704,
+                "policy_entropy_nats": 0.34881553798913956,
+                "aux_reward_mse": 2.2165809241414536e-06,
+                "aux_termination_bce": 0.0054501984268426895,
+                "aux_latent_mse": 0.000509418488945812,
+                "aux_observation_ce": 0.6225929260253906
+              }
+            },
+            "262144": {
+              "update": 256,
+              "interactions": 262144,
+              "completed_episodes": 2048,
+              "recent_success": 0.0,
+              "recent_return": 0.0,
+              "losses": {
+                "total_objective": 0.002269997668918222,
+                "policy_entropy_nats": 0.006429654662497342,
+                "aux_reward_mse": 9.259056277244326e-08,
+                "aux_termination_bce": 0.0007092158048180863,
+                "aux_latent_mse": 4.02571049562539e-05,
+                "aux_observation_ce": 0.02259220089763403
+              }
+            },
+            "final": {
+              "update": 512,
+              "interactions": 524288,
+              "completed_episodes": 4096,
+              "recent_success": 0.0,
+              "recent_return": 0.0,
+              "losses": {
+                "total_objective": 0.0006661528022959828,
+                "policy_entropy_nats": 0.001980647910386324,
+                "aux_reward_mse": 2.95831865670948e-08,
+                "aux_termination_bce": 0.00021608670795103535,
+                "aux_latent_mse": 1.537532034490141e-05,
+                "aux_observation_ce": 0.006617166684009135
+              }
+            }
+          },
+          "reward_windows": {
+            "window_size_completed_episodes": 100,
+            "logged_nonempty_windows": 511,
+            "positive_windows": 0,
+            "zero_windows": 511,
+            "first_logged_positive": null,
+            "last_logged_positive": null,
+            "maximum_logged_success_fraction": 0.0,
+            "updates_since_last_positive_window": 512,
+            "covered_completed_episodes": 4096,
+            "uncovered_completed_episodes": 0,
+            "covered_fraction": 1.0,
+            "maximum_episode_count_increment": 16,
+            "positive_episodes_exact_if_provably_zero": 0,
+            "interpretation": "Window counts overlap. Positive windows are not unique rewarded episodes. Full coverage with no positive window establishes zero rewarded completed episodes."
+          }
+        },
+        {
+          "arm": "world_prediction",
+          "seed": 73,
+          "schema": "cue",
+          "directory": "runs/cue-memory-v1/execution/core/fits/world_prediction-73",
+          "receipt_sha256": "44e320666a43b155a3788a13d0b2193fff5d8a82dbeb92482d11b36f6032e107",
+          "learning_sha256": "78a30ab731e96531741d2376ccc798dc1de0eca6b8949aef9137634765e359da",
+          "checkpoint_sha256_from_receipt": "1e521dda6a8e85d50226015acfc82226766d1d6384fea7b16b3a375bfb74feaf",
+          "checkpoint_loaded_or_verified": false,
+          "updates": 512,
+          "interactions": 524288,
+          "completed_episodes": 25447,
+          "training_seconds": 81.33967429201584,
+          "loss_fields": [
+            "total_objective",
+            "policy_entropy_nats",
+            "aux_reward_mse",
+            "aux_termination_bce",
+            "aux_latent_mse",
+            "aux_observation_ce"
+          ],
+          "validation": {
+            "completion_and_log_hash": true,
+            "sequential_fixed_interaction_updates": true,
+            "monotonic_completed_episodes_and_clock": true,
+            "final_receipt_counters": true
+          },
+          "snapshots": {
+            "first": {
+              "update": 1,
+              "interactions": 1024,
+              "completed_episodes": 0,
+              "recent_success": null,
+              "recent_return": null,
+              "losses": {
+                "total_objective": 0.2286999747157097,
+                "policy_entropy_nats": 1.9459044337272644,
+                "aux_reward_mse": 0.015775263542309403,
+                "aux_termination_bce": 0.7311844974756241,
+                "aux_latent_mse": 0.018618151545524597,
+                "aux_observation_ce": 1.6671050786972046
+              }
+            },
+            "65536": {
+              "update": 64,
+              "interactions": 65536,
+              "completed_episodes": 610,
+              "recent_success": 0.32,
+              "recent_return": 0.18717968750000005,
+              "losses": {
+                "total_objective": 0.06664356961846352,
+                "policy_entropy_nats": 1.106011837720871,
+                "aux_reward_mse": 0.0023281711182789877,
+                "aux_termination_bce": 0.057289923541247845,
+                "aux_latent_mse": 0.002048756810836494,
+                "aux_observation_ce": 0.6643147319555283
+              }
+            },
+            "262144": {
+              "update": 256,
+              "interactions": 262144,
+              "completed_episodes": 6143,
+              "recent_success": 0.5,
+              "recent_return": 0.450078125,
+              "losses": {
+                "total_objective": 0.12407384254038334,
+                "policy_entropy_nats": 0.8599023222923279,
+                "aux_reward_mse": 0.02527451515197754,
+                "aux_termination_bce": 0.22011373564600945,
+                "aux_latent_mse": 0.11469065025448799,
+                "aux_observation_ce": 0.5028749406337738
+              }
+            },
+            "final": {
+              "update": 512,
+              "interactions": 524288,
+              "completed_episodes": 25447,
+              "recent_success": 0.55,
+              "recent_return": 0.502609375,
+              "losses": {
+                "total_objective": 0.09621041640639305,
+                "policy_entropy_nats": 0.7297078520059586,
+                "aux_reward_mse": 0.021987617015838623,
+                "aux_termination_bce": 0.03855766449123621,
+                "aux_latent_mse": 0.10028360038995743,
+                "aux_observation_ce": 0.3552733510732651
+              }
+            }
+          },
+          "reward_windows": {
+            "window_size_completed_episodes": 100,
+            "logged_nonempty_windows": 511,
+            "positive_windows": 508,
+            "zero_windows": 3,
+            "first_logged_positive": {
+              "update": 4,
+              "interactions": 4096,
+              "completed_episodes": 32,
+              "recent_success": 0.03125,
+              "recent_return": 0.007958984374999999,
+              "losses": {
+                "total_objective": 0.21195418760180473,
+                "policy_entropy_nats": 1.9457509219646454,
+                "aux_reward_mse": 0.0024044698802754283,
+                "aux_termination_bce": 0.6116388887166977,
+                "aux_latent_mse": 0.024815140292048454,
+                "aux_observation_ce": 1.652582198381424
+              }
+            },
+            "last_logged_positive": {
+              "update": 512,
+              "interactions": 524288,
+              "completed_episodes": 25447,
+              "recent_success": 0.55,
+              "recent_return": 0.502609375,
+              "losses": {
+                "total_objective": 0.09621041640639305,
+                "policy_entropy_nats": 0.7297078520059586,
+                "aux_reward_mse": 0.021987617015838623,
+                "aux_termination_bce": 0.03855766449123621,
+                "aux_latent_mse": 0.10028360038995743,
+                "aux_observation_ce": 0.3552733510732651
+              }
+            },
+            "maximum_logged_success_fraction": 0.62,
+            "updates_since_last_positive_window": 0,
+            "covered_completed_episodes": 25447,
+            "uncovered_completed_episodes": 0,
+            "covered_fraction": 1.0,
+            "maximum_episode_count_increment": 90,
+            "positive_episodes_exact_if_provably_zero": null,
+            "interpretation": "Window counts overlap. Positive windows are not unique rewarded episodes. Full coverage with no positive window establishes zero rewarded completed episodes."
+          }
+        },
+        {
+          "arm": "world_prediction",
+          "seed": 89,
+          "schema": "cue",
+          "directory": "runs/cue-memory-v1/execution/core/fits/world_prediction-89",
+          "receipt_sha256": "ad6289d3bfbcd13fe381e0c489c493aab8ea75370db0eb2b484c1359c52635c3",
+          "learning_sha256": "7d8291c80206dadbddac81705044ff13de41313ff7448e9a7f224d7b1d48088c",
+          "checkpoint_sha256_from_receipt": "11c4e0b08eec2cf9ace4d9702f50e94412b74b50ec27bd9102f10ae93eb40b6c",
+          "checkpoint_loaded_or_verified": false,
+          "updates": 512,
+          "interactions": 524288,
+          "completed_episodes": 27278,
+          "training_seconds": 82.17854645801708,
+          "loss_fields": [
+            "total_objective",
+            "policy_entropy_nats",
+            "aux_reward_mse",
+            "aux_termination_bce",
+            "aux_latent_mse",
+            "aux_observation_ce"
+          ],
+          "validation": {
+            "completion_and_log_hash": true,
+            "sequential_fixed_interaction_updates": true,
+            "monotonic_completed_episodes_and_clock": true,
+            "final_receipt_counters": true
+          },
+          "snapshots": {
+            "first": {
+              "update": 1,
+              "interactions": 1024,
+              "completed_episodes": 0,
+              "recent_success": null,
+              "recent_return": null,
+              "losses": {
+                "total_objective": 0.21778284758329391,
+                "policy_entropy_nats": 1.9459077715873718,
+                "aux_reward_mse": 0.006054738652892411,
+                "aux_termination_bce": 0.6217625141143799,
+                "aux_latent_mse": 0.015368476510047913,
+                "aux_observation_ce": 1.6775377094745636
+              }
+            },
+            "65536": {
+              "update": 64,
+              "interactions": 65536,
+              "completed_episodes": 528,
+              "recent_success": 0.02,
+              "recent_return": 0.0035468749999999992,
+              "losses": {
+                "total_objective": 0.05645870044827461,
+                "policy_entropy_nats": 0.4036829099059105,
+                "aux_reward_mse": 8.161162440956105e-06,
+                "aux_termination_bce": 0.007391484337858856,
+                "aux_latent_mse": 0.0018747109861578792,
+                "aux_observation_ce": 0.6077635288238525
+              }
+            },
+            "262144": {
+              "update": 256,
+              "interactions": 262144,
+              "completed_episodes": 7168,
+              "recent_success": 0.48,
+              "recent_return": 0.4338046875,
+              "losses": {
+                "total_objective": 0.13090255297720432,
+                "policy_entropy_nats": 0.7136225998401642,
+                "aux_reward_mse": 0.02499551046639681,
+                "aux_termination_bce": 0.2395629696547985,
+                "aux_latent_mse": 0.1257400680333376,
+                "aux_observation_ce": 0.47406724095344543
+              }
+            },
+            "final": {
+              "update": 512,
+              "interactions": 524288,
+              "completed_episodes": 27278,
+              "recent_success": 0.62,
+              "recent_return": 0.5661406250000001,
+              "losses": {
+                "total_objective": 0.10089771309867501,
+                "policy_entropy_nats": 0.6788260787725449,
+                "aux_reward_mse": 0.024938513059169054,
+                "aux_termination_bce": 0.04563038982450962,
+                "aux_latent_mse": 0.10510642267763615,
+                "aux_observation_ce": 0.3547460585832596
+              }
+            }
+          },
+          "reward_windows": {
+            "window_size_completed_episodes": 100,
+            "logged_nonempty_windows": 511,
+            "positive_windows": 495,
+            "zero_windows": 16,
+            "first_logged_positive": {
+              "update": 2,
+              "interactions": 2048,
+              "completed_episodes": 16,
+              "recent_success": 0.0625,
+              "recent_return": 0.027783203124999996,
+              "losses": {
+                "total_objective": 0.2119268700480461,
+                "policy_entropy_nats": 1.9458904266357422,
+                "aux_reward_mse": 0.005723577574826777,
+                "aux_termination_bce": 0.5973970890045166,
+                "aux_latent_mse": 0.017034612596035004,
+                "aux_observation_ce": 1.671777367591858
+              }
+            },
+            "last_logged_positive": {
+              "update": 512,
+              "interactions": 524288,
+              "completed_episodes": 27278,
+              "recent_success": 0.62,
+              "recent_return": 0.5661406250000001,
+              "losses": {
+                "total_objective": 0.10089771309867501,
+                "policy_entropy_nats": 0.6788260787725449,
+                "aux_reward_mse": 0.024938513059169054,
+                "aux_termination_bce": 0.04563038982450962,
+                "aux_latent_mse": 0.10510642267763615,
+                "aux_observation_ce": 0.3547460585832596
+              }
+            },
+            "maximum_logged_success_fraction": 0.65,
+            "updates_since_last_positive_window": 0,
+            "covered_completed_episodes": 27278,
+            "uncovered_completed_episodes": 0,
+            "covered_fraction": 1.0,
+            "maximum_episode_count_increment": 91,
+            "positive_episodes_exact_if_provably_zero": null,
+            "interpretation": "Window counts overlap. Positive windows are not unique rewarded episodes. Full coverage with no positive window establishes zero rewarded completed episodes."
+          }
+        }
+      ]
+    },
+    {
+      "schema": "associative",
+      "fits_root": "runs/associative-ppo-v1/execution/fits",
+      "completed_fits_at_snapshot": 12,
+      "incomplete_fit_directories_skipped": [],
+      "fits": [
+        {
+          "arm": "fast_global",
+          "seed": 101,
+          "schema": "associative",
+          "directory": "runs/associative-ppo-v1/execution/fits/fast_global-101",
+          "receipt_sha256": "0489de6decf4b19fd3d32d803d54bd2fd2dda257fce86160e022d129e0c9a2fd",
+          "learning_sha256": "d5d32ddd7047d5c9294f366f7a4609364ad52be4d8b6a4fc4555071ef8ee3f1c",
+          "checkpoint_sha256_from_receipt": "824b39daf61c7f4b154c053f4980e39501bfabe2c390122aa93f20cd7d7aea0e",
+          "checkpoint_loaded_or_verified": false,
+          "updates": 1024,
+          "interactions": 1048576,
+          "completed_episodes": 8192,
+          "training_seconds": 171.9026368750492,
+          "loss_fields": [
+            "total_objective",
+            "policy_entropy_nats",
+            "ppo_actor_loss",
+            "critic_mse"
+          ],
+          "validation": {
+            "completion_and_log_hash": true,
+            "sequential_fixed_interaction_updates": true,
+            "monotonic_completed_episodes_and_clock": true,
+            "final_receipt_counters": true
+          },
+          "snapshots": {
+            "first": {
+              "update": 1,
+              "interactions": 1024,
+              "completed_episodes": 0,
+              "recent_success": null,
+              "recent_return": null,
+              "losses": {
+                "total_objective": -0.015209819423034787,
+                "policy_entropy_nats": 1.945901244878769,
+                "ppo_actor_loss": -0.00018768850713968277,
+                "critic_mse": 0.008873762068105862
+              }
+            },
+            "65536": {
+              "update": 64,
+              "interactions": 65536,
+              "completed_episodes": 512,
+              "recent_success": 0.0,
+              "recent_return": 0.0,
+              "losses": {
+                "total_objective": -0.006289548007771373,
+                "policy_entropy_nats": 0.6689307689666748,
+                "ppo_actor_loss": 0.0003938127774745226,
+                "critic_mse": 1.1895524380634015e-05
+              }
+            },
+            "262144": {
+              "update": 256,
+              "interactions": 262144,
+              "completed_episodes": 2048,
+              "recent_success": 0.0,
+              "recent_return": 0.0,
+              "losses": {
+                "total_objective": -0.008916994091123343,
+                "policy_entropy_nats": 0.8095675557851791,
+                "ppo_actor_loss": -0.0008739563636481762,
+                "critic_mse": 0.00010527491758693941
+              }
+            },
+            "final": {
+              "update": 1024,
+              "interactions": 1048576,
+              "completed_episodes": 8192,
+              "recent_success": 0.0,
+              "recent_return": 0.0,
+              "losses": {
+                "total_objective": -0.005124576389789581,
+                "policy_entropy_nats": 0.24402310699224472,
+                "ppo_actor_loss": -0.002721128985285759,
+                "critic_mse": 7.356280821113614e-05
+              }
+            }
+          },
+          "reward_windows": {
+            "window_size_completed_episodes": 100,
+            "logged_nonempty_windows": 1023,
+            "positive_windows": 12,
+            "zero_windows": 1011,
+            "first_logged_positive": {
+              "update": 24,
+              "interactions": 24576,
+              "completed_episodes": 192,
+              "recent_success": 0.01,
+              "recent_return": 0.0010703125000000003,
+              "losses": {
+                "total_objective": -0.019915723707526922,
+                "policy_entropy_nats": 1.8248207867145538,
+                "ppo_actor_loss": -0.001801561564207077,
+                "critic_mse": 0.0002680842771951575
+              }
+            },
+            "last_logged_positive": {
+              "update": 35,
+              "interactions": 35840,
+              "completed_episodes": 272,
+              "recent_success": 0.01,
+              "recent_return": 0.0010703125000000003,
+              "losses": {
+                "total_objective": -0.01635135430842638,
+                "policy_entropy_nats": 1.3784737884998322,
+                "ppo_actor_loss": -0.0025921817868947983,
+                "critic_mse": 5.112975759402616e-05
+              }
+            },
+            "maximum_logged_success_fraction": 0.01,
+            "updates_since_last_positive_window": 989,
+            "covered_completed_episodes": 8192,
+            "uncovered_completed_episodes": 0,
+            "covered_fraction": 1.0,
+            "maximum_episode_count_increment": 16,
+            "positive_episodes_exact_if_provably_zero": null,
+            "interpretation": "Window counts overlap. Positive windows are not unique rewarded episodes. Full coverage with no positive window establishes zero rewarded completed episodes."
+          }
+        },
+        {
+          "arm": "fast_global",
+          "seed": 113,
+          "schema": "associative",
+          "directory": "runs/associative-ppo-v1/execution/fits/fast_global-113",
+          "receipt_sha256": "00b2a3a7eef645386958acacd9969cf541fc347ad540ec6eddc90263e7966653",
+          "learning_sha256": "bf6ba2115a542d5d1faff538cef2cb71bd573510a6016e367830fb1b9df39cbe",
+          "checkpoint_sha256_from_receipt": "02dc1cfbccfd94f164608465ec18c72003ddd7f4e30e6003c11971e5cbd73028",
+          "checkpoint_loaded_or_verified": false,
+          "updates": 1024,
+          "interactions": 1048576,
+          "completed_episodes": 8192,
+          "training_seconds": 159.7889677080093,
+          "loss_fields": [
+            "total_objective",
+            "policy_entropy_nats",
+            "ppo_actor_loss",
+            "critic_mse"
+          ],
+          "validation": {
+            "completion_and_log_hash": true,
+            "sequential_fixed_interaction_updates": true,
+            "monotonic_completed_episodes_and_clock": true,
+            "final_receipt_counters": true
+          },
+          "snapshots": {
+            "first": {
+              "update": 1,
+              "interactions": 1024,
+              "completed_episodes": 0,
+              "recent_success": null,
+              "recent_return": null,
+              "losses": {
+                "total_objective": -0.013483828166499734,
+                "policy_entropy_nats": 1.9458986520767212,
+                "ppo_actor_loss": -0.00022872723639011383,
+                "critic_mse": 0.012407769681885839
+              }
+            },
+            "65536": {
+              "update": 64,
+              "interactions": 65536,
+              "completed_episodes": 512,
+              "recent_success": 0.0,
+              "recent_return": 0.0,
+              "losses": {
+                "total_objective": -0.0010197628289461136,
+                "policy_entropy_nats": 0.08656427077949047,
+                "ppo_actor_loss": -0.00016755517572164536,
+                "critic_mse": 2.6872993331039652e-05
+              }
+            },
+            "262144": {
+              "update": 256,
+              "interactions": 262144,
+              "completed_episodes": 2048,
+              "recent_success": 0.0,
+              "recent_return": 0.0,
+              "losses": {
+                "total_objective": -0.00013487390242516994,
+                "policy_entropy_nats": 0.008858899818733335,
+                "ppo_actor_loss": -8.30204226076603e-05,
+                "critic_mse": 7.347089407971907e-05
+              }
+            },
+            "final": {
+              "update": 1024,
+              "interactions": 1048576,
+              "completed_episodes": 8192,
+              "recent_success": 0.0,
+              "recent_return": 0.0,
+              "losses": {
+                "total_objective": 3.857538104057312e-06,
+                "policy_entropy_nats": 5.992617934680311e-05,
+                "ppo_actor_loss": 3.0873343348503113e-07,
+                "critic_mse": 8.297832209791522e-06
+              }
+            }
+          },
+          "reward_windows": {
+            "window_size_completed_episodes": 100,
+            "logged_nonempty_windows": 1023,
+            "positive_windows": 14,
+            "zero_windows": 1009,
+            "first_logged_positive": {
+              "update": 2,
+              "interactions": 2048,
+              "completed_episodes": 16,
+              "recent_success": 0.0625,
+              "recent_return": 0.007128906249999997,
+              "losses": {
+                "total_objective": -0.01656349189579487,
+                "policy_entropy_nats": 1.9458350241184235,
+                "ppo_actor_loss": -0.00023139268159866333,
+                "critic_mse": 0.006252502789720893
+              }
+            },
+            "last_logged_positive": {
+              "update": 15,
+              "interactions": 15360,
+              "completed_episodes": 113,
+              "recent_success": 0.01,
+              "recent_return": 0.006625,
+              "losses": {
+                "total_objective": -0.01992521435022354,
+                "policy_entropy_nats": 1.9049738943576813,
+                "ppo_actor_loss": -0.0012062564492225647,
+                "critic_mse": 0.00066156625689473
+              }
+            },
+            "maximum_logged_success_fraction": 0.11764705882352941,
+            "updates_since_last_positive_window": 1009,
+            "covered_completed_episodes": 8192,
+            "uncovered_completed_episodes": 0,
+            "covered_fraction": 1.0,
+            "maximum_episode_count_increment": 16,
+            "positive_episodes_exact_if_provably_zero": null,
+            "interpretation": "Window counts overlap. Positive windows are not unique rewarded episodes. Full coverage with no positive window establishes zero rewarded completed episodes."
+          }
+        },
+        {
+          "arm": "fast_global",
+          "seed": 127,
+          "schema": "associative",
+          "directory": "runs/associative-ppo-v1/execution/fits/fast_global-127",
+          "receipt_sha256": "fce69e48d3f92364978fd668ae42b9570ee5dc082c194665afc633b896fee6ac",
+          "learning_sha256": "981b4161de8ff9001409dc86796230cbfd3ba4f2ab6cf266865bf4cf49d92cc3",
+          "checkpoint_sha256_from_receipt": "ce5c62714c6db6e77f1678d253b87c17c9098b95c5136803d2c939d17a9c1f7b",
+          "checkpoint_loaded_or_verified": false,
+          "updates": 1024,
+          "interactions": 1048576,
+          "completed_episodes": 88381,
+          "training_seconds": 168.35507637495175,
+          "loss_fields": [
+            "total_objective",
+            "policy_entropy_nats",
+            "ppo_actor_loss",
+            "critic_mse"
+          ],
+          "validation": {
+            "completion_and_log_hash": true,
+            "sequential_fixed_interaction_updates": true,
+            "monotonic_completed_episodes_and_clock": true,
+            "final_receipt_counters": true
+          },
+          "snapshots": {
+            "first": {
+              "update": 1,
+              "interactions": 1024,
+              "completed_episodes": 0,
+              "recent_success": null,
+              "recent_return": null,
+              "losses": {
+                "total_objective": -0.013129407539963722,
+                "policy_entropy_nats": 1.9458987712860107,
+                "ppo_actor_loss": -0.0003845095634460449,
+                "critic_mse": 0.013428175239823759
+              }
+            },
+            "65536": {
+              "update": 64,
+              "interactions": 65536,
+              "completed_episodes": 617,
+              "recent_success": 0.34,
+              "recent_return": 0.21674218750000002,
+              "losses": {
+                "total_objective": -0.008382569998502731,
+                "policy_entropy_nats": 1.2664331793785095,
+                "ppo_actor_loss": 0.0009878221899271011,
+                "critic_mse": 0.0065878758614417166
+              }
+            },
+            "262144": {
+              "update": 256,
+              "interactions": 262144,
+              "completed_episodes": 14792,
+              "recent_success": 0.5,
+              "recent_return": 0.4594296875000001,
+              "losses": {
+                "total_objective": 0.0545000284910202,
+                "policy_entropy_nats": 0.25744764879345894,
+                "ppo_actor_loss": 0.00017716176807880402,
+                "critic_mse": 0.11379468441009521
+              }
+            },
+            "final": {
+              "update": 1024,
+              "interactions": 1048576,
+              "completed_episodes": 88381,
+              "recent_success": 0.49,
+              "recent_return": 0.45392968750000007,
+              "losses": {
+                "total_objective": 0.057845103554427624,
+                "policy_entropy_nats": 0.20244299247860909,
+                "ppo_actor_loss": -0.00014277175068855286,
+                "critic_mse": 0.12002460658550262
+              }
+            }
+          },
+          "reward_windows": {
+            "window_size_completed_episodes": 100,
+            "logged_nonempty_windows": 1023,
+            "positive_windows": 1019,
+            "zero_windows": 4,
+            "first_logged_positive": {
+              "update": 6,
+              "interactions": 6144,
+              "completed_episodes": 48,
+              "recent_success": 0.020833333333333332,
+              "recent_return": 0.008235677083333332,
+              "losses": {
+                "total_objective": -0.019057636614888906,
+                "policy_entropy_nats": 1.944606453180313,
+                "ppo_actor_loss": -0.0002558799460530281,
+                "critic_mse": 0.0012886137556051835
+              }
+            },
+            "last_logged_positive": {
+              "update": 1024,
+              "interactions": 1048576,
+              "completed_episodes": 88381,
+              "recent_success": 0.49,
+              "recent_return": 0.45392968750000007,
+              "losses": {
+                "total_objective": 0.057845103554427624,
+                "policy_entropy_nats": 0.20244299247860909,
+                "ppo_actor_loss": -0.00014277175068855286,
+                "critic_mse": 0.12002460658550262
+              }
+            },
+            "maximum_logged_success_fraction": 0.68,
+            "updates_since_last_positive_window": 0,
+            "covered_completed_episodes": 88294,
+            "uncovered_completed_episodes": 87,
+            "covered_fraction": 0.9990156255303742,
+            "maximum_episode_count_increment": 104,
+            "positive_episodes_exact_if_provably_zero": null,
+            "interpretation": "Window counts overlap. Positive windows are not unique rewarded episodes. Full coverage with no positive window establishes zero rewarded completed episodes."
+          }
+        },
+        {
+          "arm": "fast_selective",
+          "seed": 101,
+          "schema": "associative",
+          "directory": "runs/associative-ppo-v1/execution/fits/fast_selective-101",
+          "receipt_sha256": "068834484414cbf74988f74a997c494eb6bc2356b83ded7126698de5fce54644",
+          "learning_sha256": "1441f46a5fce7159b10fcc0c84c3662c7654f9e01198d270f88655e692b89e72",
+          "checkpoint_sha256_from_receipt": "47494f1495b1d6e46a53cec9f3271bbcfc49a92f4ffaffa316c01eddf2986541",
+          "checkpoint_loaded_or_verified": false,
+          "updates": 1024,
+          "interactions": 1048576,
+          "completed_episodes": 8192,
+          "training_seconds": 155.61958545807283,
+          "loss_fields": [
+            "total_objective",
+            "policy_entropy_nats",
+            "ppo_actor_loss",
+            "critic_mse"
+          ],
+          "validation": {
+            "completion_and_log_hash": true,
+            "sequential_fixed_interaction_updates": true,
+            "monotonic_completed_episodes_and_clock": true,
+            "final_receipt_counters": true
+          },
+          "snapshots": {
+            "first": {
+              "update": 1,
+              "interactions": 1024,
+              "completed_episodes": 0,
+              "recent_success": null,
+              "recent_return": null,
+              "losses": {
+                "total_objective": -0.015209828736260533,
+                "policy_entropy_nats": 1.945901244878769,
+                "ppo_actor_loss": -0.000187690369784832,
+                "critic_mse": 0.008873749058693647
+              }
+            },
+            "65536": {
+              "update": 64,
+              "interactions": 65536,
+              "completed_episodes": 512,
+              "recent_success": 0.0,
+              "recent_return": 0.0,
+              "losses": {
+                "total_objective": -0.008554330561310053,
+                "policy_entropy_nats": 0.6747455298900604,
+                "ppo_actor_loss": -0.0018113134428858757,
+                "critic_mse": 8.876764468368492e-06
+              }
+            },
+            "262144": {
+              "update": 256,
+              "interactions": 262144,
+              "completed_episodes": 2048,
+              "recent_success": 0.0,
+              "recent_return": 0.0,
+              "losses": {
+                "total_objective": -0.0010020292829722166,
+                "policy_entropy_nats": 0.010309810168109834,
+                "ppo_actor_loss": -0.0009438171982765198,
+                "critic_mse": 8.976678964245366e-05
+              }
+            },
+            "final": {
+              "update": 1024,
+              "interactions": 1048576,
+              "completed_episodes": 8192,
+              "recent_success": 0.0,
+              "recent_return": 0.0,
+              "losses": {
+                "total_objective": -1.5012919902801514e-06,
+                "policy_entropy_nats": 0.0001512985982117243,
+                "ppo_actor_loss": -3.427267074584961e-07,
+                "critic_mse": 7.122595633290985e-07
+              }
+            }
+          },
+          "reward_windows": {
+            "window_size_completed_episodes": 100,
+            "logged_nonempty_windows": 1023,
+            "positive_windows": 12,
+            "zero_windows": 1011,
+            "first_logged_positive": {
+              "update": 24,
+              "interactions": 24576,
+              "completed_episodes": 192,
+              "recent_success": 0.01,
+              "recent_return": 0.0010703125000000003,
+              "losses": {
+                "total_objective": -0.01992890192195773,
+                "policy_entropy_nats": 1.823781967163086,
+                "ppo_actor_loss": -0.0018209125846624374,
+                "critic_mse": 0.0002596599733806215
+              }
+            },
+            "last_logged_positive": {
+              "update": 35,
+              "interactions": 35840,
+              "completed_episodes": 272,
+              "recent_success": 0.01,
+              "recent_return": 0.0010703125000000003,
+              "losses": {
+                "total_objective": -0.01539663365110755,
+                "policy_entropy_nats": 1.3949096202850342,
+                "ppo_actor_loss": -0.0014678733423352242,
+                "critic_mse": 4.067085410497384e-05
+              }
+            },
+            "maximum_logged_success_fraction": 0.01,
+            "updates_since_last_positive_window": 989,
+            "covered_completed_episodes": 8192,
+            "uncovered_completed_episodes": 0,
+            "covered_fraction": 1.0,
+            "maximum_episode_count_increment": 16,
+            "positive_episodes_exact_if_provably_zero": null,
+            "interpretation": "Window counts overlap. Positive windows are not unique rewarded episodes. Full coverage with no positive window establishes zero rewarded completed episodes."
+          }
+        },
+        {
+          "arm": "fast_selective",
+          "seed": 113,
+          "schema": "associative",
+          "directory": "runs/associative-ppo-v1/execution/fits/fast_selective-113",
+          "receipt_sha256": "17afbb66d22c41d75e094932b517c52ca7731973905a65321f17ab4a53a27fa8",
+          "learning_sha256": "063da3de8416a56f719d9f89b53d9d831d12e21be713ff20f0ed9d16ba32d43c",
+          "checkpoint_sha256_from_receipt": "4c03305ab4939706f0c8ff2265bc311651fdfbe688944dfac0ca78a9da8ea400",
+          "checkpoint_loaded_or_verified": false,
+          "updates": 1024,
+          "interactions": 1048576,
+          "completed_episodes": 8192,
+          "training_seconds": 164.47139362501912,
+          "loss_fields": [
+            "total_objective",
+            "policy_entropy_nats",
+            "ppo_actor_loss",
+            "critic_mse"
+          ],
+          "validation": {
+            "completion_and_log_hash": true,
+            "sequential_fixed_interaction_updates": true,
+            "monotonic_completed_episodes_and_clock": true,
+            "final_receipt_counters": true
+          },
+          "snapshots": {
+            "first": {
+              "update": 1,
+              "interactions": 1024,
+              "completed_episodes": 0,
+              "recent_success": null,
+              "recent_return": null,
+              "losses": {
+                "total_objective": -0.013483921298757195,
+                "policy_entropy_nats": 1.9458986222743988,
+                "ppo_actor_loss": -0.00022872677072882652,
+                "critic_mse": 0.01240758306812495
+              }
+            },
+            "65536": {
+              "update": 64,
+              "interactions": 65536,
+              "completed_episodes": 512,
+              "recent_success": 0.0,
+              "recent_return": 0.0,
+              "losses": {
+                "total_objective": -0.0015333965420722961,
+                "policy_entropy_nats": 0.15687797963619232,
+                "ppo_actor_loss": 2.35140323638916e-05,
+                "critic_mse": 2.3737194169370923e-05
+              }
+            },
+            "262144": {
+              "update": 256,
+              "interactions": 262144,
+              "completed_episodes": 2048,
+              "recent_success": 0.0,
+              "recent_return": 0.0,
+              "losses": {
+                "total_objective": 8.09691846370697e-06,
+                "policy_entropy_nats": 0.0010249428742099553,
+                "ppo_actor_loss": -2.0060688257217407e-06,
+                "critic_mse": 4.0702955452331935e-05
+              }
+            },
+            "final": {
+              "update": 1024,
+              "interactions": 1048576,
+              "completed_episodes": 8192,
+              "recent_success": 0.0,
+              "recent_return": 0.0,
+              "losses": {
+                "total_objective": 1.292998786084354e-05,
+                "policy_entropy_nats": 2.1520647351280786e-05,
+                "ppo_actor_loss": -1.9883736968040466e-07,
+                "critic_mse": 2.669101365881943e-05
+              }
+            }
+          },
+          "reward_windows": {
+            "window_size_completed_episodes": 100,
+            "logged_nonempty_windows": 1023,
+            "positive_windows": 14,
+            "zero_windows": 1009,
+            "first_logged_positive": {
+              "update": 2,
+              "interactions": 2048,
+              "completed_episodes": 16,
+              "recent_success": 0.0625,
+              "recent_return": 0.007128906249999997,
+              "losses": {
+                "total_objective": -0.016563447192311287,
+                "policy_entropy_nats": 1.9458349645137787,
+                "ppo_actor_loss": -0.0002314392477273941,
+                "critic_mse": 0.00625268486328423
+              }
+            },
+            "last_logged_positive": {
+              "update": 15,
+              "interactions": 15360,
+              "completed_episodes": 113,
+              "recent_success": 0.01,
+              "recent_return": 0.006625,
+              "losses": {
+                "total_objective": -0.01992616429924965,
+                "policy_entropy_nats": 1.9049637913703918,
+                "ppo_actor_loss": -0.0012073144316673279,
+                "critic_mse": 0.0006615697056986392
+              }
+            },
+            "maximum_logged_success_fraction": 0.11764705882352941,
+            "updates_since_last_positive_window": 1009,
+            "covered_completed_episodes": 8192,
+            "uncovered_completed_episodes": 0,
+            "covered_fraction": 1.0,
+            "maximum_episode_count_increment": 16,
+            "positive_episodes_exact_if_provably_zero": null,
+            "interpretation": "Window counts overlap. Positive windows are not unique rewarded episodes. Full coverage with no positive window establishes zero rewarded completed episodes."
+          }
+        },
+        {
+          "arm": "fast_selective",
+          "seed": 127,
+          "schema": "associative",
+          "directory": "runs/associative-ppo-v1/execution/fits/fast_selective-127",
+          "receipt_sha256": "702a4c9c4516f36e275543d0b0788ca322656e6b00324c615f8aa1e6f39bd46e",
+          "learning_sha256": "7a9353d12ab263d290f3b859fb5657e2d988d7613c714509e16b058f6df15c26",
+          "checkpoint_sha256_from_receipt": "00e458fc9ada1f97b9e7f01a2781fc424dab0dc920941344f82e25a9cd08546a",
+          "checkpoint_loaded_or_verified": false,
+          "updates": 1024,
+          "interactions": 1048576,
+          "completed_episodes": 85651,
+          "training_seconds": 172.12977116601542,
+          "loss_fields": [
+            "total_objective",
+            "policy_entropy_nats",
+            "ppo_actor_loss",
+            "critic_mse"
+          ],
+          "validation": {
+            "completion_and_log_hash": true,
+            "sequential_fixed_interaction_updates": true,
+            "monotonic_completed_episodes_and_clock": true,
+            "final_receipt_counters": true
+          },
+          "snapshots": {
+            "first": {
+              "update": 1,
+              "interactions": 1024,
+              "completed_episodes": 0,
+              "recent_success": null,
+              "recent_return": null,
+              "losses": {
+                "total_objective": -0.01312964828684926,
+                "policy_entropy_nats": 1.9458987712860107,
+                "ppo_actor_loss": -0.00038450397551059723,
+                "critic_mse": 0.013427683850750327
+              }
+            },
+            "65536": {
+              "update": 64,
+              "interactions": 65536,
+              "completed_episodes": 642,
+              "recent_success": 0.3,
+              "recent_return": 0.19263281249999997,
+              "losses": {
+                "total_objective": -0.005086730234324932,
+                "policy_entropy_nats": 0.8745595663785934,
+                "ppo_actor_loss": -0.0011504525318741798,
+                "critic_mse": 0.009618634125217795
+              }
+            },
+            "262144": {
+              "update": 256,
+              "interactions": 262144,
+              "completed_episodes": 15469,
+              "recent_success": 0.5,
+              "recent_return": 0.459359375,
+              "losses": {
+                "total_objective": 0.06020202813670039,
+                "policy_entropy_nats": 0.3292805850505829,
+                "ppo_actor_loss": 6.943568587303162e-05,
+                "critic_mse": 0.126850800588727
+              }
+            },
+            "final": {
+              "update": 1024,
+              "interactions": 1048576,
+              "completed_episodes": 85651,
+              "recent_success": 0.41,
+              "recent_return": 0.37962500000000005,
+              "losses": {
+                "total_objective": 0.05904686078429222,
+                "policy_entropy_nats": 0.34983810782432556,
+                "ppo_actor_loss": 0.0003198385238647461,
+                "critic_mse": 0.12445081025362015
+              }
+            }
+          },
+          "reward_windows": {
+            "window_size_completed_episodes": 100,
+            "logged_nonempty_windows": 1023,
+            "positive_windows": 1019,
+            "zero_windows": 4,
+            "first_logged_positive": {
+              "update": 6,
+              "interactions": 6144,
+              "completed_episodes": 48,
+              "recent_success": 0.020833333333333332,
+              "recent_return": 0.008235677083333332,
+              "losses": {
+                "total_objective": -0.019057353492826223,
+                "policy_entropy_nats": 1.944606751203537,
+                "ppo_actor_loss": -0.00025565456598997116,
+                "critic_mse": 0.0012887345219496638
+              }
+            },
+            "last_logged_positive": {
+              "update": 1024,
+              "interactions": 1048576,
+              "completed_episodes": 85651,
+              "recent_success": 0.41,
+              "recent_return": 0.37962500000000005,
+              "losses": {
+                "total_objective": 0.05904686078429222,
+                "policy_entropy_nats": 0.34983810782432556,
+                "ppo_actor_loss": 0.0003198385238647461,
+                "critic_mse": 0.12445081025362015
+              }
+            },
+            "maximum_logged_success_fraction": 0.64,
+            "updates_since_last_positive_window": 0,
+            "covered_completed_episodes": 85550,
+            "uncovered_completed_episodes": 101,
+            "covered_fraction": 0.9988207960210622,
+            "maximum_episode_count_increment": 105,
+            "positive_episodes_exact_if_provably_zero": null,
+            "interpretation": "Window counts overlap. Positive windows are not unique rewarded episodes. Full coverage with no positive window establishes zero rewarded completed episodes."
+          }
+        },
+        {
+          "arm": "feedforward",
+          "seed": 101,
+          "schema": "associative",
+          "directory": "runs/associative-ppo-v1/execution/fits/feedforward-101",
+          "receipt_sha256": "4636220c76fe9a705de8505ef4a6059d1d57bde7d33e2992d364ba335e64a678",
+          "learning_sha256": "63c907e93d2ae160b2c827a93ca4018875c1af98c75b0f3356ca8cb32cc1db78",
+          "checkpoint_sha256_from_receipt": "7f90da8b77c48883a150776d618b73869c526e60cf83694930be1fcfda55abe5",
+          "checkpoint_loaded_or_verified": false,
+          "updates": 1024,
+          "interactions": 1048576,
+          "completed_episodes": 8193,
+          "training_seconds": 126.29745854099747,
+          "loss_fields": [
+            "total_objective",
+            "policy_entropy_nats",
+            "ppo_actor_loss",
+            "critic_mse"
+          ],
+          "validation": {
+            "completion_and_log_hash": true,
+            "sequential_fixed_interaction_updates": true,
+            "monotonic_completed_episodes_and_clock": true,
+            "final_receipt_counters": true
+          },
+          "snapshots": {
+            "first": {
+              "update": 1,
+              "interactions": 1024,
+              "completed_episodes": 0,
+              "recent_success": null,
+              "recent_return": null,
+              "losses": {
+                "total_objective": -0.011959167663007975,
+                "policy_entropy_nats": 1.9458987414836884,
+                "ppo_actor_loss": -0.0003215332981199026,
+                "critic_mse": 0.015642704674974084
+              }
+            },
+            "65536": {
+              "update": 64,
+              "interactions": 65536,
+              "completed_episodes": 512,
+              "recent_success": 0.0,
+              "recent_return": 0.0,
+              "losses": {
+                "total_objective": -0.002365992870181799,
+                "policy_entropy_nats": 0.10746702365577221,
+                "ppo_actor_loss": -0.001291949301958084,
+                "critic_mse": 1.2486288767377118e-06
+              }
+            },
+            "262144": {
+              "update": 256,
+              "interactions": 262144,
+              "completed_episodes": 2049,
+              "recent_success": 0.0,
+              "recent_return": 0.0,
+              "losses": {
+                "total_objective": -0.0007185684517025948,
+                "policy_entropy_nats": 0.012346471194177866,
+                "ppo_actor_loss": -0.0006217248737812042,
+                "critic_mse": 5.3243995580487535e-05
+              }
+            },
+            "final": {
+              "update": 1024,
+              "interactions": 1048576,
+              "completed_episodes": 8193,
+              "recent_success": 0.0,
+              "recent_return": 0.0,
+              "losses": {
+                "total_objective": -7.120892405509949e-06,
+                "policy_entropy_nats": 0.0023447952698916197,
+                "ppo_actor_loss": 7.217749953269958e-08,
+                "critic_mse": 3.2508359936400666e-05
+              }
+            }
+          },
+          "reward_windows": {
+            "window_size_completed_episodes": 100,
+            "logged_nonempty_windows": 1023,
+            "positive_windows": 24,
+            "zero_windows": 999,
+            "first_logged_positive": {
+              "update": 8,
+              "interactions": 8192,
+              "completed_episodes": 64,
+              "recent_success": 0.015625,
+              "recent_return": 0.003649902343749999,
+              "losses": {
+                "total_objective": -0.019212476909160614,
+                "policy_entropy_nats": 1.9454945921897888,
+                "ppo_actor_loss": -5.611032247543335e-05,
+                "critic_mse": 0.0005971562786726281
+              }
+            },
+            "last_logged_positive": {
+              "update": 187,
+              "interactions": 191488,
+              "completed_episodes": 1489,
+              "recent_success": 0.02,
+              "recent_return": 0.00903125,
+              "losses": {
+                "total_objective": -0.005346707766875625,
+                "policy_entropy_nats": 0.5488456785678864,
+                "ppo_actor_loss": 0.00010287878103554249,
+                "critic_mse": 7.773875677230535e-05
+              }
+            },
+            "maximum_logged_success_fraction": 0.02,
+            "updates_since_last_positive_window": 837,
+            "covered_completed_episodes": 8193,
+            "uncovered_completed_episodes": 0,
+            "covered_fraction": 1.0,
+            "maximum_episode_count_increment": 16,
+            "positive_episodes_exact_if_provably_zero": null,
+            "interpretation": "Window counts overlap. Positive windows are not unique rewarded episodes. Full coverage with no positive window establishes zero rewarded completed episodes."
+          }
+        },
+        {
+          "arm": "feedforward",
+          "seed": 113,
+          "schema": "associative",
+          "directory": "runs/associative-ppo-v1/execution/fits/feedforward-113",
+          "receipt_sha256": "7538b18944b59882ef5311e0b7686cbcb68d4b19b7d0737766e814da1f609c0c",
+          "learning_sha256": "994c90b0e585b707f6b12c1a6a9623a3001667521f29b7caac6b67dc277b37e0",
+          "checkpoint_sha256_from_receipt": "dbb67b856aed6dcfc9a2efad79792108e23fff821ee725f0cb65d729fe2d07c8",
+          "checkpoint_loaded_or_verified": false,
+          "updates": 1024,
+          "interactions": 1048576,
+          "completed_episodes": 8192,
+          "training_seconds": 124.83875300001819,
+          "loss_fields": [
+            "total_objective",
+            "policy_entropy_nats",
+            "ppo_actor_loss",
+            "critic_mse"
+          ],
+          "validation": {
+            "completion_and_log_hash": true,
+            "sequential_fixed_interaction_updates": true,
+            "monotonic_completed_episodes_and_clock": true,
+            "final_receipt_counters": true
+          },
+          "snapshots": {
+            "first": {
+              "update": 1,
+              "interactions": 1024,
+              "completed_episodes": 0,
+              "recent_success": null,
+              "recent_return": null,
+              "losses": {
+                "total_objective": -0.014856492169201374,
+                "policy_entropy_nats": 1.9459032118320465,
+                "ppo_actor_loss": -0.0002645491622388363,
+                "critic_mse": 0.0097341783111915
+              }
+            },
+            "65536": {
+              "update": 64,
+              "interactions": 65536,
+              "completed_episodes": 512,
+              "recent_success": 0.0,
+              "recent_return": 0.0,
+              "losses": {
+                "total_objective": -0.014484256505966187,
+                "policy_entropy_nats": 1.3180921077728271,
+                "ppo_actor_loss": -0.0013159234076738358,
+                "critic_mse": 2.5174294478347292e-05
+              }
+            },
+            "262144": {
+              "update": 256,
+              "interactions": 262144,
+              "completed_episodes": 2048,
+              "recent_success": 0.0,
+              "recent_return": 0.0,
+              "losses": {
+                "total_objective": -0.0024086162447929382,
+                "policy_entropy_nats": 0.18006786331534386,
+                "ppo_actor_loss": -0.0006674397736787796,
+                "critic_mse": 0.00011900102435902227
+              }
+            },
+            "final": {
+              "update": 1024,
+              "interactions": 1048576,
+              "completed_episodes": 8192,
+              "recent_success": 0.0,
+              "recent_return": 0.0,
+              "losses": {
+                "total_objective": -0.002204306423664093,
+                "policy_entropy_nats": 0.22451381385326385,
+                "ppo_actor_loss": -4.748441278934479e-05,
+                "critic_mse": 0.00017663534526946023
+              }
+            }
+          },
+          "reward_windows": {
+            "window_size_completed_episodes": 100,
+            "logged_nonempty_windows": 1023,
+            "positive_windows": 28,
+            "zero_windows": 995,
+            "first_logged_positive": {
+              "update": 2,
+              "interactions": 2048,
+              "completed_episodes": 16,
+              "recent_success": 0.0625,
+              "recent_return": 0.007128906249999997,
+              "losses": {
+                "total_objective": -0.016810409724712372,
+                "policy_entropy_nats": 1.9458474516868591,
+                "ppo_actor_loss": -0.00024896301329135895,
+                "critic_mse": 0.005794058321043849
+              }
+            },
+            "last_logged_positive": {
+              "update": 41,
+              "interactions": 41984,
+              "completed_episodes": 322,
+              "recent_success": 0.01,
+              "recent_return": 0.0036015624999999997,
+              "losses": {
+                "total_objective": -0.0063567981123924255,
+                "policy_entropy_nats": 0.6557738780975342,
+                "ppo_actor_loss": 0.00018807128071784973,
+                "critic_mse": 2.5737281703186454e-05
+              }
+            },
+            "maximum_logged_success_fraction": 0.11764705882352941,
+            "updates_since_last_positive_window": 983,
+            "covered_completed_episodes": 8192,
+            "uncovered_completed_episodes": 0,
+            "covered_fraction": 1.0,
+            "maximum_episode_count_increment": 16,
+            "positive_episodes_exact_if_provably_zero": null,
+            "interpretation": "Window counts overlap. Positive windows are not unique rewarded episodes. Full coverage with no positive window establishes zero rewarded completed episodes."
+          }
+        },
+        {
+          "arm": "feedforward",
+          "seed": 127,
+          "schema": "associative",
+          "directory": "runs/associative-ppo-v1/execution/fits/feedforward-127",
+          "receipt_sha256": "611c733bfb30289a77ccdaffb65c49510fded55c7ce32bfeffdf78b163b91931",
+          "learning_sha256": "8c7011435c8f72208f6343ec7a91b2279c7004e59614feda6185ce82b13c9ed6",
+          "checkpoint_sha256_from_receipt": "9d477702b6d145210f0ca6b1baeaa2ba30be9be73a8fa67e976d0c75c980a47f",
+          "checkpoint_loaded_or_verified": false,
+          "updates": 1024,
+          "interactions": 1048576,
+          "completed_episodes": 8192,
+          "training_seconds": 125.60797174996696,
+          "loss_fields": [
+            "total_objective",
+            "policy_entropy_nats",
+            "ppo_actor_loss",
+            "critic_mse"
+          ],
+          "validation": {
+            "completion_and_log_hash": true,
+            "sequential_fixed_interaction_updates": true,
+            "monotonic_completed_episodes_and_clock": true,
+            "final_receipt_counters": true
+          },
+          "snapshots": {
+            "first": {
+              "update": 1,
+              "interactions": 1024,
+              "completed_episodes": 0,
+              "recent_success": null,
+              "recent_return": null,
+              "losses": {
+                "total_objective": -0.011041147634387016,
+                "policy_entropy_nats": 1.9459044337272644,
+                "ppo_actor_loss": -4.528183490037918e-05,
+                "critic_mse": 0.016926354786846787
+              }
+            },
+            "65536": {
+              "update": 64,
+              "interactions": 65536,
+              "completed_episodes": 512,
+              "recent_success": 0.0,
+              "recent_return": 0.0,
+              "losses": {
+                "total_objective": -0.0010888241231441498,
+                "policy_entropy_nats": 0.057424478232860565,
+                "ppo_actor_loss": -0.0005429834127426147,
+                "critic_mse": 5.6807494274835335e-05
+              }
+            },
+            "262144": {
+              "update": 256,
+              "interactions": 262144,
+              "completed_episodes": 2048,
+              "recent_success": 0.0,
+              "recent_return": 0.0,
+              "losses": {
+                "total_objective": -2.9266811907291412e-06,
+                "policy_entropy_nats": 0.0004937596968375146,
+                "ppo_actor_loss": 6.146728992462158e-08,
+                "critic_mse": 3.899522425854229e-06
+              }
+            },
+            "final": {
+              "update": 1024,
+              "interactions": 1048576,
+              "completed_episodes": 8192,
+              "recent_success": 0.0,
+              "recent_return": 0.0,
+              "losses": {
+                "total_objective": 3.1087547540664673e-06,
+                "policy_entropy_nats": 0.0001548483778606169,
+                "ppo_actor_loss": 4.842877388000488e-08,
+                "critic_mse": 9.221158848049527e-06
+              }
+            }
+          },
+          "reward_windows": {
+            "window_size_completed_episodes": 100,
+            "logged_nonempty_windows": 1023,
+            "positive_windows": 34,
+            "zero_windows": 989,
+            "first_logged_positive": {
+              "update": 6,
+              "interactions": 6144,
+              "completed_episodes": 48,
+              "recent_success": 0.020833333333333332,
+              "recent_return": 0.008235677083333332,
+              "losses": {
+                "total_objective": -0.01905115507543087,
+                "policy_entropy_nats": 1.9452416002750397,
+                "ppo_actor_loss": -0.00022860243916511536,
+                "critic_mse": 0.0012597228633239865
+              }
+            },
+            "last_logged_positive": {
+              "update": 43,
+              "interactions": 44032,
+              "completed_episodes": 338,
+              "recent_success": 0.01,
+              "recent_return": 0.0043046874999999995,
+              "losses": {
+                "total_objective": -0.007656840025447309,
+                "policy_entropy_nats": 0.5803859084844589,
+                "ppo_actor_loss": -0.001872111577540636,
+                "critic_mse": 3.826058946287958e-05
+              }
+            },
+            "maximum_logged_success_fraction": 0.05,
+            "updates_since_last_positive_window": 981,
+            "covered_completed_episodes": 8192,
+            "uncovered_completed_episodes": 0,
+            "covered_fraction": 1.0,
+            "maximum_episode_count_increment": 16,
+            "positive_episodes_exact_if_provably_zero": null,
+            "interpretation": "Window counts overlap. Positive windows are not unique rewarded episodes. Full coverage with no positive window establishes zero rewarded completed episodes."
+          }
+        },
+        {
+          "arm": "gru",
+          "seed": 101,
+          "schema": "associative",
+          "directory": "runs/associative-ppo-v1/execution/fits/gru-101",
+          "receipt_sha256": "1726bb0060eecbaf9a95b464f203f48728ef491070f23c64ed444c511b63ee41",
+          "learning_sha256": "f2713bc8ca74fa70ea5c13686a3e45f94ae70d5bef065013e2605b86e5c79da3",
+          "checkpoint_sha256_from_receipt": "43302396cf763ae130413bf0a7de68587758d191e4a524354974529420fac0d0",
+          "checkpoint_loaded_or_verified": false,
+          "updates": 1024,
+          "interactions": 1048576,
+          "completed_episodes": 8192,
+          "training_seconds": 114.73815095797181,
+          "loss_fields": [
+            "total_objective",
+            "policy_entropy_nats",
+            "ppo_actor_loss",
+            "critic_mse"
+          ],
+          "validation": {
+            "completion_and_log_hash": true,
+            "sequential_fixed_interaction_updates": true,
+            "monotonic_completed_episodes_and_clock": true,
+            "final_receipt_counters": true
+          },
+          "snapshots": {
+            "first": {
+              "update": 1,
+              "interactions": 1024,
+              "completed_episodes": 0,
+              "recent_success": null,
+              "recent_return": null,
+              "losses": {
+                "total_objective": -0.014296987326815724,
+                "policy_entropy_nats": 1.9459064900875092,
+                "ppo_actor_loss": -0.00012500397861003876,
+                "critic_mse": 0.010574164218269289
+              }
+            },
+            "65536": {
+              "update": 64,
+              "interactions": 65536,
+              "completed_episodes": 512,
+              "recent_success": 0.0,
+              "recent_return": 0.0,
+              "losses": {
+                "total_objective": -0.012453250586986542,
+                "policy_entropy_nats": 1.2061858773231506,
+                "ppo_actor_loss": -0.000422636978328228,
+                "critic_mse": 6.249052239581943e-05
+              }
+            },
+            "262144": {
+              "update": 256,
+              "interactions": 262144,
+              "completed_episodes": 2048,
+              "recent_success": 0.0,
+              "recent_return": 0.0,
+              "losses": {
+                "total_objective": -0.013944737613201141,
+                "policy_entropy_nats": 1.4305069148540497,
+                "ppo_actor_loss": 0.00011245626956224442,
+                "critic_mse": 0.0004957496275892481
+              }
+            },
+            "final": {
+              "update": 1024,
+              "interactions": 1048576,
+              "completed_episodes": 8192,
+              "recent_success": 0.0,
+              "recent_return": 0.0,
+              "losses": {
+                "total_objective": -0.0020570261403918266,
+                "policy_entropy_nats": 0.1796989031136036,
+                "ppo_actor_loss": -0.0002615228295326233,
+                "critic_mse": 2.9734615623056015e-06
+              }
+            }
+          },
+          "reward_windows": {
+            "window_size_completed_episodes": 100,
+            "logged_nonempty_windows": 1023,
+            "positive_windows": 12,
+            "zero_windows": 1011,
+            "first_logged_positive": {
+              "update": 24,
+              "interactions": 24576,
+              "completed_episodes": 192,
+              "recent_success": 0.01,
+              "recent_return": 0.0024765625,
+              "losses": {
+                "total_objective": -0.018242374062538147,
+                "policy_entropy_nats": 1.8563909828662872,
+                "ppo_actor_loss": 1.0021030902862549e-05,
+                "critic_mse": 0.0006230380149645498
+              }
+            },
+            "last_logged_positive": {
+              "update": 35,
+              "interactions": 35840,
+              "completed_episodes": 272,
+              "recent_success": 0.01,
+              "recent_return": 0.0024765625,
+              "losses": {
+                "total_objective": -0.014695946127176285,
+                "policy_entropy_nats": 1.4180934429168701,
+                "ppo_actor_loss": -0.0005358029156923294,
+                "critic_mse": 4.157209514232818e-05
+              }
+            },
+            "maximum_logged_success_fraction": 0.01,
+            "updates_since_last_positive_window": 989,
+            "covered_completed_episodes": 8192,
+            "uncovered_completed_episodes": 0,
+            "covered_fraction": 1.0,
+            "maximum_episode_count_increment": 16,
+            "positive_episodes_exact_if_provably_zero": null,
+            "interpretation": "Window counts overlap. Positive windows are not unique rewarded episodes. Full coverage with no positive window establishes zero rewarded completed episodes."
+          }
+        },
+        {
+          "arm": "gru",
+          "seed": 113,
+          "schema": "associative",
+          "directory": "runs/associative-ppo-v1/execution/fits/gru-113",
+          "receipt_sha256": "a52d1638fe230f086c63d6da722646c725847b95e984d8c91c7f42915d567f40",
+          "learning_sha256": "52f8c94a3988942d85a1ea60c54d758eb299e8b13d6e888d976b9388c0d12e8c",
+          "checkpoint_sha256_from_receipt": "e567c918c4cd8b08e8c9ad03fc7d0226969b26f24a0daebfdaa0bae78c49d168",
+          "checkpoint_loaded_or_verified": false,
+          "updates": 1024,
+          "interactions": 1048576,
+          "completed_episodes": 73754,
+          "training_seconds": 124.9164855000563,
+          "loss_fields": [
+            "total_objective",
+            "policy_entropy_nats",
+            "ppo_actor_loss",
+            "critic_mse"
+          ],
+          "validation": {
+            "completion_and_log_hash": true,
+            "sequential_fixed_interaction_updates": true,
+            "monotonic_completed_episodes_and_clock": true,
+            "final_receipt_counters": true
+          },
+          "snapshots": {
+            "first": {
+              "update": 1,
+              "interactions": 1024,
+              "completed_episodes": 0,
+              "recent_success": null,
+              "recent_return": null,
+              "losses": {
+                "total_objective": -0.01386685180477798,
+                "policy_entropy_nats": 1.9459063708782196,
+                "ppo_actor_loss": -0.0001840805634856224,
+                "critic_mse": 0.01155258493963629
+              }
+            },
+            "65536": {
+              "update": 64,
+              "interactions": 65536,
+              "completed_episodes": 567,
+              "recent_success": 0.17,
+              "recent_return": 0.10995312499999998,
+              "losses": {
+                "total_objective": -0.013938073068857193,
+                "policy_entropy_nats": 1.6578379273414612,
+                "ppo_actor_loss": -0.00012145563960075378,
+                "critic_mse": 0.005523517087567598
+              }
+            },
+            "262144": {
+              "update": 256,
+              "interactions": 262144,
+              "completed_episodes": 10701,
+              "recent_success": 0.5,
+              "recent_return": 0.45942968749999996,
+              "losses": {
+                "total_objective": 0.04470895230770111,
+                "policy_entropy_nats": 0.6426473557949066,
+                "ppo_actor_loss": -0.001758725382387638,
+                "critic_mse": 0.10578830167651176
+              }
+            },
+            "final": {
+              "update": 1024,
+              "interactions": 1048576,
+              "completed_episodes": 73754,
+              "recent_success": 0.55,
+              "recent_return": 0.498390625,
+              "losses": {
+                "total_objective": 0.04195559793151915,
+                "policy_entropy_nats": 0.8078098744153976,
+                "ppo_actor_loss": -0.0001676306128501892,
+                "critic_mse": 0.10040265694260597
+              }
+            }
+          },
+          "reward_windows": {
+            "window_size_completed_episodes": 100,
+            "logged_nonempty_windows": 1023,
+            "positive_windows": 1011,
+            "zero_windows": 12,
+            "first_logged_positive": {
+              "update": 2,
+              "interactions": 2048,
+              "completed_episodes": 16,
+              "recent_success": 0.0625,
+              "recent_return": 0.007128906249999997,
+              "losses": {
+                "total_objective": -0.016808917745947838,
+                "policy_entropy_nats": 1.945881962776184,
+                "ppo_actor_loss": -0.00016555935144424438,
+                "critic_mse": 0.005630924133583903
+              }
+            },
+            "last_logged_positive": {
+              "update": 1024,
+              "interactions": 1048576,
+              "completed_episodes": 73754,
+              "recent_success": 0.55,
+              "recent_return": 0.498390625,
+              "losses": {
+                "total_objective": 0.04195559793151915,
+                "policy_entropy_nats": 0.8078098744153976,
+                "ppo_actor_loss": -0.0001676306128501892,
+                "critic_mse": 0.10040265694260597
+              }
+            },
+            "maximum_logged_success_fraction": 0.68,
+            "updates_since_last_positive_window": 0,
+            "covered_completed_episodes": 73754,
+            "uncovered_completed_episodes": 0,
+            "covered_fraction": 1.0,
+            "maximum_episode_count_increment": 96,
+            "positive_episodes_exact_if_provably_zero": null,
+            "interpretation": "Window counts overlap. Positive windows are not unique rewarded episodes. Full coverage with no positive window establishes zero rewarded completed episodes."
+          }
+        },
+        {
+          "arm": "gru",
+          "seed": 127,
+          "schema": "associative",
+          "directory": "runs/associative-ppo-v1/execution/fits/gru-127",
+          "receipt_sha256": "c9efba3033398cf306e45010b9edc60a16c0c06df73ce00f5417452752964707",
+          "learning_sha256": "e841698eb0153527d0483d503b7e2327f0dfb61b2a55c50354bce0b505e42526",
+          "checkpoint_sha256_from_receipt": "3eb8386ecc7d2dadf03cdd1c58c17980bdd9e10175dd8dd6b328055ae7df38a9",
+          "checkpoint_loaded_or_verified": false,
+          "updates": 1024,
+          "interactions": 1048576,
+          "completed_episodes": 76789,
+          "training_seconds": 122.81967783300206,
+          "loss_fields": [
+            "total_objective",
+            "policy_entropy_nats",
+            "ppo_actor_loss",
+            "critic_mse"
+          ],
+          "validation": {
+            "completion_and_log_hash": true,
+            "sequential_fixed_interaction_updates": true,
+            "monotonic_completed_episodes_and_clock": true,
+            "final_receipt_counters": true
+          },
+          "snapshots": {
+            "first": {
+              "update": 1,
+              "interactions": 1024,
+              "completed_episodes": 0,
+              "recent_success": null,
+              "recent_return": null,
+              "losses": {
+                "total_objective": -0.013969465624541044,
+                "policy_entropy_nats": 1.9459034502506256,
+                "ppo_actor_loss": -0.00026821671053767204,
+                "critic_mse": 0.011515573220094666
+              }
+            },
+            "65536": {
+              "update": 64,
+              "interactions": 65536,
+              "completed_episodes": 627,
+              "recent_success": 0.24,
+              "recent_return": 0.14739843749999998,
+              "losses": {
+                "total_objective": -0.009614614769816399,
+                "policy_entropy_nats": 1.1969172954559326,
+                "ppo_actor_loss": 6.834045052528381e-05,
+                "critic_mse": 0.00457244785502553
+              }
+            },
+            "262144": {
+              "update": 256,
+              "interactions": 262144,
+              "completed_episodes": 12573,
+              "recent_success": 0.45,
+              "recent_return": 0.41153906250000005,
+              "losses": {
+                "total_objective": 0.047140585258603096,
+                "policy_entropy_nats": 0.6115020960569382,
+                "ppo_actor_loss": -0.0003524385392665863,
+                "critic_mse": 0.10721609368920326
+              }
+            },
+            "final": {
+              "update": 1024,
+              "interactions": 1048576,
+              "completed_episodes": 76789,
+              "recent_success": 0.51,
+              "recent_return": 0.4666875000000001,
+              "losses": {
+                "total_objective": 0.0456529688090086,
+                "policy_entropy_nats": 0.7261713892221451,
+                "ppo_actor_loss": -0.0003872215747833252,
+                "critic_mse": 0.1066038180142641
+              }
+            }
+          },
+          "reward_windows": {
+            "window_size_completed_episodes": 100,
+            "logged_nonempty_windows": 1023,
+            "positive_windows": 1019,
+            "zero_windows": 4,
+            "first_logged_positive": {
+              "update": 6,
+              "interactions": 6144,
+              "completed_episodes": 48,
+              "recent_success": 0.020833333333333332,
+              "recent_return": 0.008235677083333332,
+              "losses": {
+                "total_objective": -0.018998634070158005,
+                "policy_entropy_nats": 1.9452848136425018,
+                "ppo_actor_loss": -0.00019801780581474304,
+                "critic_mse": 0.0013044670049566776
+              }
+            },
+            "last_logged_positive": {
+              "update": 1024,
+              "interactions": 1048576,
+              "completed_episodes": 76789,
+              "recent_success": 0.51,
+              "recent_return": 0.4666875000000001,
+              "losses": {
+                "total_objective": 0.0456529688090086,
+                "policy_entropy_nats": 0.7261713892221451,
+                "ppo_actor_loss": -0.0003872215747833252,
+                "critic_mse": 0.1066038180142641
+              }
+            },
+            "maximum_logged_success_fraction": 0.63,
+            "updates_since_last_positive_window": 0,
+            "covered_completed_episodes": 76789,
+            "uncovered_completed_episodes": 0,
+            "covered_fraction": 1.0,
+            "maximum_episode_count_increment": 97,
+            "positive_episodes_exact_if_provably_zero": null,
+            "interpretation": "Window counts overlap. Positive windows are not unique rewarded episodes. Full coverage with no positive window establishes zero rewarded completed episodes."
+          }
+        }
+      ]
+    }
+  ],
+  "scope": "Saved training logs from completed fits only; no models or evaluation episodes run",
+  "limitations": [
+    "This snapshot does not establish whole-study completion or held-out effectiveness",
+    "Rolling windows overlap and can omit episodes when more than 100 finish between logged updates",
+    "First positive window is an observation boundary, not an exact reward discovery timestamp",
+    "Only loss positions 0 and 1 share field meanings across schemas; objective compositions differ",
+    "Loss magnitudes and low critic MSE do not establish gradient magnitude or dominance",
+    "Raw advantages, actor/entropy gradient norms and individual reward events are absent from these logs"
+  ]
+}

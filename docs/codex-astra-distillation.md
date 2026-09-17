@@ -16,6 +16,8 @@ Accuracy is averaged across all three final fits on 84 BoolQ questions and 88 CL
 
 Routing improved by 52.65 percentage points over the untrained head, but the 1.89-point difference from gold supervision has an exploratory paired interval of -3.41 to 9.09 points. It does not establish an advantage over gold labels. BoolQ changed by -0.79 points from the untrained control. All three Astra-supervised BoolQ fits scored 43/84.
 
+Out-of-scope routing remains weak: mean accuracy is only 8.33% on the eight out-of-scope development examples per fit. The overall routing score does not support reliable abstention.
+
 The fixed rule required at least a ten-point gain over the untrained head on each task and performance within five points of gold supervision. Three of four checks passed; the BoolQ improvement check failed. The aggregate result therefore does not justify advancing this student as a general text decision model.
 
 Astra's fixed training choices agreed with **57/64 BoolQ labels and 64/64 CLINC labels**. This is agreement on training data, not held-out teacher accuracy. Seven changed BoolQ training labels also affect the shared encoder used for routing; the slight routing difference cannot be attributed to better CLINC labels.
