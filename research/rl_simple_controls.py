@@ -17,7 +17,8 @@ class SimplePolicy:
         self.steps=0
 
     def predict(self,state,deterministic=True):
-        action=1 if self.arm=='always_fire' else int(self.steps%2==0)
+        action = (int(state[1] > .5) if self.arm=='visible_fire'
+                  else 1 if self.arm=='always_fire' else int(self.steps%2==0))
         self.steps+=1
         return np.array(action),None
 
