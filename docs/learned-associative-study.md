@@ -2,6 +2,27 @@
 
 The [untrained associative retrieval screen](associative-text-study.md) favored simple centroids. This follow-up tests whether learning the projection and class memory makes recurrence useful. This is a development experiment, not an established novel architecture or confirmed benchmark improvement.
 
+## Development results
+
+![Learned head accuracy and CPU head timing](../evidence/learned-associative-v1/development.png)
+
+All 12 fits completed. Diamonds show mean accuracy, bars show mean timing, and dots show individual fits; the accuracy axis starts at 93.5%. These are repeated fits on the same development examples, not independent confirmation samples.
+
+| Head | Mean in-scope accuracy | Balanced utility | In-scope NLL | Head time, microseconds |
+| --- | ---: | ---: | ---: | ---: |
+| Linear metric | **95.10%** | **92.96%** | **0.196** | **15.68** |
+| Feedforward | 94.99% | 92.89% | 0.198 | 16.17 |
+| Dense recurrence | 94.75% | 92.70% | 0.232 | 38.60 |
+| Sparse recurrence | 94.54% | 92.71% | 0.256 | 51.26 |
+
+Times are means of each fit's warmed batch-one median on an Apple M5 Max, with four CPU threads. They exclude the encoder and common rejection gate. All heads use the same gate, giving the same 96% recall on the 50 OOS development examples. That gate was tuned on these data in the previous screen, so this is not an independently validated OOS result.
+
+Learning raised the best control from the prior fixed prototype's 91.65% accuracy to 95.10%. Dense recurrence, selected over sparse recurrence by the frozen rule, lost to the learned metric head in **all three paired seeds**. Its mean accuracy was 0.36 percentage points lower and its estimated matrix cost was 2.12 times higher. Probability scores also worsened. Sparse recurrence had fewer estimated matrix operations than dense recurrence but higher measured time, illustrating the cost of top-k selection and gathering.
+
+The continuation rule failed. **Confirmation and calibration remain unscored.** This study establishes a stronger development baseline, not a benefit from recurrence. The 12 fits used 21,240 training updates and 28.74 seconds of CPU training in total, excluding shared encoder precomputation. [All fits and frozen plan](../evidence/learned-associative-v1/summary.json) · [Execution receipt](../evidence/learned-associative-v1/receipt.json).
+
+Next work should test corrective or inhibitory updates against attractive recurrence, and include a task requiring multiple reasoning steps. Simply increasing attractive recurrence on this single-utterance task is not supported by the results. Any change needs a new frozen development experiment; the existing controls and negative results stay visible.
+
 ## Matched controls
 
 All four heads have **68,481 trainable parameters**: a 384-to-128 projection with bias, 150 learned class vectors, and one logit scale. MiniLM embeddings are fixed. Class vectors are initialized from projected training-class means; all parameters then learn from the same labels.
