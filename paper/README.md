@@ -54,3 +54,5 @@ Regenerating figures does not run new experiments. See `docs/bayesian-rlcd.md` f
 The original `output/pdf/openjev-paper.pdf` and `paper/build-receipt.json` are preserved as the earlier baseline draft and its receipt. The earlier memory draft and its `paper/openjev-memory-build-receipt.json` are also preserved. The earlier improvement draft and its `paper/openjev-improvement-build-receipt.json` remain preserved. The current draft is `output/pdf/openjev-rl-paper.pdf`, with `paper/openjev-rl-build-receipt.json`. The interim DecisionTics draft and its build receipt remain historical artifacts.
 
 The subsequent [SRPO adaptation pilot](../docs/srpo-study.md) is reported separately. This PDF covers studies through PPO/DQN and does not include the later SRPO pilot.
+
+The subsequent [pretrained JEPA and nine-method RL pilot](../docs/jepa-rl-study.md) is also reported separately, with its frozen protocol and complete evidence. The PDF has not been expanded to claim these later results.

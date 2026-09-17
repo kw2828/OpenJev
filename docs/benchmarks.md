@@ -4,6 +4,12 @@
 
 These figures visualize existing development evidence. No new model training or gameplay runs were performed to produce them. Each experiment has a separate scope; they do not form a single leaderboard.
 
+## JEPA rewards and RL variants
+
+![JEPA and RL methods, costs and paired contrasts](../evidence/jepa-rl-doom-v1/pilot-results.png)
+
+The actual pretrained V-JEPA 2 reward arm continuation criteria not met. All nine methods received 8,192 additional interactions per fit, across three corresponding warm-start policies. Dots show means; crosses show individual fits; paired intervals resample both training and evaluation seeds. Local training time includes video processing and updates but excludes shared historical PPO and external JEPA pretraining. [Full report and evidence](jepa-rl-study.md).
+
 ## SRPO adaptation pilot
 
 ![SRPO adaptation pilot results and additional training costs](../evidence/srpo-doom-v1/pilot-results.png)

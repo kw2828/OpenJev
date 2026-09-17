@@ -45,7 +45,15 @@ For the existing tiny Doom baseline only, use `uv sync --frozen` and `uv run ope
 
 ## Research extensions
 
-**Latest: [SRPO adaptation pilot](docs/srpo-study.md), continuation criteria not met.** Nine warm-start fits used 113,861 new interactions and 624 evaluation episodes. Latent self-reference averaged **10.65 Center kills**, versus **11.88** for binary rewards, **11.89** for raw similarity and **11.29** for unchanged PPO. All averaged 30.17 on Line. This structured-observation adaptation uses a small dynamics encoder, not V-JEPA/OpenVLA. The result does not establish a benefit, and no further tuning or confirmation followed. All checkpoints, traces, costs and exploratory intervals are preserved.
+**Latest: [JEPA rewards and RL variants](docs/jepa-rl-study.md), continuation criteria not met.** Twenty-seven fits used **221,184 new interactions** and **992 evaluation episodes**. Actual pretrained V-JEPA 2 supplied training rewards, with pixel and architecture-matched random-encoder controls. Mean Center kills: **12.40 JEPA**, **12.12 GRPO**, **10.15 sparse PPO**, and **11.10 unchanged PPO**. GRPO, Dr. GRPO, a DAPO loss adaptation, RLOO, PPO and A2C were compared under equal additional interaction budgets. The report includes every arm, exploratory intervals and local compute costs. These are adapted methods and development results, not established ICLR novelty.
+
+![JEPA and nine-method RL pilot](evidence/jepa-rl-doom-v1/pilot-results.png)
+
+![Local policy trained with pretrained V-JEPA 2 rewards](docs/assets/jepa-policy-181000.gif)
+
+*First fit, first evaluation seed 181000: **13 kills in 19.26 game seconds**. JEPA supplies training rewards; the small policy acts during gameplay. Replay matches the preserved evaluation. [Recording receipt](docs/assets/jepa-policy-181000.json).*
+
+**Earlier: [SRPO adaptation pilot](docs/srpo-study.md), continuation criteria not met.** Nine warm-start fits used 113,861 new interactions and 624 evaluation episodes. Latent self-reference averaged **10.65 Center kills**, versus **11.88** for binary rewards, **11.89** for raw similarity and **11.29** for unchanged PPO. All averaged 30.17 on Line. This structured-observation adaptation uses a small dynamics encoder, not V-JEPA/OpenVLA. The result does not establish a benefit, and no further tuning or confirmation followed. All checkpoints, traces, costs and exploratory intervals are preserved.
 
 ![SRPO adaptation pilot results](evidence/srpo-doom-v1/pilot-results.png)
 
