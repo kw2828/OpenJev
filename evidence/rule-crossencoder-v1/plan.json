@@ -1,0 +1,43 @@
+{
+  "protocol": {
+    "version": "rule-crossencoder-v1",
+    "seeds": [
+      17,
+      29,
+      43
+    ],
+    "encoder": "sentence-transformers/all-MiniLM-L6-v2",
+    "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "max_tokens": 512,
+    "warmup_head_epochs": 30,
+    "head_batch": 256,
+    "head_lr": 0.001,
+    "finetune_epochs": 3,
+    "batch_size": 32,
+    "finetune_lr": 2e-05,
+    "weight_decay": 0.01,
+    "clip_gradient": 1.0,
+    "cpu_threads": 4,
+    "parts": [
+      "train",
+      "dev_in",
+      "dev_shift"
+    ],
+    "candidate_order": [
+      "false",
+      "true"
+    ],
+    "selection": "Final epoch, all three seeds, both development splits; no official test",
+    "comparison": "Gold-supervised representation diagnostic; no novel-method or cost-matched claim",
+    "warm_start": "Train scalar binary head on frozen joint context/assertion features, then fine-tune all weights",
+    "pooling": "Attention-mask mean of last hidden states; shared binary linear classifier",
+    "teacher": "No Astra or other external teacher requests"
+  },
+  "code": {
+    "driver": "9cc99ffc68f629fddb50ef5de87a70b677747681812d88dd9e326abe47e8aa3d",
+    "audited_data_and_metrics": "98ceda96b6036ccd4852d0533a075018eedc608429ba486251a36f9f22adac62"
+  },
+  "packet_sha256": "085a2ef07cb541cc6e600ca87166ef6c1daf355ec3d163048e60af441b34bd56",
+  "created_at": "2026-09-17T12:46:03Z",
+  "context": "Planned after observing weak early development fits in rule-memory-v1"
+}
