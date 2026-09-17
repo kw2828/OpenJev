@@ -1,0 +1,127 @@
+{
+  "id": "jepa-rl-doom-v1",
+  "status": "prospective_bounded_development_pilot",
+  "authorization": "User requested JEPA and different GRPO and RL algorithms. Local free pilot only.",
+  "arms": [
+    "grpo",
+    "dr_grpo",
+    "dapo_clip_loss",
+    "rloo",
+    "srpo_pixels",
+    "srpo_random_video",
+    "srpo_vjepa",
+    "ppo_sparse",
+    "a2c_sparse"
+  ],
+  "replicates": 3,
+  "model_seeds": [
+    811,
+    822,
+    833
+  ],
+  "random_encoder_seeds": [
+    1811,
+    1822,
+    1833
+  ],
+  "initial_run": "evidence/rl-doom-v1/development-001",
+  "steps_per_fit": 8192,
+  "group_size": 8,
+  "success_kills": 10,
+  "training_seed_starts": [
+    610000,
+    620000,
+    630000
+  ],
+  "evaluation_seeds": [
+    181000,
+    181001,
+    181002,
+    181003,
+    181004,
+    181005,
+    181006,
+    181007,
+    181008,
+    181009,
+    181010,
+    181011,
+    181012,
+    181013,
+    181014,
+    181015
+  ],
+  "scenarios": [
+    "defend_the_center",
+    "defend_the_line"
+  ],
+  "training_scenario": "defend_the_center",
+  "horizon": 180,
+  "tics": 7,
+  "failure_reward_weight": 0.6,
+  "learning_rate": 0.0001,
+  "epochs": 4,
+  "ppo": {
+    "learning_rate": 0.0001,
+    "n_steps": 512,
+    "batch_size": 64,
+    "n_epochs": 4,
+    "gamma": 1.0,
+    "gae_lambda": 0.95,
+    "clip_range": 0.2,
+    "ent_coef": 0.01,
+    "vf_coef": 0.5,
+    "max_grad_norm": 0.5
+  },
+  "a2c": {
+    "learning_rate": 0.0001,
+    "n_steps": 128,
+    "gamma": 1.0,
+    "gae_lambda": 0.95,
+    "ent_coef": 0.01,
+    "vf_coef": 0.5,
+    "max_grad_norm": 0.5,
+    "use_rms_prop": false
+  },
+  "max_training_interactions": 221184,
+  "max_evaluation_episodes": 992,
+  "max_wall_seconds": 2400,
+  "order_seed": 94341,
+  "bootstrap_seed": 94351,
+  "bootstrap_draws": 10000,
+  "policy": "Same 18D causal history, 64x64 actor, binary fire/wait and fixed rule steering. Three corresponding historical PPO actors paired across all arms; no fit selection. Group methods do not update inherited critic. PPO/A2C receive actor weights only, fresh identically seeded critics and optimizers. Deterministic evaluation.",
+  "reward": "All algorithms use terminal success >=10 kills. SRPO arms add in-group failure credit following pinned earlier SRPO code: DBSCAN eps=.5 min_samples=2 in standardized success space, nearest center Euclidean distance, min-max failure distances, .6*sigmoid(10*(.5-distance)). Only mixed groups require embeddings. No reference bank or evaluation references.",
+  "grouping": "Eight complete stochastic trajectories from identical Center game seed. On policy within group. Group seed = root + group index. Same roots across paired methods. Incomplete final group is entirely discarded from optimization, but every interaction is charged. Homogeneous groups skip optimizer. SB3 uses sequential episode seeds root + episode index; identical roots do not imply identical trajectory distributions or optimization budgets.",
+  "losses": {
+    "grpo": "Sample-standardized rewards, clipped ratios [.8,1.2], mean of per-trajectory means.",
+    "dr_grpo": "Centered rewards without standard deviation scaling, ratios [.8,1.2], total step loss / (group size * horizon).",
+    "dapo_clip_loss": "Sample-standardized rewards, asymmetric clipping [.8,1.28], mean over all real steps. Only loss adaptation, no dynamic resampling or other full DAPO components.",
+    "rloo": "Leave-one-out reward baseline, one on-policy REINFORCE update per group, sum / (group size * horizon). No clipped ratio."
+  },
+  "common_group_optimizer": "Adam .0001, four full-group updates except RLOO one. Exact categorical KL(new||initial) coefficient .01, entropy bonus .01, gradient norm clip .5. These common regularizers and discrete-action adaptations are not exact full paper reproductions.",
+  "video_encoder": {
+    "model_id": "facebook/vjepa2-vitl-fpc64-256",
+    "revision": "b3c1679b7c34d3255ef3547f27c7b226aefab26f",
+    "runtime": "transformers 5.17.0 VJEPA2Model, local safetensors, frozen encoder only, float16 MPS, SDPA",
+    "preprocess": "Pre-action RGB 640x480. Crop bottom 80px HUD; resize 467x292 bilinear; center crop x105 y18 256x256. Sample 16 evenly spaced pre-action frames over complete episode, repeat indices if needed. ImageNet mean/std. Global mean last encoder tokens, L2 normalization (1024D). Whole-episode uniform sampling differs from pretraining video cadence and 64-frame context.",
+    "random_control": "Identical V-JEPA2 architecture/config initialized with separate fixed seed per fit; frozen, same pooling and normalization. Encoder weights reconstructed from runtime/seed and verified by state hash.",
+    "pixel_control": "Same clips, adaptive average pool to 8x8 RGB, temporal mean, L2 normalization (192D). Dimension differs from JEPA.",
+    "cost": "Encoding and image preprocessing charged to local fit wall time; pretrained encoder load once shared and separately receipted. External pretraining cost unknown and excluded, not a total training efficiency claim. Encoder is not run at action inference.",
+    "audit": "Store group embeddings, clip hashes, frame indices, seeds, pre-action states/actions/log-probabilities, all learned actor checkpoints and training traces. Full video not vendored; deterministic game replay is possible from trace."
+  },
+  "continuation": "JEPA must improve mean Center kills by >=.5 over GRPO, pixels, random JEPA, sparse PPO, frozen PPO and always-fire. For every comparator Line kills and both scenario durations must be >=-.5. Every JEPA episode p95 decision latency <1ms. Descriptive exploratory screen only. Report crossed paired 95% bootstrap intervals over three fits and 16 game seeds, no multiplicity correction. A pass only motivates separately frozen fresh confirmation; a failure ends this pilot without tuning.",
+  "claim_boundary": "Actual pretrained V-JEPA2 training reward adaptation, not full SRPO robot-policy replication, no JEPA action encoder or recurrent world model claim. Equal additional interactions, unequal training compute, updates and effective group data. Historical actor pretraining shared. Both scenarios previously seen, fresh seeds do not establish unseen-task generalization. No new algorithm, Bayesian or conference novelty claim.",
+  "references": [
+    "https://arxiv.org/abs/2506.09985",
+    "https://github.com/facebookresearch/vjepa2",
+    "https://huggingface.co/docs/transformers/model_doc/vjepa2",
+    "https://arxiv.org/abs/2402.03300",
+    "https://arxiv.org/abs/2503.20783",
+    "https://arxiv.org/abs/2503.14476",
+    "https://arxiv.org/abs/2402.14740",
+    "https://arxiv.org/abs/2511.15605v2",
+    "https://huggingface.co/docs/trl/grpo_trainer",
+    "https://stable-baselines3.readthedocs.io/en/master/modules/a2c.html"
+  ],
+  "paid_api_calls": 0
+}
