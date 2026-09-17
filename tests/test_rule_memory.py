@@ -82,3 +82,10 @@ def test_cluster_bootstrap_resamples_whole_worlds_not_queries():
 def test_only_audited_development_parts_are_allowed():
     assert STUDY['PARTS'] == ('train', 'dev_in', 'dev_shift')
     assert set(STUDY['EXPECTED']) == set(STUDY['PARTS'])
+
+
+def test_report_adapter_serializes_numpy_counters_without_changing_values():
+    import json
+    module = runpy.run_path(str(Path(__file__).parents[1]/'scripts/report_rule_memory.py'))
+    original = {'wins': np.int64(2), 'checks': [np.bool_(True), np.float64(.25)]}
+    assert json.loads(json.dumps(module['plain'](original))) == {'wins': 2, 'checks': [True, .25]}

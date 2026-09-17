@@ -40,7 +40,8 @@ Supply a context, a question and 2-12 candidates. Receive the selected ID and pr
 
 ## What we have measured
 
-- **Text:** learned metric heads reached **95.10% development accuracy** on 150-intent routing; tested recurrence did not improve it. Confirmation is pending. [Matched-head study](docs/learned-associative-study.md) · [Astra training pipeline, awaiting API access](docs/text-distillation.md).
+- **Text routing:** **95.35% development accuracy** on 150 intents; the small recurrent gain failed our continuation rule. [Study](docs/corrective-associative-study.md) · [Astra teacher training, awaiting API access](docs/text-distillation.md).
+- **Text reasoning:** repeated memory reads failed the RuleTaker development comparison. [Results and controls](docs/rule-memory-study.md) · [Full-context follow-up](docs/rule-crossencoder-study.md).
 - **Doom:** history-PPO improved Center combat in a frozen comparison. On Line, learned policies matched always-fire. [PPO/DQN study](docs/rl-study.md).
 - **JEPA + RL:** 27 fits and 992 evaluation episodes. Pretrained JEPA had the highest Center mean, **12.40 kills**, but did not establish a reliable advantage over GRPO or pixel similarity. [Full comparison](docs/jepa-rl-study.md).
 

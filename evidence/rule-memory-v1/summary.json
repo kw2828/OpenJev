@@ -1,0 +1,3685 @@
+{
+  "status": "development_only",
+  "plan": {
+    "protocol": {
+      "version": "rule-memory-v1",
+      "modes": [
+        "question_only",
+        "mean_context",
+        "single_read",
+        "recurrent_3",
+        "recurrent_6",
+        "coverage_3"
+      ],
+      "seeds": [
+        17,
+        29,
+        43
+      ],
+      "encoder": "sentence-transformers/all-MiniLM-L6-v2",
+      "encoder_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+      "encoder_max_tokens": 256,
+      "encoder_batch": 128,
+      "latent_dim": 128,
+      "epochs": 20,
+      "batch_size": 256,
+      "learning_rate": 0.001,
+      "weight_decay": 0.0001,
+      "clip_gradient": 1.0,
+      "cpu_threads": 4,
+      "label_order": [
+        "false",
+        "true"
+      ],
+      "loss": "Final binary cross entropy; same minibatch order for all heads within a seed",
+      "features": "Frozen normalized mean-pooled MiniLM per English clause and assertion; no truncation",
+      "selection": "Final epoch only; all three seeds; no checkpoint or seed selection",
+      "controls": [
+        "question_only",
+        "mean_context",
+        "single_read"
+      ],
+      "candidates": [
+        "recurrent_3",
+        "recurrent_6",
+        "coverage_3"
+      ],
+      "coverage": "Subtract cumulative prior attention weights from logits with fixed coefficient 1",
+      "latency_repeats": 200,
+      "latency_warmup": 30,
+      "bootstrap_draws": 2000,
+      "bootstrap_seed": 5279,
+      "continuation": {
+        "min_shift_accuracy_gain": 0.02,
+        "max_in_accuracy_loss": 0.01,
+        "max_shift_nll_increase": 0.0,
+        "min_paired_seed_wins": 2,
+        "min_world_bootstrap_lower_bound": 0.0,
+        "max_head_mac_ratio": 3.0,
+        "scope": "Development selection, not independent evidence or a novelty claim"
+      }
+    },
+    "code": {
+      "driver": "98ceda96b6036ccd4852d0533a075018eedc608429ba486251a36f9f22adac62",
+      "architecture": "d08c4d2d063010fe51e557a4a3dbb47a2339cf0edbd5a33836fc8051b02ac199"
+    },
+    "packet_sha256": "085a2ef07cb541cc6e600ca87166ef6c1daf355ec3d163048e60af441b34bd56",
+    "created_at": "2026-09-17T12:41:49Z",
+    "environment": {
+      "torch": "2.14.0",
+      "numpy": "2.5.3",
+      "transformers": "5.17.0"
+    },
+    "platform": "macOS-26.6.1-arm64-arm-64bit",
+    "python": "3.12.13"
+  },
+  "features": {
+    "plan_sha256": "567a22afe18e85885e7ebbe9df7e35384b4726a03b7b8f89f72c5a68b327173e",
+    "device": "mps",
+    "encoding_seconds": 2.4015575000084937,
+    "unique_english_strings": 12851,
+    "unique_unpadded_tokens": 170818,
+    "max_sentence_tokens": 30,
+    "parts": {
+      "train": {
+        "arrays_sha256": "416cd805f24871a7b7131bfd46deb4c1a8a645a7d942be133c6bbf8016ed4897",
+        "rows_sha256": "d93c583670e209b2c8dbc07fc2654e587eb2a24ed21b10cf7a5ede5db8af0c84",
+        "worlds": 2000,
+        "questions": 19809,
+        "max_slots": 24,
+        "mean_slots_per_query": 13.568075117370892,
+        "mean_slots_per_world": 13.275
+      },
+      "dev_in": {
+        "arrays_sha256": "e1080c38faeb6ed8c92724bf49baf12d1848e3e5a8fd881485fd1a09805d656d",
+        "rows_sha256": "76f852060aed3e8b23e158dee3e2131f69fb23e11081c8d4a24f991e44b9a340",
+        "worlds": 300,
+        "questions": 2947,
+        "max_slots": 24,
+        "mean_slots_per_query": 13.28503562945368,
+        "mean_slots_per_world": 13.086666666666666
+      },
+      "dev_shift": {
+        "arrays_sha256": "7b68768b190d84a1bd6f2785d16ab2005b416e23d040263d83ad62beb949d06d",
+        "rows_sha256": "ac6a188a4059b363659c7f81a134e9214a6d2413cb8342a15ab21e85a5e403e7",
+        "worlds": 300,
+        "questions": 1941,
+        "max_slots": 25,
+        "mean_slots_per_query": 18.48634724368882,
+        "mean_slots_per_world": 18.526666666666667
+      }
+    },
+    "test_opened": false,
+    "cache_scope": "Deduplicated deterministic frozen features only; no label fitting in encoding"
+  },
+  "methods": {
+    "question_only": {
+      "fits": [
+        {
+          "mode": "question_only",
+          "seed": 17,
+          "plan_sha256": "567a22afe18e85885e7ebbe9df7e35384b4726a03b7b8f89f72c5a68b327173e",
+          "training_seconds": 2.1917210000101477,
+          "checkpoint_sha256": "4f447324d646fe62ca46c5e1b20563a3bfdf715a631759012c13cf9c3e23cd2b",
+          "history": [
+            {
+              "epoch": 1,
+              "updates": 78,
+              "loss": 0.6983543179248102
+            },
+            {
+              "epoch": 2,
+              "updates": 78,
+              "loss": 0.6879342630429586
+            },
+            {
+              "epoch": 3,
+              "updates": 78,
+              "loss": 0.6861393588087188
+            },
+            {
+              "epoch": 4,
+              "updates": 78,
+              "loss": 0.6826933693552409
+            },
+            {
+              "epoch": 5,
+              "updates": 78,
+              "loss": 0.6815941887751829
+            },
+            {
+              "epoch": 6,
+              "updates": 78,
+              "loss": 0.6802205553901653
+            },
+            {
+              "epoch": 7,
+              "updates": 78,
+              "loss": 0.6789238914818037
+            },
+            {
+              "epoch": 8,
+              "updates": 78,
+              "loss": 0.6774881881895801
+            },
+            {
+              "epoch": 9,
+              "updates": 78,
+              "loss": 0.6767903520443623
+            },
+            {
+              "epoch": 10,
+              "updates": 78,
+              "loss": 0.6764289165555368
+            },
+            {
+              "epoch": 11,
+              "updates": 78,
+              "loss": 0.6757559480344072
+            },
+            {
+              "epoch": 12,
+              "updates": 78,
+              "loss": 0.6752686994772291
+            },
+            {
+              "epoch": 13,
+              "updates": 78,
+              "loss": 0.6747265640330089
+            },
+            {
+              "epoch": 14,
+              "updates": 78,
+              "loss": 0.6738264273764286
+            },
+            {
+              "epoch": 15,
+              "updates": 78,
+              "loss": 0.6740604738860809
+            },
+            {
+              "epoch": 16,
+              "updates": 78,
+              "loss": 0.6728043576824809
+            },
+            {
+              "epoch": 17,
+              "updates": 78,
+              "loss": 0.6733754055317928
+            },
+            {
+              "epoch": 18,
+              "updates": 78,
+              "loss": 0.6721803239729182
+            },
+            {
+              "epoch": 19,
+              "updates": 78,
+              "loss": 0.6715297217840644
+            },
+            {
+              "epoch": 20,
+              "updates": 78,
+              "loss": 0.6704184384912657
+            }
+          ],
+          "parts": {
+            "dev_in": {
+              "metrics": {
+                "questions": 2947,
+                "accuracy": 0.5486935973167419,
+                "nll": 0.6867765784263611,
+                "multiclass_brier": 0.49342402815818787,
+                "by_depth": {
+                  "0": {
+                    "n": 1365,
+                    "accuracy": 0.5164835453033447
+                  },
+                  "1": {
+                    "n": 951,
+                    "accuracy": 0.5415351986885071
+                  },
+                  "2": {
+                    "n": 631,
+                    "accuracy": 0.6291600465774536
+                  }
+                },
+                "by_label": {
+                  "false": 0.42506811022758484,
+                  "true": 0.6713995933532715
+                }
+              },
+              "latency": {
+                "median_us": 12.458069249987602,
+                "p95_us": 13.210118049755692,
+                "scope": "CPU, batch one, 4 threads, precomputed embeddings; includes memory projections, excludes encoder"
+              },
+              "cost": {
+                "allocated_parameters": 214658,
+                "active_parameters": 99074,
+                "matrix_macs_per_query": 98560,
+                "context_slots": 24,
+                "memory_reads": 0,
+                "excludes": "encoder, bias, normalization, activations, softmax, elementwise operations, data movement"
+              }
+            },
+            "dev_shift": {
+              "metrics": {
+                "questions": 1941,
+                "accuracy": 0.6656362414360046,
+                "nll": 0.6583533883094788,
+                "multiclass_brier": 0.46399596333503723,
+                "by_depth": {
+                  "3": {
+                    "n": 717,
+                    "accuracy": 0.6750348806381226
+                  },
+                  "4": {
+                    "n": 627,
+                    "accuracy": 0.6905900835990906
+                  },
+                  "5": {
+                    "n": 597,
+                    "accuracy": 0.6281406879425049
+                  }
+                },
+                "by_label": {
+                  "false": 0.5584281086921692,
+                  "true": 0.7720739245414734
+                }
+              },
+              "latency": {
+                "median_us": 12.375065125524998,
+                "p95_us": 12.962106848135589,
+                "scope": "CPU, batch one, 4 threads, precomputed embeddings; includes memory projections, excludes encoder"
+              },
+              "cost": {
+                "allocated_parameters": 214658,
+                "active_parameters": 99074,
+                "matrix_macs_per_query": 98560,
+                "context_slots": 25,
+                "memory_reads": 0,
+                "excludes": "encoder, bias, normalization, activations, softmax, elementwise operations, data movement"
+              }
+            }
+          },
+          "logits_sha256": "14f1342857a8fc2f16e2fc7d8ea856add578675c3469557af7cf979a338e2809"
+        },
+        {
+          "mode": "question_only",
+          "seed": 29,
+          "plan_sha256": "567a22afe18e85885e7ebbe9df7e35384b4726a03b7b8f89f72c5a68b327173e",
+          "training_seconds": 2.439628417021595,
+          "checkpoint_sha256": "907472e5d14789e2c404874d3d26c7dd1df627b5318a24d38b9a63375e7ee999",
+          "history": [
+            {
+              "epoch": 1,
+              "updates": 78,
+              "loss": 0.696268920526168
+            },
+            {
+              "epoch": 2,
+              "updates": 78,
+              "loss": 0.6892083593672363
+            },
+            {
+              "epoch": 3,
+              "updates": 78,
+              "loss": 0.6856723106234214
+            },
+            {
+              "epoch": 4,
+              "updates": 78,
+              "loss": 0.6823072510441078
+            },
+            {
+              "epoch": 5,
+              "updates": 78,
+              "loss": 0.6814333218538609
+            },
+            {
+              "epoch": 6,
+              "updates": 78,
+              "loss": 0.6791457803560246
+            },
+            {
+              "epoch": 7,
+              "updates": 78,
+              "loss": 0.68000940396367
+            },
+            {
+              "epoch": 8,
+              "updates": 78,
+              "loss": 0.6786981999431797
+            },
+            {
+              "epoch": 9,
+              "updates": 78,
+              "loss": 0.6771634105502509
+            },
+            {
+              "epoch": 10,
+              "updates": 78,
+              "loss": 0.676652244501746
+            },
+            {
+              "epoch": 11,
+              "updates": 78,
+              "loss": 0.67579208588611
+            },
+            {
+              "epoch": 12,
+              "updates": 78,
+              "loss": 0.6750225879572036
+            },
+            {
+              "epoch": 13,
+              "updates": 78,
+              "loss": 0.6751129552244304
+            },
+            {
+              "epoch": 14,
+              "updates": 78,
+              "loss": 0.6743200601600579
+            },
+            {
+              "epoch": 15,
+              "updates": 78,
+              "loss": 0.6740120829003241
+            },
+            {
+              "epoch": 16,
+              "updates": 78,
+              "loss": 0.6735438966451406
+            },
+            {
+              "epoch": 17,
+              "updates": 78,
+              "loss": 0.6733065245038262
+            },
+            {
+              "epoch": 18,
+              "updates": 78,
+              "loss": 0.6731393943406335
+            },
+            {
+              "epoch": 19,
+              "updates": 78,
+              "loss": 0.6717145759656517
+            },
+            {
+              "epoch": 20,
+              "updates": 78,
+              "loss": 0.672177668576816
+            }
+          ],
+          "parts": {
+            "dev_in": {
+              "metrics": {
+                "questions": 2947,
+                "accuracy": 0.5581947565078735,
+                "nll": 0.6855865716934204,
+                "multiclass_brier": 0.492372989654541,
+                "by_depth": {
+                  "0": {
+                    "n": 1365,
+                    "accuracy": 0.5347985625267029
+                  },
+                  "1": {
+                    "n": 951,
+                    "accuracy": 0.539432168006897
+                  },
+                  "2": {
+                    "n": 631,
+                    "accuracy": 0.6370840072631836
+                  }
+                },
+                "by_label": {
+                  "false": 0.4693460464477539,
+                  "true": 0.6463826894760132
+                }
+              },
+              "latency": {
+                "median_us": 13.000040780752897,
+                "p95_us": 40.46434769406915,
+                "scope": "CPU, batch one, 4 threads, precomputed embeddings; includes memory projections, excludes encoder"
+              },
+              "cost": {
+                "allocated_parameters": 214658,
+                "active_parameters": 99074,
+                "matrix_macs_per_query": 98560,
+                "context_slots": 24,
+                "memory_reads": 0,
+                "excludes": "encoder, bias, normalization, activations, softmax, elementwise operations, data movement"
+              }
+            },
+            "dev_shift": {
+              "metrics": {
+                "questions": 1941,
+                "accuracy": 0.6429675221443176,
+                "nll": 0.6739475727081299,
+                "multiclass_brier": 0.47980618476867676,
+                "by_depth": {
+                  "3": {
+                    "n": 717,
+                    "accuracy": 0.6555090546607971
+                  },
+                  "4": {
+                    "n": 627,
+                    "accuracy": 0.6650717854499817
+                  },
+                  "5": {
+                    "n": 597,
+                    "accuracy": 0.6046901345252991
+                  }
+                },
+                "by_label": {
+                  "false": 0.5625646114349365,
+                  "true": 0.7227926254272461
+                }
+              },
+              "latency": {
+                "median_us": 12.708012945950031,
+                "p95_us": 16.13713102415198,
+                "scope": "CPU, batch one, 4 threads, precomputed embeddings; includes memory projections, excludes encoder"
+              },
+              "cost": {
+                "allocated_parameters": 214658,
+                "active_parameters": 99074,
+                "matrix_macs_per_query": 98560,
+                "context_slots": 25,
+                "memory_reads": 0,
+                "excludes": "encoder, bias, normalization, activations, softmax, elementwise operations, data movement"
+              }
+            }
+          },
+          "logits_sha256": "94642d1509da6d4966cfdc4e01cd2cf06ad57e1a43d9651acd5c7061cf4685f6"
+        },
+        {
+          "mode": "question_only",
+          "seed": 43,
+          "plan_sha256": "567a22afe18e85885e7ebbe9df7e35384b4726a03b7b8f89f72c5a68b327173e",
+          "training_seconds": 2.443392249988392,
+          "checkpoint_sha256": "82180eb813198533d9ff9ed0d60211180dcf0beaa4c7e78432c53b6ee7ab29f9",
+          "history": [
+            {
+              "epoch": 1,
+              "updates": 78,
+              "loss": 0.6955720433901666
+            },
+            {
+              "epoch": 2,
+              "updates": 78,
+              "loss": 0.6894236798059923
+            },
+            {
+              "epoch": 3,
+              "updates": 78,
+              "loss": 0.6850655031767502
+            },
+            {
+              "epoch": 4,
+              "updates": 78,
+              "loss": 0.6832473661899687
+            },
+            {
+              "epoch": 5,
+              "updates": 78,
+              "loss": 0.6812432652721196
+            },
+            {
+              "epoch": 6,
+              "updates": 78,
+              "loss": 0.679609718664693
+            },
+            {
+              "epoch": 7,
+              "updates": 78,
+              "loss": 0.6788786409558253
+            },
+            {
+              "epoch": 8,
+              "updates": 78,
+              "loss": 0.6785278158038862
+            },
+            {
+              "epoch": 9,
+              "updates": 78,
+              "loss": 0.6778996598745224
+            },
+            {
+              "epoch": 10,
+              "updates": 78,
+              "loss": 0.6768841551828074
+            },
+            {
+              "epoch": 11,
+              "updates": 78,
+              "loss": 0.6761318946559917
+            },
+            {
+              "epoch": 12,
+              "updates": 78,
+              "loss": 0.6761226825323187
+            },
+            {
+              "epoch": 13,
+              "updates": 78,
+              "loss": 0.6758472068558083
+            },
+            {
+              "epoch": 14,
+              "updates": 78,
+              "loss": 0.6755544930370014
+            },
+            {
+              "epoch": 15,
+              "updates": 78,
+              "loss": 0.6746448979727269
+            },
+            {
+              "epoch": 16,
+              "updates": 78,
+              "loss": 0.6734202876908961
+            },
+            {
+              "epoch": 17,
+              "updates": 78,
+              "loss": 0.673930780425667
+            },
+            {
+              "epoch": 18,
+              "updates": 78,
+              "loss": 0.672155721110923
+            },
+            {
+              "epoch": 19,
+              "updates": 78,
+              "loss": 0.6724540702571741
+            },
+            {
+              "epoch": 20,
+              "updates": 78,
+              "loss": 0.6716739335536259
+            }
+          ],
+          "parts": {
+            "dev_in": {
+              "metrics": {
+                "questions": 2947,
+                "accuracy": 0.5480149388313293,
+                "nll": 0.6896582245826721,
+                "multiclass_brier": 0.49617999792099,
+                "by_depth": {
+                  "0": {
+                    "n": 1365,
+                    "accuracy": 0.5377289652824402
+                  },
+                  "1": {
+                    "n": 951,
+                    "accuracy": 0.5236592888832092
+                  },
+                  "2": {
+                    "n": 631,
+                    "accuracy": 0.6069730520248413
+                  }
+                },
+                "by_label": {
+                  "false": 0.5442779064178467,
+                  "true": 0.5517241358757019
+                }
+              },
+              "latency": {
+                "median_us": 13.708486221730709,
+                "p95_us": 124.91900124587119,
+                "scope": "CPU, batch one, 4 threads, precomputed embeddings; includes memory projections, excludes encoder"
+              },
+              "cost": {
+                "allocated_parameters": 214658,
+                "active_parameters": 99074,
+                "matrix_macs_per_query": 98560,
+                "context_slots": 24,
+                "memory_reads": 0,
+                "excludes": "encoder, bias, normalization, activations, softmax, elementwise operations, data movement"
+              }
+            },
+            "dev_shift": {
+              "metrics": {
+                "questions": 1941,
+                "accuracy": 0.6177228093147278,
+                "nll": 0.6917350888252258,
+                "multiclass_brier": 0.49667617678642273,
+                "by_depth": {
+                  "3": {
+                    "n": 717,
+                    "accuracy": 0.6234309673309326
+                  },
+                  "4": {
+                    "n": 627,
+                    "accuracy": 0.6507176756858826
+                  },
+                  "5": {
+                    "n": 597,
+                    "accuracy": 0.5762144327163696
+                  }
+                },
+                "by_label": {
+                  "false": 0.5997931957244873,
+                  "true": 0.6355236172676086
+                }
+              },
+              "latency": {
+                "median_us": 14.874967746436596,
+                "p95_us": 102.12883935309932,
+                "scope": "CPU, batch one, 4 threads, precomputed embeddings; includes memory projections, excludes encoder"
+              },
+              "cost": {
+                "allocated_parameters": 214658,
+                "active_parameters": 99074,
+                "matrix_macs_per_query": 98560,
+                "context_slots": 25,
+                "memory_reads": 0,
+                "excludes": "encoder, bias, normalization, activations, softmax, elementwise operations, data movement"
+              }
+            }
+          },
+          "logits_sha256": "875a88252d7b5553ef8cf029527d99756f4d59eafaa9ad95b5103ac4a3206010"
+        }
+      ],
+      "means": {
+        "dev_in": {
+          "accuracy": 0.5516344308853149,
+          "nll": 0.6873404582341512,
+          "multiclass_brier": 0.4939923385779063
+        },
+        "dev_shift": {
+          "accuracy": 0.6421088576316833,
+          "nll": 0.6746786832809448,
+          "multiclass_brier": 0.4801594416300456
+        }
+      }
+    },
+    "mean_context": {
+      "fits": [
+        {
+          "mode": "mean_context",
+          "seed": 17,
+          "plan_sha256": "567a22afe18e85885e7ebbe9df7e35384b4726a03b7b8f89f72c5a68b327173e",
+          "training_seconds": 6.548175125033595,
+          "checkpoint_sha256": "45b2f4f20649a8952967098d645ae72c9c3bb7d50a816f53f0f3d011ef6ca96d",
+          "history": [
+            {
+              "epoch": 1,
+              "updates": 78,
+              "loss": 0.6983567858622132
+            },
+            {
+              "epoch": 2,
+              "updates": 78,
+              "loss": 0.6879032513862894
+            },
+            {
+              "epoch": 3,
+              "updates": 78,
+              "loss": 0.6858650223003679
+            },
+            {
+              "epoch": 4,
+              "updates": 78,
+              "loss": 0.6818164565326216
+            },
+            {
+              "epoch": 5,
+              "updates": 78,
+              "loss": 0.6788942532233897
+            },
+            {
+              "epoch": 6,
+              "updates": 78,
+              "loss": 0.6745061327961082
+            },
+            {
+              "epoch": 7,
+              "updates": 78,
+              "loss": 0.670724333463983
+            },
+            {
+              "epoch": 8,
+              "updates": 78,
+              "loss": 0.6672609764976344
+            },
+            {
+              "epoch": 9,
+              "updates": 78,
+              "loss": 0.6630142834072333
+            },
+            {
+              "epoch": 10,
+              "updates": 78,
+              "loss": 0.6620151490443972
+            },
+            {
+              "epoch": 11,
+              "updates": 78,
+              "loss": 0.6584180744811595
+            },
+            {
+              "epoch": 12,
+              "updates": 78,
+              "loss": 0.6558477030884124
+            },
+            {
+              "epoch": 13,
+              "updates": 78,
+              "loss": 0.652531929352877
+            },
+            {
+              "epoch": 14,
+              "updates": 78,
+              "loss": 0.6496333560371177
+            },
+            {
+              "epoch": 15,
+              "updates": 78,
+              "loss": 0.6472282049705141
+            },
+            {
+              "epoch": 16,
+              "updates": 78,
+              "loss": 0.6438970274979152
+            },
+            {
+              "epoch": 17,
+              "updates": 78,
+              "loss": 0.6417794386353243
+            },
+            {
+              "epoch": 18,
+              "updates": 78,
+              "loss": 0.6369758802671316
+            },
+            {
+              "epoch": 19,
+              "updates": 78,
+              "loss": 0.6336637874832483
+            },
+            {
+              "epoch": 20,
+              "updates": 78,
+              "loss": 0.6301942969224281
+            }
+          ],
+          "parts": {
+            "dev_in": {
+              "metrics": {
+                "questions": 2947,
+                "accuracy": 0.5816084146499634,
+                "nll": 0.6788619756698608,
+                "multiclass_brier": 0.48432615399360657,
+                "by_depth": {
+                  "0": {
+                    "n": 1365,
+                    "accuracy": 0.6007326245307922
+                  },
+                  "1": {
+                    "n": 951,
+                    "accuracy": 0.5552050471305847
+                  },
+                  "2": {
+                    "n": 631,
+                    "accuracy": 0.58003169298172
+                  }
+                },
+                "by_label": {
+                  "false": 0.5326975584030151,
+                  "true": 0.6301555037498474
+                }
+              },
+              "latency": {
+                "median_us": 33.292046282440424,
+                "p95_us": 37.30031894519925,
+                "scope": "CPU, batch one, 4 threads, precomputed embeddings; includes memory projections, excludes encoder"
+              },
+              "cost": {
+                "allocated_parameters": 214658,
+                "active_parameters": 165122,
+                "matrix_macs_per_query": 1294592,
+                "context_slots": 24,
+                "memory_reads": 1,
+                "excludes": "encoder, bias, normalization, activations, softmax, elementwise operations, data movement"
+              }
+            },
+            "dev_shift": {
+              "metrics": {
+                "questions": 1941,
+                "accuracy": 0.5311694741249084,
+                "nll": 0.7224793434143066,
+                "multiclass_brier": 0.5199657082557678,
+                "by_depth": {
+                  "3": {
+                    "n": 717,
+                    "accuracy": 0.5481171607971191
+                  },
+                  "4": {
+                    "n": 627,
+                    "accuracy": 0.5263158082962036
+                  },
+                  "5": {
+                    "n": 597,
+                    "accuracy": 0.5159128904342651
+                  }
+                },
+                "by_label": {
+                  "false": 0.4819027781486511,
+                  "true": 0.5800821185112
+                }
+              },
+              "latency": {
+                "median_us": 34.20806024223566,
+                "p95_us": 41.79409588687122,
+                "scope": "CPU, batch one, 4 threads, precomputed embeddings; includes memory projections, excludes encoder"
+              },
+              "cost": {
+                "allocated_parameters": 214658,
+                "active_parameters": 165122,
+                "matrix_macs_per_query": 1343744,
+                "context_slots": 25,
+                "memory_reads": 1,
+                "excludes": "encoder, bias, normalization, activations, softmax, elementwise operations, data movement"
+              }
+            }
+          },
+          "logits_sha256": "b369804d6c7f45543b109a0a7385e88d7371da080f7a3f09694472680890f830"
+        },
+        {
+          "mode": "mean_context",
+          "seed": 29,
+          "plan_sha256": "567a22afe18e85885e7ebbe9df7e35384b4726a03b7b8f89f72c5a68b327173e",
+          "training_seconds": 5.890390167012811,
+          "checkpoint_sha256": "a52b1f799449db28d342f77eca8d530cf647ddea63774bb68567886be2bdb002",
+          "history": [
+            {
+              "epoch": 1,
+              "updates": 78,
+              "loss": 0.6964083860430702
+            },
+            {
+              "epoch": 2,
+              "updates": 78,
+              "loss": 0.689312050985155
+            },
+            {
+              "epoch": 3,
+              "updates": 78,
+              "loss": 0.6855938113423599
+            },
+            {
+              "epoch": 4,
+              "updates": 78,
+              "loss": 0.6812012969463608
+            },
+            {
+              "epoch": 5,
+              "updates": 78,
+              "loss": 0.6785976875044383
+            },
+            {
+              "epoch": 6,
+              "updates": 78,
+              "loss": 0.6724170705498098
+            },
+            {
+              "epoch": 7,
+              "updates": 78,
+              "loss": 0.6714603390167215
+            },
+            {
+              "epoch": 8,
+              "updates": 78,
+              "loss": 0.6689273664588924
+            },
+            {
+              "epoch": 9,
+              "updates": 78,
+              "loss": 0.6640134120891382
+            },
+            {
+              "epoch": 10,
+              "updates": 78,
+              "loss": 0.6622356313525098
+            },
+            {
+              "epoch": 11,
+              "updates": 78,
+              "loss": 0.6584529182329466
+            },
+            {
+              "epoch": 12,
+              "updates": 78,
+              "loss": 0.6561154871569715
+            },
+            {
+              "epoch": 13,
+              "updates": 78,
+              "loss": 0.652769317727573
+            },
+            {
+              "epoch": 14,
+              "updates": 78,
+              "loss": 0.6506368626830399
+            },
+            {
+              "epoch": 15,
+              "updates": 78,
+              "loss": 0.6477502988080349
+            },
+            {
+              "epoch": 16,
+              "updates": 78,
+              "loss": 0.6444666294539088
+            },
+            {
+              "epoch": 17,
+              "updates": 78,
+              "loss": 0.6436156473056763
+            },
+            {
+              "epoch": 18,
+              "updates": 78,
+              "loss": 0.6394092833094934
+            },
+            {
+              "epoch": 19,
+              "updates": 78,
+              "loss": 0.6361768942814701
+            },
+            {
+              "epoch": 20,
+              "updates": 78,
+              "loss": 0.6336431656602812
+            }
+          ],
+          "parts": {
+            "dev_in": {
+              "metrics": {
+                "questions": 2947,
+                "accuracy": 0.5863590240478516,
+                "nll": 0.6771834492683411,
+                "multiclass_brier": 0.4816281497478485,
+                "by_depth": {
+                  "0": {
+                    "n": 1365,
+                    "accuracy": 0.5780220031738281
+                  },
+                  "1": {
+                    "n": 951,
+                    "accuracy": 0.569926381111145
+                  },
+                  "2": {
+                    "n": 631,
+                    "accuracy": 0.6291600465774536
+                  }
+                },
+                "by_label": {
+                  "false": 0.5551770925521851,
+                  "true": 0.6173089742660522
+                }
+              },
+              "latency": {
+                "median_us": 33.604446798563,
+                "p95_us": 43.210457079112416,
+                "scope": "CPU, batch one, 4 threads, precomputed embeddings; includes memory projections, excludes encoder"
+              },
+              "cost": {
+                "allocated_parameters": 214658,
+                "active_parameters": 165122,
+                "matrix_macs_per_query": 1294592,
+                "context_slots": 24,
+                "memory_reads": 1,
+                "excludes": "encoder, bias, normalization, activations, softmax, elementwise operations, data movement"
+              }
+            },
+            "dev_shift": {
+              "metrics": {
+                "questions": 1941,
+                "accuracy": 0.6259660124778748,
+                "nll": 0.6661677956581116,
+                "multiclass_brier": 0.4688246548175812,
+                "by_depth": {
+                  "3": {
+                    "n": 717,
+                    "accuracy": 0.6527196764945984
+                  },
+                  "4": {
+                    "n": 627,
+                    "accuracy": 0.6491228342056274
+                  },
+                  "5": {
+                    "n": 597,
+                    "accuracy": 0.5695142149925232
+                  }
+                },
+                "by_label": {
+                  "false": 0.6028955578804016,
+                  "true": 0.6488706469535828
+                }
+              },
+              "latency": {
+                "median_us": 32.812473364174366,
+                "p95_us": 34.1764825861901,
+                "scope": "CPU, batch one, 4 threads, precomputed embeddings; includes memory projections, excludes encoder"
+              },
+              "cost": {
+                "allocated_parameters": 214658,
+                "active_parameters": 165122,
+                "matrix_macs_per_query": 1343744,
+                "context_slots": 25,
+                "memory_reads": 1,
+                "excludes": "encoder, bias, normalization, activations, softmax, elementwise operations, data movement"
+              }
+            }
+          },
+          "logits_sha256": "caa93135f1e66f85fbb198aa00c14d6e5cde3e5751e58b3d38bdcde3f5adf5ab"
+        },
+        {
+          "mode": "mean_context",
+          "seed": 43,
+          "plan_sha256": "567a22afe18e85885e7ebbe9df7e35384b4726a03b7b8f89f72c5a68b327173e",
+          "training_seconds": 5.479138666996732,
+          "checkpoint_sha256": "9e360099cf2ab3e4f2bd9dc6fd10c06f7d79a4f1742ebd60a8c00182b4427377",
+          "history": [
+            {
+              "epoch": 1,
+              "updates": 78,
+              "loss": 0.6956219345028791
+            },
+            {
+              "epoch": 2,
+              "updates": 78,
+              "loss": 0.6894585643714197
+            },
+            {
+              "epoch": 3,
+              "updates": 78,
+              "loss": 0.6845756580187026
+            },
+            {
+              "epoch": 4,
+              "updates": 78,
+              "loss": 0.6833026715401921
+            },
+            {
+              "epoch": 5,
+              "updates": 78,
+              "loss": 0.6786947705021258
+            },
+            {
+              "epoch": 6,
+              "updates": 78,
+              "loss": 0.6744618025208309
+            },
+            {
+              "epoch": 7,
+              "updates": 78,
+              "loss": 0.6707533557234832
+            },
+            {
+              "epoch": 8,
+              "updates": 78,
+              "loss": 0.6670146045755104
+            },
+            {
+              "epoch": 9,
+              "updates": 78,
+              "loss": 0.664819443524952
+            },
+            {
+              "epoch": 10,
+              "updates": 78,
+              "loss": 0.6616157151507046
+            },
+            {
+              "epoch": 11,
+              "updates": 78,
+              "loss": 0.6594052048103567
+            },
+            {
+              "epoch": 12,
+              "updates": 78,
+              "loss": 0.6570637989720606
+            },
+            {
+              "epoch": 13,
+              "updates": 78,
+              "loss": 0.6541184055503708
+            },
+            {
+              "epoch": 14,
+              "updates": 78,
+              "loss": 0.6531705220588508
+            },
+            {
+              "epoch": 15,
+              "updates": 78,
+              "loss": 0.6506091802748121
+            },
+            {
+              "epoch": 16,
+              "updates": 78,
+              "loss": 0.6483095441132241
+            },
+            {
+              "epoch": 17,
+              "updates": 78,
+              "loss": 0.6461676737674705
+            },
+            {
+              "epoch": 18,
+              "updates": 78,
+              "loss": 0.6435330029517026
+            },
+            {
+              "epoch": 19,
+              "updates": 78,
+              "loss": 0.6412682551829492
+            },
+            {
+              "epoch": 20,
+              "updates": 78,
+              "loss": 0.6391707033113009
+            }
+          ],
+          "parts": {
+            "dev_in": {
+              "metrics": {
+                "questions": 2947,
+                "accuracy": 0.5839837193489075,
+                "nll": 0.6730725765228271,
+                "multiclass_brier": 0.47938406467437744,
+                "by_depth": {
+                  "0": {
+                    "n": 1365,
+                    "accuracy": 0.5487179756164551
+                  },
+                  "1": {
+                    "n": 951,
+                    "accuracy": 0.5783385634422302
+                  },
+                  "2": {
+                    "n": 631,
+                    "accuracy": 0.668779730796814
+                  }
+                },
+                "by_label": {
+                  "false": 0.5974114537239075,
+                  "true": 0.5706558227539062
+                }
+              },
+              "latency": {
+                "median_us": 33.72947685420513,
+                "p95_us": 54.798281053081155,
+                "scope": "CPU, batch one, 4 threads, precomputed embeddings; includes memory projections, excludes encoder"
+              },
+              "cost": {
+                "allocated_parameters": 214658,
+                "active_parameters": 165122,
+                "matrix_macs_per_query": 1294592,
+                "context_slots": 24,
+                "memory_reads": 1,
+                "excludes": "encoder, bias, normalization, activations, softmax, elementwise operations, data movement"
+              }
+            },
+            "dev_shift": {
+              "metrics": {
+                "questions": 1941,
+                "accuracy": 0.70685213804245,
+                "nll": 0.639108419418335,
+                "multiclass_brier": 0.4436737298965454,
+                "by_depth": {
+                  "3": {
+                    "n": 717,
+                    "accuracy": 0.7182705998420715
+                  },
+                  "4": {
+                    "n": 627,
+                    "accuracy": 0.7272727489471436
+                  },
+                  "5": {
+                    "n": 597,
+                    "accuracy": 0.6716917753219604
+                  }
+                },
+                "by_label": {
+                  "false": 0.7228541970252991,
+                  "true": 0.6909651160240173
+                }
+              },
+              "latency": {
+                "median_us": 34.29199568927288,
+                "p95_us": 35.83303769119084,
+                "scope": "CPU, batch one, 4 threads, precomputed embeddings; includes memory projections, excludes encoder"
+              },
+              "cost": {
+                "allocated_parameters": 214658,
+                "active_parameters": 165122,
+                "matrix_macs_per_query": 1343744,
+                "context_slots": 25,
+                "memory_reads": 1,
+                "excludes": "encoder, bias, normalization, activations, softmax, elementwise operations, data movement"
+              }
+            }
+          },
+          "logits_sha256": "f9995101e467c78d25e721b8a89adcd83bc83fb14b55dbb86d3018cc7c7e561b"
+        }
+      ],
+      "means": {
+        "dev_in": {
+          "accuracy": 0.5839837193489075,
+          "nll": 0.6763726671536764,
+          "multiclass_brier": 0.48177945613861084
+        },
+        "dev_shift": {
+          "accuracy": 0.6213292082150778,
+          "nll": 0.6759185194969177,
+          "multiclass_brier": 0.4774880309899648
+        }
+      }
+    },
+    "single_read": {
+      "fits": [
+        {
+          "mode": "single_read",
+          "seed": 17,
+          "plan_sha256": "567a22afe18e85885e7ebbe9df7e35384b4726a03b7b8f89f72c5a68b327173e",
+          "training_seconds": 11.488804708002135,
+          "checkpoint_sha256": "32d7c4ee1e217eb4fce88e73f5650c56c76adceda2254e951c7f88e625016dfb",
+          "history": [
+            {
+              "epoch": 1,
+              "updates": 78,
+              "loss": 0.6983610946410319
+            },
+            {
+              "epoch": 2,
+              "updates": 78,
+              "loss": 0.687886553762947
+            },
+            {
+              "epoch": 3,
+              "updates": 78,
+              "loss": 0.6852667320321658
+            },
+            {
+              "epoch": 4,
+              "updates": 78,
+              "loss": 0.6790429715452108
+            },
+            {
+              "epoch": 5,
+              "updates": 78,
+              "loss": 0.6730277684986745
+            },
+            {
+              "epoch": 6,
+              "updates": 78,
+              "loss": 0.6672621608273928
+            },
+            {
+              "epoch": 7,
+              "updates": 78,
+              "loss": 0.6593312987608926
+            },
+            {
+              "epoch": 8,
+              "updates": 78,
+              "loss": 0.6516392325168243
+            },
+            {
+              "epoch": 9,
+              "updates": 78,
+              "loss": 0.6429532348185897
+            },
+            {
+              "epoch": 10,
+              "updates": 78,
+              "loss": 0.6395143817793721
+            },
+            {
+              "epoch": 11,
+              "updates": 78,
+              "loss": 0.6332201878386243
+            },
+            {
+              "epoch": 12,
+              "updates": 78,
+              "loss": 0.6261149775711697
+            },
+            {
+              "epoch": 13,
+              "updates": 78,
+              "loss": 0.6198739815236125
+            },
+            {
+              "epoch": 14,
+              "updates": 78,
+              "loss": 0.6121568179237673
+            },
+            {
+              "epoch": 15,
+              "updates": 78,
+              "loss": 0.6075955339855955
+            },
+            {
+              "epoch": 16,
+              "updates": 78,
+              "loss": 0.5981589127684586
+            },
+            {
+              "epoch": 17,
+              "updates": 78,
+              "loss": 0.5934621848982548
+            },
+            {
+              "epoch": 18,
+              "updates": 78,
+              "loss": 0.5829974293913411
+            },
+            {
+              "epoch": 19,
+              "updates": 78,
+              "loss": 0.5763876690803902
+            },
+            {
+              "epoch": 20,
+              "updates": 78,
+              "loss": 0.572668229527401
+            }
+          ],
+          "parts": {
+            "dev_in": {
+              "metrics": {
+                "questions": 2947,
+                "accuracy": 0.597896158695221,
+                "nll": 0.6975594162940979,
+                "multiclass_brier": 0.4927775263786316,
+                "by_depth": {
+                  "0": {
+                    "n": 1365,
+                    "accuracy": 0.6329670548439026
+                  },
+                  "1": {
+                    "n": 951,
+                    "accuracy": 0.5583596229553223
+                  },
+                  "2": {
+                    "n": 631,
+                    "accuracy": 0.5816164612770081
+                  }
+                },
+                "by_label": {
+                  "false": 0.5647138953208923,
+                  "true": 0.6308316588401794
+                }
+              },
+              "latency": {
+                "median_us": 72.93745875358582,
+                "p95_us": 119.23508136533195,
+                "scope": "CPU, batch one, 4 threads, precomputed embeddings; includes memory projections, excludes encoder"
+              },
+              "cost": {
+                "allocated_parameters": 214658,
+                "active_parameters": 214658,
+                "matrix_macs_per_query": 2480384,
+                "context_slots": 24,
+                "memory_reads": 1,
+                "excludes": "encoder, bias, normalization, activations, softmax, elementwise operations, data movement"
+              }
+            },
+            "dev_shift": {
+              "metrics": {
+                "questions": 1941,
+                "accuracy": 0.5244719386100769,
+                "nll": 0.7509073615074158,
+                "multiclass_brier": 0.5355883836746216,
+                "by_depth": {
+                  "3": {
+                    "n": 717,
+                    "accuracy": 0.5453277826309204
+                  },
+                  "4": {
+                    "n": 627,
+                    "accuracy": 0.5151515007019043
+                  },
+                  "5": {
+                    "n": 597,
+                    "accuracy": 0.5092127323150635
+                  }
+                },
+                "by_label": {
+                  "false": 0.4881075620651245,
+                  "true": 0.5605749487876892
+                }
+              },
+              "latency": {
+                "median_us": 73.41650780290365,
+                "p95_us": 105.30413710512211,
+                "scope": "CPU, batch one, 4 threads, precomputed embeddings; includes memory projections, excludes encoder"
+              },
+              "cost": {
+                "allocated_parameters": 214658,
+                "active_parameters": 214658,
+                "matrix_macs_per_query": 2578944,
+                "context_slots": 25,
+                "memory_reads": 1,
+                "excludes": "encoder, bias, normalization, activations, softmax, elementwise operations, data movement"
+              }
+            }
+          },
+          "logits_sha256": "05405db82bd78490b47e49f072ecf9eb8790eb5f294a5320947864033ba5d8e8"
+        },
+        {
+          "mode": "single_read",
+          "seed": 29,
+          "plan_sha256": "567a22afe18e85885e7ebbe9df7e35384b4726a03b7b8f89f72c5a68b327173e",
+          "training_seconds": 8.953783917007968,
+          "checkpoint_sha256": "472288b76aced0f03398d23b600096cd48ab8312eb4a08a68b6c0e0633ec2163",
+          "history": [
+            {
+              "epoch": 1,
+              "updates": 78,
+              "loss": 0.6964031415173657
+            },
+            {
+              "epoch": 2,
+              "updates": 78,
+              "loss": 0.6885150109291125
+            },
+            {
+              "epoch": 3,
+              "updates": 78,
+              "loss": 0.6822097899515521
+            },
+            {
+              "epoch": 4,
+              "updates": 78,
+              "loss": 0.6735282953091564
+            },
+            {
+              "epoch": 5,
+              "updates": 78,
+              "loss": 0.6683942414983807
+            },
+            {
+              "epoch": 6,
+              "updates": 78,
+              "loss": 0.6606015440756804
+            },
+            {
+              "epoch": 7,
+              "updates": 78,
+              "loss": 0.656758986460494
+            },
+            {
+              "epoch": 8,
+              "updates": 78,
+              "loss": 0.6504925807172668
+            },
+            {
+              "epoch": 9,
+              "updates": 78,
+              "loss": 0.6425895126676312
+            },
+            {
+              "epoch": 10,
+              "updates": 78,
+              "loss": 0.634770430658712
+            },
+            {
+              "epoch": 11,
+              "updates": 78,
+              "loss": 0.6313284640839607
+            },
+            {
+              "epoch": 12,
+              "updates": 78,
+              "loss": 0.6239490862948005
+            },
+            {
+              "epoch": 13,
+              "updates": 78,
+              "loss": 0.6183601694993136
+            },
+            {
+              "epoch": 14,
+              "updates": 78,
+              "loss": 0.6121004177004007
+            },
+            {
+              "epoch": 15,
+              "updates": 78,
+              "loss": 0.6067667206098348
+            },
+            {
+              "epoch": 16,
+              "updates": 78,
+              "loss": 0.6005526184163105
+            },
+            {
+              "epoch": 17,
+              "updates": 78,
+              "loss": 0.5952837240648412
+            },
+            {
+              "epoch": 18,
+              "updates": 78,
+              "loss": 0.5910663237220991
+            },
+            {
+              "epoch": 19,
+              "updates": 78,
+              "loss": 0.5829961530202642
+            },
+            {
+              "epoch": 20,
+              "updates": 78,
+              "loss": 0.5797960363944167
+            }
+          ],
+          "parts": {
+            "dev_in": {
+              "metrics": {
+                "questions": 2947,
+                "accuracy": 0.5846623778343201,
+                "nll": 0.7072859406471252,
+                "multiclass_brier": 0.5013020634651184,
+                "by_depth": {
+                  "0": {
+                    "n": 1365,
+                    "accuracy": 0.5948718190193176
+                  },
+                  "1": {
+                    "n": 951,
+                    "accuracy": 0.5636172294616699
+                  },
+                  "2": {
+                    "n": 631,
+                    "accuracy": 0.5942947864532471
+                  }
+                },
+                "by_label": {
+                  "false": 0.5354223251342773,
+                  "true": 0.633536159992218
+                }
+              },
+              "latency": {
+                "median_us": 72.93757516890764,
+                "p95_us": 100.85243266075848,
+                "scope": "CPU, batch one, 4 threads, precomputed embeddings; includes memory projections, excludes encoder"
+              },
+              "cost": {
+                "allocated_parameters": 214658,
+                "active_parameters": 214658,
+                "matrix_macs_per_query": 2480384,
+                "context_slots": 24,
+                "memory_reads": 1,
+                "excludes": "encoder, bias, normalization, activations, softmax, elementwise operations, data movement"
+              }
+            },
+            "dev_shift": {
+              "metrics": {
+                "questions": 1941,
+                "accuracy": 0.5517774224281311,
+                "nll": 0.7296814918518066,
+                "multiclass_brier": 0.5219188332557678,
+                "by_depth": {
+                  "3": {
+                    "n": 717,
+                    "accuracy": 0.5718270540237427
+                  },
+                  "4": {
+                    "n": 627,
+                    "accuracy": 0.5470494627952576
+                  },
+                  "5": {
+                    "n": 597,
+                    "accuracy": 0.5326633453369141
+                  }
+                },
+                "by_label": {
+                  "false": 0.4912099242210388,
+                  "true": 0.6119096279144287
+                }
+              },
+              "latency": {
+                "median_us": 77.70804222673178,
+                "p95_us": 138.49798706360158,
+                "scope": "CPU, batch one, 4 threads, precomputed embeddings; includes memory projections, excludes encoder"
+              },
+              "cost": {
+                "allocated_parameters": 214658,
+                "active_parameters": 214658,
+                "matrix_macs_per_query": 2578944,
+                "context_slots": 25,
+                "memory_reads": 1,
+                "excludes": "encoder, bias, normalization, activations, softmax, elementwise operations, data movement"
+              }
+            }
+          },
+          "logits_sha256": "2aecac0fdcbf9a990831b3c2d1c6a93c57e5811525e5e68a3356c8ce7d133679"
+        },
+        {
+          "mode": "single_read",
+          "seed": 43,
+          "plan_sha256": "567a22afe18e85885e7ebbe9df7e35384b4726a03b7b8f89f72c5a68b327173e",
+          "training_seconds": 10.25719191704411,
+          "checkpoint_sha256": "7ee5802d5273aa364f3627994d1d651f4e6671c9eec26303f5f44f6d6940e4a1",
+          "history": [
+            {
+              "epoch": 1,
+              "updates": 78,
+              "loss": 0.6956295383001205
+            },
+            {
+              "epoch": 2,
+              "updates": 78,
+              "loss": 0.6893918036457699
+            },
+            {
+              "epoch": 3,
+              "updates": 78,
+              "loss": 0.6825528830911193
+            },
+            {
+              "epoch": 4,
+              "updates": 78,
+              "loss": 0.6767377077501097
+            },
+            {
+              "epoch": 5,
+              "updates": 78,
+              "loss": 0.6689855497815811
+            },
+            {
+              "epoch": 6,
+              "updates": 78,
+              "loss": 0.6643554129673462
+            },
+            {
+              "epoch": 7,
+              "updates": 78,
+              "loss": 0.65949459198152
+            },
+            {
+              "epoch": 8,
+              "updates": 78,
+              "loss": 0.652966359673387
+            },
+            {
+              "epoch": 9,
+              "updates": 78,
+              "loss": 0.6489594887463086
+            },
+            {
+              "epoch": 10,
+              "updates": 78,
+              "loss": 0.6436418295237603
+            },
+            {
+              "epoch": 11,
+              "updates": 78,
+              "loss": 0.6360476934372419
+            },
+            {
+              "epoch": 12,
+              "updates": 78,
+              "loss": 0.6286773455817586
+            },
+            {
+              "epoch": 13,
+              "updates": 78,
+              "loss": 0.6212634480916074
+            },
+            {
+              "epoch": 14,
+              "updates": 78,
+              "loss": 0.6153484631886998
+            },
+            {
+              "epoch": 15,
+              "updates": 78,
+              "loss": 0.6076456598549731
+            },
+            {
+              "epoch": 16,
+              "updates": 78,
+              "loss": 0.6012460179136104
+            },
+            {
+              "epoch": 17,
+              "updates": 78,
+              "loss": 0.5950075131049034
+            },
+            {
+              "epoch": 18,
+              "updates": 78,
+              "loss": 0.5861557816332549
+            },
+            {
+              "epoch": 19,
+              "updates": 78,
+              "loss": 0.5817257344069802
+            },
+            {
+              "epoch": 20,
+              "updates": 78,
+              "loss": 0.5726162190150622
+            }
+          ],
+          "parts": {
+            "dev_in": {
+              "metrics": {
+                "questions": 2947,
+                "accuracy": 0.5965388417243958,
+                "nll": 0.6985405683517456,
+                "multiclass_brier": 0.4917495846748352,
+                "by_depth": {
+                  "0": {
+                    "n": 1365,
+                    "accuracy": 0.6212454438209534
+                  },
+                  "1": {
+                    "n": 951,
+                    "accuracy": 0.5615141987800598
+                  },
+                  "2": {
+                    "n": 631,
+                    "accuracy": 0.5958795547485352
+                  }
+                },
+                "by_label": {
+                  "false": 0.5653951168060303,
+                  "true": 0.6274510025978088
+                }
+              },
+              "latency": {
+                "median_us": 77.47899508103728,
+                "p95_us": 149.95979145169255,
+                "scope": "CPU, batch one, 4 threads, precomputed embeddings; includes memory projections, excludes encoder"
+              },
+              "cost": {
+                "allocated_parameters": 214658,
+                "active_parameters": 214658,
+                "matrix_macs_per_query": 2480384,
+                "context_slots": 24,
+                "memory_reads": 1,
+                "excludes": "encoder, bias, normalization, activations, softmax, elementwise operations, data movement"
+              }
+            },
+            "dev_shift": {
+              "metrics": {
+                "questions": 1941,
+                "accuracy": 0.5321999192237854,
+                "nll": 0.7291705012321472,
+                "multiclass_brier": 0.5192121267318726,
+                "by_depth": {
+                  "3": {
+                    "n": 717,
+                    "accuracy": 0.5397489666938782
+                  },
+                  "4": {
+                    "n": 627,
+                    "accuracy": 0.5342902541160583
+                  },
+                  "5": {
+                    "n": 597,
+                    "accuracy": 0.5209380388259888
+                  }
+                },
+                "by_label": {
+                  "false": 0.4943123161792755,
+                  "true": 0.5698152184486389
+                }
+              },
+              "latency": {
+                "median_us": 72.12499622255564,
+                "p95_us": 102.14169160462916,
+                "scope": "CPU, batch one, 4 threads, precomputed embeddings; includes memory projections, excludes encoder"
+              },
+              "cost": {
+                "allocated_parameters": 214658,
+                "active_parameters": 214658,
+                "matrix_macs_per_query": 2578944,
+                "context_slots": 25,
+                "memory_reads": 1,
+                "excludes": "encoder, bias, normalization, activations, softmax, elementwise operations, data movement"
+              }
+            }
+          },
+          "logits_sha256": "3785737de8dcc485c09d0e72b959e04687498cdf5097aee94d52605892fd28ec"
+        }
+      ],
+      "means": {
+        "dev_in": {
+          "accuracy": 0.5930324594179789,
+          "nll": 0.7011286417643229,
+          "multiclass_brier": 0.49527639150619507
+        },
+        "dev_shift": {
+          "accuracy": 0.5361497600873312,
+          "nll": 0.7365864515304565,
+          "multiclass_brier": 0.5255731145540873
+        }
+      }
+    },
+    "recurrent_3": {
+      "fits": [
+        {
+          "mode": "recurrent_3",
+          "seed": 17,
+          "plan_sha256": "567a22afe18e85885e7ebbe9df7e35384b4726a03b7b8f89f72c5a68b327173e",
+          "training_seconds": 15.037341957911849,
+          "checkpoint_sha256": "cf92a2a6afdde720072ed1f16973b8b4e31517f22f2fdb443114931232213ab5",
+          "history": [
+            {
+              "epoch": 1,
+              "updates": 78,
+              "loss": 0.698274565757666
+            },
+            {
+              "epoch": 2,
+              "updates": 78,
+              "loss": 0.6878816726483475
+            },
+            {
+              "epoch": 3,
+              "updates": 78,
+              "loss": 0.6844780906584281
+            },
+            {
+              "epoch": 4,
+              "updates": 78,
+              "loss": 0.6778867735182224
+            },
+            {
+              "epoch": 5,
+              "updates": 78,
+              "loss": 0.6721489608026031
+            },
+            {
+              "epoch": 6,
+              "updates": 78,
+              "loss": 0.6666169027309908
+            },
+            {
+              "epoch": 7,
+              "updates": 78,
+              "loss": 0.6590573115034439
+            },
+            {
+              "epoch": 8,
+              "updates": 78,
+              "loss": 0.6504837435892249
+            },
+            {
+              "epoch": 9,
+              "updates": 78,
+              "loss": 0.6418505099632275
+            },
+            {
+              "epoch": 10,
+              "updates": 78,
+              "loss": 0.6361622784185749
+            },
+            {
+              "epoch": 11,
+              "updates": 78,
+              "loss": 0.6297711721066722
+            },
+            {
+              "epoch": 12,
+              "updates": 78,
+              "loss": 0.6209450768397778
+            },
+            {
+              "epoch": 13,
+              "updates": 78,
+              "loss": 0.614012436173133
+            },
+            {
+              "epoch": 14,
+              "updates": 78,
+              "loss": 0.6049874826300613
+            },
+            {
+              "epoch": 15,
+              "updates": 78,
+              "loss": 0.5974211105880783
+            },
+            {
+              "epoch": 16,
+              "updates": 78,
+              "loss": 0.5886190347292619
+            },
+            {
+              "epoch": 17,
+              "updates": 78,
+              "loss": 0.580108907240922
+            },
+            {
+              "epoch": 18,
+              "updates": 78,
+              "loss": 0.5702631661361035
+            },
+            {
+              "epoch": 19,
+              "updates": 78,
+              "loss": 0.5599482216938049
+            },
+            {
+              "epoch": 20,
+              "updates": 78,
+              "loss": 0.5511825117664567
+            }
+          ],
+          "parts": {
+            "dev_in": {
+              "metrics": {
+                "questions": 2947,
+                "accuracy": 0.5934848785400391,
+                "nll": 0.7221269011497498,
+                "multiclass_brier": 0.503803014755249,
+                "by_depth": {
+                  "0": {
+                    "n": 1365,
+                    "accuracy": 0.620512843132019
+                  },
+                  "1": {
+                    "n": 951,
+                    "accuracy": 0.5573080778121948
+                  },
+                  "2": {
+                    "n": 631,
+                    "accuracy": 0.589540421962738
+                  }
+                },
+                "by_label": {
+                  "false": 0.5858310461044312,
+                  "true": 0.6010817885398865
+                }
+              },
+              "latency": {
+                "median_us": 115.77102122828364,
+                "p95_us": 144.77705117315054,
+                "scope": "CPU, batch one, 4 threads, precomputed embeddings; includes memory projections, excludes encoder"
+              },
+              "cost": {
+                "allocated_parameters": 214658,
+                "active_parameters": 214658,
+                "matrix_macs_per_query": 2525440,
+                "context_slots": 24,
+                "memory_reads": 3,
+                "excludes": "encoder, bias, normalization, activations, softmax, elementwise operations, data movement"
+              }
+            },
+            "dev_shift": {
+              "metrics": {
+                "questions": 1941,
+                "accuracy": 0.5713549852371216,
+                "nll": 0.7250247597694397,
+                "multiclass_brier": 0.5091896057128906,
+                "by_depth": {
+                  "3": {
+                    "n": 717,
+                    "accuracy": 0.5843793749809265
+                  },
+                  "4": {
+                    "n": 627,
+                    "accuracy": 0.5757575631141663
+                  },
+                  "5": {
+                    "n": 597,
+                    "accuracy": 0.5510887503623962
+                  }
+                },
+                "by_label": {
+                  "false": 0.5284384489059448,
+                  "true": 0.6139630675315857
+                }
+              },
+              "latency": {
+                "median_us": 116.4580462500453,
+                "p95_us": 151.64791839197278,
+                "scope": "CPU, batch one, 4 threads, precomputed embeddings; includes memory projections, excludes encoder"
+              },
+              "cost": {
+                "allocated_parameters": 214658,
+                "active_parameters": 214658,
+                "matrix_macs_per_query": 2624512,
+                "context_slots": 25,
+                "memory_reads": 3,
+                "excludes": "encoder, bias, normalization, activations, softmax, elementwise operations, data movement"
+              }
+            }
+          },
+          "logits_sha256": "802da450da8914bc6e6332cb8c51f32d14eaf4e54a4fb2082482e2a95a63550c"
+        },
+        {
+          "mode": "recurrent_3",
+          "seed": 29,
+          "plan_sha256": "567a22afe18e85885e7ebbe9df7e35384b4726a03b7b8f89f72c5a68b327173e",
+          "training_seconds": 13.37750345794484,
+          "checkpoint_sha256": "581893914414f0acc432d0e5ed42f11410ce7f9df387a1a896ce005447bf9228",
+          "history": [
+            {
+              "epoch": 1,
+              "updates": 78,
+              "loss": 0.6967843692296325
+            },
+            {
+              "epoch": 2,
+              "updates": 78,
+              "loss": 0.6883626361065122
+            },
+            {
+              "epoch": 3,
+              "updates": 78,
+              "loss": 0.681753650409208
+            },
+            {
+              "epoch": 4,
+              "updates": 78,
+              "loss": 0.6724212122045344
+            },
+            {
+              "epoch": 5,
+              "updates": 78,
+              "loss": 0.6678923451501493
+            },
+            {
+              "epoch": 6,
+              "updates": 78,
+              "loss": 0.6598786791129562
+            },
+            {
+              "epoch": 7,
+              "updates": 78,
+              "loss": 0.6532490955922128
+            },
+            {
+              "epoch": 8,
+              "updates": 78,
+              "loss": 0.6467676764934559
+            },
+            {
+              "epoch": 9,
+              "updates": 78,
+              "loss": 0.638036803929856
+            },
+            {
+              "epoch": 10,
+              "updates": 78,
+              "loss": 0.6309977629784229
+            },
+            {
+              "epoch": 11,
+              "updates": 78,
+              "loss": 0.6222692458559439
+            },
+            {
+              "epoch": 12,
+              "updates": 78,
+              "loss": 0.6176458589209463
+            },
+            {
+              "epoch": 13,
+              "updates": 78,
+              "loss": 0.6098555406018903
+            },
+            {
+              "epoch": 14,
+              "updates": 78,
+              "loss": 0.6028294331332124
+            },
+            {
+              "epoch": 15,
+              "updates": 78,
+              "loss": 0.594765132762222
+            },
+            {
+              "epoch": 16,
+              "updates": 78,
+              "loss": 0.5866310312690304
+            },
+            {
+              "epoch": 17,
+              "updates": 78,
+              "loss": 0.5788600694538035
+            },
+            {
+              "epoch": 18,
+              "updates": 78,
+              "loss": 0.5722344456114252
+            },
+            {
+              "epoch": 19,
+              "updates": 78,
+              "loss": 0.5617235088716687
+            },
+            {
+              "epoch": 20,
+              "updates": 78,
+              "loss": 0.5572721748585787
+            }
+          ],
+          "parts": {
+            "dev_in": {
+              "metrics": {
+                "questions": 2947,
+                "accuracy": 0.5951815247535706,
+                "nll": 0.7152886986732483,
+                "multiclass_brier": 0.49824172258377075,
+                "by_depth": {
+                  "0": {
+                    "n": 1365,
+                    "accuracy": 0.6051282286643982
+                  },
+                  "1": {
+                    "n": 951,
+                    "accuracy": 0.5814931392669678
+                  },
+                  "2": {
+                    "n": 631,
+                    "accuracy": 0.5942947864532471
+                  }
+                },
+                "by_label": {
+                  "false": 0.5647138953208923,
+                  "true": 0.6254225969314575
+                }
+              },
+              "latency": {
+                "median_us": 119.12506306543946,
+                "p95_us": 166.00590897724004,
+                "scope": "CPU, batch one, 4 threads, precomputed embeddings; includes memory projections, excludes encoder"
+              },
+              "cost": {
+                "allocated_parameters": 214658,
+                "active_parameters": 214658,
+                "matrix_macs_per_query": 2525440,
+                "context_slots": 24,
+                "memory_reads": 3,
+                "excludes": "encoder, bias, normalization, activations, softmax, elementwise operations, data movement"
+              }
+            },
+            "dev_shift": {
+              "metrics": {
+                "questions": 1941,
+                "accuracy": 0.5471406579017639,
+                "nll": 0.7432278394699097,
+                "multiclass_brier": 0.5257498025894165,
+                "by_depth": {
+                  "3": {
+                    "n": 717,
+                    "accuracy": 0.5523012280464172
+                  },
+                  "4": {
+                    "n": 627,
+                    "accuracy": 0.5661882162094116
+                  },
+                  "5": {
+                    "n": 597,
+                    "accuracy": 0.5209380388259888
+                  }
+                },
+                "by_label": {
+                  "false": 0.5129265785217285,
+                  "true": 0.581108808517456
+                }
+              },
+              "latency": {
+                "median_us": 112.6040006056428,
+                "p95_us": 144.13337921723723,
+                "scope": "CPU, batch one, 4 threads, precomputed embeddings; includes memory projections, excludes encoder"
+              },
+              "cost": {
+                "allocated_parameters": 214658,
+                "active_parameters": 214658,
+                "matrix_macs_per_query": 2624512,
+                "context_slots": 25,
+                "memory_reads": 3,
+                "excludes": "encoder, bias, normalization, activations, softmax, elementwise operations, data movement"
+              }
+            }
+          },
+          "logits_sha256": "209afd1377a0bc9b27aadca2882e5633a8c296d58dbd514038c009e690c7182c"
+        },
+        {
+          "mode": "recurrent_3",
+          "seed": 43,
+          "plan_sha256": "567a22afe18e85885e7ebbe9df7e35384b4726a03b7b8f89f72c5a68b327173e",
+          "training_seconds": 14.414136249921285,
+          "checkpoint_sha256": "e67d3b91b6eb1ffdf72031da5826a81af8a4f49de7ddec73ae30c4a356f776f3",
+          "history": [
+            {
+              "epoch": 1,
+              "updates": 78,
+              "loss": 0.6956943684689683
+            },
+            {
+              "epoch": 2,
+              "updates": 78,
+              "loss": 0.6896659438971996
+            },
+            {
+              "epoch": 3,
+              "updates": 78,
+              "loss": 0.6820224629640519
+            },
+            {
+              "epoch": 4,
+              "updates": 78,
+              "loss": 0.6759799589380924
+            },
+            {
+              "epoch": 5,
+              "updates": 78,
+              "loss": 0.6684714451118543
+            },
+            {
+              "epoch": 6,
+              "updates": 78,
+              "loss": 0.6626984568275058
+            },
+            {
+              "epoch": 7,
+              "updates": 78,
+              "loss": 0.6564194197259707
+            },
+            {
+              "epoch": 8,
+              "updates": 78,
+              "loss": 0.6488634070308272
+            },
+            {
+              "epoch": 9,
+              "updates": 78,
+              "loss": 0.6426239384497077
+            },
+            {
+              "epoch": 10,
+              "updates": 78,
+              "loss": 0.6333666564243663
+            },
+            {
+              "epoch": 11,
+              "updates": 78,
+              "loss": 0.6243509183990834
+            },
+            {
+              "epoch": 12,
+              "updates": 78,
+              "loss": 0.6140117733757418
+            },
+            {
+              "epoch": 13,
+              "updates": 78,
+              "loss": 0.602859955519668
+            },
+            {
+              "epoch": 14,
+              "updates": 78,
+              "loss": 0.5912131848607999
+            },
+            {
+              "epoch": 15,
+              "updates": 78,
+              "loss": 0.5816206450843637
+            },
+            {
+              "epoch": 16,
+              "updates": 78,
+              "loss": 0.5692402993124025
+            },
+            {
+              "epoch": 17,
+              "updates": 78,
+              "loss": 0.560065715573775
+            },
+            {
+              "epoch": 18,
+              "updates": 78,
+              "loss": 0.5449959265751867
+            },
+            {
+              "epoch": 19,
+              "updates": 78,
+              "loss": 0.53559524118464
+            },
+            {
+              "epoch": 20,
+              "updates": 78,
+              "loss": 0.5219343519113325
+            }
+          ],
+          "parts": {
+            "dev_in": {
+              "metrics": {
+                "questions": 2947,
+                "accuracy": 0.6274176836013794,
+                "nll": 0.6691567301750183,
+                "multiclass_brier": 0.461367666721344,
+                "by_depth": {
+                  "0": {
+                    "n": 1365,
+                    "accuracy": 0.6593406796455383
+                  },
+                  "1": {
+                    "n": 951,
+                    "accuracy": 0.5762355327606201
+                  },
+                  "2": {
+                    "n": 631,
+                    "accuracy": 0.6354991793632507
+                  }
+                },
+                "by_label": {
+                  "false": 0.641008198261261,
+                  "true": 0.6139283180236816
+                }
+              },
+              "latency": {
+                "median_us": 113.16698510199785,
+                "p95_us": 127.18774378299707,
+                "scope": "CPU, batch one, 4 threads, precomputed embeddings; includes memory projections, excludes encoder"
+              },
+              "cost": {
+                "allocated_parameters": 214658,
+                "active_parameters": 214658,
+                "matrix_macs_per_query": 2525440,
+                "context_slots": 24,
+                "memory_reads": 3,
+                "excludes": "encoder, bias, normalization, activations, softmax, elementwise operations, data movement"
+              }
+            },
+            "dev_shift": {
+              "metrics": {
+                "questions": 1941,
+                "accuracy": 0.5899021029472351,
+                "nll": 0.7331802845001221,
+                "multiclass_brier": 0.5112195611000061,
+                "by_depth": {
+                  "3": {
+                    "n": 717,
+                    "accuracy": 0.5871687531471252
+                  },
+                  "4": {
+                    "n": 627,
+                    "accuracy": 0.5933014154434204
+                  },
+                  "5": {
+                    "n": 597,
+                    "accuracy": 0.589614748954773
+                  }
+                },
+                "by_label": {
+                  "false": 0.5935884118080139,
+                  "true": 0.5862423181533813
+                }
+              },
+              "latency": {
+                "median_us": 112.333451397717,
+                "p95_us": 125.39789895527063,
+                "scope": "CPU, batch one, 4 threads, precomputed embeddings; includes memory projections, excludes encoder"
+              },
+              "cost": {
+                "allocated_parameters": 214658,
+                "active_parameters": 214658,
+                "matrix_macs_per_query": 2624512,
+                "context_slots": 25,
+                "memory_reads": 3,
+                "excludes": "encoder, bias, normalization, activations, softmax, elementwise operations, data movement"
+              }
+            }
+          },
+          "logits_sha256": "bface06e227054d5c6d9f11a2ac2b65121e82019faf7839b1a4d5c68da015a1c"
+        }
+      ],
+      "means": {
+        "dev_in": {
+          "accuracy": 0.6053613622983297,
+          "nll": 0.7021907766660055,
+          "multiclass_brier": 0.4878041346867879
+        },
+        "dev_shift": {
+          "accuracy": 0.5694659153620402,
+          "nll": 0.7338109612464905,
+          "multiclass_brier": 0.5153863231341044
+        }
+      }
+    },
+    "recurrent_6": {
+      "fits": [
+        {
+          "mode": "recurrent_6",
+          "seed": 17,
+          "plan_sha256": "567a22afe18e85885e7ebbe9df7e35384b4726a03b7b8f89f72c5a68b327173e",
+          "training_seconds": 22.04118716600351,
+          "checkpoint_sha256": "a5d111ae08312fbeef862e3fa8981f954d562b4cf316d3740d7a958bca651160",
+          "history": [
+            {
+              "epoch": 1,
+              "updates": 78,
+              "loss": 0.6981301906101754
+            },
+            {
+              "epoch": 2,
+              "updates": 78,
+              "loss": 0.6881957593315139
+            },
+            {
+              "epoch": 3,
+              "updates": 78,
+              "loss": 0.683438166338826
+            },
+            {
+              "epoch": 4,
+              "updates": 78,
+              "loss": 0.6766781245472394
+            },
+            {
+              "epoch": 5,
+              "updates": 78,
+              "loss": 0.6697616889750111
+            },
+            {
+              "epoch": 6,
+              "updates": 78,
+              "loss": 0.6636787049550942
+            },
+            {
+              "epoch": 7,
+              "updates": 78,
+              "loss": 0.6555779924920594
+            },
+            {
+              "epoch": 8,
+              "updates": 78,
+              "loss": 0.6476161946490421
+            },
+            {
+              "epoch": 9,
+              "updates": 78,
+              "loss": 0.6382158487994581
+            },
+            {
+              "epoch": 10,
+              "updates": 78,
+              "loss": 0.6311971303328493
+            },
+            {
+              "epoch": 11,
+              "updates": 78,
+              "loss": 0.6245369378516263
+            },
+            {
+              "epoch": 12,
+              "updates": 78,
+              "loss": 0.6156383029978522
+            },
+            {
+              "epoch": 13,
+              "updates": 78,
+              "loss": 0.6070833058677152
+            },
+            {
+              "epoch": 14,
+              "updates": 78,
+              "loss": 0.5961195225850199
+            },
+            {
+              "epoch": 15,
+              "updates": 78,
+              "loss": 0.58730257588337
+            },
+            {
+              "epoch": 16,
+              "updates": 78,
+              "loss": 0.578682903377729
+            },
+            {
+              "epoch": 17,
+              "updates": 78,
+              "loss": 0.5695606346349184
+            },
+            {
+              "epoch": 18,
+              "updates": 78,
+              "loss": 0.5565139337884428
+            },
+            {
+              "epoch": 19,
+              "updates": 78,
+              "loss": 0.5430084851089133
+            },
+            {
+              "epoch": 20,
+              "updates": 78,
+              "loss": 0.5339732750956141
+            }
+          ],
+          "parts": {
+            "dev_in": {
+              "metrics": {
+                "questions": 2947,
+                "accuracy": 0.597896158695221,
+                "nll": 0.7294594049453735,
+                "multiclass_brier": 0.5032573938369751,
+                "by_depth": {
+                  "0": {
+                    "n": 1365,
+                    "accuracy": 0.6490842700004578
+                  },
+                  "1": {
+                    "n": 951,
+                    "accuracy": 0.5352261066436768
+                  },
+                  "2": {
+                    "n": 631,
+                    "accuracy": 0.5816164612770081
+                  }
+                },
+                "by_label": {
+                  "false": 0.5858310461044312,
+                  "true": 0.609871506690979
+                }
+              },
+              "latency": {
+                "median_us": 172.62547044083476,
+                "p95_us": 242.5937040243297,
+                "scope": "CPU, batch one, 4 threads, precomputed embeddings; includes memory projections, excludes encoder"
+              },
+              "cost": {
+                "allocated_parameters": 214658,
+                "active_parameters": 214658,
+                "matrix_macs_per_query": 2593024,
+                "context_slots": 24,
+                "memory_reads": 6,
+                "excludes": "encoder, bias, normalization, activations, softmax, elementwise operations, data movement"
+              }
+            },
+            "dev_shift": {
+              "metrics": {
+                "questions": 1941,
+                "accuracy": 0.5239567160606384,
+                "nll": 0.78472501039505,
+                "multiclass_brier": 0.5541582107543945,
+                "by_depth": {
+                  "3": {
+                    "n": 717,
+                    "accuracy": 0.5439330339431763
+                  },
+                  "4": {
+                    "n": 627,
+                    "accuracy": 0.5295056104660034
+                  },
+                  "5": {
+                    "n": 597,
+                    "accuracy": 0.49413734674453735
+                  }
+                },
+                "by_label": {
+                  "false": 0.4881075620651245,
+                  "true": 0.5595482587814331
+                }
+              },
+              "latency": {
+                "median_us": 181.89649563282728,
+                "p95_us": 366.4211195427924,
+                "scope": "CPU, batch one, 4 threads, precomputed embeddings; includes memory projections, excludes encoder"
+              },
+              "cost": {
+                "allocated_parameters": 214658,
+                "active_parameters": 214658,
+                "matrix_macs_per_query": 2692864,
+                "context_slots": 25,
+                "memory_reads": 6,
+                "excludes": "encoder, bias, normalization, activations, softmax, elementwise operations, data movement"
+              }
+            }
+          },
+          "logits_sha256": "f1a84e475938687e78e66bbef126eb7ddc0b094721e6d3f897a0907e1bcd30fc"
+        },
+        {
+          "mode": "recurrent_6",
+          "seed": 29,
+          "plan_sha256": "567a22afe18e85885e7ebbe9df7e35384b4726a03b7b8f89f72c5a68b327173e",
+          "training_seconds": 21.04699154093396,
+          "checkpoint_sha256": "af9332635fe571aa6801c365ba41767b1f58ba8fe7370807a030c47f20d6056a",
+          "history": [
+            {
+              "epoch": 1,
+              "updates": 78,
+              "loss": 0.6973371361728102
+            },
+            {
+              "epoch": 2,
+              "updates": 78,
+              "loss": 0.6885285554309394
+            },
+            {
+              "epoch": 3,
+              "updates": 78,
+              "loss": 0.681590883649637
+            },
+            {
+              "epoch": 4,
+              "updates": 78,
+              "loss": 0.6716705362844566
+            },
+            {
+              "epoch": 5,
+              "updates": 78,
+              "loss": 0.6656151456584706
+            },
+            {
+              "epoch": 6,
+              "updates": 78,
+              "loss": 0.6572758863771321
+            },
+            {
+              "epoch": 7,
+              "updates": 78,
+              "loss": 0.6502663733181802
+            },
+            {
+              "epoch": 8,
+              "updates": 78,
+              "loss": 0.6426011133340808
+            },
+            {
+              "epoch": 9,
+              "updates": 78,
+              "loss": 0.6316009979738147
+            },
+            {
+              "epoch": 10,
+              "updates": 78,
+              "loss": 0.6208042881442943
+            },
+            {
+              "epoch": 11,
+              "updates": 78,
+              "loss": 0.6082160115494758
+            },
+            {
+              "epoch": 12,
+              "updates": 78,
+              "loss": 0.5999213998360686
+            },
+            {
+              "epoch": 13,
+              "updates": 78,
+              "loss": 0.5866371930154054
+            },
+            {
+              "epoch": 14,
+              "updates": 78,
+              "loss": 0.5746218893985228
+            },
+            {
+              "epoch": 15,
+              "updates": 78,
+              "loss": 0.5601075379074213
+            },
+            {
+              "epoch": 16,
+              "updates": 78,
+              "loss": 0.5481750213207424
+            },
+            {
+              "epoch": 17,
+              "updates": 78,
+              "loss": 0.5399132011437309
+            },
+            {
+              "epoch": 18,
+              "updates": 78,
+              "loss": 0.5237930202431174
+            },
+            {
+              "epoch": 19,
+              "updates": 78,
+              "loss": 0.5098378763307657
+            },
+            {
+              "epoch": 20,
+              "updates": 78,
+              "loss": 0.4973436335012489
+            }
+          ],
+          "parts": {
+            "dev_in": {
+              "metrics": {
+                "questions": 2947,
+                "accuracy": 0.6321682929992676,
+                "nll": 0.7003694772720337,
+                "multiclass_brier": 0.47825661301612854,
+                "by_depth": {
+                  "0": {
+                    "n": 1365,
+                    "accuracy": 0.6747252941131592
+                  },
+                  "1": {
+                    "n": 951,
+                    "accuracy": 0.5930599570274353
+                  },
+                  "2": {
+                    "n": 631,
+                    "accuracy": 0.5990491509437561
+                  }
+                },
+                "by_label": {
+                  "false": 0.6008174419403076,
+                  "true": 0.663286030292511
+                }
+              },
+              "latency": {
+                "median_us": 181.72903219237924,
+                "p95_us": 289.91904109716415,
+                "scope": "CPU, batch one, 4 threads, precomputed embeddings; includes memory projections, excludes encoder"
+              },
+              "cost": {
+                "allocated_parameters": 214658,
+                "active_parameters": 214658,
+                "matrix_macs_per_query": 2593024,
+                "context_slots": 24,
+                "memory_reads": 6,
+                "excludes": "encoder, bias, normalization, activations, softmax, elementwise operations, data movement"
+              }
+            },
+            "dev_shift": {
+              "metrics": {
+                "questions": 1941,
+                "accuracy": 0.5574446320533752,
+                "nll": 0.8234057426452637,
+                "multiclass_brier": 0.5674373507499695,
+                "by_depth": {
+                  "3": {
+                    "n": 717,
+                    "accuracy": 0.5536959767341614
+                  },
+                  "4": {
+                    "n": 627,
+                    "accuracy": 0.5677831172943115
+                  },
+                  "5": {
+                    "n": 597,
+                    "accuracy": 0.5510887503623962
+                  }
+                },
+                "by_label": {
+                  "false": 0.5211995840072632,
+                  "true": 0.5934291481971741
+                }
+              },
+              "latency": {
+                "median_us": 178.0835445970297,
+                "p95_us": 225.83601530641317,
+                "scope": "CPU, batch one, 4 threads, precomputed embeddings; includes memory projections, excludes encoder"
+              },
+              "cost": {
+                "allocated_parameters": 214658,
+                "active_parameters": 214658,
+                "matrix_macs_per_query": 2692864,
+                "context_slots": 25,
+                "memory_reads": 6,
+                "excludes": "encoder, bias, normalization, activations, softmax, elementwise operations, data movement"
+              }
+            }
+          },
+          "logits_sha256": "a763e5f3d68052d87e83cfc2bc6ef22fb09298ed29d57bafb4dbf5970bb22867"
+        },
+        {
+          "mode": "recurrent_6",
+          "seed": 43,
+          "plan_sha256": "567a22afe18e85885e7ebbe9df7e35384b4726a03b7b8f89f72c5a68b327173e",
+          "training_seconds": 20.150189500069246,
+          "checkpoint_sha256": "44881f27185180e6dade7bfeb9d51d114148a0ca26b476e50d1c541a73de7aeb",
+          "history": [
+            {
+              "epoch": 1,
+              "updates": 78,
+              "loss": 0.6956524326791792
+            },
+            {
+              "epoch": 2,
+              "updates": 78,
+              "loss": 0.6892342936493758
+            },
+            {
+              "epoch": 3,
+              "updates": 78,
+              "loss": 0.6805130749831045
+            },
+            {
+              "epoch": 4,
+              "updates": 78,
+              "loss": 0.6748247224689162
+            },
+            {
+              "epoch": 5,
+              "updates": 78,
+              "loss": 0.6670828535818092
+            },
+            {
+              "epoch": 6,
+              "updates": 78,
+              "loss": 0.6627643962613902
+            },
+            {
+              "epoch": 7,
+              "updates": 78,
+              "loss": 0.656914568520897
+            },
+            {
+              "epoch": 8,
+              "updates": 78,
+              "loss": 0.6498205975007239
+            },
+            {
+              "epoch": 9,
+              "updates": 78,
+              "loss": 0.6447602781409828
+            },
+            {
+              "epoch": 10,
+              "updates": 78,
+              "loss": 0.6357728611141724
+            },
+            {
+              "epoch": 11,
+              "updates": 78,
+              "loss": 0.6291593516623392
+            },
+            {
+              "epoch": 12,
+              "updates": 78,
+              "loss": 0.6214442877112553
+            },
+            {
+              "epoch": 13,
+              "updates": 78,
+              "loss": 0.6132623857241998
+            },
+            {
+              "epoch": 14,
+              "updates": 78,
+              "loss": 0.6022325786662502
+            },
+            {
+              "epoch": 15,
+              "updates": 78,
+              "loss": 0.59328589872864
+            },
+            {
+              "epoch": 16,
+              "updates": 78,
+              "loss": 0.5833112981800983
+            },
+            {
+              "epoch": 17,
+              "updates": 78,
+              "loss": 0.5674047982790811
+            },
+            {
+              "epoch": 18,
+              "updates": 78,
+              "loss": 0.5550792142632235
+            },
+            {
+              "epoch": 19,
+              "updates": 78,
+              "loss": 0.54647214580048
+            },
+            {
+              "epoch": 20,
+              "updates": 78,
+              "loss": 0.5292971691296194
+            }
+          ],
+          "parts": {
+            "dev_in": {
+              "metrics": {
+                "questions": 2947,
+                "accuracy": 0.6202918291091919,
+                "nll": 0.6972832679748535,
+                "multiclass_brier": 0.47623616456985474,
+                "by_depth": {
+                  "0": {
+                    "n": 1365,
+                    "accuracy": 0.6439560651779175
+                  },
+                  "1": {
+                    "n": 951,
+                    "accuracy": 0.5951629877090454
+                  },
+                  "2": {
+                    "n": 631,
+                    "accuracy": 0.6069730520248413
+                  }
+                },
+                "by_label": {
+                  "false": 0.6042234301567078,
+                  "true": 0.6362407207489014
+                }
+              },
+              "latency": {
+                "median_us": 179.2290131561458,
+                "p95_us": 209.98370018787676,
+                "scope": "CPU, batch one, 4 threads, precomputed embeddings; includes memory projections, excludes encoder"
+              },
+              "cost": {
+                "allocated_parameters": 214658,
+                "active_parameters": 214658,
+                "matrix_macs_per_query": 2593024,
+                "context_slots": 24,
+                "memory_reads": 6,
+                "excludes": "encoder, bias, normalization, activations, softmax, elementwise operations, data movement"
+              }
+            },
+            "dev_shift": {
+              "metrics": {
+                "questions": 1941,
+                "accuracy": 0.5832045078277588,
+                "nll": 0.7561209201812744,
+                "multiclass_brier": 0.5247167944908142,
+                "by_depth": {
+                  "3": {
+                    "n": 717,
+                    "accuracy": 0.5983263850212097
+                  },
+                  "4": {
+                    "n": 627,
+                    "accuracy": 0.5948963165283203
+                  },
+                  "5": {
+                    "n": 597,
+                    "accuracy": 0.552763819694519
+                  }
+                },
+                "by_label": {
+                  "false": 0.5532575249671936,
+                  "true": 0.6129363179206848
+                }
+              },
+              "latency": {
+                "median_us": 186.3124780356884,
+                "p95_us": 254.55831782892335,
+                "scope": "CPU, batch one, 4 threads, precomputed embeddings; includes memory projections, excludes encoder"
+              },
+              "cost": {
+                "allocated_parameters": 214658,
+                "active_parameters": 214658,
+                "matrix_macs_per_query": 2692864,
+                "context_slots": 25,
+                "memory_reads": 6,
+                "excludes": "encoder, bias, normalization, activations, softmax, elementwise operations, data movement"
+              }
+            }
+          },
+          "logits_sha256": "97ae15b5415d7d0f4d927e3eb831242d0c8386f3e0cb219fb85e568411f11f7c"
+        }
+      ],
+      "means": {
+        "dev_in": {
+          "accuracy": 0.6167854269345602,
+          "nll": 0.7090373833974203,
+          "multiclass_brier": 0.4859167238076528
+        },
+        "dev_shift": {
+          "accuracy": 0.5548686186472574,
+          "nll": 0.7880838910738627,
+          "multiclass_brier": 0.5487707853317261
+        }
+      }
+    },
+    "coverage_3": {
+      "fits": [
+        {
+          "mode": "coverage_3",
+          "seed": 17,
+          "plan_sha256": "567a22afe18e85885e7ebbe9df7e35384b4726a03b7b8f89f72c5a68b327173e",
+          "training_seconds": 13.884826541994698,
+          "checkpoint_sha256": "39e991de6ecae59357cb3461a1b9c85524ea5562097f240a96b2f112d1b64833",
+          "history": [
+            {
+              "epoch": 1,
+              "updates": 78,
+              "loss": 0.6982724933821897
+            },
+            {
+              "epoch": 2,
+              "updates": 78,
+              "loss": 0.6878235645287931
+            },
+            {
+              "epoch": 3,
+              "updates": 78,
+              "loss": 0.6840681186882127
+            },
+            {
+              "epoch": 4,
+              "updates": 78,
+              "loss": 0.6770854819711006
+            },
+            {
+              "epoch": 5,
+              "updates": 78,
+              "loss": 0.6709827921483089
+            },
+            {
+              "epoch": 6,
+              "updates": 78,
+              "loss": 0.664471094825795
+            },
+            {
+              "epoch": 7,
+              "updates": 78,
+              "loss": 0.655861508545988
+            },
+            {
+              "epoch": 8,
+              "updates": 78,
+              "loss": 0.6480512501307731
+            },
+            {
+              "epoch": 9,
+              "updates": 78,
+              "loss": 0.6402974894294843
+            },
+            {
+              "epoch": 10,
+              "updates": 78,
+              "loss": 0.6346055722301627
+            },
+            {
+              "epoch": 11,
+              "updates": 78,
+              "loss": 0.6261671372350375
+            },
+            {
+              "epoch": 12,
+              "updates": 78,
+              "loss": 0.6181760794360933
+            },
+            {
+              "epoch": 13,
+              "updates": 78,
+              "loss": 0.6091258092587103
+            },
+            {
+              "epoch": 14,
+              "updates": 78,
+              "loss": 0.5987229171354831
+            },
+            {
+              "epoch": 15,
+              "updates": 78,
+              "loss": 0.5917619274328031
+            },
+            {
+              "epoch": 16,
+              "updates": 78,
+              "loss": 0.582272054967457
+            },
+            {
+              "epoch": 17,
+              "updates": 78,
+              "loss": 0.5713922199087698
+            },
+            {
+              "epoch": 18,
+              "updates": 78,
+              "loss": 0.5618535753508219
+            },
+            {
+              "epoch": 19,
+              "updates": 78,
+              "loss": 0.5538937707534436
+            },
+            {
+              "epoch": 20,
+              "updates": 78,
+              "loss": 0.544021876021754
+            }
+          ],
+          "parts": {
+            "dev_in": {
+              "metrics": {
+                "questions": 2947,
+                "accuracy": 0.6087546944618225,
+                "nll": 0.7014938592910767,
+                "multiclass_brier": 0.487908273935318,
+                "by_depth": {
+                  "0": {
+                    "n": 1365,
+                    "accuracy": 0.6673992872238159
+                  },
+                  "1": {
+                    "n": 951,
+                    "accuracy": 0.5446897745132446
+                  },
+                  "2": {
+                    "n": 631,
+                    "accuracy": 0.5784469246864319
+                  }
+                },
+                "by_label": {
+                  "false": 0.5919618606567383,
+                  "true": 0.6254225969314575
+                }
+              },
+              "latency": {
+                "median_us": 121.9164696522057,
+                "p95_us": 221.97114303708048,
+                "scope": "CPU, batch one, 4 threads, precomputed embeddings; includes memory projections, excludes encoder"
+              },
+              "cost": {
+                "allocated_parameters": 214658,
+                "active_parameters": 214658,
+                "matrix_macs_per_query": 2525440,
+                "context_slots": 24,
+                "memory_reads": 3,
+                "excludes": "encoder, bias, normalization, activations, softmax, elementwise operations, data movement"
+              }
+            },
+            "dev_shift": {
+              "metrics": {
+                "questions": 1941,
+                "accuracy": 0.5157135725021362,
+                "nll": 0.8000342845916748,
+                "multiclass_brier": 0.5686067938804626,
+                "by_depth": {
+                  "3": {
+                    "n": 717,
+                    "accuracy": 0.5453277826309204
+                  },
+                  "4": {
+                    "n": 627,
+                    "accuracy": 0.4816586971282959
+                  },
+                  "5": {
+                    "n": 597,
+                    "accuracy": 0.5159128904342651
+                  }
+                },
+                "by_label": {
+                  "false": 0.4819027781486511,
+                  "true": 0.5492812991142273
+                }
+              },
+              "latency": {
+                "median_us": 124.9994384124875,
+                "p95_us": 274.5437377598135,
+                "scope": "CPU, batch one, 4 threads, precomputed embeddings; includes memory projections, excludes encoder"
+              },
+              "cost": {
+                "allocated_parameters": 214658,
+                "active_parameters": 214658,
+                "matrix_macs_per_query": 2624512,
+                "context_slots": 25,
+                "memory_reads": 3,
+                "excludes": "encoder, bias, normalization, activations, softmax, elementwise operations, data movement"
+              }
+            }
+          },
+          "logits_sha256": "a4e0e43e0fe29a1c67a580a0de5c9ae5c38fc4776c97e4920989011df6945942"
+        },
+        {
+          "mode": "coverage_3",
+          "seed": 29,
+          "plan_sha256": "567a22afe18e85885e7ebbe9df7e35384b4726a03b7b8f89f72c5a68b327173e",
+          "training_seconds": 15.566534916986711,
+          "checkpoint_sha256": "ab87413d38933f36ad8662e7e66819308a040815b41de1b12155d04ac442fd7a",
+          "history": [
+            {
+              "epoch": 1,
+              "updates": 78,
+              "loss": 0.6967847741344045
+            },
+            {
+              "epoch": 2,
+              "updates": 78,
+              "loss": 0.6883319394767444
+            },
+            {
+              "epoch": 3,
+              "updates": 78,
+              "loss": 0.6818652316943707
+            },
+            {
+              "epoch": 4,
+              "updates": 78,
+              "loss": 0.6727302103619361
+            },
+            {
+              "epoch": 5,
+              "updates": 78,
+              "loss": 0.6676129878057753
+            },
+            {
+              "epoch": 6,
+              "updates": 78,
+              "loss": 0.6596270273037371
+            },
+            {
+              "epoch": 7,
+              "updates": 78,
+              "loss": 0.6533376515299808
+            },
+            {
+              "epoch": 8,
+              "updates": 78,
+              "loss": 0.6475179190439255
+            },
+            {
+              "epoch": 9,
+              "updates": 78,
+              "loss": 0.6385569923174027
+            },
+            {
+              "epoch": 10,
+              "updates": 78,
+              "loss": 0.6298742748695764
+            },
+            {
+              "epoch": 11,
+              "updates": 78,
+              "loss": 0.6210030252583619
+            },
+            {
+              "epoch": 12,
+              "updates": 78,
+              "loss": 0.6139944799737499
+            },
+            {
+              "epoch": 13,
+              "updates": 78,
+              "loss": 0.6054865138450933
+            },
+            {
+              "epoch": 14,
+              "updates": 78,
+              "loss": 0.5977083434124129
+            },
+            {
+              "epoch": 15,
+              "updates": 78,
+              "loss": 0.590791428138489
+            },
+            {
+              "epoch": 16,
+              "updates": 78,
+              "loss": 0.5812502115539121
+            },
+            {
+              "epoch": 17,
+              "updates": 78,
+              "loss": 0.5711462012424842
+            },
+            {
+              "epoch": 18,
+              "updates": 78,
+              "loss": 0.5629219434678846
+            },
+            {
+              "epoch": 19,
+              "updates": 78,
+              "loss": 0.5514814113702832
+            },
+            {
+              "epoch": 20,
+              "updates": 78,
+              "loss": 0.5460831443565016
+            }
+          ],
+          "parts": {
+            "dev_in": {
+              "metrics": {
+                "questions": 2947,
+                "accuracy": 0.5985748171806335,
+                "nll": 0.7060163021087646,
+                "multiclass_brier": 0.49419862031936646,
+                "by_depth": {
+                  "0": {
+                    "n": 1365,
+                    "accuracy": 0.629304051399231
+                  },
+                  "1": {
+                    "n": 951,
+                    "accuracy": 0.5573080778121948
+                  },
+                  "2": {
+                    "n": 631,
+                    "accuracy": 0.5942947864532471
+                  }
+                },
+                "by_label": {
+                  "false": 0.5667575001716614,
+                  "true": 0.6301555037498474
+                }
+              },
+              "latency": {
+                "median_us": 127.04147957265377,
+                "p95_us": 337.0207967236637,
+                "scope": "CPU, batch one, 4 threads, precomputed embeddings; includes memory projections, excludes encoder"
+              },
+              "cost": {
+                "allocated_parameters": 214658,
+                "active_parameters": 214658,
+                "matrix_macs_per_query": 2525440,
+                "context_slots": 24,
+                "memory_reads": 3,
+                "excludes": "encoder, bias, normalization, activations, softmax, elementwise operations, data movement"
+              }
+            },
+            "dev_shift": {
+              "metrics": {
+                "questions": 1941,
+                "accuracy": 0.5497166514396667,
+                "nll": 0.7772062420845032,
+                "multiclass_brier": 0.5484098792076111,
+                "by_depth": {
+                  "3": {
+                    "n": 717,
+                    "accuracy": 0.5620641708374023
+                  },
+                  "4": {
+                    "n": 627,
+                    "accuracy": 0.5550239086151123
+                  },
+                  "5": {
+                    "n": 597,
+                    "accuracy": 0.5293132066726685
+                  }
+                },
+                "by_label": {
+                  "false": 0.5139607191085815,
+                  "true": 0.5852156281471252
+                }
+              },
+              "latency": {
+                "median_us": 129.72898548468947,
+                "p95_us": 246.47329119034106,
+                "scope": "CPU, batch one, 4 threads, precomputed embeddings; includes memory projections, excludes encoder"
+              },
+              "cost": {
+                "allocated_parameters": 214658,
+                "active_parameters": 214658,
+                "matrix_macs_per_query": 2624512,
+                "context_slots": 25,
+                "memory_reads": 3,
+                "excludes": "encoder, bias, normalization, activations, softmax, elementwise operations, data movement"
+              }
+            }
+          },
+          "logits_sha256": "b08f65bf258ca61cd39fc96452c22d4c5927f8dfde876df141abd89a0a715e8e"
+        },
+        {
+          "mode": "coverage_3",
+          "seed": 43,
+          "plan_sha256": "567a22afe18e85885e7ebbe9df7e35384b4726a03b7b8f89f72c5a68b327173e",
+          "training_seconds": 13.79077399999369,
+          "checkpoint_sha256": "82b5459b66ba9ac26ee1ba741b41583d3f8a82fc80f46dcf384d2391bd3e5481",
+          "history": [
+            {
+              "epoch": 1,
+              "updates": 78,
+              "loss": 0.6956928719287024
+            },
+            {
+              "epoch": 2,
+              "updates": 78,
+              "loss": 0.6896537672962435
+            },
+            {
+              "epoch": 3,
+              "updates": 78,
+              "loss": 0.6816820735837276
+            },
+            {
+              "epoch": 4,
+              "updates": 78,
+              "loss": 0.6751195348592738
+            },
+            {
+              "epoch": 5,
+              "updates": 78,
+              "loss": 0.6674676802272816
+            },
+            {
+              "epoch": 6,
+              "updates": 78,
+              "loss": 0.661232580089805
+            },
+            {
+              "epoch": 7,
+              "updates": 78,
+              "loss": 0.6556421637420754
+            },
+            {
+              "epoch": 8,
+              "updates": 78,
+              "loss": 0.647113342029755
+            },
+            {
+              "epoch": 9,
+              "updates": 78,
+              "loss": 0.6408079859164381
+            },
+            {
+              "epoch": 10,
+              "updates": 78,
+              "loss": 0.6313128089235591
+            },
+            {
+              "epoch": 11,
+              "updates": 78,
+              "loss": 0.6207813197656886
+            },
+            {
+              "epoch": 12,
+              "updates": 78,
+              "loss": 0.6145602204731168
+            },
+            {
+              "epoch": 13,
+              "updates": 78,
+              "loss": 0.6060522932233343
+            },
+            {
+              "epoch": 14,
+              "updates": 78,
+              "loss": 0.595637211479347
+            },
+            {
+              "epoch": 15,
+              "updates": 78,
+              "loss": 0.5853973265352336
+            },
+            {
+              "epoch": 16,
+              "updates": 78,
+              "loss": 0.5730353916808907
+            },
+            {
+              "epoch": 17,
+              "updates": 78,
+              "loss": 0.564757693694899
+            },
+            {
+              "epoch": 18,
+              "updates": 78,
+              "loss": 0.5564938193316221
+            },
+            {
+              "epoch": 19,
+              "updates": 78,
+              "loss": 0.5429870086849063
+            },
+            {
+              "epoch": 20,
+              "updates": 78,
+              "loss": 0.5301974196515624
+            }
+          ],
+          "parts": {
+            "dev_in": {
+              "metrics": {
+                "questions": 2947,
+                "accuracy": 0.6101119518280029,
+                "nll": 0.6974009275436401,
+                "multiclass_brier": 0.48358193039894104,
+                "by_depth": {
+                  "0": {
+                    "n": 1365,
+                    "accuracy": 0.6520146727561951
+                  },
+                  "1": {
+                    "n": 951,
+                    "accuracy": 0.5625657439231873
+                  },
+                  "2": {
+                    "n": 631,
+                    "accuracy": 0.5911251902580261
+                  }
+                },
+                "by_label": {
+                  "false": 0.6301090121269226,
+                  "true": 0.5902636647224426
+                }
+              },
+              "latency": {
+                "median_us": 114.49994053691626,
+                "p95_us": 127.6794821023941,
+                "scope": "CPU, batch one, 4 threads, precomputed embeddings; includes memory projections, excludes encoder"
+              },
+              "cost": {
+                "allocated_parameters": 214658,
+                "active_parameters": 214658,
+                "matrix_macs_per_query": 2525440,
+                "context_slots": 24,
+                "memory_reads": 3,
+                "excludes": "encoder, bias, normalization, activations, softmax, elementwise operations, data movement"
+              }
+            },
+            "dev_shift": {
+              "metrics": {
+                "questions": 1941,
+                "accuracy": 0.5692941546440125,
+                "nll": 0.762253999710083,
+                "multiclass_brier": 0.5358487963676453,
+                "by_depth": {
+                  "3": {
+                    "n": 717,
+                    "accuracy": 0.5648535490036011
+                  },
+                  "4": {
+                    "n": 627,
+                    "accuracy": 0.5885167717933655
+                  },
+                  "5": {
+                    "n": 597,
+                    "accuracy": 0.5544388890266418
+                  }
+                },
+                "by_label": {
+                  "false": 0.5729058980941772,
+                  "true": 0.5657083988189697
+                }
+              },
+              "latency": {
+                "median_us": 113.87502308934927,
+                "p95_us": 122.12154688313602,
+                "scope": "CPU, batch one, 4 threads, precomputed embeddings; includes memory projections, excludes encoder"
+              },
+              "cost": {
+                "allocated_parameters": 214658,
+                "active_parameters": 214658,
+                "matrix_macs_per_query": 2624512,
+                "context_slots": 25,
+                "memory_reads": 3,
+                "excludes": "encoder, bias, normalization, activations, softmax, elementwise operations, data movement"
+              }
+            }
+          },
+          "logits_sha256": "302527ef789c0a458e2d95b9954f61cb144b68170a400bd21c22367b392db012"
+        }
+      ],
+      "means": {
+        "dev_in": {
+          "accuracy": 0.6058138211568197,
+          "nll": 0.7016370296478271,
+          "multiclass_brier": 0.4885629415512085
+        },
+        "dev_shift": {
+          "accuracy": 0.5449081261952718,
+          "nll": 0.7798315087954203,
+          "multiclass_brier": 0.5509551564852396
+        }
+      }
+    }
+  },
+  "strongest_control": "question_only",
+  "selected_candidate": "recurrent_3",
+  "deltas": {
+    "dev_in": {
+      "accuracy": 0.05372693141301477,
+      "nll": 0.014850318431854248,
+      "multiclass_brier": -0.0061882038911184045
+    },
+    "dev_shift": {
+      "accuracy": -0.07264294226964318,
+      "nll": 0.059132277965545654,
+      "multiclass_brier": 0.03522688150405878
+    }
+  },
+  "paired_world_intervals": {
+    "dev_in": {
+      "mean": 0.05372695396448365,
+      "lower": 0.036528201463125194,
+      "upper": 0.0718743993170035,
+      "worlds": 300,
+      "draws": 2000,
+      "scope": "Descriptive paired world bootstrap after averaging fixed seeds; selection and seed uncertainty excluded"
+    },
+    "dev_shift": {
+      "mean": -0.07264296754250386,
+      "lower": -0.09841360695814985,
+      "upper": -0.04747029381986632,
+      "worlds": 300,
+      "draws": 2000,
+      "scope": "Descriptive paired world bootstrap after averaging fixed seeds; selection and seed uncertainty excluded"
+    }
+  },
+  "paired_seed_wins": 0,
+  "head_mac_ratio": 26.62857142857143,
+  "continuation_checks": {
+    "shift_gain": false,
+    "in_retention": true,
+    "shift_nll": false,
+    "seed_wins": false,
+    "world_interval": false,
+    "head_cost": false
+  },
+  "continuation": "stop_before_confirmation",
+  "confirmation_executed": false,
+  "limits": [
+    "Frozen transformer encoder plus established memory-network mechanisms, not novelty evidence.",
+    "Development selection only; world bootstrap excludes model selection and training-seed uncertainty.",
+    "Changing question depth also changes source-world distribution.",
+    "Question-only and mean controls use fewer active parameters; attention variants match exactly.",
+    "CPU latency excludes sentence encoder; offline feature cache is not end-to-end serving latency.",
+    "Astra teacher calls and teacher-student training have not run."
+  ]
+}

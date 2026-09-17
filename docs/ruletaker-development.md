@@ -1,6 +1,6 @@
 # Multi-step text reasoning: prepared data
 
-**Status: data prepared and audited; no model has trained or been evaluated on this packet.** This is the next diagnostic after the small [corrective-recurrence gain](corrective-associative-study.md) failed the routing continuation rule.
+**Status: data prepared and audited; the [18-fit memory study](rule-memory-study.md) is complete.** Recurrence failed its continuation rule. A [full-context representation follow-up](rule-crossencoder-study.md) tests the next explanation. The preparation manifest is a historical receipt from before model training.
 
 [RuleTaker](https://github.com/allenai/ruletaker) supplies English facts, rules and true/false questions. Its [original paper](https://arxiv.org/abs/2002.05867) already reported strong transformer results and deeper-chain generalization. This is an established reasoning benchmark, not a new dataset or an automatic novelty claim.
 
@@ -35,7 +35,7 @@ No test archive members are opened. The original CLINC confirmation and calibrat
 
 The preparer downloads the exact authors' release if absent and requires SHA-256 `080c8bca836603d9fea040e5a242bbd281f631255ca83428b7141ebf7f3deb0c`. A mismatched or partial archive is rejected. It streams selected JSONL members without extracting archive paths. Keep raw data under ignored `runs/`; the public audit exports counts and hashes. The upstream repository is Apache-2.0; the archive has no separate license file, and this repository does not redistribute it.
 
-## Next experiment requirements
+## Experiment requirements
 
 Freeze the model and training comparison before fitting. Include question-only and single-pass controls, a tied multi-step memory head, and a corrective variant. Keep the encoder, labeled examples and parameter budgets matched where possible, and report additional compute rather than treating equal parameter counts as equal cost. Evaluate both development parts separately, including accuracy by annotated question depth and paired uncertainty grouped by world. Neither proof metadata nor a symbolic oracle's hidden representation may be used as a model input.
 

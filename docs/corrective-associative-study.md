@@ -23,7 +23,7 @@ The 5,410-example confirmation and 1,550-example calibration sets remain unscore
 
 [All fits, frozen settings and selection decision](../evidence/corrective-associative-v1/summary.json) · [Execution receipt](../evidence/corrective-associative-v1/receipt.json) · [Exact replay of all nine control checkpoints](../evidence/corrective-associative-v1/control-replay.json)
 
-The next [RuleTaker development packet](ruletaker-development.md) is prepared for a multi-step text experiment. It has no trained-model result yet.
+The [RuleTaker follow-up](rule-memory-study.md) now has 18 completed fits. Recurrence improved over single-read attention but lost to the question-only control on the depth-and-context shift.
 
 Six heads run across three paired seeds, all with 68,481 parameters:
 
