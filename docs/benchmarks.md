@@ -145,3 +145,9 @@ Twelve final fits improve on the material heuristic, but future prediction does 
 ![Compute and mate-training comparison](assets/chess-refinement-results.png)
 
 Targeted mating accuracy improved, while ordinary decisions regressed. More untrained recurrent steps also hurt. [All results and scope](chess-refinement.md).
+
+## Input-anchored chess recurrence
+
+![Twelve matched recurrence fits on fresh positions](assets/chess-anchor-results.png)
+
+Input anchoring with varied-depth training preserves agreement at sixteen steps, but neither move-quality nor extra-computation continuation criteria pass. [All results, checkpoints and scope](chess-anchor.md).

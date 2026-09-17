@@ -16,7 +16,7 @@ Our **43,726-parameter recurrent reference model** scores every legal move witho
 
 The prediction model matched Stockfish on **32.97%** of ordinary development positions versus **25.61%** for a material heuristic, and **25.43% versus 19.51%** on shifted development games. Future prediction did not beat the matched spatial controls. These are development results, not Elo or an established novel architecture.
 
-**Latest follow-up:** targeted training raised mate-in-one accuracy from 20.2% to about 54%, but weakened ordinary decisions. Extra recurrent steps also hurt. [Charts, six new checkpoints and limits](docs/chess-refinement.md) · [New model replay](https://kw2828.github.io/OpenJev/chess-mate-replay.html).
+**Latest follow-up:** twelve new fits separate input anchoring from varied-depth training. Their combination preserves decisions at sixteen steps, but does not pass the chess-quality test. [Charts and checkpoints](docs/chess-anchor.md) · [Earlier mate-training results and replay](docs/chess-refinement.md).
 
 [Load the models](docs/chess-spatial.md) · [Results and protocol](research/chess-spatial-study.md) · [Paper](output/pdf/openjev-chess-spatial-study.pdf) · [Earlier Astra, ChessFly and ChessLFM comparison](docs/chess.md)
 

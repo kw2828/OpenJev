@@ -44,4 +44,4 @@ The other two arms and the architecture-by-training interaction are always repor
 
 [End-to-end Algorithm Synthesis with Recurrent Networks](https://arxiv.org/html/2202.05826v3) already studies recall and extra recurrent computation, including chess. Its recall architecture concatenates input features and its progressive objective uses a detached prefix. Our small skip-source ablation and balanced random-depth training do not reproduce those mechanisms exactly, and neither is claimed novel on its own.
 
-Status: pre-run validation. The frozen plan and all results will accompany execution.
+Status: completed. All twelve fits and both fresh evaluation panels are retained in the [complete release](../evidence/chess-anchor-v1/results/). The [results and chart](../docs/chess-anchor.md) report both failed continuation gates. Anchoring with mixed-depth training preserves agreement at sixteen steps, but does not improve the primary quality comparison or make eight steps useful.
