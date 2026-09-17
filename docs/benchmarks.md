@@ -4,6 +4,12 @@
 
 These figures visualize existing development evidence. No new model training or gameplay runs were performed to produce them. Each experiment has a separate scope; they do not form a single leaderboard.
 
+## SRPO adaptation pilot
+
+![SRPO adaptation pilot results and additional training costs](../evidence/srpo-doom-v1/pilot-results.png)
+
+Latent self-reference failed its continuation criteria: lower mean Center kills than binary rewards, raw similarity and unchanged PPO, with wide exploratory intervals. Line outcomes matched across all methods. Costs include rollouts, updates, encoding and I/O, and exclude shared historical PPO training. Equal trajectory-group budgets do not imply equal interactions or compute. [Full SRPO report](srpo-study.md). The paper PDF above covers the preceding studies through PPO/DQN.
+
 ## Direct reinforcement learning
 
 ![RL confirmation including simple controls](../evidence/rl-doom-v1/confirmation-results.png)

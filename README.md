@@ -45,6 +45,10 @@ For the existing tiny Doom baseline only, use `uv sync --frozen` and `uv run ope
 
 ## Research extensions
 
+**Latest: [SRPO adaptation pilot](docs/srpo-study.md), continuation criteria not met.** Nine warm-start fits used 113,861 new interactions and 624 evaluation episodes. Latent self-reference averaged **10.65 Center kills**, versus **11.88** for binary rewards, **11.89** for raw similarity and **11.29** for unchanged PPO. All averaged 30.17 on Line. This structured-observation adaptation uses a small dynamics encoder, not V-JEPA/OpenVLA. The result does not establish a benefit, and no further tuning or confirmation followed. All checkpoints, traces, costs and exploratory intervals are preserved.
+
+![SRPO adaptation pilot results](evidence/srpo-doom-v1/pilot-results.png)
+
 **New: [PPO and DQN experiments](docs/rl-study.md).** Nine fits used **294,912 training interactions**, followed by 1,536 fresh confirmation episodes and separate simple-policy checks. History-PPO passed its predeclared combat gate:
 
 | Controller | Center mean kills | Line mean kills |

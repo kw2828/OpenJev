@@ -52,3 +52,5 @@ Figures are available as PNG for README, SVG for editing and PDF for LaTeX. The 
 Regenerating figures does not run new experiments. See `docs/bayesian-rlcd.md` for experiment commands and limits. The original gameplay and Bayesian pilot use different protocols and cannot be combined into one policy leaderboard.
 
 The original `output/pdf/openjev-paper.pdf` and `paper/build-receipt.json` are preserved as the earlier baseline draft and its receipt. The earlier memory draft and its `paper/openjev-memory-build-receipt.json` are also preserved. The earlier improvement draft and its `paper/openjev-improvement-build-receipt.json` remain preserved. The current draft is `output/pdf/openjev-rl-paper.pdf`, with `paper/openjev-rl-build-receipt.json`. The interim DecisionTics draft and its build receipt remain historical artifacts.
+
+The subsequent [SRPO adaptation pilot](../docs/srpo-study.md) is reported separately. This PDF covers studies through PPO/DQN and does not include the later SRPO pilot.
