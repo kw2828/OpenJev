@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "observed_unix": 1789747313.850294,
+  "command": ".venv/bin/python -m pytest -q tests/test_chess_pin_trained_cost.py tests/test_chess_pin_quality_study_v2.py tests/test_chess_pin_study.py",
+  "passed": 38,
+  "new_cost_tests": 15,
+  "seconds": 4.2,
+  "source_sha256": {
+    "scripts/chess_pin_trained_cost.py": "39f799eacbdd320cfad1e0a0003f197e7c0ea8698014eeec082bfc56c5f26363",
+    "tests/test_chess_pin_trained_cost.py": "bdaeb69ef239b7790e384b771ccaec190fd92e9748b8e4064aa328dae619b758"
+  },
+  "initial_attempt": {
+    "passed": 11,
+    "failed": 4,
+    "cause": "The synthetic update setup trained single empty-factor roots, which correctly fail the strict all-parameter-gradient requirement. Train the joint fixture on a pinned root, then evaluate all five roots. Production mechanics and scientific protocol unchanged."
+  },
+  "scope": "Constructed fixtures and protocol/control-flow checks only; no real fitted policy loaded, no quality result or trained timing measured."
+}

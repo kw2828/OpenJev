@@ -1,0 +1,513 @@
+{
+  "protocol": {
+    "version": "union-difference-complete-native-cost-v1",
+    "prerequisites": "Completed twelve-fit quality study plus complete86016-prediction replay audit; original WLDN audit remains authenticated transitively. Freeze can precede completion, run cannot.",
+    "prior_knowledge": "Original WLDN, graph-baseline and fixed-weight intervention results known. New union/edit quality training underway; no quality outcomes inspected.",
+    "methods": [
+      "base",
+      "wldn",
+      "child",
+      "union",
+      "edits",
+      "rotated"
+    ],
+    "seeds": [
+      97,
+      109,
+      127
+    ],
+    "roots": 16,
+    "repeats": 6,
+    "warmups_per_method_seed": 2,
+    "inputs": "First16 original dev roots, full legal menus and root-side frozen model features; no position or seed selection from quality outcomes.",
+    "timing": "CPU2 deterministic, same process; for each seed/root/repeat rotate six methods by(seed_index+root_index+repeat)%6. Complete native decisions, including board parsing, legal candidates, backbone, native child graphs, union/edit construction, head and UCI selection. No persistent root/child cache between decisions.",
+    "aggregation": "Median complete milliseconds by method across all288 timed decisions per method; median matched method/WLDN ratio over identical seed/root/repeat keys. Also retain per-seed medians, all raw timings and host load. Descriptive shared-host cost, no speed-advantage gate.",
+    "membership": "Every timed choice must equal its authenticated full-panel prediction. Audit independently repeats288 seed/root/method native choices; timing durations are authenticated, not rerun.",
+    "timed_records": 1728,
+    "native_audit_replays": 288,
+    "time_cap_seconds": 900,
+    "limits": "Same process and paired ordering limit but do not eliminate host-load, cache or thermal effects. Measures scalar complete native decisions, not throughput or hardware-general speed. Stored parameter counts do not match FLOPs; no new training, engine calls, quality criterion or novelty claim."
+  },
+  "sources": {
+    "scripts/chess_union_difference_cost.py": "2d59913a72e7e0e6c3eb0f58f1b05c9d7906d732cb8d2ecb008392edc58e9d08",
+    "tests/test_chess_union_difference_cost.py": "48962b1f1f23c9b44154f876f4e60cec761075285c0c619973275b459f2fb372"
+  },
+  "quality_signature": {
+    "protocol": {
+      "version": "wldn-union-edit-matched-quality-v1",
+      "arms": [
+        "child",
+        "union",
+        "edits",
+        "rotated"
+      ],
+      "seeds": [
+        97,
+        109,
+        127
+      ],
+      "parameters": 16740,
+      "hypothesis": "With the shared WLDN nodewise encoder retained, labeling retained/added/removed relations on the union graph improves legal-move agreement beyond child-only, union-only and corrupted-edit controls.",
+      "prior_knowledge": "All earlier development outcomes and fixed-weight WLDN intervention results known. No trained union-difference quality outcomes inspected before freeze. This is adaptive development, not independent confirmation.",
+      "architecture": "Original shared width32 three-step WL encoder on root and child, nodewise child-minus-root; one width32 difference step with12 edge inputs;sum64;120 action channels;58-unit readout;fresh zero output.",
+      "graph_arms": {
+        "child": "Child adjacency and4 direction/color flags in first4 slots,8 zero slots.",
+        "union": "Union adjacency and4 union direction/color flags in first4 slots,8 zero slots.",
+        "edits": "Union adjacency;12 flags grouped retained,added,removed, each with4 direction/color channels.",
+        "rotated": "Same union support. Within every compact candidate and direction/color channel, rotate edit classes over nonzero ordered square pairs by ceil(n/2). Preserve union flags and all class counts. Fixed square order, no teacher dependence; not globally invertible by renaming classes. Reverse consistency may be broken; homogeneous/singleton groups can remain unchanged."
+      },
+      "information": "Same frozen root features in root and child branches, native complete legal-move child graphs, original120 action features, no child backbone recomputation or teacher shortlist.",
+      "capacity_limit": "Same stored parameters and initialized tensors across arms; child/union leave8 input channels unused, so active capacity and graph-dependent compute are not identical. Original WLDN has16638 parameters and59 readout units, not the same initialized head.",
+      "training_examples": 32768,
+      "epochs": 6,
+      "batch_size": 128,
+      "updates_per_fit": 1536,
+      "fits": 12,
+      "total_updates": 18432,
+      "head_seed": "backbone_seed+1100",
+      "fit_order": "Seed97,109,127; within each seed child,union,edits,rotated. Every final fit completes before any quality evaluation.",
+      "batch_order_seed": "700000+100*backbone_seed+epoch",
+      "optimizer": "Adam",
+      "learning_rate": 0.001,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0.0,
+      "gradient_clip": 1.0,
+      "loss": "Legal-move cross entropy only",
+      "runtime": "CPU2 threads, deterministic algorithms",
+      "evaluation": "Both complete old2048-position panels, all3 seeds, final weights only; no replacement, tuning, early quality peek or best-checkpoint selection.",
+      "corrupted_diagnostic": "Reuse trained edits weights but apply rotated graph labels at evaluation; no extra fit. Keep native node differences and union connectivity.",
+      "references": "Copy authenticated original WLDN and base predictions with provenance; both freshly replayed in audit.",
+      "new_predictions": 61440,
+      "copied_predictions": 24576,
+      "gate": "All10 checks required: edits-minus-base mean>=0 and edits-minus-child/union/rotated/originalWLDN mean>=.01 on EACH panel; every paired seed>=-.005 in every check. No earlier failed criteria changed.",
+      "bootstrap": "2000 source-game draws per comparison, paired correctness averaged across3 seeds then position weighted. Seed995101+shift_indicator; same draws for five comparators within each panel. Conditional descriptive95% intervals, no adaptive/multiple-testing correction.",
+      "audit": "Reauthenticate frozen inputs and full preflight replay; check every minibatch index receipt, fresh initial states, training-before-evaluation stamp and trained checkpoint; native root/menu/label checks; replay all86016 new/copied predictions and recompute gates/intervals. Full neural replay uses production graph packing; independent Python graph-packing checks are bounded to the prior engineering screen. No full retraining or complete native child-cache reconstruction.",
+      "time_cap_seconds": 14400,
+      "audit_time_cap_seconds": 1800,
+      "budget_rationale": "Preflight median update costs project about3 hours for18432 updates; freeze4-hour execution ceiling with evaluation/setup margin. No extension on timeout.",
+      "limits": "Established WLDN and condensed-reaction-graph ingredients; this extension is not by itself an algorithmic novelty claim. Stored parameters do not match active capacity, FLOPs or prior tuning. No new engine calls, gameplay, independent confirmation or complete-native latency study."
+    },
+    "sources": {
+      "scripts/chess_union_difference_study.py": "04e69159db12eb64bc561f0e91ad737f389483797f981867aab35f3e2921ff86",
+      "tests/test_chess_union_difference_study.py": "14c1b29652973555a25a9d3db596ee807c2a4233d3453a6b25cbed7025ea8ea0"
+    },
+    "preflight_signature": {
+      "protocol": {
+        "version": "wldn-union-edit-difference-v1",
+        "scope": "Engineering only; no teacher agreement or architecture-quality outcome",
+        "arms": [
+          "child",
+          "union",
+          "edits",
+          "rotated"
+        ],
+        "parameters": 16740,
+        "architecture": "Original shared width32 three-step WL encoder on root and child, nodewise child-minus-root; one width32 difference step with12 edge inputs;sum64;120 action channels;58-unit readout;fresh zero output.",
+        "child": "Child adjacency and4 direction/color flags in first4 slots,8 zero slots.",
+        "union": "Union adjacency and4 union direction/color flags in first4 slots,8 zero slots.",
+        "edits": "Union adjacency;12 flags grouped retained,added,removed, each with4 direction/color channels.",
+        "rotated": "Same union support. Within every compact candidate and direction/color channel, rotate edit classes over nonzero ordered square pairs by ceil(n/2). Preserve union flags and all class counts. Fixed square order, no teacher dependence; not globally invertible by renaming classes. Reverse consistency may be broken; homogeneous/singleton groups can remain unchanged.",
+        "capacity_limit": "Same stored parameters and initialized tensors across arms; child/union leave8 input channels unused, so active capacity and graph-dependent compute are not identical. Original WLDN has16638 parameters and59 readout units, not the same initialized head.",
+        "backbone_seed": 97,
+        "probe_seeds": [
+          211,
+          223,
+          227
+        ],
+        "probe_roots": 8,
+        "probe_order": "First8 old training roots, all legal candidates. No label selection.",
+        "probe_projection": "Same normal(0,.1) projection, generator seed900000+head_seed, all arms.",
+        "probe_comparison": "Shared batch versus individual candidate calls; fresh native graph reconstruction; vectorized edit packing versus independent Python extraction/rotation. Audit uses independent packing inside single-candidate head forwards.",
+        "absolute_score_tolerance": 1e-05,
+        "training_roots": 128,
+        "head_seed": 1197,
+        "artificial_updates_per_arm": 3,
+        "total_artificial_updates": 12,
+        "target": "First legal move for every root, no teacher target use.",
+        "optimizer": "Adam lr.001,betas(.9,.999),eps1e-8,weight_decay0;clip norm1.",
+        "runtime": "CPU2 threads, deterministic algorithms",
+        "time_cap_seconds": 900,
+        "cost": "Artificial update includes cached native child decoding, union/edit packing, all model forwards,loss,backward,clip,Adam. Setup timed separately; no full native latency advantage claim.",
+        "limits": "Known WLDN/contrast/CGR/NBF outcomes and fixed-weight diagnostic motivate this adaptive extension. WLDN and condensed reaction graphs are established prior methods. Engineering parity and trainability do not establish quality, biological relevance or algorithmic novelty."
+      },
+      "sources": {
+        "src/openjev/research/chess_union_difference.py": "d033bce2fa6523a9c6e6940b2379d94f62eb92fb2c142004e30946aa247346f4",
+        "tests/test_chess_union_difference.py": "8a6f649f2083d8746fa4e28dd1bc8e81e4f888fc41ddad41da9ca2fb1ec8295c",
+        "scripts/chess_union_difference_preflight.py": "4554a045752d7af490bc8a825be47be83e5781d067ca0a3d224d8e25c7df004a"
+      },
+      "diagnostic_signature": {
+        "protocol": {
+          "version": "wldn-fixed-weight-pathway-interventions-v1",
+          "scope": "Fixed-weight information-pathway diagnostic. No training, architecture selection gate, new engine calls or independent test panel.",
+          "prior_knowledge": "Completed WLDN, graph contrast, CGR and NBFNet development results and audits known. WLDN exceeded scalar contrast on both old panels. No intervention outcomes inspected before this freeze.",
+          "seeds": [
+            97,
+            109,
+            127
+          ],
+          "panels": [
+            "dev",
+            "shift"
+          ],
+          "positions_per_panel": 2048,
+          "modes": [
+            "native",
+            "zero_delta",
+            "root_diff_graph",
+            "zero_edge_flags",
+            "zero_pooled",
+            "permuted_delta"
+          ],
+          "batch_size": 128,
+          "native": "Unmodified WLDN calculation, required to reproduce all12288 authenticated saved choices and NLL within1e-5.",
+          "zero_delta": "Set encoded child-minus-root node differences to zero before difference layer; retain child adjacency, flags and learned biases.",
+          "root_diff_graph": "Retain native encoded differences; replace difference-layer child graph with the corresponding root graph.",
+          "zero_edge_flags": "Retain native differences and child adjacency; zero the four difference-layer edge flags. Connectivity remains visible.",
+          "zero_pooled": "Zero32 graph channels at the readout; retain all120 original action channels, learned readout/output and base score.",
+          "permuted_delta": "Frozen child-cache permutation within each legal menu; shuffle encoded differences, retain correct child difference-layer graph and action features. Permutation may contain fixed points.",
+          "references": "Copy12288 base predictions from authenticated WLDN execution with explicit provenance; audit also freshly replays these base predictions.",
+          "new_prediction_records": 73728,
+          "copied_reference_records": 12288,
+          "primary": "Share root/child encodings across all six modes within each batch. Frozen trained head and backbone; CPU2 deterministic.",
+          "audit": "All73728 predictions replayed using original unmodified WLDN forward with temporary hooks; all12288 copied base records freshly replayed. Check exact decisions, identity, correctness and finite target NLL error<=1e-5. Verify hook removal and unchanged head state. Fresh native root observation/menu/label checks; authenticate prior full child-cache audit.",
+          "analysis": "Retain all mode/seed/panel results. Native-minus-intervention agreement, intervention-minus-native NLL, decision disagreement, native-correct to wrong and reverse transitions.",
+          "bootstrap": "2000 source-game resamples after averaging paired correctness across3 seeds; seed975101+shift_indicator. Same draws for all five interventions per panel, percentile95 intervals, position-weighted estimate. Recomputed by audit using same declared aggregation.",
+          "time_cap_seconds": 900,
+          "nll_tolerance": 1e-05,
+          "limits": "Interventions can create out-of-distribution hidden states. Dependence under fixed weights does not establish retrained architecture performance, biological relevance, unique mechanism, new algorithm or superiority. Old exposed development panels; descriptive intervals lack adaptive or multiplicity correction. No full retraining, fresh labels, gameplay or latency study."
+        },
+        "sources": {
+          "src/openjev/research/wldn_interventions.py": "718c9e25725c395693a803dc87dca95c12ee5d2111acdf0fb0df99b1828d5b5e",
+          "tests/test_wldn_interventions.py": "bf37afa16db0c21af1c0ac5769243e84c82c850cbd59b07c37df3bec53d6f76b",
+          "scripts/chess_wldn_interventions.py": "046d67cece1208e6f6cfd6c675c065e409f8d85040fb7d212ecaa4f9bb28060f",
+          "tests/test_chess_wldn_interventions.py": "d383673a31330ca8871f97f0430c8885ed9a35357d3f6149cee0032e6c8c68d7"
+        },
+        "inputs": {
+          "evidence/chess-wldn-quality-v1/protocol/plan.json": "63ed1c5a50e5b72489c058e501ae1b197d4f0dc66721e7975aebd4a52839ce3c",
+          "evidence/chess-wldn-quality-v1/audit/receipt.json": "e7f1df9a55835b6626688765f3ccd46b3ab4ea401a4d3edf0548fb21858c8d6f",
+          "runs/chess-wldn-quality-v1/execution/completed.json": "13e92034d7cf7c94e3027c06ef36961b737631e557c1b410e0fc37a829e9033e",
+          "runs/chess-wldn-quality-v1/execution/summary.json": "0cc94389313c7288b9bd2f21b25b2216e3c4946d78afbef0994c12daee728907",
+          "scripts/audit_chess_wldn_study.py": "741f6ae0d96a573b5a99a4641c011db14e7599e2fe5b1f7e780e3345fe5a5666"
+        },
+        "wldn_signature": {
+          "protocol": {
+            "version": "wldn-chess-matched-development-v1",
+            "seeds": [
+              97,
+              109,
+              127
+            ],
+            "head_seed": "backbone_seed+1100",
+            "hypothesis": "Characterize scalar graph contrast against a nodewise WLDN-style difference ranker; not a new method claim.",
+            "parameters": 16638,
+            "backbone": "Same original frozen direct policies as transport and graph contrast",
+            "information": "Same frozen root node features in both branches, same native child graphs and full legal menus, same120 action features appended after pooled difference encoding. No recomputed child node features or teacher shortlist.",
+            "architecture": "Published shared tied WL encoder,3 steps width32; subtract nodewise representations;1 distinct WL difference step on child graph;sum all64 squares;59-unit readout with original120 action features;zero scalar correction initially.",
+            "initialization": "Normal affine weights with std=min(1/sqrt(fan_in),0.1), zero biases; final scalar projection zeroed for backbone preservation",
+            "adaptation_scope": "Selected public method output/gradient checks with Torch shim, not TensorFlow runtime or official chemistry benchmark reproduction. Four multi-hot directed/color attack flags, no normalization/self-loop insertion. Fixed root-node features and action readout are explicit chess adaptations.",
+            "training_examples": 32768,
+            "epochs": 6,
+            "batch_size": 128,
+            "updates_per_fit": 1536,
+            "fits": 3,
+            "total_updates": 4608,
+            "optimizer": "Adam",
+            "learning_rate": 0.001,
+            "betas": [
+              0.9,
+              0.999
+            ],
+            "eps": 1e-08,
+            "weight_decay": 0.0,
+            "gradient_clip": 1.0,
+            "batch_order_seed": "700000+100*backbone_seed+epoch",
+            "loss": "legal-move CE only",
+            "device": "cpu",
+            "threads": 2,
+            "deterministic_algorithms": true,
+            "evaluation": "All3 final WLDN fits finish before evaluation; retain every seed and final checkpoint. No best checkpoint, replacement, extension or tuning from outcomes.",
+            "reference": "Unchanged base decisions copied from authenticated original transport files with explicit provenance.",
+            "comparison": "Only after BOTH the12-fit contrast study and this3-fit study complete and are audited, join by row identity. Contrast must beat WLDN by>=.01 mean agreement on BOTH old panels, each paired seed>=-.005. Both new checks plus all8 original contrast checks required. All earlier failures remain unchanged.",
+            "bootstrap": "2000 source-game resamples of paired correctness averaged across3 seeds, seed845101+shift_indicator; conditional descriptive95% intervals without adaptive/multiplicity correction.",
+            "latency": "During this run, base and WLDN rotate over first16 old dev roots,3 repeats,2 warmups. The later comparison rotates base, contrast and WLDN over those same roots and budgets in one process. Full native graph construction charged. Shared-host characterization.",
+            "time_cap_seconds": 7200,
+            "limits": "Previously exposed development panels, not independent confirmation. Similar parameters do not imply equal FLOPs, tuning or active capacity. No new engine calls, gameplay or novelty claim. GPL reference/adaptation remains separately identified."
+          },
+          "sources": {
+            "scripts/chess_wldn_study.py": "170bdebb6aa7a76a50885fb6131f9602dbf719d408d75340e469ed152c06c0a8",
+            "tests/test_chess_wldn_study.py": "ed20463b140a77c07c06ea3426446420cc737efa78450f93aed10a96ccb891f9"
+          },
+          "preflight_signature": {
+            "protocol": {
+              "version": "wldn-root-feature-chess-adaptation-v1",
+              "scope": "Engineering only, no chess-quality evaluation",
+              "backbone_seed": 97,
+              "probe_seeds": [
+                211,
+                223,
+                227
+              ],
+              "probe_roots": 8,
+              "probe_order": "First8 old training roots, all legal candidates, no label selection",
+              "probe_projection": "Replace zero output with normal(0,0.1), seed900000+head_seed",
+              "comparison": "Shared batched root/child processing versus a separate complete one-candidate forward call for every legal move",
+              "absolute_score_tolerance": 1e-05,
+              "tolerance_scope": "Float32 summed-node scalar scores. Fixed before this screen; not a relaxation of any earlier architecture tolerance.",
+              "training_roots": 128,
+              "training_order": "First128 old training roots, reused for each artificial update",
+              "head_seed": 1197,
+              "parameters": 16638,
+              "representation_width": 32,
+              "representation_steps": 3,
+              "difference_steps": 1,
+              "readout_width": 59,
+              "initialization": "Normal affine weights with std=min(1/sqrt(fan_in),0.1), zero biases; final scalar projection zeroed for backbone preservation",
+              "artificial_updates": 3,
+              "target": "First legal move for every root; teacher targets unused",
+              "optimizer": "Adam",
+              "learning_rate": 0.001,
+              "gradient_clip": 1.0,
+              "runtime": "CPU,2 threads, deterministic algorithms",
+              "time_cap_seconds": 600,
+              "cost": "Update timing includes lossless child-graph batch decoding, forward, CE, backward, clipping and optimizer step. Excludes source hashing and frozen-root feature setup, which are recorded separately. Shared host; no speed claim.",
+              "limits": "Selected official method parity uses a Torch compatibility layer, not TensorFlow binaries or its training pipeline. New root-feature chess adapter, all64 squares, multi-hot typed directed attacks, extra120 action-feature readout. No teacher agreement, engine scores, games, novelty or official benchmark reproduction."
+            },
+            "sources": {
+              "src/openjev/research/wldn_baseline.py": "adee39d945b42afb1a5163831f804f52aff227f403cdbd9f52de1bc7afb7ace6",
+              "tests/test_wldn_baseline.py": "92273d221bbfd10ba2d87aafadc375446d9c4503ef81844e253de8ee45a72e3c",
+              "scripts/chess_wldn_preflight.py": "ea3f4868ed5b61bc5eb06ca7cf100c37b29162dca9737de89f6239a4749caabe"
+            },
+            "parent_plan_sha256": "15c87f9f9075714ee4826ff5b7a0799d15aaf41fa6b5b1a3b32e9074247c36d2",
+            "reference_manifest_sha256": "acd44f50f8788285f5cba8655752d6fc2c35902abd4c34fb53684d1be69a5328",
+            "reference_sources": {
+              "evidence/chess-wldn-reference-v1/sources/models.py": "efc40b127ee851bc88ca3add8ee28484ae692194c382545a90370b1f99bd2577",
+              "evidence/chess-wldn-reference-v1/sources/nntrain_direct_useScores.py": "9cf365f2ce989c49b71bf1f53c24b2cc0f79f74b09efec7626215b10ca53c8cc",
+              "evidence/chess-wldn-reference-v1/sources/nn.py": "19b235b0a68e0f701f73988157ba8979a3274728eafaab3d443ad3bf6fb8900b",
+              "evidence/chess-wldn-reference-v1/sources/LICENSE": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903"
+            },
+            "parent_signature": {
+              "protocol": {
+                "version": "shared-native-graph-contrast-quality-v1",
+                "arms": [
+                  "contrast",
+                  "child",
+                  "root",
+                  "permuted_contrast"
+                ],
+                "seeds": [
+                  97,
+                  109,
+                  127
+                ],
+                "hypothesis": "An action-dependent shared-weight child-minus-root graph score improves decisions over root-only, child-only and candidate-permuted graph contrast. This is development evidence, not a novelty assertion.",
+                "backbone": "Same original frozen direct checkpoints as transport-v1; new zero-output heads, no reuse of fitted transport or contrast weights",
+                "head_seed": "backbone_seed+1100",
+                "head_parameters": 16744,
+                "steps": 3,
+                "width": 32,
+                "architecture": "Original root transport kernel shared across candidates, dense compact child operators, same head weights in both branches. Contrast subtracts the action-dependent root correction. Identical binary native graphs give exactly zero residual and gradient.",
+                "information": "Frozen root node features and existing120 action features. Native legal moves construct child attack graphs in the root-player frame; node features are not recomputed after the move. No teacher shortlist, engine-derived feature or learned transition.",
+                "training_examples": 32768,
+                "epochs": 6,
+                "batch_size": 128,
+                "updates_per_fit": 1536,
+                "fits": 12,
+                "total_updates": 18432,
+                "optimizer": "Adam",
+                "learning_rate": 0.001,
+                "betas": [
+                  0.9,
+                  0.999
+                ],
+                "eps": 1e-08,
+                "weight_decay": 0.0,
+                "gradient_clip": 1.0,
+                "loss": "legal-move CE only",
+                "batch_order_seed": "700000+100*backbone_seed+epoch",
+                "fit_order_seed": 810031,
+                "device": "cpu",
+                "threads": 2,
+                "deterministic_algorithms": true,
+                "cache": "All native root/child graphs independently reconstructed before freezing; packed bits decode losslessly. Recompute all32768 frozen root feature caches for each seed and compare to the original cache within2e-6.",
+                "evaluation": "All12 final fits finish before any evaluation. All seeds and final checkpoints retained; no model replacement, checkpoint selection or outcome-driven extension. Both2048-position panels are already exposed development data.",
+                "diagnostic": "Also evaluate each fitted contrast head with child graphs permuted at test time; no additional gate based on this diagnostic.",
+                "reference": "Unchanged backbone outputs copied from authenticated completed transport records, with explicit provenance; not new inference.",
+                "gate": "On BOTH panels, contrast must beat root, child and separately trained permuted_contrast by at least0.01 mean agreement, and must not lose against the unchanged backbone. Every paired seed in every comparison must gain at least-0.005. All8 checks required. Previous failed criteria remain unchanged.",
+                "bootstrap": "2000 source-game cluster resamples of paired correctness averaged across3 seeds; conditional descriptive95% intervals, no correction for adaptive development, multiple comparisons or seed population.",
+                "latency": "First16 old dev roots, seed97,2 warmups and3 repeats; base and4 trained heads rotate. Full decisions include native legal enumeration, board encoding, backbone, graph construction, head and UCI choice. Root-only avoids unnecessary child construction. Shared-host characterization, no hardware-general speed claim.",
+                "time_cap_seconds": 7200,
+                "limits": "Equal head parameter counts are not equal FLOPs or optimal tuning. Root-only has less input information; child-only isolates the subtractive term, and permuted contrast tests action alignment. No engine quality, gameplay, independent confirmation or algorithmic novelty claim."
+              },
+              "sources": {
+                "src/openjev/research/chess_graph_contrast.py": "452db2f1feafad2fb57cfb30da08f91ad950c7d70dca0470258d03f70fb38ba2",
+                "src/openjev/research/chess_graph_contrast_shared.py": "3a6ea5fd6fa47db00918c8cd00c88e823456d531b9b5eecb6e8029120871d39f",
+                "src/openjev/research/chess_counterfactual_transport.py": "901196608e88145bb007f443a50c9e588be74fd1d2003cfaa775aa5261253711",
+                "src/openjev/research/chess_child_graph_cache.py": "bf83ed52de90738476aa6dfb73b2a5d2c95f85f461b7a216d03f07056d416199",
+                "scripts/chess_graph_contrast_study.py": "8c0aabbbed5555074d642a6b4d69a8b5af11c3da2bceab15fd3cbc0ffdc27093",
+                "tests/test_chess_graph_contrast.py": "5328c9ad95228f519df1954bce176dd6f334926bc443dfbc249463391b29fc73",
+                "tests/test_chess_graph_contrast_shared.py": "0cda082156a7daa384b5739dd0765580b612fdc195284cf8a67fb539b342feb6",
+                "tests/test_chess_child_graph_cache.py": "726c04cb3dfb5d0648c0165996f9e06c30c554686a51f3b3c5b3f25219767db7",
+                "tests/test_chess_graph_contrast_study.py": "5b2fe3e0b37f348d07c1ee6447280f523fa2866a3d028dba45b169f098f1e9ff"
+              },
+              "inputs": {
+                "runs/chess-transport-v1/execution/packed-train.pt": "b26f619a82690f017c84a5196716b6ac0c9467ff9956dcdc27a16aa8c6c9dcb5",
+                "runs/chess-transport-v1/execution/packed-dev.pt": "765e518b64cdec769faca1c4ef1c9ae7f41abc0e0df493ce3522284cae3ba292",
+                "runs/chess-transport-v1/execution/packed-shift.pt": "8201232b4af5a03eb129ad60121a33fe2cb2ecab710249c9e3cf66c6e886a08b",
+                "runs/chess-transport-v1/execution/root-cache-train-97.pt": "3100b8a25cdad5f88a54985f3d1175858698a49508729a38d441a6e7a5439c06",
+                "runs/chess-transport-v1/execution/root-cache-train-109.pt": "c33d22d9dfedf6f825ed86c8c8972c1ce48d50ec990c217cd346ea4070843c9e",
+                "runs/chess-transport-v1/execution/root-cache-train-127.pt": "57e1249510ad8392c1d6b2e4e8303a03f6557f76f930c884ab0957b10d1dc9ca",
+                "runs/chess-transport-v1/execution/base-97-dev.jsonl": "34b5a8b171b0bba701c19b5c22258f9c26c6fc0fcbf648e186995416f5da1376",
+                "runs/chess-transport-v1/execution/base-97-shift.jsonl": "b2522301444582387ee9d869bdade1927f5a46bd944b05c21ffc0643f874106d",
+                "runs/chess-transport-v1/execution/base-109-dev.jsonl": "cb40a450be088a49cb549a02031a55346183cbc22032136c0f308b9f8596b878",
+                "runs/chess-transport-v1/execution/base-109-shift.jsonl": "18220852a6a8489de9f9d75dbf54e41a1301626465f957816173fb67b2c4eb88",
+                "runs/chess-transport-v1/execution/base-127-dev.jsonl": "0b5557c740192f4f01c3cff3f3173eb1e2356c5403d7549cdbac057c17b8c4dd",
+                "runs/chess-transport-v1/execution/base-127-shift.jsonl": "b9abfcf08dd1b222cd7eee2c990fca252a84e3cef3c8491692649adfaf0beede",
+                "runs/chess-child-graph-cache-v1/execution/summary.json": "92584283e600c3927e505228d664b6cadbdf210fb015b2848b2912f6ca6726b0",
+                "runs/chess-child-graph-cache-v1/execution/started.json": "31791f3b0f3553facf833ea4db63d93e4f56f460a1e92fe78563bf2bfabe423e",
+                "runs/chess-child-graph-cache-v1/execution/shift/children.bin": "e8e7dbfb537abb185192a9b4ea7eccc418c626c68c6263ce4445cc572d8861da",
+                "runs/chess-child-graph-cache-v1/execution/shift/offsets.npy": "e5b8bb046b3b5301b4b913b668ba2e1e4778de52c40b31dc41d3561f8b580840",
+                "runs/chess-child-graph-cache-v1/execution/shift/manifest.json": "5e6a95cb75df688344e40410c94c35afbd50929a0423f05263e4a22820340ccf",
+                "runs/chess-child-graph-cache-v1/execution/shift/roots.bin": "d8e9fdb66bc5564589438fc899a3c3f63a0c42400edf756067b081d5e83b6b94",
+                "runs/chess-child-graph-cache-v1/execution/shift/roots.jsonl": "be1262a05341c5fe12f05706aca55c186c3364910f1607cc5095c748f4867378",
+                "runs/chess-child-graph-cache-v1/execution/train/children.bin": "82d6f1de3aa3db90f64f9e8f1355d24dd2dfc57b08217fe94134ad3f6841c3d2",
+                "runs/chess-child-graph-cache-v1/execution/train/offsets.npy": "b547820e78c466465e52a6eee7700e038c32b329d327bc7986f24a63e3100ed2",
+                "runs/chess-child-graph-cache-v1/execution/train/manifest.json": "a5fc2042d5147f38f2970d27eaa1b1d2f2161caeb7e2de34786616b365c3ba4b",
+                "runs/chess-child-graph-cache-v1/execution/train/roots.bin": "79e7775818a373ca6b0dc0fb79cbabd0090335e6755f8068d8ecd7a5d0ce270e",
+                "runs/chess-child-graph-cache-v1/execution/train/roots.jsonl": "6c8b551cd157e379dae0cf93c7131832b56affd19ee562a8fb6324c0ddad72a6",
+                "runs/chess-child-graph-cache-v1/execution/dev/children.bin": "5b2ccb7c06279b7e3cbd6a27017821066f40c306e6946f8fee44ae4ce7e93284",
+                "runs/chess-child-graph-cache-v1/execution/dev/offsets.npy": "17ebdff9d6ac2039bb5ed95478b67c2d260ccce329b01b2569a10f0af97284b4",
+                "runs/chess-child-graph-cache-v1/execution/dev/manifest.json": "ffd43c45626ef2a9f50880064d7fc87d76eac5701c6a75165ae80b13ff152559",
+                "runs/chess-child-graph-cache-v1/execution/dev/roots.bin": "b560cb397a98b5dbe28ff7be56f1b3240ff52167c22f70c6465d35444cf6257c",
+                "runs/chess-child-graph-cache-v1/execution/dev/roots.jsonl": "1910bd9034d521d7e2341e063d70cd9523019c38cf662dc332307dc55f801951",
+                "runs/chess-transport-v1/execution/completed.json": "1df0212a5680551534bf49d0c4bdba9b0001b028dcdc47b2e15a416fca567df3",
+                "runs/chess-child-graph-cache-v1/execution/completed.json": "e719bbae570e02edb7562f33fdd96c22e84e579bfc8d2e5e5a2bf347ab0901e3",
+                "evidence/chess-child-graph-cache-v1/protocol/plan.json": "edb297473664cdad16cb123fcced589390d380ed43e3a71ec2a5eda2925308c5",
+                "evidence/chess-child-graph-cache-v1/audit/receipt.json": "fbaf69f32f4614302041afb79fb7f72512c3606a6a9bba85045fee29c2d4da5d",
+                "runs/chess-graph-contrast-v3/execution/summary.json": "265c40070a3b50740da732c26b1ac103c62b73ddb47a2439bb0815c2ba1cccb2",
+                "runs/chess-graph-contrast-v3/execution/completed.json": "eebe5eee25ef345d30030092838cc41792a651f0dda74dcb5dfc4fae339c6b16",
+                "evidence/chess-graph-contrast-v3/audit/receipt.json": "bb356d7da31fb381a84e0534b1cec1f89ed83c563d02b032aeb4471043cee428"
+              },
+              "parent_signature": {
+                "protocol": {
+                  "version": "two-endpoint-root-relation-transport-v1",
+                  "arms": [
+                    "transport",
+                    "no_overlap",
+                    "uniform",
+                    "static",
+                    "rewired"
+                  ],
+                  "backbone_seeds": [
+                    97,
+                    109,
+                    127
+                  ],
+                  "head_seed": "backbone seed + 1100",
+                  "width": 32,
+                  "transport_steps": 3,
+                  "backbone": "frozen final direct CandidateChess v2; all original pretraining costs retained",
+                  "train_examples": 32768,
+                  "eval_examples_per_panel": 2048,
+                  "epochs": 6,
+                  "batch_size": 128,
+                  "updates_per_fit": 1536,
+                  "optimizer": "Adam",
+                  "learning_rate": 0.001,
+                  "betas": [
+                    0.9,
+                    0.999
+                  ],
+                  "eps": 1e-08,
+                  "weight_decay": 0.0,
+                  "gradient_clip": 1.0,
+                  "loss": "legal-move CE only; root value and backbone are unchanged",
+                  "device": "cpu",
+                  "threads": 2,
+                  "deterministic_algorithms": true,
+                  "batch_order_seed": "700000 + 100*backbone_seed + epoch",
+                  "fit_order_seed": 710003,
+                  "rewiring": "five accepted swaps per original directed edge, capped at20 attempts per desired swap; preserve per-node in/out degrees separately per color; record unmet targets and retained edges",
+                  "rewire_seed": "first8 bytes SHA256(transport-rewire-v1|literalFEN), big-endian",
+                  "evaluation": "all final heads finish before any evaluation; no selection, retries or budget extension",
+                  "data_status": "existing development data, never an untouched confirmation set",
+                  "gate": "Mean transport agreement gain on BOTH panels >=.01 over static/uniform/rewired, >=.005 over no_overlap, >=0 over unchanged backbone; every paired seed gain >=-.005 for each comparison",
+                  "latency": "first16 dev roots by frozen existing order; two warmups then3 repeats, all six methods rotated; full legal enumeration, encoding, graph construction including rewiring, frozen backbone and head inference, UCI choice",
+                  "diagnostic": "transport with rewired test-time edges, explicitly a corruption test not efficacy",
+                  "bootstrap": "2000 source-game resamples per panel of paired correctness differences averaged over3 fitted seeds;95% percentile, descriptive and not simultaneous",
+                  "time_cap_seconds": 3600,
+                  "training": "15 adapters; no new engine or external model calls",
+                  "limits": "Head controls store equal parameters; static/uniform disable router learning and no_overlap disables some input coordinates. Not matched active parameters or FLOPs. Frozen-backbone dependence; no Elo, calibration or novelty claim."
+                },
+                "parent_plan_sha256": "0cdcf5b9f9e64b5dde6f0a951fa4249475d050470e9036ce5c8ab76cf181c106",
+                "sources": {
+                  "src/openjev/research/chess_transport.py": "8a1d02a1405ed4282dec4e4695c78dc315c25fdc1c357454d59f160c8fbf0a3e",
+                  "scripts/chess_transport_study.py": "eed423949a0b345d9ab864d5991c982508074462a676d383cc49cb40330f5a8c",
+                  "tests/test_chess_transport.py": "5f3195a8f66e0bc50caeb7a91d5e1fcaffc404731b09de36d25936d6c6c53a24",
+                  "tests/test_chess_transport_study.py": "0489f0fd4f0732526cb55ccec016e865549f4de2818328998727c98ef981ec41",
+                  "src/openjev/research/chess_candidate.py": "3f09247154d5ed47d300c00fb71729a3808d4504b344af62423571b8f12cd3fa",
+                  "src/openjev/research/chess_anchor.py": "791be15f6b20bb40c2ff075ef824b4c725887592d32b966fe1fef38ac115210b",
+                  "src/openjev/research/chess_spatial.py": "49e6e53d33cd52511c0e4a08074b9a7f0dc2244727df2879f3fb7fd1aa886ab4"
+                },
+                "inputs": {
+                  "runs/chess-spatial-v1/execution/data/train.jsonl": "582d86e65e8dc368f73e9419789f9bdf13a1f3a2ecbb11ad12aca485d0168e4e",
+                  "runs/chess-candidate-v2/execution/data/dev.jsonl": "eda4bca525439c42060ea5f52ad12f27b04b8d7cf7a4d55ffcf184e6aee5b285",
+                  "runs/chess-candidate-v2/execution/data/shift.jsonl": "7bc3e4630981f9a51829fa13e24e70feda2d64cd7275854e563371e1dc2c07d8",
+                  "runs/chess-candidate-v2/execution/direct-97/weights.pt": "fa83e320149eda2925f584e8ec807d06b404fa2643508655e105acf9e37f29b3",
+                  "runs/chess-candidate-v2/execution/direct-109/weights.pt": "a7280a9f4aca07e462a7b3c12f447a9113a963ee3c13c1b01245e34a2d44fb1b",
+                  "runs/chess-candidate-v2/execution/direct-127/weights.pt": "b51b9685680a1a754b7e2fe70836116d42b0583f4c110785cae5d06219e4db55"
+                },
+                "environment": {
+                  "python": "3.12.13",
+                  "torch": "2.14.0",
+                  "numpy": "2.5.3",
+                  "chess": "1.11.2",
+                  "platform": "macOS-26.6.1-arm64-arm-64bit"
+                }
+              },
+              "parent_plan_sha256": "09352b82e643e95330a11f11d3f14ae9ccaef31c906eb04f85563318935ca6e4",
+              "fit_order": {
+                "97": [
+                  "contrast",
+                  "root",
+                  "child",
+                  "permuted_contrast"
+                ],
+                "109": [
+                  "permuted_contrast",
+                  "contrast",
+                  "root",
+                  "child"
+                ],
+                "127": [
+                  "contrast",
+                  "root",
+                  "permuted_contrast",
+                  "child"
+                ]
+              }
+            }
+          },
+          "preflight_plan_sha256": "1ce74056c254c777e8b468479227caf65f90aed184c085d6675569e7a49c38d3",
+          "preflight_audit_sha256": "e3e2248fa4e31ad95a4f32a6edc03110bb7603c92ab44ea563a1e87f899e180c",
+          "contrast_plan_sha256": "15c87f9f9075714ee4826ff5b7a0799d15aaf41fa6b5b1a3b32e9074247c36d2",
+          "fit_order": [
+            "wldn-97",
+            "wldn-109",
+            "wldn-127"
+          ]
+        }
+      },
+      "diagnostic_plan_sha256": "3a7c758632b858d925c275b3ada679fc25cd1525359bffedff9d78e519ad4100",
+      "diagnostic_audit_sha256": "f4bf9bae01e2acb08f673d7843e37b42baf74fc6aa60edc1cf8a5268db024cbb"
+    },
+    "preflight_plan_sha256": "1d68968c4381306a1bc79ddbb3b18aa7a5d85f90fa28aa15fc4a4e20a087b106",
+    "preflight_audit_sha256": "0bc86428432065c7964f5d0cd8a28a2b6a9c0214ecd280ffed23e2f2000f96e8",
+    "original_wldn_plan_sha256": "63ed1c5a50e5b72489c058e501ae1b197d4f0dc66721e7975aebd4a52839ce3c"
+  },
+  "quality_plan_sha256": "b73a101d9aa6bb407e0bee556a27bb292472a55f2284efa9501eb9950f0c32ca",
+  "prepared_unix": 1789733902.6448908
+}

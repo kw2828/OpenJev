@@ -1,0 +1,37 @@
+{
+  "status": "stopped_input_schema_mismatch",
+  "recorded_unix": 1789746191.428002,
+  "plan_sha256": "b0c859a0819c6bf09addc68eb96da39c8c6440d21feeb45225d1d618e458bb7f",
+  "terminal_tool_exit_code": 130,
+  "failed_receipt_sha256": "e10e27efa19a400399ff04241a1fa2f6dbfd51472ffeaba69de05a712c668dc0",
+  "reason": "The frozen v1 game_interval validator requires nonempty strings, but all historical source-game identifiers are integers, including zero. This would fail analysis after full training. Stopped on confirmed schema evidence, not on an observation timeout or model outcome.",
+  "completed_fits": 0,
+  "logged_completed_updates": 770,
+  "first_fit": "wldn-97",
+  "last_logged_epoch_index": 3,
+  "wall_seconds": 320.78836416685954,
+  "quality_predictions": 0,
+  "evaluation_outputs_absent": true,
+  "frozen_sources_unchanged": true,
+  "historical_game_metadata": {
+    "dev": {
+      "records": 2048,
+      "game_id_type": "int",
+      "games": 39,
+      "historical_predictions_sha256": "34b5a8b171b0bba701c19b5c22258f9c26c6fc0fcbf648e186995416f5da1376"
+    },
+    "shift": {
+      "records": 2048,
+      "game_id_type": "int",
+      "games": 31,
+      "historical_predictions_sha256": "b2522301444582387ee9d869bdade1927f5a46bd944b05c21ffc0643f874106d"
+    }
+  },
+  "partial_files_sha256": {
+    "started.json": "fd14915784520283bca9946ae6ed36ea43d1ff6cb9e14f24e7b0edbd9f97917f",
+    "failed.json": "e10e27efa19a400399ff04241a1fa2f6dbfd51472ffeaba69de05a712c668dc0",
+    "fits/wldn-97/initial.pt": "1b3f085e9767ca67c7595c968d937d7b965e317f750c8b706dbcc31868667718",
+    "fits/wldn-97/learning.jsonl": "c421b9a491799ef410ace5b309b920b8d1e7579d3e19538d4ba1ca2c53931223"
+  },
+  "repair": "Separate v2 sources and protocol; preserve integer identity without string coercion. Add integer-zero and mixed-type tests plus authenticated historical metadata preflight. Start all final heads afresh; do not reuse partial weights or change any scientific criterion."
+}

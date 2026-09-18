@@ -1,0 +1,647 @@
+{
+  "protocol": {
+    "version": "native-canonical-old-evaluation-inputs-v1",
+    "panels": {
+      "dev": {
+        "roots": 2048,
+        "candidates": 60541
+      },
+      "shift": {
+        "roots": 2048,
+        "candidates": 58946
+      }
+    },
+    "backbone_seeds": [
+      97,
+      109,
+      127
+    ],
+    "block_roots": 128,
+    "feature_blocks": 96,
+    "common_pin_blocks": 32,
+    "alignment_batches": 192,
+    "feature_contract": "single-position-native-float32-features-v1",
+    "pin_contract": "absolute-pin-training-blocks-v1",
+    "loader_contract": "native-feature-pin-training-loader-v1",
+    "shuffle_seed": 862019,
+    "scope": "Both complete original development panels, already exposed in prior architecture studies. Source files are authenticated; only index,id,FEN retained. No teacher label/value use, fit, quality prediction comparison, new positions or independent confirmation.",
+    "construction": "One position and its unpadded legal menu per frozen backbone call; frozen native feature builder. Common pins use the ray detector and frozen packer. All block menus/FENs/candidate offsets must match authenticated native graph metadata; backbone weights and caller boards/history unchanged.",
+    "alignment": "For each split and backbone, select every root once in source order and once in a seeded permutation, using the frozen merged TrainingInputs loader. Save every batch digest of identities, features, pin rows and native graphs.",
+    "reference": "Reconstruct every feature block with the separate single-position loop, sharing neural/encoding kernels. Reconstruct every pin block with the separate bitboard/occupancy detector and explicit packer. Compare all saved tensor/metadata fields exactly. Replay every ordered/shuffled batch digest from original blocks without merging, using independent lookup/padding/factor translation; native graph decoder shared.",
+    "runtime": "CPU2 deterministic;900 seconds per execution/audit; existing quality run left unchanged.",
+    "time_cap_seconds": 900,
+    "limits": "Input integrity and batching only. Not full-panel native head-score equivalence, trained architecture quality, new data, game strength, efficiency or novelty. Historical studies retain their actual input contract. Future matched fits require a separately frozen quality protocol."
+  },
+  "sources": {
+    "scripts/chess_native_evaluation_inputs.py": "aea3384a4683447b5ef17f7035e4467ec68b8d8d1cd7c2c702f4e19eca4bcc3c",
+    "tests/test_chess_native_evaluation_inputs.py": "b9d65534f1a2f0b285e883e8284c61991680c1e13f62808616dd6b375817b638"
+  },
+  "training_loader_signature": {
+    "protocol": {
+      "version": "native-feature-pin-training-loader-v1",
+      "roots_per_backbone": 32768,
+      "candidates_per_backbone": 968036,
+      "backbone_seeds": [
+        97,
+        109,
+        127
+      ],
+      "batch_roots": 128,
+      "shuffle_seed": 862013,
+      "scope": "Every original training root once per backbone in one seeded shuffled pass. No labels, optimization, head scores, dev/shift data or new positions.",
+      "primary": "Join all authenticated canonical feature and common pin blocks. Select shuffled minibatches through native arguments and pin gather. Authenticate native graph cache and bind its selected complete menus/FENs/masks.",
+      "reference": "Read original blocks without joining them; locate each selected root independently, use pad_sequence for candidate tensors and explicit factor-row translation. Reproduce each saved batch digest exactly, including every feature, pin row, graph tensor and selected root identity. Graph decoding is shared with the previously audited native graph cache.",
+      "coverage": "All 32768 roots and968036 legal candidates exactly once for each backbone;768 batches total. Repeated roots, mismatched block boundaries and empty-factor batches are separate unit-test coverage.",
+      "runtime": "CPU2 deterministic,900-second cap per execution/audit; one backbone in memory at a time.",
+      "limits": "Input alignment only. Does not establish trained quality, full-set native head-score equivalence, novel architecture, game strength or computational advantage.",
+      "time_cap_seconds": 900
+    },
+    "sources": {
+      "src/openjev/research/chess_training_inputs.py": "d489079161b5921509ee7d7fcf12d7f10faa25b98065394e7862660b173e2c5a",
+      "tests/test_chess_training_inputs.py": "7deb0eb66e890a73a52866cd76ce6bbc73a00bfd6907a0a5854f6b0324bbd38d",
+      "scripts/chess_training_input_alignment.py": "e0dd7f882ff5d9e24418683bc43e0d4eef583550156e8f7384e64a4a0a40b67e",
+      "tests/test_chess_training_input_alignment.py": "1144749bc723806457a8e70dc54e344b715ef242e2e72e8d026539ec066ff78c"
+    },
+    "pin_signature": {
+      "protocol": {
+        "version": "absolute-pin-training-blocks-v1",
+        "roots": 32768,
+        "candidates": 968036,
+        "block_roots": 128,
+        "blocks": 256,
+        "scope": "All original training roots and legal candidates; pin inputs only. No dev/shift data, teacher outcomes, optimization or new positions.",
+        "primary": "Existing frozen ray-scan candidate_factors, packed into local candidate indices with separate root-to-candidate and root-to-factor offsets.",
+        "reference": "Independently detect every root/child pin and status using frozen bitboard/occupancy reference; explicitly pack each factor without the primary packer. Every tensor, menu, FEN, offset and coverage statistic must reproduce exactly.",
+        "alignment": "Menus/FENs must match the authenticated native child-graph cache and canonical feature-cache source rows. Common pin blocks are shared by all three backbone feature versions. Caller boards/history remain unchanged.",
+        "coverage": "Report full-set witness coverage and role counts, without a quality or coverage acceptance threshold. Prior mirror checks remain their original bounded evidence; this full run adds no mirror claim.",
+        "runtime": "CPU2 deterministic,128-root blocks,900 seconds per execution/audit.",
+        "time_cap_seconds": 900,
+        "limits": "Absolute-pin witnesses are established rule-derived input, not learned legality, game search or generic novelty. No trained-head result, full native-score test or architecture-acceptance gate. Historical evidence and active quality study remain unchanged."
+      },
+      "sources": {
+        "src/openjev/research/chess_pin_cache.py": "749888eb5a5861cbc52debecb724258b9885d261d0263b65ce55bf847786fb12",
+        "scripts/chess_pin_training_cache.py": "62a5e143bf06fc1aaf94617f981a42462092da260cce52394a5749725c1ab082",
+        "tests/test_chess_pin_cache.py": "7446de2f37177aa2fe20b187f4087af69b8e803cd3899445d57c190a18cfaed6"
+      },
+      "feature_signature": {
+        "protocol": {
+          "version": "native-single-position-full-training-cache-v1",
+          "scope": "Full original training set only; no dev/shift feature construction, quality outcomes, optimization or new positions.",
+          "backbone_seeds": [
+            97,
+            109,
+            127
+          ],
+          "roots_per_backbone": 32768,
+          "candidates_per_backbone": 968036,
+          "block_roots": 128,
+          "blocks_per_backbone": 256,
+          "feature_contract": "single-position-native-float32-features-v1",
+          "construction": "Frozen native builder, one board and its unpadded legal menu per forward. Store compact nodes/action features/base logits/candidates/offsets/menus/FENs in256 blocks per backbone. Source metadata keeps only index,id,FEN; no target/value fields.",
+          "alignment": "Every source index/FEN must match the authenticated native child-graph cache. Every rebuilt legal menu and compact offset must match that cache. First block for each seed must exactly match its previously audited engineering cache.",
+          "audit": "Authenticate every primary file, independently reconstruct all768 blocks using the frozen explicit reference loop, and compare every tensor and metadata field exactly. Check all block membership, coverage counts, tensor byte counts, menu digests and checkpoint immutability. Shared neural/encoding kernels; no sampling.",
+          "runtime": "CPU2 deterministic;128-root working blocks; shared host with existing quality study.",
+          "time_cap_seconds": 900,
+          "limits": "Feature construction and integrity only. This does not test trained head quality, full-set head score equivalence, fresh confirmation, pin-factor extraction on all roots, speed advantage or novelty. Historical caches and live fits remain unchanged. Future matched fits require the same new input contract and separately frozen quality protocol."
+        },
+        "sources": {
+          "scripts/chess_native_training_cache.py": "e554f009f2d0fa74ace3fa476283f0328dcc911c5fd5fee8484c0461ef3c64b2",
+          "tests/test_chess_native_training_cache.py": "f82cb028bd70d3dbff9ce58fbe647b61ed1d373ae1d14e22f4d3a26f2ffbb0db"
+        },
+        "parent_signature": {
+          "protocol": {
+            "version": "single-position-native-features-three-backbones-v1",
+            "scope": "Engineering extension of the frozen native-cache contract. All3 original backbones; same128 original training roots; no target-based selection or quality evaluation.",
+            "backbone_seeds": [
+              97,
+              109,
+              127
+            ],
+            "head_seeds": [
+              211,
+              223,
+              227
+            ],
+            "methods": [
+              "base",
+              "wldn",
+              "joint",
+              "separable",
+              "root_only",
+              "counts",
+              "graph_mlp"
+            ],
+            "roots": 128,
+            "root_backbone_head_method_checks": 8064,
+            "candidate_score_checks": 246960,
+            "absolute_score_tolerance": 1e-05,
+            "criterion": "Every complete cached/native score vector meets maximum absolute1e-5 and exact choice equality. Seed97 must exactly reproduce the prior single-backbone records. Every finite failure is retained and fails the aggregate numerical gate.",
+            "reference": "Primary uses frozen native-cache builder/assembler; audit uses previously frozen explicit reference loop and pad_sequence assembler. Neural kernels and board encoders shared; cached pins use independent detector and reference pooling.",
+            "layouts": "Backbone one position and its own legal menu per call; cached head batches16 consecutive roots; fresh nonzero-projection heads and native inference unchanged.",
+            "runtime": "CPU2 deterministic, shared host;900 seconds per execution/audit.",
+            "time_cap_seconds": 900,
+            "limits": "128 already exposed engineering roots, fresh heads. Not full-dataset integrity, trained quality, game strength, independent confirmation, timing advantage or novelty. Historical input contracts and failures remain unchanged."
+          },
+          "sources": {
+            "scripts/chess_native_feature_multiseed.py": "dfd276d8392f3e02b4a1b8aae99af94eb6782d835b667cd2f8c9d8cd165f3e2b",
+            "tests/test_chess_native_feature_multiseed.py": "11c1b58d7aaa34d2a5251ceb9f17eb5132e78c4181916af6fa467a35c2f77b0b"
+          },
+          "parent_signature": {
+            "protocol": {
+              "version": "single-position-native-float32-features-v1",
+              "scope": "New feature-generation contract for future quality studies; old frozen caches, studies and failed gates remain unchanged.",
+              "known_issue": "128-root native cost extension failed1e-5 score tolerance on23 distinct cases, including base. No changed choices. Single-position versus batch128 backbone features differ in float32.",
+              "change": "Build each frozen backbone feature row using one board and its own unpadded legal menu. Save native action features before node layout changes. Compact candidate storage; minibatches gather these precomputed inputs without recomputing action features.",
+              "unchanged": "Native decision function, backbone weights, all seven fresh head factories, head seeds211/223/227, float32 precision,128 old training roots, legal menus and1e-5 maximum absolute score criterion.",
+              "backbone_seed": 97,
+              "roots": 128,
+              "root_seed_method_checks": 2688,
+              "candidate_score_checks": 82320,
+              "absolute_score_tolerance": 1e-05,
+              "new_gate": "Every cached/native score vector meets original1e-5 tolerance and exact choice equality. All native predictions must reproduce the prior saved native predictions exactly. A new passing cache contract does not retroactively pass an old gate.",
+              "reference": "Audit reconstructs the cache with a separate explicit loop and packs batches with pad_sequence, sharing board encoders/backbone/action-feature kernels. Independent pin detector and reference factor/count pooling as before. Exact cache and record replay required.",
+              "batching": "Eight consecutive16-root head batches, identical to prior coverage screen. Native calls remain single-position. Only cached feature generation and packing change.",
+              "runtime": "CPU2 deterministic, shared host,900 seconds per execution/audit.",
+              "time_cap_seconds": 900,
+              "limits": "No training, teacher outcomes, games, new positions, timing advantage, all-backbone verification or architecture novelty. Future fits and baselines must share this versioned cache contract; prior fitted outcomes cannot be silently relabelled."
+            },
+            "sources": {
+              "src/openjev/research/chess_native_feature_cache.py": "572a0c585be4d8bdfba7809c3c56c82e623a68ede4dfde5eabf212208124b16c",
+              "tests/test_chess_native_feature_cache.py": "cea692b030aeb3d18edc9d61e471e1191b0b77e4ac659091f24879b9fbba163f",
+              "scripts/chess_native_feature_preflight.py": "0f7b17a24d6fd5a7d658ddb279218e77ef1171f72558f152a724989177b7ebf5"
+            },
+            "prior_signature": {
+              "protocol": {
+                "version": "pin-native-cost-coverage-extension-v1",
+                "scope": "Adaptive engineering cost extension, not confirmation. First16-root costs and one numerical violation already known. The initial panel had zero root pins and only16 added factors.",
+                "selection": "All128 original training roots already used by both frozen preflights, including the original16. No subset selected by cost, move quality or neural outcomes.",
+                "methods_and_weights": "Same seven methods, three fresh head seeds, backbone97 and nonzero output projections as original frozen cost protocol.",
+                "numerical_gate": "Unchanged1e-5 maximum absolute score tolerance and exact choice equality for every measured decision. Preserve every finite violation; any violation fails the aggregate gate.",
+                "reference": "Reuse frozen cached reference constructor in eight consecutive16-root chunks with aligned data/features/cache indexing. Independent pin detector and scalar factor/control paths. No teacher supervision.",
+                "repeats": 7,
+                "timed_records": 18816,
+                "native_audit_decisions": 2688,
+                "order": "Rotate seven methods by(seed_index+global_root_index+repeat)%7; each method occupies each slot once per seed/root. Two starting-position warmups per method/seed.",
+                "timing_scope": "Complete FEN parse, board/legal-candidate encoding, backbone, action features, native root/child graphs, required pin extraction/packing, head, argmax and score-list serialization. Models loaded outside timing. No cached positions, features or graphs in a timed call.",
+                "aggregation": "Median complete milliseconds, per-head-seed medians and matched method/WLDN ratios; raw timings and coverage retained. Original16-root results retained separately; not pooled as independent evidence.",
+                "audit": "Reconstruct all2688 reference vectors exactly, freshly repeat2688 native decisions, authenticate all18816 measurements and recompute every numerical/cost aggregate. Durations not rerun.",
+                "runtime": "CPU2 deterministic, shared host with union training.",
+                "time_cap_seconds": 900,
+                "limits": "Adaptive extension, fresh heads, one backbone, old training positions and shared-host load. A passing audit can reproduce a failed numerical gate. No trained quality, independent confirmation, speed-advantage acceptance gate or architectural novelty claim."
+              },
+              "sources": {
+                "scripts/chess_pin_cost_coverage.py": "0ae5a27f5d9aa12876d6048577b12654157c8821935b011229eaf44911ffe34a",
+                "tests/test_chess_pin_cost_coverage.py": "a00912a153db57cc6b0dd97ebcdace074da9b4668d83665d5d5ee1c3d1570ff4"
+              },
+              "followthrough_signature": {
+                "protocol": {
+                  "version": "pin-native-cost-failure-followthrough-v1",
+                  "scope": "Post-failure completion of descriptive cost evidence. Original timing scope, methods, seeds,16 roots,2352 records and1e-5 score tolerance unchanged.",
+                  "known_failure": "Original screen stopped at score tolerance; post-hoc336-case diagnostic found one WLDN case at1.0013580322265625e-5, zero changed choices, mainly float32 backbone batch-layout differences.",
+                  "change": "Record every finite matching-menu prediction and its tolerance/choice result before continuing. Aggregate the original numerical criterion without aborting on a finite violation. No violation becomes a pass; original failed execution remains untouched.",
+                  "numerical_gate": "All2352 predictions must have maximum absolute score error<=1e-5 and the same choice as the independently prepared reference. Any failure leaves numerical_gate_passed false.",
+                  "audit": "Freshly recompute all336 cached reference vectors and native decisions; reproduce all raw timing error fields, choices, gate membership and summary arithmetic. Timing durations are authenticated, not rerun.",
+                  "time_cap_seconds": 900,
+                  "limits": "The same shared-host, fresh-weight and one-backbone limitations as the parent apply. A completed execution or successful audit is not a passing numerical gate, quality result or permission to promote the architecture."
+                },
+                "sources": {
+                  "scripts/chess_pin_cost_followthrough.py": "945c49ab2bdd1a20f984dc9f7ec231e17659416c654681622a3bddd085c51b96",
+                  "tests/test_chess_pin_cost_followthrough.py": "af6749cfe5af828796deeca89475b4a49efb2159cbdfc52dfe837afda4bf9e11"
+                },
+                "original_signature": {
+                  "protocol": {
+                    "version": "pin-factor-complete-native-cost-v1",
+                    "scope": "Descriptive engineering cost, fresh nonzero-projection heads. No quality fitting or evaluation.",
+                    "methods": [
+                      "base",
+                      "wldn",
+                      "joint",
+                      "separable",
+                      "root_only",
+                      "counts",
+                      "graph_mlp"
+                    ],
+                    "head_seeds": [
+                      211,
+                      223,
+                      227
+                    ],
+                    "backbone_seed": 97,
+                    "roots": 16,
+                    "panel": "First16 original training roots and every legal candidate; no quality-dependent selection.",
+                    "weights": "Fresh heads with their prescribed seed initialization; output projection Normal(0,.1), generator900000+head_seed. No fitted adapter weights. Frozen backbone97.",
+                    "timing": "Complete FEN parse, board/legal-candidate encoding, backbone, action features, native root/child graphs, required pin extraction/packing, head, argmax and score-list serialization. Models loaded outside timing. No cached positions, features or graphs in a timed call.",
+                    "factor_paths": "Joint/separable/counts reconstruct all candidate pin transitions. Root-only extracts root witnesses once and repeats them as retained per candidate. Graph MLP/WLDN/base do not extract pins. Base skips graphs and extra action features.",
+                    "verification": "All native menus, scores and selected moves checked against separately prepared cached-batch scores using the independent pin detector and scalar factor/count reference. Every timed result checked. Audit freshly repeats336 native decisions and recomputes all cached scores and timing arithmetic; durations are authenticated, not rerun.",
+                    "repeats": 7,
+                    "warmups_per_method_seed": 2,
+                    "timed_records": 2352,
+                    "order": "Rotate seven methods by(seed_index+root_index+repeat)%7; each method occupies every slot once per seed/root.",
+                    "aggregation": "Median full milliseconds and median matched ratio to WLDN over identical head-seed/root/repeat keys; also per-head-seed medians. No speed or quality acceptance threshold.",
+                    "absolute_score_tolerance": 1e-05,
+                    "native_audit_decisions": 336,
+                    "runtime": "CPU2 deterministic, same process, shared host with union training; host load recorded.",
+                    "time_cap_seconds": 900,
+                    "limits": "Fresh heads and16 old training roots, one backbone, shared host. No trained-policy latency, throughput, hardware-general speed, equal FLOPs, teacher quality, engine strength, biological advantage or novelty claim. No new quality run authorized by a timing result."
+                  },
+                  "sources": {
+                    "scripts/chess_pin_native_cost.py": "364159207dbcd745fd12fdbdddd76bc3f6575db370bc0b7ccf02faa5b40c2b60",
+                    "tests/test_chess_pin_native_cost.py": "3e317765079615606fa59c4c4bb6a068b4b08d78898f7ed06b573113228878df"
+                  },
+                  "control_signature": {
+                    "protocol": {
+                      "version": "wldn-pin-factor-controls-v1",
+                      "arms": [
+                        "root_only",
+                        "counts",
+                        "graph_mlp"
+                      ],
+                      "parameters": {
+                        "root_only": 16658,
+                        "counts": 16656,
+                        "graph_mlp": 16658
+                      },
+                      "scope": "Engineering only. No teacher-quality fitting, held-out predictions or cost claim.",
+                      "roots": 128,
+                      "selection": "First128 old training roots, all legal candidates.",
+                      "backbone_seed": 97,
+                      "probe_seeds": [
+                        211,
+                        223,
+                        227
+                      ],
+                      "root_seed_arm_checks": 1152,
+                      "probe_dtype": "float32",
+                      "score_tolerance": 1e-05,
+                      "output_probe": "Normal(0,.1), generator900000+seed after exact zero-output backbone preservation.",
+                      "head_seed": 1197,
+                      "updates_per_arm": 3,
+                      "total_updates": 9,
+                      "target": "First legal candidate; teacher targets and values unused.",
+                      "update_dtype": "float64 head on cast frozen float32 backbone features",
+                      "update_tolerance": 1e-09,
+                      "optimizer": "Adam lr.001 betas(.9,.999) eps1e-8 weight_decay0; clip norm1.",
+                      "native_input_checks": "Reuse frozen native-input checker; independent pin detector and status assignment in replay.",
+                      "references": "Root-only filters root membership in a separate Python loop and uses scalar factor pooling. Counts use explicit Python tallies; counts/graph MLPs use individual candidate affine calls. Encoders and neural layers are shared.",
+                      "capacity_limits": "Root-only has1568 first-layer weights on zero channels; counts has2 fewer parameters; graph_mlp matches stored count. No effective-capacity or FLOP parity claim.",
+                      "runtime": "CPU2 deterministic, shared host with ongoing union study.",
+                      "time_cap_seconds": 900
+                    },
+                    "sources": {
+                      "src/openjev/research/chess_pin_factor_controls.py": "686a8eb02d6add98e731306b3f2e59a6f9078e7642136db062a3d7fbe979394a",
+                      "tests/test_chess_pin_factor_controls.py": "1afbdc02034009292439cabf15c7d8810c6336e384bebaa4cb9990b0b5eb992f",
+                      "scripts/chess_pin_control_preflight.py": "6c06ff4ad178de005d13a771fff1b643f0c39d15c8e6433721ad9b49e966af28"
+                    },
+                    "parent_signature": {
+                      "protocol": {
+                        "version": "wldn-pin-factor-prototype-v1",
+                        "scope": "Bounded engineering, no teacher-quality experiment.",
+                        "arms": [
+                          "joint",
+                          "separable"
+                        ],
+                        "parameters": 16658,
+                        "backbone_seed": 97,
+                        "roots": 128,
+                        "selection": "First128 original training roots, all legal candidates, no label-dependent selection.",
+                        "probe_seeds": [
+                          211,
+                          223,
+                          227
+                        ],
+                        "root_seed_arm_checks": 768,
+                        "projection": "Fresh output zero must preserve backbone exactly; probes replace it with Normal(0,.1), generator900000+head_seed.",
+                        "probe_dtype": "float32 actual frozen backbone features",
+                        "score_tolerance": 1e-05,
+                        "probes": "Compare one batched call with a full individual call for every legal candidate, for all3 seeds and2 arms. Audit uses independently extracted factors and factor-by-factor pooling, and compares every saved batched score.",
+                        "head_seed": 1197,
+                        "updates_per_arm": 3,
+                        "total_updates": 6,
+                        "training_dtype": "float64 head on cast frozen float32 features; this is not float64 backbone inference.",
+                        "target": "First legal move for each root. Historical tensor packs contain labels but targets/values are never used as supervision or quality outcomes.",
+                        "optimizer": "Adam lr.001 betas(.9,.999) eps1e-8 weight_decay0;norm clip1.",
+                        "update_replay_tolerance": 1e-09,
+                        "replay": "Initial tensors exact; reference-replayed final tensors, loss and gradient norms within absolute1e-9. Different batched/scalar affine arithmetic can round differently; no bitwise training-equivalence claim. All four factor parameter blocks must change after3 updates in both arms.",
+                        "input_checks": "Reconstruct all128 native root/child attack graphs; verify cached masks, menus and FENs. Independently reconstruct every pin factor. Candidate packing order must match action/graph order.",
+                        "runtime": "CPU2 deterministic algorithms, shared host with existing union training.",
+                        "time_cap_seconds": 900,
+                        "limits": "Factor stages share neural layers with the production head. Reference independently implements factor detection, coordinate mapping, status assignment and pooling. Engineering checks neither reproduce a prior FGNN benchmark nor establish chess quality, novelty, generic interactions, float32 optimization parity or inference-speed advantage."
+                      },
+                      "sources": {
+                        "src/openjev/research/chess_pin_factor_head.py": "c4f042054601eca1a9800a7f1f86bdcc3168f6356c72a7b7dc5739e99dc4c652",
+                        "tests/test_chess_pin_factor_head.py": "42995f7a2ce70bfe46b2aa7198d7b8a25f8d6647dc4843695cb2e4d310c4c6fe",
+                        "scripts/chess_pin_factor_preflight.py": "0a8dfd7de1e453f86b47a6e23bc567425bd07dba83d63e1a4278e101cc04487b",
+                        "tests/test_chess_pin_factor_preflight.py": "a1a9241f66b5945a29131944434c7c7806d1c2b53ae859503b9bdbe0f714a76f"
+                      },
+                      "native_parent_signature": {
+                        "protocol": {
+                          "version": "wldn-root-feature-chess-adaptation-v1",
+                          "scope": "Engineering only, no chess-quality evaluation",
+                          "backbone_seed": 97,
+                          "probe_seeds": [
+                            211,
+                            223,
+                            227
+                          ],
+                          "probe_roots": 8,
+                          "probe_order": "First8 old training roots, all legal candidates, no label selection",
+                          "probe_projection": "Replace zero output with normal(0,0.1), seed900000+head_seed",
+                          "comparison": "Shared batched root/child processing versus a separate complete one-candidate forward call for every legal move",
+                          "absolute_score_tolerance": 1e-05,
+                          "tolerance_scope": "Float32 summed-node scalar scores. Fixed before this screen; not a relaxation of any earlier architecture tolerance.",
+                          "training_roots": 128,
+                          "training_order": "First128 old training roots, reused for each artificial update",
+                          "head_seed": 1197,
+                          "parameters": 16638,
+                          "representation_width": 32,
+                          "representation_steps": 3,
+                          "difference_steps": 1,
+                          "readout_width": 59,
+                          "initialization": "Normal affine weights with std=min(1/sqrt(fan_in),0.1), zero biases; final scalar projection zeroed for backbone preservation",
+                          "artificial_updates": 3,
+                          "target": "First legal move for every root; teacher targets unused",
+                          "optimizer": "Adam",
+                          "learning_rate": 0.001,
+                          "gradient_clip": 1.0,
+                          "runtime": "CPU,2 threads, deterministic algorithms",
+                          "time_cap_seconds": 600,
+                          "cost": "Update timing includes lossless child-graph batch decoding, forward, CE, backward, clipping and optimizer step. Excludes source hashing and frozen-root feature setup, which are recorded separately. Shared host; no speed claim.",
+                          "limits": "Selected official method parity uses a Torch compatibility layer, not TensorFlow binaries or its training pipeline. New root-feature chess adapter, all64 squares, multi-hot typed directed attacks, extra120 action-feature readout. No teacher agreement, engine scores, games, novelty or official benchmark reproduction."
+                        },
+                        "sources": {
+                          "src/openjev/research/wldn_baseline.py": "adee39d945b42afb1a5163831f804f52aff227f403cdbd9f52de1bc7afb7ace6",
+                          "tests/test_wldn_baseline.py": "92273d221bbfd10ba2d87aafadc375446d9c4503ef81844e253de8ee45a72e3c",
+                          "scripts/chess_wldn_preflight.py": "ea3f4868ed5b61bc5eb06ca7cf100c37b29162dca9737de89f6239a4749caabe"
+                        },
+                        "parent_plan_sha256": "15c87f9f9075714ee4826ff5b7a0799d15aaf41fa6b5b1a3b32e9074247c36d2",
+                        "reference_manifest_sha256": "acd44f50f8788285f5cba8655752d6fc2c35902abd4c34fb53684d1be69a5328",
+                        "reference_sources": {
+                          "evidence/chess-wldn-reference-v1/sources/models.py": "efc40b127ee851bc88ca3add8ee28484ae692194c382545a90370b1f99bd2577",
+                          "evidence/chess-wldn-reference-v1/sources/nntrain_direct_useScores.py": "9cf365f2ce989c49b71bf1f53c24b2cc0f79f74b09efec7626215b10ca53c8cc",
+                          "evidence/chess-wldn-reference-v1/sources/nn.py": "19b235b0a68e0f701f73988157ba8979a3274728eafaab3d443ad3bf6fb8900b",
+                          "evidence/chess-wldn-reference-v1/sources/LICENSE": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903"
+                        },
+                        "parent_signature": {
+                          "protocol": {
+                            "version": "shared-native-graph-contrast-quality-v1",
+                            "arms": [
+                              "contrast",
+                              "child",
+                              "root",
+                              "permuted_contrast"
+                            ],
+                            "seeds": [
+                              97,
+                              109,
+                              127
+                            ],
+                            "hypothesis": "An action-dependent shared-weight child-minus-root graph score improves decisions over root-only, child-only and candidate-permuted graph contrast. This is development evidence, not a novelty assertion.",
+                            "backbone": "Same original frozen direct checkpoints as transport-v1; new zero-output heads, no reuse of fitted transport or contrast weights",
+                            "head_seed": "backbone_seed+1100",
+                            "head_parameters": 16744,
+                            "steps": 3,
+                            "width": 32,
+                            "architecture": "Original root transport kernel shared across candidates, dense compact child operators, same head weights in both branches. Contrast subtracts the action-dependent root correction. Identical binary native graphs give exactly zero residual and gradient.",
+                            "information": "Frozen root node features and existing120 action features. Native legal moves construct child attack graphs in the root-player frame; node features are not recomputed after the move. No teacher shortlist, engine-derived feature or learned transition.",
+                            "training_examples": 32768,
+                            "epochs": 6,
+                            "batch_size": 128,
+                            "updates_per_fit": 1536,
+                            "fits": 12,
+                            "total_updates": 18432,
+                            "optimizer": "Adam",
+                            "learning_rate": 0.001,
+                            "betas": [
+                              0.9,
+                              0.999
+                            ],
+                            "eps": 1e-08,
+                            "weight_decay": 0.0,
+                            "gradient_clip": 1.0,
+                            "loss": "legal-move CE only",
+                            "batch_order_seed": "700000+100*backbone_seed+epoch",
+                            "fit_order_seed": 810031,
+                            "device": "cpu",
+                            "threads": 2,
+                            "deterministic_algorithms": true,
+                            "cache": "All native root/child graphs independently reconstructed before freezing; packed bits decode losslessly. Recompute all32768 frozen root feature caches for each seed and compare to the original cache within2e-6.",
+                            "evaluation": "All12 final fits finish before any evaluation. All seeds and final checkpoints retained; no model replacement, checkpoint selection or outcome-driven extension. Both2048-position panels are already exposed development data.",
+                            "diagnostic": "Also evaluate each fitted contrast head with child graphs permuted at test time; no additional gate based on this diagnostic.",
+                            "reference": "Unchanged backbone outputs copied from authenticated completed transport records, with explicit provenance; not new inference.",
+                            "gate": "On BOTH panels, contrast must beat root, child and separately trained permuted_contrast by at least0.01 mean agreement, and must not lose against the unchanged backbone. Every paired seed in every comparison must gain at least-0.005. All8 checks required. Previous failed criteria remain unchanged.",
+                            "bootstrap": "2000 source-game cluster resamples of paired correctness averaged across3 seeds; conditional descriptive95% intervals, no correction for adaptive development, multiple comparisons or seed population.",
+                            "latency": "First16 old dev roots, seed97,2 warmups and3 repeats; base and4 trained heads rotate. Full decisions include native legal enumeration, board encoding, backbone, graph construction, head and UCI choice. Root-only avoids unnecessary child construction. Shared-host characterization, no hardware-general speed claim.",
+                            "time_cap_seconds": 7200,
+                            "limits": "Equal head parameter counts are not equal FLOPs or optimal tuning. Root-only has less input information; child-only isolates the subtractive term, and permuted contrast tests action alignment. No engine quality, gameplay, independent confirmation or algorithmic novelty claim."
+                          },
+                          "sources": {
+                            "src/openjev/research/chess_graph_contrast.py": "452db2f1feafad2fb57cfb30da08f91ad950c7d70dca0470258d03f70fb38ba2",
+                            "src/openjev/research/chess_graph_contrast_shared.py": "3a6ea5fd6fa47db00918c8cd00c88e823456d531b9b5eecb6e8029120871d39f",
+                            "src/openjev/research/chess_counterfactual_transport.py": "901196608e88145bb007f443a50c9e588be74fd1d2003cfaa775aa5261253711",
+                            "src/openjev/research/chess_child_graph_cache.py": "bf83ed52de90738476aa6dfb73b2a5d2c95f85f461b7a216d03f07056d416199",
+                            "scripts/chess_graph_contrast_study.py": "8c0aabbbed5555074d642a6b4d69a8b5af11c3da2bceab15fd3cbc0ffdc27093",
+                            "tests/test_chess_graph_contrast.py": "5328c9ad95228f519df1954bce176dd6f334926bc443dfbc249463391b29fc73",
+                            "tests/test_chess_graph_contrast_shared.py": "0cda082156a7daa384b5739dd0765580b612fdc195284cf8a67fb539b342feb6",
+                            "tests/test_chess_child_graph_cache.py": "726c04cb3dfb5d0648c0165996f9e06c30c554686a51f3b3c5b3f25219767db7",
+                            "tests/test_chess_graph_contrast_study.py": "5b2fe3e0b37f348d07c1ee6447280f523fa2866a3d028dba45b169f098f1e9ff"
+                          },
+                          "inputs": {
+                            "runs/chess-transport-v1/execution/packed-train.pt": "b26f619a82690f017c84a5196716b6ac0c9467ff9956dcdc27a16aa8c6c9dcb5",
+                            "runs/chess-transport-v1/execution/packed-dev.pt": "765e518b64cdec769faca1c4ef1c9ae7f41abc0e0df493ce3522284cae3ba292",
+                            "runs/chess-transport-v1/execution/packed-shift.pt": "8201232b4af5a03eb129ad60121a33fe2cb2ecab710249c9e3cf66c6e886a08b",
+                            "runs/chess-transport-v1/execution/root-cache-train-97.pt": "3100b8a25cdad5f88a54985f3d1175858698a49508729a38d441a6e7a5439c06",
+                            "runs/chess-transport-v1/execution/root-cache-train-109.pt": "c33d22d9dfedf6f825ed86c8c8972c1ce48d50ec990c217cd346ea4070843c9e",
+                            "runs/chess-transport-v1/execution/root-cache-train-127.pt": "57e1249510ad8392c1d6b2e4e8303a03f6557f76f930c884ab0957b10d1dc9ca",
+                            "runs/chess-transport-v1/execution/base-97-dev.jsonl": "34b5a8b171b0bba701c19b5c22258f9c26c6fc0fcbf648e186995416f5da1376",
+                            "runs/chess-transport-v1/execution/base-97-shift.jsonl": "b2522301444582387ee9d869bdade1927f5a46bd944b05c21ffc0643f874106d",
+                            "runs/chess-transport-v1/execution/base-109-dev.jsonl": "cb40a450be088a49cb549a02031a55346183cbc22032136c0f308b9f8596b878",
+                            "runs/chess-transport-v1/execution/base-109-shift.jsonl": "18220852a6a8489de9f9d75dbf54e41a1301626465f957816173fb67b2c4eb88",
+                            "runs/chess-transport-v1/execution/base-127-dev.jsonl": "0b5557c740192f4f01c3cff3f3173eb1e2356c5403d7549cdbac057c17b8c4dd",
+                            "runs/chess-transport-v1/execution/base-127-shift.jsonl": "b9abfcf08dd1b222cd7eee2c990fca252a84e3cef3c8491692649adfaf0beede",
+                            "runs/chess-child-graph-cache-v1/execution/summary.json": "92584283e600c3927e505228d664b6cadbdf210fb015b2848b2912f6ca6726b0",
+                            "runs/chess-child-graph-cache-v1/execution/started.json": "31791f3b0f3553facf833ea4db63d93e4f56f460a1e92fe78563bf2bfabe423e",
+                            "runs/chess-child-graph-cache-v1/execution/shift/children.bin": "e8e7dbfb537abb185192a9b4ea7eccc418c626c68c6263ce4445cc572d8861da",
+                            "runs/chess-child-graph-cache-v1/execution/shift/offsets.npy": "e5b8bb046b3b5301b4b913b668ba2e1e4778de52c40b31dc41d3561f8b580840",
+                            "runs/chess-child-graph-cache-v1/execution/shift/manifest.json": "5e6a95cb75df688344e40410c94c35afbd50929a0423f05263e4a22820340ccf",
+                            "runs/chess-child-graph-cache-v1/execution/shift/roots.bin": "d8e9fdb66bc5564589438fc899a3c3f63a0c42400edf756067b081d5e83b6b94",
+                            "runs/chess-child-graph-cache-v1/execution/shift/roots.jsonl": "be1262a05341c5fe12f05706aca55c186c3364910f1607cc5095c748f4867378",
+                            "runs/chess-child-graph-cache-v1/execution/train/children.bin": "82d6f1de3aa3db90f64f9e8f1355d24dd2dfc57b08217fe94134ad3f6841c3d2",
+                            "runs/chess-child-graph-cache-v1/execution/train/offsets.npy": "b547820e78c466465e52a6eee7700e038c32b329d327bc7986f24a63e3100ed2",
+                            "runs/chess-child-graph-cache-v1/execution/train/manifest.json": "a5fc2042d5147f38f2970d27eaa1b1d2f2161caeb7e2de34786616b365c3ba4b",
+                            "runs/chess-child-graph-cache-v1/execution/train/roots.bin": "79e7775818a373ca6b0dc0fb79cbabd0090335e6755f8068d8ecd7a5d0ce270e",
+                            "runs/chess-child-graph-cache-v1/execution/train/roots.jsonl": "6c8b551cd157e379dae0cf93c7131832b56affd19ee562a8fb6324c0ddad72a6",
+                            "runs/chess-child-graph-cache-v1/execution/dev/children.bin": "5b2ccb7c06279b7e3cbd6a27017821066f40c306e6946f8fee44ae4ce7e93284",
+                            "runs/chess-child-graph-cache-v1/execution/dev/offsets.npy": "17ebdff9d6ac2039bb5ed95478b67c2d260ccce329b01b2569a10f0af97284b4",
+                            "runs/chess-child-graph-cache-v1/execution/dev/manifest.json": "ffd43c45626ef2a9f50880064d7fc87d76eac5701c6a75165ae80b13ff152559",
+                            "runs/chess-child-graph-cache-v1/execution/dev/roots.bin": "b560cb397a98b5dbe28ff7be56f1b3240ff52167c22f70c6465d35444cf6257c",
+                            "runs/chess-child-graph-cache-v1/execution/dev/roots.jsonl": "1910bd9034d521d7e2341e063d70cd9523019c38cf662dc332307dc55f801951",
+                            "runs/chess-transport-v1/execution/completed.json": "1df0212a5680551534bf49d0c4bdba9b0001b028dcdc47b2e15a416fca567df3",
+                            "runs/chess-child-graph-cache-v1/execution/completed.json": "e719bbae570e02edb7562f33fdd96c22e84e579bfc8d2e5e5a2bf347ab0901e3",
+                            "evidence/chess-child-graph-cache-v1/protocol/plan.json": "edb297473664cdad16cb123fcced589390d380ed43e3a71ec2a5eda2925308c5",
+                            "evidence/chess-child-graph-cache-v1/audit/receipt.json": "fbaf69f32f4614302041afb79fb7f72512c3606a6a9bba85045fee29c2d4da5d",
+                            "runs/chess-graph-contrast-v3/execution/summary.json": "265c40070a3b50740da732c26b1ac103c62b73ddb47a2439bb0815c2ba1cccb2",
+                            "runs/chess-graph-contrast-v3/execution/completed.json": "eebe5eee25ef345d30030092838cc41792a651f0dda74dcb5dfc4fae339c6b16",
+                            "evidence/chess-graph-contrast-v3/audit/receipt.json": "bb356d7da31fb381a84e0534b1cec1f89ed83c563d02b032aeb4471043cee428"
+                          },
+                          "parent_signature": {
+                            "protocol": {
+                              "version": "two-endpoint-root-relation-transport-v1",
+                              "arms": [
+                                "transport",
+                                "no_overlap",
+                                "uniform",
+                                "static",
+                                "rewired"
+                              ],
+                              "backbone_seeds": [
+                                97,
+                                109,
+                                127
+                              ],
+                              "head_seed": "backbone seed + 1100",
+                              "width": 32,
+                              "transport_steps": 3,
+                              "backbone": "frozen final direct CandidateChess v2; all original pretraining costs retained",
+                              "train_examples": 32768,
+                              "eval_examples_per_panel": 2048,
+                              "epochs": 6,
+                              "batch_size": 128,
+                              "updates_per_fit": 1536,
+                              "optimizer": "Adam",
+                              "learning_rate": 0.001,
+                              "betas": [
+                                0.9,
+                                0.999
+                              ],
+                              "eps": 1e-08,
+                              "weight_decay": 0.0,
+                              "gradient_clip": 1.0,
+                              "loss": "legal-move CE only; root value and backbone are unchanged",
+                              "device": "cpu",
+                              "threads": 2,
+                              "deterministic_algorithms": true,
+                              "batch_order_seed": "700000 + 100*backbone_seed + epoch",
+                              "fit_order_seed": 710003,
+                              "rewiring": "five accepted swaps per original directed edge, capped at20 attempts per desired swap; preserve per-node in/out degrees separately per color; record unmet targets and retained edges",
+                              "rewire_seed": "first8 bytes SHA256(transport-rewire-v1|literalFEN), big-endian",
+                              "evaluation": "all final heads finish before any evaluation; no selection, retries or budget extension",
+                              "data_status": "existing development data, never an untouched confirmation set",
+                              "gate": "Mean transport agreement gain on BOTH panels >=.01 over static/uniform/rewired, >=.005 over no_overlap, >=0 over unchanged backbone; every paired seed gain >=-.005 for each comparison",
+                              "latency": "first16 dev roots by frozen existing order; two warmups then3 repeats, all six methods rotated; full legal enumeration, encoding, graph construction including rewiring, frozen backbone and head inference, UCI choice",
+                              "diagnostic": "transport with rewired test-time edges, explicitly a corruption test not efficacy",
+                              "bootstrap": "2000 source-game resamples per panel of paired correctness differences averaged over3 fitted seeds;95% percentile, descriptive and not simultaneous",
+                              "time_cap_seconds": 3600,
+                              "training": "15 adapters; no new engine or external model calls",
+                              "limits": "Head controls store equal parameters; static/uniform disable router learning and no_overlap disables some input coordinates. Not matched active parameters or FLOPs. Frozen-backbone dependence; no Elo, calibration or novelty claim."
+                            },
+                            "parent_plan_sha256": "0cdcf5b9f9e64b5dde6f0a951fa4249475d050470e9036ce5c8ab76cf181c106",
+                            "sources": {
+                              "src/openjev/research/chess_transport.py": "8a1d02a1405ed4282dec4e4695c78dc315c25fdc1c357454d59f160c8fbf0a3e",
+                              "scripts/chess_transport_study.py": "eed423949a0b345d9ab864d5991c982508074462a676d383cc49cb40330f5a8c",
+                              "tests/test_chess_transport.py": "5f3195a8f66e0bc50caeb7a91d5e1fcaffc404731b09de36d25936d6c6c53a24",
+                              "tests/test_chess_transport_study.py": "0489f0fd4f0732526cb55ccec016e865549f4de2818328998727c98ef981ec41",
+                              "src/openjev/research/chess_candidate.py": "3f09247154d5ed47d300c00fb71729a3808d4504b344af62423571b8f12cd3fa",
+                              "src/openjev/research/chess_anchor.py": "791be15f6b20bb40c2ff075ef824b4c725887592d32b966fe1fef38ac115210b",
+                              "src/openjev/research/chess_spatial.py": "49e6e53d33cd52511c0e4a08074b9a7f0dc2244727df2879f3fb7fd1aa886ab4"
+                            },
+                            "inputs": {
+                              "runs/chess-spatial-v1/execution/data/train.jsonl": "582d86e65e8dc368f73e9419789f9bdf13a1f3a2ecbb11ad12aca485d0168e4e",
+                              "runs/chess-candidate-v2/execution/data/dev.jsonl": "eda4bca525439c42060ea5f52ad12f27b04b8d7cf7a4d55ffcf184e6aee5b285",
+                              "runs/chess-candidate-v2/execution/data/shift.jsonl": "7bc3e4630981f9a51829fa13e24e70feda2d64cd7275854e563371e1dc2c07d8",
+                              "runs/chess-candidate-v2/execution/direct-97/weights.pt": "fa83e320149eda2925f584e8ec807d06b404fa2643508655e105acf9e37f29b3",
+                              "runs/chess-candidate-v2/execution/direct-109/weights.pt": "a7280a9f4aca07e462a7b3c12f447a9113a963ee3c13c1b01245e34a2d44fb1b",
+                              "runs/chess-candidate-v2/execution/direct-127/weights.pt": "b51b9685680a1a754b7e2fe70836116d42b0583f4c110785cae5d06219e4db55"
+                            },
+                            "environment": {
+                              "python": "3.12.13",
+                              "torch": "2.14.0",
+                              "numpy": "2.5.3",
+                              "chess": "1.11.2",
+                              "platform": "macOS-26.6.1-arm64-arm-64bit"
+                            }
+                          },
+                          "parent_plan_sha256": "09352b82e643e95330a11f11d3f14ae9ccaef31c906eb04f85563318935ca6e4",
+                          "fit_order": {
+                            "97": [
+                              "contrast",
+                              "root",
+                              "child",
+                              "permuted_contrast"
+                            ],
+                            "109": [
+                              "permuted_contrast",
+                              "contrast",
+                              "root",
+                              "child"
+                            ],
+                            "127": [
+                              "contrast",
+                              "root",
+                              "permuted_contrast",
+                              "child"
+                            ]
+                          }
+                        }
+                      },
+                      "pin_input_signature": {
+                        "protocol": {
+                          "version": "absolute-pin-witness-input-v1",
+                          "source_roots": 32768,
+                          "stride": 32,
+                          "selected_roots": 1024,
+                          "indices": "0,32,...,32736 in the original training-root metadata, fixed before coverage outcomes.",
+                          "scope": "All native legal candidates of 1024 fixed old training roots; label-free pin-witness input screen. No dev/shift panel, teacher, model or quality outcome is read.",
+                          "witness": "Absolute pin only: same-color king and first blocker followed by an opposing compatible bishop, rook or queen. Both colors, fixed root-player square frame. Square-identity tuple(owner,king,blocker,attacker); factor role0 retained,1 added,2 removed.",
+                          "primary": "Eight-ray geometric scan from both kings. Every child is a native legal successor. Check mirrored root and child witness equality after UCI rank reflection, source menu identity and board/history preservation.",
+                          "reference": "Full native replay using python-chess is_pinned and a blocker-removed occupancy attack query, with independent coordinate conversion and factor classification. Shares board/rule library but not the primary ray detector.",
+                          "coverage": "Report root pins, candidate pins, changed witnesses, candidate variation per root, counts-only versus identity-only changes, and retained/added/removed witnesses by owner. Descriptive; no post-hoc coverage threshold or quality inference.",
+                          "engineering_gate": "Every primary root/candidate tuple and menu exactly reproduces in reference; every primary mirror and board-preservation check passes.",
+                          "time_cap_seconds": 900,
+                          "limits": "Pins are established chess information and factor graphs are established architectures. This is not a new trained network, a legal-attack mask, search, tactical correctness proof or generic novelty claim. Relative pins, double-vacancy en-passant constraints and other king-safety rules are not encoded. All positions are previously exposed roots or legal children, plus their already-excluded mirrors."
+                        },
+                        "chess_version": "1.11.2",
+                        "sources": {
+                          "src/openjev/research/chess_pin_factors.py": "e55fb5cd8fbe97bd0206bef380ad47bdbb57f02b6d745daa1d585e4f09490163",
+                          "tests/test_chess_pin_factors.py": "71e28e83700dbd14066056d40449b7beefbdeb6741b72af71e89bf0001b34204",
+                          "scripts/chess_pin_factor_screen.py": "6feefd71ee6409f87175e314aeb83982ed35a64fb079794ce113ddc6b4b011ef",
+                          "tests/test_chess_pin_factor_screen.py": "42e03442c5fee3d86d33962fbf83c17604cc2a66a04b43a241068844118d872f"
+                        },
+                        "input": "runs/chess-child-graph-cache-v1/execution/train/roots.jsonl",
+                        "input_sha256": "6c8b551cd157e379dae0cf93c7131832b56affd19ee562a8fb6324c0ddad72a6",
+                        "parent_audit_sha256": "fbaf69f32f4614302041afb79fb7f72512c3606a6a9bba85045fee29c2d4da5d",
+                        "parent_completed_sha256": "e719bbae570e02edb7562f33fdd96c22e84e579bfc8d2e5e5a2bf347ab0901e3"
+                      },
+                      "input_plan_sha256": "473eda9b0832b2565851993abc0597b8202aa9d004bace347258ef6b104c7bec",
+                      "input_audit_sha256": "1418ebf98280a5327f1b35a54620c529b2fa2ac241d57697d78574e3aeab2ea8"
+                    },
+                    "parent_audit_sha256": "efa068a3a0ee48da176ced8afd05e85a0d29cbbec07f9eaebc5412262dc5357c"
+                  },
+                  "control_audit_sha256": "afb2d88e09ecc9bcf099e9b11b892d963a6724cb990209313f704b8630d67717"
+                },
+                "failure_sha256": "fe8fe47998d3fa07e97fd1656efc4c6b3cec379feef5ac5a61df41e1b260ee87",
+                "diagnostic_sha256": "99f2b5b5b469dc025dbca5e5b13b5d1d29e453bc4da9156b18622dcc6762b7b4"
+              },
+              "followthrough_audit_sha256": "99e6656bb27bdf6f09bb3027d4959e94d677911847977841c8c4212ad103d600"
+            },
+            "prior_audit_sha256": "8a73bcbec999d44241aab43f3abab6ed8c2d14e636e41da35dc278e1ea14bb63"
+          },
+          "parent_audit_sha256": "ba0ea8d1b97ee7bfcc57c437b70712782c09ff7a5cd541ad9aa043947ad63bb1"
+        },
+        "parent_audit_sha256": "4002dc78619e17375ef3f8a7a4622c5ca31955f6c65ed1e98366469f00741201",
+        "training_rows_sha256": "582d86e65e8dc368f73e9419789f9bdf13a1f3a2ecbb11ad12aca485d0168e4e",
+        "native_training_manifest_sha256": "a5fc2042d5147f38f2970d27eaa1b1d2f2161caeb7e2de34786616b365c3ba4b"
+      },
+      "feature_audit_sha256": "2f7e305d5348ff4e6a16f3b7e7438a50e8544e558a75a6ffa25d733d08e3dedf"
+    },
+    "pin_audit_sha256": "17aad4d5b78529b0060ef2244c804c5ec84ac44d1bee86522056e675cd358e72"
+  },
+  "training_loader_audit_sha256": "7c9af4dae89453e3b521c66ae7b5327f0cf19941c2911033f7d4fa280a0712ee",
+  "panel_rows_sha256": {
+    "dev": "eda4bca525439c42060ea5f52ad12f27b04b8d7cf7a4d55ffcf184e6aee5b285",
+    "shift": "7bc3e4630981f9a51829fa13e24e70feda2d64cd7275854e563371e1dc2c07d8"
+  },
+  "panel_graph_manifests_sha256": {
+    "dev": "ffd43c45626ef2a9f50880064d7fc87d76eac5701c6a75165ae80b13ff152559",
+    "shift": "5e6a95cb75df688344e40410c94c35afbd50929a0423f05263e4a22820340ccf"
+  }
+}

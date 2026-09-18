@@ -1,0 +1,98 @@
+{
+  "status": "completed",
+  "plan_sha256": "b73a101d9aa6bb407e0bee556a27bb292472a55f2284efa9501eb9950f0c32ca",
+  "summary_sha256": "e5d5c2c93b55e5a6ba52b0e54f9801ef2e968b2d8834994fc83096e08533df0f",
+  "execution_receipt_sha256": "57e56acffafc81b1b14c717c7b2397d0702c02f2fd1439b6e6a4d0e6551170c6",
+  "auditor_sha256": "04e69159db12eb64bc561f0e91ad737f389483797f981867aab35f3e2921ff86",
+  "evaluation_predictions_replayed": 86016,
+  "new_head_predictions_replayed": 61440,
+  "copied_reference_predictions_replayed": 24576,
+  "training_updates_checked": 18432,
+  "fresh_initial_states_exact": true,
+  "max_replay_nll_error": 0.0,
+  "gate_recomputed": [
+    {
+      "split": "dev",
+      "comparator": "base",
+      "mean_gain": 0.0546875,
+      "minimum_paired_seed_gain": 0.04541015625,
+      "required_mean_gain": 0.0,
+      "passed": true
+    },
+    {
+      "split": "dev",
+      "comparator": "child",
+      "mean_gain": 0.00341796875,
+      "minimum_paired_seed_gain": -0.00830078125,
+      "required_mean_gain": 0.01,
+      "passed": false
+    },
+    {
+      "split": "dev",
+      "comparator": "union",
+      "mean_gain": 0.005208333333333333,
+      "minimum_paired_seed_gain": 0.00146484375,
+      "required_mean_gain": 0.01,
+      "passed": false
+    },
+    {
+      "split": "dev",
+      "comparator": "rotated",
+      "mean_gain": 0.005859375,
+      "minimum_paired_seed_gain": 0.001953125,
+      "required_mean_gain": 0.01,
+      "passed": false
+    },
+    {
+      "split": "dev",
+      "comparator": "wldn",
+      "mean_gain": 0.0021158854166666665,
+      "minimum_paired_seed_gain": -0.0029296875,
+      "required_mean_gain": 0.01,
+      "passed": false
+    },
+    {
+      "split": "shift",
+      "comparator": "base",
+      "mean_gain": 0.051106770833333336,
+      "minimum_paired_seed_gain": 0.04296875,
+      "required_mean_gain": 0.0,
+      "passed": true
+    },
+    {
+      "split": "shift",
+      "comparator": "child",
+      "mean_gain": 0.007649739583333333,
+      "minimum_paired_seed_gain": 0.00634765625,
+      "required_mean_gain": 0.01,
+      "passed": false
+    },
+    {
+      "split": "shift",
+      "comparator": "union",
+      "mean_gain": 0.001953125,
+      "minimum_paired_seed_gain": -0.00439453125,
+      "required_mean_gain": 0.01,
+      "passed": false
+    },
+    {
+      "split": "shift",
+      "comparator": "rotated",
+      "mean_gain": 0.00390625,
+      "minimum_paired_seed_gain": -0.00244140625,
+      "required_mean_gain": 0.01,
+      "passed": false
+    },
+    {
+      "split": "shift",
+      "comparator": "wldn",
+      "mean_gain": 0.0048828125,
+      "minimum_paired_seed_gain": 0.0029296875,
+      "required_mean_gain": 0.01,
+      "passed": false
+    }
+  ],
+  "bootstrap_intervals_recomputed": 10,
+  "wall_seconds": 280.3110682964325,
+  "scope": "Reauthenticate frozen inputs and full preflight replay; check every minibatch index receipt, fresh initial states, training-before-evaluation stamp and trained checkpoint; native root/menu/label checks; replay all86016 new/copied predictions and recompute gates/intervals. Full neural replay uses production graph packing; independent Python graph-packing checks are bounded to the prior engineering screen. No full retraining or complete native child-cache reconstruction."
+}

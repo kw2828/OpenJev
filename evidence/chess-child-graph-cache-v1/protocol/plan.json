@@ -1,0 +1,42 @@
+{
+  "protocol": {
+    "version": "native-child-attack-bits-v1",
+    "splits": {
+      "train": 32768,
+      "dev": 2048,
+      "shift": 2048
+    },
+    "construction": "Every legal native child, fixed root-player frame, sorted UCI order; four relation channels are derived later from the two stored binary attack channels",
+    "storage": "Little-endian bit packing,1024 bytes per binary graph; row offsets and menus bind candidate ownership; no teacher fields in cache",
+    "new_positions": 0,
+    "new_labels": 0,
+    "model_calls": 0,
+    "engine_calls": 0,
+    "time_cap_seconds": 1800,
+    "limits": "Already exposed development data. Serialization utility, not a model, timing advantage or independent confirmation."
+  },
+  "parent_plan_sha256": "09352b82e643e95330a11f11d3f14ae9ccaef31c906eb04f85563318935ca6e4",
+  "inputs": {
+    "train": {
+      "path": "runs/chess-spatial-v1/execution/data/train.jsonl",
+      "sha256": "582d86e65e8dc368f73e9419789f9bdf13a1f3a2ecbb11ad12aca485d0168e4e"
+    },
+    "dev": {
+      "path": "runs/chess-candidate-v2/execution/data/dev.jsonl",
+      "sha256": "eda4bca525439c42060ea5f52ad12f27b04b8d7cf7a4d55ffcf184e6aee5b285"
+    },
+    "shift": {
+      "path": "runs/chess-candidate-v2/execution/data/shift.jsonl",
+      "sha256": "7bc3e4630981f9a51829fa13e24e70feda2d64cd7275854e563371e1dc2c07d8"
+    }
+  },
+  "sources": {
+    "src/openjev/research/chess_child_graph_cache.py": "bf83ed52de90738476aa6dfb73b2a5d2c95f85f461b7a216d03f07056d416199",
+    "src/openjev/research/chess_graph_contrast.py": "452db2f1feafad2fb57cfb30da08f91ad950c7d70dca0470258d03f70fb38ba2",
+    "src/openjev/research/chess_counterfactual_transport.py": "901196608e88145bb007f443a50c9e588be74fd1d2003cfaa775aa5261253711",
+    "src/openjev/research/chess_transport.py": "8a1d02a1405ed4282dec4e4695c78dc315c25fdc1c357454d59f160c8fbf0a3e",
+    "scripts/chess_child_graph_cache_build.py": "0c530aa7da35775640ff9dc00f5d6167d8e00c447cb4178cbc112c3c95c48cec",
+    "tests/test_chess_child_graph_cache.py": "726c04cb3dfb5d0648c0165996f9e06c30c554686a51f3b3c5b3f25219767db7"
+  },
+  "prepared_unix": 1789726277.0763578
+}

@@ -1,0 +1,103 @@
+{
+  "protocol": {
+    "version": "two-endpoint-root-relation-transport-v1",
+    "arms": [
+      "transport",
+      "no_overlap",
+      "uniform",
+      "static",
+      "rewired"
+    ],
+    "backbone_seeds": [
+      97,
+      109,
+      127
+    ],
+    "head_seed": "backbone seed + 1100",
+    "width": 32,
+    "transport_steps": 3,
+    "backbone": "frozen final direct CandidateChess v2; all original pretraining costs retained",
+    "train_examples": 32768,
+    "eval_examples_per_panel": 2048,
+    "epochs": 6,
+    "batch_size": 128,
+    "updates_per_fit": 1536,
+    "optimizer": "Adam",
+    "learning_rate": 0.001,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0.0,
+    "gradient_clip": 1.0,
+    "loss": "legal-move CE only; root value and backbone are unchanged",
+    "device": "cpu",
+    "threads": 2,
+    "deterministic_algorithms": true,
+    "batch_order_seed": "700000 + 100*backbone_seed + epoch",
+    "fit_order_seed": 710003,
+    "rewiring": "five accepted swaps per original directed edge, capped at20 attempts per desired swap; preserve per-node in/out degrees separately per color; record unmet targets and retained edges",
+    "rewire_seed": "first8 bytes SHA256(transport-rewire-v1|literalFEN), big-endian",
+    "evaluation": "all final heads finish before any evaluation; no selection, retries or budget extension",
+    "data_status": "existing development data, never an untouched confirmation set",
+    "gate": "Mean transport agreement gain on BOTH panels >=.01 over static/uniform/rewired, >=.005 over no_overlap, >=0 over unchanged backbone; every paired seed gain >=-.005 for each comparison",
+    "latency": "first16 dev roots by frozen existing order; two warmups then3 repeats, all six methods rotated; full legal enumeration, encoding, graph construction including rewiring, frozen backbone and head inference, UCI choice",
+    "diagnostic": "transport with rewired test-time edges, explicitly a corruption test not efficacy",
+    "bootstrap": "2000 source-game resamples per panel of paired correctness differences averaged over3 fitted seeds;95% percentile, descriptive and not simultaneous",
+    "time_cap_seconds": 3600,
+    "training": "15 adapters; no new engine or external model calls",
+    "limits": "Head controls store equal parameters; static/uniform disable router learning and no_overlap disables some input coordinates. Not matched active parameters or FLOPs. Frozen-backbone dependence; no Elo, calibration or novelty claim."
+  },
+  "parent_plan_sha256": "0cdcf5b9f9e64b5dde6f0a951fa4249475d050470e9036ce5c8ab76cf181c106",
+  "sources": {
+    "src/openjev/research/chess_transport.py": "8a1d02a1405ed4282dec4e4695c78dc315c25fdc1c357454d59f160c8fbf0a3e",
+    "scripts/chess_transport_study.py": "eed423949a0b345d9ab864d5991c982508074462a676d383cc49cb40330f5a8c",
+    "tests/test_chess_transport.py": "5f3195a8f66e0bc50caeb7a91d5e1fcaffc404731b09de36d25936d6c6c53a24",
+    "tests/test_chess_transport_study.py": "0489f0fd4f0732526cb55ccec016e865549f4de2818328998727c98ef981ec41",
+    "src/openjev/research/chess_candidate.py": "3f09247154d5ed47d300c00fb71729a3808d4504b344af62423571b8f12cd3fa",
+    "src/openjev/research/chess_anchor.py": "791be15f6b20bb40c2ff075ef824b4c725887592d32b966fe1fef38ac115210b",
+    "src/openjev/research/chess_spatial.py": "49e6e53d33cd52511c0e4a08074b9a7f0dc2244727df2879f3fb7fd1aa886ab4"
+  },
+  "inputs": {
+    "runs/chess-spatial-v1/execution/data/train.jsonl": "582d86e65e8dc368f73e9419789f9bdf13a1f3a2ecbb11ad12aca485d0168e4e",
+    "runs/chess-candidate-v2/execution/data/dev.jsonl": "eda4bca525439c42060ea5f52ad12f27b04b8d7cf7a4d55ffcf184e6aee5b285",
+    "runs/chess-candidate-v2/execution/data/shift.jsonl": "7bc3e4630981f9a51829fa13e24e70feda2d64cd7275854e563371e1dc2c07d8",
+    "runs/chess-candidate-v2/execution/direct-97/weights.pt": "fa83e320149eda2925f584e8ec807d06b404fa2643508655e105acf9e37f29b3",
+    "runs/chess-candidate-v2/execution/direct-109/weights.pt": "a7280a9f4aca07e462a7b3c12f447a9113a963ee3c13c1b01245e34a2d44fb1b",
+    "runs/chess-candidate-v2/execution/direct-127/weights.pt": "b51b9685680a1a754b7e2fe70836116d42b0583f4c110785cae5d06219e4db55"
+  },
+  "environment": {
+    "python": "3.12.13",
+    "torch": "2.14.0",
+    "numpy": "2.5.3",
+    "chess": "1.11.2",
+    "platform": "macOS-26.6.1-arm64-arm-64bit"
+  },
+  "fit_order": {
+    "97": [
+      "static",
+      "no_overlap",
+      "transport",
+      "rewired",
+      "uniform"
+    ],
+    "109": [
+      "static",
+      "rewired",
+      "uniform",
+      "transport",
+      "no_overlap"
+    ],
+    "127": [
+      "rewired",
+      "transport",
+      "uniform",
+      "static",
+      "no_overlap"
+    ]
+  },
+  "prepared_unix": 1789719946.1537669,
+  "prior_preflight": "runs/chess-transport-preflight-v1; artificial targets and runtime only",
+  "preflight_sha256": "6b0fae920bc1a64a48e5ee01624980d9453d6317d3e379cf70a841fbaa0f6950"
+}

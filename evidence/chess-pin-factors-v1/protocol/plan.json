@@ -1,0 +1,28 @@
+{
+  "protocol": {
+    "version": "absolute-pin-witness-input-v1",
+    "source_roots": 32768,
+    "stride": 32,
+    "selected_roots": 1024,
+    "indices": "0,32,...,32736 in the original training-root metadata, fixed before coverage outcomes.",
+    "scope": "All native legal candidates of 1024 fixed old training roots; label-free pin-witness input screen. No dev/shift panel, teacher, model or quality outcome is read.",
+    "witness": "Absolute pin only: same-color king and first blocker followed by an opposing compatible bishop, rook or queen. Both colors, fixed root-player square frame. Square-identity tuple(owner,king,blocker,attacker); factor role0 retained,1 added,2 removed.",
+    "primary": "Eight-ray geometric scan from both kings. Every child is a native legal successor. Check mirrored root and child witness equality after UCI rank reflection, source menu identity and board/history preservation.",
+    "reference": "Full native replay using python-chess is_pinned and a blocker-removed occupancy attack query, with independent coordinate conversion and factor classification. Shares board/rule library but not the primary ray detector.",
+    "coverage": "Report root pins, candidate pins, changed witnesses, candidate variation per root, counts-only versus identity-only changes, and retained/added/removed witnesses by owner. Descriptive; no post-hoc coverage threshold or quality inference.",
+    "engineering_gate": "Every primary root/candidate tuple and menu exactly reproduces in reference; every primary mirror and board-preservation check passes.",
+    "time_cap_seconds": 900,
+    "limits": "Pins are established chess information and factor graphs are established architectures. This is not a new trained network, a legal-attack mask, search, tactical correctness proof or generic novelty claim. Relative pins, double-vacancy en-passant constraints and other king-safety rules are not encoded. All positions are previously exposed roots or legal children, plus their already-excluded mirrors."
+  },
+  "chess_version": "1.11.2",
+  "sources": {
+    "src/openjev/research/chess_pin_factors.py": "e55fb5cd8fbe97bd0206bef380ad47bdbb57f02b6d745daa1d585e4f09490163",
+    "tests/test_chess_pin_factors.py": "71e28e83700dbd14066056d40449b7beefbdeb6741b72af71e89bf0001b34204",
+    "scripts/chess_pin_factor_screen.py": "6feefd71ee6409f87175e314aeb83982ed35a64fb079794ce113ddc6b4b011ef",
+    "tests/test_chess_pin_factor_screen.py": "42e03442c5fee3d86d33962fbf83c17604cc2a66a04b43a241068844118d872f"
+  },
+  "input": "runs/chess-child-graph-cache-v1/execution/train/roots.jsonl",
+  "input_sha256": "6c8b551cd157e379dae0cf93c7131832b56affd19ee562a8fb6324c0ddad72a6",
+  "parent_audit_sha256": "fbaf69f32f4614302041afb79fb7f72512c3606a6a9bba85045fee29c2d4da5d",
+  "parent_completed_sha256": "e719bbae570e02edb7562f33fdd96c22e84e579bfc8d2e5e5a2bf347ab0901e3"
+}
