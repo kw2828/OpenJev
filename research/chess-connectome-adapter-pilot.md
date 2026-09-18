@@ -1,6 +1,6 @@
 # Connectome residual-adapter pilot
 
-Status: the [architecture prototype](../src/openjev/research/chess_connectome_adapter.py) and [controlled training study](chess-connectome-study.md) are implemented. The [executable protocol is frozen](../evidence/chess-connectome-v1/protocol/plan.json); results are pending. The full-size CPU/MPS preflight completed all six cases and 18 synthetic updates. This study follows the failed candidate-conditioned comparison and remains separate from its continuation criteria and the completed ChessBench transfer panel. No biological-topology efficacy result is available.
+Status: the [architecture prototype](../src/openjev/research/chess_connectome_adapter.py) and [controlled training study](chess-connectome-study.md) completed. The original report audit passed on September 18, 2026; the biological topology failed its frozen continuation criterion (5/30 constituent checks). [Results](../docs/chess-connectome.md). The earlier full-size CPU/MPS preflight completed six cases and 18 synthetic updates. This study remains separate from the failed candidate-conditioned comparison and the completed ChessBench transfer panel. No biological-topology advantage is established.
 
 ## Question
 

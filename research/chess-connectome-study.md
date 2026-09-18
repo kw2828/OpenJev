@@ -2,7 +2,9 @@
 
 This study asks whether biological wiring helps a trained chess policy after controlling for its representation, recurrent computation, signed degrees, input mapping and training budget. It follows the failed candidate-conditioned study. No biological-topology performance advantage has been demonstrated.
 
-The [protocol is frozen](../evidence/chess-connectome-v1/protocol/plan.json); results are pending. Its exclusion snapshot contains 3,826,350 prior natural board states, with mirrored states reserved during admission. [Protocol receipt](../evidence/chess-connectome-v1/protocol/prepared.json).
+The [frozen protocol](../evidence/chess-connectome-v1/protocol/plan.json) completed and its original report audit passed on September 18, 2026. The biological topology failed the continuation rule: only 5 of 30 checks passed. Biological mean bounded loss was 0.10198/0.10396 (ordinary/shifted), compared with 0.09099-0.09664/0.09741-0.10426 across the three rewires. No topology advantage is established. [Results](../docs/chess-connectome.md).
+
+Its exclusion snapshot contains 3,826,350 prior natural board states, with mirrored states reserved during admission. [Protocol receipt](../evidence/chess-connectome-v1/protocol/prepared.json).
 
 The [adapter](chess-connectome-adapter-pilot.md) uses all 1,409 descending neurons and 44,090 signed directed connections from the audited source. This induced graph omits 430,912 boundary connections and sensory inputs. Its board interface is artificial; it is not an intact fly brain.
 

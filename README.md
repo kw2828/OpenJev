@@ -10,7 +10,7 @@ Score choices with stable IDs. Try text decisions in your browser, run local Doo
 
 [![Our locally trained candidate policy playing the first scheduled game, a draw](docs/assets/chess-candidate-game-001.gif)](https://kw2828.github.io/OpenJev/chess-candidate-replay.html)
 
-Our latest experiment compares **four small chess policies across twelve fits and 288 games**. Each scores every legal move. Two variants use exact next-board states from native chess rules. The GIF shows the first scheduled game, drawn by repetition.
+Our candidate experiment compares **four small chess policies across twelve fits and 288 games**. Each scores every legal move. Two variants use exact next-board states from native chess rules. The GIF shows the first scheduled game, drawn by repetition.
 
 ![All twelve candidate-policy fits, move quality, games and computation cost](docs/assets/chess-candidate-results.png)
 
@@ -18,7 +18,9 @@ Exact-delta matched Stockfish on **33.15%** of ordinary positions versus **31.75
 
 On a separate **4,096-position ChessBench transfer panel**, the four model families average **26.03-26.79%** move agreement. The gains remain small. [Transfer results](docs/chessbench-transfer.md).
 
-The [connectome study](research/chess-connectome-study.md) now has a frozen protocol: biological wiring versus three rewired controls, dense recurrence and node-local recurrence, across three seeds. Results are pending.
+The completed [connectome study](docs/chess-connectome.md) compared biological wiring with three rewired controls, dense recurrence and node-local recurrence across three seeds. It **did not establish a biological-wiring advantage**: only **5 of 30** required checks passed. All 21 models are shown below; there is no gameplay or Elo result for this study.
+
+<a href="docs/chess-connectome.md"><img src="evidence/chess-connectome-v1/figure/connectome-chess.png" width="640" alt="Completed connectome chess comparison: all 21 models, paired seeds, failed continuation criterion and full CPU decision cost"></a>
 
 [Results and all twelve weights](docs/chess-candidate.md) · [Connectome controls](research/chess-connectome-followup.md) · [Earlier capacity study](docs/chess-capacity.md)
 

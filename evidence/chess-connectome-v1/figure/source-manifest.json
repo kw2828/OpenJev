@@ -1,0 +1,446 @@
+{
+  "version": "chess-connectome-plot-v1",
+  "status": "completed",
+  "synthetic_fixture": false,
+  "summary_sha256": "7c96b00490b7af01e630c647cb63a1d7a99f084d326edd4809d4e89ee983eae0",
+  "report_completed_sha256": "0f070aa678aae0e2f35c6740d20d3a8f6cba214766b8d4100e2e948e02c1b11f",
+  "plan_sha256": "5543877d88d2c00b7085c93f2f01602f2d0b3439486b05661d1a8511af7f81db",
+  "execution_receipt_sha256": "07948f91fc6dfc2aa9cca065a69a4637a0569ac5bca6c9c10aa0b68afbe290fd",
+  "plot_source_sha256": "72734e78e5ae0fd5235d3843fd193e21ad15ecc938e9ee6b1d66960e3eb01403",
+  "figure_sha256": {
+    "connectome-chess.png": "f706475aedf475232d9fd9fbcac3d53b2aa6409b91ca212719673db6ee5af50e"
+  },
+  "matplotlib_version": "3.11.2",
+  "models": 21,
+  "final_adapter_fits": 18,
+  "paired_seeds": [
+    97,
+    109,
+    127
+  ],
+  "arm_order": [
+    "direct",
+    "biological",
+    "rewire151",
+    "rewire163",
+    "rewire179",
+    "dense",
+    "node_local"
+  ],
+  "panels": [
+    "dev",
+    "shift"
+  ],
+  "target_positions_per_panel": 2048,
+  "engine_positions_per_panel": 128,
+  "engine_requested_nodes_per_call": 20000,
+  "latency_positions_total": 128,
+  "latency_positions_per_panel": 64,
+  "latency_warmups_per_model": 3,
+  "aggregation": "Every seed shown; arithmetic means across all three paired seeds. No confidence intervals.",
+  "continuation_passed": false,
+  "gate_checks_passed": 5,
+  "gate_checks_total": 30,
+  "gate_recomputed_from_all_losses": true,
+  "gate_rule": "Biological mean signed bounded loss at least10% below each rewire with positive reference means, strictly better in every paired seed, and no worse than direct in every paired seed, all on both panels. Absolute tolerance1e-12.",
+  "selection": "No winner selection, sorting by outcome, dropping arms, seeds, panels or negative losses.",
+  "timing_scope": "Full CPU choose, both panels pooled, shared interactive host; not isolated latency.",
+  "validation_scope": "Authenticated completed summary plus saved-scalar/schema/gate validation. The study report, not this renderer, audits raw predictions and engine calls.",
+  "new_model_or_engine_calls": 0,
+  "limits": [
+    "All eighteen fits use original32768 training positions, labels and paired minibatch order, sixepochs,1536updates. Primary biological-vs-rewire topology comparison matches parameters and operations. Dense/local parameter counts differ. Every mode uses dense matmuls.",
+    "All three direct candidate-v2 final backbones are reused. Original backbone pretraining and earlier failed attempts remain part of the cost/provenance; no low-data sample-efficiency claim.",
+    "Stage1 has no arena or Elo estimate. Only a passed topology screen can justify a separately frozen arena replication; no game-strength claim from this stage.",
+    "Descriptive equal-seed means and paired seed differences on two development panels; no independent-position or seed-population confidence interval.",
+    "Wiring-prior mechanism screen, not an intact fly circuit, learned world model, search policy, calibrated confidence or established novelty. Historical generators have been studied.",
+    "Graph arrays, rewires and derived checkpoints remain local in runs/; no MIT redistribution of external biological assets or derivatives.",
+    "Full CPU choose call including native board/menu construction. Three starting-board warmups separately charged; fixed64positions per split. No concurrent planned heavy study during timing. Shared interactive host, not isolated latency; record load averages before and after each measurement."
+  ],
+  "plotted_values": [
+    {
+      "variant": "direct",
+      "seeds": [
+        {
+          "seed": 97,
+          "model": "direct-97",
+          "target_agreement_percent": {
+            "dev": 32.8125,
+            "shift": 24.8046875
+          },
+          "signed_bounded_engine_score_loss": {
+            "dev": 0.10078568474287651,
+            "shift": 0.09453960922514731
+          },
+          "cpu_full_decision_mean_ms": 0.5711247004001052
+        },
+        {
+          "seed": 109,
+          "model": "direct-109",
+          "target_agreement_percent": {
+            "dev": 32.666015625,
+            "shift": 24.51171875
+          },
+          "signed_bounded_engine_score_loss": {
+            "dev": 0.10409267833674647,
+            "shift": 0.09498603748848711
+          },
+          "cpu_full_decision_mean_ms": 0.5222551972110523
+        },
+        {
+          "seed": 127,
+          "model": "direct-127",
+          "target_agreement_percent": {
+            "dev": 33.59375,
+            "shift": 23.779296875
+          },
+          "signed_bounded_engine_score_loss": {
+            "dev": 0.08728162116568694,
+            "shift": 0.1407563365805589
+          },
+          "cpu_full_decision_mean_ms": 0.5177884531804011
+        }
+      ],
+      "mean": {
+        "target_agreement_percent": {
+          "dev": 33.024088541666664,
+          "shift": 24.365234375
+        },
+        "signed_bounded_engine_score_loss": {
+          "dev": 0.09738666141510331,
+          "shift": 0.11009399443139778
+        },
+        "cpu_full_decision_mean_ms": 0.5370561169305196
+      }
+    },
+    {
+      "variant": "biological",
+      "seeds": [
+        {
+          "seed": 97,
+          "model": "biological-97",
+          "target_agreement_percent": {
+            "dev": 33.49609375,
+            "shift": 25.0
+          },
+          "signed_bounded_engine_score_loss": {
+            "dev": 0.09045515822439307,
+            "shift": 0.09496832534319334
+          },
+          "cpu_full_decision_mean_ms": 1.2011226726826862
+        },
+        {
+          "seed": 109,
+          "model": "biological-109",
+          "target_agreement_percent": {
+            "dev": 32.958984375,
+            "shift": 24.755859375
+          },
+          "signed_bounded_engine_score_loss": {
+            "dev": 0.1064245029788033,
+            "shift": 0.09742558700283657
+          },
+          "cpu_full_decision_mean_ms": 1.1720699758370756
+        },
+        {
+          "seed": 127,
+          "model": "biological-127",
+          "target_agreement_percent": {
+            "dev": 33.935546875,
+            "shift": 24.12109375
+          },
+          "signed_bounded_engine_score_loss": {
+            "dev": 0.1090689016528061,
+            "shift": 0.1194852317150184
+          },
+          "cpu_full_decision_mean_ms": 1.1313551558487234
+        }
+      ],
+      "mean": {
+        "target_agreement_percent": {
+          "dev": 33.463541666666664,
+          "shift": 24.625651041666668
+        },
+        "signed_bounded_engine_score_loss": {
+          "dev": 0.10198285428533416,
+          "shift": 0.1039597146870161
+        },
+        "cpu_full_decision_mean_ms": 1.1681826014561618
+      }
+    },
+    {
+      "variant": "rewire151",
+      "seeds": [
+        {
+          "seed": 97,
+          "model": "rewire151-97",
+          "target_agreement_percent": {
+            "dev": 33.251953125,
+            "shift": 24.853515625
+          },
+          "signed_bounded_engine_score_loss": {
+            "dev": 0.08886715215558626,
+            "shift": 0.08771142156351316
+          },
+          "cpu_full_decision_mean_ms": 1.1573916426641517
+        },
+        {
+          "seed": 109,
+          "model": "rewire151-109",
+          "target_agreement_percent": {
+            "dev": 33.203125,
+            "shift": 24.0234375
+          },
+          "signed_bounded_engine_score_loss": {
+            "dev": 0.09924299033206017,
+            "shift": 0.09356526667142565
+          },
+          "cpu_full_decision_mean_ms": 1.2057424210070167
+        },
+        {
+          "seed": 127,
+          "model": "rewire151-127",
+          "target_agreement_percent": {
+            "dev": 33.59375,
+            "shift": 24.072265625
+          },
+          "signed_bounded_engine_score_loss": {
+            "dev": 0.0980666551248726,
+            "shift": 0.11094422290505272
+          },
+          "cpu_full_decision_mean_ms": 1.1403599546611076
+        }
+      ],
+      "mean": {
+        "target_agreement_percent": {
+          "dev": 33.349609375,
+          "shift": 24.31640625
+        },
+        "signed_bounded_engine_score_loss": {
+          "dev": 0.09539226587083967,
+          "shift": 0.09740697037999718
+        },
+        "cpu_full_decision_mean_ms": 1.167831339444092
+      }
+    },
+    {
+      "variant": "rewire163",
+      "seeds": [
+        {
+          "seed": 97,
+          "model": "rewire163-97",
+          "target_agreement_percent": {
+            "dev": 33.69140625,
+            "shift": 24.70703125
+          },
+          "signed_bounded_engine_score_loss": {
+            "dev": 0.08397671358523588,
+            "shift": 0.09445207521711241
+          },
+          "cpu_full_decision_mean_ms": 1.1433447180024814
+        },
+        {
+          "seed": 109,
+          "model": "rewire163-109",
+          "target_agreement_percent": {
+            "dev": 33.154296875,
+            "shift": 25.0
+          },
+          "signed_bounded_engine_score_loss": {
+            "dev": 0.09257126734174327,
+            "shift": 0.09665285697516082
+          },
+          "cpu_full_decision_mean_ms": 1.1728450554073788
+        },
+        {
+          "seed": 127,
+          "model": "rewire163-127",
+          "target_agreement_percent": {
+            "dev": 34.033203125,
+            "shift": 24.21875
+          },
+          "signed_bounded_engine_score_loss": {
+            "dev": 0.0964093615279226,
+            "shift": 0.1216726663918691
+          },
+          "cpu_full_decision_mean_ms": 1.1409957769501489
+        }
+      ],
+      "mean": {
+        "target_agreement_percent": {
+          "dev": 33.626302083333336,
+          "shift": 24.641927083333332
+        },
+        "signed_bounded_engine_score_loss": {
+          "dev": 0.0909857808183006,
+          "shift": 0.10425919952804745
+        },
+        "cpu_full_decision_mean_ms": 1.1523951834533364
+      }
+    },
+    {
+      "variant": "rewire179",
+      "seeds": [
+        {
+          "seed": 97,
+          "model": "rewire179-97",
+          "target_agreement_percent": {
+            "dev": 33.10546875,
+            "shift": 24.70703125
+          },
+          "signed_bounded_engine_score_loss": {
+            "dev": 0.10112548260322517,
+            "shift": 0.08745443063930199
+          },
+          "cpu_full_decision_mean_ms": 1.12200192961609
+        },
+        {
+          "seed": 109,
+          "model": "rewire179-109",
+          "target_agreement_percent": {
+            "dev": 33.349609375,
+            "shift": 24.365234375
+          },
+          "signed_bounded_engine_score_loss": {
+            "dev": 0.09103617838339993,
+            "shift": 0.09545734723288656
+          },
+          "cpu_full_decision_mean_ms": 1.2024703255519853
+        },
+        {
+          "seed": 127,
+          "model": "rewire179-127",
+          "target_agreement_percent": {
+            "dev": 33.7890625,
+            "shift": 24.267578125
+          },
+          "signed_bounded_engine_score_loss": {
+            "dev": 0.09774592488460947,
+            "shift": 0.1250600646434612
+          },
+          "cpu_full_decision_mean_ms": 1.1598700957620167
+        }
+      ],
+      "mean": {
+        "target_agreement_percent": {
+          "dev": 33.414713541666664,
+          "shift": 24.446614583333332
+        },
+        "signed_bounded_engine_score_loss": {
+          "dev": 0.09663586195707818,
+          "shift": 0.10265728083854991
+        },
+        "cpu_full_decision_mean_ms": 1.1614474503100307
+      }
+    },
+    {
+      "variant": "dense",
+      "seeds": [
+        {
+          "seed": 97,
+          "model": "dense-97",
+          "target_agreement_percent": {
+            "dev": 33.30078125,
+            "shift": 24.755859375
+          },
+          "signed_bounded_engine_score_loss": {
+            "dev": 0.09098107807089945,
+            "shift": 0.0915239825035565
+          },
+          "cpu_full_decision_mean_ms": 5.950499999926251
+        },
+        {
+          "seed": 109,
+          "model": "dense-109",
+          "target_agreement_percent": {
+            "dev": 33.154296875,
+            "shift": 24.609375
+          },
+          "signed_bounded_engine_score_loss": {
+            "dev": 0.0930653873906447,
+            "shift": 0.10295890431532119
+          },
+          "cpu_full_decision_mean_ms": 5.942817070717865
+        },
+        {
+          "seed": 127,
+          "model": "dense-127",
+          "target_agreement_percent": {
+            "dev": 33.88671875,
+            "shift": 24.31640625
+          },
+          "signed_bounded_engine_score_loss": {
+            "dev": 0.09678061733736706,
+            "shift": 0.12633082934447645
+          },
+          "cpu_full_decision_mean_ms": 6.832241484516999
+        }
+      ],
+      "mean": {
+        "target_agreement_percent": {
+          "dev": 33.447265625,
+          "shift": 24.560546875
+        },
+        "signed_bounded_engine_score_loss": {
+          "dev": 0.09360902759963707,
+          "shift": 0.1069379053877847
+        },
+        "cpu_full_decision_mean_ms": 6.241852851720371
+      }
+    },
+    {
+      "variant": "node_local",
+      "seeds": [
+        {
+          "seed": 97,
+          "model": "node_local-97",
+          "target_agreement_percent": {
+            "dev": 33.3984375,
+            "shift": 24.4140625
+          },
+          "signed_bounded_engine_score_loss": {
+            "dev": 0.08001295488650206,
+            "shift": 0.11407458858705641
+          },
+          "cpu_full_decision_mean_ms": 0.9206849072143086
+        },
+        {
+          "seed": 109,
+          "model": "node_local-109",
+          "target_agreement_percent": {
+            "dev": 33.30078125,
+            "shift": 24.4140625
+          },
+          "signed_bounded_engine_score_loss": {
+            "dev": 0.09246146880258371,
+            "shift": 0.09541078639205297
+          },
+          "cpu_full_decision_mean_ms": 0.9630293216105201
+        },
+        {
+          "seed": 127,
+          "model": "node_local-127",
+          "target_agreement_percent": {
+            "dev": 33.642578125,
+            "shift": 24.21875
+          },
+          "signed_bounded_engine_score_loss": {
+            "dev": 0.1050257348920222,
+            "shift": 0.10521207894295893
+          },
+          "cpu_full_decision_mean_ms": 0.9610917986719869
+        }
+      ],
+      "mean": {
+        "target_agreement_percent": {
+          "dev": 33.447265625,
+          "shift": 24.348958333333332
+        },
+        "signed_bounded_engine_score_loss": {
+          "dev": 0.09250005286036933,
+          "shift": 0.10489915130735611
+        },
+        "cpu_full_decision_mean_ms": 0.9482686758322719
+      }
+    }
+  ]
+}
