@@ -6,6 +6,12 @@ efficacy or continuation claim. The earlier world-model v1 records remain
 unchanged, but their claim of independent hidden disturbances and evaluation
 streams requires this correction.
 
+**Recovery outcome:** the separately frozen
+[six-fit v2 evaluation](reacher-reward-residual-control.md) completed with all
+17 original criteria retained. Nine passed; the continuation rule failed.
+The audit verifies the new concrete stream separation and all 177,600 recorded
+native transitions. Both old attempts retain the limitations documented below.
+
 This diagnosis used frozen source code, random-number arithmetic and terminal
 receipts. No model, planner, simulator or new-data calls were made. No partial
 reward-residual performance arrays, plots or metrics were inspected to decide

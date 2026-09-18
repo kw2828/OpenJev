@@ -11,9 +11,10 @@ improves adaptation at the same computational cost**. A connectome plus a world
 model is already covered by related work. A useful contribution needs a specific
 mechanism, an interaction against rewired controls, and real control improvement.
 
-Our immediate prerequisite is the [Reacher evaluation correction](reacher-rng-independence-correction.md).
-The six completed residual/free-head fits can be evaluated unchanged under a
-new stream contract. Their interrupted evaluation supplies no efficacy result.
+The [corrected six-fit Reacher evaluation](reacher-reward-residual-control.md)
+is complete: reward prediction improves 29%, ordinary control cost 3.1%, and
+shifted control cost 2.7%. It passes only 9/17 criteria and shows no consistent
+memory-reset penalty. The [old evaluation remains invalid](reacher-rng-independence-correction.md).
 The separate [30-fit chess mapping study](chess-connectome-mapping-study.md)
 failed its continuation rule; it does not support biological superiority.
 
@@ -193,9 +194,9 @@ Reacher task is a reference controller, not a proven safe action.
 
 ### 1. Establish useful control with the existing fits
 
-Finish a prospectively frozen, evaluation-only recovery of every final fit.
-Keep the original seventeen criteria and compare all six models. If learned
-planning remains weak, use the [matched-budget search comparison](reacher-planning-prior-work.md)
+The evaluation-only recovery preserved every final fit and all seventeen
+criteria, and failed its continuation rule. Because learned control remains
+weak, use the [matched-budget search comparison](reacher-planning-prior-work.md)
 before adding a new recurrent architecture: one batch of 256 proposals versus
 four CEM iterations of 64, charging every score and update. This is a planning
 diagnostic, not architecture novelty. The frozen v1 experiment remains stopped.

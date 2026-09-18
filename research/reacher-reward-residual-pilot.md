@@ -5,6 +5,11 @@ random-stream collision was discovered. All six fits finished, but evaluation
 was interrupted once and will not resume under this protocol. No efficacy
 result is claimed. The 114 engineering checks missed this independence defect.
 
+The separate [evaluation-only v2 is now complete](reacher-reward-residual-control.md).
+It preserves every final fit, uses new role-separated streams and passes 9/17
+criteria, failing its continuation rule. That result does not complete or
+validate this stopped attempt.
+
 The [correction and recovery scope](reacher-rng-independence-correction.md)
 also qualifies the earlier [nine-fit experiment](reacher-world-model-pilot.md).
 Both frozen source sets and all recorded outputs are preserved. A new protocol

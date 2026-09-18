@@ -84,6 +84,38 @@ def render(audit, expected_receipt, execution, out):
     fig.savefig(out / "reacher-reward-residual.png", dpi=180, facecolor="white")
     plt.close(fig)
 
+    fig, axes = plt.subplots(1, 2, figsize=(10, 4.2))
+    for row, (kind, label, color) in enumerate((FAMILIES[0], FAMILIES[2])):
+        fits = [value for name, value in summary["fits"].items() if name.startswith(kind + "-")]
+        times = [value["wall_seconds"] for value in fits]
+        axes[0].scatter(times, row + np.linspace(-.08, .08, len(times)), color=color, s=45)
+        axes[0].plot([min(times), max(times)], [row, row], color=color, linewidth=2)
+        for name in members(kind, summary["control"]["ordinary"]):
+            control = summary["control"]["ordinary"][name]
+            axes[1].scatter(1000 * control["per_case_amortized_seconds"], control["mean_cost"],
+                            color=color, s=50, label=label if name.endswith("-271") else None)
+    axes[0].set_yticks([0, 1], ["Free reward head", "Known-cost residual head"])
+    axes[0].invert_yaxis()
+    inherited = summary.get("version") == "reacher-reward-residual-control-v2"
+    axes[0].set_xlabel(("Inherited fitting time" if inherited else "Fitting time")
+                       + " (seconds)\nSetup and checkpointing included")
+    axes[0].set_xlim(left=0)
+    axes[0].set_title("Paired initialization; same data, size and 48 epochs", fontsize=10)
+    axes[1].axhline(summary["control"]["ordinary"]["zero"]["mean_cost"], color="#71787d",
+                    linestyle="--", label="Zero-command mean cost")
+    axes[1].set_xlabel("Full batched decision cost per case (ms, amortized)")
+    axes[1].set_ylabel("Ordinary episode cost (lower is better)")
+    axes[1].set_title("Actual control versus decision cost")
+    axes[1].legend(fontsize=8)
+    for ax in axes:
+        ax.grid(alpha=.15)
+    fig.suptitle("Every final fit and the cost of the analytical term", x=.02, ha="left", fontweight="bold")
+    fig.text(.02, .02, "Descriptive shared-host CPU timings. Each dot is one seed; no isolated-hardware or single-request latency claim."
+             + ("\nFit times come from the stopped v1 attempt; decision times come from fresh v2 evaluation." if inherited else ""), fontsize=9)
+    fig.tight_layout(rect=(0, .07, 1, .92))
+    fig.savefig(out / "reacher-reward-cost.png", dpi=180, facecolor="white")
+    plt.close(fig)
+
     # Authenticate only the exact raw files used for this scheduled replay.
     seeds = sorted(int(name.split("-")[1]) for name in summary["control"]["ordinary"]
                    if name.startswith("free-") and not name.endswith("-reset"))
