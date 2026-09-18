@@ -20,8 +20,10 @@ interventions. Adding JEPA, recurrence or a connectome is already established.
 
 The [completed chess comparison](../docs/chess-connectome.md) failed its
 biological-topology criterion. The separate
-[spatial-mapping study](chess-connectome-mapping-study.md) tests an interface
-hypothesis; it does not test persistent memory across decisions.
+[spatial-mapping study](chess-connectome-mapping-study.md) completed 30 fits and
+failed its continuation rule: learning the biological interface improved
+ordinary loss by 8.61%, with no shifted-panel improvement. This tested an
+interface hypothesis, not persistent memory across decisions.
 
 The [completed recurrent prediction pilot](../docs/recurrent-world-model-study.md)
 also failed its continuation criteria. Resetting memory did not change its

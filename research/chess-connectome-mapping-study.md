@@ -1,11 +1,10 @@
 # Does learning a spatial interface help biological wiring more than its controls?
 
-Status: frozen and launched, with 135 focused engineering checks and full
-original-input validation passing. The
-[launch observation](../evidence/chess-connectome-mapping-v1/launch-observation.json)
-confirmed the detached supervisor and worker were live in original-input
-verification, with zero fits or neural evaluations started. No new performance
-result is available.
+Status: completed once on 2026-09-18. All 30 fits and the saved-output audit
+completed; **27 of 40 predefined checks passed, so the continuation rule failed**.
+Learning the biological spatial mapping improved ordinary-panel mean loss by
+8.61%, but did not improve the shifted panel. This result does not justify the
+planned game-strength follow-up.
 
 [Frozen plan](../evidence/chess-connectome-mapping-v1/protocol/plan.json) SHA-256:
 `bef6862e84733c6436b09dc3d693037247895bc017132b388f692fabf74aac04`.
@@ -15,6 +14,61 @@ The [outcome-supervision comparison](../docs/chess-continuation.md) also failed
 its performance criteria. This study therefore retains the original frozen
 backbones and changes only how each graph receives and returns board features.
 It cannot change either previous result.
+
+## Completed result
+
+![All seeds, both panels, matched costs and all forty continuation checks](../evidence/chess-connectome-mapping-v1/figures/figure.png)
+
+[PDF figure](../evidence/chess-connectome-mapping-v1/figures/figure.pdf) ·
+[Complete audit summary](../evidence/chess-connectome-mapping-v1/audit/summary.json) ·
+[Per-model centipawn tails](../evidence/chess-connectome-mapping-v1/figures/engine_cp_tails.csv)
+
+These are means over all three paired seeds on the fixed 128-position engine
+subset of each exposed development panel. Lower signed bounded loss is better.
+
+| Topology | Ordinary, fixed | Ordinary, learned | Shifted, fixed | Shifted, learned |
+|---|---:|---:|---:|---:|
+| Biological | .101983 | .093204 | .103960 | .104099 |
+| Rewire 151 | .095392 | .101010 | .097407 | .107061 |
+| Rewire 163 | .090986 | .097719 | .104259 | .105320 |
+| Rewire 179 | .096636 | .102945 | .102657 | .106654 |
+| Node-local | .092884 | .094729 | .104899 | .110014 |
+| Unchanged direct reference | .097387 | .097387 | .110094 | .110094 |
+
+The direct columns repeat the same unchanged reference, not separate fits.
+The biological fixed-to-learned change is an 8.61% reduction on the ordinary
+panel and a 0.134% increase under shift. All three biological seeds improve
+on their fixed counterpart on the ordinary panel; under shift, two improve
+and one worsens. Biological learned mappings have lower means than learned
+rewires on both panels, but fail the required magnitude and seed consistency.
+Some fixed controls also outperform biological learned mappings.
+
+All eight requirements for a 10% mean reduction failed. Three strict paired
+rewire comparisons and two direct-model no-degradation comparisons also failed.
+All eight topology-by-mapping difference-in-differences checks passed: mapping
+helped biology more, or hurt it less, than each control. In the shifted panel,
+that interaction reflects controls becoming worse, not a biological improvement.
+The forty checks are a predeclared continuation rule, not independent statistical
+tests or a measure of statistical significance.
+
+All 30 final fits were retained: 46,080 optimizer updates and 9,600 proposal
+pairs. Learned mappings accepted 2,110 of their 4,800 proposals; fixed controls
+accepted none while paying for both forwards. The biological learned fits
+accepted 136, 146 and 151 of 320 proposals for seeds 97, 109 and 127.
+
+Primary execution took 2,395.74 seconds and saved-output auditing 833.92 seconds,
+within the respective 7,200/1,800-second limits. Summed complete fit time was
+1,518.43 seconds, including 477.49 seconds of proposal work. Proposal time is a
+subset, not an additional cost. Stronger grading used 748 deduplicated calls,
+14,960,000 requested nodes and 14,885,370 reported nodes. Biological learned
+mean full-decision latency was 1.752 ms versus 0.656 ms for the unchanged direct
+reference on this shared host; this is not an isolated speed comparison.
+
+The fair conclusion is an ordinary-panel mapping effect and a descriptive
+interaction with topology, without reliable improvement under scenario shift.
+It does not establish biological superiority, a recurrent world model, novelty,
+chess playing strength or Elo. The previous negative connectome and continuation
+studies remain unchanged.
 
 ## Intervention and controls
 
@@ -67,7 +121,7 @@ forward MAC estimates are not complete training FLOP measurements.
 
 ## Evaluation and continuation rule
 
-All 30 final fits finish before evaluating the benchmark panels. There is no best-seed,
+All 30 final fits finished before evaluating the benchmark panels. There is no best-seed,
 best-epoch or best-map selection. Reuse the exact old connectome development
 panels and their fixed 128-position engine subsets. Every one of the 33 models
 receives ordinary and shifted evaluation with complete legal-move score vectors
@@ -138,3 +192,21 @@ training speed or policy quality.
 Constrained learned interfaces already have substantial [prior work](chess-connectome-interface.md#closest-checked-prior-work).
 This study tests a specific mapping interaction. It does not claim novelty
 from merely connecting a chess encoder to a connectome.
+
+## Public evidence and local artifacts
+
+The public evidence package contains the frozen protocol, engineering/input
+receipts, completed audit summary and receipt, and authenticated PNG/PDF figure.
+The companion CSV preserves all 66 per-model/panel centipawn means, p95 values
+and maxima, including the direct references. Its p95 values are not pooled
+across fits. The [figure provenance](../evidence/chess-connectome-mapping-v1/figures/provenance.json)
+binds the plan, audit receipt, sources and derived outputs. Rendering used
+saved outputs only and made zero model or engine calls.
+
+Biological graph arrays, rewires, derivative checkpoints, original training
+data, full raw execution records and launch logs remain local under
+`runs/chess-connectome-mapping-v1/` and their original source directories. They
+are not included in the public evidence package, which is therefore not a
+self-contained execution archive. The saved-output audit verifies the local
+records; the public figure can be reproduced from the public plan and audit
+without loading weights or graph assets.
