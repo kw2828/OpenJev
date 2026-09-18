@@ -37,6 +37,17 @@ uses invented targets and an artificial graph. Its roughly 20-minute linear
 update-loop projection excludes input preparation, checkpointing, journals and
 evaluation; it is not the measured runtime of this study.
 
+A prospective [figure generator](../../scripts/plot_chess_connectome_mapping.py)
+is ready for the completed audit. Its [56 synthetic checks](figure-tests.json)
+cover complete model/seed coverage, authenticated evidence and recomputed
+criteria. The four-panel figure will retain every seed, both evaluation panels,
+training/proposal cost and all forty checks. A companion CSV retains all 66
+per-model/panel centipawn mean, p95 and maximum values. Synthetic preview images
+remain local and are not study results.
+Rendering requires `matplotlib==3.11.2`, installed separately from the frozen
+training lock. The renderer requires the completed audit and externally checked
+plan/receipt hashes before producing a result figure.
+
 ## Execution
 
 On the original host, with the pinned original assets available:
