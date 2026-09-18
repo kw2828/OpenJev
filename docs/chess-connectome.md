@@ -41,6 +41,19 @@ There is no arena result or Elo estimate for this study.
 Any follow-up needs its own protocol and matched controls. It cannot change
 this study's failed criterion.
 
+## What to test next
+
+The input/output projections already learned during this experiment. A
+[saved-weight audit](../evidence/chess-connectome-parameter-audit-v1/README.md)
+confirms that all eighteen adapters moved away from their zero-output
+initialization. It does not establish which computations affected decisions.
+
+A separate [spatial-interface prototype](../research/chess-connectome-interface.md)
+can change which board squares feed each neuron while preserving a hard,
+tied gather/scatter mapping. Biological and rewired graphs would receive the
+same mapping-search budget. This prototype has synthetic CPU/MPS checks;
+it has not been trained on chess data and supplies no new performance result.
+
 ## Evidence
 
 - [Frozen study description](../research/chess-connectome-study.md)
