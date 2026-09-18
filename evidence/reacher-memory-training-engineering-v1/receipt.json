@@ -1,0 +1,42 @@
+{
+  "version": "reacher-memory-training-engineering-v1",
+  "recorded_at": "2026-09-18T23:36:54.021921+00:00",
+  "status": "synthetic_checks_passed",
+  "scope": "Engineering only. No scientific fits, control evaluation or new study launched.",
+  "source_sha256": {
+    "src/openjev/research/reacher_memory_training.py": "2452c8c76d01f263bad34b419e34ca9e182ebc8d06b1da8d4aaa893ee009e318",
+    "tests/test_reacher_memory_training.py": "f092504f1e5add00edf28476a0ef580ef3acfafd9308e11f687dcf748bbc2224"
+  },
+  "tests": {
+    "command": "PYTHONPATH=src:scripts .venv-robotics/bin/python -m pytest -q tests/test_reacher_memory_training.py tests/test_reacher_observation_baseline.py tests/test_reacher_bounded_history.py",
+    "passed": 114,
+    "focused_trainer_checks": 51,
+    "reported_seconds": 2.41,
+    "exit_code": 0,
+    "independent_root_rerun": true
+  },
+  "ruff": {
+    "status": "passed",
+    "files": [
+      "src/openjev/research/reacher_memory_training.py",
+      "tests/test_reacher_memory_training.py"
+    ],
+    "exit_code": 0
+  },
+  "frozen_objective_source_hashes_unchanged": 42,
+  "protocol_sha256": "dca778153230375a5a0e790390d328d69857dd4c2d3260b61fb9f214fa1d32f2",
+  "review": {
+    "root": "Read implementation, restoration, data validation and alignment tests; no blocker found.",
+    "independent_peer": "Read-only peer review found no material blocker in actual-class restore, Adam/cursor validation, shared episode order or real/imagined input alignment. No inference or new tests in peer review."
+  },
+  "scientific_training_run": false,
+  "scored_evaluation_run": false,
+  "compute_matched": false,
+  "next_requirements": [
+    "New frozen protocol",
+    "Generic actual-class deployment runner",
+    "Independent saved-output audit",
+    "Capacity and full rehearsal checks",
+    "Explicit public-information competence controls"
+  ]
+}

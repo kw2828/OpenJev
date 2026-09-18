@@ -84,3 +84,25 @@ observation updates and two full transitions per real assimilation, in addition
 to ordinary imagined planning; equal parameters do not match computation.
 Class-bound deployment checkpoints are implemented, but they are not training
 resume checkpoints or permission to substitute models into a frozen run.
+
+## Anchor-only training component
+
+The separate [memory trainer](../src/openjev/research/reacher_memory_training.py)
+now supports persistent GRU, current-packet GRU, strict three-packet GRU and
+current-packet MLP through explicit classes. The three GRUs share an identical
+initial tensor payload; the MLP has its own named initialization. All arms can
+consume the same saved minibatch permutations and unchanged sequence loss,
+Adam configuration and gradient clipping.
+
+Full checkpoints bind the actual class, public training data, initialization,
+orders, optimizer state, source/runtime metadata and exact next batch. Restore
+requires external expected bindings and rejects failed partial trainers. This
+does not authorize resuming any frozen experiment.
+
+[114 synthetic checks](../evidence/reacher-memory-training-engineering-v1/receipt.json)
+passed, including 51 trainer checks and the 63 model checks above. Two-update
+parity and uninterrupted-versus-restored training were checked for all four
+classes, including an epoch boundary and partial minibatch. These are
+engineering checks, not control results. A scientific protocol, deployment
+runner, independent audit and cost checks remain to be completed before a new
+comparison is launched.
