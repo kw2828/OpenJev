@@ -1,0 +1,26 @@
+{
+  "status": "corrected_before_scored_protocol_freeze",
+  "study": "reacher-search-v1",
+  "plan_sha256": "8d5da5ee146c95532721fd1b6582bc37a091d5417e5d8b68f73e241379f2428b",
+  "scored_rng_namespace": "reacher-search-v1-scored",
+  "earlier_fixture_scope_sha256": "c39a58dfdf9f25f03e63f4b1b98ee85199a956aa281d8d98a93d09e123c72855",
+  "earlier_fixture_scope": {
+    "scope": "engineering_only_random_GRU_weights_no_training_no_efficacy_claims",
+    "status": "interrupted_preserved",
+    "namespace": "reacher-search-v1",
+    "issue": "Engineering fixture unintentionally exercised the then-prospective namespace before a separate engineering namespace was required.",
+    "activity": "Two random GRU arms, one case, 50-step control, all planners/panels/references. Interrupted during control rows. Diagnostic rollout collection was not reached, but diagnostic proposal innovations had been stored.",
+    "inspection": "Only completion labels and harness checks inspected; no gameplay/control efficacy metrics read.",
+    "boundary": "No real protocol had been frozen or scored. Production must use a distinct fresh namespace excluding this namespace; later engineering uses explicit separate namespaces."
+  },
+  "additional_scope": "Some earlier native unit fixtures also used the initial draft namespace. The complete namespace is excluded, not only the partially executed cases.",
+  "engineering_checks": {
+    "combined_tests_passed": 178,
+    "inherited_checkpoint_forward_calls": 0,
+    "full_size_random_weight_fixture_control_traces_reconstructed": 50,
+    "full_size_random_weight_fixture_diagnostic_traces_reconstructed": 54,
+    "full_size_random_weight_fixture_native_transitions_replayed": 5664,
+    "native_max_abs_error": 0.0
+  },
+  "claim": "Engineering validation only. No evidence of model effectiveness or architectural novelty."
+}

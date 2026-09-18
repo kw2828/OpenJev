@@ -1,6 +1,9 @@
 # Can better search make the existing world model useful?
 
-Status: engineering preview and proposed experiment, not a frozen scored run.
+Status: frozen evaluation-only experiment, prepared September 18, 2026.
+No inherited model was scored on these new cohorts before freezing the
+[protocol](../evidence/reacher-search-v1/protocol/plan.json).
+Its SHA-256 is `8d5da5ee146c95532721fd1b6582bc37a091d5417e5d8b68f73e241379f2428b`.
 The [corrected six-fit result](reacher-reward-residual-control.md) improves
 prediction much more than control. This comparison isolates search allocation
 before changing training, latent representations or biological wiring.
@@ -25,6 +28,10 @@ The component passes 54 synthetic checks for exact budgets and call schedules,
 paid mean evaluation, global-best retention, input immutability, shared prefixes,
 clipping, invalid scores and terminal boundaries. Independent review caught and
 corrected an extra random-shooting score call before any scored experiment.
+The complete runner and independent auditor add 124 checks, for 178 passing
+checks in the combined suite. A random-weight rehearsal reconstructed every
+saved proposal and replayed native transitions. These checks establish harness
+behavior, not model effectiveness.
 
 ## Fixed comparison
 
@@ -80,7 +87,7 @@ problem for offline model-based control. Better predicted reward under stronger
 search can reflect model error. Test this on common states rather than comparing
 optimistic scores from controllers that have reached different states.
 
-Proposed diagnostic: 16 fresh mixed-policy episodes, with four prespecified roots
+The diagnostic uses 16 fresh mixed-policy episodes, with four prespecified roots
 per episode: step 6, two steps into the ordinary blackout, the first observation
 after that blackout, and step 47. Replay all three sensor histories over the
 same physical records. Reconstruct each model's state solely from public
@@ -88,7 +95,10 @@ observation packets and issued commands.
 
 At each root, evaluate a common 64-sequence bank and every model/planner's
 selected sequence in cloned native states under four shared, independent noise
-branches. The union contains up to 118 sequences across all sensing panels.
+branches. Retain all 118 identity slots across all sensing panels, including
+duplicate sequences. Report the number of unique sequences separately; retaining
+duplicates keeps the native evaluation budget fixed and the identity mapping
+explicit.
 Native results are diagnostic labels only, never selection inputs. Save commands,
 noise, integration state, time index, observations and rewards for replay.
 
@@ -113,20 +123,55 @@ actuator noise and bootstrap pairing require named intentional reuse; noise
 must never share a candidate generator. Separate random-search extensions,
 CEM innovations, diagnostic collection and native diagnostic branches.
 
-The proposed full-run cap is 3,600 seconds, including diagnostics and final
+The frozen full-run cap is 3,600 seconds, including diagnostics and final
 artifact hashing. Before freezing, use separate engineering fixtures to verify
 that the required scope fits. No retries, replacement seeds or budget extensions
 are allowed after the scored run begins. A failure becomes a preserved attempt.
 The independent auditor reads saved predictions/proposals and replays native
 transitions; it must not rerun learned candidate scoring.
 
-Proposed planning continuation requires at least 5% lower residual-family mean
+Planning continuation requires at least 5% lower residual-family mean
 cost for CEM256 versus RS256 in both ordinary and shifted panels, with every
 paired residual fit improving. Publish free-head controls, all seeds, all costs
-and diagnostic failures regardless of outcome. This rule is not frozen until
-the complete runner, audit and protocol are ready.
+and diagnostic failures regardless of outcome.
 
-Keep the earlier control-competence and memory requirements unchanged. A search
-improvement is a conventional planning result. If ranking degrades, study model
+The scored namespace is `reacher-search-v1-scored`. Before freeze, random-weight
+engineering fixtures had exercised the initial draft namespace. The final
+protocol excludes that namespace and three separately named engineering
+namespaces at full production role coverage. Its 1,277 generator states are
+disjoint from 5,108 enumerated engineering states and all three earlier study
+namespaces, including original training. No inherited checkpoint was evaluated
+during those engineering fixtures. The
+[preflight note](../evidence/reacher-search-v1/engineering-namespace-note.json)
+preserves this correction.
+
+Carry the earlier failed 17-check result as authenticated historical context.
+The new study checks control competence for each planner, but does not rerun the
+earlier prediction endpoints or memory-reset interventions. It therefore cannot
+claim to have passed the earlier full continuation rule or established memory
+use. A search improvement is a conventional planning result. If ranking degrades, study model
 exploitation and training coverage. If ranking improves but control remains
 weak, next vary physical planning horizon under a new matched comparison.
+
+## Reproduce
+
+Use the pinned [robotics runtime](robotics-requirements.txt) and the complete
+upstream artifacts documented in the
+[six-fit report](reacher-reward-residual-control.md#costs-and-verification).
+The new runner authenticates every inherited weight and source before scoring.
+
+```bash
+PYTHONPATH=src:scripts .venv-robotics/bin/python scripts/reacher_search_study.py run \
+  --plan evidence/reacher-search-v1/protocol/plan.json \
+  --expected-plan-sha256 8d5da5ee146c95532721fd1b6582bc37a091d5417e5d8b68f73e241379f2428b \
+  --out runs/reacher-search-v1/execution
+PYTHONPATH=src:scripts .venv-robotics/bin/python scripts/reacher_search_study.py audit \
+  --plan evidence/reacher-search-v1/protocol/plan.json \
+  --expected-plan-sha256 8d5da5ee146c95532721fd1b6582bc37a091d5417e5d8b68f73e241379f2428b \
+  --execution runs/reacher-search-v1/execution \
+  --out evidence/reacher-search-v1/audit
+```
+
+Output paths are exclusive. Do not rerun into an existing attempt, replace
+cases, or extend the cap. The audit reconstructs proposals from saved scores
+and replays native actions; it performs no new learned inference.
