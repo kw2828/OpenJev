@@ -61,7 +61,7 @@ so saturation at the planner's zero reward ceiling is not the immediate
 explanation. These are [post-hoc saved-output diagnostics](../evidence/reacher-world-model-v1/diagnosis.json),
 not new trained comparators or causal proof.
 
-The next narrow test is an identical GRU that predicts residual task reward
+The [next narrow test](reacher-reward-residual-pilot.md) is an identical GRU that predicts residual task reward
 while a fixed analytical term supplies expected noisy actuator cost. Both it
 and a free reward-head baseline should receive the same prospectively longer
 training budget, data and planner, with fresh fit and evaluation seeds. Train
