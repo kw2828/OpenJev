@@ -115,6 +115,15 @@ consistent deterioration when useful recurrent memory is reset. The exact
 cohort, seeds, budgets, masks, loss weights and thresholds require a new frozen
 protocol before training. Lower latent loss alone cannot pass.
 
+Reset hidden state before assimilating the last visible packet, preserving
+current measured information. Pair initial conditions, sensing and exogenous
+noise in closed loop, while allowing actions and later observations to diverge.
+A reset loss establishes sensitivity to prior hidden state; reset-induced
+distribution shift remains an alternative explanation. A separately trained
+current-observation baseline is required for a stronger memory-advantage claim.
+The [unfrozen objective draft](reacher-objective-ablation-draft.md) specifies the
+next engineering and experiment requirements; it contains no scored result.
+
 Checkpoint metadata must also bind the auxiliary horizons, teacher EMA momentum,
 regularization weights and model settings. These Python configuration values
 are not contained in a tensor-only state dictionary. Count CPU transfers and

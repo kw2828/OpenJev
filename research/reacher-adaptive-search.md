@@ -324,7 +324,9 @@ The [GitHub release](https://github.com/kw2828/OpenJev/releases/tag/research-rea
 contains the complete saved execution in three parts. Their sizes and hashes
 are recorded in the [multipart manifest](../evidence/reacher-search-v1/execution-parts.json);
 the [archive manifest](../evidence/reacher-search-v1/execution-artifact.json)
-binds the packaged execution. Concatenate `.part-000`, `.part-001` and `.part-002`
+binds the packaged execution. The [publication check](../evidence/reacher-search-v1/release-verification.json)
+verifies GitHub's stored asset sizes and SHA-256 digests against those manifests.
+Concatenate `.part-000`, `.part-001` and `.part-002`
 in that order. The combined archive is **2,507,605,067 bytes**, SHA-256
 `fe36acf0842da8e827067d521a52f595101b12417b65ee1c8ef8873f3d48455e`.
 
