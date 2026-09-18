@@ -1,7 +1,7 @@
 # Can a known actuator penalty improve learned planning?
 
-Status: model component implemented and engineering-tested. This is a proposed
-follow-up, not a frozen executable protocol or a completed performance result.
+Status: complete runner and independent audit implemented and engineering-tested.
+This is not yet a frozen protocol or a completed performance result.
 It leaves the [negative nine-fit experiment](reacher-world-model-pilot.md)
 unchanged. No scored training has run for this treatment.
 
@@ -68,8 +68,19 @@ initialization. `residual_reward=False` reproduces the original forward pass,
 loss and gradients. Store `noise_std` and `residual_reward` in the experiment
 configuration; the compatible weight dictionary does not contain them.
 
-All 35 new engineering checks and 32 unchanged world-model checks passed.
-They include independent numerical integration of the clipped-Gaussian moment,
-gradient checks, clipping order, initialization identity and masked-input
-behavior. Analytical evaluation uses float64 on CPU. These tests establish
-component correctness, not training or control effectiveness.
+All **114 engineering checks** passed: 35 component checks, 32 unchanged
+world-model checks, five runner checks and 42 independent audit checks. They
+include numerical integration of the clipped-Gaussian moment, gradient checks,
+clipping order, initialization identity, masked-input behavior, malformed
+evidence rejection and a complete tiny train/control/native-replay fixture.
+Its synthetic cases are separate from the scored cohort. Analytical evaluation
+uses float64 on CPU. These tests establish engineering readiness, not control
+effectiveness.
+
+The run clock starts at the runner function's entry and includes input
+validation, training-data copying, every fit, evaluation and final artifact
+hashing. Python imports and final completion-receipt writing are outside that
+clock. The cap is cooperative, checked between operations. All-fit and
+evaluation-start receipts record the phase boundary; they are not an independent
+process observer. Timings share a host with another chess study, and batch
+amortized latency is not an isolated single-request benchmark.
