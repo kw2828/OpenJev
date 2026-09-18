@@ -201,7 +201,11 @@ the [Pendulum qualification](robotics-pendulum-qualification.md), which found
 that a short history largely sufficed, and the [nine-fit Reacher pilot](reacher-world-model-pilot.md).
 The latter failed its continuation rule: GRU and RSSM world models did not
 improve over zero commands, while supplied-physics planning did. It provides
-no biological-wiring result. The immediate next test separates a known motor
+no biological-wiring result. A subsequently found [cross-role RNG defect](reacher-rng-independence-correction.md)
+means these reaching scores cannot support the intended independent-disturbance
+qualification. The motor-cost follow-up was stopped for the same defect;
+the next step is fresh, correctly separated evaluation of all its completed
+fits without selection or retraining. That comparison separates a known motor
 penalty from learned task reward and gives both matched GRU arms a longer
 fixed training budget. Useful learned control must precede the topology test.
 Visual pretraining, whole-fly training and a large combined architecture remain

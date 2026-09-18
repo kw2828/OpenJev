@@ -1,9 +1,22 @@
 # Can a known actuator penalty improve learned planning?
 
-Status: frozen for one scored execution after 114 engineering checks passed.
-No completed performance result yet.
-It leaves the [negative nine-fit experiment](reacher-world-model-pilot.md)
-unchanged. No scored training has run for this treatment.
+Status: **stopped with an invalid evaluation protocol** after a cross-role
+random-stream collision was discovered. All six fits finished, but evaluation
+was interrupted once and will not resume under this protocol. No efficacy
+result is claimed. The 114 engineering checks missed this independence defect.
+
+The [correction and recovery scope](reacher-rng-independence-correction.md)
+also qualifies the earlier [nine-fit experiment](reacher-world-model-pilot.md).
+Both frozen source sets and all recorded outputs are preserved. A new protocol
+must separate every concrete random stream across roles, retain all six final
+fits unchanged, and use fresh evaluation episodes. This is evaluation recovery,
+not a replacement seed selected after inspecting performance.
+
+Saved evidence: [failure receipt](../evidence/reacher-reward-residual-v1/execution-failed.json),
+[invalid-attempt record](../evidence/reacher-reward-residual-v1/invalid.json), and
+[all-six-fit inheritance checks](../evidence/reacher-reward-residual-v1/fit-inheritance.json).
+The [planning literature follow-up](reacher-planning-prior-work.md) records
+possible later comparisons; it does not change this frozen attempt.
 
 [Frozen protocol](../evidence/reacher-reward-residual-v1/protocol/plan.json)
 SHA-256: `df9929ea6320e24ba32ec8e8fdd84f88f8435ed03db1bea655ec31d82345e0fd`.
@@ -31,6 +44,9 @@ reward. This is a conventional use of known reward structure, not a new RL
 algorithm or evidence for a recurrent-memory advantage.
 
 ## Intended matched comparison
+
+The design below is the original frozen attempt. Its independence requirement
+was not met by the implemented seed allocation.
 
 Use three fresh paired initialization seeds and six final fits. Keep the same
 768-episode training corpus, GRU size, initialization, optimizer, minibatch

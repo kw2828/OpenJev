@@ -1,5 +1,12 @@
 # Learned world models for reaching with missing sensors
 
+**Correction, September 18, 2026:** a cross-role seed collision coupled planner
+samples and hidden actuator noise in this study. The recorded scores and replay
+audit remain factual, but the intended independent-disturbance protocol was
+not met. Treat the following as descriptive outputs, not a valid independent
+control qualification. See the [defect and recovery plan](reacher-rng-independence-correction.md).
+The original source, protocol, audit and raw archive are preserved.
+
 This pilot asks whether a trained recurrent world model improves control when
 joint observations disappear. It follows the [literature review](connectome-world-model-robotics-reading.md)
 and the [closed Pendulum qualification](robotics-pendulum-qualification.md).
