@@ -6,6 +6,13 @@ This update runs actual Doom experiments with a learned Bayesian outcome model. 
 
 TypeSafe calls its method **Reinforcement Learning for Calibrated Decisions**. Its [launch article](https://typesafe.ai/blog/introducing-system-one-models-and-jev) describes typed probabilities and calibrated decisions, but the checked material does not supply a training loss or an implementation sufficient to reproduce that method. Do not infer its objective, Bayesian architecture, or internal reward from its name.
 
+The public `harshatheg/Qwen-2.5-1B-RLCD` repository provides parallel constrained
+inference around existing Qwen2.5-1.5B weights. Our [pinned source review](../research/qwen-parallel-source-review.md)
+found no new weights or training pipeline in the inspected release. Its MLX
+collision fallback floors confidence at 0.75, so that output should not be
+treated as calibrated probabilities. Shared-prefix batching remains a useful
+engineering idea to evaluate separately.
+
 [Yang et al.'s RLCD](https://arxiv.org/abs/2307.12950) means **Reinforcement Learning from Contrastive Distillation**, a different approach using positively and negatively prompted outputs to create preference pairs. It is not evidence for Jev's training recipe.
 
 The closest usable calibration-reward baseline found in this review is [RLCR's official implementation](https://github.com/damanimehul/RLCR), associated with [Beyond Binary Rewards](https://arxiv.org/abs/2507.16806). It combines correctness and calibration rewards for language-model training. Its published training setup uses multiple A100 GPUs. We reviewed its documented approach but did not import its code or launch that training job.

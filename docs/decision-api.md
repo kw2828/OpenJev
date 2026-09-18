@@ -42,6 +42,10 @@ The pinned Qwen instruction model receives context, the question, and descriptio
 
 Every question gets a fresh prefill. Shared-context caching, batching and persistent KV reuse are future optimizations. The checkpoint is a third-party MLX quantization of Qwen, not a newly trained OpenJev foundation model or a numerically identical full-precision copy.
 
+The [public Qwen parallel-decoding source review](../research/qwen-parallel-source-review.md)
+identifies an approach to shared-prefix batching and probability pitfalls to
+avoid. Its reported speedup has not been reproduced in OpenJev.
+
 ## Errors and execution boundary
 
 - 403: missing request header or cross-origin request.
