@@ -57,6 +57,10 @@ Its 135 engineering checks and full original-input validation pass. The
 The launch observation confirmed a live worker in input verification, before
 any fit or neural evaluation. No new performance result is available yet.
 
+A separate [literature review and robotics experiment plan](../research/connectome-world-model-robotics-reading.md)
+examines persistent memory, hidden-dynamics adaptation and learned time
+constants. These are proposed follow-ups, not new chess results.
+
 ## Evidence
 
 - [Frozen study description](../research/chess-connectome-study.md)
