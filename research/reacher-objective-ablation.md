@@ -1,6 +1,8 @@
 # Does latent prediction improve recurrent control?
 
-**Frozen September 18, 2026; results pending.** This comparison holds the residual
+**Frozen and launched September 18, 2026; results pending.** The
+[launch receipt](../evidence/reacher-objective-ablation-v1/launch.json) identifies
+the single execution attempt. This comparison holds the residual
 GRU and CEM256 planner fixed, then changes the training objective. It follows the
 [completed adaptive-search result](reacher-adaptive-search.md). It is a development
 experiment, not a JEPA reproduction or a test of biological wiring.
