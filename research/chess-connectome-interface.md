@@ -1,8 +1,9 @@
 # Is the fixed spatial assignment limiting the connectome adapter?
 
 Status: implemented and checked. The separate
-[30-fit study](chess-connectome-mapping-study.md) has passed full original-input
-validation and is preparing its protocol; no real fit has started.
+[30-fit study](chess-connectome-mapping-study.md) passed full original-input
+validation and is frozen and launched. The recorded launch observation precedes
+all fits and supplies no new policy-quality result.
 The [original biological comparison](../docs/chess-connectome.md) remains
 negative. No current evidence identifies the board-to-neuron assignment as
 the cause of that result.

@@ -1,9 +1,14 @@
 # Does learning a spatial interface help biological wiring more than its controls?
 
-Status: implementation complete, with 135 focused checks passing. Authentication
-of the original data and rebuilt input tensors passed. Protocol preparation is
-running. No real fit from this comparison has started and no new performance
+Status: frozen and launched, with 135 focused engineering checks and full
+original-input validation passing. The
+[launch observation](../evidence/chess-connectome-mapping-v1/launch-observation.json)
+confirmed the detached supervisor and worker were live in original-input
+verification, with zero fits or neural evaluations started. No new performance
 result is available.
+
+[Frozen plan](../evidence/chess-connectome-mapping-v1/protocol/plan.json) SHA-256:
+`bef6862e84733c6436b09dc3d693037247895bc017132b388f692fabf74aac04`.
 
 The original [connectome comparison](../docs/chess-connectome.md) is negative.
 The [outcome-supervision comparison](../docs/chess-continuation.md) also failed

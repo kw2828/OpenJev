@@ -1,8 +1,15 @@
 # Connectome spatial-mapping comparison
 
-Status: full original-input validation passed; protocol preparation is running.
-Training has not started. There is no new policy-quality, game-strength or
-connectome-advantage result in this package.
+Status: frozen and launched on 2026-09-18 after full original-input validation.
+The [launch observation](launch-observation.json) confirmed a live detached
+supervisor and worker in original-input verification, with zero fits or neural
+evaluations started. This is a point-in-time observation, not a live dashboard.
+There is no new policy-quality, game-strength or connectome-advantage result
+in this package.
+
+[Plan](protocol/plan.json) SHA-256:
+`bef6862e84733c6436b09dc3d693037247895bc017132b388f692fabf74aac04`.
+The [preparation receipt](protocol/prepared.json) records its pre-training freeze.
 
 The [completed original comparison](../../docs/chess-connectome.md) failed its
 continuation rule, with 5 of 30 checks passing. This follow-up asks whether
