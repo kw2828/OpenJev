@@ -1,8 +1,9 @@
 # Does learning a spatial interface help biological wiring more than its controls?
 
 Status: implementation complete, with 135 focused checks passing. Authentication
-of the original data and rebuilt input tensors is in progress. No real fit from
-this comparison has started and no new performance result is available.
+of the original data and rebuilt input tensors passed. Protocol preparation is
+running. No real fit from this comparison has started and no new performance
+result is available.
 
 The original [connectome comparison](../docs/chess-connectome.md) is negative.
 The [outcome-supervision comparison](../docs/chess-continuation.md) also failed
@@ -121,6 +122,13 @@ six new source and test files. Checks include synthetic MPS training, accepted
 swaps, checkpoint reload, evaluation identity, malformed evidence rejection
 and phase deadlines. Passing these checks establishes engineering readiness,
 not the effectiveness of biological wiring.
+
+The [full input check](../evidence/chess-connectome-mapping-v1/input-check.json)
+authenticated the original inputs and reproduced the exact deterministic
+training/dev/shift caches for 32,768/2,048/2,048 positions. It made no neural,
+training or engine calls and took 1,562.58 seconds, including the original
+exclusion and game-history validation. This is preparation cost, not model
+training speed or policy quality.
 
 Constrained learned interfaces already have substantial [prior work](chess-connectome-interface.md#closest-checked-prior-work).
 This study tests a specific mapping interaction. It does not claim novelty

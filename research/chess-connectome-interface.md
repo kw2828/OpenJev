@@ -1,8 +1,8 @@
 # Is the fixed spatial assignment limiting the connectome adapter?
 
 Status: implemented and checked. The separate
-[30-fit study](chess-connectome-mapping-study.md) is validating original inputs
-and preparing its protocol; no real fit has started.
+[30-fit study](chess-connectome-mapping-study.md) has passed full original-input
+validation and is preparing its protocol; no real fit has started.
 The [original biological comparison](../docs/chess-connectome.md) remains
 negative. No current evidence identifies the board-to-neuron assignment as
 the cause of that result.
@@ -109,7 +109,17 @@ games before an architectural advantage claim.
 - [conn2res](https://www.nature.com/articles/s41467-024-44900-4) treats input
   and readout node selection as explicit choices in connectome reservoirs.
 
+A further bounded primary-source check found three relevant interface precedents:
+
+| Prior method | What it establishes | Distinction from this experiment |
+|---|---|---|
+| [Penkovsky, Larger and Brunner, 2018, Section II.2](https://arxiv.org/html/1805.03033v2#S2.SS2) | A PCA/linear-autoencoder transformation adapts the reservoir input mask to task data, then keeps the mask fixed for the task. | Our intervention is a hard bijection with tied input/output placement, selected during training. The earlier method already rules out claiming data-adapted reservoir inputs as new. |
+| [Barbosa et al., 2021, *Symmetry-aware reservoir computing*](https://journals.aps.org/pre/abstract/10.1103/PhysRevE.104.045307) | Input and output layers impose known inversion and permutation symmetries without task-specific changes to the reservoir. | Our square assignment is learned under a training objective; it does not establish symmetry equivariance. |
+| [Whitley, Tinos and Chicano, 2015, Section 3](https://arxiv.org/html/1505.01887#S3) | Binary probe-neuron selection optimizes useful circuits around fixed random weights through an NK landscape. | Our mapping retains every node, changes square placement, and jointly trains continuous adapter parameters. Discrete reservoir-interface selection itself already has precedent. |
+
 These sources motivate a controlled interface experiment. They preclude a
 broad novelty claim from merely learning input and output connections. This
 is targeted prior-work checking, not proof that the hard-permutation variant
-is new.
+is new. A positive topology-by-mapping interaction would be evidence for this
+specific design and training regime; priority and broader utility would still
+need separate support.

@@ -1,8 +1,8 @@
 # Connectome spatial-mapping comparison
 
-Status: input validation and protocol preparation are running. Training has not
-started. There is no new policy-quality, game-strength or connectome-advantage
-result in this package.
+Status: full original-input validation passed; protocol preparation is running.
+Training has not started. There is no new policy-quality, game-strength or
+connectome-advantage result in this package.
 
 The [completed original comparison](../../docs/chess-connectome.md) failed its
 continuation rule, with 5 of 30 checks passing. This follow-up asks whether
@@ -31,6 +31,11 @@ for the mechanism, matching, objective, timing and continuation criteria.
 The [test receipt](tests.json) records 135 passing checks, including synthetic
 MPS training, checkpoint round trips, proposal replay, evaluation identity and
 deadline handling. These are implementation checks, not performance results.
+
+The [input-check receipt](input-check.json) records exact reproduction of all
+32,768 training and both 2,048-position evaluation caches, after full original
+data validation. Its 1,562.58 seconds are preparation time, with zero new model,
+training or engine calls.
 
 The [synthetic profile](../chess-connectome-mapping-preflight-v1/README.md)
 uses invented targets and an artificial graph. Its roughly 20-minute linear

@@ -52,8 +52,8 @@ A separate [spatial-interface implementation](../research/chess-connectome-inter
 can change which board squares feed each neuron while preserving a hard,
 tied gather/scatter mapping. A [30-fit comparison](../research/chess-connectome-mapping-study.md)
 gives biological, rewired and node-local models the same mapping-search budget.
-Its 135 engineering checks pass; original-input validation and protocol
-preparation are running. No new chess fit or performance result is available yet.
+Its 135 engineering checks and full original-input validation pass. Protocol
+preparation is running. No new chess fit or performance result is available yet.
 
 ## Evidence
 
