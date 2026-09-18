@@ -59,6 +59,12 @@ The frozen limits are **3,600 seconds for execution and 300 seconds for audit**.
 Preparation costs are reported separately from research execution costs.
 There are no retries, replacement seeds, resumes or cap extensions.
 
+The [host observation](../evidence/reacher-objective-ablation-v1/host-observation.json)
+records an Apple M5 Max with 48 GiB of memory. This study uses two Torch threads;
+a separate chess experiment is active on the same workstation. Report recorded
+wall times as shared-host work and batch-amortized throughput, not isolated
+single-case latency or FLOPs.
+
 The [executable protocol](../evidence/reacher-objective-ablation-v1/protocol/plan.json)
 binds all 42 source files, runtime, data lineage, random streams and criteria.
 Its SHA-256 is:
@@ -73,3 +79,11 @@ and detailed limits. The [runner](../scripts/reacher_objective_study.py) and
 The auditor reconstructs recorded gradient norms, first/last EMA updates, costs
 and native outcomes. It does not independently rerun every training update or
 neural prediction.
+
+The separate [report generator](../scripts/render_reacher_objective_results.py)
+authenticates a completed audit before exporting all nine fits, raw-versus-anchor,
+latent-versus-anchor and latent-versus-raw changes, reset penalties and cost
+figures in PNG, SVG and PDF. Its numeric tables and receipt retain source
+identities. [13 reporting checks](../evidence/reacher-objective-ablation-v1/reporter-engineering.json)
+and a visually inspected, explicitly watermarked synthetic preview are complete.
+Real figures will be generated only after the research audit finishes.

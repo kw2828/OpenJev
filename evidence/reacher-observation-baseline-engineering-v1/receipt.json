@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "status": "synthetic_component_checks_passed",
+  "scope": "Future current-observation comparators, not integrated into the frozen study; no research fitting or scoring.",
+  "source_sha256": {
+    "src/openjev/research/reacher_observation_baseline.py": "f322ff0179ee2674a3f0a8daf6d8f734b071847b5bba4961aad2f5a8ac484bb8",
+    "tests/test_reacher_observation_baseline.py": "08780cfe7d47ae54199ca483fff2a310678f770d0e0f22327aa84512b6afabdf"
+  },
+  "checks": {
+    "passed": 34,
+    "ruff": "passed",
+    "engineering_torch_seed": 410,
+    "rng_scope": "Forked and restored Torch RNG; seed already excluded by the running study."
+  },
+  "components": {
+    "CurrentObservationGRUWorldModel": {
+      "parameters": 36805,
+      "initialization_identical_to": "GRUResidualRewardWorldModel(hidden_size=64)",
+      "dense_affine_macs_per_sample": {
+        "assimilate": 13824,
+        "advance": 22080
+      }
+    },
+    "FeedForwardObservationWorldModel": {
+      "parameters": 36599,
+      "width": 107,
+      "dense_affine_macs_per_sample": {
+        "assimilate": 0,
+        "advance": 36166
+      }
+    }
+  },
+  "limits": [
+    "Synthetic tests do not establish efficacy.",
+    "Affine MAC estimates omit other work and are not measured timings or total FLOPs.",
+    "Current public packet is not a complete physical state.",
+    "Future trainer must bind the actual constructor; compatible weights do not authorize substitution into existing checkpoints."
+  ],
+  "running_study": {
+    "plan_sha256": "dca778153230375a5a0e790390d328d69857dd4c2d3260b61fb9f214fa1d32f2",
+    "source_files_unchanged": 42
+  }
+}

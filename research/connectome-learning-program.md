@@ -19,6 +19,14 @@ hierarchy**. Hold the now-qualified CEM256 planner fixed for the next learning
 comparison. The [nine-fit objective study](reacher-objective-ablation.md) now has
 a frozen protocol and a complete synthetic rehearsal. Research results are pending.
 
+The [architecture decision note](reacher-architecture-mechanism-options.md)
+places trained current-observation and short-history controls before the next
+mechanism. It specifies distinct tests of slow context, plastic state and
+state-space recurrence, including the controls needed for a topology claim.
+The [current-observation components](reacher-observation-baseline.md) now provide
+an initialization-identical GRU control and a separate MLP for that future test.
+They have only synthetic engineering checks, with no research fits or scores.
+
 ## What we are borrowing
 
 | Source | Mechanism to test | Boundary |
