@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "sources": {
+    "scripts/qualify_robotics_pendulum.py": "0ca25510d342a62cac185dfccd6d2b6e373df493e0e7c8f3f02054a8b874e7a6",
+    "src/openjev/research/robotics_pendulum.py": "ec2dbf8af7b1d18809cd6122da2b8b48cb385de4b30187825fc125d8359f2aae",
+    "tests/test_robotics_pendulum.py": "e020e5de76afb43d8a34d22ae633ae8058a1ce9cb6aca6d0f428fa10c5cbba92",
+    "tests/test_qualify_robotics_pendulum.py": "3e6f9413a2bc7c9fcb80b97f68e18af55067d07cb8b66eac464db67bcfc486b0"
+  },
+  "runtime": {
+    "python": "3.12.13",
+    "numpy": "2.5.3",
+    "gymnasium": "1.3.0",
+    "platform": "macOS-26.6.1-arm64-arm-64bit",
+    "native_pendulum_sha256": "01d7006351060606167f617ba8784c39eb5a3e81a959a827387cd557635fe552"
+  },
+  "config": {
+    "g": 10.0,
+    "mass": 1.0,
+    "length": 1.0,
+    "max_speed": 8.0,
+    "max_torque": 2.0,
+    "dt": 0.05
+  },
+  "cases": 32,
+  "steps": 200,
+  "horizon": 32,
+  "candidates": 64,
+  "action_block": 4,
+  "case_seed": 63100001,
+  "candidate_seed": 63110001,
+  "diagnostic_seed": 63120001,
+  "bootstrap_seed": 63130001,
+  "bootstrap_samples": 4096,
+  "gains": [
+    0.65,
+    0.8,
+    1.0,
+    1.2,
+    1.35
+  ],
+  "panels": [
+    "stationary",
+    "switch"
+  ],
+  "switch_step": 100,
+  "arms": [
+    "current_nominal",
+    "velocity_nominal",
+    "history_identified",
+    "recent3_identified",
+    "known_state_physics",
+    "uniform"
+  ],
+  "probe_commands": [
+    0.8,
+    -0.8
+  ],
+  "cap_seconds": 600,
+  "policy_information": "Float32 cos/sin history and executed command history only. No rewards, hidden velocities, applied torque, gain or episode seed enter the four observation-based estimators. All use the supplied native physical equations and dt; this is a privileged model-class comparison, not model learning. The known_state_physics arm additionally receives true current state and gain. Uniform is a floor, not a compute-matched planner.",
+  "design": "All arms receive the same two initial probe commands, included in total cost. Thereafter all MPC arms receive exactly the same random action candidates at each time and case. Actions are held in four-step blocks inside a 32-step undiscounted horizon, with zero/+2/-2 constant candidates included. Execute only the first action and replan. Horizon truncates at the episode end. No terminal value, warm-start selection or tuning. Full-history and last-three-observation estimators use nominal gain1 when no transition identifies gain. No fit or hidden-state supervision.",
+  "panels_definition": "Same32 initial states in both panels. Initial gains cycle through the five declared values. Stationary gains never change. Switch gains change at step100 from g to 2-g; the change is not announced to any observation-based controller. These are fixed development diagnostics, not standard leaderboard tasks.",
+  "diagnostics": "256 paired initial states with48 common commands in[-1,1], compare gain.65 against1.35 and zero-command controls. Measure trajectory distinction, velocity/gain recovery and informative counts. Physics-based recoverability is a sufficiency diagnostic, not evidence of neural learning.",
+  "endpoints": "Native positive episode cost=-sum(reward), all cases retained. Also report post-probe costs and each gain cell descriptively. Report paired cost differences against known_state_physics with4096 episode bootstrap resamples and95% intervals. No optimality, architecture uncertainty or significance claim. Last3 sufficiency requires mean stationary cost<=1.05 times known_state_physics and <=.90 times current_nominal. Known-state reference competence requires stationary mean cost<=.80 times uniform. Numerical observability requires max final velocity error<=1e-4 and max full-history gain error<=1e-3 among informative trajectories, with>=90% informative; zero commands must not distinguish gains. All are required to call this short-history qualification successful. Otherwise preserve diagnostic failure, no automatic tuning. Either outcome is insufficient for a topology claim.",
+  "stop": "If qualified, do not launch a long-memory/connectome sweep on this clean constant-gain task. A harder task requires independent motivation and a new prospective protocol. No retries, replacement cases, extensions or checkpoint selection. Failure retains receipts.",
+  "audit": "Validate all source/runtime bindings, hashes and complete artifact membership. Replay every saved transition through installed Gymnasium with logged applied torque, recompute metrics and paired intervals from saved arrays only. No new policy or planner evaluations during audit."
+}
