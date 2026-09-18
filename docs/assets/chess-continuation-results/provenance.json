@@ -1,0 +1,863 @@
+{
+  "version": "chess-continuation-figure-v1",
+  "status": "completed",
+  "synthetic_fixture": false,
+  "audit_path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/evidence/chess-continuation-v1/audit",
+  "plan_path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/evidence/chess-continuation-v1/protocol/plan.json",
+  "plan_sha256": "5f3a1d25fcc2da1c1f59a41b91bd4dbc6f1de29bf34e27b3c0c710e6a72cc9b8",
+  "receipt_sha256": "6f527958f8fe252f4e3615f70865fa9f25dd834b778a17b2b418232e544a3287",
+  "summary_sha256": "954694aafccf390e8c4635ddb37b4e69bb74b61c2fa01ec35b0e3cc1a50f2a6f",
+  "execution_receipt_sha256": "94bcad8017f9901bff4a4189a87013858b0791e9533f987f9403af8ad07ef0aa",
+  "plot_source_sha256": "8fb2914d2a127241b98b4eaeafd1c84e0f3e40002d96341f2b0370c728f089ee",
+  "files": {
+    "figure.png": "3c9a83d2aebc27543b5eb9803bfb80b1e352efbaf869e300ac61d1eb0a16b224",
+    "figure.pdf": "0d1f60e1739a58b54c85e6ff3a76cb1c5830f3f94c19829ecc6576073534cab6"
+  },
+  "matplotlib_version": "3.11.2",
+  "objectives": [
+    "policy",
+    "best_value",
+    "continuation"
+  ],
+  "seeds": [
+    193,
+    211,
+    227
+  ],
+  "source_fit_order": [
+    "policy-211",
+    "best_value-227",
+    "policy-193",
+    "continuation-211",
+    "policy-227",
+    "continuation-227",
+    "best_value-211",
+    "best_value-193",
+    "continuation-193"
+  ],
+  "primary_epoch": 8,
+  "fit_count": 9,
+  "checkpoint_count": 72,
+  "scheduled_games": 192,
+  "continuation_gate": {
+    "passed": false,
+    "checks": [
+      {
+        "control": "policy",
+        "split": "dev",
+        "metric": "bounded_engine_loss",
+        "reference": 0.08471960081103476,
+        "continuation": 0.10189952163391214,
+        "relative_reduction": -0.20278566776060267,
+        "passed": false
+      },
+      {
+        "control": "policy",
+        "split": "shift",
+        "metric": "bounded_engine_loss",
+        "reference": 0.15388766115627947,
+        "continuation": 0.13522377014138398,
+        "relative_reduction": 0.1212825698607604,
+        "passed": false
+      },
+      {
+        "control": "best_value",
+        "split": "dev",
+        "metric": "bounded_engine_loss",
+        "reference": 0.10320521545736132,
+        "continuation": 0.10189952163391214,
+        "relative_reduction": 0.012651432562423369,
+        "passed": false
+      },
+      {
+        "control": "best_value",
+        "split": "shift",
+        "metric": "bounded_engine_loss",
+        "reference": 0.14866442661707133,
+        "continuation": 0.13522377014138398,
+        "relative_reduction": 0.09040936545168055,
+        "passed": false
+      },
+      {
+        "metric": "paired_games",
+        "details": {
+          "checks": [
+            {
+              "opponent": "policy",
+              "threshold": 0.6,
+              "lower_score_bound": 0.5052083333333334,
+              "passed": false
+            },
+            {
+              "opponent": "best_value",
+              "threshold": 0.6,
+              "lower_score_bound": 0.5,
+              "passed": false
+            }
+          ],
+          "zero_failed_games": true,
+          "passed": false
+        },
+        "passed": false
+      }
+    ],
+    "scope": "Auxiliary supervision development study on exposed historical games and panels. No novelty, biological advantage, calibrated win probability, planning, Astra comparison or Elo claim.",
+    "thresholds": {
+      "relative_loss_reduction": 0.2,
+      "lower_game_points": 0.6
+    }
+  },
+  "claim_scope": "Auxiliary supervision development study on exposed historical games and panels. No novelty, biological advantage, calibrated win probability, planning, Astra comparison or Elo claim.",
+  "new_model_or_engine_calls": 0,
+  "validation_scope": "Authenticated completed audit, full summary coverage and scalar arithmetic. This renderer does not repeat the raw-evidence audit or load checkpoints.",
+  "aggregation": "All three paired seeds, arithmetic mean NLL and engine loss. All fits and signed losses retained; all scheduled games enter unresolved outcome bounds. No confidence intervals.",
+  "timing_scope": "Recorded MPS training_seconds from each exact fit receipt, including journals/checkpoints, excluding setup and evaluation. Shared interactive host.",
+  "plotted_values": {
+    "fits": [
+      {
+        "configuration": "policy-193",
+        "objective": "policy",
+        "seed": 193,
+        "training_seconds": 88.09706524992362,
+        "checkpoints": {
+          "epoch-01.pt": "68455155a91d95bfdb2c03b181a6c4a0976560ff58347dc97e4a3647fbe28133",
+          "epoch-02.pt": "c7e82f4d511139ee430f0ba2b8f45603ee349fc2fae0fd51077c0d7ed22c1509",
+          "epoch-03.pt": "bfaea8f25aa5031337d701136e7f79bdbbaf18df3c94b3953a224139d447378a",
+          "epoch-04.pt": "c38db363e0393b0e25d895ee4e7464848e479b697a2d61096ea820427009e4e8",
+          "epoch-05.pt": "ae846ddfa5c3bba95732b8133b6cad099010c93580bed96978fcd52c6baa662f",
+          "epoch-06.pt": "2d2bdaabff51d90f4e2fc2dbec6ba5692d3344cde19bd05334a90d176a291e44",
+          "epoch-07.pt": "79375216b5613eba1e33487e139315c394ddc3557c5e800f56abe96cc9b5b5ea",
+          "epoch-08.pt": "91a33650baafb451f788e85b1d64e0a9b12982692d8a6f9dec67334a92622610"
+        },
+        "engine_loss": {
+          "dev": 0.09400140190577212,
+          "shift": 0.14087164873461303
+        }
+      },
+      {
+        "configuration": "policy-211",
+        "objective": "policy",
+        "seed": 211,
+        "training_seconds": 88.81167350010946,
+        "checkpoints": {
+          "epoch-01.pt": "a61cea9282dcdf1eaa7fc3d6bb6682bb78a6cb82a707fbe63cb6581406651f49",
+          "epoch-02.pt": "9bb94b932232be4d562c745c78d9927b4f388acafadb1be98b43ef34f25383e1",
+          "epoch-03.pt": "d72f014fa8324c425eb7f31a61d0627ea57faa9bb1fc2992d8e743ce1b36d956",
+          "epoch-04.pt": "d7c605a68df49ee28401ec449e9eb17e34203ba2249eca769d818c6cdfc5bca4",
+          "epoch-05.pt": "8ce5c8025df255872321908cd800cc2c8972ec5237d40ab90f88df52cfac6708",
+          "epoch-06.pt": "dfe8a79cdf86b7feecf7decbe79371335175e41188f3943b2fde9179e75bfece",
+          "epoch-07.pt": "e146a2e3ba0e6b728300389a4a0af0046e82eaf58c625001e67820551d2edf72",
+          "epoch-08.pt": "a0601728ee1968c45eac414701003b7c781e87cdf410fa0f4c3ae7529335ce3d"
+        },
+        "engine_loss": {
+          "dev": 0.08252707093108244,
+          "shift": 0.1597917064927064
+        }
+      },
+      {
+        "configuration": "policy-227",
+        "objective": "policy",
+        "seed": 227,
+        "training_seconds": 91.14656549994834,
+        "checkpoints": {
+          "epoch-01.pt": "2416754444aeab4a4425422c60b5ba88359bbe0a9eb23157750d783e1beb4a03",
+          "epoch-02.pt": "aa0c513c23ed38d720810b79299621fb3bcfea1ccce0a03b6b93d83adff837e9",
+          "epoch-03.pt": "90af41775def5ec3d02243e50ecd9e63f212808a695fb9209a770be8620137b2",
+          "epoch-04.pt": "40a067eb16304e9bc7396bc18987557bcac52752df11b0b03af815285bc28b86",
+          "epoch-05.pt": "4ff0a6f30e9e6d4e513d8e4fd9d1100427f0fbc97240e091fba84a7dbd007374",
+          "epoch-06.pt": "9ca6a19ce65b2b8af78b7c93094a3c7206daabcd6b2d09ca1b2c15fcb17eda24",
+          "epoch-07.pt": "b92b0207269b5e89599bf5ab61ebad9ae33c8efb4caddc82ad46a94b7ba3ba9f",
+          "epoch-08.pt": "018b9256f8980b3bf6316b299ffcce112255a9bdd580db43de1cfe8af19b40cb"
+        },
+        "engine_loss": {
+          "dev": 0.0776303295962497,
+          "shift": 0.16099962824151903
+        }
+      },
+      {
+        "configuration": "best_value-193",
+        "objective": "best_value",
+        "seed": 193,
+        "training_seconds": 102.12050545797683,
+        "checkpoints": {
+          "epoch-01.pt": "860ce7cd8bdfb79fbb6effdd2915dd48d885db220d92c30abf807c3b53d72502",
+          "epoch-02.pt": "05a15ecea766ca8c802849ed6f54990a198fbfd4534b1a78b4cf5f5d9826ed7e",
+          "epoch-03.pt": "25ca832ee2b2aa47e3944c13d6956954815205e131645931df36d64bb2eb2d16",
+          "epoch-04.pt": "e701a02898f8d198c35f54a745271f9b3dd8599394354bccb0816e145ad2b08b",
+          "epoch-05.pt": "fd04e0e91889218ddc3d686876bddb532898d1396664923eb94e50178cd6525d",
+          "epoch-06.pt": "abceacf728b32a345ee31735626216c2cf24e7d76e20a41c496a86e20c34616b",
+          "epoch-07.pt": "b35e9feadaaa7a39b4120dcabb2809b25e70ff8a4052c4d1ada919a1c7682b3c",
+          "epoch-08.pt": "3ba65d1e067f9d1378d0ed70dbf5c8cb3d1ebed5eb59b21bce02196d8b117fe2"
+        },
+        "engine_loss": {
+          "dev": 0.09301054707102047,
+          "shift": 0.15514880309729798
+        }
+      },
+      {
+        "configuration": "best_value-211",
+        "objective": "best_value",
+        "seed": 211,
+        "training_seconds": 101.77437925012782,
+        "checkpoints": {
+          "epoch-01.pt": "a4b65e03738f8837eebf8067ba449e00d1174a6e2b6f51e4a0e8bdfdb3020c1b",
+          "epoch-02.pt": "4c5f2a9cec20616aa023b15fef6ec17640cb5f6874789ac77927145fae09c090",
+          "epoch-03.pt": "e34ded7c190038cb98b80b043be7c35863d5cff0c54343c2b81f8b94e19051b9",
+          "epoch-04.pt": "7818c194a43b94c0b3a1a6ca376c655db78b1ca43da5b037a3bb7547d26066d2",
+          "epoch-05.pt": "df8b9020787f65b941fef172d41b38572a3d6a5997234cd3a16246ee7b25994b",
+          "epoch-06.pt": "3026794c29d22ec5f66bf534d5b3c5ae246c09329eda7ab07dd51f2273288df9",
+          "epoch-07.pt": "6c0c440a637add6324e8b18e318e8923057bb36f24a4990a13da93bc17c81e1f",
+          "epoch-08.pt": "56e574ba63862dbea1df5b95790e883f204cf7ebe3c17b7e3552479b0b7073b4"
+        },
+        "engine_loss": {
+          "dev": 0.11426422970568294,
+          "shift": 0.13999509256785136
+        }
+      },
+      {
+        "configuration": "best_value-227",
+        "objective": "best_value",
+        "seed": 227,
+        "training_seconds": 102.30972520797513,
+        "checkpoints": {
+          "epoch-01.pt": "95027af188994a69165c9c24d54b8c3a91cbf4c05032c38b532cca99904b0a8b",
+          "epoch-02.pt": "0f85be6a69772ee9f0b5910b9847c287f48be9e3bed35c6fa4eac9b901dc6036",
+          "epoch-03.pt": "69d9182bd4c0d8b6b35ed63a3fc5a4e0e515756329e5f6ec7419f8d72c18e341",
+          "epoch-04.pt": "88fa61f45dec477d3e5dd9a446831e1598be6d154252f39d27d19f7b457b69f1",
+          "epoch-05.pt": "2cfe5cdcc15f120129fb52ba196577ed9200b38590ebb941d73e60f37fd21896",
+          "epoch-06.pt": "c4bbbab5a7c04f6456d782a878e6f448f8304faffd161a2325553efd928b4e5f",
+          "epoch-07.pt": "a5e52a160f5bd76d2cd0e96befeb6a724f0522c50cf49977b4e55262e64efc51",
+          "epoch-08.pt": "89b216d1300a2f7da46fe63a21dcfb0986a794f1a1f52d0c96fe3ec302017add"
+        },
+        "engine_loss": {
+          "dev": 0.10234086959538055,
+          "shift": 0.1508493841860646
+        }
+      },
+      {
+        "configuration": "continuation-193",
+        "objective": "continuation",
+        "seed": 193,
+        "training_seconds": 104.9369057090953,
+        "checkpoints": {
+          "epoch-01.pt": "cae7c2d980254e348965451266894bc880317b84c8c349bd60ef298e75a7b186",
+          "epoch-02.pt": "8f37103e3ef2564e646e906d2b757af3bab71664071728391155590499ce3bcf",
+          "epoch-03.pt": "47cee803a1adcfedebbf6e3c0493065a13485b1efe2f545df6373f8178fdb81d",
+          "epoch-04.pt": "cfc2d8abf9028ccd19063cc2728cc384a21bdcf0b72d0eab2ba6e4a540abf72e",
+          "epoch-05.pt": "c4a0fddee032895091b999a93b1cc45a2251b552b03429d78ed08fc4b306e4ed",
+          "epoch-06.pt": "c4ab98452eb21e269b7672614664f94975c14f4952c68927cdcfb0067017251c",
+          "epoch-07.pt": "7874bf5c16bbaff02e05fc32e301c0744a0f76214fe4248d94db92b18413d9ec",
+          "epoch-08.pt": "dcf3a9af98958476666b0a432c60c2d87bc460166f3508ebd6020c97495a86a8"
+        },
+        "engine_loss": {
+          "dev": 0.11340031343032388,
+          "shift": 0.15249858734308233
+        }
+      },
+      {
+        "configuration": "continuation-211",
+        "objective": "continuation",
+        "seed": 211,
+        "training_seconds": 111.48012974997982,
+        "checkpoints": {
+          "epoch-01.pt": "4429e4a8fecdc82386769c4dee659327d1c92f55f554ae3783948340fc502b2b",
+          "epoch-02.pt": "afca6118308e091afa091964a67357e39e9a6b40490d5df2557c5ea726dd6edb",
+          "epoch-03.pt": "4544996024d24a9a74e6ff0074fd760b8f045ea8257d04fd85b764baa243713b",
+          "epoch-04.pt": "42b636711eaa10c8af948c32879c69afe5ed37a2132d0590c69444d529f81b63",
+          "epoch-05.pt": "c44b8e3988411b0fa30b82117577f9a1df8ed5e567343311c94b0b0e6809c43d",
+          "epoch-06.pt": "5292fdb69fe1acdedf1f6d9e629bb5ece5671ab516872bb40f3f21b824e0144c",
+          "epoch-07.pt": "2cecde981b6f822c37b6b9fb5b217fb1753a6770d1754923f3a7e176fb49ac94",
+          "epoch-08.pt": "6f9f90e2bfd0287e7861d5abbf3e0d5115cf2ead18d14f6586518bf9ed6aa20f"
+        },
+        "engine_loss": {
+          "dev": 0.08855512805989574,
+          "shift": 0.10910859991848677
+        }
+      },
+      {
+        "configuration": "continuation-227",
+        "objective": "continuation",
+        "seed": 227,
+        "training_seconds": 109.82780270907097,
+        "checkpoints": {
+          "epoch-01.pt": "2d032a0d79c42755e72f8716023ce6822c2ed11f428b4a2881b33644f691986d",
+          "epoch-02.pt": "91b8c39912c4cd65cde4335b4313b3b38d4506b6a692825d146b42117fe044f8",
+          "epoch-03.pt": "c59f776fa4284342637f22fb2a1fb965062c99adda1bd0f677dfae2acb8aef3c",
+          "epoch-04.pt": "1e6c17735af84b2d8dd6cb465a9c3c50355e34bfc751d682d715cbe755c1d181",
+          "epoch-05.pt": "d7042ad8bac0b968a268cf28dba937cbd9cd0c5c5b5dfabf535089b41bc2397f",
+          "epoch-06.pt": "4a75693cea57782b263e898982a2c3b2f81cdbad04d6a7a215300dbbd8dbd552",
+          "epoch-07.pt": "a6127a83e6ac26dcd1405f887b7c9abf7b51abc81a76e425b296dc85005665fb",
+          "epoch-08.pt": "3aaf27fc8cbeba5ac8cdf5aa18c25387e9cbfde38ecb3cd14b355954a232dc85"
+        },
+        "engine_loss": {
+          "dev": 0.10374312341151679,
+          "shift": 0.14406412316258285
+        }
+      }
+    ],
+    "nll_curves": [
+      {
+        "objective": "policy",
+        "partition": "diagnostic",
+        "epoch": 1,
+        "seed_nll": {
+          "193": 2.426713837593676,
+          "211": 2.393085972893372,
+          "227": 2.432738898978017
+        },
+        "mean_nll": 2.4175129031550218
+      },
+      {
+        "objective": "policy",
+        "partition": "diagnostic",
+        "epoch": 2,
+        "seed_nll": {
+          "193": 2.3676197942597654,
+          "211": 2.3718043445443646,
+          "227": 2.3863087662227427
+        },
+        "mean_nll": 2.375244301675624
+      },
+      {
+        "objective": "policy",
+        "partition": "diagnostic",
+        "epoch": 3,
+        "seed_nll": {
+          "193": 2.352985637494616,
+          "211": 2.378433678172288,
+          "227": 2.3677742966502002
+        },
+        "mean_nll": 2.366397870772368
+      },
+      {
+        "objective": "policy",
+        "partition": "diagnostic",
+        "epoch": 4,
+        "seed_nll": {
+          "193": 2.3342882186585614,
+          "211": 2.3224301839698764,
+          "227": 2.323370831513274
+        },
+        "mean_nll": 2.3266964113805706
+      },
+      {
+        "objective": "policy",
+        "partition": "diagnostic",
+        "epoch": 5,
+        "seed_nll": {
+          "193": 2.312166697841817,
+          "211": 2.2968841967906926,
+          "227": 2.322255546794785
+        },
+        "mean_nll": 2.310435480475765
+      },
+      {
+        "objective": "policy",
+        "partition": "diagnostic",
+        "epoch": 6,
+        "seed_nll": {
+          "193": 2.2975620990594465,
+          "211": 2.2931381629805947,
+          "227": 2.3050906979446073
+        },
+        "mean_nll": 2.298596986661549
+      },
+      {
+        "objective": "policy",
+        "partition": "diagnostic",
+        "epoch": 7,
+        "seed_nll": {
+          "193": 2.3092683752549017,
+          "211": 2.270826802588377,
+          "227": 2.304323181739569
+        },
+        "mean_nll": 2.294806119860949
+      },
+      {
+        "objective": "policy",
+        "partition": "diagnostic",
+        "epoch": 8,
+        "seed_nll": {
+          "193": 2.2776526337436906,
+          "211": 2.283839220096416,
+          "227": 2.303240950112163
+        },
+        "mean_nll": 2.28824426798409
+      },
+      {
+        "objective": "policy",
+        "partition": "train",
+        "epoch": 1,
+        "seed_nll": {
+          "193": 2.386107586047972,
+          "211": 2.3716132970684694,
+          "227": 2.405718112926046
+        },
+        "mean_nll": 2.387812998680829
+      },
+      {
+        "objective": "policy",
+        "partition": "train",
+        "epoch": 2,
+        "seed_nll": {
+          "193": 2.3272883477443678,
+          "211": 2.3221952193010207,
+          "227": 2.3483493687395622
+        },
+        "mean_nll": 2.3326109785949836
+      },
+      {
+        "objective": "policy",
+        "partition": "train",
+        "epoch": 3,
+        "seed_nll": {
+          "193": 2.298432216108708,
+          "211": 2.3108533539566043,
+          "227": 2.3257500202642247
+        },
+        "mean_nll": 2.311678530109846
+      },
+      {
+        "objective": "policy",
+        "partition": "train",
+        "epoch": 4,
+        "seed_nll": {
+          "193": 2.2595055980715775,
+          "211": 2.2519471056773326,
+          "227": 2.2538368704181133
+        },
+        "mean_nll": 2.255096524722341
+      },
+      {
+        "objective": "policy",
+        "partition": "train",
+        "epoch": 5,
+        "seed_nll": {
+          "193": 2.2177229864985755,
+          "211": 2.2208302733813063,
+          "227": 2.2607321866418832
+        },
+        "mean_nll": 2.2330951488405884
+      },
+      {
+        "objective": "policy",
+        "partition": "train",
+        "epoch": 6,
+        "seed_nll": {
+          "193": 2.1846662633078138,
+          "211": 2.1911132628880496,
+          "227": 2.2221969773091215
+        },
+        "mean_nll": 2.199325501168328
+      },
+      {
+        "objective": "policy",
+        "partition": "train",
+        "epoch": 7,
+        "seed_nll": {
+          "193": 2.174289771911241,
+          "211": 2.1617080945692044,
+          "227": 2.1866634441584747
+        },
+        "mean_nll": 2.17422043687964
+      },
+      {
+        "objective": "policy",
+        "partition": "train",
+        "epoch": 8,
+        "seed_nll": {
+          "193": 2.148482124443812,
+          "211": 2.1571823353749013,
+          "227": 2.171147544031845
+        },
+        "mean_nll": 2.1589373346168528
+      },
+      {
+        "objective": "best_value",
+        "partition": "diagnostic",
+        "epoch": 1,
+        "seed_nll": {
+          "193": 2.46709462756995,
+          "211": 2.457264569261495,
+          "227": 2.5086589187340227
+        },
+        "mean_nll": 2.4776727051884895
+      },
+      {
+        "objective": "best_value",
+        "partition": "diagnostic",
+        "epoch": 2,
+        "seed_nll": {
+          "193": 2.4152251011473593,
+          "211": 2.402137687149086,
+          "227": 2.42293372419723
+        },
+        "mean_nll": 2.413432170831225
+      },
+      {
+        "objective": "best_value",
+        "partition": "diagnostic",
+        "epoch": 3,
+        "seed_nll": {
+          "193": 2.3777832616518735,
+          "211": 2.3890126244166665,
+          "227": 2.3906152038064685
+        },
+        "mean_nll": 2.3858036966250027
+      },
+      {
+        "objective": "best_value",
+        "partition": "diagnostic",
+        "epoch": 4,
+        "seed_nll": {
+          "193": 2.36022514933343,
+          "211": 2.377442115223769,
+          "227": 2.379224623717271
+        },
+        "mean_nll": 2.37229729609149
+      },
+      {
+        "objective": "best_value",
+        "partition": "diagnostic",
+        "epoch": 5,
+        "seed_nll": {
+          "193": 2.3376344304510184,
+          "211": 2.348281368539473,
+          "227": 2.3642740047170663
+        },
+        "mean_nll": 2.350063267902519
+      },
+      {
+        "objective": "best_value",
+        "partition": "diagnostic",
+        "epoch": 6,
+        "seed_nll": {
+          "193": 2.35040206046213,
+          "211": 2.3300972408982568,
+          "227": 2.316137401545514
+        },
+        "mean_nll": 2.332212234301967
+      },
+      {
+        "objective": "best_value",
+        "partition": "diagnostic",
+        "epoch": 7,
+        "seed_nll": {
+          "193": 2.3112429921471502,
+          "211": 2.327295270803665,
+          "227": 2.302992301506848
+        },
+        "mean_nll": 2.3138435214858877
+      },
+      {
+        "objective": "best_value",
+        "partition": "diagnostic",
+        "epoch": 8,
+        "seed_nll": {
+          "193": 2.2948925695458686,
+          "211": 2.3093227152366196,
+          "227": 2.294305887586134
+        },
+        "mean_nll": 2.2995070574562075
+      },
+      {
+        "objective": "best_value",
+        "partition": "train",
+        "epoch": 1,
+        "seed_nll": {
+          "193": 2.4502673635285688,
+          "211": 2.4335354277977572,
+          "227": 2.4900415080275553
+        },
+        "mean_nll": 2.4579480997846272
+      },
+      {
+        "objective": "best_value",
+        "partition": "train",
+        "epoch": 2,
+        "seed_nll": {
+          "193": 2.3819438481333033,
+          "211": 2.3644742230141462,
+          "227": 2.372176511318339
+        },
+        "mean_nll": 2.3728648608219296
+      },
+      {
+        "objective": "best_value",
+        "partition": "train",
+        "epoch": 3,
+        "seed_nll": {
+          "193": 2.3292283435063053,
+          "211": 2.3411327202099392,
+          "227": 2.3388591706744535
+        },
+        "mean_nll": 2.3364067447968995
+      },
+      {
+        "objective": "best_value",
+        "partition": "train",
+        "epoch": 4,
+        "seed_nll": {
+          "193": 2.313334062029869,
+          "211": 2.344229965766988,
+          "227": 2.296186611592286
+        },
+        "mean_nll": 2.3179168797963814
+      },
+      {
+        "objective": "best_value",
+        "partition": "train",
+        "epoch": 5,
+        "seed_nll": {
+          "193": 2.289039856254682,
+          "211": 2.2726516017122202,
+          "227": 2.2954089074680213
+        },
+        "mean_nll": 2.2857001218116415
+      },
+      {
+        "objective": "best_value",
+        "partition": "train",
+        "epoch": 6,
+        "seed_nll": {
+          "193": 2.279250408222038,
+          "211": 2.2519897226983923,
+          "227": 2.248002891817609
+        },
+        "mean_nll": 2.259747674246013
+      },
+      {
+        "objective": "best_value",
+        "partition": "train",
+        "epoch": 7,
+        "seed_nll": {
+          "193": 2.2383383858919728,
+          "211": 2.242707756462186,
+          "227": 2.2298831853233922
+        },
+        "mean_nll": 2.236976442559184
+      },
+      {
+        "objective": "best_value",
+        "partition": "train",
+        "epoch": 8,
+        "seed_nll": {
+          "193": 2.2010524887732084,
+          "211": 2.2078621305518085,
+          "227": 2.2114991110085533
+        },
+        "mean_nll": 2.206804576777857
+      },
+      {
+        "objective": "continuation",
+        "partition": "diagnostic",
+        "epoch": 1,
+        "seed_nll": {
+          "193": 2.4689756272006664,
+          "211": 2.465896418030732,
+          "227": 2.483903365584695
+        },
+        "mean_nll": 2.472925136938698
+      },
+      {
+        "objective": "continuation",
+        "partition": "diagnostic",
+        "epoch": 2,
+        "seed_nll": {
+          "193": 2.4464220273605903,
+          "211": 2.4050956672984913,
+          "227": 2.440212300107934
+        },
+        "mean_nll": 2.4305766649223384
+      },
+      {
+        "objective": "continuation",
+        "partition": "diagnostic",
+        "epoch": 3,
+        "seed_nll": {
+          "193": 2.433598837674042,
+          "211": 2.399105402908191,
+          "227": 2.427126281637804
+        },
+        "mean_nll": 2.419943507406679
+      },
+      {
+        "objective": "continuation",
+        "partition": "diagnostic",
+        "epoch": 4,
+        "seed_nll": {
+          "193": 2.360229156840358,
+          "211": 2.3597330733574062,
+          "227": 2.370208424319574
+        },
+        "mean_nll": 2.363390218172446
+      },
+      {
+        "objective": "continuation",
+        "partition": "diagnostic",
+        "epoch": 5,
+        "seed_nll": {
+          "193": 2.332107157904022,
+          "211": 2.3457602599029643,
+          "227": 2.3894158039430335
+        },
+        "mean_nll": 2.3557610739166734
+      },
+      {
+        "objective": "continuation",
+        "partition": "diagnostic",
+        "epoch": 6,
+        "seed_nll": {
+          "193": 2.3287384786057763,
+          "211": 2.3305642306515764,
+          "227": 2.326754917614358
+        },
+        "mean_nll": 2.3286858756239037
+      },
+      {
+        "objective": "continuation",
+        "partition": "diagnostic",
+        "epoch": 7,
+        "seed_nll": {
+          "193": 2.321728071341461,
+          "211": 2.3084708379803853,
+          "227": 2.327359700673551
+        },
+        "mean_nll": 2.319186203331799
+      },
+      {
+        "objective": "continuation",
+        "partition": "diagnostic",
+        "epoch": 8,
+        "seed_nll": {
+          "193": 2.3008921550045627,
+          "211": 2.3192384908655073,
+          "227": 2.327332216788011
+        },
+        "mean_nll": 2.3158209542193604
+      },
+      {
+        "objective": "continuation",
+        "partition": "train",
+        "epoch": 1,
+        "seed_nll": {
+          "193": 2.437990311727841,
+          "211": 2.4447696964137053,
+          "227": 2.449156930410844
+        },
+        "mean_nll": 2.443972312850797
+      },
+      {
+        "objective": "continuation",
+        "partition": "train",
+        "epoch": 2,
+        "seed_nll": {
+          "193": 2.3909580572711504,
+          "211": 2.358131976376961,
+          "227": 2.377865441841085
+        },
+        "mean_nll": 2.3756518251630654
+      },
+      {
+        "objective": "continuation",
+        "partition": "train",
+        "epoch": 3,
+        "seed_nll": {
+          "193": 2.3758336109819274,
+          "211": 2.3324013152748098,
+          "227": 2.3702780270519543
+        },
+        "mean_nll": 2.359504317769564
+      },
+      {
+        "objective": "continuation",
+        "partition": "train",
+        "epoch": 4,
+        "seed_nll": {
+          "193": 2.307273348579707,
+          "211": 2.29890600491036,
+          "227": 2.3209263269888303
+        },
+        "mean_nll": 2.3090352268262992
+      },
+      {
+        "objective": "continuation",
+        "partition": "train",
+        "epoch": 5,
+        "seed_nll": {
+          "193": 2.2705923920088833,
+          "211": 2.285710302807558,
+          "227": 2.315024242444316
+        },
+        "mean_nll": 2.2904423124202524
+      },
+      {
+        "objective": "continuation",
+        "partition": "train",
+        "epoch": 6,
+        "seed_nll": {
+          "193": 2.253480987245399,
+          "211": 2.2673687221869043,
+          "227": 2.2612390826025326
+        },
+        "mean_nll": 2.260696264011612
+      },
+      {
+        "objective": "continuation",
+        "partition": "train",
+        "epoch": 7,
+        "seed_nll": {
+          "193": 2.2055516691314336,
+          "211": 2.2121356414714928,
+          "227": 2.243157661243289
+        },
+        "mean_nll": 2.220281657282072
+      },
+      {
+        "objective": "continuation",
+        "partition": "train",
+        "epoch": 8,
+        "seed_nll": {
+          "193": 2.2046574510561596,
+          "211": 2.203124884248216,
+          "227": 2.2257573976272114
+        },
+        "mean_nll": 2.2111799109771955
+      }
+    ],
+    "arena": [
+      {
+        "opponent": "policy",
+        "games": 96,
+        "status_counts": {
+          "completed": 96,
+          "unfinished": 0,
+          "failed": 0
+        },
+        "wins": 10,
+        "draws": 77,
+        "losses": 9,
+        "completed_points": 48.5,
+        "possible_points": 96,
+        "score_lower_bound": 0.5052083333333334,
+        "score_upper_bound": 0.5052083333333334
+      },
+      {
+        "opponent": "best_value",
+        "games": 96,
+        "status_counts": {
+          "completed": 96,
+          "unfinished": 0,
+          "failed": 0
+        },
+        "wins": 11,
+        "draws": 74,
+        "losses": 11,
+        "completed_points": 48.0,
+        "possible_points": 96,
+        "score_lower_bound": 0.5,
+        "score_upper_bound": 0.5
+      }
+    ]
+  }
+}

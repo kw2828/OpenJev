@@ -87,8 +87,10 @@ rewires or node-local models supports a generic interface effect. Every
 proposal, forward call and complete decision must count toward compute.
 
 The exact training protocol, useful margin, backbone and evaluation inputs
-remain unselected. The live outcome-supervision study should inform the shared
-reference before another training campaign starts. A successful mapping trial
+remain unselected. The completed [outcome-supervision study](../docs/chess-continuation.md)
+failed its performance criteria and supplies no stronger replacement baseline.
+Its continuation actor scored 50.52% against policy and 50.00% against the
+teacher-action-value control. A successful mapping trial
 would still need stronger-engine grading, actual gameplay and new confirmation
 games before an architectural advantage claim.
 
