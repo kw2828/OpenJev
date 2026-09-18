@@ -360,3 +360,9 @@ def test_action_and_metadata_inputs_never_mutated():
     torch.testing.assert_close(incoming, original, rtol=0, atol=0)
     torch.testing.assert_close(action, before, rtol=0, atol=0)
     equal_state(root, original_root)
+
+
+def test_configuration_has_static_provenance_not_execution_status():
+    value = BoundedThreePacketGRUWorldModel(hidden_size=4).configuration()
+    assert value["run_status_authority"] == "enclosing protocol and execution receipts"
+    assert not {"engineering_only", "integrated_study"} & value.keys()

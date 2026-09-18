@@ -421,3 +421,10 @@ def test_live_configuration_and_optimizer_drift_fail_before_updates(mutation):
     with pytest.raises(ValueError):
         item.train_next()
     assert item.failed and item.optimizer_steps == 0
+
+
+def test_configuration_delegates_run_status_to_protocol_and_receipts():
+    cfg = settings()
+    for value in [cfg.configuration(), *(training.model_configuration(k, cfg) for k in training.REGISTRY)]:
+        assert value["run_status_authority"] == "enclosing protocol and execution receipts"
+        assert not {"engineering_only", "integrated_study", "integrated_into_existing_study"} & value.keys()

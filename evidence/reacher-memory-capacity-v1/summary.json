@@ -1,0 +1,120 @@
+{
+  "captured_source_sha256": {
+    "src/openjev/research/reacher_bounded_history.py": "8033dbd475f3f74849a6aac1afba0d8ee04507fbdb06cc803d90bc3bffed6d4e",
+    "src/openjev/research/reacher_memory_control.py": "07cccd21638c0ac4d30eab07087d087a433d1ae02ef283049e90c532aaccf39d",
+    "src/openjev/research/reacher_memory_protocol.py": "c52cde3cc6b61b91628179017df9820aa9d2a257436b5316cc31d69796a012c0",
+    "src/openjev/research/reacher_memory_training.py": "8b279f86a18040326f68f545b4d9b59a77cfe481bb5a668fdd8c7f200b5d7dd5",
+    "src/openjev/research/reacher_objective_training.py": "0a1d80a141c6bd90ac3b37dc0516503bbca06ac5d7af0449b490d5a5a1f85fbf",
+    "src/openjev/research/reacher_observation_baseline.py": "93f6f91b43aabe59544501b83e4fdba6512dcf5da1853e97d41489849450188d",
+    "src/openjev/research/reacher_reward_residual.py": "72aadee9db1362f258edd4813e56e517c64fdb74dd9f54b0b67a21f2a00d9308",
+    "src/openjev/research/reacher_world_models.py": "84a4a9f9122d0e8099bac19e04619faff22adabf0acf516eff9d5367ded2060e"
+  },
+  "checkpoints": {
+    "bounded_gru": {
+      "cursor": {
+        "batch": 4,
+        "epoch": 0
+      },
+      "data_sha256": "0f2af9a3850c9311ac2a379cb26506f6677631862d2f675922870745f7bdce58",
+      "model_class": "BoundedThreePacketGRUWorldModel",
+      "parameters": 36805,
+      "runtime_recorded_at_execution": {
+        "purpose": "synthetic-capacity",
+        "threads": 2
+      },
+      "sha256": "ad59a1c8fe10f814456bdc88242d88cce789c65cf800e7a5a59773fe1707fd85",
+      "successful_updates": 4
+    },
+    "current_gru": {
+      "cursor": {
+        "batch": 4,
+        "epoch": 0
+      },
+      "data_sha256": "0f2af9a3850c9311ac2a379cb26506f6677631862d2f675922870745f7bdce58",
+      "model_class": "CurrentObservationGRUWorldModel",
+      "parameters": 36805,
+      "runtime_recorded_at_execution": {
+        "purpose": "synthetic-capacity",
+        "threads": 2
+      },
+      "sha256": "976c6a14ce4a051210437877175844bb8c1036e1beffe46767a226a022983535",
+      "successful_updates": 4
+    },
+    "packet_mlp": {
+      "cursor": {
+        "batch": 4,
+        "epoch": 0
+      },
+      "data_sha256": "0f2af9a3850c9311ac2a379cb26506f6677631862d2f675922870745f7bdce58",
+      "model_class": "FeedForwardObservationWorldModel",
+      "parameters": 36599,
+      "runtime_recorded_at_execution": {
+        "purpose": "synthetic-capacity",
+        "threads": 2
+      },
+      "sha256": "c407481cd7b592b98fc6b2843297143cfbf4dcf9440d4c36d812a9c61b344b11",
+      "successful_updates": 4
+    },
+    "residual_gru": {
+      "cursor": {
+        "batch": 4,
+        "epoch": 0
+      },
+      "data_sha256": "0f2af9a3850c9311ac2a379cb26506f6677631862d2f675922870745f7bdce58",
+      "model_class": "GRUResidualRewardWorldModel",
+      "parameters": 36805,
+      "runtime_recorded_at_execution": {
+        "purpose": "synthetic-capacity",
+        "threads": 2
+      },
+      "sha256": "2f78ffa9f9f0226e4ba2a29d005facadc1cda2f935f10a6b586d6dc3f5573ba1",
+      "successful_updates": 4
+    }
+  },
+  "measurement_script_sha256": "56f24924d1507860d6db2644f300998fa189e08bbdc5acb05e90c6d3c0f6c236",
+  "observed": {
+    "candidate_evaluations_per_case": 256,
+    "device_recorded": "cpu",
+    "episode_steps": 50,
+    "hidden_size": 64,
+    "initialization_pairs_exercised": 1,
+    "mlp_width": 107,
+    "native_control_episodes": 0,
+    "scientific_scores": 0,
+    "search_batch_cases": 64,
+    "search_count_per_arm": 3,
+    "search_horizon": 12,
+    "torch_threads_recorded": 2,
+    "train_batch_episodes": 32,
+    "training_data_episodes": 768,
+    "update_count_per_arm": 4,
+    "whole_measurement_seconds": 3.1151592498645186
+  },
+  "projection": {
+    "cap_is_proposed_not_authorized_by_this_receipt": true,
+    "excluded": [
+      "real packet assimilation and executed-action advance",
+      "native simulation and data collection",
+      "all reference controllers and filters",
+      "training preparation/initialization and restoration",
+      "prediction evaluation",
+      "serialization/trace storage and manifest hashing",
+      "independent audit and publication"
+    ],
+    "learned_search_seconds": 246.45720619009808,
+    "limits": "Four training updates and three same-startup-root searches per arm; no steady-state claim, confidence interval, end-to-end runtime guarantee, utility or speed superiority claim. All four updates, including the first, enter training projection. Full 12-step searches are extrapolated across all 50 decisions although real terminal horizons shrink.",
+    "measured_component_projection_seconds": 894.0437833671458,
+    "proposed_run_cap_seconds": 3600,
+    "search_formula": "sum(mean(three_full_batch_cem_seconds) * 50 decisions * 3 fits * 3 panels)",
+    "training_formula": "sum(whole_trainer_training_seconds / 4 * 1152 updates * 3 fits)",
+    "training_seconds": 647.5865771770477,
+    "two_times_measured_component_projection_seconds": 1788.0875667342916,
+    "unmeasured_headroom_at_two_times_projection_seconds": 1811.9124332657084
+  },
+  "raw_completed_sha256": "3418a01e1ccdce80261d073e329730c4c9698faeb186f5ed599e130daed15a39",
+  "raw_started_sha256": "c35fcef54e851a74104e91bd1b2a2585a57dcff8e60647ef780b957cd48507ea",
+  "recorded_plan_namespace": "reacher-memory-engineering-capacity-v1",
+  "scope": "engineering_capacity_only_not_scientific_result",
+  "synthetic_data_seed": 410,
+  "synthetic_data_sha256": "0f2af9a3850c9311ac2a379cb26506f6677631862d2f675922870745f7bdce58"
+}

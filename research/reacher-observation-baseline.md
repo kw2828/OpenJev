@@ -1,7 +1,7 @@
 # A trained control for the memory claim
 
 **Engineering component only, September 18, 2026. No research fitting or evaluation.**
-The [running objective comparison](reacher-objective-ablation.md) includes a
+The [completed objective comparison](reacher-objective-ablation.md) includes a
 history-reset intervention. A reset penalty may reflect either useful history
 or an unfamiliar hidden state. These new components enable a later comparison
 with a model trained to make every real decision from its current packet.
@@ -41,7 +41,7 @@ preserved current information, ignored missing-angle placeholders, independent
 planner branches, unchanged sequence-loss targets/gradients and operation counts
 checked against actual layer shapes. The
 [receipt](../evidence/reacher-observation-baseline-engineering-v1/receipt.json)
-binds the component and tests. The 42 files in the running study remain unchanged.
+binds the component and tests. The 42 frozen objective-study files remain unchanged.
 
 The current packet omits velocity and, during blackouts, angles. It is not a
 fully observed physical state. Beating this comparator alone would therefore
@@ -51,17 +51,17 @@ the [architecture note](reacher-architecture-mechanism-options.md) explains them
 
 ## Before a scientific comparison
 
-Use a separate frozen protocol after the current study is audited. Bind the
+Use a separate frozen protocol after the objective study is audited. Bind the
 actual constructor and assimilation rule, paired initial tensors, training
 data/order, objective, update count, planner and fresh evaluation cases.
 The existing frozen trainer hardcodes the original GRU class. Compatible weight
 names do not authorize substituting either new class into that trainer or its
-checkpoint restoration. These components are not part of the running study.
+checkpoint restoration. These components are not part of that completed study.
 
 Report every fit, native control and all training/deployment costs. Keep
 observed history and temporary imagined state distinct in checkpoint metadata,
 branch cloning, rollout accounting and any future biological comparator.
-# Strict three-packet comparator added
+## Strict three-packet comparator added
 
 The separate [bounded-history component](../src/openjev/research/reacher_bounded_history.py)
 rebuilds the same 36,805-parameter GRU from only the latest three real public
@@ -106,3 +106,8 @@ classes, including an epoch boundary and partial minibatch. These are
 engineering checks, not control results. A scientific protocol, deployment
 runner, independent audit and cost checks remain to be completed before a new
 comparison is launched.
+
+The [prospective memory comparison](reacher-memory-ablation.md) now specifies
+all four trained arms and the two-measurement physics reference. Its runner and
+independent audit are undergoing a complete engineering rehearsal. It has not
+been frozen or run as a scientific experiment.

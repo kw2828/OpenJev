@@ -312,3 +312,10 @@ def test_state_and_packet_objects_are_not_mutated():
         fresh["packet"].fill_(17)
         assert_state(old, saved_state)
         torch.testing.assert_close(incoming, saved_packet, rtol=0, atol=0)
+
+
+@pytest.mark.parametrize("kind", ["gru", "mlp"])
+def test_accounting_delegates_run_status_to_enclosing_receipts(kind):
+    value = parameter_accounting(make(kind))
+    assert value["run_status_authority"] == "enclosing protocol and execution receipts"
+    assert not {"engineering_only", "integrated_into_existing_study"} & value.keys()
