@@ -60,6 +60,10 @@ any fit or neural evaluation. No new performance result is available yet.
 A separate [literature review and robotics experiment plan](../research/connectome-world-model-robotics-reading.md)
 examines persistent memory, hidden-dynamics adaptation and learned time
 constants. These are proposed follow-ups, not new chess results.
+Its first [robotics qualification](../research/robotics-pendulum-qualification.md)
+found that short observation histories already recover competent control in
+clean Pendulum. That rules out a large memory-architecture sweep on that
+diagnostic; no learned-model or biological advantage was established.
 
 ## Evidence
 

@@ -4,6 +4,11 @@ Literature checked September 18, 2026. This is a research recommendation, not a
 new performance result or a frozen training protocol. Paper results below are
 the authors' reports; we have not reproduced them.
 
+Follow-up: the [completed Pendulum qualification](robotics-pendulum-qualification.md)
+passed all six checks. Short-history control approaches the known-state mean,
+so we will not expand that clean diagnostic into a connectome architecture
+study. The report includes per-gain failures and the weak switch challenge.
+
 **Recommended direction: test whether biological wiring and elapsed-time-aware
 latent dynamics improve a persistent belief model under hidden dynamics and missing
 sensors.** Start with inexpensive simulated control, then transfer the same
