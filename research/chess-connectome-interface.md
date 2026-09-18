@@ -1,6 +1,8 @@
 # Is the fixed spatial assignment limiting the connectome adapter?
 
-Status: an implemented isolated prototype and design review, not a frozen training study.
+Status: implemented and checked. The separate
+[30-fit study](chess-connectome-mapping-study.md) is validating original inputs
+and preparing its protocol; no real fit has started.
 The [original biological comparison](../docs/chess-connectome.md) remains
 negative. No current evidence identifies the board-to-neuron assignment as
 the cause of that result.
@@ -63,7 +65,7 @@ a whole-board nonlinear network through those maps. Its gains could be
 independent of graph communication. The hard spatial permutation avoids that
 particular bypass, although node-local controls are still necessary.
 
-## Candidate comparison, not yet launched
+## Follow-up comparison
 
 After a fixed warmup, compare one prescribed square-swap proposal with the
 current assignment on the same training minibatch at fixed weights. The
@@ -86,8 +88,9 @@ every learned-map rewire on ordinary and shifted conditions. A gain shared by
 rewires or node-local models supports a generic interface effect. Every
 proposal, forward call and complete decision must count toward compute.
 
-The exact training protocol, useful margin, backbone and evaluation inputs
-remain unselected. The completed [outcome-supervision study](../docs/chess-continuation.md)
+The [study description](chess-connectome-mapping-study.md) specifies the exact
+training settings, useful margin, original backbone and exposed development
+panels. The completed [outcome-supervision study](../docs/chess-continuation.md)
 failed its performance criteria and supplies no stronger replacement baseline.
 Its continuation actor scored 50.52% against policy and 50.00% against the
 teacher-action-value control. A successful mapping trial

@@ -48,11 +48,12 @@ The input/output projections already learned during this experiment. A
 confirms that all eighteen adapters moved away from their zero-output
 initialization. It does not establish which computations affected decisions.
 
-A separate [spatial-interface prototype](../research/chess-connectome-interface.md)
+A separate [spatial-interface implementation](../research/chess-connectome-interface.md)
 can change which board squares feed each neuron while preserving a hard,
-tied gather/scatter mapping. Biological and rewired graphs would receive the
-same mapping-search budget. This prototype has synthetic CPU/MPS checks;
-it has not been trained on chess data and supplies no new performance result.
+tied gather/scatter mapping. A [30-fit comparison](../research/chess-connectome-mapping-study.md)
+gives biological, rewired and node-local models the same mapping-search budget.
+Its 135 engineering checks pass; original-input validation and protocol
+preparation are running. No new chess fit or performance result is available yet.
 
 ## Evidence
 
