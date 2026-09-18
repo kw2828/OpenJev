@@ -194,7 +194,13 @@ claim requires beating matched rewires and the strongest conventional control;
 a planning claim requires useful imagined dynamics; a Bayesian claim requires
 an uncertainty ablation. Positive diagnostics alone satisfy none of these.
 
-This review adds no training runs, simulator installs or changed criteria to
-the existing chess studies. The immediate next implementation is the small
-observation/identifiability diagnostic in experiment 1. Visual pretraining,
-whole-fly training and a large combined architecture remain later steps.
+The review itself changes no frozen chess criteria. Subsequent work completed
+the [Pendulum qualification](robotics-pendulum-qualification.md), which found
+that a short history largely sufficed, and the [nine-fit Reacher pilot](reacher-world-model-pilot.md).
+The latter failed its continuation rule: GRU and RSSM world models did not
+improve over zero commands, while supplied-physics planning did. It provides
+no biological-wiring result. The immediate next test separates a known motor
+penalty from learned task reward and gives both matched GRU arms a longer
+fixed training budget. Useful learned control must precede the topology test.
+Visual pretraining, whole-fly training and a large combined architecture remain
+later steps.

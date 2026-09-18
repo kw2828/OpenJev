@@ -48,6 +48,7 @@ Open **http://127.0.0.1:8000**. Local text scoring uses Qwen3-4B; the free brows
 
 ## More experiments
 
+- [Robot reaching with missing sensors](research/reacher-world-model-pilot.md): nine learned world models, recorded replay and all weights. Neither recurrent model improved over zero commands.
 - [Chess action-outcome supervision](docs/chess-continuation.md): nine fits and 192 games; no established gameplay improvement.
 - [Astra-trained text students](docs/codex-astra-distillation.md): routing improved; BoolQ remained near chance.
 - [Recurrent world models](docs/recurrent-world-model-study.md) and [associative-memory PPO](docs/associative-ppo-study.md): no established memory advantage. [Initialization follow-up](docs/zero-critic-ppo-study.md).

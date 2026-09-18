@@ -6,6 +6,69 @@ and the [closed Pendulum qualification](robotics-pendulum-qualification.md).
 It is a conventional baseline experiment, not evidence for biological wiring
 or a new reinforcement-learning algorithm.
 
+## Result: neither recurrent model qualified
+
+All nine fits completed in **212.11 seconds** of total execution. The independent
+audit replayed **124,800 native physical transitions** and accepted the saved
+evidence. Scientific continuation failed: **1 of 27 checks passed**, solely the
+supplied-physics controller's competence check.
+
+![All final fits under full sensing, ordinary gaps and longer gaps](../evidence/reacher-world-model-v1/figure/reacher-world-models.png)
+
+Mean episode cost, lower is better. Learned rows average all three fits, each
+evaluated on the same 32 cases; these are not confidence intervals.
+
+| Controller | Six-step gaps | Ten-step gaps |
+|---|---:|---:|
+| History model | 10.025 | 10.187 |
+| GRU | 9.940 | 9.940 |
+| GRU, reset at gap onset | 9.926 | 9.925 |
+| Gaussian RSSM | 11.500 | 11.579 |
+| RSSM, reset at gap onset | 10.879 | 10.408 |
+| Known-state physics | 6.504 | 6.504 |
+| Particle-filter physics | 6.652 | 6.690 |
+| Zero command | 9.900 | 9.900 |
+| Uniform commands | 42.082 | 42.082 |
+
+The learned models do not improve over zero commands. Resetting memory does
+not hurt mean control cost. The physics references show useful control is
+possible with supplied dynamics; they do not establish that our learned model
+or public observation interface is sufficient to recover that performance.
+
+![First scheduled ordinary case, first fit of each model](../evidence/reacher-world-model-v1/figure/reacher-first-case.gif)
+
+This schematic replay uses recorded physical positions from **case 0, fit seed
+211** for every model. Red crosses are targets; shading marks missing sensors.
+Playback is twice as slow as simulation. The models received masked joint
+observations, not the true positions used to draw the replay. The near-static
+history/GRU behavior is part of the failed result, not a successful demo.
+
+### What the saved outputs suggest
+
+All models beat angle persistence at five-step prediction, but lose at one
+step. Mean five-step angle MSE is 0.1495 for history, 0.1830 for GRU, 0.1848
+for RSSM, versus 0.2176 for persistence. Prediction improvement alone did not
+produce useful control.
+
+Training had not plateaued: epoch 9 to 12 loss fell 29-32% for history, 48-61%
+for GRU and 30-33% for RSSM. That motivates a longer fixed budget in a new
+experiment, without proving it will help. GRU chose exactly zero commands on
+89-99% of ordinary steps. All history and GRU fits chose zero on every first
+step, while the supplied-physics planner chose nonzero on 21 of 32 paired
+initial cases. Later trajectories differ and cannot support the same direct
+candidate comparison. No selected one-step reward prediction was positive,
+so saturation at the planner's zero reward ceiling is not the immediate
+explanation. These are [post-hoc saved-output diagnostics](../evidence/reacher-world-model-v1/diagnosis.json),
+not new trained comparators or causal proof.
+
+The next narrow test is an identical GRU that predicts residual task reward
+while a fixed analytical term supplies expected noisy actuator cost. Both it
+and a free reward-head baseline should receive the same prospectively longer
+training budget, data and planner, with fresh fit and evaluation seeds. Train
+against native total reward only. This conventional reward-structure prior
+must first improve actual control; it is not a novel architecture or a reason
+to bypass the failed memory qualification and start a connectome sweep.
+
 ## Task and information
 
 Use Gymnasium Reacher-v5 with its native 50-step horizon, reset distribution,
@@ -104,4 +167,18 @@ the exploratory prediction set.
 The [frozen protocol](../evidence/reacher-world-model-v1/protocol/plan.json)
 has SHA-256 `10b9d22aaaa178c8293908f1d096a29ed7994760c997372dc865d240c224133b`.
 Implementation commit: `1b41b0a`. All 120 engineering checks passed, including
-a separate tiny training/control/audit fixture. No completed scored results yet.
+a separate tiny training/control/audit fixture.
+
+[Audit and every continuation check](../evidence/reacher-world-model-v1/audit/summary.json)
+and [audit receipt](../evidence/reacher-world-model-v1/audit/receipt.json) are
+published with the figures. The [complete execution archive](https://github.com/kw2828/OpenJev/releases/download/research-reacher-world-model-v1/reacher-world-model-v1-execution.tar.gz)
+includes all nine final weights, training curves, exploratory data, prediction
+outputs, control trajectories and planning scores. Verify it against the
+[archive manifest](../evidence/reacher-world-model-v1/archive.json) before
+extracting. This includes failed scientific results, not selected successes.
+
+The audit checked source/runtime identity, member hashes, weight structure,
+saved score consistency and physical transitions. It did not rerun training
+or learned model inference. The figures and diagnosis add no model, policy or
+physics calls. Their scripts and source hashes are published separately from
+the frozen experiment.
