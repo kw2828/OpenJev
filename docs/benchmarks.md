@@ -26,6 +26,14 @@ Nine original chess students trained on the same 4,096 Stockfish-labeled positio
 
 ## Recurrent world models
 
+![All six saved Reacher models under random and adaptive search](../evidence/reacher-search-v1/figures/search-control.png)
+
+The completed Reacher search comparison reused all six saved recurrent models on fresh cases. For the residual family, adaptive cross-entropy search lowered native control cost by **25.48% ordinarily and 25.26% with longer sensor gaps**, compared with random search using the same 256 candidate evaluations per decision. Every paired residual fit improved; the primary 8/8 and adaptive-search competence 15/15 checks passed. Supplied-physics references remain better. This establishes a planning improvement, not a memory, connectome or JEPA advantage. The earlier reward-head study's failed continuation rule remains unchanged. [Full results, all fits, diagnostic exceptions and reproducible traces](../research/reacher-adaptive-search.md).
+
+![Control cost versus measured amortized decision time for all six fits](../evidence/reacher-search-v1/figures/search-compute.png)
+
+Candidate-scoring budgets match; FLOPs are not claimed equal. Decision times include loading saved proposals, scoring, recurrent updates and trace storage, amortized over batched cases, and exclude row setup and native stepping. These shared-host measurements are throughput figures, not isolated single-agent latency.
+
 ![Autonomous associative-memory PPO and interventions](../evidence/associative-ppo-v1/associative-ppo-evaluation.png)
 
 [Autonomous follow-up](associative-ppo-study.md): twelve fresh fits completed 12.58 million training interactions. Same-size success averaged 17.19% for either store versus 34.38% for GRU; eight fits timed out on every intact evaluation episode. No cue swap changed a scored branch choice. Selective writing failed its continuation rule, despite the supervised retention result below.

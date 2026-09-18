@@ -1,12 +1,75 @@
 # Can better search make the existing world model useful?
 
-Status: frozen evaluation-only experiment, prepared September 18, 2026.
-No inherited model was scored on these new cohorts before freezing the
-[protocol](../evidence/reacher-search-v1/protocol/plan.json).
-Its SHA-256 is `8d5da5ee146c95532721fd1b6582bc37a091d5417e5d8b68f73e241379f2428b`.
-The [corrected six-fit result](reacher-reward-residual-control.md) improves
-prediction much more than control. This comparison isolates search allocation
-before changing training, latent representations or biological wiring.
+Status: completed and independently audited, September 18, 2026.
+Adaptive search reduced residual-model control cost by **25.48% with ordinary
+sensing gaps and 25.26% with longer gaps**, compared with random shooting at
+the same candidate-scoring budget. All three residual fits improved on both
+panels. The primary continuation gate passed **8/8** checks; CEM256 passed
+**15/15** fresh control-competence checks.
+
+The six models were inherited unchanged from the
+[earlier study](reacher-reward-residual-control.md). No new model was trained
+or selected. No inherited checkpoint was scored on the new cohorts before
+freezing the [protocol](../evidence/reacher-search-v1/protocol/plan.json), SHA-256
+`8d5da5ee146c95532721fd1b6582bc37a091d5417e5d8b68f73e241379f2428b`.
+The [saved-output audit](../evidence/reacher-search-v1/audit/summary.json) supports
+a conventional planning result: better search makes these existing models more
+useful. It does not establish memory use, a new architecture, or a JEPA,
+connectome or reinforcement-learning contribution.
+
+## Completed control results
+
+Cost is the negative sum of native rewards over 50 executed steps; lower is
+better. Each cell averages all three fixed fits in its family over the same 64
+paired cases. Ordinary sensing has two six-packet gaps; shifted sensing extends
+each gap to ten packets. All six fits, all panels and all planners are retained.
+
+| Sensing | Reward head | RS64 | RS256 | CEM256 |
+|---|---|---:|---:|---:|
+| Full | Free | 11.516684 | 11.517127 | 9.341138 |
+| Full | Residual | 11.101120 | 11.080222 | 8.239324 |
+| Ordinary | Free | 11.540183 | 11.540065 | 9.462354 |
+| Ordinary | Residual | 11.180601 | 11.166587 | 8.321801 |
+| Shifted | Free | 11.562838 | 11.562287 | 9.548385 |
+| Shifted | Residual | 11.200686 | 11.190381 | 8.363617 |
+
+![Native control costs for every fit, planner and sensing panel](../evidence/reacher-search-v1/figures/search-control.png)
+
+For CEM256 minus RS256, the residual-family mean cost difference is
+**-2.844786** on ordinary sensing, with an episode-paired percentile 95% interval
+of **[-3.427438, -2.240798]**. Under shift it is **-2.826764**, with interval
+**[-3.404254, -2.233626]**. These descriptive bootstrap intervals condition on
+the three saved fits; they are not uncertainty estimates across newly trained
+models. Individual residual fit improvements on the two primary panels range
+from 21.80% to 28.48%.
+
+| Prespecified check | Result |
+|---|---|
+| CEM256 versus RS256: both residual-family means improve at least 5%, every paired fit improves | **8/8, passed** |
+| Fresh control competence with RS64 | 5/15, failed |
+| Fresh control competence with RS256 | 7/15, failed |
+| Fresh control competence with CEM256 | **15/15, passed** |
+| Earlier combined prediction/control gate | 9/17, failed; historical, not rerun |
+
+Increasing independent random proposals from 64 to 256 had little practical
+effect: residual-family cost fell only 0.014014 ordinarily and 0.010305 under
+shift. The larger CEM gains therefore support adaptive proposal allocation,
+rather than merely evaluating more candidates. Free-head models also improve
+with CEM, although their family means remain worse than the residual models.
+
+The reference controllers retain their privileges and original budgets:
+
+| Sensing | Known state + supplied physics | Particle belief + supplied physics | Zero command | Uniform command |
+|---|---:|---:|---:|---:|
+| Full | 7.259323 | 7.403523 | 11.642618 | 42.437480 |
+| Ordinary | 7.259323 | 7.450230 | 11.642618 | 42.437480 |
+| Shifted | 7.259323 | 7.490604 | 11.642618 | 42.437480 |
+
+Both physics planners use 64 candidates; the two command baselines do not
+search. These references are not equal-access or equal-compute learned-model
+comparators. CEM residual models still have higher cost than either physics
+reference. Exact per-fit results and timings are in
+[all control rows](../evidence/reacher-search-v1/figures/all-control-rows.csv).
 
 ## Mechanism and sources
 
@@ -69,16 +132,39 @@ counts exclude shared observation assimilation and executed-action state
 updates, which must also be reported. Proposal generation, sorting, fitting,
 clipping, copying and trace storage all enter decision timing.
 
-Evaluate all six unchanged free/residual fits at seeds 271, 283 and 293 on 64
-fresh paired cases under full, ordinary and shifted sensing. This is 54 learned
-controller/panel rows. Retain all four reference controllers and clearly label
-their original 64-sequence budget and supplied-physics access. Keep all reset
-interventions required for any memory qualification in a separately explicit
-schedule; the planner comparison does not itself earn that qualification.
+The experiment evaluated all six unchanged free/residual fits at seeds 271,
+283 and 293 on 64 fresh paired cases under full, ordinary and shifted sensing.
+This gives 54 learned controller/panel rows plus 12 reference rows. The physics
+references retain their original 64-sequence budget and supplied-physics access.
+Reset interventions required for memory qualification belong in a separately
+explicit schedule; this comparison does not earn that qualification.
 
 CEM256 versus RS256 is the primary equal-scoring-budget contrast. RS256 versus
 RS64 measures spending more computation. Neither contrast implies equal wall
-time. Use all six fits without selecting a best seed or reward head.
+time. All six fits were used without selecting a best seed or reward head.
+
+## Compute and measured timing
+
+| Planner | Scored sequences per 50-step case | Imagined transitions per case | Residual decision time, all three fits and panels |
+|---|---:|---:|---:|
+| RS64 | 3,200 | 34,176 | 17.913258 s |
+| RS256 | 12,800 | 136,704 | 60.719423 s |
+| CEM256 | 12,800 | 136,704 | 60.946594 s |
+
+![Control cost against candidate evaluations and measured amortized decision time](../evidence/reacher-search-v1/figures/search-compute.png)
+
+The primary contrast matches scored candidates and imagined transitions, not
+total FLOPs or wall time. CEM's measured residual decision total was 0.37% above
+RS256 and 3.40 times RS64. These are descriptive timings from one fixed-order
+execution, not a repeated speed benchmark. Decision timing includes loading,
+proposals, model scoring, belief updates, sorting and trace writes. Whole-row
+timing additionally includes setup, native execution and final storage.
+
+Each decision processes 64 cases together. Dividing batch time by case count
+gives amortized throughput, not the latency of a single agent. Shared
+observation assimilation and executed-action updates are paid and recorded in
+the row timings even though they are excluded from imagined-transition counts.
+The complete learned-control evaluation scored 354,336,768 imagined transitions.
 
 ## Separate prediction error from search exploitation
 
@@ -114,6 +200,45 @@ Restore native integration state and the time-limit index; supply the recorded
 branch noise explicitly because restoring physics alone does not restore the
 wrapper's noise generator.
 
+The completed diagnostic covers all 64 prespecified roots, with four noise
+branches per sequence and 118 retained identity slots per root. There are
+67 to 82 unique sequences per root, averaging 73.84; duplicate identities are
+not extra independent samples. The table below averages the three residual fits
+and equally weights the prespecified physical roots. Selected native return is
+higher-is-better; finite-set regret is lower-is-better.
+
+| Sensing | Planner | Selected native return | Finite-set regret | Signed raw prediction bias |
+|---|---|---:|---:|---:|
+| Ordinary | RS256 | -1.636874 | 0.148853 | 0.054191 |
+| Ordinary | CEM256 | -1.577046 | 0.089026 | 0.015248 |
+| Shifted | RS256 | -1.639736 | 0.151715 | 0.064690 |
+| Shifted | CEM256 | -1.579318 | 0.091298 | 0.021265 |
+
+![Common-state selection regret and model-error diagnostics](../evidence/reacher-search-v1/figures/search-model-error.png)
+
+Common-bank rank agreement is identical across planners for a given model,
+history and root, because both the model and common-bank predictions are fixed.
+The result supports better proposal allocation and selected native returns;
+it does not show that CEM improves the model's ranking function. The residual
+family has no reward-prediction clipping in these diagnostic traces, so its
+aggregate improvement is not explained by a change in clipping frequency.
+
+Failures remain visible. At the near-terminal roots, CEM residual selected
+return is slightly worse on average: CEM minus RS256 is -0.000227 ordinarily
+and -0.000205 under shift. The free-271 model also has worse average diagnostic
+selected return with CEM on both primary panels. Stronger search therefore
+does not improve every root or every model's diagnostic decisions. The
+[complete diagnostic table](../evidence/reacher-search-v1/figures/all-diagnostic-rows.csv)
+retains these rows.
+
+These roots come from separate mixed-policy episodes, not the controllers'
+own state distributions. Four branches estimate return conditional on each
+root; they are not independent training runs. Regret is against the evaluated
+finite union, not the best possible action sequence. Signed bias can cancel
+across roots, and the raw/clipped errors remain available separately. Root
+averages mix twelve-step windows with the prespecified three-step terminal
+windows, so their magnitudes should not be read as full-episode control costs.
+
 ## Freeze and continuation
 
 Before scored calls, bind all six checkpoint hashes, source, runtime, exact
@@ -145,33 +270,108 @@ during those engineering fixtures. The
 [preflight note](../evidence/reacher-search-v1/engineering-namespace-note.json)
 preserves this correction.
 
-Carry the earlier failed 17-check result as authenticated historical context.
-The new study checks control competence for each planner, but does not rerun the
-earlier prediction endpoints or memory-reset interventions. It therefore cannot
-claim to have passed the earlier full continuation rule or established memory
-use. A search improvement is a conventional planning result. If ranking degrades, study model
-exploitation and training coverage. If ranking improves but control remains
-weak, next vary physical planning horizon under a new matched comparison.
+The earlier 9/17 failed gate remains authenticated historical context. This
+study passes the new planning continuation rule and CEM's fresh control-only
+checks. It does not rerun the earlier held-out prediction qualification or
+perform a memory-reset qualification, so it cannot claim to have passed the
+earlier full rule or established memory use. Longer sensing gaps are one narrow
+scenario shift within Reacher, not evidence of transfer to another environment.
+
+The next experiment can hold CEM fixed and compare the unchanged training
+objective with a public raw-endpoint auxiliary and an EMA latent auxiliary.
+That would test whether representation training adds value after correcting
+the planning bottleneck. It needs fresh paired evaluation, explicit teacher and
+decoder compute, declared loss-scale choices, and reset interventions for any
+memory claim. Connectome comparisons and a second environment remain future
+work. The present result is a useful baseline, not an architecture novelty claim.
+
+## Costs and verification
+
+The independent [audit receipt](../evidence/reacher-search-v1/audit/receipt.json)
+has SHA-256
+`a510adcbc19d7dd6cb292d520a417f9e7d6146da8a6a8b16f605c54a6f4fa93f`.
+It binds the protocol, implementation, runtime, inherited lineage, execution
+members and [summary](../evidence/reacher-search-v1/audit/summary.json). The
+summary SHA-256 is
+`a3b323e449aa97e9c51bec53b2903161f72fa4ebce897ec8124f0e2cbf48bc32`.
+The [figure receipt](../evidence/reacher-search-v1/figures/receipt.json) records
+the rendered figures and complete CSV tables separately.
+
+| Cost scope | Seconds |
+|---|---:|
+| Inherited fitting, already included in earlier attempts | 209.151973 |
+| Earlier cumulative attempt execution | 606.558388 |
+| New scored execution, including diagnostics and final hashing | 482.220110 |
+| Cumulative attempt execution after this study | 1,088.778498 |
+| Independent audit validation, outside execution timing | 43.828583 |
+
+The new execution finished within its frozen 3,600-second cap and performed no
+new fitting or Astra calls. Cumulative execution adds the new 482.22 seconds
+once to the earlier 606.56 seconds; inherited fitting must not be added again.
+Audit validation, publication and packaging are outside that execution total.
+
+The auditor reconstructed stored proposals and checked **544,928 native
+transitions with maximum absolute replay error 0**: 506,528 fresh evaluation
+transitions plus 38,400 inherited training transitions. It made no new learned
+model, policy or MPC-scoring calls. Native replay verifies saved actions and
+physical outcomes; reconstructing proposals from recorded scores does not
+independently verify neural forward outputs. Phase receipts bind the logged
+execution order but are not an independent process observer.
 
 ## Reproduce
 
-Use the pinned [robotics runtime](robotics-requirements.txt) and the complete
-upstream artifacts documented in the
-[six-fit report](reacher-reward-residual-control.md#costs-and-verification).
-The new runner authenticates every inherited weight and source before scoring.
+The [GitHub release](https://github.com/kw2828/OpenJev/releases/tag/research-reacher-search-v1)
+contains the complete saved execution in three parts. Their sizes and hashes
+are recorded in the [multipart manifest](../evidence/reacher-search-v1/execution-parts.json);
+the [archive manifest](../evidence/reacher-search-v1/execution-artifact.json)
+binds the packaged execution. Concatenate `.part-000`, `.part-001` and `.part-002`
+in that order. The combined archive is **2,507,605,067 bytes**, SHA-256
+`fe36acf0842da8e827067d521a52f595101b12417b65ee1c8ef8873f3d48455e`.
+
+From a clean checkout, download, assemble and verify:
 
 ```bash
-PYTHONPATH=src:scripts .venv-robotics/bin/python scripts/reacher_search_study.py run \
-  --plan evidence/reacher-search-v1/protocol/plan.json \
-  --expected-plan-sha256 8d5da5ee146c95532721fd1b6582bc37a091d5417e5d8b68f73e241379f2428b \
-  --out runs/reacher-search-v1/execution
+gh release download research-reacher-search-v1 --repo kw2828/OpenJev \
+  --pattern 'reacher-search-v1-execution.tar.gz.part-*' \
+  --dir output/reacher-search-v1-release
+cat output/reacher-search-v1-release/reacher-search-v1-execution.tar.gz.part-000 \
+    output/reacher-search-v1-release/reacher-search-v1-execution.tar.gz.part-001 \
+    output/reacher-search-v1-release/reacher-search-v1-execution.tar.gz.part-002 \
+  > output/reacher-search-v1-release/reacher-search-v1-execution.tar.gz
+printf '%s  %s\n' \
+  fe36acf0842da8e827067d521a52f595101b12417b65ee1c8ef8873f3d48455e \
+  output/reacher-search-v1-release/reacher-search-v1-execution.tar.gz \
+  | shasum -a 256 -c -
+```
+
+After verification reports `OK`, extract without overwriting an existing
+attempt. Archive members start with `execution/`, so the extraction target is
+`runs/reacher-search-v1`, not the repository root:
+
+```bash
+mkdir -p runs/reacher-search-v1
+tar -xzf output/reacher-search-v1-release/reacher-search-v1-execution.tar.gz \
+  -C runs/reacher-search-v1
+```
+
+Use the pinned [robotics runtime](robotics-requirements.txt) and restore the
+complete upstream artifacts documented in the
+[six-fit report](reacher-reward-residual-control.md#costs-and-verification).
+Authentication still checks that inherited lineage. Reproduce the saved-output
+audit into a new output directory:
+
+```bash
 PYTHONPATH=src:scripts .venv-robotics/bin/python scripts/reacher_search_study.py audit \
   --plan evidence/reacher-search-v1/protocol/plan.json \
   --expected-plan-sha256 8d5da5ee146c95532721fd1b6582bc37a091d5417e5d8b68f73e241379f2428b \
   --execution runs/reacher-search-v1/execution \
-  --out evidence/reacher-search-v1/audit
+  --out output/reacher-search-v1-reproduced-audit
 ```
 
-Output paths are exclusive. Do not rerun into an existing attempt, replace
-cases, or extend the cap. The audit reconstructs proposals from saved scores
-and replays native actions; it performs no new learned inference.
+The audit reconstructs proposals from saved scores and replays native actions;
+it performs no new learned inference. To reproduce execution itself, the same
+runner accepts `run` with the frozen plan and external SHA above, plus a new
+exclusive `--out` directory. That performs learned inference and must preserve
+all fits, cases, diagnostics and the original cap. Reproduction is not a fresh
+held-out evaluation for tuning another method. Existing attempts, cases and
+audit artifacts must remain intact.

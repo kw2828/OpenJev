@@ -34,6 +34,12 @@ The [30-fit mapping follow-up](research/chess-connectome-mapping-study.md) reduc
 
 **13 kills in 19.26 game seconds**, first fit and first evaluation seed. JEPA scored training clips; a small policy plays the recording. [Results and limits](docs/jepa-rl-study.md) · [Recording receipt](docs/assets/jepa-policy-181000.json).
 
+## Robot reaching
+
+![All six recurrent models with random and adaptive planning, including full observations and two sensor-gap panels](evidence/reacher-search-v1/figures/search-control.png)
+
+Adaptive search lowered control cost by **25.5% with ordinary sensor gaps and 25.3% with longer gaps**, versus random search at the same candidate-scoring budget. Every residual-model fit improved. The primary 8/8 and control-competence 15/15 checks passed. This is a planning gain with existing recurrent models; memory, JEPA and biological-wiring benefits remain unproven. [Results, compute and complete traces](research/reacher-adaptive-search.md).
+
 ## Run locally
 
 Apple Silicon macOS, Python 3.11-3.13:
@@ -50,7 +56,7 @@ Open **http://127.0.0.1:8000**. Local text scoring uses Qwen3-4B; the free brows
 
 ## More experiments
 
-- [Robot reaching with missing sensors](research/reacher-reward-residual-control.md): fresh evaluation improves reward prediction by 29%, but control by only 3%; 9/17 continuation checks pass. All six weights, plots and GIF included. [Correction](research/reacher-rng-independence-correction.md) · [Papers and next experiments](research/connectome-robotics-next-experiments.md).
+- [Earlier robot reward-prediction study](research/reacher-reward-residual-control.md): 9/17 continuation checks passed. [Biological learning and JEPA follow-up](research/connectome-learning-program.md).
 - [Chess action-outcome supervision](docs/chess-continuation.md): nine fits and 192 games; no established gameplay improvement.
 - [Astra-trained text students](docs/codex-astra-distillation.md): routing improved; BoolQ remained near chance.
 - [Recurrent world models](docs/recurrent-world-model-study.md) and [associative-memory PPO](docs/associative-ppo-study.md): no established memory advantage. [Initialization follow-up](docs/zero-critic-ppo-study.md).

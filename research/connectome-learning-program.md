@@ -1,14 +1,23 @@
 # Learning mechanisms for the next OpenJev experiments
 
-Updated September 18, 2026. This is an implementation and experiment roadmap.
-It contains no new performance result. The current
-[corrected Reacher study](reacher-reward-residual-control.md) remains a failed
-continuation test: prediction improved, useful control and memory did not.
+Updated September 18, 2026. The completed
+[adaptive-search study](reacher-adaptive-search.md) gives this roadmap a stronger
+control baseline. With unchanged fitted models, residual-family CEM256 lowered
+mean episode cost by **25.48% under ordinary sensing and 25.26% under shifted
+sensing** versus RS256, at the same candidate-scoring budget. The study passed
+all eight primary search checks; CEM256 passed all 15 control-competence checks.
+This supports conventional adaptive planning. It does not establish useful
+recurrent memory, biological topology, or a JEPA learning contribution.
+
+The earlier [corrected Reacher study](reacher-reward-residual-control.md) remains
+a failed continuation test under its original planner. The new search result
+preserves that history and does not rerun its memory-reset interventions.
 
 The proposed mechanism is **action-conditioned prediction of future recurrent
 state, followed by a controlled test of biological wiring and temporal
-hierarchy**. The immediate experiment isolates the planner. The next objective
-prototype is being prepared independently of scored model training.
+hierarchy**. Hold the now-qualified CEM256 planner fixed for the next learning
+comparison. Raw and latent objective components are implemented, but no model
+has been trained with either auxiliary objective.
 
 ## What we are borrowing
 
@@ -43,7 +52,8 @@ The preview passes 41 synthetic checks, plus 67 existing world-model and
 reward-residual checks. Tests include action alignment, gradient isolation,
 poisoned missing features, terminal boundaries and the seven-step span needed
 to bridge six missing observations. Independent review found no blocking issue.
-These are engineering checks; no new model has been trained or evaluated.
+These engineering checks do not establish control performance. No model has
+been trained with this auxiliary objective.
 
 Start from a student's recurrent state after assimilating a public observation.
 Advance it using the recorded commands without intermediate observations. A
@@ -63,16 +73,41 @@ covariance regularization only as a separate, named treatment. The teacher and
 auxiliary head add training computation; omit them at deployment when the
 controller does not need them.
 
-The first comparison uses the same GRU and residual reward formulation:
+The next comparison keeps CEM256, the GRU architecture and the residual reward
+formulation fixed:
 
-1. Existing objective.
-2. Equally long raw-observation prediction.
-3. Future latent-state prediction.
+1. Unchanged native observation/reward objective.
+2. The same objective plus matched-horizon raw endpoint prediction.
+3. The same objective plus EMA-teacher latent consistency.
 
-Match data, horizons, initialization pairs and optimizer updates, then separately
-report teacher passes, total transition evaluations, memory and wall time.
+Use fresh fitting seeds with paired student initializations, identical training
+data and minibatch orders, and matched optimizer-update counts. Match auxiliary
+horizons and masks. Evaluate on fresh paired native seeds under ordinary and
+longer-gap sensing, with the same CEM256 budget in every arm. Include a
+prespecified memory-reset intervention to test whether control depends on
+recurrent history. The completed search cohort is development evidence, not a
+fresh confirmation set for choosing the learning objective.
+
+Report all training and evaluation computation, including teacher passes and
+updates, student transitions, auxiliary and shared-decoder work, diagnostics,
+planner overhead, native interactions, memory and wall time.
 A compute-matched raw-prediction comparator is necessary before claiming that
 latent targets are more efficient. More training computation is not free.
+
+The [raw endpoint component](../src/openjev/research/reacher_raw_endpoint.py)
+now supplies the engineering control for the same horizons, observed endpoints,
+terminal boundaries and horizon weighting. It adds the same hidden-to-hidden
+linear predictor as the latent auxiliary, then uses the student's existing
+observation decoder to predict cosine/sine targets. At width 64, each auxiliary
+adds 4,160 trainable predictor parameters. The raw decoder receives additional
+gradients; raw and latent targets differ in dimension and scale. Matching this
+parameter count does not match gradient strength or total training computation.
+
+Its 50 synthetic checks pass, alongside 108 existing latent/world-model/residual
+checks. Both components leave the original anchor loss unchanged. Simply
+increasing the original rollout horizon would also change reward supervision
+and terminal weighting, so it is not the matched comparator. No objective
+ablation has been trained yet.
 
 A proposed continuation rule is at least 5% lower native episode cost than both
 controls on fresh ordinary and longer-gap cases, no paired fit worse, and a
