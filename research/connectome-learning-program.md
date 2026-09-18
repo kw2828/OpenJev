@@ -26,6 +26,11 @@ MTS3/HiP-RSSM context separation, DALI adaptation, uncertainty-aware control,
 continuous-time cells and Flybody transfer. These are established ingredients.
 Combining their names does not establish novelty.
 
+The separate [Qwen RLCD reference review](parallel-constrained-decoding-reference.md)
+identifies shared-prefix caching as a useful text-inference comparison. That
+repository supplies an inference engine around standard Qwen weights, not a
+new learning algorithm for this research program.
+
 ## A small JEPA-style learning experiment
 
 The [auxiliary component](../src/openjev/research/reacher_latent_consistency.py)
