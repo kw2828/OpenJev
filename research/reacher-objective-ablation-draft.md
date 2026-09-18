@@ -1,4 +1,7 @@
-# Reacher objective ablation: protocol draft
+# Reacher objective ablation: historical protocol draft
+
+Superseded by the [frozen comparison](reacher-objective-ablation.md). The text
+below records the proposal before the engineering checks and protocol freeze.
 
 **UNFROZEN, UNRUN. September 18, 2026.** This document proposes a bounded next
 experiment. No fitting seeds, generator states, loss multipliers or run budget

@@ -16,8 +16,8 @@ preserves that history and does not rerun its memory-reset interventions.
 The proposed mechanism is **action-conditioned prediction of future recurrent
 state, followed by a controlled test of biological wiring and temporal
 hierarchy**. Hold the now-qualified CEM256 planner fixed for the next learning
-comparison. Raw and latent objective components are implemented, but no model
-has been trained with either auxiliary objective.
+comparison. The [nine-fit objective study](reacher-objective-ablation.md) now has
+a frozen protocol and a complete synthetic rehearsal. Research results are pending.
 
 ## What we are borrowing
 
@@ -52,8 +52,8 @@ The preview passes 41 synthetic checks, plus 67 existing world-model and
 reward-residual checks. Tests include action alignment, gradient isolation,
 poisoned missing features, terminal boundaries and the seven-step span needed
 to bridge six missing observations. Independent review found no blocking issue.
-These engineering checks do not establish control performance. No model has
-been trained with this auxiliary objective.
+These engineering checks do not establish control performance. The new comparison
+will report every fit after independent auditing.
 
 Start from a student's recurrent state after assimilating a public observation.
 Advance it using the recorded commands without intermediate observations. A
@@ -107,7 +107,7 @@ Its 50 synthetic checks pass, alongside 108 existing latent/world-model/residual
 checks. Both components leave the original anchor loss unchanged. Simply
 increasing the original rollout horizon would also change reward supervision
 and terminal weighting, so it is not the matched comparator. No objective
-ablation has been trained yet.
+ablation result has been independently audited yet.
 
 A proposed continuation rule is at least 5% lower native episode cost than both
 controls on fresh ordinary and longer-gap cases, no paired fit worse, and a
@@ -121,8 +121,8 @@ noise in closed loop, while allowing actions and later observations to diverge.
 A reset loss establishes sensitivity to prior hidden state; reset-induced
 distribution shift remains an alternative explanation. A separately trained
 current-observation baseline is required for a stronger memory-advantage claim.
-The [unfrozen objective draft](reacher-objective-ablation-draft.md) specifies the
-next engineering and experiment requirements; it contains no scored result.
+The [frozen objective comparison](reacher-objective-ablation.md) specifies the
+engineering evidence, seeds, budgets and decision rules; results are pending.
 
 Checkpoint metadata must also bind the auxiliary horizons, teacher EMA momentum,
 regularization weights and model settings. These Python configuration values

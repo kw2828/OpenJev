@@ -22,6 +22,12 @@ JSON strings. The card's reported 5.6-7.0x speedups compare this with autoregres
 JSON generation on its hardware. They are not measurements against OpenJev's
 existing zero-generation scorer.
 
+The shared-prefix diagram in the supplied social post describes this inference
+pattern, not a disclosed TypeSafe architecture. The implementation still computes
+ordinary full-vocabulary logits before slicing candidate entries. Each field
+sees the common context and schema, but not other fields' selected answers;
+parallel field evaluation is not joint constraint solving.
+
 ## Probability and accounting issues
 
 [The schema compiler](https://huggingface.co/harshatheg/Qwen-2.5-1B-RLCD/blob/2af86848be75847ccb3553b0941cc51d6ef7e4e9/core/schema.py)
@@ -67,6 +73,11 @@ A fair improvement is shared-prefix inference on the same pinned Qwen model:
   synchronization and probability readback.
 - Preserve candidate-token mass and reject ambiguous label tokenization.
   Any accuracy or calibration claim needs a separate labeled evaluation.
+
+One bounded parity/speed pilot would use 54 fixed English requests: three question
+counts, two context lengths, three candidate counts and three requests per cell,
+with five paired warm repetitions. Freeze those requests before timing. This
+does not replace a labeled accuracy or calibration evaluation.
 
 This is a proposed systems experiment, not an implemented optimization. Decoder
 KV reuse does not transfer directly to our separate bidirectional text student.

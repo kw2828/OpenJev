@@ -1,0 +1,458 @@
+{
+  "version": 1,
+  "status": "completed_synthetic_capacity_measurement",
+  "namespace": "reacher-objective-engineering-capacity-v1",
+  "scope": "Synthetic engineering timing only. No actual corpus, inherited weights, scientific efficacy, environment simulation, evaluation or production RNG streams used.",
+  "source_sha256": {
+    "src/openjev/research/reacher_objective_training.py": "0a1d80a141c6bd90ac3b37dc0516503bbca06ac5d7af0449b490d5a5a1f85fbf",
+    "src/openjev/research/reacher_objective_protocol.py": "0a8b5affc5461941525b8e357cdcfd9c0f33880316d43c9684642c2659ec6c20",
+    "src/openjev/research/reacher_raw_endpoint.py": "f29d0cb5e091fe64cfbf6a935e8f5abb7fef8da7d2f543c668d2d2d0186a93cf",
+    "src/openjev/research/reacher_latent_consistency.py": "029195dfad2d6cba9ef2b656968043e309068aa3d223aa6d919d9317a830f949",
+    "src/openjev/research/reacher_reward_residual.py": "72aadee9db1362f258edd4813e56e517c64fdb74dd9f54b0b67a21f2a00d9308",
+    "src/openjev/research/reacher_world_models.py": "84a4a9f9122d0e8099bac19e04619faff22adabf0acf516eff9d5367ded2060e"
+  },
+  "runtime": {
+    "python": "3.12.13",
+    "torch": "2.14.0",
+    "platform": "macOS-26.6.1-arm64-arm-64bit",
+    "cpu_threads": 2,
+    "device": "cpu",
+    "dtype": "torch.float32"
+  },
+  "settings": {
+    "hidden_size": 64,
+    "dt": 0.02,
+    "residual_reward": true,
+    "noise_std": 0.05,
+    "train_episodes": 768,
+    "steps": 50,
+    "epochs": 48,
+    "batch_size": 32,
+    "learning_rate": 0.001,
+    "gradient_clip": 10.0,
+    "rollout_horizon": 5,
+    "rollout_weight": 0.5,
+    "reward_scale": 4.0,
+    "kl_weight": 0.01,
+    "kl_balance": 0.8,
+    "free_nats": 1.0,
+    "auxiliary_horizons": [
+      1,
+      3,
+      7
+    ],
+    "ema_momentum": 0.99,
+    "variance_weight": 0.0,
+    "covariance_weight": 0.0,
+    "optimizer": {
+      "name": "Adam",
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0.0,
+      "amsgrad": false,
+      "foreach": false,
+      "fused": false,
+      "maximize": false,
+      "capturable": false,
+      "differentiable": false,
+      "decoupled_weight_decay": false
+    },
+    "calibration": {
+      "batches": 4,
+      "target_fraction": 0.5,
+      "clip": [
+        0.01,
+        100.0
+      ],
+      "parameters": [
+        "observation_update",
+        "transition"
+      ]
+    },
+    "dtype": "torch.float32",
+    "device": "cpu",
+    "model_class": "GRUResidualRewardWorldModel"
+  },
+  "synthetic_data": {
+    "episodes": 128,
+    "steps": 50,
+    "seed": 1772942814,
+    "initial_state_sha256": "46d633634205c359492a25b6a595ed2612ddd280577c7a3e52b19868ce17e7be",
+    "canonical_tensors_sha256": "3be42c7609d00c1818000b6f30e3985d9e35d08edd7efe9f948f36f6f00af7dc",
+    "construction_seconds": 0.01268066605553031
+  },
+  "initializations": {
+    "count": 3,
+    "torch_role_seeds": {
+      "fit/student/pair0": 1510614565,
+      "fit/predictor/pair0": 4237369422,
+      "fit/minibatch/pair0": 2148556257,
+      "fit/student/pair1": 3687790886,
+      "fit/predictor/pair1": 522718405,
+      "fit/minibatch/pair1": 1828833940,
+      "fit/student/pair2": 2251449163,
+      "fit/predictor/pair2": 1640514106,
+      "fit/minibatch/pair2": 1265060201
+    },
+    "wall_seconds": 0.008503749966621399,
+    "canonical_hashes": [
+      {
+        "student_state": "ef3f1bfa52c622c1ea708f0b163b9365afe3294a6f35476dad2570d3003ced4c",
+        "predictor_state": "15cbadaf0e84029bfda6e627807eb480664a90ab6d4d7c961f7b536e36f0f178",
+        "student_buffers": "2dc631f7d9cd9700de2a93fd0c79790b79c396d489b335c875f717a6eaee0ef7",
+        "rng_states": "eb85410587a0957785c04197171d08b556482411bb8cd57e460f7e2f36fa9f99"
+      },
+      {
+        "student_state": "f6191940d811f1c29ad551fb6f9d667756bbae4b1e29ca1d4d70236c7df5362b",
+        "predictor_state": "16bf703112bd14da8cf38f3c95cf479993129a1d7ed158b3d758bf8cd76ef227",
+        "student_buffers": "2dc631f7d9cd9700de2a93fd0c79790b79c396d489b335c875f717a6eaee0ef7",
+        "rng_states": "123c988f40ab35f84f689140c722bc46ffcc93fd0106d7efc81252471c571b3a"
+      },
+      {
+        "student_state": "4c5394178ec249ccf6c4a93fce7e8596e41349885a6d80f9bfe903f16bb757cb",
+        "predictor_state": "02ef5d7ab595a213b2fd4856f51b2cd6ae07f6335a9fdc6ba14517f86d475255",
+        "student_buffers": "2dc631f7d9cd9700de2a93fd0c79790b79c396d489b335c875f717a6eaee0ef7",
+        "rng_states": "ab0de711cd3b8e321c984db32409700e5649bdee230694cea9ee446116482399"
+      }
+    ]
+  },
+  "calibration": {
+    "call_wall_seconds": 2.7383749580476433,
+    "costs": {
+      "setup_seconds": 0.5314832921139896,
+      "anchor_forward_seconds": 0.18197887437418103,
+      "raw_forward_seconds": 0.5690032511483878,
+      "latent_forward_seconds": 0.6480827934574336,
+      "gradient_seconds": 0.7790353344753385,
+      "wall_seconds": 2.7333315829746425
+    },
+    "rows": 12,
+    "named_gradient_vectors": 288,
+    "optimizer_updates": 0,
+    "ema_updates": 0,
+    "all_weights_and_global_rng_unchanged": true,
+    "frozen_formula_only": true
+  },
+  "arms": [
+    {
+      "arm": "anchor",
+      "setup_seconds": 0.001176541903987527,
+      "batches": [
+        {
+          "index": 0,
+          "role": "warmup",
+          "call_wall_seconds": 0.028780499938875437,
+          "costs": {
+            "anchor_forward_seconds": 0.012577874818816781,
+            "auxiliary_forward_seconds": 5.83939254283905e-07,
+            "backward_seconds": 0.010234916117042303,
+            "gradient_norm_and_clip_seconds": 0.0033377911895513535,
+            "optimizer_seconds": 0.001694665988907218,
+            "ema_and_witness_seconds": 7.501803338527679e-07,
+            "batch_wall_seconds": 0.028439000016078353
+          },
+          "anchor_work": {
+            "batch_forward_calls": {
+              "student_assimilate": 50,
+              "student_prefix_advance": 50,
+              "student_rollout_advance": 5,
+              "student_posterior_kl": 50
+            },
+            "sample_forward_evaluations": {
+              "student_assimilate": 1600,
+              "student_prefix_advance": 1600,
+              "student_rollout_advance": 7360,
+              "student_posterior_kl": 1600
+            },
+            "counts_are_not_flops": true
+          },
+          "auxiliary_work": null,
+          "optimizer_steps": 1,
+          "ema_updates": 0,
+          "ema_witness_captured": false
+        },
+        {
+          "index": 1,
+          "role": "representative",
+          "call_wall_seconds": 0.03289737505838275,
+          "costs": {
+            "anchor_forward_seconds": 0.01701629185117781,
+            "auxiliary_forward_seconds": 4.5890919864177704e-07,
+            "backward_seconds": 0.014749000081792474,
+            "gradient_norm_and_clip_seconds": 0.00021587498486042023,
+            "optimizer_seconds": 0.0003682090900838375,
+            "ema_and_witness_seconds": 6.2515027821064e-07,
+            "batch_wall_seconds": 0.03257558308541775
+          },
+          "anchor_work": {
+            "batch_forward_calls": {
+              "student_assimilate": 50,
+              "student_prefix_advance": 50,
+              "student_rollout_advance": 5,
+              "student_posterior_kl": 50
+            },
+            "sample_forward_evaluations": {
+              "student_assimilate": 1600,
+              "student_prefix_advance": 1600,
+              "student_rollout_advance": 7360,
+              "student_posterior_kl": 1600
+            },
+            "counts_are_not_flops": true
+          },
+          "auxiliary_work": null,
+          "optimizer_steps": 2,
+          "ema_updates": 0,
+          "ema_witness_captured": false
+        }
+      ],
+      "successful_updates": 2,
+      "optimizer_steps": 2,
+      "ema_updates": 0,
+      "training_wall_seconds": 0.06113833305425942
+    },
+    {
+      "arm": "raw",
+      "setup_seconds": 0.0014180000871419907,
+      "batches": [
+        {
+          "index": 0,
+          "role": "warmup",
+          "call_wall_seconds": 0.12147983303293586,
+          "costs": {
+            "anchor_forward_seconds": 0.01602379186078906,
+            "auxiliary_forward_seconds": 0.05270374985411763,
+            "backward_seconds": 0.05037962505593896,
+            "gradient_norm_and_clip_seconds": 0.0002461671829223633,
+            "optimizer_seconds": 0.00045425002463161945,
+            "ema_and_witness_seconds": 3.3318065106868744e-07,
+            "batch_wall_seconds": 0.1199921250808984
+          },
+          "anchor_work": {
+            "batch_forward_calls": {
+              "student_assimilate": 50,
+              "student_prefix_advance": 50,
+              "student_rollout_advance": 5,
+              "student_posterior_kl": 50
+            },
+            "sample_forward_evaluations": {
+              "student_assimilate": 1600,
+              "student_prefix_advance": 1600,
+              "student_rollout_advance": 7360,
+              "student_posterior_kl": 1600
+            },
+            "counts_are_not_flops": true
+          },
+          "auxiliary_work": {
+            "batch_forward_calls": {
+              "student_assimilate": 51,
+              "student_prefix_advance": 50,
+              "student_open_loop_advance": 329,
+              "student_predictor": 142,
+              "student_endpoint_decoder": 142
+            },
+            "sample_forward_evaluations": {
+              "student_assimilate": 1632,
+              "student_prefix_advance": 1600,
+              "student_open_loop_advance": 10528,
+              "student_predictor": 4544,
+              "student_endpoint_decoder": 4544
+            },
+            "collapse_diagnostics_included_in_auxiliary_wall": false
+          },
+          "optimizer_steps": 1,
+          "ema_updates": 0,
+          "ema_witness_captured": false
+        },
+        {
+          "index": 1,
+          "role": "representative",
+          "call_wall_seconds": 0.11067008296959102,
+          "costs": {
+            "anchor_forward_seconds": 0.015342000173404813,
+            "auxiliary_forward_seconds": 0.051110458094626665,
+            "backward_seconds": 0.04165591695345938,
+            "gradient_norm_and_clip_seconds": 0.0002579160500317812,
+            "optimizer_seconds": 0.0005346671678125858,
+            "ema_and_witness_seconds": 4.169996827840805e-07,
+            "batch_wall_seconds": 0.10916608292609453
+          },
+          "anchor_work": {
+            "batch_forward_calls": {
+              "student_assimilate": 50,
+              "student_prefix_advance": 50,
+              "student_rollout_advance": 5,
+              "student_posterior_kl": 50
+            },
+            "sample_forward_evaluations": {
+              "student_assimilate": 1600,
+              "student_prefix_advance": 1600,
+              "student_rollout_advance": 7360,
+              "student_posterior_kl": 1600
+            },
+            "counts_are_not_flops": true
+          },
+          "auxiliary_work": {
+            "batch_forward_calls": {
+              "student_assimilate": 51,
+              "student_prefix_advance": 50,
+              "student_open_loop_advance": 329,
+              "student_predictor": 142,
+              "student_endpoint_decoder": 142
+            },
+            "sample_forward_evaluations": {
+              "student_assimilate": 1632,
+              "student_prefix_advance": 1600,
+              "student_open_loop_advance": 10528,
+              "student_predictor": 4544,
+              "student_endpoint_decoder": 4544
+            },
+            "collapse_diagnostics_included_in_auxiliary_wall": false
+          },
+          "optimizer_steps": 2,
+          "ema_updates": 0,
+          "ema_witness_captured": false
+        }
+      ],
+      "successful_updates": 2,
+      "optimizer_steps": 2,
+      "ema_updates": 0,
+      "training_wall_seconds": 0.22930633299984038
+    },
+    {
+      "arm": "latent",
+      "setup_seconds": 0.0019326249603182077,
+      "batches": [
+        {
+          "index": 0,
+          "role": "warmup",
+          "call_wall_seconds": 0.13408504100516438,
+          "costs": {
+            "anchor_forward_seconds": 0.016663416055962443,
+            "auxiliary_forward_seconds": 0.06432929215952754,
+            "backward_seconds": 0.04948983294889331,
+            "gradient_norm_and_clip_seconds": 0.0002669580280780792,
+            "optimizer_seconds": 0.00046537513844668865,
+            "ema_and_witness_seconds": 0.001168208895251155,
+            "batch_wall_seconds": 0.13259308296255767
+          },
+          "anchor_work": {
+            "batch_forward_calls": {
+              "student_assimilate": 50,
+              "student_prefix_advance": 50,
+              "student_rollout_advance": 5,
+              "student_posterior_kl": 50
+            },
+            "sample_forward_evaluations": {
+              "student_assimilate": 1600,
+              "student_prefix_advance": 1600,
+              "student_rollout_advance": 7360,
+              "student_posterior_kl": 1600
+            },
+            "counts_are_not_flops": true
+          },
+          "auxiliary_work": {
+            "batch_forward_calls": {
+              "student_assimilate": 51,
+              "student_prefix_advance": 50,
+              "student_open_loop_advance": 329,
+              "student_predictor": 142,
+              "teacher_assimilate": 51,
+              "teacher_advance": 50
+            },
+            "sample_forward_evaluations": {
+              "student_assimilate": 1632,
+              "student_prefix_advance": 1600,
+              "student_open_loop_advance": 10528,
+              "student_predictor": 4544,
+              "teacher_assimilate": 1632,
+              "teacher_advance": 1600
+            },
+            "collapse_diagnostics_included_in_auxiliary_wall": true
+          },
+          "optimizer_steps": 1,
+          "ema_updates": 1,
+          "ema_witness_captured": true
+        },
+        {
+          "index": 1,
+          "role": "representative",
+          "call_wall_seconds": 0.13363162497989833,
+          "costs": {
+            "anchor_forward_seconds": 0.01631329208612442,
+            "auxiliary_forward_seconds": 0.06441433308646083,
+            "backward_seconds": 0.04922504094429314,
+            "gradient_norm_and_clip_seconds": 0.0002767089754343033,
+            "optimizer_seconds": 0.00042625004425644875,
+            "ema_and_witness_seconds": 0.0011827091220766306,
+            "batch_wall_seconds": 0.13207666692323983
+          },
+          "anchor_work": {
+            "batch_forward_calls": {
+              "student_assimilate": 50,
+              "student_prefix_advance": 50,
+              "student_rollout_advance": 5,
+              "student_posterior_kl": 50
+            },
+            "sample_forward_evaluations": {
+              "student_assimilate": 1600,
+              "student_prefix_advance": 1600,
+              "student_rollout_advance": 7360,
+              "student_posterior_kl": 1600
+            },
+            "counts_are_not_flops": true
+          },
+          "auxiliary_work": {
+            "batch_forward_calls": {
+              "student_assimilate": 51,
+              "student_prefix_advance": 50,
+              "student_open_loop_advance": 329,
+              "student_predictor": 142,
+              "teacher_assimilate": 51,
+              "teacher_advance": 50
+            },
+            "sample_forward_evaluations": {
+              "student_assimilate": 1632,
+              "student_prefix_advance": 1600,
+              "student_open_loop_advance": 10528,
+              "student_predictor": 4544,
+              "teacher_assimilate": 1632,
+              "teacher_advance": 1600
+            },
+            "collapse_diagnostics_included_in_auxiliary_wall": true
+          },
+          "optimizer_steps": 2,
+          "ema_updates": 2,
+          "ema_witness_captured": true
+        }
+      ],
+      "successful_updates": 2,
+      "optimizer_steps": 2,
+      "ema_updates": 2,
+      "training_wall_seconds": 0.26478670886717737
+    }
+  ],
+  "extrapolation": {
+    "fits": 9,
+    "updates_per_fit": 1152,
+    "formula": "3 * 1152 * sum(second_batch_call_wall_seconds across anchor/raw/latent)",
+    "training_loop_seconds": 958.000030875206,
+    "nine_fit_setup_seconds": 0.013581500854343176,
+    "initialization_plus_calibration_seconds": 2.7468787080142647,
+    "training_pipeline_seconds": 960.7604910840746,
+    "twice_training_loop_seconds": 1916.000061750412,
+    "excludes": [
+      "prediction",
+      "control",
+      "native saved-output replay/audit",
+      "checkpoint exports/restores",
+      "runner JSON and file writes",
+      "process startup",
+      "sustained-run thermal drift"
+    ],
+    "interpretation": "Single second-update per arm timing, not a runtime guarantee or performance result. Both measured latent updates include an EMA tensor witness; actual run witnesses only first and last updates. Auxiliary multiplier fixed to 1.0 for speed measurement, not calibrated efficacy."
+  },
+  "wall_seconds": 3.3663692080881447
+}
