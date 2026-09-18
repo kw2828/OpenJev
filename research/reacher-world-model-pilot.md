@@ -101,4 +101,7 @@ metrics without new training or planner decisions. On-policy prediction errors
 are reported separately because a planner can exploit errors that are rare in
 the exploratory prediction set.
 
-Status: implementation and engineering verification. No scored results yet.
+The [frozen protocol](../evidence/reacher-world-model-v1/protocol/plan.json)
+has SHA-256 `10b9d22aaaa178c8293908f1d096a29ed7994760c997372dc865d240c224133b`.
+Implementation commit: `1b41b0a`. All 120 engineering checks passed, including
+a separate tiny training/control/audit fixture. No completed scored results yet.
