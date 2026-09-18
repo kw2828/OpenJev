@@ -50,7 +50,7 @@ Open **http://127.0.0.1:8000**. Local text scoring uses Qwen3-4B; the free brows
 
 ## More experiments
 
-- [Robot reaching with missing sensors](research/reacher-world-model-pilot.md): recorded replays and weights. A random-stream independence defect requires fresh evaluation; [correction](research/reacher-rng-independence-correction.md).
+- [Robot reaching with missing sensors](research/reacher-world-model-pilot.md): recorded replays and weights. A random-stream independence defect requires fresh evaluation; [correction](research/reacher-rng-independence-correction.md). [Papers and next experiments](research/connectome-robotics-next-experiments.md).
 - [Chess action-outcome supervision](docs/chess-continuation.md): nine fits and 192 games; no established gameplay improvement.
 - [Astra-trained text students](docs/codex-astra-distillation.md): routing improved; BoolQ remained near chance.
 - [Recurrent world models](docs/recurrent-world-model-study.md) and [associative-memory PPO](docs/associative-ppo-study.md): no established memory advantage. [Initialization follow-up](docs/zero-critic-ppo-study.md).

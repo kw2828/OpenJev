@@ -4,6 +4,10 @@ Literature checked September 18, 2026. This is a research recommendation, not a
 new performance result or a frozen training protocol. Paper results below are
 the authors' reports; we have not reproduced them.
 
+The [additional paper review and next experiments](connectome-robotics-next-experiments.md)
+adds fast/slow context models, uncertainty-aware control, continuous-time
+circuits, symmetry controls, conformal feedback and a Flybody transfer path.
+
 Follow-up: the [completed Pendulum qualification](robotics-pendulum-qualification.md)
 passed all six checks. Short-history control approaches the known-state mean,
 so we will not expand that clean diagnostic into a connectome architecture
