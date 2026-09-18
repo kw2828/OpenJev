@@ -8,6 +8,12 @@ GRU and CEM256 planner fixed, then changes the training objective. It follows th
 [completed adaptive-search result](reacher-adaptive-search.md). It is a development
 experiment, not a JEPA reproduction or a test of biological wiring.
 
+The [public release](https://github.com/kw2828/OpenJev/releases/tag/research-reacher-objective-ablation-v1)
+now includes the complete scored execution, audit and frozen sources in three
+verified archive parts. [Download and reassembly instructions](../evidence/reacher-objective-ablation-v1/scored-publication/README.md)
+include checksums and the historical-lineage dependencies required for a full
+re-audit. The original synthetic engineering archive remains separately available.
+
 ## Result and decision
 
 Latent prediction lowered mean native control cost by **5.76% on ordinary gaps
