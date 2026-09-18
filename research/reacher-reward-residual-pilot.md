@@ -1,9 +1,14 @@
 # Can a known actuator penalty improve learned planning?
 
-Status: complete runner and independent audit implemented and engineering-tested.
-This is not yet a frozen protocol or a completed performance result.
+Status: frozen for one scored execution after 114 engineering checks passed.
+No completed performance result yet.
 It leaves the [negative nine-fit experiment](reacher-world-model-pilot.md)
 unchanged. No scored training has run for this treatment.
+
+[Frozen protocol](../evidence/reacher-reward-residual-v1/protocol/plan.json)
+SHA-256: `df9929ea6320e24ba32ec8e8fdd84f88f8435ed03db1bea655ec31d82345e0fd`.
+Implementation commit: `3a9ed3d`. Fit seeds are 271, 283 and 293; the protocol
+specifies interleaved treatment order and every independent evaluation stream.
 
 ## Why this comparison
 
