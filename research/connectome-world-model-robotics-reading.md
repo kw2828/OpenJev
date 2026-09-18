@@ -110,10 +110,13 @@ and roll candidate actions forward without future observations. Reset only at
 episode boundaries. Prediction quality must beat copying/persistence, and
 planning must improve realized return at the same search budget. Reset and
 action-history interventions test use of memory rather than mere capacity.
+Report observation-filtering error separately from open-loop rollout error.
 
 Train predictors first on one frozen transition dataset and use common
 observation interfaces and planner candidates. This isolates model learning;
 an online RL comparison requires a separate interaction-budget protocol.
+Track whether planned actions leave the training data's coverage: a planner
+can exploit prediction errors even when average held-out prediction improves.
 Measure return, multistep prediction, change-recovery cost, training cost and
 full decision latency. Learned models must earn an advantage over the strongest
 simple control before expanding to a large topology experiment.
@@ -140,6 +143,8 @@ interfaces and update schedule within each topology contrast. Include generic
 sparse and block-GRU controls. Parameter count, hidden-state size and measured
 compute are separate matching axes; report residual differences and cost
 frontiers rather than asserting that all can be matched exactly.
+Check activity scale and recurrent stability; matching degrees alone does not
+match weighted strength or mixing dynamics.
 
 The key question is whether the gain from dynamics changes is greater for
 biology than for rewires, and survives varied sampling intervals and missing
