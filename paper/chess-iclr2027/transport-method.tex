@@ -1,0 +1,116 @@
+\section{Two-endpoint relation transport}
+The earlier candidate comparison motivates a different question: can a move
+head use long-range root-board relations without recomputing a spatial network
+for every successor? We implement two-endpoint transport as a controlled
+representation hypothesis. It uses no afterstate, teacher shortlist or search.
+
+\paragraph{Mechanism.}
+Freeze the three direct-policy backbones from the candidate experiment. For
+each legal move, initialize a width-32 query from its existing source,
+destination, pooled-board and promotion/displacement features. Initialize two
+distributions $p^0$ and $r^0$ as point masses at the move's endpoints. Four
+row-stochastic matrices $P_k$ represent mover attacks, their reverse,
+opponent attacks and their reverse. Pinned pieces retain geometric attacks;
+empty rows become self-loops. At each of three internal steps, the query
+produces separate four-way softmax gates $\alpha_k^t$ and $\beta_k^t$:
+\begin{equation}
+ p^{t+1}=\sum_{k=1}^{4}\alpha_k^t p^tP_k,
+ \qquad r^{t+1}=\sum_{k=1}^{4}\beta_k^t r^tP_k.
+\end{equation}
+Pool frozen node features under both distributions and their normalized
+pointwise product, retaining the product's mass as another scalar. A shared
+GRU updates the query from these pools. A zero-initialized scalar output adds a
+correction to the backbone logit. All arms therefore start with identical
+predictions. The head stores 16,744 parameters; dense batched operations process
+the legal menu. The overlap represents root-graph accessibility, not consequences
+created by the move. Unattacked destinations may be absorbing.
+
+\paragraph{Attribution controls and budget.}
+Five heads compare full transport, zeroed overlap pool/mass, fixed uniform
+relation gates, stationary endpoint distributions, and full transport on
+degree-preserving rewired root graphs. The unchanged backbone is an additional
+reference. Every color-specific rewire preserves each node's incoming and
+outgoing degrees, forbids duplicate/self edges, and requests five accepted
+swaps per edge under a fixed attempt ceiling. The prepared-input audit verifies
+all 32,768 training roots and 65,536 rewired relations. Every training relation
+reaches its swap target and changes; about 22.7\% of original edges remain.
+This sampler is not uniform over all degree-matched graphs, and only one fixed
+FEN-derived rewire is used per root.
+
+Each of fifteen heads trains for six epochs and 1,536 updates on the same
+32,768 old training roots, with paired seeds, minibatches, Adam settings and
+legal-move cross-entropy. Backbones remain frozen; their pretraining cost is
+retained. All fits finish before evaluation. Controls store equal parameters,
+but inactive gates/input coordinates and different operations preclude claims
+of equal active capacity or FLOPs. Both evaluation panels are already exposed
+development data. The fixed continuation rule requires mean agreement gains
+of one point over uniform/static/rewired, half a point over no-overlap, and no
+loss against the backbone on both panels, with no paired-seed deficit worse
+than half a point. This teacher-imitation screen cannot establish engine-quality
+or gameplay improvements.
+
+\input{transport-table.tex}
+\TransportResults{}
+
+\paragraph{Exploratory engine characterization.}
+After the failed primary criterion was observed, we froze a separate assessment
+of all eighteen policies on the original candidate study's 128-position subsets
+per panel. There is no model or position selection from the new agreement
+outcomes and no replacement success threshold. Each root receives a fresh
+unrestricted call and one call restricted to each unique policy choice, clearing
+the engine hash each time and requesting 20,000 nodes. All three paired seeds
+are retained, including finite-search negative differences.
+\input{transport-regret-table.tex}
+\TransportRegretResults{}
+
+\paragraph{Simpler-head follow-up.}
+A separately frozen nine-fit comparison adds a generic move MLP, an NCN-inspired
+endpoint-product/common-neighbor head, and a typed overlap head. All use the
+same frozen backbones, action features, old training data and 1,536 updates.
+The generic head has two 80-unit hidden layers; the untyped overlap head uses
+65. The typed head pools all sixteen ordered pairs of attack/reverse-attack
+relations, projects each pooled vector from 32 to 8 dimensions with shared
+weights, and uses two 48-unit hidden layers. Head counts are within 4\% of
+transport. All residual outputs start at zero. No test outcomes determine
+these widths. Untyped pooling uses an undirected attack union; typed pooling
+preserves direction and color. These are chess adaptations of structural
+pooling, not reproductions of the original NCN encoder and benchmark.
+
+All nine fits finish before evaluation. Recomputing every training-root cache
+for all three backbones matches the original cache exactly. Original backbone
+and transport predictions are copied with authenticated provenance; they are
+not counted as fresh inference. The additional rule requires transport to gain
+at least one agreement point over each new head on both panels, with no paired
+seed deficit worse than half a point.
+\input{relation-baselines-table.tex}
+\RelationBaselineResults{}
+A separately frozen post-hoc engine extension retains all fifteen policies;
+Appendix~\ref{app:baseline-engine} reports the mixed endpoint ranking.
+
+\paragraph{Joint representation training.}
+A separately frozen follow-up allows gradients through the root encoder,
+recurrent core, action embeddings and direct policy head. The five transport
+variants and a direct policy start from the same original paired backbones;
+transport heads are fresh and initially output zero. Unused value, auxiliary
+and action-plane projection modules remain fixed. Every arm receives six more
+epochs of legal-move cross-entropy at the same fixed learning rate and minibatch
+order. Eighteen final fits total 27,648 updates, with all training completed
+before evaluation. The direct comparator controls for additional backbone
+training; parameters and FLOPs are not equal across arms.
+
+The fixed criterion requires at least one agreement point over jointly trained
+direct/uniform/static/rewired, half a point over no-overlap, and no loss against
+the unchanged backbone on both old panels. Every paired-seed deficit must be
+at most half a point. This tests a fixed optimization budget, not individually
+tuned learning rates or an untouched confirmation distribution.
+\input{joint-transport-table.tex}
+\JointResults{}
+
+\paragraph{Prior-work boundary.}
+Learned relation-operator mixtures are established in Neural LP
+\citep{yang2017}; NBFNet constructs source/query-conditioned pair representations
+through learned path aggregation \citep{zhu2021}. Neural Common Neighbor uses
+structural overlap to guide learned feature pooling \citep{wang2024}. The
+present head combines related ingredients for chess decisions.
+\PathBaselineResult{}
+These comparisons do not establish a new algorithm or a uniform quality advantage.

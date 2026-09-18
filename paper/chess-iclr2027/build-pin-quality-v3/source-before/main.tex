@@ -1,0 +1,418 @@
+\documentclass{article}
+\usepackage{iclr2027_conference,times}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,booktabs,graphicx,hyperref,xurl,etoolbox,placeins}
+\hypersetup{hidelinks}
+% Preserve the official layout while avoiding a false submission-status claim.
+\makeatletter
+\patchcmd{\@maketitle}{Under review as a conference paper at ICLR 2027}{Development draft for ICLR 2027 - not submitted}{}{}
+\patchcmd{\@maketitle}{Anonymous authors\\Paper under double-blind review}{Research draft\\Authorship and scientific review pending}{}{}
+\makeatother
+\title{Structure and Computation\\in Small Chess Policies}
+\input{results.tex}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We compare four structural biases in small chess decision networks: explicit
+candidate consequences, biological recurrent wiring, exact computation reuse,
+and action-conditioned relation transport. In a twelve-fit candidate comparison,
+explicit successor differences miss predeclared engine-quality and paired-game
+criteria despite sensitivity to action-successor alignment. A separate
+eighteen-adapter experiment compares a fixed biological subgraph against three
+degree-preserving rewires and additional recurrent controls on frozen backbones.
+\BioAbstract{} A factorized relation network then separates global metadata
+from local recurrence, allowing exact dependency-cone updates in real arithmetic.
+Its floating-point implementation reduces logical recurrent-node updates by
+\LocalSavings\%. \BatchAbstract{} \TransportAbstract{}
+An eighteen-fit joint-training follow-up also fails its criterion; its advantage
+over equally fine-tuned direct prediction nearly vanishes on shifted positions.
+Every experiment retains its original criterion, unsuccessful arms and costs.
+Together, these development results distinguish input dependence, structural
+attribution, logical work, measured latency and chess strength. They do not yet
+establish a novel architecture advantage. Fresh confirmation and direct
+comparisons with the closest published methods remain necessary.
+\end{abstract}
+
+\section{Research question}
+Chess has an exact transition simulator, a finite legal action set, strong
+reference engines, and controlled interventions on input information. These
+properties make it useful for testing architectural mechanisms. They also make
+weak attribution easy: a legal-action mask can guarantee legal moves, a native
+simulator can expose future states, and a teacher can supply strong labels
+without the student learning planning.
+
+We investigate four questions. Does explicitly encoding each candidate's
+consequences improve decisions enough to justify its cost? Does biological
+wiring improve a policy beyond degree-matched random wiring after sharing the
+backbone, input interface, initialization and optimization? Can a representation
+be designed so that different candidate consequences reuse exact computations
+without invalidating the whole network? Does action-conditioned transport
+through root-board relations improve a move head beyond routing and overlap
+ablations or degree-preserving rewires?
+
+The experiments form a sequential development program. Each comparison has its
+own frozen protocol and panel; they are not a shared leaderboard. Results that
+fail a predeclared continuation rule remain failures. Subsequent experiments
+cannot retroactively convert those outcomes into successful confirmation.
+The locality architecture is new code in this project, not yet a demonstrated
+new contribution relative to the literature.
+
+\section{Related work and boundaries}
+Recurrent computation on chess, including extrapolation from easier to harder
+problems by increasing inference iterations, is established by
+\citet{schwarzschild2021}. ChessBench studies amortized chess decisions from
+large-scale teacher data \citep{ruoss2024}; matching a teacher move is not the
+same as winning a game. AlphaGateau studies graph representations, edge features
+and policy outputs for chess \citep{rigaux2024}. Neither graph inputs nor tied
+recurrence alone provides novelty here.
+Probing and activation interventions have also found evidence of future-move
+representations in Leela \citep{jenner2024}; exposing native successors in our
+inputs does not by itself establish learned look-ahead.
+
+FlyGM instantiates a fly connectome as a graph controller for simulated
+locomotion \citep{jin2026}. ChessFly is a prior public artifact using a
+FlyWire-derived graph \citep{chessfly}. Our controlled topology experiment asks
+a narrower causal question than comparing heterogeneous published policies.
+Our induced descending-neuron subgraph omits its original sensory inputs and
+uses an artificial board interface. It is not an intact biological brain.
+
+Incremental inference is also established. Stockfish's NNUE documentation
+describes accumulator updates from sparse feature changes \citep{nnue}.
+InkStream and Ripple reuse computations in evolving graph neural networks
+\citep{wu2023,naman2025}. Our dependency-cone construction specializes this
+principle to branching chess successors and explicitly tests global-feature
+placement. It must be compared to those methods before any general efficiency
+claim. TypeSafe's proprietary Jev is separate from the local research models;
+none of these experiments measures its internals or reconstructs its architecture.
+
+\section{Experimental accounting}
+\paragraph{Inputs and reference targets.}
+The shared spatial policy represents a board with nineteen channels and scores
+all native legal UCI candidates. The channels include piece ownership, castling,
+en-passant state and counters, in a side-relative rank orientation. No SAN mate
+markers or engine targets are supplied to the network. Decision labels use a
+2,000-node Stockfish teacher. Higher-budget assessment uses Stockfish 19 with
+20,000 requested nodes for each unrestricted or chosen-move-constrained call.
+For scores $c_*$ and $c_a$ in centipawns, the bounded loss is
+\begin{equation}
+ L(s,a)=\tanh(c_*/600)-\tanh(c_a/600).
+\end{equation}
+Finite-search scores can make this difference negative. It is neither exact
+game-theoretic regret nor a calibrated probability. Raw centipawn loss is retained
+in the underlying experiments where recorded, because the bounded transform can
+hide large changes at extreme scores.
+
+\paragraph{Panels and uncertainty.}
+Ordinary and shifted rollout panels vary the generator's teacher/random-action
+mix and game length. Historical roots, legal successors and color mirrors are
+excluded according to each frozen plan. These are development distributions
+that have already influenced architecture choices. Candidate and biological
+experiments each evaluate 2,048 positions per panel, with fixed 128-position
+subsets for stronger-engine grading. Within an experiment, all arms use the same
+positions. Positions within games are dependent. Three fitted seeds are shown
+without treating them as a large population sample.
+
+\paragraph{Training and total cost.}
+The candidate comparison uses twelve fits: four architectures and three paired
+seeds, each with 32,768 training positions, six epochs and 1,536 Adam updates.
+The biological study trains eighteen adapters on three frozen direct-policy
+backbones with the same data count and updates. Backbone pretraining remains a
+cost of the biological study; this is not evidence of low-data efficiency.
+All final adapters finish before any neural evaluation. No best epoch, seed,
+replacement fit or retrospective budget extension is selected.
+
+\section{Explicit consequences do not establish better decisions}
+The four candidate arms share a spatial root encoder, recurrent core and legal
+candidate readout. Direct scoring uses root features only. Action-only refinement
+injects source/destination/promotion features. Delta refinement also projects the
+exact nineteen-channel input difference between root and native successor.
+Full-afterstate refinement separately encodes the successor. The latter three
+share two branch recurrence steps after the four-step root computation.
+The native transitions are exact rules, not learned dynamics.
+
+\input{candidate-table.tex}
+
+Delta improves mean bounded loss relative to direct by \DeltaDevReduction\%
+on ordinary positions, but worsens it by \DeltaShiftWorsening\% on shifted
+positions. Neither comparison meets the required 20\% reduction on both panels;
+the action-only comparisons also fail. In 96 color-paired games per opponent,
+delta scores lower-bound point shares of \DeltaDirectPoints\% against direct
+and \DeltaActionPoints\% against action-only, below the required 60\%.
+Two of the 288 games remain unfinished and stay in the denominators. There are
+no failed games. Game scores are not converted into Elo.
+
+Permuting which successor belongs to which candidate reduces teacher agreement
+on both panels in every seed. This intervention demonstrates dependence on the
+action-successor association. It does not show useful planning: that stronger
+claim fails the quality and gameplay tests. Delta's complete decision latency
+is about 5.5 times direct scoring in the original local measurement, including
+native transition and input preparation. This cost motivates the locality
+hypothesis, without assuming the existing delta method has a quality advantage
+worth preserving.
+
+\paragraph{External distribution check.}
+All twelve frozen candidate models were evaluated without additional training
+on a selected 4,096-position public ChessBench panel. Mean reference-move
+agreement ranges from \TransferMin\% to \TransferMax\%. This external-source
+measurement is development evidence; source-game identifiers are absent, and
+it is not a sealed test or an independent-game uncertainty estimate. The entire
+62,561-row acquired file is reserved in the later biological study's exclusions.
+
+\section{Controlled biological topology comparison}
+The audited packed graph has 138,639 nodes. A label-independent coarse-group
+rule selects all 1,409 descending nodes, inducing 44,090 signed connections and
+discarding 430,912 boundary connections. The selected graph contains six
+isolated nodes. Original packed node indices are the available identities;
+they are not asserted to be FlyWire root IDs or functional cell-type labels.
+
+The adapter maps frozen board features into graph state with a fixed seeded
+mapping, performs four leaky scalar recurrence steps, and applies a learned
+residual correction through a zero-initialized output projection. State resets
+on every decision. Biological wiring is compared with three independently
+rewired graphs that preserve signed in/out degrees, dense recurrence, node-local
+recurrence, and the unchanged backbone. Each rewire completes 440,900 accepted
+swaps; structural audits also record final edge overlap. Biological and rewired
+arms match parameter count and operations. Dense and node-local references do
+not match those counts and are reported as additional controls.
+
+\input{biology-table.tex}
+\BioResults{}
+
+The frozen continuation rule requires at least 10\% lower mean bounded loss
+against each rewire on both panels, a strict improvement in every paired seed,
+and no paired degradation from the unchanged backbone. Missing or nonfinite
+results cannot pass. This stage contains no arena or Elo estimate. A pass would
+justify a separately frozen gameplay and mechanism replication, not establish
+novelty. Every topology uses dense matrix operations in the implementation;
+sparse wiring must not be reported as sparse-kernel speed.
+
+\section{Factorized counterfactual locality}
+\subsection{Architecture}
+The new prototype separates local and global state. Local features comprise
+twelve piece/color channels, rank/file coordinates and an en-passant marker.
+Two row-normalized directed adjacency matrices encode attacks by root-side and
+opponent pieces. Pinned pieces retain geometric attacks, and friendly occupied
+endpoints are included. These relations are derived from chess rules, not a
+biological connectome. Global metadata comprises side to move relative to the
+root player, four castling rights, two counters and en-passant availability.
+
+Let $X$ denote local features, $g$ global metadata and $A_r$ the adjacency
+for relation $r$. With biases implicit, the model is
+\begin{align}
+ z &= X E, & h^0 &= \tanh(z),\\
+ h^{t+1} &= \tfrac12 h^t + \tfrac12\tanh\!\left(h^tW_0+
+                   \sum_r A_rh^tW_r+z\right),\\
+ q(s) &= \mathrm{MLP}\left[\mathrm{mean}(h^T),g\right].
+\end{align}
+Node features are row vectors. A broadcast control
+adds the same projected global vector $gG$ to every row of $z$, including initialization. Global changes
+therefore invalidate all nodes in that control. In the factorized model they
+affect the readout immediately but need not invalidate local recurrence.
+The functions differ across architectures; only full and incremental evaluation
+of the \emph{same} architecture must agree. Late fusion may also reduce modeling
+capacity, which remains to be measured after matched training.
+
+\subsection{Exact dependency-cone updates}
+Cache root states $h^0,\ldots,h^T$ once. For a native successor in the same
+root-player perspective, let $S_0$ contain changed local input nodes and $D$
+contain destinations with changed normalized adjacency rows. Recursively define
+\begin{equation}
+ S_{t+1}=S_t\cup S_0\cup D\cup\{v: \exists u\in S_t,r,\ A'_{r,vu}\ne0\}.
+\end{equation}
+Recompute layer $t+1$ only at destinations in $S_{t+1}$, using the updated
+predecessor layer, and copy other nodes from root layer $t+1$.
+
+\paragraph{Equivalence.}
+Assume fixed parameters, deterministic node-local nonlinearities, and no hidden
+global normalization or pooling inside recurrence. At initialization, unchanged
+input nodes have identical states. Suppose all child states outside $S_t$ equal
+their root states. For $v$ outside $S_{t+1}$, the local input, self state and
+normalized adjacency rows are unchanged, and no child edge reaches $v$ from a
+changed predecessor. Thus its entire update equals the root update. Induction
+proves equality at every layer in real arithmetic. Deleted edges and changed
+normalizers are included in $D$, preventing incorrect stale-cache reuse.
+This is an application of incremental-computation reasoning, not a claim of a
+new general theorem. Floating-point implementations require tolerance checks.
+
+\subsection{Engineering screen}
+Before inspecting outcomes, the screen fixed 64 old training roots in a
+label-independent hash order, all legal successors, widths of 32, depths
+2/4/8, three initialization seeds, and factorized/broadcast arms. No optimizer,
+engine or external model is called. The screen checks every successor's hidden
+state and scalar score against full recomputation with absolute tolerance
+$2\times10^{-6}$. A stale-root diagnostic distinguishes correct updating from
+doing no work.
+
+The logical work comparison charges root-cache construction as well as all
+child node updates. Complete timing uses sixteen roots, three paired repeats,
+depth four and seed 211, alternating method order. It includes FEN parsing,
+legal moves, native board copies, graph construction, root caching where needed,
+propagation and readout. The current dense masks and tensor clones remain in
+the timed path. Fewer logical updates are not assumed to imply lower latency.
+The initial full baseline processes one candidate at a time. Its original gate
+remains unchanged after the following stronger baseline comparison.
+
+\input{locality-table.tex}
+\LocalResults{}
+
+\paragraph{Batched baseline follow-up.}
+A separately frozen implementation stacks all sibling graph inputs and uses
+batched dense multiplication to compute the same network. Nine unit tests check
+hidden states, outputs, gradients, sibling order, and special moves. The follow-up
+uses the same 64 already exposed roots, three depths, three seeds and both arms.
+Complete timing charges graph encoding and validation, stacking, recurrence,
+readout and conversion to Python scores, alongside the original full and
+incremental paths. Six method permutations rotate over sixteen roots and three
+repeats per arm at depth four and seed 211. No test positions or training labels
+are introduced. \BatchResults{}
+
+\input{transport-method.tex}
+
+\section{What remains before the main claim}
+The experiments delimit failure modes and provide executable hypotheses, not a
+general quality-cost frontier. A decisive next study must identify a mechanism
+that survives the closest published-method comparators and task-specific
+interventions. The completed graph comparisons favor the established WLDN
+adaptation over scalar contrast (Appendix~\ref{app:graph-baselines}); child-assignment
+sensitivity is insufficient. Controls need
+explicit information, training and inference budgets. Efficiency claims also
+require suitable NNUE and incremental-GNN baselines. Architecture choices must
+be frozen before a disjoint confirmation panel is exposed.
+
+A further hypothesis is a learned board-to-connectome mapping compared to
+identically learned mappings on several degree-preserving rewires. It is not
+implemented as a validated improvement here. Combining the tested transport,
+locality and biological modules would require factorial ablations showing that
+each contributes beyond the others.
+
+Longer-term claims need strong engine-quality and paired-game evidence with
+source-game-aware uncertainty, plus a second relational task if the claim is
+intended to generalize beyond chess. A successful engineering screen alone
+cannot meet those requirements. Human scientific review, complete citation
+verification, and an anonymity audit remain prerequisites to submission.
+
+\section*{Reproducibility statement}
+Frozen protocols bind code, input files, checkpoints, seeds, exclusions and
+environments. Completed runs retain all predictions, costs, unsuccessful arms
+and unfinished games. Tables in this draft are generated from hash-verified
+saved summaries. The biological report separately audits raw outputs without
+new inference. Local artifact identities accompany the development source;
+an anonymous, distributable submission package has not yet been prepared.
+External biological assets and derivative weights remain local pending their
+applicable source terms. Original graph-control code uses synthetic test inputs.
+
+\section*{AI use statement}
+An OpenAI coding assistant contributed literature discovery, architectural
+hypotheses, implementation, tests, experiment orchestration, analysis and drafting.
+This draft and its claims have not yet completed human scientific review. Authors
+must verify the results, attribution, originality and final text before any
+submission. No model is listed as an author. This statement must be reviewed
+against the final contributions and submission-form disclosures.
+
+\begingroup\raggedright
+\begin{thebibliography}{18}
+\bibitem[Schwarzschild et~al.(2021)]{schwarzschild2021}
+Avi Schwarzschild et~al. Can You Learn an Algorithm? Generalizing from Easy to
+Hard Problems with Recurrent Networks. NeurIPS, 2021.
+\url{https://arxiv.org/abs/2106.04537}.
+\bibitem[Jenner et~al.(2024)]{jenner2024}
+Erik Jenner, Shreyas Kapur, Vasil Georgiev, Cameron Allen, Scott Emmons, and
+Stuart Russell. Evidence of Learned Look-Ahead in a Chess-Playing Neural
+Network. Preprint, 2024. \url{https://arxiv.org/abs/2406.00877}.
+\bibitem[Ruoss et~al.(2024)]{ruoss2024}
+Anian Ruoss et~al. Amortized Planning with Large-Scale Transformers: A Case Study
+on Chess. 2024. \url{https://arxiv.org/abs/2402.04494}.
+\bibitem[Rigaux and Kashima(2024)]{rigaux2024}
+Tomas Rigaux and Hisashi Kashima. Enhancing Chess Reinforcement Learning with
+Graph Representation. NeurIPS, 2024. \url{https://arxiv.org/abs/2410.23753}.
+\bibitem[Jin et~al.(2026)]{jin2026}
+Zehao Jin, Yaoye Zhu, Chen Zhang, and Yanan Sui. Whole-Brain Connectomic Graph
+Model Enables Whole-Body Locomotion Control in Fruit Fly. Preprint, 2026.
+\url{https://arxiv.org/abs/2602.17997}.
+\bibitem[ChessFly(2026)]{chessfly}
+ChessFly. Public model card and chess artifact. Accessed September 2026.
+\url{https://huggingface.co/mlabonne/chessfly}.
+\bibitem[Stockfish developers(2026)]{nnue}
+Stockfish developers. NNUE documentation. Accessed September 18, 2026.
+\url{https://official-stockfish.github.io/docs/nnue-pytorch-wiki/docs/nnue.html}.
+\bibitem[Wu et~al.(2023)]{wu2023}
+Dan Wu, Zhaoying Li, and Tulika Mitra. InkStream: Real-time GNN Inference on
+Streaming Graphs via Incremental Update. Preprint, 2023.
+\url{https://arxiv.org/abs/2309.11071}.
+\bibitem[Naman and Simmhan(2025)]{naman2025}
+Pranjal Naman and Yogesh Simmhan. Ripple: Scalable Incremental GNN Inferencing on
+Large Streaming Graphs. ICDCS, 2025. \url{https://arxiv.org/abs/2505.12112}.
+\bibitem[Yang et~al.(2017)]{yang2017}
+Fan Yang, Zhilin Yang, and William W. Cohen. Differentiable Learning of Logical
+Rules for Knowledge Base Reasoning. NeurIPS, 2017.
+\url{https://arxiv.org/abs/1702.08367}.
+\bibitem[Zhu et~al.(2021)]{zhu2021}
+Zhaocheng Zhu, Zuobai Zhang, Louis-Pascal Xhonneux, and Jian Tang.
+Neural Bellman-Ford Networks: A General Graph Neural Network Framework for Link
+Prediction. NeurIPS, 2021. \url{https://arxiv.org/abs/2106.06935}.
+\bibitem[Wang et~al.(2024)]{wang2024}
+Xiyuan Wang, Haotong Yang, and Muhan Zhang. Neural Common Neighbor with Completion
+for Link Prediction. ICLR, 2024. \url{https://arxiv.org/abs/2302.00890}.
+\bibitem[David et~al.(2017)]{david2017}
+Omid E. David, Nathan S. Netanyahu, and Lior Wolf. DeepChess: End-to-End Deep
+Neural Network for Automatic Learning in Chess. Preprint, 2017.
+\url{https://arxiv.org/abs/1711.09667}.
+\bibitem[Coley et~al.(2019)]{coley2019}
+Connor W. Coley et~al. A Graph-Convolutional Neural Network Model for the
+Prediction of Chemical Reactivity. Chemical Science, 10:370--377, 2019.
+\url{https://doi.org/10.1039/C8SC04228D}.
+\bibitem[Grambow et~al.(2020)]{grambow2020}
+Colin A. Grambow, Lagnajit Pattanaik, and William H. Green. Deep Learning of
+Activation Energies. Journal of Physical Chemistry Letters, 11:2992--2997, 2020.
+\url{https://doi.org/10.1021/acs.jpclett.0c00500}.
+\bibitem[Jin et~al.(2017)]{jin2017}
+Wengong Jin, Connor W. Coley, Regina Barzilay, and Tommi Jaakkola.
+Predicting Organic Reaction Outcomes with Weisfeiler-Lehman Network.
+\emph{Advances in Neural Information Processing Systems}, 30, 2017.
+\url{https://arxiv.org/abs/1709.04555}.
+
+\bibitem[Wen et~al.(2021)]{wen2021}
+Mingjian Wen et~al. BonDNet: a graph neural network for the prediction of bond
+dissociation energies for charged molecules. \emph{Chemical Science},
+12:1858--1868, 2021. \url{https://doi.org/10.1039/D0SC05251E}.
+
+\bibitem[Heid and Green(2022)]{heid2022}
+Esther Heid and William H. Green. Machine Learning of Reaction Properties via
+Learned Representations of the Condensed Graph of Reaction. Journal of Chemical
+Information and Modeling, 62:2101--2110, 2022.
+\url{https://doi.org/10.1021/acs.jcim.1c00975}.
+\bibitem[Lucic et~al.(2022)]{lucic2022}
+Ana Lucic et~al. CF-GNNExplainer: Counterfactual Explanations for Graph Neural
+Networks. AISTATS, 2022. \url{https://proceedings.mlr.press/v151/lucic22a.html}.
+\end{thebibliography}
+\endgroup
+
+\appendix
+\section{Earlier development experiments}
+The initial synthetic circuit had mean teacher agreement of 14.36\%, versus
+14.19\% for a signed degree-preserving rewire, below its required three-point
+advantage. A subsequent spatial study compared untied convolution, tied
+recurrence, current-board reconstruction and future-piece prediction. Prediction
+learned changed-square targets but failed the prescribed decision-quality gain
+over the controls. Mixed-depth and anchored recurrence were examined separately;
+they did not establish the intended robust extra-computation benefit.
+
+A six-fit width comparison increased active parameters from 33,185 to 439,073.
+Its mean bounded engine loss improved by 22.99\% on ordinary positions and
+9.26\% on shifted positions, missing the required 20\% improvement on both.
+Against the small model it scored 18 wins, 64 draws, 12 losses and two unfinished
+games, below the required lower-bound 60\% point share. These experiments used
+different panels and budgets from the main tables and must not be pooled into
+a single benchmark or used as independent replications.
+
+\input{transport-followups.tex}
+
+\section{Submission status}
+This file is a development draft targeting the ICLR 2027 format, not an accepted,
+submitted, or scientifically complete paper. The official call checked on
+September 18, 2026 lists September 18 at 23:59 AoE for abstract registration and
+September 25 at 23:59 AoE for the full paper. No registration is performed by
+building this document. Authorship, human review, a defensible final contribution,
+complete evidence and an anonymous supplementary package remain outstanding.
+\end{document}

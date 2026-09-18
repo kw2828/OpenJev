@@ -69,6 +69,11 @@ changed moves. These measurements cover 128 fixed ordinary roots, three seeds
 and nine rotating repeats on the shared host. This lower-quality candidate did
 not obtain a compensating speed advantage.
 
+![All nine complete-decision timings and paired Joint/WLDN ratios](../evidence/chess-pin-trained-cost-v2/figures/native-cost.png)
+
+[Timing table and scope](../evidence/chess-pin-trained-cost-v2/figures/report.md) ·
+[Verified cost archive](https://github.com/kw2828/OpenJev/releases/download/research-chess-pin-quality-v3/cost-v2-verification.tar.gz).
+
 Two previous attempts remain separate: v1 stopped after 770 updates because of
 a source-game identifier schema problem; v2 disappeared after five fits and
 8,239 updates, with unknown cause. V3 started fresh and reused no partial
@@ -101,7 +106,8 @@ strictly bounded history, then test a specific learning mechanism. The
 describes those controls. None has a new scored result here.
 
 [Frozen question and controls](../research/chess-pin-quality-study.md) ·
-[V3 protocol and preserved lineage](../evidence/chess-pin-quality-v3/README.md)
+[V3 protocol and preserved lineage](../evidence/chess-pin-quality-v3/README.md) ·
+[Updated development paper](../output/pdf/openjev-chess-pin-quality-v3-development.pdf)
 
 Audit receipt SHA-256:
 `c86562f02e450ad67ed6af6225cf3ba0b13a958c2ae63a8746441dcbf9e9c52e`.

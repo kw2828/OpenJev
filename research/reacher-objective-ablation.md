@@ -21,12 +21,18 @@ required 5%. Those four failures keep the overall criterion failed.
 | Anchor | 8.2760 | 8.3123 | 8.3744 | 35.60 |
 | Raw endpoint | 9.3721 | 9.4144 | 9.4801 | 120.30 |
 | EMA latent | 7.8894 | 7.8339 | 7.8859 | 124.67 |
+| Public-history particle filter with known dynamics | 7.3931 | 7.4331 | 7.5588 | No learned fit |
+| Privileged known-state physics reference | 7.3116 | 7.3116 | 7.3116 | No learned fit |
 
 Cost is negative total native reward over 50 steps; lower is better. Each
-entry averages all three paired fits and the same 64 evaluation cases. These
+learned-family entry averages all three paired fits and the same 64 evaluation
+cases. References use those cases without a learned fit. These
 are development measurements in one environment, not an uncertainty estimate
 over retraining. Raw worsened against Anchor in every fit, so its weakness
 must remain visible when interpreting the larger latent-versus-raw gain.
+The known-dynamics particle filter still has lower cost than every learned
+family mean. Its model knowledge and computation differ; it is a competence
+reference, not a matched learned-model comparison.
 
 ![All nine fits and all sensing panels](../evidence/reacher-objective-ablation-v1/figures/native-costs.png)
 

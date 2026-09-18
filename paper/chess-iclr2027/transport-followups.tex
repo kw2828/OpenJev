@@ -1,0 +1,258 @@
+\section{Stronger-engine characterization of simpler heads}
+\label{app:baseline-engine}
+After observing the additional teacher-agreement comparison, we froze another
+post-hoc engine assessment. It includes every paired backbone and full-transport
+policy plus all nine newly trained simpler heads. The original 128-position
+subsets remain fixed; no policy or position is selected from favorable new
+outcomes. Every unrestricted and unique chosen-move call starts with a cleared
+hash and requests 20,000 nodes under the same single-threaded Stockfish setup.
+
+\input{baseline-regret-table.tex}
+
+\BaselineEngineResults{}
+
+\paragraph{Published path-baseline adaptation.}
+A separate three-fit study uses a 16,416-parameter NBFNet-style head: a
+120-to-16 action query, three width-16 DistMult/PNA layers with source boundary
+reinjection, residual shortcuts and layer normalization, followed by a target
+lookup and width-32 readout. The zero-initialized scalar correction preserves
+the same original backbones. It uses the same four typed root attack channels,
+32,768 roots, six epochs and 1,536 updates per seed; all fits precede evaluation.
+Selected pinned public unfused methods pass value/gradient checks through a
+scatter compatibility layer. This is a documented chess adaptation, not an
+official NBFNet benchmark reproduction. Unlike transport, it accesses frozen
+node features through the endpoint/global query rather than pooling features
+of every visited node. Similar stored parameters do not equalize compute.
+
+\input{path-baseline-table.tex}
+The original transport needed at least one agreement point over this comparator
+on both panels, with no paired-seed deficit worse than half a point. Both checks
+fail. The audit verifies all 4,608 update-index records and replays 12,288 new
+baseline predictions plus 24,576 copied references. The original failed
+transport criteria remain unchanged; there is no new engine or gameplay result.
+\PathBaselineLatency{}
+
+\section{Candidate-specific attack operators}
+Root-graph transport omits changes to attack lines caused by a proposed move.
+An untrained follow-up computes four child operators in the fixed root-player
+frame, using native transitions for all legal candidates. Write
+$D_{a,r}=P_{\mathrm{child}(a),r}-P_r$, including all changed normalization
+coefficients and empty-row self-loops. Sparse indexed accumulation implements
+$pP_r+pD_{a,r}$. This is the linear identity for applying the child operator,
+not a new theorem or learned transition model. Both paths first reconstruct
+native child graphs; the prototype is not an incremental attack generator.
+Nine tests cover color frames, castling, en passant, promotions, dense operator
+reconstruction and three-step output/gradient equivalence.
+
+The frozen screen uses point masses at the move endpoints and seeded random
+gates, node features and readout weights. It has no trained query controller or
+chess-quality evaluation. Complete untrained pipeline timing includes board
+parsing, legal enumeration, graph construction, normalization/delta packing,
+input preparation, three propagation steps, readout and UCI selection.
+It uses sixteen roots, three paired timing repeats and a shared host.
+\CounterfactualResults{}
+Any later repair must preserve this failed screen. A quality study would first
+need to establish a benefit from the full child-operator representation against
+root-only and candidate-assignment controls.
+
+\paragraph{Shared-weight graph contrast.}
+A separate dense prototype scores the change in a candidate-conditioned graph
+representation. With frozen root features $H_s$, action features $q_s(a)$ and
+the same learned head $f_\theta$ in both branches, its correction is
+\begin{equation}
+ c(s,a)=f_\theta(P_{s,a};H_s,q_s(a))-f_\theta(P_s;H_s,q_s(a)).
+\end{equation}
+The child graph comes from the exact native move in the root-player frame;
+node features remain those of the root. Shared controllers may diverge after
+receiving different pooled contexts, so this is not the fixed-gate linear
+operator identity above. A zero-change mask enforces exact cancellation in
+both forward and backward execution when the operators agree. The root term
+is action-dependent, so subtracting it can affect the legal-move ranking.
+
+The four implemented arms are this difference, child only, root only, and a
+label-independent permutation of child-to-candidate assignments. Each stores
+16,744 parameters and starts with zero residual output. Eighteen tests include
+special moves, direction, parameter identity, separate-branch equivalence and
+menu alignment. The first screen stopped on a tuple/list validation mismatch;
+its failed receipt is retained. A separately frozen repair changes that
+validation, retaining all positions, seeds and thresholds. \GraphContrastResults{}
+\GraphContrastSharedResults{}
+
+\paragraph{Completed scalar-contrast quality study.}
+\GraphQualityResult{}
+\input{graph-contrast-table.tex}
+
+\AttackEditInputResult{}
+\NormalizationInputResult{}
+
+Paired chess representations already use shared weights \citep{david2017}.
+More directly, WLDN ranks candidate reaction outcomes using differences of graph
+representations and adds its score to an earlier proposal score
+\citep{coley2019}. Shared graph encoders with subtractive atom representations
+also predict activation energies \citep{grambow2020}, while condensed reaction
+graphs can encode changes directly in node and edge features \citep{heid2022}.
+Our action-conditioned transport and scalar subtraction differ from their
+nodewise difference encoders; this distinction alone is not a contribution.
+The ingredient controls do not replace the direct method comparisons below.
+Perturbed-graph explanation is another established use \citep{lucic2022}.
+
+\paragraph{Direct prior-method adapters.}
+We implement two additional baselines to separate scalar-score differences,
+nodewise differences and changes encoded directly on the input graph.
+The WLDN-style adapter \citep{coley2019} applies a shared width-32 encoder with
+three tied WL updates to root and child graphs, subtracts the node states, and
+applies one separate WL update on the child graph before summing over squares.
+It concatenates the result with the original 120 action features and uses a
+59-unit readout, for 16,638 head parameters. Edge features and biases in the
+difference encoder mean identical branches need not have zero learned scores.
+We retain that property rather than imposing scalar-contrast cancellation.
+
+The condensed-graph adapter \citep{heid2022} uses the union of root and child
+attack edges. Each message direction carries four root direction/color flags
+and four signed child-minus-root flags. A directed MPNN excludes immediate
+reverse-edge messages and adds the original edge projection at each of two
+tied recurrent updates. Width is 32, pooling averages all 64 square states,
+and an 80-unit readout receives the same action features, for 16,704 parameters.
+All node features remain those of the root in both adapters; the resulting
+zero node differences are omitted from the condensed input. These are explicit
+chess adaptations, not reproductions of molecular features or chemical tasks.
+
+Selected pinned public functions pass output and gradient checks: WLDN through
+a Torch compatibility layer, and the Chemprop directed encoder through its
+unmodified Torch class with supplied graph tensors. The WLDN source and port
+retain GPL identification; the selected Chemprop source and adapter retain MIT
+identification. Neither check reproduces the full published training pipeline.
+\DifferenceBaselineEngineering{}
+A separately frozen three-seed WLDN study uses the same 32,768 roots, six epochs
+and minibatch order as scalar contrast. \WLDNQualityResult{}
+A separate condensed-graph study completes the same three seeds and 4,608-update
+budget, with all 24,576 new/copied predictions replayed. Its protocol was frozen
+before inspecting final WLDN or graph-contrast quality outcomes, with NBFNet's
+advantage over original transport already known.
+
+\paragraph{Combined established-method comparison.}
+\label{app:graph-baselines}
+The first separate comparison retains all eight original ingredient checks and
+adds two WLDN checks. A further frozen comparison adds two checks each for CGR
+and NBFNet. Every new check requires at least one point of mean contrast
+advantage and no paired-seed deficit beyond half a point. All fourteen checks
+are required; a later comparison cannot rescue an earlier failure. WLDN and
+NBFNet outcomes were known when the combined analysis was frozen, while scalar
+contrast and CGR were still training. This is adaptive development, not a
+preregistered research program.
+\input{graph-baselines-table.tex}
+\FloatBarrier
+\GraphBaselineResult{}
+
+\FloatBarrier
+\section{Fixed-weight WLDN pathway diagnostic}
+\label{app:wldn-pathways}
+After inspecting the completed baseline comparisons, we froze a diagnostic of
+the strongest adapted head. It retains all three trained WLDN checkpoints and
+both complete 2,048-position development panels. No weights, labels or legal
+menus change. Five interventions separate the encoded child-minus-root node
+differences from the graph inputs to the subsequent difference layer.
+
+\input{wldn-interventions-table.tex}
+
+Zeroing node differences retains child adjacency, edge flags and learned
+biases. Replacing the difference-layer graph with the root graph retains the
+native encoded differences. Zeroing its four edge flags retains child
+adjacency, so this intervention does not remove all structural information.
+Zeroing the pooled graph channels retains the original 120 action features
+and trained readout. Finally, the frozen candidate permutation shuffles node
+differences within each legal menu while keeping the actual child's graph and
+action features. The permutation can contain fixed points.
+
+\WLDNInterventionResult{}
+The audit also verifies unchanged head states, removal of temporary hooks,
+native root observations, legal menus and labels. It authenticates the prior
+complete native child-graph audit rather than reconstructing that cache again.
+Bootstrap resampling uses 2,000 draws of source games after averaging paired
+correctness across the three seeds; the same draws serve all interventions
+within a panel.
+
+The trained model depends on candidate-aligned node changes and on the
+subsequent graph context. These effects are not additive contributions:
+interventions can create out-of-distribution hidden states, and the difference
+layer combines node and edge information nonlinearly. In particular, the
+zero-difference condition is not a separately trained edge-only architecture.
+These results motivate retaining nodewise differences in the next controlled
+architecture comparison; they do not establish a new mechanism or predict the
+performance of retrained variants.
+
+\FloatBarrier
+\section{Union difference-layer hypothesis and encoding limit}
+\label{app:union-basis}
+An implemented extension retains the shared WLDN encoder \citep{jin2017} and nodewise
+difference but changes the graph used by the final difference layer. Four arms
+use child connectivity, root/child union connectivity, a union with explicit
+retained/added/removed relation flags, or the same union with corrupted edit
+labels. Each head stores 16,740 parameters with a width-32 encoder and a
+58-unit action readout. The child/union controls leave eight of twelve edge
+input channels unused, so stored-parameter matching does not equalize active
+capacity. \UnionDifferenceEngineering{}
+
+The negative control rotates edit classes over ordered square pairs within
+each candidate and direction/color channel, preserving union flags and class
+counts. It can break reverse-direction consistency and leave homogeneous
+groups unchanged. A globally fixed added/removed swap would instead be a
+learnable input renaming. The separate quality study trains all twelve final
+models before evaluation, retaining the original WLDN and backbone as
+authenticated references. Its unchanged criterion requires an edits advantage
+over every trained comparator on both panels.
+
+\UnionEditControlInput{}
+
+\paragraph{Matched training result.}
+\UnionDifferenceQuality{}
+\input{union-difference-table.tex}
+\UnionDifferenceCost{}
+
+\paragraph{Reverse-consistent control.}
+\UnionConsistentEngineering{}
+
+\paragraph{Equivalent feature coordinates.}
+For one binary relation, let $r,c,u=r\lor c$ denote root, child and union
+indicators, and let $t,a,\ell$ denote retained, added and removed indicators.
+Then
+\begin{equation}
+ t=r+c-u,\qquad a=u-r,\qquad \ell=u-c;
+ \qquad u=t+a+\ell,\quad r=t+\ell,\quad c=t+a.
+\end{equation}
+Thus these three-channel encodings are invertibly related for each of the four
+direction/color relations. An edge projection with weights $W_t,W_a,W_\ell$
+has exactly the same preactivation in the presence basis when
+\begin{equation}
+ W_u=-W_t+W_a+W_\ell,\qquad W_r=W_t-W_a,\qquad W_c=W_t-W_\ell.
+\end{equation}
+All node columns, biases, connectivity and subsequent layers remain unchanged,
+so the complete scoring function is preserved in real arithmetic. Seven tests
+verify the Boolean truth table, inverse transforms, full-head scores and
+chain-rule gradients, including nonzero projections and hook cleanup.
+The float64 score/gradient tolerances are $10^{-12}/10^{-10}$.
+
+This is an elementary reparameterization, not a new theorem or an expressivity
+advantage. It does not equate child-only with union connectivity. The transform
+is nonorthogonal, so isotropic random initialization, coordinatewise Adam and
+Euclidean gradient clipping need not produce equivalent training trajectories.
+Any basis-dependent training benefit would require a separate controlled
+comparison. Established condensed reaction graphs already encode both sides
+of a transformation \citep{heid2022}; naming edit classes is insufficient for
+an algorithmic novelty claim.
+BonDNet also forms learned atom/bond differences and represents a broken bond
+by a negative reactant feature before set-to-set pooling \citep{wen2021}.
+Its readout differs from the final union-graph WL step here; that distinction
+alone does not establish novelty.
+
+\section{Selected-panel overlap sensitivity}
+A post-hoc input audit connects source games sharing a selected root or a legal
+one-move successor, treating the color/rank mirror as equivalent and ignoring
+move counters while retaining literal en-passant state. The ordinary panel
+retains 39 components for 39 games, and the shifted panel retains 31 for 31;
+there are no cross-game links under this exposure definition. Largest groups
+contain 61 and 92 positions. Thus this particular overlap grouping does not
+change source-game bootstrap units. It does not certify whole-rollout
+separation, general statistical independence, seed-population uncertainty or
+protection against adaptive use of the development panels. No new positions,
+model predictions or engine calls are used for this audit.

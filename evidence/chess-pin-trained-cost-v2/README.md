@@ -6,6 +6,12 @@ evaluation outputs. Execution and replay audit are now complete. Joint takes
 ratio is 1.131, about 13.1% slower. All 31,104 timings, 54 warmups and 3,456
 audit decisions are retained. There are zero changed native choices. These
 shared-host timings do not rescue quality-v3's failed 2/16 quality criterion.
+
+![All methods and paired timing ratios](figures/native-cost.png)
+
+[All values and measurement scope](figures/report.md) ·
+[Verified raw bundle](https://github.com/kw2828/OpenJev/releases/download/research-chess-pin-quality-v3/cost-v2-verification.tar.gz) ·
+[Published hashes](publication/release-verification.json).
 The [frozen plan](protocol/plan.json) has SHA-256
 `46bd0965241aa8fa8e0a54c5f19a925dfd6f5102a93b97eefc8abe4832abe464`.
 

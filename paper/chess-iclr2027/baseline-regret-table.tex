@@ -1,0 +1,15 @@
+\begin{table}[ht]
+\centering\small
+\caption{Post-hoc engine assessment of all fifteen simpler-head policies on the same fixed 128 positions per panel. All calls are fresh and request 20,000 nodes. Both loss measures are lower-is-better; raw centipawn loss includes an artificial mate-score encoding.}
+\begin{tabular}{lrrrr}
+\toprule
+Head & Bounded, ordinary & Bounded, shifted & CP, ordinary & CP, shifted \\
+\midrule
+Frozen direct & 0.09878 & 0.08163 & 642.6 & 428.6 \\
+Full transport & 0.06535 & 0.07278 & 619.7 & 451.8 \\
+Generic MLP & 0.09502 & 0.08370 & 650.9 & 437.2 \\
+NCN adaptation & 0.08712 & 0.08185 & 601.6 & 460.4 \\
+Typed overlap & 0.08773 & 0.08364 & 600.7 & 423.3 \\
+\bottomrule
+\end{tabular}
+\end{table}
