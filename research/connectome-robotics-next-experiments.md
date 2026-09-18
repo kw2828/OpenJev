@@ -269,3 +269,9 @@ Continue only after competent control, a measured topology interaction at
 matched cost, and transfer to a second task. Preserve unsuccessful settings
 and report any simpler explanation, such as search quality, generic hierarchy,
 symmetry or uncertainty handling.
+
+The [learning-program follow-up](connectome-learning-program.md) translates
+LeCun's JEPA work, latent control and state-space sequence models into small
+comparisons. The [adaptive-search design](reacher-adaptive-search.md) specifies
+the next planner test. Both are engineering previews until their complete
+experiment protocols are frozen; neither supplies new performance evidence.
