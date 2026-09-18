@@ -62,7 +62,12 @@ The full execution took **17,849.14 seconds (4.96 hours)**; its audit took
 **674.46 seconds (11.24 minutes)**. These are whole-run times on a shared CPU
 host, not isolated decision latency. The separately frozen
 [full-decision timing study](../evidence/chess-pin-trained-cost-v2/README.md)
-is running and is not included in these measurements.
+also completed: Joint took **6.95 ms** versus WLDN's **6.11 ms** median complete
+decision time. The median paired ratio was **1.131**, or about 13.1% slower.
+It retained 31,104 timings, 54 warmups and 3,456 audited decisions with zero
+changed moves. These measurements cover 128 fixed ordinary roots, three seeds
+and nine rotating repeats on the shared host. This lower-quality candidate did
+not obtain a compensating speed advantage.
 
 Two previous attempts remain separate: v1 stopped after 770 updates because of
 a source-game identifier schema problem; v2 disappeared after five fits and
@@ -73,6 +78,14 @@ weights. Neither interrupted attempt supplied evaluation evidence.
 are generated from authenticated saved artifacts. The renderer makes no model
 or engine calls; its 15 synthetic checks verify coverage, source binding and
 retention of failed criteria.
+
+The [339-file verification archive](https://github.com/kw2828/OpenJev/releases/tag/research-chess-pin-quality-v3)
+includes the complete primary outputs, native replay, closed process logs,
+frozen sources and lineage metadata. Its 103 MB download and sidecars have
+[verified sizes and SHA-256 hashes](../evidence/chess-pin-quality-v3/publication/release-verification.json).
+It is not a complete runnable reproduction: inherited training data, caches,
+backbones and historical artifacts remain separate dependencies. Timing-v2
+outputs are excluded from this quality archive.
 
 ## Decision
 

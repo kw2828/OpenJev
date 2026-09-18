@@ -17,7 +17,10 @@ The proposed mechanism is **action-conditioned prediction of future recurrent
 state, followed by a controlled test of biological wiring and temporal
 hierarchy**. Hold the now-qualified CEM256 planner fixed for the next learning
 comparison. The [nine-fit objective study](reacher-objective-ablation.md) now has
-a frozen protocol and a complete synthetic rehearsal. Research results are pending.
+a completed audit and all nine fits. Latent prediction reduced mean control
+cost about 5.8% versus Anchor on both gap panels, but the criterion failed
+(27/31): one paired fit worsened and reset penalties were below 5%. Trained
+current-observation and bounded-history controls remain the next diagnostic.
 
 The [architecture decision note](reacher-architecture-mechanism-options.md)
 places trained current-observation and short-history controls before the next
@@ -130,7 +133,8 @@ A reset loss establishes sensitivity to prior hidden state; reset-induced
 distribution shift remains an alternative explanation. A separately trained
 current-observation baseline is required for a stronger memory-advantage claim.
 The [frozen objective comparison](reacher-objective-ablation.md) specifies the
-engineering evidence, seeds, budgets and decision rules; results are pending.
+engineering evidence, seeds, budgets and unchanged decision rules. Its completed
+result failed continuation; the mean gain does not establish useful memory.
 
 Checkpoint metadata must also bind the auxiliary horizons, teacher EMA momentum,
 regularization weights and model settings. These Python configuration values

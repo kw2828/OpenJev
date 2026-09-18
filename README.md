@@ -44,7 +44,9 @@ The latest [24-fit graph comparison](docs/chess-pin-quality.md) found **36.43% /
 
 Adaptive search lowered control cost by **25.5% with ordinary sensor gaps and 25.3% with longer gaps**, versus random search at the same candidate-scoring budget. Every residual-model fit improved. The primary 8/8 and control-competence 15/15 checks passed. This is a planning gain with existing recurrent models; memory, JEPA and biological-wiring benefits remain unproven. [Results, compute and complete traces](research/reacher-adaptive-search.md).
 
-The next [nine-fit comparison](research/reacher-objective-ablation.md) tests future-observation versus future-latent prediction with the same recurrent model and planner. Run launched; results pending.
+The [nine-fit objective comparison](research/reacher-objective-ablation.md) found **5.8% lower mean control cost** from latent prediction on both gap panels. It still **failed its rule (27/31 checks)**: one paired fit worsened and memory-reset effects were too small. Latent training took about 3.5 times the baseline's fitting time. A trained short-history control comes next.
+
+![All nine objective fits, including the worse paired fit](evidence/reacher-objective-ablation-v1/figures/native-costs.png)
 
 ## Run locally
 

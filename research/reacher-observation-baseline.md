@@ -61,3 +61,26 @@ checkpoint restoration. These components are not part of the running study.
 Report every fit, native control and all training/deployment costs. Keep
 observed history and temporary imagined state distinct in checkpoint metadata,
 branch cloning, rollout accounting and any future biological comparator.
+# Strict three-packet comparator added
+
+The separate [bounded-history component](../src/openjev/research/reacher_bounded_history.py)
+rebuilds the same 36,805-parameter GRU from only the latest three real public
+packets and two issued commands, with explicit startup masks. Imagined rollouts
+never enter its raw history. Real assimilation accepts episode start or exactly
+one selected-action advance from the previous root; it rejects a multi-step
+candidate terminal state.
+
+[63 synthetic checks](../evidence/reacher-bounded-history-engineering-v1/receipt.json)
+passed across this component and the current-observation controls. Matching
+final windows with different earlier histories yields identical outputs and
+zero gradients to discarded inputs. All frozen objective-study sources remain
+unchanged. No comparator has been fitted or scored.
+
+This is a three-physical-packet window, not the last three valid measurements.
+It loses all observed angles during a sufficiently long blackout. It should
+therefore be accompanied by the public-only last-two-valid-measurements
+kinematic control described in the architecture note. Rebuilding costs three
+observation updates and two full transitions per real assimilation, in addition
+to ordinary imagined planning; equal parameters do not match computation.
+Class-bound deployment checkpoints are implemented, but they are not training
+resume checkpoints or permission to substitute models into a frozen run.

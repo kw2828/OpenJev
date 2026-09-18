@@ -47,4 +47,5 @@ claiming ongoing work. Do not restart or resume because an observation times
 out. The separately frozen [cost-v2 protocol](../chess-pin-trained-cost-v2/README.md)
 retains the original native timing comparison and binds it to v3 checkpoints.
 It was launched after the complete quality study and replay audit finished.
-Timing results remain pending.
+Timing also completed: Joint was about 13.1% slower than WLDN by the median
+paired complete-decision ratio. The original quality criterion remains failed.

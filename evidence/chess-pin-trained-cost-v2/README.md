@@ -1,8 +1,11 @@
 # Native timing for the fresh pin-quality study
 
 Prepared before quality-v3 evaluation, with zero completed fits and no
-evaluation outputs. Now launched after the completed quality replay audit;
-trained-policy timings and speed results remain pending.
+evaluation outputs. Execution and replay audit are now complete. Joint takes
+6.95 ms versus WLDN's 6.11 ms median complete decision time; its median paired
+ratio is 1.131, about 13.1% slower. All 31,104 timings, 54 warmups and 3,456
+audit decisions are retained. There are zero changed native choices. These
+shared-host timings do not rescue quality-v3's failed 2/16 quality criterion.
 The [frozen plan](protocol/plan.json) has SHA-256
 `46bd0965241aa8fa8e0a54c5f19a925dfd6f5102a93b97eefc8abe4832abe464`.
 
@@ -36,3 +39,8 @@ executing kernels. The new frozen plan binds both recovery wrappers separately.
 Failed scientific or numerical quality criteria remain failed regardless of
 descriptive timing. No retries, resumed partial checkpoints or excluded slow
 methods are permitted.
+
+The [completed audit](audit/receipt.json) has SHA-256
+`80415131be41da01af1e8befa1e2263be29db4be229438d3e048c08a03cdc53b`.
+Execution took 261.70 seconds and replay validation took 86.12 seconds;
+external process times and the one-attempt supervisor are preserved separately.

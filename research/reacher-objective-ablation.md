@@ -1,11 +1,76 @@
 # Does latent prediction improve recurrent control?
 
-**Frozen and launched September 18, 2026; results pending.** The
+**Completed and independently audited September 18, 2026. The frozen
+continuation rule failed: 27/31 checks passed.** The
 [launch receipt](../evidence/reacher-objective-ablation-v1/launch.json) identifies
 the single execution attempt. This comparison holds the residual
 GRU and CEM256 planner fixed, then changes the training objective. It follows the
 [completed adaptive-search result](reacher-adaptive-search.md). It is a development
 experiment, not a JEPA reproduction or a test of biological wiring.
+
+## Result and decision
+
+Latent prediction lowered mean native control cost by **5.76% on ordinary gaps
+and 5.83% on longer gaps** versus Anchor, and **16.79% / 16.82%** versus Raw.
+However, the first paired fit worsened against Anchor by **4.92% / 4.69%**.
+Latent's mean history-reset penalties were only **1.87% / 2.19%**, below the
+required 5%. Those four failures keep the overall criterion failed.
+
+| Training objective | Full sensing | Ordinary gaps | Longer gaps | Mean whole-fit seconds |
+| --- | ---: | ---: | ---: | ---: |
+| Anchor | 8.2760 | 8.3123 | 8.3744 | 35.60 |
+| Raw endpoint | 9.3721 | 9.4144 | 9.4801 | 120.30 |
+| EMA latent | 7.8894 | 7.8339 | 7.8859 | 124.67 |
+
+Cost is negative total native reward over 50 steps; lower is better. Each
+entry averages all three paired fits and the same 64 evaluation cases. These
+are development measurements in one environment, not an uncertainty estimate
+over retraining. Raw worsened against Anchor in every fit, so its weakness
+must remain visible when interpreting the larger latent-versus-raw gain.
+
+![All nine fits and all sensing panels](../evidence/reacher-objective-ablation-v1/figures/native-costs.png)
+
+[All paired changes, reset effects, timings and conditional intervals](../evidence/reacher-objective-ablation-v1/figures/README.md)
+retain every fit. Latent took approximately **3.50 times Anchor's mean fitting
+time** on the shared host, despite identical update counts. This comparison is
+not a compute-matched training result. All deployed students use the same GRU
+and CEM256; deployment timings include recorded trace writes and are batch
+amortized.
+
+Do not advance a useful-memory, biological-learning or JEPA novelty claim from
+this result. The next diagnostic should train current-observation and strictly
+bounded-history controls under the same Anchor loss before expanding the
+architecture. If a later latent-objective comparison is justified, include
+training-compute controls and fresh confirmation cases; do not change this
+study's failed criterion or select its best fit.
+
+The [saved-output audit](../evidence/reacher-objective-ablation-v1/audit/receipt.json)
+authenticated all nine fits and 57 rows, and replayed **225,600 native
+transitions with zero discrepancy**. It made no new learned-model calls.
+Execution took **1,385.00 seconds**, the audit's validation took **34.61
+seconds**, and the outer audit process took 35.70 seconds. Recorded cumulative
+research execution, including inherited attempts, is 2,473.78 seconds;
+engineering preparation, audits and publication are separately accounted.
+
+### Descriptive prediction diagnostic
+
+The common 96-episode prediction panel shows why prediction error and control
+must stay separate. Family means from the authenticated audit are:
+
+| Objective | One-step measured-angle MSE | One-step blackout-angle MSE | Seven-step angle MSE | One-step reward MSE |
+| --- | ---: | ---: | ---: | ---: |
+| Anchor | 0.006697 | 0.027910 | 0.115103 | 0.004557 |
+| Raw | 0.004914 | 0.015107 | 0.052853 | 0.007090 |
+| Latent | 0.007945 | 0.035387 | 0.115076 | 0.004835 |
+
+Raw predicts angles more accurately but has worse reward prediction and worse
+control. Latent's lower mean control cost does not coincide with lower angle
+error. This descriptive comparison does not identify the cause: errors on
+planner-selected actions, ranking errors and objective interactions remain
+possible explanations. Native blackout angles are audit-only labels, never
+policy inputs or hidden-state training targets. A future action-ranking study
+needs its own paired native-outcome protocol; these metrics do not establish
+better planning representations or useful memory.
 
 | Arm | Training objective | Deployment |
 |---|---|---|
@@ -32,7 +97,7 @@ Latent prediction must reduce family mean native cost by at least 5% against
 both Anchor and Raw on both gap panels, with no paired fit worse. Its history
 reset must worsen family cost by at least 5%, with positive reset effects in
 every fit. The separate zero-action and physics-reference checks also apply.
-All 31 prespecified checks must pass; every fit will be reported.
+All 31 prespecified checks must pass; every fit is reported.
 
 A reset penalty establishes intervention sensitivity, not an advantage over
 a separately trained current-observation model. A positive result still needs
@@ -86,4 +151,6 @@ latent-versus-anchor and latent-versus-raw changes, reset penalties and cost
 figures in PNG, SVG and PDF. Its numeric tables and receipt retain source
 identities. [13 reporting checks](../evidence/reacher-objective-ablation-v1/reporter-engineering.json)
 and a visually inspected, explicitly watermarked synthetic preview are complete.
-Real figures will be generated only after the research audit finishes.
+The completed real figures above were generated after the research audit and
+visually checked. The source-bound numeric tables and renderer receipt are
+included alongside them.
