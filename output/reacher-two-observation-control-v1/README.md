@@ -72,6 +72,18 @@ establish identical optimizer trajectories, faster training or better control.
 An independent reviewer reran them successfully; the [review receipt](streaming-history-review.json)
 records the source hashes and measured gradient discrepancies.
 
+The optional [streamed sequence loss](../../src/openjev/research/reacher_streaming_sequence_loss.py)
+now reuses these roots for the same one-step and open-loop training objective.
+Its 44 synthetic checks cover loss terms, gradients, three paired optimizer
+updates, masks and terminal targets. At batch32, fifty actions and rollout
+horizon5, its formula pays 4,736 observation-update samples and 12,096 full
+transition/readout samples, compared with 19,200 and 26,560 in the padded
+reconstruction loss. These are forward sample counts; runtime and full training
+equivalence remain unmeasured. [Review receipt](streaming-loss-review.json).
+
 The [mechanism screen](error-gated-mechanism-screen.md) separately examines
 prediction-error correction and fast/slow memory against five primary papers.
 Its proposed experiment is unfrozen and unrun.
+The separate [innovation-context prototype](../reacher-innovation-context-v1/README.md)
+implements four matched gate variants and public-target moment supervision;
+it is not part of the running study.

@@ -10,7 +10,7 @@ superiority or a new architecture.
 
 The next test is the [trained two-observation control](../output/reacher-two-observation-control-v1/README.md).
 It reconstructs state from two actual measurements and the intervening commands
-at every decision. Its full scientific run is now training under a published
+at every decision. Its full scientific run is now running under a published
 freeze after engineering rehearsal and capacity qualification. Complete that
 control before attributing the gain to long memory or adding a biological mechanism. The mechanism proposals
 below remain prospective; they are not results of the latest study.

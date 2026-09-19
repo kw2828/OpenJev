@@ -1,0 +1,51 @@
+{
+  "schema": "openjev-innovation-context-prototype-validation-v1",
+  "observed_utc": "2026-09-19T06:25:00.436047+00:00",
+  "status": "model_and_objective_implemented_tiny_synthetic_integration_checked",
+  "source_sha256": {
+    "src/openjev/research/reacher_innovation_context.py": "1735cf7445908be08aa3e9dd75fe69133621745826b3c130a059beb883ada80a",
+    "src/openjev/research/reacher_innovation_loss.py": "965ed61df2b7cf48fa5168ba33a6cf5f0158a092874f607ec4fc20b607c7b956",
+    "tests/test_reacher_innovation_context.py": "22b247fd1e2d5e8ef0b2e5c84f3fdced92937c33a7b7562e5fcef6f82c02d4d6",
+    "tests/test_reacher_innovation_loss.py": "1173d5be5696f1f38baa131c6d4ba6d15600f398d901ae0b4c33289dc5e79e41"
+  },
+  "model_independent_validation": {
+    "reviewer": "residual_results_review",
+    "command": ".venv/bin/python -m pytest -q tests/test_reacher_innovation_context.py",
+    "passed": 37,
+    "seconds": 0.91,
+    "ruff": "passed"
+  },
+  "loss_root_validation": {
+    "command": "PYTHONPATH=src .venv-robotics/bin/python -m pytest -q tests/test_reacher_innovation_loss.py",
+    "passed": 20,
+    "seconds": 1.36,
+    "initial_following_ruff_result": "import ordering failure in test file only",
+    "repair": "ordered copy before math; ruff rerun passed",
+    "test_semantics_changed_by_lint_repair": false
+  },
+  "loss_independent_review": {
+    "reviewer": "planner_followup_design",
+    "analytical_tests_independently_run": 11,
+    "new_integration_tests_statically_reviewed": 9,
+    "root_run_integration_result_checked": true,
+    "review_result": "clear"
+  },
+  "objective_checks": [
+    "Existing prediction/reward objective and all non-variance parameter gradients match original sequence_loss in all four variants.",
+    "Variance head receives auxiliary gradients; predicted mean and public targets are detached for its moment score.",
+    "Six- and ten-packet blackout fixtures, private rollout windows and terminal packet50 as target only.",
+    "Three finite Adam updates per variant with complete finite gradients:12 total tiny integration updates."
+  ],
+  "configuration_limits": {
+    "synthetic_hidden_size": 4,
+    "synthetic_context_size": 4,
+    "integration_dtype": "float64",
+    "scientific_training": false,
+    "controller_integration": false,
+    "calibration_measured": false,
+    "speed_measured": false,
+    "novelty_established": false
+  },
+  "frozen_scientific_sources_unchanged": 116,
+  "current_study_modified": false
+}

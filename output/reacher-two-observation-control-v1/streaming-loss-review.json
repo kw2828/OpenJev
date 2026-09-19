@@ -1,0 +1,43 @@
+{
+  "schema": "openjev-streaming-sequence-loss-review-v1",
+  "observed_utc": "2026-09-19T06:25:00.436047+00:00",
+  "status": "tiny_synthetic_validation_and_independent_review_passed",
+  "source_sha256": {
+    "src/openjev/research/reacher_streaming_sequence_loss.py": "c2761bceb1f98c2aa17ca12290783fd0f5c32ccb73fcd652a717807849730032",
+    "tests/test_reacher_streaming_sequence_loss.py": "3010624492b58a2da65763189d562a842a3b32eecb4b61ac6d873b39b77b10f9"
+  },
+  "author_validation": {
+    "command": ".venv/bin/python -m pytest -q -s tests/test_reacher_streaming_sequence_loss.py",
+    "passed": 44,
+    "seconds": 2.08,
+    "ruff": "passed"
+  },
+  "independent_review": {
+    "reviewer": "planner_followup_design",
+    "command": ".venv-robotics/bin/python -m pytest -q tests/test_reacher_streaming_sequence_loss.py tests/test_reacher_innovation_loss.py",
+    "combined_tests_at_review": 55,
+    "combined_seconds": 2.03,
+    "streaming_tests": 44,
+    "ruff": "passed"
+  },
+  "fixed_weight_observed_parity": "loss terms and original metrics bitwise equal in tested float32/float64 cases",
+  "max_observed_float32_gradient_difference": 4.47034836e-08,
+  "max_observed_float32_parameter_difference_after_three_paired_adam_updates": 3.7252903e-09,
+  "forward_sample_example": {
+    "batch": 32,
+    "actions": 50,
+    "rollout_horizon": 5,
+    "rollout_weight": 0.5,
+    "streamed_observation_update": 4736,
+    "streamed_transition_and_each_readout": 12096,
+    "original_padded_observation_update": 19200,
+    "original_padded_transition_and_each_readout": 26560
+  },
+  "limits": [
+    "Synthetic fixed-weight and three-step optimizer checks only.",
+    "Equivalent derivatives can accumulate floating-point rounding differences.",
+    "Counts exclude backward, optimizer, validation, retained graphs and copies; no measured speed claim.",
+    "No trainer, checkpoint, registry or current-study integration."
+  ],
+  "frozen_scientific_sources_unchanged": 116
+}
