@@ -31,6 +31,15 @@ padding history for shorter fields. This is a source-level concern; no measured
 impact is claimed here. Selecting a field's logits at its true suffix position
 does not itself have that continuation problem under causal attention.
 
+The upstream revision was checked again after the supplied screenshot and is
+unchanged. Its [benchmark runner](https://huggingface.co/harshatheg/Qwen-2.5-1B-RLCD/blob/2af86848be75847ccb3553b0941cc51d6ef7e4e9/core/benchmark.py)
+performs one timed comparison per preset after warmup. The README's example
+also reports 148 tokens in 421.3 ms alongside 122.4 tokens/s, although those
+first two values imply approximately 351 tokens/s. That inconsistency does
+not prove the speedup false, but the example cannot serve as an internally
+consistent measurement receipt. A new benchmark needs actual repeated runs
+and complete timing records.
+
 ## Fit with OpenJev
 
 Our [decision scorer](../src/openjev/decisions.py) already reads a final-position
