@@ -73,6 +73,8 @@ Apply the same geometry score to the already-trained GRUs that use only the curr
 
 The [proposed design](../output/reacher-geometry-score-v1/next-experiment-design.md) is not yet frozen or run. Ranking-head training waits for this comparison. A biological claim would require a specific new mechanism and conventional history controls; the present result supplies neither.
 
+The new workflow passed 189 component tests and a complete engineering rehearsal using twelve existing tiny checkpoints. All 51 rows completed; the independent auditor checked 2,550 executed transitions, 1,230,336 nominal candidate transitions and 450 selected advances, with zero replay discrepancy. This verifies the workflow, not scientific effectiveness. A full-batch capacity profile is still required before freezing or launching the comparison. The [engineering receipt](../output/reacher-geometry-memory-v1/whole-tree-rehearsal-verification.json) records the exact source and artifact identities.
+
 ## Evidence
 
 - [All 51 rows, timings and gate arithmetic](../evidence/reacher-geometry-score-v1/report/tables.md)
