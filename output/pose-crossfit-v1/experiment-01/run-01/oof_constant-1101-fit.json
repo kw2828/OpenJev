@@ -1,0 +1,1064 @@
+{
+  "variant": "oof_constant",
+  "seed": 1101,
+  "regime": "oof",
+  "optimization": {
+    "version": "pose-constant-v1",
+    "alpha": [
+      0.0,
+      0.0
+    ],
+    "input_shape": [
+      720,
+      25,
+      3
+    ],
+    "examples": 18000,
+    "position": {
+      "numerator": -0.007217372900607477,
+      "denominator": 7.717991340789956,
+      "unclipped_alpha": -0.0009351361749349618,
+      "degenerate": false,
+      "objective_m2": 9.525843523246346e-05
+    },
+    "rotation": {
+      "objective": "mean squared geodesic radians on float64 SVD-projected SO(3) inputs",
+      "interpolation": "Exp(alpha*Log(Rfast*Rslow.T))*Rslow; principal log, largest-axis positive at exact pi",
+      "certificate_scope": "numerical guarded bound for projected interpolation only; not float32 production or formal interval arithmetic",
+      "projection_method": "float64 SVD U diag(1,1,det(UVt)) Vt; no input mutation",
+      "projection": {
+        "fast": {
+          "matrices": 18000,
+          "max_frobenius_change": 6.641724328061259e-07,
+          "min_input_singular_value": 0.999999365389404,
+          "reflections_corrected": 0,
+          "max_orthogonality_error": 2.886579864025407e-15,
+          "max_determinant_error": 3.1086244689504383e-15
+        },
+        "slow": {
+          "matrices": 18000,
+          "max_frobenius_change": 6.66119278758923e-07,
+          "min_input_singular_value": 0.999999441598046,
+          "reflections_corrected": 0,
+          "max_orthogonality_error": 2.886579864025407e-15,
+          "max_determinant_error": 2.886579864025407e-15
+        },
+        "target": {
+          "matrices": 18000,
+          "max_frobenius_change": 5.109520252117271e-08,
+          "min_input_singular_value": 0.9999999611786159,
+          "reflections_corrected": 0,
+          "max_orthogonality_error": 2.4424906541753444e-15,
+          "max_determinant_error": 2.6645352591003757e-15
+        }
+      },
+      "tolerance": 1e-07,
+      "max_evaluations": 4095,
+      "call_count": 53,
+      "status": "tolerance_reached",
+      "certified": true,
+      "alpha": 0.0,
+      "objective_at_alpha": 0.0002242803179655609,
+      "upper_bound": 0.0002242803189655609,
+      "lower_bound": 0.00022420491702074367,
+      "gap": 7.540194481723476e-08,
+      "angle_guard": 1e-12,
+      "objective_guard": 1e-12,
+      "speed_min": 6.81400575060323e-06,
+      "speed_max": 0.28281116858588046,
+      "tie_rule": "smallest evaluated alpha among exact equal float64 objectives",
+      "queue_rule": "smallest interval lower bound, then left endpoint, then interval id",
+      "evaluations": [
+        {
+          "id": 0,
+          "alpha": 0.0,
+          "objective": 0.0002242803179655609,
+          "role": "endpoint",
+          "radius": 0.0,
+          "lower_bound": 0.00022428031694369691
+        },
+        {
+          "id": 1,
+          "alpha": 1.0,
+          "objective": 0.0016057048113688826,
+          "role": "endpoint",
+          "radius": 0.0,
+          "lower_bound": 0.0016057048103190863
+        },
+        {
+          "id": 2,
+          "alpha": 0.5,
+          "objective": 0.0005898960992334922,
+          "role": "interval_center",
+          "radius": 0.5,
+          "lower_bound": 0.0001152880240227449
+        },
+        {
+          "id": 3,
+          "alpha": 0.25,
+          "objective": 0.0003258140921026452,
+          "role": "interval_center",
+          "radius": 0.25,
+          "lower_bound": 0.00014168540212908866
+        },
+        {
+          "id": 4,
+          "alpha": 0.75,
+          "objective": 0.0010165263391179473,
+          "role": "interval_center",
+          "radius": 0.25,
+          "lower_bound": 0.0005578047076403873
+        },
+        {
+          "id": 5,
+          "alpha": 0.125,
+          "objective": 0.0002547286759006036,
+          "role": "interval_center",
+          "radius": 0.125,
+          "lower_bound": 0.00016968762293503937
+        },
+        {
+          "id": 6,
+          "alpha": 0.375,
+          "objective": 0.0004375365665554182,
+          "role": "interval_center",
+          "radius": 0.125,
+          "lower_bound": 0.0002954475098236447
+        },
+        {
+          "id": 7,
+          "alpha": 0.0625,
+          "objective": 0.0002344248646490485,
+          "role": "interval_center",
+          "radius": 0.0625,
+          "lower_bound": 0.00019219650137288844
+        },
+        {
+          "id": 8,
+          "alpha": 0.1875,
+          "objective": 0.00028519175171905155,
+          "role": "interval_center",
+          "radius": 0.0625,
+          "lower_bound": 0.00023155152115290613
+        },
+        {
+          "id": 9,
+          "alpha": 0.03125,
+          "objective": 0.00022808268323624514,
+          "role": "interval_center",
+          "radius": 0.03125,
+          "lower_bound": 0.00020672893703717703
+        },
+        {
+          "id": 10,
+          "alpha": 0.09375,
+          "objective": 0.00024330686220387765,
+          "role": "interval_center",
+          "radius": 0.03125,
+          "lower_bound": 0.00021972583022658316
+        },
+        {
+          "id": 11,
+          "alpha": 0.015625,
+          "objective": 0.00022586402358313373,
+          "role": "interval_center",
+          "radius": 0.015625,
+          "lower_bound": 0.00021508204569311285
+        },
+        {
+          "id": 12,
+          "alpha": 0.046875,
+          "objective": 0.00023093629692488697,
+          "role": "interval_center",
+          "radius": 0.015625,
+          "lower_bound": 0.00021970196957291153
+        },
+        {
+          "id": 13,
+          "alpha": 0.0078125,
+          "objective": 0.00022499280151990457,
+          "role": "interval_center",
+          "radius": 0.0078125,
+          "lower_bound": 0.00021956939623750106
+        },
+        {
+          "id": 14,
+          "alpha": 0.0234375,
+          "objective": 0.00022689398415524762,
+          "role": "interval_center",
+          "radius": 0.0078125,
+          "lower_bound": 0.00022137246365581189
+        },
+        {
+          "id": 15,
+          "alpha": 0.00390625,
+          "objective": 0.000224616717429122,
+          "role": "interval_center",
+          "radius": 0.00390625,
+          "lower_bound": 0.00022189603631302845
+        },
+        {
+          "id": 16,
+          "alpha": 0.01171875,
+          "objective": 0.00022540857023790854,
+          "role": "interval_center",
+          "radius": 0.00390625,
+          "lower_bound": 0.00022266556599379356
+        },
+        {
+          "id": 17,
+          "alpha": 0.0390625,
+          "objective": 0.0002294301208261254,
+          "role": "interval_center",
+          "radius": 0.0078125,
+          "lower_bound": 0.00022379529373668308
+        },
+        {
+          "id": 18,
+          "alpha": 0.0546875,
+          "objective": 0.0002326012115325285,
+          "role": "interval_center",
+          "radius": 0.0078125,
+          "lower_bound": 0.00022683968965342088
+        },
+        {
+          "id": 19,
+          "alpha": 0.078125,
+          "objective": 0.00023854838640871703,
+          "role": "interval_center",
+          "radius": 0.015625,
+          "lower_bound": 0.00022675557520482708
+        },
+        {
+          "id": 20,
+          "alpha": 0.109375,
+          "objective": 0.000248700292034513,
+          "role": "interval_center",
+          "radius": 0.015625,
+          "lower_bound": 0.00023625704726710662
+        },
+        {
+          "id": 21,
+          "alpha": 0.01953125,
+          "objective": 0.0002263591615555801,
+          "role": "interval_center",
+          "radius": 0.00390625,
+          "lower_bound": 0.0002235915963778336
+        },
+        {
+          "id": 22,
+          "alpha": 0.02734375,
+          "objective": 0.00022746849138213597,
+          "role": "interval_center",
+          "radius": 0.00390625,
+          "lower_bound": 0.00022467438169476603
+        },
+        {
+          "id": 23,
+          "alpha": 0.001953125,
+          "objective": 0.00022444355711893877,
+          "role": "interval_center",
+          "radius": 0.001953125,
+          "lower_bound": 0.00022308085495804754
+        },
+        {
+          "id": 24,
+          "alpha": 0.005859375,
+          "objective": 0.00022479979889611062,
+          "role": "interval_center",
+          "radius": 0.001953125,
+          "lower_bound": 0.00022343181930587746
+        },
+        {
+          "id": 25,
+          "alpha": 0.009765625,
+          "objective": 0.00022519572530050388,
+          "role": "interval_center",
+          "radius": 0.001953125,
+          "lower_bound": 0.00022382216275736717
+        },
+        {
+          "id": 26,
+          "alpha": 0.013671875,
+          "objective": 0.00022563133633211847,
+          "role": "interval_center",
+          "radius": 0.001953125,
+          "lower_bound": 0.00022425190251194264
+        },
+        {
+          "id": 27,
+          "alpha": 0.0009765625,
+          "objective": 0.0002243606973976492,
+          "role": "interval_center",
+          "radius": 0.0009765625,
+          "lower_bound": 0.0002236787405622131
+        },
+        {
+          "id": 28,
+          "alpha": 0.0029296875,
+          "objective": 0.0002245288971294297,
+          "role": "interval_center",
+          "radius": 0.0009765625,
+          "lower_bound": 0.00022384566046147872
+        },
+        {
+          "id": 29,
+          "alpha": 0.0048828125,
+          "objective": 0.00022470701801801567,
+          "role": "interval_center",
+          "radius": 0.0009765625,
+          "lower_bound": 0.00022402246187679055
+        },
+        {
+          "id": 30,
+          "alpha": 0.0068359375,
+          "objective": 0.0002248950600634069,
+          "role": "interval_center",
+          "radius": 0.0009765625,
+          "lower_bound": 0.00022420914573257315
+        },
+        {
+          "id": 31,
+          "alpha": 0.017578125,
+          "objective": 0.0002261066319909543,
+          "role": "interval_center",
+          "radius": 0.001953125,
+          "lower_bound": 0.00022472105591837474
+        },
+        {
+          "id": 32,
+          "alpha": 0.021484375,
+          "objective": 0.00022662161227701125,
+          "role": "interval_center",
+          "radius": 0.001953125,
+          "lower_bound": 0.00022522963910339802
+        },
+        {
+          "id": 33,
+          "alpha": 0.00048828125,
+          "objective": 0.0002243201976454549,
+          "role": "interval_center",
+          "radius": 0.00048828125,
+          "lower_bound": 0.00022397906551356744
+        },
+        {
+          "id": 34,
+          "alpha": 0.00146484375,
+          "objective": 0.00022440181722214382,
+          "role": "interval_center",
+          "radius": 0.00048828125,
+          "lower_bound": 0.0002240603701569474
+        },
+        {
+          "id": 35,
+          "alpha": 0.03515625,
+          "objective": 0.00022873655971757505,
+          "role": "interval_center",
+          "radius": 0.00390625,
+          "lower_bound": 0.0002259141102662564
+        },
+        {
+          "id": 36,
+          "alpha": 0.04296875,
+          "objective": 0.00023016336656189607,
+          "role": "interval_center",
+          "radius": 0.00390625,
+          "lower_bound": 0.00022731088866662262
+        },
+        {
+          "id": 37,
+          "alpha": 0.0087890625,
+          "objective": 0.00022509302326560358,
+          "role": "interval_center",
+          "radius": 0.0009765625,
+          "lower_bound": 0.00022440571305984796
+        },
+        {
+          "id": 38,
+          "alpha": 0.0107421875,
+          "objective": 0.00022530090762460552,
+          "role": "interval_center",
+          "radius": 0.0009765625,
+          "lower_bound": 0.0002246121649494279
+        },
+        {
+          "id": 39,
+          "alpha": 0.00244140625,
+          "objective": 0.00022448591708803406,
+          "role": "interval_center",
+          "radius": 0.00048828125,
+          "lower_bound": 0.00022414415005865383
+        },
+        {
+          "id": 40,
+          "alpha": 0.00341796875,
+          "objective": 0.0002245724972431257,
+          "role": "interval_center",
+          "radius": 0.00048828125,
+          "lower_bound": 0.00022423040526706157
+        },
+        {
+          "id": 41,
+          "alpha": 0.000244140625,
+          "objective": 0.00022430018029647038,
+          "role": "interval_center",
+          "radius": 0.000244140625,
+          "lower_bound": 0.00022412957518110657
+        },
+        {
+          "id": 42,
+          "alpha": 0.000732421875,
+          "objective": 0.0002243403700125145,
+          "role": "interval_center",
+          "radius": 0.000244140625,
+          "lower_bound": 0.00022416968679645199
+        },
+        {
+          "id": 43,
+          "alpha": 0.00439453125,
+          "objective": 0.00022466155768741865,
+          "role": "interval_center",
+          "radius": 0.00048828125,
+          "lower_bound": 0.00022431913583576967
+        },
+        {
+          "id": 44,
+          "alpha": 0.00537109375,
+          "objective": 0.00022475309842091295,
+          "role": "interval_center",
+          "radius": 0.00048828125,
+          "lower_bound": 0.00022441034182284008
+        },
+        {
+          "id": 45,
+          "alpha": 0.001220703125,
+          "objective": 0.0002243811798008589,
+          "role": "interval_center",
+          "radius": 0.000244140625,
+          "lower_bound": 0.0002242104178511359
+        },
+        {
+          "id": 46,
+          "alpha": 0.001708984375,
+          "objective": 0.00022442260966150376,
+          "role": "interval_center",
+          "radius": 0.000244140625,
+          "lower_bound": 0.00022425176834781405
+        },
+        {
+          "id": 47,
+          "alpha": 0.0001220703125,
+          "objective": 0.00022429022975375623,
+          "role": "interval_center",
+          "radius": 0.0001220703125,
+          "lower_bound": 0.00022420491702074367
+        },
+        {
+          "id": 48,
+          "alpha": 0.0003662109375,
+          "objective": 0.00022431016959370323,
+          "role": "interval_center",
+          "radius": 0.0001220703125,
+          "lower_bound": 0.00022422483741485057
+        },
+        {
+          "id": 49,
+          "alpha": 0.002197265625,
+          "objective": 0.00022446465959444887,
+          "role": "interval_center",
+          "radius": 0.000244140625,
+          "lower_bound": 0.0002242937382893334
+        },
+        {
+          "id": 50,
+          "alpha": 0.002685546875,
+          "objective": 0.00022450732959969436,
+          "role": "interval_center",
+          "radius": 0.000244140625,
+          "lower_bound": 0.00022433632767872167
+        },
+        {
+          "id": 51,
+          "alpha": 0.0006103515625,
+          "objective": 0.0002243302644517253,
+          "role": "interval_center",
+          "radius": 0.0001220703125,
+          "lower_bound": 0.00022424491274767818
+        },
+        {
+          "id": 52,
+          "alpha": 0.0008544921875,
+          "objective": 0.00022435051432782244,
+          "role": "interval_center",
+          "radius": 0.0001220703125,
+          "lower_bound": 0.00022426514301937992
+        }
+      ],
+      "intervals": [
+        {
+          "id": 0,
+          "parent": null,
+          "left": 0.0,
+          "right": 1.0,
+          "center_evaluation": 2,
+          "lower_bound": 0.0001152880240227449,
+          "children": [
+            1,
+            2
+          ]
+        },
+        {
+          "id": 1,
+          "parent": 0,
+          "left": 0.0,
+          "right": 0.5,
+          "center_evaluation": 3,
+          "lower_bound": 0.00014168540212908866,
+          "children": [
+            3,
+            4
+          ]
+        },
+        {
+          "id": 2,
+          "parent": 0,
+          "left": 0.5,
+          "right": 1.0,
+          "center_evaluation": 4,
+          "lower_bound": 0.0005578047076403873,
+          "children": null
+        },
+        {
+          "id": 3,
+          "parent": 1,
+          "left": 0.0,
+          "right": 0.25,
+          "center_evaluation": 5,
+          "lower_bound": 0.00016968762293503937,
+          "children": [
+            5,
+            6
+          ]
+        },
+        {
+          "id": 4,
+          "parent": 1,
+          "left": 0.25,
+          "right": 0.5,
+          "center_evaluation": 6,
+          "lower_bound": 0.0002954475098236447,
+          "children": null
+        },
+        {
+          "id": 5,
+          "parent": 3,
+          "left": 0.0,
+          "right": 0.125,
+          "center_evaluation": 7,
+          "lower_bound": 0.00019219650137288844,
+          "children": [
+            7,
+            8
+          ]
+        },
+        {
+          "id": 6,
+          "parent": 3,
+          "left": 0.125,
+          "right": 0.25,
+          "center_evaluation": 8,
+          "lower_bound": 0.00023155152115290613,
+          "children": null
+        },
+        {
+          "id": 7,
+          "parent": 5,
+          "left": 0.0,
+          "right": 0.0625,
+          "center_evaluation": 9,
+          "lower_bound": 0.00020672893703717703,
+          "children": [
+            9,
+            10
+          ]
+        },
+        {
+          "id": 8,
+          "parent": 5,
+          "left": 0.0625,
+          "right": 0.125,
+          "center_evaluation": 10,
+          "lower_bound": 0.00021972583022658316,
+          "children": [
+            17,
+            18
+          ]
+        },
+        {
+          "id": 9,
+          "parent": 7,
+          "left": 0.0,
+          "right": 0.03125,
+          "center_evaluation": 11,
+          "lower_bound": 0.00021508204569311285,
+          "children": [
+            11,
+            12
+          ]
+        },
+        {
+          "id": 10,
+          "parent": 7,
+          "left": 0.03125,
+          "right": 0.0625,
+          "center_evaluation": 12,
+          "lower_bound": 0.00021970196957291153,
+          "children": [
+            15,
+            16
+          ]
+        },
+        {
+          "id": 11,
+          "parent": 9,
+          "left": 0.0,
+          "right": 0.015625,
+          "center_evaluation": 13,
+          "lower_bound": 0.00021956939623750106,
+          "children": [
+            13,
+            14
+          ]
+        },
+        {
+          "id": 12,
+          "parent": 9,
+          "left": 0.015625,
+          "right": 0.03125,
+          "center_evaluation": 14,
+          "lower_bound": 0.00022137246365581189,
+          "children": [
+            19,
+            20
+          ]
+        },
+        {
+          "id": 13,
+          "parent": 11,
+          "left": 0.0,
+          "right": 0.0078125,
+          "center_evaluation": 15,
+          "lower_bound": 0.00022189603631302845,
+          "children": [
+            21,
+            22
+          ]
+        },
+        {
+          "id": 14,
+          "parent": 11,
+          "left": 0.0078125,
+          "right": 0.015625,
+          "center_evaluation": 16,
+          "lower_bound": 0.00022266556599379356,
+          "children": [
+            23,
+            24
+          ]
+        },
+        {
+          "id": 15,
+          "parent": 10,
+          "left": 0.03125,
+          "right": 0.046875,
+          "center_evaluation": 17,
+          "lower_bound": 0.00022379529373668308,
+          "children": [
+            33,
+            34
+          ]
+        },
+        {
+          "id": 16,
+          "parent": 10,
+          "left": 0.046875,
+          "right": 0.0625,
+          "center_evaluation": 18,
+          "lower_bound": 0.00022683968965342088,
+          "children": null
+        },
+        {
+          "id": 17,
+          "parent": 8,
+          "left": 0.0625,
+          "right": 0.09375,
+          "center_evaluation": 19,
+          "lower_bound": 0.00022675557520482708,
+          "children": null
+        },
+        {
+          "id": 18,
+          "parent": 8,
+          "left": 0.09375,
+          "right": 0.125,
+          "center_evaluation": 20,
+          "lower_bound": 0.00023625704726710662,
+          "children": null
+        },
+        {
+          "id": 19,
+          "parent": 12,
+          "left": 0.015625,
+          "right": 0.0234375,
+          "center_evaluation": 21,
+          "lower_bound": 0.0002235915963778336,
+          "children": [
+            29,
+            30
+          ]
+        },
+        {
+          "id": 20,
+          "parent": 12,
+          "left": 0.0234375,
+          "right": 0.03125,
+          "center_evaluation": 22,
+          "lower_bound": 0.00022467438169476603,
+          "children": null
+        },
+        {
+          "id": 21,
+          "parent": 13,
+          "left": 0.0,
+          "right": 0.00390625,
+          "center_evaluation": 23,
+          "lower_bound": 0.00022308085495804754,
+          "children": [
+            25,
+            26
+          ]
+        },
+        {
+          "id": 22,
+          "parent": 13,
+          "left": 0.00390625,
+          "right": 0.0078125,
+          "center_evaluation": 24,
+          "lower_bound": 0.00022343181930587746,
+          "children": [
+            27,
+            28
+          ]
+        },
+        {
+          "id": 23,
+          "parent": 14,
+          "left": 0.0078125,
+          "right": 0.01171875,
+          "center_evaluation": 25,
+          "lower_bound": 0.00022382216275736717,
+          "children": [
+            35,
+            36
+          ]
+        },
+        {
+          "id": 24,
+          "parent": 14,
+          "left": 0.01171875,
+          "right": 0.015625,
+          "center_evaluation": 26,
+          "lower_bound": 0.00022425190251194264,
+          "children": null
+        },
+        {
+          "id": 25,
+          "parent": 21,
+          "left": 0.0,
+          "right": 0.001953125,
+          "center_evaluation": 27,
+          "lower_bound": 0.0002236787405622131,
+          "children": [
+            31,
+            32
+          ]
+        },
+        {
+          "id": 26,
+          "parent": 21,
+          "left": 0.001953125,
+          "right": 0.00390625,
+          "center_evaluation": 28,
+          "lower_bound": 0.00022384566046147872,
+          "children": [
+            37,
+            38
+          ]
+        },
+        {
+          "id": 27,
+          "parent": 22,
+          "left": 0.00390625,
+          "right": 0.005859375,
+          "center_evaluation": 29,
+          "lower_bound": 0.00022402246187679055,
+          "children": [
+            41,
+            42
+          ]
+        },
+        {
+          "id": 28,
+          "parent": 22,
+          "left": 0.005859375,
+          "right": 0.0078125,
+          "center_evaluation": 30,
+          "lower_bound": 0.00022420914573257315,
+          "children": null
+        },
+        {
+          "id": 29,
+          "parent": 19,
+          "left": 0.015625,
+          "right": 0.01953125,
+          "center_evaluation": 31,
+          "lower_bound": 0.00022472105591837474,
+          "children": null
+        },
+        {
+          "id": 30,
+          "parent": 19,
+          "left": 0.01953125,
+          "right": 0.0234375,
+          "center_evaluation": 32,
+          "lower_bound": 0.00022522963910339802,
+          "children": null
+        },
+        {
+          "id": 31,
+          "parent": 25,
+          "left": 0.0,
+          "right": 0.0009765625,
+          "center_evaluation": 33,
+          "lower_bound": 0.00022397906551356744,
+          "children": [
+            39,
+            40
+          ]
+        },
+        {
+          "id": 32,
+          "parent": 25,
+          "left": 0.0009765625,
+          "right": 0.001953125,
+          "center_evaluation": 34,
+          "lower_bound": 0.0002240603701569474,
+          "children": [
+            43,
+            44
+          ]
+        },
+        {
+          "id": 33,
+          "parent": 15,
+          "left": 0.03125,
+          "right": 0.0390625,
+          "center_evaluation": 35,
+          "lower_bound": 0.0002259141102662564,
+          "children": null
+        },
+        {
+          "id": 34,
+          "parent": 15,
+          "left": 0.0390625,
+          "right": 0.046875,
+          "center_evaluation": 36,
+          "lower_bound": 0.00022731088866662262,
+          "children": null
+        },
+        {
+          "id": 35,
+          "parent": 23,
+          "left": 0.0078125,
+          "right": 0.009765625,
+          "center_evaluation": 37,
+          "lower_bound": 0.00022440571305984796,
+          "children": null
+        },
+        {
+          "id": 36,
+          "parent": 23,
+          "left": 0.009765625,
+          "right": 0.01171875,
+          "center_evaluation": 38,
+          "lower_bound": 0.0002246121649494279,
+          "children": null
+        },
+        {
+          "id": 37,
+          "parent": 26,
+          "left": 0.001953125,
+          "right": 0.0029296875,
+          "center_evaluation": 39,
+          "lower_bound": 0.00022414415005865383,
+          "children": [
+            47,
+            48
+          ]
+        },
+        {
+          "id": 38,
+          "parent": 26,
+          "left": 0.0029296875,
+          "right": 0.00390625,
+          "center_evaluation": 40,
+          "lower_bound": 0.00022423040526706157,
+          "children": null
+        },
+        {
+          "id": 39,
+          "parent": 31,
+          "left": 0.0,
+          "right": 0.00048828125,
+          "center_evaluation": 41,
+          "lower_bound": 0.00022412957518110657,
+          "children": [
+            45,
+            46
+          ]
+        },
+        {
+          "id": 40,
+          "parent": 31,
+          "left": 0.00048828125,
+          "right": 0.0009765625,
+          "center_evaluation": 42,
+          "lower_bound": 0.00022416968679645199,
+          "children": [
+            49,
+            50
+          ]
+        },
+        {
+          "id": 41,
+          "parent": 27,
+          "left": 0.00390625,
+          "right": 0.0048828125,
+          "center_evaluation": 43,
+          "lower_bound": 0.00022431913583576967,
+          "children": null
+        },
+        {
+          "id": 42,
+          "parent": 27,
+          "left": 0.0048828125,
+          "right": 0.005859375,
+          "center_evaluation": 44,
+          "lower_bound": 0.00022441034182284008,
+          "children": null
+        },
+        {
+          "id": 43,
+          "parent": 32,
+          "left": 0.0009765625,
+          "right": 0.00146484375,
+          "center_evaluation": 45,
+          "lower_bound": 0.0002242104178511359,
+          "children": null
+        },
+        {
+          "id": 44,
+          "parent": 32,
+          "left": 0.00146484375,
+          "right": 0.001953125,
+          "center_evaluation": 46,
+          "lower_bound": 0.00022425176834781405,
+          "children": null
+        },
+        {
+          "id": 45,
+          "parent": 39,
+          "left": 0.0,
+          "right": 0.000244140625,
+          "center_evaluation": 47,
+          "lower_bound": 0.00022420491702074367,
+          "children": null
+        },
+        {
+          "id": 46,
+          "parent": 39,
+          "left": 0.000244140625,
+          "right": 0.00048828125,
+          "center_evaluation": 48,
+          "lower_bound": 0.00022422483741485057,
+          "children": null
+        },
+        {
+          "id": 47,
+          "parent": 37,
+          "left": 0.001953125,
+          "right": 0.00244140625,
+          "center_evaluation": 49,
+          "lower_bound": 0.0002242937382893334,
+          "children": null
+        },
+        {
+          "id": 48,
+          "parent": 37,
+          "left": 0.00244140625,
+          "right": 0.0029296875,
+          "center_evaluation": 50,
+          "lower_bound": 0.00022433632767872167,
+          "children": null
+        },
+        {
+          "id": 49,
+          "parent": 40,
+          "left": 0.00048828125,
+          "right": 0.000732421875,
+          "center_evaluation": 51,
+          "lower_bound": 0.00022424491274767818,
+          "children": null
+        },
+        {
+          "id": 50,
+          "parent": 40,
+          "left": 0.000732421875,
+          "right": 0.0009765625,
+          "center_evaluation": 52,
+          "lower_bound": 0.00022426514301937992,
+          "children": null
+        }
+      ],
+      "leaves": [
+        45,
+        46,
+        49,
+        50,
+        43,
+        44,
+        47,
+        48,
+        38,
+        41,
+        42,
+        28,
+        35,
+        36,
+        24,
+        29,
+        30,
+        20,
+        33,
+        34,
+        16,
+        17,
+        18,
+        6,
+        4,
+        2
+      ]
+    }
+  },
+  "seconds": 0.1943654171191156
+}

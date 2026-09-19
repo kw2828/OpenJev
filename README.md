@@ -66,9 +66,11 @@ Open **http://127.0.0.1:8000**. Local text scoring uses Qwen3-4B; the free brows
 
 ## More experiments
 
-- [Recurrent expert coordination](research/pose-coordination-results.md): nine new selector fits completed. The recurrent and summary selectors put about **97% weight on the GRU** in both robot archives. Recurrence shows no advantage and costs more. **1/17 requirements pass**. Saved training forecasts reveal that expert rankings change outside their training examples.
+- [Parent-excluded selector training](research/pose-crossfit-results.md): 30 neural fits completed. Using predictions from experts that excluded each training trajectory improves the recurrent selector by **4.2% / 5.1%** on plain position/rotation and **0.94% / 0.59%** on zigzag, versus matched in-sample training. All paired seeds improve, but only **2/17 requirements pass**. No established architecture advantage.
 
-[![Two frozen experts, fixed combinations and all nine learned selector fits](output/pose-coordination-v1/visualization-01/physical-errors.png)](research/pose-coordination-results.md)
+[![All paired selector fits, stronger constant controls and both robot archives](output/pose-crossfit-v1/visualization-01/physical-errors.png)](research/pose-crossfit-results.md)
+
+The [earlier coordination screen](research/pose-coordination-results.md) passed only 1/17 requirements, so failed its continuation rule. Its training-error diagnosis motivated this follow-up; both results remain available.
 
 - [Recency and robust adaptation](research/pose-support-results.md): with the same trained weights, position error falls **36.6% / 15.4%** versus no adaptation. Plain rotation improves; zigzag rotation regresses **7.6%**. Recent-five explains most of the position gain. **5/17 requirements pass**, so no new architecture advantage is established.
 
