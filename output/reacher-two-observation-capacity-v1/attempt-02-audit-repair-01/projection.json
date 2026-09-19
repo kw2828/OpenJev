@@ -1,0 +1,48 @@
+{
+  "audit_components_seconds": {
+    "fixed_and_hash_proxy": 13.74236954539083,
+    "row_replay": 1326.6969787396956,
+    "saved_training": 6.387383949011564
+  },
+  "execution_components_seconds": {
+    "learned_control": 790.071541383164,
+    "measured_outer_overhead_proxy": 12.296631623059511,
+    "references": 1311.5849423725158,
+    "training": 882.5188528185245
+  },
+  "formulas": {
+    "audit": "3*all14 row audits + 144*oneepoch saved training audit + measured fixed/hash overhead",
+    "learned_control": "3 * sum(all nine full64 rows across three classes and panels)",
+    "references": "3 * sum(all five full64 shifted reference rows)",
+    "training": "144*(24-update call+log I/O) + 3*(full48 setup + measured finalization/other fit cost)"
+  },
+  "measured": {
+    "actions_per_case": 50,
+    "control_cases_per_row": 64,
+    "learned_rows": 9,
+    "reference_rows": 5,
+    "training_updates": 24
+  },
+  "nominal_projected_seconds": {
+    "audit": 1346.826732234098,
+    "execution": 2996.471968197264
+  },
+  "qualification_ready": false,
+  "scope": "two_observation_full_shape_engineering_capacity_no_effectiveness_claim",
+  "status": "pending_independent_sizing_review",
+  "target": {
+    "control_rows": 42,
+    "learned_rows": 27,
+    "new_fits": 3,
+    "reference_rows": 15,
+    "training_updates": 3456
+  },
+  "unmeasured_or_nonbinding": [
+    "No statistical upper bound: shared-host timing, thermal effects, data and future optimizer state may change speed.",
+    "Only one shifted reference row per method was measured; other sensing schedules are extrapolated.",
+    "Actual scientific parent copying, six inherited/all-nine restoration and complete study receipts are not directly measured by this proxy.",
+    "Training audit scaling repeats fixed tensor checks; final large-log, order and metadata costs need reviewed allowance.",
+    "Outer hashing proxy covers measured bytes only; target bytes and final whole-tree rehashing need reviewed sizing.",
+    "No execution/audit cap is selected here; measured raw files and independent review must justify explicit caps."
+  ]
+}

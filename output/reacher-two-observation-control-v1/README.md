@@ -36,7 +36,9 @@ This used four-dimensional models, one case per panel and two updates per new fi
 
 ## Full-size capacity measurement
 
-The [second capacity attempt](capacity-launch-attempt02.json) completed 24 real updates at the full model and batch size, nine learned-controller rows and five references in 719.44 seconds. Its original saved-output audit stopped after 11.89 seconds on a mismatch between two work-count field names. The [failure review](../reacher-two-observation-capacity-v1/attempt-02-audit-failure-review.json) preserves both process exits and verifies all 2,888 measurement payloads, totaling 6.49 GB. A separately versioned saved-only audit repair and independent sizing review remain pending; training and gameplay are not being repeated.
+The [second capacity attempt](capacity-launch-attempt02.json) completed 24 real updates at the full model and batch size, nine learned-controller rows and five references in 719.44 seconds. Its original saved-output audit stopped after 11.89 seconds on a mismatch between two work-count field names. The [failure review](../reacher-two-observation-capacity-v1/attempt-02-audit-failure-review.json) preserves both process exits and verifies all 2,888 measurement payloads, totaling 6.49 GB.
+
+The separate [saved-only audit repair](../reacher-two-observation-capacity-v1/audit-repair-root-verification.json) completed in 456.28 seconds. All 14 rows passed, including 44,800 executed, 26,247,168 candidate and 9,600 selected simulator transitions with zero replay error. No model inference or training was repeated. Original measurements, source versions and failed audit remain retained. Independent sizing and the scientific freeze are separate next steps. Large engineering payloads are retained locally; these repository receipts bind their membership and hashes.
 
 The [first attempt](../reacher-two-observation-capacity-v1/attempt-01-failure-review.json) stopped on an incorrect import before any numerical work; its failure is preserved. The import repair passed 36 focused checks, including real resolution of every delayed import. Neither capacity attempt is an efficacy experiment.
 
