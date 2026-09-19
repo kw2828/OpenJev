@@ -66,11 +66,11 @@ Open **http://127.0.0.1:8000**. Local text scoring uses Qwen3-4B; the free brows
 
 ## More experiments
 
-- [Parent-excluded selector training](research/pose-crossfit-results.md): 30 neural fits completed. Using predictions from experts that excluded each training trajectory improves the recurrent selector by **4.2% / 5.1%** on plain position/rotation and **0.94% / 0.59%** on zigzag, versus matched in-sample training. All paired seeds improve, but only **2/17 requirements pass**. No established architecture advantage.
+- [Can better blending help?](research/pose-capacity-results.md): ideal continuous blends show **17-21% lower error** against the strongest controls when given future answers. Even perfect stepwise hard switching misses the required margin. This is a capacity diagnosis, **not a model improvement**; rotation bounds apply to projected geometry. All 960 searches are retained, including one capped search.
 
-[![All paired selector fits, stronger constant controls and both robot archives](output/pose-crossfit-v1/visualization-01/physical-errors.png)](research/pose-crossfit-results.md)
+[![Hindsight capacity: fixed hard choices, stepwise choices and continuous blending](output/pose-capacity-v1/visualization-01/capacity.png)](research/pose-capacity-results.md)
 
-The [earlier coordination screen](research/pose-coordination-results.md) passed only 1/17 requirements, so failed its continuation rule. Its training-error diagnosis motivated this follow-up; both results remain available.
+- [Parent-excluded selector training](research/pose-crossfit-results.md): 30 neural fits produced small improvements, but only **2/17 requirements passed**. The [earlier coordination screen](research/pose-coordination-results.md) passed 1/17. Neither established an architecture advantage.
 
 - [Recency and robust adaptation](research/pose-support-results.md): with the same trained weights, position error falls **36.6% / 15.4%** versus no adaptation. Plain rotation improves; zigzag rotation regresses **7.6%**. Recent-five explains most of the position gain. **5/17 requirements pass**, so no new architecture advantage is established.
 
