@@ -1,0 +1,94 @@
+{
+  "configuration": {
+    "belief_feature": "own probability and entropy divided by log(valid candidate count)",
+    "class": "DialogueCopyMemory",
+    "departure_initial_logit": -3.0,
+    "feature_dim": 396,
+    "gold_feedback": false,
+    "gru_width": 16,
+    "hidden_dim": 64,
+    "initial_belief": "one-hot supplied NONE index",
+    "input_dim": 384,
+    "lexical_fields": [
+      "user_match",
+      "system_match",
+      "unique_longest_user",
+      "unique_longest_system",
+      "literal_current",
+      "literal_previous",
+      "is_none",
+      "is_dontcare",
+      "affirmative_cue_for_true",
+      "negative_cue_for_false"
+    ],
+    "method": "candidate_gru",
+    "no_lexical_keeps": [
+      6,
+      7
+    ],
+    "parameters": 103411,
+    "projection_dim": 64,
+    "query_conditioned_updates": true,
+    "scope": "conditional stochastic transition; not calibrated Bayes or architecture novelty",
+    "updates": {
+      "candidate_gru": "shared per-candidate GRU then candidate softmax",
+      "m": "sum(b*r)",
+      "readout": "softmax(write logits); no learned state feedback",
+      "scalar": "(1-m)*b+m*w",
+      "selective": "(1-r)*b+m*w"
+    }
+  },
+  "epochs": 20,
+  "evaluation": {
+    "actor_shapes": {
+      "padded_candidate_positions": 2028002,
+      "padded_query_positions": 198470,
+      "padded_turn_positions": 34643,
+      "real_question_steps": 117386,
+      "real_turns": 23810
+    },
+    "queries": 62329,
+    "scope": "Batch assembly and output storage included; encoder excluded",
+    "wall_seconds": 1.7268239168915898
+  },
+  "initial_tensors_sha256": "63dc7d6894676a632053ec15577869ccc6d90866b218abce388cefac15b231a8",
+  "method": "candidate_gru",
+  "parameters": 103411,
+  "parameters_with_final_gradient": 103281,
+  "predictions_sha256": "5cd54fe8f8ef8bb812d07039f3455f33f25ae8cc79effbc0310496b6329d0b2a",
+  "seed": 4101,
+  "status": "completed",
+  "train_wall_seconds": 106.94805429200642,
+  "training_actor_shapes": {
+    "padded_candidate_positions": 79148484,
+    "padded_query_positions": 6596971,
+    "padded_turn_positions": 753982,
+    "real_question_steps": 1837120,
+    "real_turns": 412000
+  },
+  "training_losses": [
+    1.362782719208274,
+    0.9184986550347022,
+    0.8258742081068612,
+    0.769426039794552,
+    0.7290266852154347,
+    0.7028567078588587,
+    0.6747916884286461,
+    0.6642001562324643,
+    0.6279142693539609,
+    0.6067593416532047,
+    0.5881863628054741,
+    0.5546399095376111,
+    0.5341388040536916,
+    0.5142761423640398,
+    0.4998720055086935,
+    0.48398090605206695,
+    0.47034105559748823,
+    0.447038474295326,
+    0.4403929558367021,
+    0.42885116928302175
+  ],
+  "training_queries": 1034820,
+  "updates": 1280,
+  "weights_sha256": "cea496709396413c068cad7d4f1db490720aa9cd9bd2c6becc704f0097b1acad"
+}

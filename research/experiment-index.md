@@ -4,6 +4,10 @@ Completed studies, including failures and controls. A passing implementation che
 
 ## Complete experiment list
 
+- [Candidate dialogue memory with lexical observations](dialogue-copy-results.md): **15 fits**. Selective memory improves unseen macro accuracy to **72.89%**, versus literal carry's **65.76%**. Simpler scalar memory reaches **72.58%** and beats selective on seen services. The primary fails its rule with **7/13 checks passed** and still trails literal carry on unseen revisions. Shared lexical and history observations help; a selective-retention advantage is not established.
+
+[![All fifteen candidate-memory fits and both deterministic references](../output/dialogue-copy-v1/report-01/comparison.png)](dialogue-copy-results.md)
+
 - [Recurrent dialogue memory](dialogue-memory-results.md): **21 fits** on a supplied-schema SGD subtask. Surprise-adaptive Kalman memory scores **71.65% / 53.98%** seen/unseen macro accuracy and fails its fixed continuation rule with **8/11 checks passed**. A literal-match-and-carry reference scores **65.76%** on unseen services and beats all neural models there. No new architecture advantage established.
 
 [![All dialogue memory models and deterministic references](../output/dialogue-memory-v1/visualization-01/comparison.png)](dialogue-memory-results.md)

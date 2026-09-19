@@ -66,14 +66,15 @@ Open **http://127.0.0.1:8000**. Local text scoring uses Qwen3-4B; the free brows
 
 ## Research results
 
-- [Recurrent text memory](research/dialogue-memory-results.md): **21 fits**. The proposed memory reaches **53.98%** macro accuracy on unseen services, but a literal-match memory reaches **65.76%**. Only **8/11** required checks passed.
+- [Candidate text memory](research/dialogue-copy-results.md): **15 fits**. Selective memory reaches **72.89%** unseen-service macro accuracy versus **65.76%** for literal copying. Simpler scalar memory reaches **72.58%** and wins on seen services. The selective proposal fails its rule with **7/13 checks passed**.
+- [Earlier recurrent text memory](research/dialogue-memory-results.md): 21 fits; the proposed memory lost to literal copying on unseen services.
 - [Text inference](research/shared-prefix-results.md): shared-context prototype, **2.08x faster** for four-question workloads. Synthetic speed benchmark; single-question caching is slower.
 - [Biological wiring](docs/chess-connectome.md): the controlled chess study **did not establish a connectome advantage**.
 - [Recurrent robot memory](research/reacher-two-observation-control.md): small improvements over two-observation history, but the stronger continuation rule failed.
 - [Robot dynamics screen](research/drive-qualification-results.md): 252 episodes; classical calibration leaves too little benefit from exact parameters to justify neural training here.
 - [All experiments and visualizations](research/experiment-index.md): complete results, including negative findings, training receipts and paper sources.
 
-[![All recurrent dialogue models and both rule-based references on seen and unseen services](output/dialogue-memory-v1/visualization-01/comparison.png)](research/dialogue-memory-results.md)
+[![All fifteen candidate-memory fits, including simple controls and revision accuracy](output/dialogue-copy-v1/report-01/comparison.png)](research/dialogue-copy-results.md)
 
 Candidate scores are uncalibrated and relative to the supplied choices. These experiments use different models and protocols. The root MIT license applies except where component notices specify other terms, including GPL-3.0-only chess research files. Third-party data and model licenses apply separately.
 
