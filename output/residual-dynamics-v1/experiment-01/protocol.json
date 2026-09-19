@@ -1,0 +1,59 @@
+{
+  "study": "residual-dynamics-v1",
+  "sources": {
+    "scripts/train_residual_dynamics.py": "3b199f6ae3d3234e3a857e58f4b319c4f8019207d7af08baa495a093013558a8",
+    "scripts/prepare_residual_dynamics_data.py": "f3ff69d93e5417329ba28b9be0a146ef7320a93f408e90881ebb8738aac5560e",
+    "src/openjev/research/residual_dynamics.py": "9a0465b287a1bbd378bf85f88dab1da6e71374b09bc082f762159a2f250009d5",
+    "tests/test_residual_dynamics.py": "b14a90d396facb97c69c6ed4c82be04f4717bcd6b101e2dd183913aa28034884",
+    "tests/test_residual_dynamics_data.py": "06e23d0857c38a2fa5e58912f5cf743fd7afb05a300ebb1aca450e64bffae93a",
+    "tests/test_residual_dynamics_training.py": "287ea13e4c6f5fee2e958cd47c938bb1fe2cd7dc69160149dd8009804746bc61",
+    "research/residual-dynamics-protocol.md": "fca38fbb0d9e193777f6fc212d55d9639016215a51c1a41d519245420b3d2f9b"
+  },
+  "data_path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/residual-dynamics-v1/data-01",
+  "data_hashes": {
+    "completed.json": "5dce491809299ade3310e0852370cd511bf8b2ae9118ffb6f298ef83d757a6f3",
+    "dev.npz": "30d259ef22f231e271a0c44c4fbfe0b25a01ad3ad576c67df91731c9f665f563",
+    "manifest.json": "7471d4ec0920dd1c2c0d8d9b35949e9d157d6fb674a4229ca574a6b925faaa5b",
+    "normalization.npz": "0e07ba075c29987455cedb11971b95ce92f9509bee99b2795439ab4daf11beec",
+    "test_sin.npz": "1a402646581edbd6152c51db090f401e357c744db9d2e8c10ce2a37ec0f077f6",
+    "test_zigzag.npz": "7ad0ad932c480add80952ad22a176039f6ffa1319106f6d3a3d0b7abf5373407",
+    "train.npz": "f6b049365f931d1ead0806f53883ae35a5fccb63b5e6fd75df5d782833bfe9b4"
+  },
+  "context": 32,
+  "horizon": 25,
+  "epochs": 30,
+  "batch": 32,
+  "seeds": [
+    411,
+    512,
+    613
+  ],
+  "variants": [
+    "none",
+    "bias",
+    "public",
+    "latent",
+    "history16"
+  ],
+  "panels": [
+    "test_sin",
+    "test_zigzag"
+  ],
+  "learning_rate": 0.001,
+  "optimizer": "Adam",
+  "gradient_norm_cap": 1.0,
+  "checkpoint_selection": "final epoch, no dev/test selection",
+  "rls_prior_precision": 1.0,
+  "rls_forgetting": 1.0,
+  "neural_fits": 6,
+  "per_fit_updates": 690,
+  "primary": "mean normalized observation squared error across 25-step forecast and all channels",
+  "gate": "latent RLS >=10% mean improvement against each other variant, ridge and hold on BOTH panels; all 3 fits improve against paired variants and references on BOTH panels; pooled median full-window latency <=2x same-backbone no-adaptation (49 checks)",
+  "runtime": {
+    "python": "3.12.13",
+    "torch": "2.14.0",
+    "numpy": "2.5.3",
+    "platform": "macOS-26.6.1-arm64-arm-64bit",
+    "threads": 1
+  }
+}

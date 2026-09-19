@@ -1,0 +1,340 @@
+{
+  "action_order": "time-major: torque[t,0:4], torque[t+1,0:4], ..., torque[t+9,0:4]; no averaging",
+  "alignment": "sampled obs[k] at raw start+10*k; action block k contains raw torques start+10*k through start+10*k+9; next obs at start+10*k+10",
+  "context_frames": 32,
+  "delta_scale": "delta_std_raw: population std of all training raw obs[t+10]-obs[t]; delta_std_normalized=delta_std_raw/obs_scale; delta_scale_normalized=max(delta_std_normalized,1e-3); do not subtract delta mean",
+  "excluded_fields": [
+    "pos[...,3] terrain slope",
+    "vel",
+    "jointPos",
+    "jointVel",
+    "jointReactionForces"
+  ],
+  "excluded_old_ids": [
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40
+  ],
+  "excluded_old_ids_status": "previous test already exposed; development-only if subsequently used, excluded here",
+  "feature_order": [
+    "x",
+    "y",
+    "z",
+    "sin_roll",
+    "sin_pitch",
+    "sin_yaw",
+    "cos_roll",
+    "cos_pitch",
+    "cos_yaw"
+  ],
+  "forecast_steps": 25,
+  "limits": [
+    "Simulated PyBullet data, not real robot measurements.",
+    "Recorded applied torques, not authenticated issued commands; offline conditional forecasting only.",
+    "500Hz supported by publisher paper/configuration; no per-frame timestamps or collection generator supplied.",
+    "Archives have distinct hashes and no exact pose-frame matches in prior identity-only review; independent seeds/terrain topology remain unverified.",
+    "Training windows overlap and windows within each test trajectory are dependent; trajectory is the aggregation unit.",
+    "No explicit upstream data/code license found; all raw and normalized arrays remain local.",
+    "No model/native/RNG calls or predictive outcomes inspected."
+  ],
+  "loaded_keys": [
+    "pos",
+    "orn_euler",
+    "jointAppliedTorques"
+  ],
+  "nominal_forecast_seconds": 0.5,
+  "nominal_model_dt_seconds": 0.02,
+  "nominal_raw_dt_seconds": 0.002,
+  "normalization": "float64 mean/population std over old train IDs0..29 only, all raw frames; actions omit terminal torque; constant std uses scale1; window outputs float32",
+  "raw_stride": 10,
+  "raw_window_frames": 561,
+  "shapes": {
+    "dev": {
+      "actions": [
+        27,
+        56,
+        40
+      ],
+      "obs": [
+        27,
+        57,
+        9
+      ],
+      "source_ids": [
+        27
+      ],
+      "window_starts": [
+        27
+      ]
+    },
+    "test_sin": {
+      "actions": [
+        160,
+        56,
+        40
+      ],
+      "obs": [
+        160,
+        57,
+        9
+      ],
+      "source_ids": [
+        160
+      ],
+      "window_starts": [
+        160
+      ]
+    },
+    "test_zigzag": {
+      "actions": [
+        160,
+        56,
+        40
+      ],
+      "obs": [
+        160,
+        57,
+        9
+      ],
+      "source_ids": [
+        160
+      ],
+      "window_starts": [
+        160
+      ]
+    },
+    "train": {
+      "actions": [
+        720,
+        56,
+        40
+      ],
+      "obs": [
+        720,
+        57,
+        9
+      ],
+      "source_ids": [
+        720
+      ],
+      "window_starts": [
+        720
+      ]
+    }
+  },
+  "source_sha256": "f3ff69d93e5417329ba28b9be0a146ef7320a93f408e90881ebb8738aac5560e",
+  "sources": {
+    "old": {
+      "bytes": 30162192,
+      "path": "data/MobileRobot/sin2/ts_002_50x2000_w_grad.npz",
+      "repository_sha": "f4adef0ce5ed4b37c9847973df320f72965bd330",
+      "sha256": "361e6f45b917e9883b004fc90bebaab5d7fa5ca935b1423aac3f2f4fe49d4dc6",
+      "shape": [
+        50,
+        1750
+      ],
+      "url": "https://raw.githubusercontent.com/ALRhub/HiP-RSSM/f4adef0ce5ed4b37c9847973df320f72965bd330/data/MobileRobot/sin2/ts_002_50x2000_w_grad.npz"
+    },
+    "sin": {
+      "bytes": 33859211,
+      "path": "data/MobileRobot/sin_infer/ts_0.002_10x10000_w_grad.npz",
+      "repository_sha": "f4adef0ce5ed4b37c9847973df320f72965bd330",
+      "sha256": "ce23ebe3b029799477c4c319ef4186aea5a917e53bfccc0686ad03e7e3d4b45b",
+      "shape": [
+        10,
+        10000
+      ],
+      "url": "https://raw.githubusercontent.com/ALRhub/HiP-RSSM/f4adef0ce5ed4b37c9847973df320f72965bd330/data/MobileRobot/sin_infer/ts_0.002_10x10000_w_grad.npz"
+    },
+    "zigzag": {
+      "bytes": 34105554,
+      "path": "data/MobileRobot/sin_infer/zigzag_ts_0.002_10x10000_w_grad.npz",
+      "repository_sha": "f4adef0ce5ed4b37c9847973df320f72965bd330",
+      "sha256": "746361b67f82a409e6b7e587c574c83c1b832988e6be7c5365aa4231231bb9b3",
+      "shape": [
+        10,
+        10000
+      ],
+      "url": "https://raw.githubusercontent.com/ALRhub/HiP-RSSM/f4adef0ce5ed4b37c9847973df320f72965bd330/data/MobileRobot/sin_infer/zigzag_ts_0.002_10x10000_w_grad.npz"
+    }
+  },
+  "splits": {
+    "dev": {
+      "archive": "old",
+      "source_ids": [
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49
+      ],
+      "starts": [
+        0,
+        594,
+        1189
+      ]
+    },
+    "test_sin": {
+      "archive": "sin",
+      "source_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "starts": [
+        0,
+        629,
+        1258,
+        1887,
+        2517,
+        3146,
+        3775,
+        4404,
+        5034,
+        5663,
+        6292,
+        6921,
+        7551,
+        8180,
+        8809,
+        9439
+      ]
+    },
+    "test_zigzag": {
+      "archive": "zigzag",
+      "source_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "starts": [
+        0,
+        629,
+        1258,
+        1887,
+        2517,
+        3146,
+        3775,
+        4404,
+        5034,
+        5663,
+        6292,
+        6921,
+        7551,
+        8180,
+        8809,
+        9439
+      ]
+    },
+    "train": {
+      "archive": "old",
+      "source_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29
+      ],
+      "starts": [
+        0,
+        50,
+        100,
+        150,
+        200,
+        250,
+        300,
+        350,
+        400,
+        450,
+        500,
+        550,
+        600,
+        650,
+        700,
+        750,
+        800,
+        850,
+        900,
+        950,
+        1000,
+        1050,
+        1100,
+        1150
+      ]
+    }
+  },
+  "status": "prepared_not_trained",
+  "structural_identity_review": {
+    "cross_archive_pairs": [
+      "old_full:sin",
+      "old_full:zigzag",
+      "sin:zigzag"
+    ],
+    "exact_xyz_euler_frame_matches_per_pair": [
+      0,
+      0,
+      0
+    ],
+    "exact_xyz_euler_torque_frame_matches_per_pair": [
+      0,
+      0,
+      0
+    ],
+    "fresh_archive_git_blob_identity_checked": true,
+    "old_full_archive_sha256": "5966ea52c06a75c54e8a782d4c23f56918bbfb807ae5a1c64f721babaf391d97",
+    "old_full_vs_old_used": "all50 old used trajectories equal full raw frames250:2000 for xyz, Euler and torques",
+    "scope": "exact identity only, no predictive outcome inspection; no independent-seed/terrain proof"
+  },
+  "version": "residual-dynamics-data-v1"
+}

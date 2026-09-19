@@ -66,6 +66,8 @@ Open **http://127.0.0.1:8000**. Local text scoring uses Qwen3-4B; the free brows
 
 ## More experiments
 
+- [Residual dynamics and online correction](research/residual-dynamics-results.md): six new fits and 500 ms forecasts. Error fell 52% on one archive and rose 27% on another; **36/49 checks passed**, so the continuation rule failed. The gain is concentrated in one trajectory, and simple motion prediction explains much of the position improvement. [Figure](output/residual-dynamics-v1/visualization-03/forecast-results.png).
+
 - [Action-conditioned robot memory](research/action-filter-results.md): 15 new fits on published simulated-robot data. A linear predictor beat every neural model; the proposed memory had 18.3 times the GRU's forecast error. [Comparison figure](output/action-filter-v1/visualization-01/forecast-results.png). No architecture advantage established.
 
 [![Same memories, better confidence: all five associative families solve every card game](output/card-calibration-v1/visualization-01/calibration.png)](research/card-calibration-results.md)
