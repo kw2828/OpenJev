@@ -77,4 +77,6 @@ The earlier [cache study's 15/28 failure](reacher-cache-ablation.md) and [geomet
 - [Independent arithmetic and interpretation review](../output/reacher-geometry-memory-v1/independent-results-review.md), [actual figure/GIF review](../evidence/reacher-geometry-memory-v1/report-visual-review.json)
 - [Original launch](../evidence/reacher-geometry-memory-v1/launch.json), [audit launch and completion binding](../evidence/reacher-geometry-memory-v1/audit-launch.json)
 
-The complete raw execution and engineering preparation are being packaged for a separate evidence release. This page and the small audit/report artifacts do not by themselves contain all raw traces.
+The complete raw execution and new engineering preparation have been [packaged and byte-verified](../evidence/reacher-geometry-memory-v1/scored-publication/receipt.json): 19,826 archive members, including all 51 comparisons and twelve inherited models. The [packaging process exited successfully](../output/reacher-geometry-memory-v1/package-process.json). Earlier historical dependencies remain bound to the preceding verified release.
+
+The approximately 25 GB public evidence upload is [still in progress](../output/reacher-geometry-memory-v1/publication-progress.json). The release remains a draft until remote upload sizes and hashes are verified. This page and the small repository artifacts do not by themselves contain all raw traces. The [next history-control implementation status](../output/reacher-two-observation-control-v1/README.md) is separate from these completed results.
