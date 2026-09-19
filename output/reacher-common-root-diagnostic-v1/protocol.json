@@ -1,0 +1,52 @@
+{
+  "version": "reacher-common-root-diagnostic-v1",
+  "classification": "privileged open-loop diagnostic on exposed engineering histories; no scientific qualification",
+  "prior_completed_sha256": "82785582063738b97588e6487397e4bddcf58e98f9c352e8ce74f85ae834c5ec",
+  "roles": ["nominal", "public_gain", "true_state"],
+  "root_steps": [0, 50, 100, 150],
+  "root_source": "audit.decision_states[t], after public target installation; exact float64 qpos/qvel and integration state",
+  "gain_order": ["nominal", "actual"],
+  "search_order": ["short_a", "short_b", "long_a"],
+  "short_horizon": 12,
+  "long_horizon": 24,
+  "steps": 200,
+  "action_block": 3,
+  "noise_std": 0.05,
+  "noise_branches": 4,
+  "candidate_budget_per_search": 256,
+  "search_rule": "Frozen CEM256; fresh single-gain bank per search. Short baseline reuses A from A+B. Select A on an exact tie. Search resets solver from identical qpos/qvel; native branches restore full integration state then forward.",
+  "innovations": "A preserves every saved H12 innovation in its first four blocks and appends fresh four-block tails. B has eight fresh blocks. Same arrays across roles and gain assumptions. Short searches use first four blocks. No RNG after preparation.",
+  "rng_namespace": "openjev-reacher-common-root-diagnostic-v1-engineering-20260919",
+  "rng_algorithm": "numpy.Generator(PCG64(named_seed(namespace, role))); separate role for each step/kind/field and step/branch_noise",
+  "union": "Initial 64 H24 A sequences then six selected sequences: nominal short_a, best(short_a,short_b), long_a, actual same three. Extend short plans by holding final command. Canonicalize signed zero in union only. Preserve all70 slots and exact first-occurrence deduplication map.",
+  "evaluation": "Each unique union sequence cross-scored under nominal1 and current actual gain. Prefix12 and full24 sequential clipped float32 scores saved. Four fresh shared noise branches per root step, applied to all unique sequences and source roles. Hold current gain/target fixed; verify all source intervals event-free. Native branch outcomes never select a plan.",
+  "native_objective": "mean per-action 3D cached native distance plus squared applied normalized command, charged once; no reward clipping in native outcome",
+  "contrasts": {
+    "search": "actual-gain H12 best(A,B) versus actual-gain H12 A; both extended to24",
+    "horizon": "actual-gain H24 A versus actual-gain H12 best(A,B) extended to24; primary planning contrast",
+    "gain": "actual-gain full24 union-score selection versus nominal-gain full24 union-score selection; fixed identical union"
+  },
+  "engineering_usefulness_rule": {
+    "pooled_cost_reduction_fraction_min": 0.03,
+    "pooled_cost_reduction_per_action_min": 0.001,
+    "all_three_source_trajectory_means_nonworse": true,
+    "nonworse_slot_means_min": 8,
+    "slot_count": 12,
+    "aggregation": "equal four-branch mean within slot, equal four slots within source trajectory, equal12slot mean pooled; use math.fsum slot totals and inclusive candidate_total <=0.97*baseline_total and <=baseline_total-12*0.001 comparisons. Startup duplicates explicit, no independent-sample inference"
+  },
+  "interpretation": "Three contrasts reported separately; search cannot rescue horizon. If gain and horizon pass, investigate only longer horizon in a separate closed-loop protocol. Else if gain and search pass, investigate only extra short search. Otherwise stop this task/controller recipe as evidence for learned adaptation. No automatic fresh-case launch, threshold change, neural training or architecture claim.",
+  "maximum_execution_transitions": {
+    "search_candidate": 294912,
+    "selected_advance": 72,
+    "cross_score": 40320,
+    "native_branch": 80640,
+    "total": 415944
+  },
+  "work_scope": "Two mj_step calls per transition. Full independent replay is additional. Count actual unique union sequences. Include model/bank construction, forward/reset calls, copy/hash/serialization and total wall time; no deployment speed claim.",
+  "execution_cap_seconds": 300,
+  "audit_cap_seconds": 300,
+  "cap_sizing": "The immediately prior 5,377,536-candidate-transition experiment executed in89.63s and audited in84.82s; this diagnostic has at most415,944 total transitions, plus larger state records. Caps fixed before execution.",
+  "automatic_retry": false,
+  "failure_rule": "Exclusive preparation and attempt paths. Preserve partial work and original error, demote late completion. All12slots and independent audits must complete before numerical interpretation. No extra root, restart, horizon or noise branch after outcomes.",
+  "scientific_gate": null
+}
