@@ -1,0 +1,45 @@
+{
+  "status": "prepared_before_scored_execution",
+  "plan_sha256": "94c90f7585303f4edd88e1b0cb0dc8a488a2e2f07237aae4cfb489ade2068a2b",
+  "prepared_unix_time": 1789782852.221293,
+  "implementation_commit": "34f025b84d630b331d9ff313da4d18c214639dea",
+  "inputs": {
+    "output/reacher-geometry-rehearsal-v1/attempt-01/plan.json": "940204981953e6ddec4eea0ee5bd4d8a2c80389b96873e9f2c7948bef546de07",
+    "output/reacher-geometry-rehearsal-v1/attempt-01/execution/completed.json": "9d30ad0031c88a6ceb160e270766dae9ffb8950732c148b846404c80bd42e760",
+    "output/reacher-geometry-rehearsal-v1/attempt-01/audit/failed.json": "978c7c980b7a6f4e1ec467c86bc2a5696d72e06527451b4701cdb012a7ce5f0b",
+    "output/reacher-geometry-rehearsal-v1/attempt-02/plan.json": "a72c5864d02147f354ec41fd03e888cb3995d864a1399ff78a6275c6dffb5a4a",
+    "output/reacher-geometry-rehearsal-v1/attempt-02/execution/completed.json": "7a572590c5f41a86846f9cbbe563e44f288bee105639b54d866dbc68b54d6cc9",
+    "output/reacher-geometry-rehearsal-v1/attempt-02/audit/receipt.json": "fd53954a7247f07e54861a481f0c57c95c70d9f69320db048a416a4c6a5cd9ca",
+    "output/reacher-geometry-capacity-v1/attempt/execution/failed.json": "eb155fb58af2bc79d5c02a70747341ff181b3bf52dbc4af0f0dce1c496579316",
+    "output/reacher-geometry-capacity-v1/repaired-launch.json": "f39d0cc426fe3c92d0671514974f918a5a573c1978818e1d6488f3dc50ae391f",
+    "output/reacher-geometry-capacity-v1/capacity_probe.py": "79aeb4860422f7af16b159aa4855c11ef243d244923710d5a688564d59bf34ab",
+    "output/reacher-geometry-capacity-v1/attempt-02/execution/completed.json": "e3232c51684b71c0fd4770dc1855ad3ee1a6dcc7fad0f2141e479aef18ec6aaa",
+    "output/reacher-geometry-capacity-v1/attempt-02/audit/completed.json": "df4b246cfa1a20acf65b4e83894ce79bd764c2a3deb92636b7ca24a1613296ca"
+  },
+  "engineering_rehearsal": {
+    "completed_attempt": "attempt-02",
+    "native_transitions_replayed": 12150,
+    "native_max_abs_error": 0.0,
+    "model_calls_in_audit": 0,
+    "new_fits": 0
+  },
+  "retained_preparation_failures": [
+    {
+      "attempt": "rehearsal/attempt-01",
+      "reason": "Auditor dispatched to nonexistent runtime helper; execution completed, audit failed. Corrected source was independently exercised and a fresh whole rehearsal completed."
+    },
+    {
+      "attempt": "capacity/attempt",
+      "reason": "Timing helper filename shadowed Python stdlib profile before authentication/model loading. Exact script and original failure retained; renamed launcher, unchanged scope/caps, successful attempt-02."
+    }
+  ],
+  "execution_point_projection_seconds": 990.4308963467919,
+  "projected_recorded_file_bytes": 14147843369,
+  "audit_kernel_point_projection_seconds": 84.37352473684587,
+  "frozen_execution_cap_seconds": 2400,
+  "frozen_audit_cap_seconds": 600,
+  "cap_reason": "Execution cap exceeds twice measured full-scope point projection; audit cap exceeds seven times measured kernels to allow full provenance, CEM, state and file verification. Shared-host estimates are not guarantees. No cap extensions.",
+  "scored_random_samples_drawn": false,
+  "models_selected_by_capacity_performance": false,
+  "claim": "Engineering readiness only. No effectiveness conclusion from preparation."
+}

@@ -1,0 +1,99 @@
+{
+  "active_source": {
+    "bytes": 24166,
+    "path": "output/reacher-geometry-capacity-v1/capacity_probe.py",
+    "sha256": "79aeb4860422f7af16b159aa4855c11ef243d244923710d5a688564d59bf34ab"
+  },
+  "audit_cap_seconds": 1800,
+  "checks": [
+    {
+      "argv": [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv-robotics/bin/python",
+        "-c",
+        "import cProfile, json, pathlib, profile, sysconfig, torch\nimport torch._dynamo\ntorch.set_num_threads(2)\ntorch.use_deterministic_algorithms(True)\nexpected = pathlib.Path(sysconfig.get_path(\"stdlib\")) / \"profile.py\"\nassert pathlib.Path(profile.__file__).resolve() == expected.resolve()\nassert hasattr(profile, \"run\") and hasattr(cProfile, \"Profile\")\nprint(json.dumps({\"profile_module\": profile.__file__, \"cprofile_module\": cProfile.__file__, \"torch_version\": torch.__version__, \"threads\": torch.get_num_threads(), \"deterministic_algorithms\": torch.are_deterministic_algorithms_enabled(), \"new_model_calls\": 0, \"new_native_calls\": 0}))\n"
+      ],
+      "cwd": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/reacher-geometry-capacity-v1",
+      "name": "fresh_process_torch_and_stdlib_import",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\"profile_module\": \"/Users/kevinwu/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/profile.py\", \"cprofile_module\": \"/Users/kevinwu/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/cProfile.py\", \"torch_version\": \"2.14.0\", \"threads\": 2, \"deterministic_algorithms\": true, \"new_model_calls\": 0, \"new_native_calls\": 0}\n",
+      "wall_seconds": 1.3573610000312328
+    },
+    {
+      "argv": [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv-robotics/bin/python",
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/reacher-geometry-capacity-v1/capacity_probe.py",
+        "--help"
+      ],
+      "cwd": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/reacher-geometry-capacity-v1",
+      "name": "active_cli_help",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "usage: capacity_probe.py [-h] [--execute-engineering] {run,audit} ...\n\nEngineering capacity only; explicit authorization is required to execute. run:\nauthenticate all six saved students, probe all 12 model/score combinations,\nthen measure four whole learned rows, five reference rows and one native root.\naudit: independently check saved score arithmetic and replay engineering\nstates. Both phases have separate fixed 1800-second cooperative caps and\nexclusive outputs. Neither phase calculates utility, MSE, rank or winner\nsummaries.\n\npositional arguments:\n  {run,audit}\n\noptions:\n  -h, --help            show this help message and exit\n  --execute-engineering\n",
+      "wall_seconds": 0.03319054190069437
+    },
+    {
+      "argv": [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/python",
+        "-m",
+        "ruff",
+        "check",
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/reacher-geometry-capacity-v1/capacity_probe.py"
+      ],
+      "cwd": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev",
+      "name": "ruff",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "All checks passed!\n",
+      "wall_seconds": 0.057861790992319584
+    }
+  ],
+  "coverage_unchanged": {
+    "cases_per_row": 64,
+    "diagnostic_horizon": 12,
+    "diagnostic_roots": 1,
+    "full_batch_cem_probes": 12,
+    "learned_rows": 4,
+    "native_branches": 4,
+    "reference_rows": 5,
+    "restored_saved_students": 6,
+    "root_step": 12,
+    "steps": 50
+  },
+  "engineering_run_rerun": false,
+  "failed_attempt": "output/reacher-geometry-capacity-v1/attempt",
+  "failed_attempt_unchanged": "The original failed.json remains exact; only a new source-snapshot directory was added outside execution.",
+  "failure": {
+    "error": "AttributeError(\"module 'profile' has no attribute 'run'\")",
+    "no_retry": true,
+    "progress": {
+      "phase": "authenticate"
+    },
+    "scope": "engineering_capacity_only_no_effectiveness_metrics",
+    "status": "failed",
+    "wall_seconds": 0.005531542003154755
+  },
+  "failure_receipt": {
+    "path": "output/reacher-geometry-capacity-v1/attempt/execution/failed.json",
+    "sha256": "eb155fb58af2bc79d5c02a70747341ff181b3bf52dbc4af0f0dce1c496579316"
+  },
+  "namespace_unchanged_reason": "The failed import preceded authentication, model restoration, and protocol stream preparation; no capacity data were collected.",
+  "new_attempt_if_authorized": "output/reacher-geometry-capacity-v1/attempt-02",
+  "new_model_calls": 0,
+  "new_native_calls": 0,
+  "old_script_path": "output/reacher-geometry-capacity-v1/profile.py",
+  "old_source_sha256": "79aeb4860422f7af16b159aa4855c11ef243d244923710d5a688564d59bf34ab",
+  "preserved_source": {
+    "bytes": 24166,
+    "path": "output/reacher-geometry-capacity-v1/attempt/source-snapshot/profile.py",
+    "sha256": "79aeb4860422f7af16b159aa4855c11ef243d244923710d5a688564d59bf34ab"
+  },
+  "recorded_unix_time": 1789782559.6490161,
+  "repair": "Move the original script and bytecode out of the executable script directory; retain an identical source payload under capacity_probe.py so stdlib profile is no longer shadowed.",
+  "rng_namespace": "reacher-geometry-engineering-capacity-v1",
+  "run_cap_seconds": 1800,
+  "scientific_run_started": false,
+  "scope": "engineering_launch_import_repair_only_no_capacity_execution",
+  "source_content_changed": false,
+  "status": "prepared_not_launched"
+}
