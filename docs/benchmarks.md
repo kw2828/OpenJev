@@ -26,9 +26,17 @@ Nine original chess students trained on the same 4,096 Stockfish-labeled positio
 
 ## Recurrent world models
 
+![Fixed models with learned and approximate geometric scoring, every fit and reference](../evidence/reacher-geometry-score-v1/report/native-costs.png)
+
+The latest **zero-fit scoring intervention passed 25/25 checks**. Approximate geometry reduced persistent-GRU native control cost by **35.7%/28.7%** on six-step/ten-step sensing gaps. With the same geometry score, GRU beat cached MLP by **22.6%/15.7%**, improving every paired fit. This supports changing the score while retaining the learned transition model; it does not establish architecture or biological novelty. [All 51 rows, audit and fixed-case replay](../research/reacher-geometry-score.md).
+
+![Every model's utility and measured whole-controller cost after the scoring intervention](../evidence/reacher-geometry-score-v1/report/utility-vs-cost.png)
+
+Geometry added **52.8%/53.4%** to GRU whole-controller time on the two gap panels. These shared-host measurements include trace work and do not match total compute. The separate auditor replayed **329,088 native transitions with zero discrepancy**, without new learned-model calls. Physics references use a single 64-sequence bank, while learned controllers use CEM256. The earlier failed cache comparison below remains unchanged.
+
 ![Persistent memory versus explicit caches, all paired fits](../evidence/reacher-cache-ablation-v1/figures/paired-comparisons.png)
 
-The latest **15-fit cache comparison failed its continuation rule, passing 15/28 checks**. Cached MLP lowered mean control cost by **6.32%/5.57%** versus persistent GRU on six-step/ten-step gaps and improved every paired fit. It also beat the packet MLP by **5.04%/5.22%**; cached GRU instead worsened relative to its current-only control. Persistent recurrence predicted angles and rewards better on the shared prediction cohort but controlled worse than cached MLP. These are development results in one environment, not cache equivalence or an architectural novelty claim. [All results, GIF and reproducible evidence](../research/reacher-cache-ablation.md).
+The earlier **15-fit cache comparison failed its continuation rule, passing 15/28 checks**. Cached MLP lowered mean control cost by **6.32%/5.57%** versus persistent GRU on six-step/ten-step gaps and improved every paired fit. It also beat the packet MLP by **5.04%/5.22%**; cached GRU instead worsened relative to its current-only control. Persistent recurrence predicted angles and rewards better on the shared prediction cohort but controlled worse than cached MLP. These are development results in one environment, not cache equivalence or an architectural novelty claim. [All results, GIF and reproducible evidence](../research/reacher-cache-ablation.md).
 
 ![Every model's native control cost and full controller-row time](../evidence/reacher-cache-ablation-v1/figures/utility-vs-cost.png)
 

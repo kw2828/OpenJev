@@ -40,15 +40,15 @@ The latest [24-fit graph comparison](docs/chess-pin-quality.md) found **36.43% /
 
 ## Robot reaching
 
-[![Five locally trained models, fixed first robot case](evidence/reacher-cache-ablation-v1/replay/first-ordinary-case-pair0.gif)](research/reacher-cache-ablation.md)
+[![Fixed first robot case: learned versus geometric scoring for recurrent and cached models](evidence/reacher-geometry-score-v1/report/fixed-case-replay.gif)](research/reacher-geometry-score.md)
 
-The latest **15-fit comparison failed the recurrent-memory continuation rule: 15/28 checks passed**. A small MLP retaining the last observed angles achieved **6.3%/5.6% lower control cost** than persistent GRU memory on six-step/ten-step sensing gaps, improving every paired fit. It took about **38% more measured controller time**.
+**Better scoring unlocked useful recurrent predictions: all 25 continuation checks passed.** With the same six trained models, geometric scoring reduced GRU control cost by **35.7%/28.7%** on six-step/ten-step sensing gaps. GRU also beat the cached MLP using that same score by **22.6%/15.7%**, in every paired fit.
 
-![All paired comparisons, including the failed recurrent advantage](evidence/reacher-cache-ablation-v1/figures/paired-comparisons.png)
+![All six saved models, both scoring methods and all physics references](evidence/reacher-geometry-score-v1/report/native-costs.png)
 
-The schematic GIF shows the preselected first case, which favors persistent GRU; it is not a performance summary. Persistent GRU predicted angles more accurately but controlled worse than cached MLP. [All results, timings and limits](research/reacher-cache-ablation.md) · [Checkpoints and raw traces](https://github.com/kw2828/OpenJev/releases/tag/research-reacher-cache-ablation-v1).
+The gain cost about **53% more measured controller time** than GRU's original scoring. This is a fixed-model scoring result, not a new architecture or biological-wiring result. The GIF is a schematic replay of the preselected first case, not a performance summary. [Results, all 51 comparisons and compute costs](research/reacher-geometry-score.md).
 
-The [earlier memory study](research/reacher-memory-ablation.md) passed its weaker comparisons. The stronger cache controls change our next step: test reward scoring while holding transitions fixed, before adding recurrent complexity. No biological or novel-architecture advantage is established.
+The [earlier cache comparison](research/reacher-cache-ablation.md) remains a failed result (15/28 checks): with learned rewards, cached MLP beat GRU. The new intervention changes the score while preserving those models and that history.
 
 ## Run locally
 
