@@ -1,0 +1,4936 @@
+{
+  "bindings": {
+    "audit_process_started": {
+      "bytes": 980,
+      "path": "output/reacher-innovation-pilot-v1/audit-process-01/started.json",
+      "sha256": "a07181697ac1a57146591719d5f4fa61ca073b741959313bf34511a354d57efd"
+    },
+    "audit_process_terminal": {
+      "bytes": 1299,
+      "path": "output/reacher-innovation-pilot-v1/audit-process-01/terminal.json",
+      "sha256": "502efb146be7ed6c4c2721596b04ea5d8d0d4b40e9b71ed171ced8e4bd8df9aa"
+    },
+    "audit_receipt": {
+      "bytes": 90304,
+      "path": "evidence/reacher-innovation-pilot-v1/audit/receipt.json",
+      "sha256": "60e2648377a40155b2c03be034b2c0ad1595050beeff4f3044e37f84dba55de9"
+    },
+    "audit_source": {
+      "bytes": 43056,
+      "path": "output/reacher-innovation-pilot-v1/audit_pilot.py",
+      "sha256": "eb1ba596fb5f3f634c042e8d4578f44e43886ffe95cc477c90841b6e71ef529e"
+    },
+    "audit_summary": {
+      "bytes": 7881434,
+      "path": "evidence/reacher-innovation-pilot-v1/audit/summary.json",
+      "sha256": "350fe70a3b6c02f38e5d11595ecaaee4d22f836d3aabf60a5f7f39d119f44575"
+    },
+    "dev10": {
+      "bytes": 287713,
+      "path": "evidence/reacher-innovation-pilot-v1/protocol/dev10.pt",
+      "sha256": "d3365cff97e72138eb853eaadda07a79f8eb51f74b7e66bd2d4413047a40996b"
+    },
+    "dev6": {
+      "bytes": 287713,
+      "path": "evidence/reacher-innovation-pilot-v1/protocol/dev6.pt",
+      "sha256": "53f36d9df81142142438c98f7b2d4aacae26d7e32d20542079600a9bdc9e5192"
+    },
+    "driver_source": {
+      "bytes": 17728,
+      "path": "output/reacher-innovation-pilot-v1/run_pilot.py",
+      "sha256": "9a7dd33ef5b8f80358f01650ebcbf47f3887b091ddd87c2a3be3bd89420c4295"
+    },
+    "execution_completed": {
+      "bytes": 46935,
+      "path": "runs/reacher-innovation-pilot-v1/attempt/completed.json",
+      "sha256": "1a511ebecad5cc6e363719555b97536671f1111948ae0aa0c7070a21ff7a9e69"
+    },
+    "launcher_source": {
+      "bytes": 8992,
+      "path": "output/reacher-innovation-pilot-v1/launch.py",
+      "sha256": "10dbfbb9366710d7d180f727d93658dd51cf6b263a1022a9be33e17502e6fb76"
+    },
+    "pilot_process_completed": {
+      "bytes": 1600,
+      "path": "output/reacher-innovation-pilot-v1/process/completed.json",
+      "sha256": "81b088fe275b2ad237d6241ccd89b3f81523da93241b9421c23a827b2d7b8438"
+    },
+    "pilot_process_started": {
+      "bytes": 1049,
+      "path": "output/reacher-innovation-pilot-v1/process/started.json",
+      "sha256": "ab5283d2a1b61492e61b3e21b704f217035fdde2fb592e59d43e064fa7d1be53"
+    },
+    "plan": {
+      "bytes": 49415,
+      "path": "evidence/reacher-innovation-pilot-v1/protocol/plan.json",
+      "sha256": "561eb5a73f30ce81453941a6ade73cf15f0332af26cfb6ef49a7a17a35eff3de"
+    }
+  },
+  "calculation": {
+    "moment_scope": "Prior one-step scale and empirical squared residual use the SAME actually visible targets and four cosine/sine coordinates. Returning-observation subset is prior error BEFORE correction, distinct from primary recovery AFTER correction. Ratio of means is descriptive, not coverage or conditional calibration.",
+    "one_step": "Saved one_step_mean at action t compared with publicpacket t+1 on valid targets only; mean over4coordinates. Rewards compared overall50 issued actions.",
+    "percent_effect": "100*(control-normalized)/control; positive means lower MSE. Learning is100*(initial-final)/initial.",
+    "primary": "For each episode, detect actual packet validity0-to1 transitions. Require exactly2 returning roots with complete H5 window and valid h1,h3 endpoints. Independently calculate squared open_loop_mean[e,root,h-1,:] minus public packets[e,root+h,:4], mean over4coordinates then2horizons and2roots. Mean equally over128episodes then3fits. Saved masks/errors and audit functions are not used."
+  },
+  "created_utc": "2026-09-19T06:57:30.344113+00:00",
+  "family_metrics": {
+    "age/final/dev10": {
+      "one_step_angle_mse": 0.04757094595716448,
+      "one_step_reward_mse": 0.007819932574983748,
+      "primary_recovery_mse": 0.09124655664754495
+    },
+    "age/final/dev6": {
+      "one_step_angle_mse": 0.03979495950995289,
+      "one_step_reward_mse": 0.007578525429892675,
+      "primary_recovery_mse": 0.08841068321227173
+    },
+    "age/initial/dev10": {
+      "one_step_angle_mse": 0.5134131665011051,
+      "one_step_reward_mse": 0.046409625999516056,
+      "primary_recovery_mse": 0.5141656128083066
+    },
+    "age/initial/dev6": {
+      "one_step_angle_mse": 0.5148938114047543,
+      "one_step_reward_mse": 0.04594661570801519,
+      "primary_recovery_mse": 0.5119580994514902
+    },
+    "constant/final/dev10": {
+      "one_step_angle_mse": 0.047568544881703485,
+      "one_step_reward_mse": 0.007822655019612136,
+      "primary_recovery_mse": 0.09130301981070565
+    },
+    "constant/final/dev6": {
+      "one_step_angle_mse": 0.039793836785619645,
+      "one_step_reward_mse": 0.007580416375578835,
+      "primary_recovery_mse": 0.0884359283533615
+    },
+    "constant/initial/dev10": {
+      "one_step_angle_mse": 0.5134392186752447,
+      "one_step_reward_mse": 0.04641638635975363,
+      "primary_recovery_mse": 0.5141997278687646
+    },
+    "constant/initial/dev6": {
+      "one_step_angle_mse": 0.5149195116697306,
+      "one_step_reward_mse": 0.04595364033305419,
+      "primary_recovery_mse": 0.5119875820814821
+    },
+    "normalized/final/dev10": {
+      "one_step_angle_mse": 0.04765842464582196,
+      "one_step_reward_mse": 0.007813204884960208,
+      "primary_recovery_mse": 0.09113548414101817
+    },
+    "normalized/final/dev6": {
+      "one_step_angle_mse": 0.039875369207185256,
+      "one_step_reward_mse": 0.007573232178930384,
+      "primary_recovery_mse": 0.08840704913116826
+    },
+    "normalized/initial/dev10": {
+      "one_step_angle_mse": 0.5131788921588286,
+      "one_step_reward_mse": 0.04614001137577036,
+      "primary_recovery_mse": 0.5138488091645945
+    },
+    "normalized/initial/dev6": {
+      "one_step_angle_mse": 0.5146149443535669,
+      "one_step_reward_mse": 0.045709040634130116,
+      "primary_recovery_mse": 0.5115633347346255
+    },
+    "raw/final/dev10": {
+      "one_step_angle_mse": 0.047667119369991795,
+      "one_step_reward_mse": 0.0078121188654911855,
+      "primary_recovery_mse": 0.09116461417311233
+    },
+    "raw/final/dev6": {
+      "one_step_angle_mse": 0.03988215325735039,
+      "one_step_reward_mse": 0.00757129655505511,
+      "primary_recovery_mse": 0.08845877751968734
+    },
+    "raw/initial/dev10": {
+      "one_step_angle_mse": 0.5130391625469745,
+      "one_step_reward_mse": 0.046014550569029,
+      "primary_recovery_mse": 0.5136750039096537
+    },
+    "raw/initial/dev6": {
+      "one_step_angle_mse": 0.5144405808514637,
+      "one_step_reward_mse": 0.04559677097898766,
+      "primary_recovery_mse": 0.5113474384249392
+    }
+  },
+  "fit_stage_panel_metrics": {
+    "age/0/final/dev10": {
+      "coordinate_count_per_episode": 16,
+      "episodes": 128,
+      "horizons": [
+        1,
+        3
+      ],
+      "moment_diagnostics": {
+        "all_visible_targets": {
+          "coordinate_count": 15360,
+          "empirical_by_coordinate": [
+            0.057127508399265586,
+            0.03926858620234642,
+            0.055341925921293035,
+            0.03041092882849663
+          ],
+          "empirical_squared_residual": 0.04553723733785127,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.06392592023562985,
+          "mean_predicted_squared_residual_scale": 0.6361974297692844,
+          "predicted_by_coordinate": [
+            0.594489497889299,
+            0.6136617744108662,
+            0.7013283712789417,
+            0.6353100754980309
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 13.970927244645715,
+          "target_count": 3840,
+          "upper_bound_fraction": 0.0
+        },
+        "other_visible_targets": {
+          "coordinate_count": 14336,
+          "empirical_by_coordinate": [
+            0.036746531788677886,
+            0.016416002270692582,
+            0.0343612193510747,
+            0.016442081958669856
+          ],
+          "empirical_squared_residual": 0.025991458842279325,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.03941384627450477,
+          "mean_predicted_squared_residual_scale": 0.6245889621807562,
+          "predicted_by_coordinate": [
+            0.5817827856226359,
+            0.6041956021300783,
+            0.6887389183310526,
+            0.6236385426392579
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 24.030546571890028,
+          "target_count": 3584,
+          "upper_bound_fraction": 0.0
+        },
+        "returning_observation_priors": {
+          "coordinate_count": 1024,
+          "empirical_by_coordinate": [
+            0.3424611809474987,
+            0.35920476124550804,
+            0.3490718179043522,
+            0.22597478500607426
+          ],
+          "empirical_squared_residual": 0.31917813627585845,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.407094955691381,
+          "mean_predicted_squared_residual_scale": 0.7987159760086797,
+          "predicted_by_coordinate": [
+            0.7723834696225822,
+            0.7461881863418967,
+            0.8775807125493884,
+            0.7987115355208516
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 2.502414436427336,
+          "target_count": 256,
+          "upper_bound_fraction": 0.0
+        }
+      },
+      "one_step_angle_mse": 0.04553723733785127,
+      "one_step_reward_mse": 0.007808655611436021,
+      "pair": 0,
+      "panel": "dev10",
+      "predictions": {
+        "bytes": 1371586,
+        "path": "runs/reacher-innovation-pilot-v1/attempt/evaluation/pair0-age/final/dev10/predictions.pt",
+        "sha256": "38d8de93047a5cf42bc731ca9dc654cb4bf4ebbf5f0703e583efbe50e35e1de6"
+      },
+      "primary_recovery_mse": 0.08582074314404012,
+      "recovery_points_per_episode": 2,
+      "stage": "final",
+      "variant": "age"
+    },
+    "age/0/final/dev6": {
+      "coordinate_count_per_episode": 16,
+      "episodes": 128,
+      "horizons": [
+        1,
+        3
+      ],
+      "moment_diagnostics": {
+        "all_visible_targets": {
+          "coordinate_count": 19456,
+          "empirical_by_coordinate": [
+            0.049966438528714664,
+            0.027080483727213594,
+            0.049144169956177076,
+            0.0236495341480074
+          ],
+          "empirical_squared_residual": 0.037460156590029034,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.05390967773266146,
+          "mean_predicted_squared_residual_scale": 0.643655220692285,
+          "predicted_by_coordinate": [
+            0.6023760428468353,
+            0.6190508885897303,
+            0.709619870384861,
+            0.6435740809477131
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 17.182395357728165,
+          "target_count": 4864,
+          "upper_bound_fraction": 0.0
+        },
+        "other_visible_targets": {
+          "coordinate_count": 18432,
+          "empirical_by_coordinate": [
+            0.036942225741838315,
+            0.015326522948310986,
+            0.03593725466211907,
+            0.01622879862234901
+          ],
+          "empirical_squared_residual": 0.02610870049365506,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.03891116013456256,
+          "mean_predicted_squared_residual_scale": 0.6382368736804993,
+          "predicted_by_coordinate": [
+            0.5962217118034864,
+            0.6145698822478557,
+            0.7037459826549619,
+            0.6384099180156935
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 24.445371144979188,
+          "target_count": 4608,
+          "upper_bound_fraction": 0.0
+        },
+        "returning_observation_priors": {
+          "coordinate_count": 1024,
+          "empirical_by_coordinate": [
+            0.2844022686924934,
+            0.2386517777474645,
+            0.2868686452492223,
+            0.1572227736098611
+          ],
+          "empirical_squared_residual": 0.2417863663247606,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.3238829944984417,
+          "mean_predicted_squared_residual_scale": 0.741185466904426,
+          "predicted_by_coordinate": [
+            0.7131540016271174,
+            0.6997090027434751,
+            0.8153498495230451,
+            0.7365290137240663
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.0654559980809117,
+          "target_count": 256,
+          "upper_bound_fraction": 0.0
+        }
+      },
+      "one_step_angle_mse": 0.037460156590029034,
+      "one_step_reward_mse": 0.007598418747552332,
+      "pair": 0,
+      "panel": "dev6",
+      "predictions": {
+        "bytes": 1371586,
+        "path": "runs/reacher-innovation-pilot-v1/attempt/evaluation/pair0-age/final/dev6/predictions.pt",
+        "sha256": "49b21b81f8a57be7baf4577ea6ba60e939be5ddaea8cfe71db2efcd1c0faf294"
+      },
+      "primary_recovery_mse": 0.08387114479203689,
+      "recovery_points_per_episode": 2,
+      "stage": "final",
+      "variant": "age"
+    },
+    "age/0/initial/dev10": {
+      "coordinate_count_per_episode": 16,
+      "episodes": 128,
+      "horizons": [
+        1,
+        3
+      ],
+      "moment_diagnostics": {
+        "all_visible_targets": {
+          "coordinate_count": 15360,
+          "empirical_by_coordinate": [
+            0.4879170955713839,
+            0.6183453041328189,
+            0.399969325643392,
+            0.4168138116374014
+          ],
+          "empirical_squared_residual": 0.48076138424624726,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.24050142126843527,
+          "mean_predicted_squared_residual_scale": 2.007999768969603,
+          "predicted_by_coordinate": [
+            1.9031459234344463,
+            1.9941388498991728,
+            2.1130336758370203,
+            2.0216806267077723
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 4.176707686533119,
+          "target_count": 3840,
+          "upper_bound_fraction": 0.0
+        },
+        "other_visible_targets": {
+          "coordinate_count": 14336,
+          "empirical_by_coordinate": [
+            0.4920713363968571,
+            0.6267086898175086,
+            0.3919377468393052,
+            0.4095894914002158
+          ],
+          "empirical_squared_residual": 0.48007681611347025,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.24036654562030768,
+          "mean_predicted_squared_residual_scale": 2.006868661963381,
+          "predicted_by_coordinate": [
+            1.9000989564228803,
+            1.9964880015634532,
+            2.1093221298818077,
+            2.0215655599853823
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 4.180307389576256,
+          "target_count": 3584,
+          "upper_bound_fraction": 0.0
+        },
+        "returning_observation_priors": {
+          "coordinate_count": 1024,
+          "empirical_by_coordinate": [
+            0.42975772401475787,
+            0.501257904547131,
+            0.5124114289006079,
+            0.5179542949580034
+          ],
+          "empirical_squared_residual": 0.4903453381051248,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.24238968034222147,
+          "mean_predicted_squared_residual_scale": 2.023835267056711,
+          "predicted_by_coordinate": [
+            1.9458034615963697,
+            1.9612507265992463,
+            2.164995319209993,
+            2.023291560821235
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 4.127367203851793,
+          "target_count": 256,
+          "upper_bound_fraction": 0.0
+        }
+      },
+      "one_step_angle_mse": 0.48076138424624726,
+      "one_step_reward_mse": 0.04001861990225699,
+      "pair": 0,
+      "panel": "dev10",
+      "predictions": {
+        "bytes": 1371586,
+        "path": "runs/reacher-innovation-pilot-v1/attempt/evaluation/pair0-age/initial/dev10/predictions.pt",
+        "sha256": "e4ffa4c49b836d0490f305f25afea151ad034b8627f54da0337741c0fe5059b8"
+      },
+      "primary_recovery_mse": 0.49176561831818444,
+      "recovery_points_per_episode": 2,
+      "stage": "initial",
+      "variant": "age"
+    },
+    "age/0/initial/dev6": {
+      "coordinate_count_per_episode": 16,
+      "episodes": 128,
+      "horizons": [
+        1,
+        3
+      ],
+      "moment_diagnostics": {
+        "all_visible_targets": {
+          "coordinate_count": 19456,
+          "empirical_by_coordinate": [
+            0.48435242699684133,
+            0.5957817849885303,
+            0.4183196090763855,
+            0.4410758744182461
+          ],
+          "empirical_squared_residual": 0.4848824238699987,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.2423896062169886,
+          "mean_predicted_squared_residual_scale": 2.0083500643898,
+          "predicted_by_coordinate": [
+            1.9013489813445823,
+            1.995818979989149,
+            2.115389722472939,
+            2.0208425737525286
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 4.141932075740193,
+          "target_count": 4864,
+          "upper_bound_fraction": 0.0
+        },
+        "other_visible_targets": {
+          "coordinate_count": 18432,
+          "empirical_by_coordinate": [
+            0.4867834407626464,
+            0.5995200491819314,
+            0.4144944592234061,
+            0.4380359499196319
+          ],
+          "empirical_squared_residual": 0.4847084747719019,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.24242764220471702,
+          "mean_predicted_squared_residual_scale": 2.007501621859976,
+          "predicted_by_coordinate": [
+            1.8988653865332406,
+            1.9977598849477038,
+            2.1127805835826114,
+            2.020600632376348
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 4.14166808782265,
+          "target_count": 4608,
+          "upper_bound_fraction": 0.0
+        },
+        "returning_observation_priors": {
+          "coordinate_count": 1024,
+          "empirical_by_coordinate": [
+            0.4405941792123502,
+            0.52849302950731,
+            0.48717230643001896,
+            0.495794515393291
+          ],
+          "empirical_squared_residual": 0.4880135076357423,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.24170495843787734,
+          "mean_predicted_squared_residual_scale": 2.023622029926628,
+          "predicted_by_coordinate": [
+            1.9460536879487336,
+            1.9608826907351613,
+            2.162354222498834,
+            2.0251975185237825
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 4.146651677184882,
+          "target_count": 256,
+          "upper_bound_fraction": 0.0
+        }
+      },
+      "one_step_angle_mse": 0.4848824238699987,
+      "one_step_reward_mse": 0.039825363971155936,
+      "pair": 0,
+      "panel": "dev6",
+      "predictions": {
+        "bytes": 1371586,
+        "path": "runs/reacher-innovation-pilot-v1/attempt/evaluation/pair0-age/initial/dev6/predictions.pt",
+        "sha256": "4dd506383553f8686faa89f8caf944b2b57c8c4d22e7fa433328ee040f8bfd09"
+      },
+      "primary_recovery_mse": 0.4872257242695888,
+      "recovery_points_per_episode": 2,
+      "stage": "initial",
+      "variant": "age"
+    },
+    "age/1/final/dev10": {
+      "coordinate_count_per_episode": 16,
+      "episodes": 128,
+      "horizons": [
+        1,
+        3
+      ],
+      "moment_diagnostics": {
+        "all_visible_targets": {
+          "coordinate_count": 15360,
+          "empirical_by_coordinate": [
+            0.06254616314732056,
+            0.03804943639567685,
+            0.059766248625545665,
+            0.02933406492308005
+          ],
+          "empirical_squared_residual": 0.04742397827290656,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.06271251279622043,
+          "mean_predicted_squared_residual_scale": 0.6948943708838973,
+          "predicted_by_coordinate": [
+            0.7654153636811922,
+            0.6037618042668328,
+            0.7866812673940634,
+            0.6237190481935007
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 14.652806369070312,
+          "target_count": 3840,
+          "upper_bound_fraction": 0.0
+        },
+        "other_visible_targets": {
+          "coordinate_count": 14336,
+          "empirical_by_coordinate": [
+            0.04126965184452639,
+            0.016082596242153763,
+            0.03886650518050182,
+            0.016700152461633564
+          ],
+          "empirical_squared_residual": 0.02822972643220445,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.03666142051483328,
+          "mean_predicted_squared_residual_scale": 0.6895837089032284,
+          "predicted_by_coordinate": [
+            0.7595766321922254,
+            0.5990721245346192,
+            0.7783937894190396,
+            0.6212922894670295
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 24.427573202287636,
+          "target_count": 3584,
+          "upper_bound_fraction": 0.0
+        },
+        "returning_observation_priors": {
+          "coordinate_count": 1024,
+          "empirical_by_coordinate": [
+            0.3604173213864428,
+            0.34558519854500697,
+            0.35236265685616086,
+            0.2062088393833326
+          ],
+          "empirical_squared_residual": 0.31614350404273595,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.4274278047356406,
+          "mean_predicted_squared_residual_scale": 0.7692436386132613,
+          "predicted_by_coordinate": [
+            0.8471576045267284,
+            0.6694173205178231,
+            0.9027059590443969,
+            0.6576936703640968
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 2.43321032624879,
+          "target_count": 256,
+          "upper_bound_fraction": 0.0
+        }
+      },
+      "one_step_angle_mse": 0.04742397827290656,
+      "one_step_reward_mse": 0.007745017616840253,
+      "pair": 1,
+      "panel": "dev10",
+      "predictions": {
+        "bytes": 1371586,
+        "path": "runs/reacher-innovation-pilot-v1/attempt/evaluation/pair1-age/final/dev10/predictions.pt",
+        "sha256": "fc4dfbccb63ec12c664881ff2ea4021b82d7ff9725f28481884aad8137d05267"
+      },
+      "primary_recovery_mse": 0.08980886953177085,
+      "recovery_points_per_episode": 2,
+      "stage": "final",
+      "variant": "age"
+    },
+    "age/1/final/dev6": {
+      "coordinate_count_per_episode": 16,
+      "episodes": 128,
+      "horizons": [
+        1,
+        3
+      ],
+      "moment_diagnostics": {
+        "all_visible_targets": {
+          "coordinate_count": 19456,
+          "empirical_by_coordinate": [
+            0.05445053340683546,
+            0.027458572483992007,
+            0.05389166997527538,
+            0.023419285094951347
+          ],
+          "empirical_squared_residual": 0.03980501524026431,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.05238012048453523,
+          "mean_predicted_squared_residual_scale": 0.7078619011820257,
+          "predicted_by_coordinate": [
+            0.7791537166707904,
+            0.61665650625946,
+            0.7983625537691343,
+            0.6372748280287182
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 17.78323401986783,
+          "target_count": 4864,
+          "upper_bound_fraction": 0.0
+        },
+        "other_visible_targets": {
+          "coordinate_count": 18432,
+          "empirical_by_coordinate": [
+            0.041127504070666884,
+            0.015351120908775459,
+            0.04063397015867076,
+            0.016465617853185996
+          ],
+          "empirical_squared_residual": 0.028394553247825464,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.036567080537619825,
+          "mean_predicted_squared_residual_scale": 0.70640609305297,
+          "predicted_by_coordinate": [
+            0.7774517731094319,
+            0.6154286394044498,
+            0.7951209361652016,
+            0.6376230235327967
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 24.878225302138485,
+          "target_count": 4608,
+          "upper_bound_fraction": 0.0
+        },
+        "returning_observation_priors": {
+          "coordinate_count": 1024,
+          "empirical_by_coordinate": [
+            0.29426506145786857,
+            0.24539270083789577,
+            0.2925302666741592,
+            0.14858529544673044
+          ],
+          "empirical_squared_residual": 0.24519333110416358,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.3370148395290124,
+          "mean_predicted_squared_residual_scale": 0.7340664475050289,
+          "predicted_by_coordinate": [
+            0.8097887007752433,
+            0.6387581096496433,
+            0.8567116706399247,
+            0.6310073089553043
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 2.99382713306008,
+          "target_count": 256,
+          "upper_bound_fraction": 0.0
+        }
+      },
+      "one_step_angle_mse": 0.03980501524026431,
+      "one_step_reward_mse": 0.007477331792573601,
+      "pair": 1,
+      "panel": "dev6",
+      "predictions": {
+        "bytes": 1371586,
+        "path": "runs/reacher-innovation-pilot-v1/attempt/evaluation/pair1-age/final/dev6/predictions.pt",
+        "sha256": "b3b4a932b841dae6008b89b6e4aa9b26817df52293fbb42bf6759bd7619f045a"
+      },
+      "primary_recovery_mse": 0.08642219844753792,
+      "recovery_points_per_episode": 2,
+      "stage": "final",
+      "variant": "age"
+    },
+    "age/1/initial/dev10": {
+      "coordinate_count_per_episode": 16,
+      "episodes": 128,
+      "horizons": [
+        1,
+        3
+      ],
+      "moment_diagnostics": {
+        "all_visible_targets": {
+          "coordinate_count": 15360,
+          "empirical_by_coordinate": [
+            0.7992303353387791,
+            0.5780372598321067,
+            0.37233345668639845,
+            0.4006497627588558
+          ],
+          "empirical_squared_residual": 0.5375627036540339,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.27374306462722797,
+          "mean_predicted_squared_residual_scale": 1.9708887192187832,
+          "predicted_by_coordinate": [
+            2.068053885238866,
+            1.7972179400113721,
+            2.132365470472723,
+            1.885917581152171
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.6663420021922004,
+          "target_count": 3840,
+          "upper_bound_fraction": 0.0
+        },
+        "other_visible_targets": {
+          "coordinate_count": 14336,
+          "empirical_by_coordinate": [
+            0.8126000084600266,
+            0.5841304602215784,
+            0.36473727909892445,
+            0.3932880305283702
+          ],
+          "empirical_squared_residual": 0.5386889445772234,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.2740805242446546,
+          "mean_predicted_squared_residual_scale": 1.9726925421439643,
+          "predicted_by_coordinate": [
+            2.0701390948213105,
+            1.7957755336537957,
+            2.134295014997146,
+            1.8905605251036053
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.662025296791979,
+          "target_count": 3584,
+          "upper_bound_fraction": 0.0
+        },
+        "returning_observation_priors": {
+          "coordinate_count": 1024,
+          "empirical_by_coordinate": [
+            0.6120549116413047,
+            0.4927324543795256,
+            0.47867994291103905,
+            0.5037140139856532
+          ],
+          "empirical_squared_residual": 0.5217953307293804,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.26901862998325543,
+          "mean_predicted_squared_residual_scale": 1.9456351982662454,
+          "predicted_by_coordinate": [
+            2.0388609510846436,
+            1.8174116290174425,
+            2.1053518471308053,
+            1.8209163658320904
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.7287324812711162,
+          "target_count": 256,
+          "upper_bound_fraction": 0.0
+        }
+      },
+      "one_step_angle_mse": 0.5375627036540339,
+      "one_step_reward_mse": 0.028757968332418737,
+      "pair": 1,
+      "panel": "dev10",
+      "predictions": {
+        "bytes": 1371586,
+        "path": "runs/reacher-innovation-pilot-v1/attempt/evaluation/pair1-age/initial/dev10/predictions.pt",
+        "sha256": "790e413a240389f080538050792d38901d20360c895bf35217762560a4015805"
+      },
+      "primary_recovery_mse": 0.5217747294361006,
+      "recovery_points_per_episode": 2,
+      "stage": "initial",
+      "variant": "age"
+    },
+    "age/1/initial/dev6": {
+      "coordinate_count_per_episode": 16,
+      "episodes": 128,
+      "horizons": [
+        1,
+        3
+      ],
+      "moment_diagnostics": {
+        "all_visible_targets": {
+          "coordinate_count": 19456,
+          "empirical_by_coordinate": [
+            0.779885891413842,
+            0.5575537027305626,
+            0.383567293232701,
+            0.4216472575910478
+          ],
+          "empirical_squared_residual": 0.5356635362420358,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.2730522154059938,
+          "mean_predicted_squared_residual_scale": 1.9684455828667666,
+          "predicted_by_coordinate": [
+            2.066925367659056,
+            1.7915052236302902,
+            2.1304586081226407,
+            1.8848931320550804
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.6747798752113274,
+          "target_count": 4864,
+          "upper_bound_fraction": 0.0
+        },
+        "other_visible_targets": {
+          "coordinate_count": 18432,
+          "empirical_by_coordinate": [
+            0.7870438171202078,
+            0.5598717716693528,
+            0.380323779406471,
+            0.4183397784556162
+          ],
+          "empirical_squared_residual": 0.5363947866629094,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.2732154288575994,
+          "mean_predicted_squared_residual_scale": 1.9698957715623289,
+          "predicted_by_coordinate": [
+            2.0686008527409285,
+            1.7906250305887725,
+            2.1321062152791352,
+            1.8882509876404785
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.6724737460960544,
+          "target_count": 4608,
+          "upper_bound_fraction": 0.0
+        },
+        "returning_observation_priors": {
+          "coordinate_count": 1024,
+          "empirical_by_coordinate": [
+            0.6510432286992553,
+            0.5158284618323318,
+            0.4419505421048446,
+            0.48118188202881107
+          ],
+          "empirical_squared_residual": 0.5225010286663103,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.2701143732770918,
+          "mean_predicted_squared_residual_scale": 1.9423421863466501,
+          "predicted_by_coordinate": [
+            2.036766636185348,
+            1.8073486983776093,
+            2.1008016793057323,
+            1.824451731517911
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.7173939950022685,
+          "target_count": 256,
+          "upper_bound_fraction": 0.0
+        }
+      },
+      "one_step_angle_mse": 0.5356635362420358,
+      "one_step_reward_mse": 0.028384030812577413,
+      "pair": 1,
+      "panel": "dev6",
+      "predictions": {
+        "bytes": 1371586,
+        "path": "runs/reacher-innovation-pilot-v1/attempt/evaluation/pair1-age/initial/dev6/predictions.pt",
+        "sha256": "9b71ef20c641987d7c53cdb2d851eab0afcb1a4872653df4df0d6096499ef8cc"
+      },
+      "primary_recovery_mse": 0.525940832256588,
+      "recovery_points_per_episode": 2,
+      "stage": "initial",
+      "variant": "age"
+    },
+    "age/2/final/dev10": {
+      "coordinate_count_per_episode": 16,
+      "episodes": 128,
+      "horizons": [
+        1,
+        3
+      ],
+      "moment_diagnostics": {
+        "all_visible_targets": {
+          "coordinate_count": 15360,
+          "empirical_by_coordinate": [
+            0.06580100071953622,
+            0.04034328125650167,
+            0.06271962199832937,
+            0.03014258506857176
+          ],
+          "empirical_squared_residual": 0.049751622260735616,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.057825516786798876,
+          "mean_predicted_squared_residual_scale": 0.7649810178253877,
+          "predicted_by_coordinate": [
+            0.6927958584584606,
+            0.8083102218263473,
+            0.774393049433517,
+            0.7844249415832262
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 15.376001486269463,
+          "target_count": 3840,
+          "upper_bound_fraction": 0.0
+        },
+        "other_visible_targets": {
+          "coordinate_count": 14336,
+          "empirical_by_coordinate": [
+            0.045576771240775735,
+            0.018311286693930628,
+            0.042510812342365464,
+            0.016639359807281755
+          ],
+          "empirical_squared_residual": 0.030759557521089016,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.03946128168622283,
+          "mean_predicted_squared_residual_scale": 0.747521514069896,
+          "predicted_by_coordinate": [
+            0.6785105803657123,
+            0.7926683665136807,
+            0.7532789887877048,
+            0.7656281206124861
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 24.302089311830603,
+          "target_count": 3584,
+          "upper_bound_fraction": 0.0
+        },
+        "returning_observation_priors": {
+          "coordinate_count": 1024,
+          "empirical_by_coordinate": [
+            0.34894021342218756,
+            0.3487912051325038,
+            0.34564295718182736,
+            0.21918773872663344
+          ],
+          "empirical_squared_residual": 0.3156405286157882,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.31492480819486346,
+          "mean_predicted_squared_residual_scale": 1.009414070402272,
+          "predicted_by_coordinate": [
+            0.8927897517569363,
+            1.0272961962036788,
+            1.069989898474887,
+            1.047580435173586
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.197986249829711,
+          "target_count": 256,
+          "upper_bound_fraction": 0.0
+        }
+      },
+      "one_step_angle_mse": 0.049751622260735616,
+      "one_step_reward_mse": 0.007906124496674967,
+      "pair": 2,
+      "panel": "dev10",
+      "predictions": {
+        "bytes": 1371586,
+        "path": "runs/reacher-innovation-pilot-v1/attempt/evaluation/pair2-age/final/dev10/predictions.pt",
+        "sha256": "1730ee4812564b4c7727972b2de1e29b61369799fc99590d109a18465dfb8a16"
+      },
+      "primary_recovery_mse": 0.09811005726682392,
+      "recovery_points_per_episode": 2,
+      "stage": "final",
+      "variant": "age"
+    },
+    "age/2/final/dev6": {
+      "coordinate_count_per_episode": 16,
+      "episodes": 128,
+      "horizons": [
+        1,
+        3
+      ],
+      "moment_diagnostics": {
+        "all_visible_targets": {
+          "coordinate_count": 19456,
+          "empirical_by_coordinate": [
+            0.058199645928722454,
+            0.029310004754254056,
+            0.057036211564442545,
+            0.02393296455083938
+          ],
+          "empirical_squared_residual": 0.04211970669956533,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.05076514376532595,
+          "mean_predicted_squared_residual_scale": 0.7742240472947933,
+          "predicted_by_coordinate": [
+            0.7008201997286003,
+            0.8193951529622274,
+            0.7825215673625567,
+            0.794159269125789
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 18.381515636308627,
+          "target_count": 4864,
+          "upper_bound_fraction": 0.0
+        },
+        "other_visible_targets": {
+          "coordinate_count": 18432,
+          "empirical_by_coordinate": [
+            0.04524649233768053,
+            0.017473041980389344,
+            0.043960202006236536,
+            0.016536496501749546
+          ],
+          "empirical_squared_residual": 0.030804058206514724,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.03934758310965138,
+          "mean_predicted_squared_residual_scale": 0.765004867598893,
+          "predicted_by_coordinate": [
+            0.6938068458564683,
+            0.811659827026435,
+            0.7707126471149321,
+            0.7838401503977366
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 24.83454817771714,
+          "target_count": 4608,
+          "upper_bound_fraction": 0.0
+        },
+        "returning_observation_priors": {
+          "coordinate_count": 1024,
+          "empirical_by_coordinate": [
+            0.2913564105674738,
+            0.24237533468382383,
+            0.292404383612148,
+            0.15706938943445825
+          ],
+          "empirical_squared_residual": 0.2458013795744763,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.25628123556746807,
+          "mean_predicted_squared_residual_scale": 0.9401692818209995,
+          "predicted_by_coordinate": [
+            0.8270605694269761,
+            0.9586310198064893,
+            0.9950821318197995,
+            0.9799034062307328
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.8249145852988757,
+          "target_count": 256,
+          "upper_bound_fraction": 0.0
+        }
+      },
+      "one_step_angle_mse": 0.04211970669956533,
+      "one_step_reward_mse": 0.007659825749552091,
+      "pair": 2,
+      "panel": "dev6",
+      "predictions": {
+        "bytes": 1371586,
+        "path": "runs/reacher-innovation-pilot-v1/attempt/evaluation/pair2-age/final/dev6/predictions.pt",
+        "sha256": "30ab71af15e09192beeb153c4fd16f01d86fdf7d2e2f46abf0b500afda1fe0f1"
+      },
+      "primary_recovery_mse": 0.09493870639724038,
+      "recovery_points_per_episode": 2,
+      "stage": "final",
+      "variant": "age"
+    },
+    "age/2/initial/dev10": {
+      "coordinate_count_per_episode": 16,
+      "episodes": 128,
+      "horizons": [
+        1,
+        3
+      ],
+      "moment_diagnostics": {
+        "all_visible_targets": {
+          "coordinate_count": 15360,
+          "empirical_by_coordinate": [
+            0.7039341698946798,
+            0.5633154246914819,
+            0.4403316528529585,
+            0.3800803989730286
+          ],
+          "empirical_squared_residual": 0.5219154116030341,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.2650972455799597,
+          "mean_predicted_squared_residual_scale": 1.9919960816002762,
+          "predicted_by_coordinate": [
+            1.8268094463894764,
+            2.05332035155346,
+            2.0040988022151094,
+            2.083755726243059
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.8167029317681407,
+          "target_count": 3840,
+          "upper_bound_fraction": 0.0
+        },
+        "other_visible_targets": {
+          "coordinate_count": 14336,
+          "empirical_by_coordinate": [
+            0.7125817146018936,
+            0.5666323852981441,
+            0.43379101787118524,
+            0.37475618106067815
+          ],
+          "empirical_squared_residual": 0.5219403247079725,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.26512375262469107,
+          "mean_predicted_squared_residual_scale": 1.9925383506509076,
+          "predicted_by_coordinate": [
+            1.8284006855517094,
+            2.05644917681015,
+            2.0033164029674873,
+            2.0819871372742846
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.817559702377355,
+          "target_count": 3584,
+          "upper_bound_fraction": 0.0
+        },
+        "returning_observation_priors": {
+          "coordinate_count": 1024,
+          "empirical_by_coordinate": [
+            0.5828685439936867,
+            0.5168779761982126,
+            0.5319005425977702,
+            0.45461944974592433
+          ],
+          "empirical_squared_residual": 0.5215666281338983,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.26472614695371954,
+          "mean_predicted_squared_residual_scale": 1.9844043148914352,
+          "predicted_by_coordinate": [
+            1.8045320981182158,
+            2.0095167979598045,
+            2.01505239168182,
+            2.1085159718059003
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.804699549109174,
+          "target_count": 256,
+          "upper_bound_fraction": 0.0
+        }
+      },
+      "one_step_angle_mse": 0.5219154116030341,
+      "one_step_reward_mse": 0.07045228976387242,
+      "pair": 2,
+      "panel": "dev10",
+      "predictions": {
+        "bytes": 1371586,
+        "path": "runs/reacher-innovation-pilot-v1/attempt/evaluation/pair2-age/initial/dev10/predictions.pt",
+        "sha256": "7ba1c469718cd9f664c0e935ab09984738fcc2aa60e1a5f52afc80629ef33738"
+      },
+      "primary_recovery_mse": 0.5289564906706348,
+      "recovery_points_per_episode": 2,
+      "stage": "initial",
+      "variant": "age"
+    },
+    "age/2/initial/dev6": {
+      "coordinate_count_per_episode": 16,
+      "episodes": 128,
+      "horizons": [
+        1,
+        3
+      ],
+      "moment_diagnostics": {
+        "all_visible_targets": {
+          "coordinate_count": 19456,
+          "empirical_by_coordinate": [
+            0.6901336198620737,
+            0.5558904830302659,
+            0.4620191926696469,
+            0.38849860084693794
+          ],
+          "empirical_squared_residual": 0.5241354741022285,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.2661925643635664,
+          "mean_predicted_squared_residual_scale": 1.990690218376633,
+          "predicted_by_coordinate": [
+            1.8277652756016898,
+            2.0521345213790867,
+            2.0006717392733613,
+            2.082189337252394
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.798045193919396,
+          "target_count": 4864,
+          "upper_bound_fraction": 0.0
+        },
+        "other_visible_targets": {
+          "coordinate_count": 18432,
+          "empirical_by_coordinate": [
+            0.6933257020562639,
+            0.5587320255908026,
+            0.4595280599354441,
+            0.38640707429587534
+          ],
+          "empirical_squared_residual": 0.5244982154695942,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.26632004088590094,
+          "mean_predicted_squared_residual_scale": 1.9911668934186713,
+          "predicted_by_coordinate": [
+            1.8292759039904922,
+            2.0546603285345353,
+            1.9998408023061023,
+            2.0808905388435557
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.7963272985322516,
+          "target_count": 4608,
+          "upper_bound_fraction": 0.0
+        },
+        "returning_observation_priors": {
+          "coordinate_count": 1024,
+          "empirical_by_coordinate": [
+            0.6326761403666187,
+            0.5047427169406076,
+            0.5068595818853039,
+            0.42614607876605887
+          ],
+          "empirical_squared_residual": 0.5176061294896468,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.2638979869615454,
+          "mean_predicted_squared_residual_scale": 1.9821100676199421,
+          "predicted_by_coordinate": [
+            1.8005739646032453,
+            2.00666999258101,
+            2.015628604684025,
+            2.1055677086114883
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.8293790484557784,
+          "target_count": 256,
+          "upper_bound_fraction": 0.0
+        }
+      },
+      "one_step_angle_mse": 0.5241354741022285,
+      "one_step_reward_mse": 0.0696304523403122,
+      "pair": 2,
+      "panel": "dev6",
+      "predictions": {
+        "bytes": 1371586,
+        "path": "runs/reacher-innovation-pilot-v1/attempt/evaluation/pair2-age/initial/dev6/predictions.pt",
+        "sha256": "188f895b9c9290e633e99072040678ce49a41a6a85f843d05bfc48a8c2c7b8f1"
+      },
+      "primary_recovery_mse": 0.5227077418282938,
+      "recovery_points_per_episode": 2,
+      "stage": "initial",
+      "variant": "age"
+    },
+    "constant/0/final/dev10": {
+      "coordinate_count_per_episode": 16,
+      "episodes": 128,
+      "horizons": [
+        1,
+        3
+      ],
+      "moment_diagnostics": {
+        "all_visible_targets": {
+          "coordinate_count": 15360,
+          "empirical_by_coordinate": [
+            0.05711201272854134,
+            0.039232344665166896,
+            0.05533080496509116,
+            0.03042221227566595
+          ],
+          "empirical_squared_residual": 0.04552434365861715,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.06388303859289901,
+          "mean_predicted_squared_residual_scale": 0.6364699930990658,
+          "predicted_by_coordinate": [
+            0.5947990209135848,
+            0.6139832618879154,
+            0.7015663492027671,
+            0.635531340391996
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 13.980871374486924,
+          "target_count": 3840,
+          "upper_bound_fraction": 0.0
+        },
+        "other_visible_targets": {
+          "coordinate_count": 14336,
+          "empirical_by_coordinate": [
+            0.03673089632416094,
+            0.016383469110925183,
+            0.03436366627811995,
+            0.016454458945390365
+          ],
+          "empirical_squared_residual": 0.025983122664649656,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.03937618886598123,
+          "mean_predicted_squared_residual_scale": 0.6248932172612902,
+          "predicted_by_coordinate": [
+            0.5821160487789062,
+            0.6045429433330095,
+            0.6890210082721231,
+            0.6238928686611221
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 24.049966023193385,
+          "target_count": 3584,
+          "upper_bound_fraction": 0.0
+        },
+        "returning_observation_priors": {
+          "coordinate_count": 1024,
+          "empirical_by_coordinate": [
+            0.34244764238987274,
+            0.3591166024245571,
+            0.3488707465826905,
+            0.225970758899527
+          ],
+          "empirical_squared_residual": 0.3191014375741621,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.4069789347697478,
+          "mean_predicted_squared_residual_scale": 0.7985448548279237,
+          "predicted_by_coordinate": [
+            0.7723606307990849,
+            0.7461477216565982,
+            0.8772011222317815,
+            0.7984699446242303
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 2.5024796531740305,
+          "target_count": 256,
+          "upper_bound_fraction": 0.0
+        }
+      },
+      "one_step_angle_mse": 0.04552434365861715,
+      "one_step_reward_mse": 0.007805439447146476,
+      "pair": 0,
+      "panel": "dev10",
+      "predictions": {
+        "bytes": 1371586,
+        "path": "runs/reacher-innovation-pilot-v1/attempt/evaluation/pair0-constant/final/dev10/predictions.pt",
+        "sha256": "b32b0fbf0184346411e7a259996f2950ba935e1718faef6ca7cc66501271a5fb"
+      },
+      "primary_recovery_mse": 0.0856773548422106,
+      "recovery_points_per_episode": 2,
+      "stage": "final",
+      "variant": "constant"
+    },
+    "constant/0/final/dev6": {
+      "coordinate_count_per_episode": 16,
+      "episodes": 128,
+      "horizons": [
+        1,
+        3
+      ],
+      "moment_diagnostics": {
+        "all_visible_targets": {
+          "coordinate_count": 19456,
+          "empirical_by_coordinate": [
+            0.049960467143557556,
+            0.027060591086325594,
+            0.0491438748831853,
+            0.02366407136815874
+          ],
+          "empirical_squared_residual": 0.037457251120307615,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.053876987708315484,
+          "mean_predicted_squared_residual_scale": 0.6439331539295381,
+          "predicted_by_coordinate": [
+            0.6026887612564391,
+            0.6193782139238656,
+            0.7098667375179694,
+            0.6437989030198782
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 17.19114816678117,
+          "target_count": 4864,
+          "upper_bound_fraction": 0.0
+        },
+        "other_visible_targets": {
+          "coordinate_count": 18432,
+          "empirical_by_coordinate": [
+            0.036931872527541196,
+            0.015303908411232602,
+            0.03593779615165416,
+            0.0162406507768552
+          ],
+          "empirical_squared_residual": 0.026103556966821456,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.0388793972970079,
+          "mean_predicted_squared_residual_scale": 0.6385243096261143,
+          "predicted_by_coordinate": [
+            0.5965386991867692,
+            0.6149058892430427,
+            0.704008058043352,
+            0.6386445920312932
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 24.46119930849659,
+          "target_count": 4608,
+          "upper_bound_fraction": 0.0
+        },
+        "returning_observation_priors": {
+          "coordinate_count": 1024,
+          "empirical_by_coordinate": [
+            0.28447517023185803,
+            0.23868087923800246,
+            0.2868532920507476,
+            0.15728564201162482
+          ],
+          "empirical_squared_residual": 0.24182374588305844,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.32383361511185194,
+          "mean_predicted_squared_residual_scale": 0.7412923513911664,
+          "predicted_by_coordinate": [
+            0.7133898785104975,
+            0.6998800581786782,
+            0.8153229680610821,
+            0.7365765008144081
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.0654241529681783,
+          "target_count": 256,
+          "upper_bound_fraction": 0.0
+        }
+      },
+      "one_step_angle_mse": 0.037457251120307615,
+      "one_step_reward_mse": 0.007597446335412778,
+      "pair": 0,
+      "panel": "dev6",
+      "predictions": {
+        "bytes": 1371586,
+        "path": "runs/reacher-innovation-pilot-v1/attempt/evaluation/pair0-constant/final/dev6/predictions.pt",
+        "sha256": "775e8370c588fa406267c273315231d34ab10f1fdf59dd096a0355c30494c1f9"
+      },
+      "primary_recovery_mse": 0.08380270732773301,
+      "recovery_points_per_episode": 2,
+      "stage": "final",
+      "variant": "constant"
+    },
+    "constant/0/initial/dev10": {
+      "coordinate_count_per_episode": 16,
+      "episodes": 128,
+      "horizons": [
+        1,
+        3
+      ],
+      "moment_diagnostics": {
+        "all_visible_targets": {
+          "coordinate_count": 15360,
+          "empirical_by_coordinate": [
+            0.4879209301812248,
+            0.618281193206345,
+            0.40020089380362667,
+            0.4170019315254446
+          ],
+          "empirical_squared_residual": 0.4808512371791584,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.24054195147798435,
+          "mean_predicted_squared_residual_scale": 2.0080273986794053,
+          "predicted_by_coordinate": [
+            1.9030877037284275,
+            1.9942079362769922,
+            2.1131687400862575,
+            2.0216452146259445
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 4.175984677629606,
+          "target_count": 3840,
+          "upper_bound_fraction": 0.0
+        },
+        "other_visible_targets": {
+          "coordinate_count": 14336,
+          "empirical_by_coordinate": [
+            0.49207806062762993,
+            0.6266444600468304,
+            0.39216855865427147,
+            0.40978177564520524
+          ],
+          "empirical_squared_residual": 0.4801682137434821,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.24040786067689696,
+          "mean_predicted_squared_residual_scale": 2.0068967082604234,
+          "predicted_by_coordinate": [
+            1.9000456015845495,
+            1.996556956886447,
+            2.109451928242509,
+            2.0215323463281885
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 4.179570098183462,
+          "target_count": 3584,
+          "upper_bound_fraction": 0.0
+        },
+        "returning_observation_priors": {
+          "coordinate_count": 1024,
+          "empirical_by_coordinate": [
+            0.4297211039315551,
+            0.5011954574395423,
+            0.5126535858946123,
+            0.5180841138487975
+          ],
+          "empirical_squared_residual": 0.49041356527862656,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.242419222693208,
+          "mean_predicted_squared_residual_scale": 2.0238570645451546,
+          "predicted_by_coordinate": [
+            1.9456771337427199,
+            1.9613216477446258,
+            2.165204105898738,
+            2.0232253707945347
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 4.1268374446275935,
+          "target_count": 256,
+          "upper_bound_fraction": 0.0
+        }
+      },
+      "one_step_angle_mse": 0.4808512371791584,
+      "one_step_reward_mse": 0.040024110723294745,
+      "pair": 0,
+      "panel": "dev10",
+      "predictions": {
+        "bytes": 1371586,
+        "path": "runs/reacher-innovation-pilot-v1/attempt/evaluation/pair0-constant/initial/dev10/predictions.pt",
+        "sha256": "bebeac36b73dc7e3ed6e9f5682ac6af3b7093ac94159996db979b29a5350bd50"
+      },
+      "primary_recovery_mse": 0.4918838566161209,
+      "recovery_points_per_episode": 2,
+      "stage": "initial",
+      "variant": "constant"
+    },
+    "constant/0/initial/dev6": {
+      "coordinate_count_per_episode": 16,
+      "episodes": 128,
+      "horizons": [
+        1,
+        3
+      ],
+      "moment_diagnostics": {
+        "all_visible_targets": {
+          "coordinate_count": 19456,
+          "empirical_by_coordinate": [
+            0.48436167231054233,
+            0.5957116506600313,
+            0.41854547125434194,
+            0.44126234607572223
+          ],
+          "empirical_squared_residual": 0.48497028507515766,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.2424289442439558,
+          "mean_predicted_squared_residual_scale": 2.008381367851,
+          "predicted_by_coordinate": [
+            1.9012801656009335,
+            1.9958913825501345,
+            2.115546734415387,
+            2.020807188837544
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 4.141246236436431,
+          "target_count": 4864,
+          "upper_bound_fraction": 0.0
+        },
+        "other_visible_targets": {
+          "coordinate_count": 18432,
+          "empirical_by_coordinate": [
+            0.4867954701764476,
+            0.5994509992374115,
+            0.4147182572853769,
+            0.43822495130094613
+          ],
+          "empirical_squared_residual": 0.4847974195000437,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.24246749722086738,
+          "mean_predicted_squared_residual_scale": 2.007533434215778,
+          "predicted_by_coordinate": [
+            1.898800228567173,
+            1.9978324309664055,
+            2.1129340696562497,
+            2.0205670076732836
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 4.140973844881609,
+          "target_count": 4608,
+          "upper_bound_fraction": 0.0
+        },
+        "returning_observation_priors": {
+          "coordinate_count": 1024,
+          "empirical_by_coordinate": [
+            0.4405533107242506,
+            0.528403376267182,
+            0.4874353226957102,
+            0.49593545202169526
+          ],
+          "empirical_squared_residual": 0.4880818654272093,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.24173499065954743,
+          "mean_predicted_squared_residual_scale": 2.0236441732849926,
+          "predicted_by_coordinate": [
+            1.9459190322086215,
+            1.9609525110572577,
+            2.1625747000798583,
+            2.025130449794233
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 4.146116290376273,
+          "target_count": 256,
+          "upper_bound_fraction": 0.0
+        }
+      },
+      "one_step_angle_mse": 0.48497028507515766,
+      "one_step_reward_mse": 0.03983155615451721,
+      "pair": 0,
+      "panel": "dev6",
+      "predictions": {
+        "bytes": 1371586,
+        "path": "runs/reacher-innovation-pilot-v1/attempt/evaluation/pair0-constant/initial/dev6/predictions.pt",
+        "sha256": "f59cd84454cc7f9c9cb41966cbfad84b16e071d8090649918d4e06c45430dad1"
+      },
+      "primary_recovery_mse": 0.4873161528258001,
+      "recovery_points_per_episode": 2,
+      "stage": "initial",
+      "variant": "constant"
+    },
+    "constant/1/final/dev10": {
+      "coordinate_count_per_episode": 16,
+      "episodes": 128,
+      "horizons": [
+        1,
+        3
+      ],
+      "moment_diagnostics": {
+        "all_visible_targets": {
+          "coordinate_count": 15360,
+          "empirical_by_coordinate": [
+            0.06255518032128564,
+            0.03805333145131811,
+            0.059762701011501496,
+            0.029332768327829942
+          ],
+          "empirical_squared_residual": 0.04742599527798462,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.06271459559675988,
+          "mean_predicted_squared_residual_scale": 0.6948675829703764,
+          "predicted_by_coordinate": [
+            0.7653922812392314,
+            0.6037440864602104,
+            0.786663556812952,
+            0.623670407369112
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 14.651618356081974,
+          "target_count": 3840,
+          "upper_bound_fraction": 0.0
+        },
+        "other_visible_targets": {
+          "coordinate_count": 14336,
+          "empirical_by_coordinate": [
+            0.04127895965986554,
+            0.01608981579358298,
+            0.038857572592542244,
+            0.01669788470806372
+          ],
+          "empirical_squared_residual": 0.028231058188514187,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.03665968437290555,
+          "mean_predicted_squared_residual_scale": 0.6895639123810854,
+          "predicted_by_coordinate": [
+            0.7595578755967186,
+            0.5990601675584912,
+            0.7783878594969532,
+            0.6212497468721787
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 24.425719637446488,
+          "target_count": 3584,
+          "upper_bound_fraction": 0.0
+        },
+        "returning_observation_priors": {
+          "coordinate_count": 1024,
+          "empirical_by_coordinate": [
+            0.36042226958117163,
+            0.34554255065961753,
+            0.3524344988769333,
+            0.20622113900455874
+          ],
+          "empirical_squared_residual": 0.3161551145305706,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.42748335273072036,
+          "mean_predicted_squared_residual_scale": 0.7691189712204505,
+          "predicted_by_coordinate": [
+            0.8470739602344111,
+            0.6693189510842785,
+            0.9025233192369342,
+            0.6575596543261781
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 2.432726645470986,
+          "target_count": 256,
+          "upper_bound_fraction": 0.0
+        }
+      },
+      "one_step_angle_mse": 0.04742599527798462,
+      "one_step_reward_mse": 0.007748096495489279,
+      "pair": 1,
+      "panel": "dev10",
+      "predictions": {
+        "bytes": 1371586,
+        "path": "runs/reacher-innovation-pilot-v1/attempt/evaluation/pair1-constant/final/dev10/predictions.pt",
+        "sha256": "de10376cc46c3cdb6b0e62f2b381a683ab9974debf4c9324d230b52788ba3878"
+      },
+      "primary_recovery_mse": 0.0899287757885888,
+      "recovery_points_per_episode": 2,
+      "stage": "final",
+      "variant": "constant"
+    },
+    "constant/1/final/dev6": {
+      "coordinate_count_per_episode": 16,
+      "episodes": 128,
+      "horizons": [
+        1,
+        3
+      ],
+      "moment_diagnostics": {
+        "all_visible_targets": {
+          "coordinate_count": 19456,
+          "empirical_by_coordinate": [
+            0.054450540780737786,
+            0.02746404655565358,
+            0.053889724338182,
+            0.02341822977306265
+          ],
+          "empirical_squared_residual": 0.03980563536190981,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.052379962310312916,
+          "mean_predicted_squared_residual_scale": 0.7078787006160526,
+          "predicted_by_coordinate": [
+            0.7791723252617215,
+            0.6166868514326205,
+            0.7983811174788954,
+            0.6372745082909731
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 17.78337901606326,
+          "target_count": 4864,
+          "upper_bound_fraction": 0.0
+        },
+        "other_visible_targets": {
+          "coordinate_count": 18432,
+          "empirical_by_coordinate": [
+            0.04113015888087581,
+            0.0153583631121639,
+            0.040632399415898704,
+            0.016466751065317687
+          ],
+          "empirical_squared_residual": 0.028396918118564762,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.036566996008578725,
+          "mean_predicted_squared_residual_scale": 0.7064279026801361,
+          "predicted_by_coordinate": [
+            0.7774741020790922,
+            0.6154628790940883,
+            0.7951471412153397,
+            0.6376274883320244
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 24.876921493051107,
+          "target_count": 4608,
+          "upper_bound_fraction": 0.0
+        },
+        "returning_observation_priors": {
+          "coordinate_count": 1024,
+          "empirical_by_coordinate": [
+            0.29421741497825266,
+            0.2453663485384723,
+            0.29252157293928244,
+            0.1485448465124738
+          ],
+          "empirical_squared_residual": 0.2451625457421205,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.3370133557415284,
+          "mean_predicted_squared_residual_scale": 0.7339930634625489,
+          "predicted_by_coordinate": [
+            0.8097403425490484,
+            0.6387183535262011,
+            0.8565926902228966,
+            0.6309208675520495
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 2.993903743496836,
+          "target_count": 256,
+          "upper_bound_fraction": 0.0
+        }
+      },
+      "one_step_angle_mse": 0.03980563536190981,
+      "one_step_reward_mse": 0.007478182988030316,
+      "pair": 1,
+      "panel": "dev6",
+      "predictions": {
+        "bytes": 1371586,
+        "path": "runs/reacher-innovation-pilot-v1/attempt/evaluation/pair1-constant/final/dev6/predictions.pt",
+        "sha256": "373ad207f7fd1dcdad6db419a305528dc8d0c0e747086edf8a7c78ed015c8d05"
+      },
+      "primary_recovery_mse": 0.08648548667351061,
+      "recovery_points_per_episode": 2,
+      "stage": "final",
+      "variant": "constant"
+    },
+    "constant/1/initial/dev10": {
+      "coordinate_count_per_episode": 16,
+      "episodes": 128,
+      "horizons": [
+        1,
+        3
+      ],
+      "moment_diagnostics": {
+        "all_visible_targets": {
+          "coordinate_count": 15360,
+          "empirical_by_coordinate": [
+            0.7992709674013366,
+            0.5780868540065013,
+            0.3723285126551298,
+            0.40059964919600277
+          ],
+          "empirical_squared_residual": 0.5375714958147415,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.27374291730422573,
+          "mean_predicted_squared_residual_scale": 1.9709225456230341,
+          "predicted_by_coordinate": [
+            2.068068554904312,
+            1.797275957216819,
+            2.132399009602765,
+            1.8859466607682407
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.6663449624238553,
+          "target_count": 3840,
+          "upper_bound_fraction": 0.0
+        },
+        "other_visible_targets": {
+          "coordinate_count": 14336,
+          "empirical_by_coordinate": [
+            0.8126415309356939,
+            0.5841804892752785,
+            0.3647324398477904,
+            0.39323751332921175
+          ],
+          "empirical_squared_residual": 0.5386979933469925,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.27408077951220194,
+          "mean_predicted_squared_residual_scale": 1.9727245656790078,
+          "predicted_by_coordinate": [
+            2.0701533142211184,
+            1.7958311322145164,
+            2.1343235979189297,
+            1.8905902183614671
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.6620232301632374,
+          "target_count": 3584,
+          "upper_bound_fraction": 0.0
+        },
+        "returning_observation_priors": {
+          "coordinate_count": 1024,
+          "empirical_by_coordinate": [
+            0.612083077920336,
+            0.492775960243623,
+            0.4786735319578755,
+            0.503669551331078
+          ],
+          "empirical_squared_residual": 0.521800530363228,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.26901284639255874,
+          "mean_predicted_squared_residual_scale": 1.9456942648394033,
+          "predicted_by_coordinate": [
+            2.038881924469024,
+            1.8175035072490573,
+            2.1054547731764615,
+            1.8209368544630706
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.7288085228372525,
+          "target_count": 256,
+          "upper_bound_fraction": 0.0
+        }
+      },
+      "one_step_angle_mse": 0.5375714958147415,
+      "one_step_reward_mse": 0.028757214997412937,
+      "pair": 1,
+      "panel": "dev10",
+      "predictions": {
+        "bytes": 1371586,
+        "path": "runs/reacher-innovation-pilot-v1/attempt/evaluation/pair1-constant/initial/dev10/predictions.pt",
+        "sha256": "c9c6f824cf211b1d3500cb140a82f292b270f6b835c78d566423e21cdabf99f4"
+      },
+      "primary_recovery_mse": 0.5217854905699018,
+      "recovery_points_per_episode": 2,
+      "stage": "initial",
+      "variant": "constant"
+    },
+    "constant/1/initial/dev6": {
+      "coordinate_count_per_episode": 16,
+      "episodes": 128,
+      "horizons": [
+        1,
+        3
+      ],
+      "moment_diagnostics": {
+        "all_visible_targets": {
+          "coordinate_count": 19456,
+          "empirical_by_coordinate": [
+            0.7799233687513282,
+            0.5575976516814388,
+            0.3835634047689183,
+            0.42159405342703604
+          ],
+          "empirical_squared_residual": 0.535669619657179,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.2730505736539693,
+          "mean_predicted_squared_residual_scale": 1.968479846683821,
+          "predicted_by_coordinate": [
+            2.066937154673628,
+            1.7915630842755108,
+            2.1305069676600397,
+            1.8849121801261055
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.6748021064618532,
+          "target_count": 4864,
+          "upper_bound_fraction": 0.0
+        },
+        "other_visible_targets": {
+          "coordinate_count": 18432,
+          "empirical_by_coordinate": [
+            0.7870815064076866,
+            0.5599150927554334,
+            0.3803197998646941,
+            0.41828635674720854
+          ],
+          "empirical_squared_residual": 0.5364006889437547,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.27321393092570645,
+          "mean_predicted_squared_residual_scale": 1.9699285754662317,
+          "predicted_by_coordinate": [
+            2.068612272152677,
+            1.7906809084427853,
+            2.132150836340669,
+            1.8882702849287953
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.672494491655644,
+          "target_count": 4608,
+          "upper_bound_fraction": 0.0
+        },
+        "returning_observation_priors": {
+          "coordinate_count": 1024,
+          "empirical_by_coordinate": [
+            0.6510768909368619,
+            0.5158837123495308,
+            0.4419482930449455,
+            0.48113259366393013
+          ],
+          "empirical_squared_residual": 0.5225103724988169,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.27011014276269957,
+          "mean_predicted_squared_residual_scale": 1.9424027286004275,
+          "predicted_by_coordinate": [
+            2.036785040050745,
+            1.807442249264568,
+            2.1009173314087093,
+            1.8244662936776876
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.7174433864560754,
+          "target_count": 256,
+          "upper_bound_fraction": 0.0
+        }
+      },
+      "one_step_angle_mse": 0.535669619657179,
+      "one_step_reward_mse": 0.02838355310038517,
+      "pair": 1,
+      "panel": "dev6",
+      "predictions": {
+        "bytes": 1371586,
+        "path": "runs/reacher-innovation-pilot-v1/attempt/evaluation/pair1-constant/initial/dev6/predictions.pt",
+        "sha256": "9feecd33788c235ea2a4201a7c7af357a96bbf84732566374894dcc9201c7459"
+      },
+      "primary_recovery_mse": 0.5259487227216582,
+      "recovery_points_per_episode": 2,
+      "stage": "initial",
+      "variant": "constant"
+    },
+    "constant/2/final/dev10": {
+      "coordinate_count_per_episode": 16,
+      "episodes": 128,
+      "horizons": [
+        1,
+        3
+      ],
+      "moment_diagnostics": {
+        "all_visible_targets": {
+          "coordinate_count": 15360,
+          "empirical_by_coordinate": [
+            0.0658146227633337,
+            0.040345760031413026,
+            0.06271683810174929,
+            0.030143961937535622
+          ],
+          "empirical_squared_residual": 0.0497552957085087,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.057834327991729335,
+          "mean_predicted_squared_residual_scale": 0.764966260320701,
+          "predicted_by_coordinate": [
+            0.6927579353990344,
+            0.8082982690539211,
+            0.7743914827549209,
+            0.7844173540749276
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 15.37456966997552,
+          "target_count": 3840,
+          "upper_bound_fraction": 0.0
+        },
+        "other_visible_targets": {
+          "coordinate_count": 14336,
+          "empirical_by_coordinate": [
+            0.045588770383470735,
+            0.018328453791699974,
+            0.04249856809320442,
+            0.016641302300286966
+          ],
+          "empirical_squared_residual": 0.0307642736421661,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.03946540086632517,
+          "mean_predicted_squared_residual_scale": 0.7475294001685272,
+          "predicted_by_coordinate": [
+            0.6784913444218026,
+            0.7926760463243616,
+            0.7533049743422973,
+            0.7656452355856475
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 24.298620174277385,
+          "target_count": 3584,
+          "upper_bound_fraction": 0.0
+        },
+        "returning_observation_priors": {
+          "coordinate_count": 1024,
+          "empirical_by_coordinate": [
+            0.34897655608142103,
+            0.3485880473874017,
+            0.34577261822137784,
+            0.2191811968590191
+          ],
+          "empirical_squared_residual": 0.31562960463730505,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.3149993077473876,
+          "mean_predicted_squared_residual_scale": 1.0090823024511337,
+          "predicted_by_coordinate": [
+            0.8924902090802789,
+            1.0270093872677535,
+            1.0696026005316526,
+            1.04722701292485
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.1970458018685735,
+          "target_count": 256,
+          "upper_bound_fraction": 0.0
+        }
+      },
+      "one_step_angle_mse": 0.0497552957085087,
+      "one_step_reward_mse": 0.007914429116200654,
+      "pair": 2,
+      "panel": "dev10",
+      "predictions": {
+        "bytes": 1371586,
+        "path": "runs/reacher-innovation-pilot-v1/attempt/evaluation/pair2-constant/final/dev10/predictions.pt",
+        "sha256": "21014445ebbfcf49b459ea0170131dc74412c0d1a2eac426fd58d451ddb5f834"
+      },
+      "primary_recovery_mse": 0.0983029288013176,
+      "recovery_points_per_episode": 2,
+      "stage": "final",
+      "variant": "constant"
+    },
+    "constant/2/final/dev6": {
+      "coordinate_count_per_episode": 16,
+      "episodes": 128,
+      "horizons": [
+        1,
+        3
+      ],
+      "moment_diagnostics": {
+        "all_visible_targets": {
+          "coordinate_count": 19456,
+          "empirical_by_coordinate": [
+            0.05820112713147172,
+            0.029313621010246343,
+            0.05703371705687985,
+            0.023926030299965182
+          ],
+          "empirical_squared_residual": 0.04211862387464151,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.0507654561134162,
+          "mean_predicted_squared_residual_scale": 0.7742745570048053,
+          "predicted_by_coordinate": [
+            0.7008395539167779,
+            0.819448652278975,
+            0.7825804984037715,
+            0.7942295234196967
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 18.383187430560262,
+          "target_count": 4864,
+          "upper_bound_fraction": 0.0
+        },
+        "other_visible_targets": {
+          "coordinate_count": 18432,
+          "empirical_by_coordinate": [
+            0.04524896957601059,
+            0.017483786619350055,
+            0.04395858478407619,
+            0.016535850768976405
+          ],
+          "empirical_squared_residual": 0.030806797937104034,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.03935050891422247,
+          "mean_predicted_squared_residual_scale": 0.76506548522189,
+          "predicted_by_coordinate": [
+            0.6938347387153448,
+            0.8117217397019785,
+            0.7707844393702948,
+            0.7839210230999419
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 24.834307245558847,
+          "target_count": 4608,
+          "upper_bound_fraction": 0.0
+        },
+        "returning_observation_priors": {
+          "coordinate_count": 1024,
+          "empirical_by_coordinate": [
+            0.29133996312977145,
+            0.24225064004638425,
+            0.29238609796734244,
+            0.1569492618577651
+          ],
+          "empirical_squared_residual": 0.24573149075031603,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.25623450569890327,
+          "mean_predicted_squared_residual_scale": 0.9400378490972798,
+          "predicted_by_coordinate": [
+            0.8269262275425717,
+            0.9585330786649138,
+            0.9949095610063523,
+            0.9797825291752815
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.8254675712378994,
+          "target_count": 256,
+          "upper_bound_fraction": 0.0
+        }
+      },
+      "one_step_angle_mse": 0.04211862387464151,
+      "one_step_reward_mse": 0.0076656198032934095,
+      "pair": 2,
+      "panel": "dev6",
+      "predictions": {
+        "bytes": 1371586,
+        "path": "runs/reacher-innovation-pilot-v1/attempt/evaluation/pair2-constant/final/dev6/predictions.pt",
+        "sha256": "508ea52c3e1ad990f8a8ed50a6c19332cc7edcbae205ac6b700bb0560bebbc28"
+      },
+      "primary_recovery_mse": 0.09501959105884089,
+      "recovery_points_per_episode": 2,
+      "stage": "final",
+      "variant": "constant"
+    },
+    "constant/2/initial/dev10": {
+      "coordinate_count_per_episode": 16,
+      "episodes": 128,
+      "horizons": [
+        1,
+        3
+      ],
+      "moment_diagnostics": {
+        "all_visible_targets": {
+          "coordinate_count": 15360,
+          "empirical_by_coordinate": [
+            0.7039387465219211,
+            0.5632180139437633,
+            0.44015953386052936,
+            0.3802633978011283
+          ],
+          "empirical_squared_residual": 0.5218949230318342,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.2650824464851104,
+          "mean_predicted_squared_residual_scale": 1.9920285184169189,
+          "predicted_by_coordinate": [
+            1.8267956774060925,
+            2.053378283108274,
+            2.004171281121671,
+            2.0837688320316374
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.8169149200468664,
+          "target_count": 3840,
+          "upper_bound_fraction": 0.0
+        },
+        "other_visible_targets": {
+          "coordinate_count": 14336,
+          "empirical_by_coordinate": [
+            0.7125802186126483,
+            0.5665330578392748,
+            0.4336175182280833,
+            0.3749395982709121
+          ],
+          "empirical_squared_residual": 0.5219175982377281,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.26510806224455113,
+          "mean_predicted_squared_residual_scale": 1.9925684979617861,
+          "predicted_by_coordinate": [
+            1.828385392403496,
+            2.0565026257785837,
+            2.0033859132922123,
+            2.082000060372853
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.8177836974452655,
+          "target_count": 3584,
+          "upper_bound_fraction": 0.0
+        },
+        "returning_observation_priors": {
+          "coordinate_count": 1024,
+          "empirical_by_coordinate": [
+            0.5829581372517489,
+            0.516807399406607,
+            0.5317477527147676,
+            0.45479659122415345
+          ],
+          "empirical_squared_residual": 0.521577470149319,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.2647238258529404,
+          "mean_predicted_squared_residual_scale": 1.9844688047887757,
+          "predicted_by_coordinate": [
+            1.804539667442441,
+            2.0096374857239425,
+            2.015166430734098,
+            2.1085316352546215
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.804744104879866,
+          "target_count": 256,
+          "upper_bound_fraction": 0.0
+        }
+      },
+      "one_step_angle_mse": 0.5218949230318342,
+      "one_step_reward_mse": 0.0704678333585532,
+      "pair": 2,
+      "panel": "dev10",
+      "predictions": {
+        "bytes": 1371586,
+        "path": "runs/reacher-innovation-pilot-v1/attempt/evaluation/pair2-constant/initial/dev10/predictions.pt",
+        "sha256": "92364cacea4fb8e3d27840c164553a8b466ed0c8ee1b3a301a3145822c6034cd"
+      },
+      "primary_recovery_mse": 0.5289298364202711,
+      "recovery_points_per_episode": 2,
+      "stage": "initial",
+      "variant": "constant"
+    },
+    "constant/2/initial/dev6": {
+      "coordinate_count_per_episode": 16,
+      "episodes": 128,
+      "horizons": [
+        1,
+        3
+      ],
+      "moment_diagnostics": {
+        "all_visible_targets": {
+          "coordinate_count": 19456,
+          "empirical_by_coordinate": [
+            0.6901439722243152,
+            0.5558027215927522,
+            0.4618599762014191,
+            0.38866785108894025
+          ],
+          "empirical_squared_residual": 0.5241186302768553,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.266178304596483,
+          "mean_predicted_squared_residual_scale": 1.9907314432968728,
+          "predicted_by_coordinate": [
+            1.8277547087667412,
+            2.052200235720528,
+            2.000764712348188,
+            2.0822061163520345
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.798245909032671,
+          "target_count": 4864,
+          "upper_bound_fraction": 0.0
+        },
+        "other_visible_targets": {
+          "coordinate_count": 18432,
+          "empirical_by_coordinate": [
+            0.6933316685484774,
+            0.5586428460926356,
+            0.4593686213736529,
+            0.386577260786349
+          ],
+          "empirical_squared_residual": 0.5244800992002772,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.26630524908584924,
+          "mean_predicted_squared_residual_scale": 1.9912064959191613,
+          "predicted_by_coordinate": [
+            1.8292642042506486,
+            2.054722803955277,
+            1.9999317995841719,
+            2.0809071758865483
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.7965339370461075,
+          "target_count": 4608,
+          "upper_bound_fraction": 0.0
+        },
+        "returning_observation_priors": {
+          "coordinate_count": 1024,
+          "empirical_by_coordinate": [
+            0.6327654383894135,
+            0.504680480594842,
+            0.5067043631012148,
+            0.42629847653558434
+          ],
+          "empirical_squared_residual": 0.5176121896552635,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.26389330378788994,
+          "mean_predicted_squared_residual_scale": 1.9821804960956797,
+          "predicted_by_coordinate": [
+            1.8005837900564075,
+            2.0067940074950457,
+            2.015757142100483,
+            2.1055870447307825
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.82947027854162,
+          "target_count": 256,
+          "upper_bound_fraction": 0.0
+        }
+      },
+      "one_step_angle_mse": 0.5241186302768553,
+      "one_step_reward_mse": 0.06964581174426022,
+      "pair": 2,
+      "panel": "dev6",
+      "predictions": {
+        "bytes": 1371586,
+        "path": "runs/reacher-innovation-pilot-v1/attempt/evaluation/pair2-constant/initial/dev6/predictions.pt",
+        "sha256": "ec159ff39ee08e5eb4dd87814c676642cd509d3912faf621409d4203f34ac43c"
+      },
+      "primary_recovery_mse": 0.522697870696988,
+      "recovery_points_per_episode": 2,
+      "stage": "initial",
+      "variant": "constant"
+    },
+    "normalized/0/final/dev10": {
+      "coordinate_count_per_episode": 16,
+      "episodes": 128,
+      "horizons": [
+        1,
+        3
+      ],
+      "moment_diagnostics": {
+        "all_visible_targets": {
+          "coordinate_count": 15360,
+          "empirical_by_coordinate": [
+            0.057462759421027326,
+            0.03974347140613179,
+            0.05534916383237297,
+            0.030240923413370722
+          ],
+          "empirical_squared_residual": 0.04569907951822649,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.0648842642380116,
+          "mean_predicted_squared_residual_scale": 0.6289269394551714,
+          "predicted_by_coordinate": [
+            0.5864867483614944,
+            0.6057168815673019,
+            0.6948246751213446,
+            0.6286794527705448
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 13.762354648835585,
+          "target_count": 3840,
+          "upper_bound_fraction": 0.0
+        },
+        "other_visible_targets": {
+          "coordinate_count": 14336,
+          "empirical_by_coordinate": [
+            0.0370085201086379,
+            0.01672201142443716,
+            0.03424459232694338,
+            0.016246382347331743
+          ],
+          "empirical_squared_residual": 0.026055376551838073,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.040242480831165675,
+          "mean_predicted_squared_residual_scale": 0.6167533799494517,
+          "predicted_by_coordinate": [
+            0.573315942165209,
+            0.5958093268480817,
+            0.6814557727609228,
+            0.6164324780235931
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 23.670868034564748,
+          "target_count": 3584,
+          "upper_bound_fraction": 0.0
+        },
+        "returning_observation_priors": {
+          "coordinate_count": 1024,
+          "empirical_by_coordinate": [
+            0.34382210979448546,
+            0.3620439111498641,
+            0.3508131649083894,
+            0.22616449833791735
+          ],
+          "empirical_squared_residual": 0.32071092104766424,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.40986923193385444,
+          "mean_predicted_squared_residual_scale": 0.7993567725352477,
+          "predicted_by_coordinate": [
+            0.7708780351094902,
+            0.7444226476363838,
+            0.881989308167249,
+            0.800137099227868
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 2.4924526109806124,
+          "target_count": 256,
+          "upper_bound_fraction": 0.0
+        }
+      },
+      "one_step_angle_mse": 0.04569907951822649,
+      "one_step_reward_mse": 0.007807358252923307,
+      "pair": 0,
+      "panel": "dev10",
+      "predictions": {
+        "bytes": 1371586,
+        "path": "runs/reacher-innovation-pilot-v1/attempt/evaluation/pair0-normalized/final/dev10/predictions.pt",
+        "sha256": "f9b032e6148ec8f76d5f4a3e31a6c84f48f1a601d0ea9b8e8071416c8241528c"
+      },
+      "primary_recovery_mse": 0.08637225787446466,
+      "recovery_points_per_episode": 2,
+      "stage": "final",
+      "variant": "normalized"
+    },
+    "normalized/0/final/dev6": {
+      "coordinate_count_per_episode": 16,
+      "episodes": 128,
+      "horizons": [
+        1,
+        3
+      ],
+      "moment_diagnostics": {
+        "all_visible_targets": {
+          "coordinate_count": 19456,
+          "empirical_by_coordinate": [
+            0.050192721533218555,
+            0.027354412951392328,
+            0.04900031009526453,
+            0.02344810823493339
+          ],
+          "empirical_squared_residual": 0.03749888820370303,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.05481177741131928,
+          "mean_predicted_squared_residual_scale": 0.6358073736360224,
+          "predicted_by_coordinate": [
+            0.5937621761726117,
+            0.6106326185277124,
+            0.7025090608329169,
+            0.6363256390108482
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 16.95536598797711,
+          "target_count": 4864,
+          "upper_bound_fraction": 0.0
+        },
+        "other_visible_targets": {
+          "coordinate_count": 18432,
+          "empirical_by_coordinate": [
+            0.0371776023552843,
+            0.015575883942952487,
+            0.03579559695421909,
+            0.01602577397578143
+          ],
+          "empirical_squared_residual": 0.02614371430706002,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.03968459937543814,
+          "mean_predicted_squared_residual_scale": 0.6301715898346932,
+          "predicted_by_coordinate": [
+            0.5874544864572171,
+            0.6059706146544259,
+            0.6963208474335261,
+            0.6309404107936037
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 24.104133882174406,
+          "target_count": 4608,
+          "upper_bound_fraction": 0.0
+        },
+        "returning_observation_priors": {
+          "coordinate_count": 1024,
+          "empirical_by_coordinate": [
+            0.2844648667360396,
+            0.23936793510331367,
+            0.28668514663408384,
+            0.1570501248996703
+          ],
+          "empirical_squared_residual": 0.2418920183432771,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.3271009820571799,
+          "mean_predicted_squared_residual_scale": 0.7372514820599463,
+          "predicted_by_coordinate": [
+            0.7073005910497159,
+            0.6945486882468686,
+            0.813896902021952,
+            0.7332597469212487
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.047853695667163,
+          "target_count": 256,
+          "upper_bound_fraction": 0.0
+        }
+      },
+      "one_step_angle_mse": 0.03749888820370303,
+      "one_step_reward_mse": 0.007586915981661686,
+      "pair": 0,
+      "panel": "dev6",
+      "predictions": {
+        "bytes": 1371586,
+        "path": "runs/reacher-innovation-pilot-v1/attempt/evaluation/pair0-normalized/final/dev6/predictions.pt",
+        "sha256": "85065b968ec2f2f1a5df126babb333db12ab5531a83e361aeae05171aac33030"
+      },
+      "primary_recovery_mse": 0.08425802176515042,
+      "recovery_points_per_episode": 2,
+      "stage": "final",
+      "variant": "normalized"
+    },
+    "normalized/0/initial/dev10": {
+      "coordinate_count_per_episode": 16,
+      "episodes": 128,
+      "horizons": [
+        1,
+        3
+      ],
+      "moment_diagnostics": {
+        "all_visible_targets": {
+          "coordinate_count": 15360,
+          "empirical_by_coordinate": [
+            0.48788830346756706,
+            0.6193118427899988,
+            0.39747721601666747,
+            0.414878797869314
+          ],
+          "empirical_squared_residual": 0.47988904003588456,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.2401324462455447,
+          "mean_predicted_squared_residual_scale": 2.0075027308116358,
+          "predicted_by_coordinate": [
+            1.9041899414733052,
+            1.9931172592254975,
+            2.110607627655069,
+            2.0220960948926705
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 4.183264386828925,
+          "target_count": 3840,
+          "upper_bound_fraction": 0.0
+        },
+        "other_visible_targets": {
+          "coordinate_count": 14336,
+          "empirical_by_coordinate": [
+            0.49199606203115087,
+            0.6276653205229665,
+            0.3894733549527835,
+            0.40763362137626247
+          ],
+          "empirical_squared_residual": 0.4791920897207887,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.2399906456484216,
+          "mean_predicted_squared_residual_scale": 2.006368337415292,
+          "predicted_by_coordinate": [
+            1.9010566916050655,
+            1.9954763534478843,
+            2.10700485462855,
+            2.0219354499796673
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 4.186981338912219,
+          "target_count": 3584,
+          "upper_bound_fraction": 0.0
+        },
+        "returning_observation_priors": {
+          "coordinate_count": 1024,
+          "empirical_by_coordinate": [
+            0.4303796835773873,
+            0.5023631545284499,
+            0.5095312709110348,
+            0.5163112687720371
+          ],
+          "empirical_squared_residual": 0.489646344447227,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.24211765460526832,
+          "mean_predicted_squared_residual_scale": 2.0233842383604497,
+          "predicted_by_coordinate": [
+            1.9480554396286607,
+            1.9600899401120842,
+            2.1610464500263333,
+            2.0243451236747205
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 4.132338087083433,
+          "target_count": 256,
+          "upper_bound_fraction": 0.0
+        }
+      },
+      "one_step_angle_mse": 0.47988904003588456,
+      "one_step_reward_mse": 0.039953994016938034,
+      "pair": 0,
+      "panel": "dev10",
+      "predictions": {
+        "bytes": 1371586,
+        "path": "runs/reacher-innovation-pilot-v1/attempt/evaluation/pair0-normalized/initial/dev10/predictions.pt",
+        "sha256": "824798a8e1a1562e312d8ef90070425a6b49ee3453efb9fb84a4767971d76cf2"
+      },
+      "primary_recovery_mse": 0.49092810208887316,
+      "recovery_points_per_episode": 2,
+      "stage": "initial",
+      "variant": "normalized"
+    },
+    "normalized/0/initial/dev6": {
+      "coordinate_count_per_episode": 16,
+      "episodes": 128,
+      "horizons": [
+        1,
+        3
+      ],
+      "moment_diagnostics": {
+        "all_visible_targets": {
+          "coordinate_count": 19456,
+          "empirical_by_coordinate": [
+            0.4842418613246622,
+            0.5969707753746385,
+            0.4147665162871994,
+            0.4382937339098222
+          ],
+          "empirical_squared_residual": 0.483568221724079,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.24181775169928146,
+          "mean_predicted_squared_residual_scale": 2.0077492526033893,
+          "predicted_by_coordinate": [
+            1.9024143005280119,
+            1.9947020001709461,
+            2.1126675519994214,
+            2.0212131577151777
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 4.151946224764535,
+          "target_count": 4864,
+          "upper_bound_fraction": 0.0
+        },
+        "other_visible_targets": {
+          "coordinate_count": 18432,
+          "empirical_by_coordinate": [
+            0.4866227887467922,
+            0.6006780537126817,
+            0.4109927410357114,
+            0.43523386986894347
+          ],
+          "empirical_squared_residual": 0.48338186334103067,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.2418495569455306,
+          "mean_predicted_squared_residual_scale": 2.006895008846186,
+          "predicted_by_coordinate": [
+            1.899861905232279,
+            1.996647123971747,
+            2.1101365039745965,
+            2.020934502206122
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 4.151779702645364,
+          "target_count": 4608,
+          "upper_bound_fraction": 0.0
+        },
+        "returning_observation_priors": {
+          "coordinate_count": 1024,
+          "empirical_by_coordinate": [
+            0.4413851677263296,
+            0.5302397652898455,
+            0.4826944708139822,
+            0.49337128664564084
+          ],
+          "empirical_squared_residual": 0.48692267261894945,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.2412452572667973,
+          "mean_predicted_squared_residual_scale": 2.0231256402330473,
+          "predicted_by_coordinate": [
+            1.9483574158512056,
+            1.9596897717565298,
+            2.1582264164462686,
+            2.0262289568781853
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 4.1549218263990815,
+          "target_count": 256,
+          "upper_bound_fraction": 0.0
+        }
+      },
+      "one_step_angle_mse": 0.483568221724079,
+      "one_step_reward_mse": 0.03973134793951811,
+      "pair": 0,
+      "panel": "dev6",
+      "predictions": {
+        "bytes": 1371586,
+        "path": "runs/reacher-innovation-pilot-v1/attempt/evaluation/pair0-normalized/initial/dev6/predictions.pt",
+        "sha256": "bfdbef755f322c6cc820a202cac616d5dd68d08150a1462f713e59c36973cbd4"
+      },
+      "primary_recovery_mse": 0.48616571358559857,
+      "recovery_points_per_episode": 2,
+      "stage": "initial",
+      "variant": "normalized"
+    },
+    "normalized/1/final/dev10": {
+      "coordinate_count_per_episode": 16,
+      "episodes": 128,
+      "horizons": [
+        1,
+        3
+      ],
+      "moment_diagnostics": {
+        "all_visible_targets": {
+          "coordinate_count": 15360,
+          "empirical_by_coordinate": [
+            0.062477069058716965,
+            0.03790109363342244,
+            0.0598227374843516,
+            0.029374918271845137
+          ],
+          "empirical_squared_residual": 0.04739395461208485,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.06265527748849249,
+          "mean_predicted_squared_residual_scale": 0.6955047072221835,
+          "predicted_by_coordinate": [
+            0.7656770926589768,
+            0.6040033619307602,
+            0.7879671455749,
+            0.6243712287240972
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 14.674966731829521,
+          "target_count": 3840,
+          "upper_bound_fraction": 0.0
+        },
+        "other_visible_targets": {
+          "coordinate_count": 14336,
+          "empirical_by_coordinate": [
+            0.04119308390496886,
+            0.01592625381898159,
+            0.03894673380141457,
+            0.016746124812646593
+          ],
+          "empirical_squared_residual": 0.028203049084503475,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.03656669107101683,
+          "mean_predicted_squared_residual_scale": 0.690247689980814,
+          "predicted_by_coordinate": [
+            0.7599009633330363,
+            0.5994283832177254,
+            0.7796350019801009,
+            0.6220264113923933
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 24.474222198906833,
+          "target_count": 3584,
+          "upper_bound_fraction": 0.0
+        },
+        "returning_observation_priors": {
+          "coordinate_count": 1024,
+          "empirical_by_coordinate": [
+            0.36045286121119446,
+            0.345548851035602,
+            0.35208678904547214,
+            0.20617802670062696
+          ],
+          "empirical_squared_residual": 0.316066631998224,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.427895487333152,
+          "mean_predicted_squared_residual_scale": 0.7691029486013576,
+          "predicted_by_coordinate": [
+            0.8465429032221437,
+            0.6680530639132485,
+            0.9046171559020877,
+            0.6571986713679507
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 2.4333569910210557,
+          "target_count": 256,
+          "upper_bound_fraction": 0.0
+        }
+      },
+      "one_step_angle_mse": 0.04739395461208485,
+      "one_step_reward_mse": 0.00774502186135553,
+      "pair": 1,
+      "panel": "dev10",
+      "predictions": {
+        "bytes": 1371586,
+        "path": "runs/reacher-innovation-pilot-v1/attempt/evaluation/pair1-normalized/final/dev10/predictions.pt",
+        "sha256": "2c48b19144a7446e7835ac7c4fe37db1971c24b467c03bd879daf27867641212"
+      },
+      "primary_recovery_mse": 0.08930297072042173,
+      "recovery_points_per_episode": 2,
+      "stage": "final",
+      "variant": "normalized"
+    },
+    "normalized/1/final/dev6": {
+      "coordinate_count_per_episode": 16,
+      "episodes": 128,
+      "horizons": [
+        1,
+        3
+      ],
+      "moment_diagnostics": {
+        "all_visible_targets": {
+          "coordinate_count": 19456,
+          "empirical_by_coordinate": [
+            0.05441586000941969,
+            0.02733197146145823,
+            0.053969310552424134,
+            0.02346032618338523
+          ],
+          "empirical_squared_residual": 0.03979436705167263,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.052260810324836336,
+          "mean_predicted_squared_residual_scale": 0.7085257213467756,
+          "predicted_by_coordinate": [
+            0.7794625892757291,
+            0.6169207682863711,
+            0.7997682197019458,
+            0.6379513081230567
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 17.80467372245829,
+          "target_count": 4864,
+          "upper_bound_fraction": 0.0
+        },
+        "other_visible_targets": {
+          "coordinate_count": 18432,
+          "empirical_by_coordinate": [
+            0.04109050069429163,
+            0.015208729356181137,
+            0.04069971004878734,
+            0.016508440082315178
+          ],
+          "empirical_squared_residual": 0.02837684504539448,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.036479137513696615,
+          "mean_predicted_squared_residual_scale": 0.7070321353676263,
+          "predicted_by_coordinate": [
+            0.7777270779996697,
+            0.6156951078802295,
+            0.7964255406146145,
+            0.6382808149759917
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 24.915811966995836,
+          "target_count": 4608,
+          "upper_bound_fraction": 0.0
+        },
+        "returning_observation_priors": {
+          "coordinate_count": 1024,
+          "empirical_by_coordinate": [
+            0.29427232768172806,
+            0.2455503293564506,
+            0.29282211961788834,
+            0.14859427600264885
+          ],
+          "empirical_squared_residual": 0.24530976316467912,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.33633092092535144,
+          "mean_predicted_squared_residual_scale": 0.7354102689714637,
+          "predicted_by_coordinate": [
+            0.8107017922447994,
+            0.6389826555969194,
+            0.8599364432739094,
+            0.6320201847702265
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 2.9978842239465813,
+          "target_count": 256,
+          "upper_bound_fraction": 0.0
+        }
+      },
+      "one_step_angle_mse": 0.03979436705167263,
+      "one_step_reward_mse": 0.007486441020794266,
+      "pair": 1,
+      "panel": "dev6",
+      "predictions": {
+        "bytes": 1371586,
+        "path": "runs/reacher-innovation-pilot-v1/attempt/evaluation/pair1-normalized/final/dev6/predictions.pt",
+        "sha256": "f497c351ebe690b4acf1d55dba0c73831a1c4ede29d49431078a41f61294284e"
+      },
+      "primary_recovery_mse": 0.08606206616038589,
+      "recovery_points_per_episode": 2,
+      "stage": "final",
+      "variant": "normalized"
+    },
+    "normalized/1/initial/dev10": {
+      "coordinate_count_per_episode": 16,
+      "episodes": 128,
+      "horizons": [
+        1,
+        3
+      ],
+      "moment_diagnostics": {
+        "all_visible_targets": {
+          "coordinate_count": 15360,
+          "empirical_by_coordinate": [
+            0.7985507145725144,
+            0.5772590565639723,
+            0.3723838322191717,
+            0.40149443290303816
+          ],
+          "empirical_squared_residual": 0.5374220090646735,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.2737681279769314,
+          "mean_predicted_squared_residual_scale": 1.9701504659062872,
+          "predicted_by_coordinate": [
+            2.0678839763316015,
+            1.7959371604025365,
+            2.13122547743842,
+            1.885555249452591
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.665928139666492,
+          "target_count": 3840,
+          "upper_bound_fraction": 0.0
+        },
+        "other_visible_targets": {
+          "coordinate_count": 14336,
+          "empirical_by_coordinate": [
+            0.8119211409969073,
+            0.5833657032169989,
+            0.3647826166233568,
+            0.39413215063986085
+          ],
+          "empirical_squared_residual": 0.53855040286928,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.27409864487500224,
+          "mean_predicted_squared_residual_scale": 1.9720105060675581,
+          "predicted_by_coordinate": [
+            2.069987927064566,
+            1.7945728218848152,
+            2.1332839830845063,
+            1.8901972922363453
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.661700920770113,
+          "target_count": 3584,
+          "upper_bound_fraction": 0.0
+        },
+        "returning_observation_priors": {
+          "coordinate_count": 1024,
+          "empirical_by_coordinate": [
+            0.6113647446310152,
+            0.49176600342161486,
+            0.478800850560574,
+            0.5045663845875233
+          ],
+          "empirical_squared_residual": 0.5216244958001814,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.26914089140393993,
+          "mean_predicted_squared_residual_scale": 1.9441099036484957,
+          "predicted_by_coordinate": [
+            2.0384286660701036,
+            1.8150378996506333,
+            2.1024063983932137,
+            1.820566650480032
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.7270295381090106,
+          "target_count": 256,
+          "upper_bound_fraction": 0.0
+        }
+      },
+      "one_step_angle_mse": 0.5374220090646735,
+      "one_step_reward_mse": 0.028776193194391356,
+      "pair": 1,
+      "panel": "dev10",
+      "predictions": {
+        "bytes": 1371586,
+        "path": "runs/reacher-innovation-pilot-v1/attempt/evaluation/pair1-normalized/initial/dev10/predictions.pt",
+        "sha256": "c2e1644de6c9ce74c8f9974fed8aff385d95f5cc5746e8e393270d644caeb820"
+      },
+      "primary_recovery_mse": 0.5217180725193697,
+      "recovery_points_per_episode": 2,
+      "stage": "initial",
+      "variant": "normalized"
+    },
+    "normalized/1/initial/dev6": {
+      "coordinate_count_per_episode": 16,
+      "episodes": 128,
+      "horizons": [
+        1,
+        3
+      ],
+      "moment_diagnostics": {
+        "all_visible_targets": {
+          "coordinate_count": 19456,
+          "empirical_by_coordinate": [
+            0.779056670519813,
+            0.5566064401219579,
+            0.3836332025324419,
+            0.42285350292508705
+          ],
+          "empirical_squared_residual": 0.5355374540248232,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.27310684200068475,
+          "mean_predicted_squared_residual_scale": 1.9675737443429075,
+          "predicted_by_coordinate": [
+            2.066671375234268,
+            1.7900311880205806,
+            2.1292126652490544,
+            1.8843797488677267
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.6740170637098086,
+          "target_count": 4864,
+          "upper_bound_fraction": 0.0
+        },
+        "other_visible_targets": {
+          "coordinate_count": 18432,
+          "empirical_by_coordinate": [
+            0.7862185897732312,
+            0.5589599982114634,
+            0.3803895671926677,
+            0.4195458054656812
+          ],
+          "empirical_squared_residual": 0.5362784901607589,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.2732682004450647,
+          "mean_predicted_squared_residual_scale": 1.969068823537479,
+          "predicted_by_coordinate": [
+            2.0683602951208337,
+            1.78921459773038,
+            2.1309638377537743,
+            1.8877365635449275
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.6717281406293507,
+          "target_count": 4608,
+          "upper_bound_fraction": 0.0
+        },
+        "returning_observation_priors": {
+          "coordinate_count": 1024,
+          "empirical_by_coordinate": [
+            0.650142123958294,
+            0.5142423945108591,
+            0.44201863864837665,
+            0.48239205719438777
+          ],
+          "empirical_squared_residual": 0.5221988035779792,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.2702023900018454,
+          "mean_predicted_squared_residual_scale": 1.940662318840623,
+          "predicted_by_coordinate": [
+            2.0362708172760904,
+            1.8047298132441938,
+            2.097691560164094,
+            1.8239570846781135
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.716328542968074,
+          "target_count": 256,
+          "upper_bound_fraction": 0.0
+        }
+      },
+      "one_step_angle_mse": 0.5355374540248232,
+      "one_step_reward_mse": 0.028399587379329815,
+      "pair": 1,
+      "panel": "dev6",
+      "predictions": {
+        "bytes": 1371586,
+        "path": "runs/reacher-innovation-pilot-v1/attempt/evaluation/pair1-normalized/initial/dev6/predictions.pt",
+        "sha256": "18c5a525cd8d4f07a6f918e71dff4e8a37fa54d02142983cea9e9e8495164f5b"
+      },
+      "primary_recovery_mse": 0.525850673665696,
+      "recovery_points_per_episode": 2,
+      "stage": "initial",
+      "variant": "normalized"
+    },
+    "normalized/2/final/dev10": {
+      "coordinate_count_per_episode": 16,
+      "episodes": 128,
+      "horizons": [
+        1,
+        3
+      ],
+      "moment_diagnostics": {
+        "all_visible_targets": {
+          "coordinate_count": 15360,
+          "empirical_by_coordinate": [
+            0.06593906842678625,
+            0.040286633461862884,
+            0.06311206391105442,
+            0.030191193428911467
+          ],
+          "empirical_squared_residual": 0.04988223980715456,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.05735885116731731,
+          "mean_predicted_squared_residual_scale": 0.768327712949637,
+          "predicted_by_coordinate": [
+            0.695437084887332,
+            0.8111710073348756,
+            0.7806102512249102,
+            0.7860925083514303
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 15.402831066126996,
+          "target_count": 3840,
+          "upper_bound_fraction": 0.0
+        },
+        "other_visible_targets": {
+          "coordinate_count": 14336,
+          "empirical_by_coordinate": [
+            0.045768911580528086,
+            0.018210905182366226,
+            0.043006550115856655,
+            0.016718684938417907
+          ],
+          "empirical_squared_residual": 0.030926262954292825,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.03928713835419425,
+          "mean_predicted_squared_residual_scale": 0.7500899072983884,
+          "predicted_by_coordinate": [
+            0.680440603842726,
+            0.7949106825066597,
+            0.7586061257170513,
+            0.7664022171271166
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 24.254139868337038,
+          "target_count": 3584,
+          "upper_bound_fraction": 0.0
+        },
+        "returning_observation_priors": {
+          "coordinate_count": 1024,
+          "empirical_by_coordinate": [
+            0.34832126427440546,
+            0.3493468293748225,
+            0.3445892570438228,
+            0.21880631229582342
+          ],
+          "empirical_squared_residual": 0.31526591574721874,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.3103628305510401,
+          "mean_predicted_squared_residual_scale": 1.0236569920671172,
+          "predicted_by_coordinate": [
+            0.9053878195118159,
+            1.0388155549298972,
+            1.0886680083349347,
+            1.0617565854918212
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.2469637247049845,
+          "target_count": 256,
+          "upper_bound_fraction": 0.0
+        }
+      },
+      "one_step_angle_mse": 0.04988223980715456,
+      "one_step_reward_mse": 0.00788723454060179,
+      "pair": 2,
+      "panel": "dev10",
+      "predictions": {
+        "bytes": 1371586,
+        "path": "runs/reacher-innovation-pilot-v1/attempt/evaluation/pair2-normalized/final/dev10/predictions.pt",
+        "sha256": "1ae4e2d1954ee548f722e130391bf37db4bc9e6e78f735d8bdb1d20065650e48"
+      },
+      "primary_recovery_mse": 0.09773122382816814,
+      "recovery_points_per_episode": 2,
+      "stage": "final",
+      "variant": "normalized"
+    },
+    "normalized/2/final/dev6": {
+      "coordinate_count_per_episode": 16,
+      "episodes": 128,
+      "horizons": [
+        1,
+        3
+      ],
+      "moment_diagnostics": {
+        "all_visible_targets": {
+          "coordinate_count": 19456,
+          "empirical_by_coordinate": [
+            0.058448631731437904,
+            0.029302794891875587,
+            0.05752758837751514,
+            0.024052394463889154
+          ],
+          "empirical_squared_residual": 0.04233285236618012,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.05047731598006231,
+          "mean_predicted_squared_residual_scale": 0.7771816593403377,
+          "predicted_by_coordinate": [
+            0.7031017795088701,
+            0.8219186193309724,
+            0.7883984229809261,
+            0.7953078155405819
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 18.358830456726587,
+          "target_count": 4864,
+          "upper_bound_fraction": 0.0
+        },
+        "other_visible_targets": {
+          "coordinate_count": 18432,
+          "empirical_by_coordinate": [
+            0.04552208568431003,
+            0.01740091297316421,
+            0.04444653956498101,
+            0.016639386965905504
+          ],
+          "empirical_squared_residual": 0.031002231297090916,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.03917032584962036,
+          "mean_predicted_squared_residual_scale": 0.7676313808373784,
+          "predicted_by_coordinate": [
+            0.6957824059095906,
+            0.8139737067976967,
+            0.7761701174507228,
+            0.7845992931915033
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 24.76052041161982,
+          "target_count": 4608,
+          "upper_bound_fraction": 0.0
+        },
+        "returning_observation_priors": {
+          "coordinate_count": 1024,
+          "empirical_by_coordinate": [
+            0.2911264605797372,
+            0.24353666942868418,
+            0.29298646700312364,
+            0.15748652942759706
+          ],
+          "empirical_squared_residual": 0.24628403160978576,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.2540031383280176,
+          "mean_predicted_squared_residual_scale": 0.9490866723936051,
+          "predicted_by_coordinate": [
+            0.8348505042959005,
+            0.9649270449299365,
+            1.0085079225245863,
+            0.9880612178239971
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.8536265067210898,
+          "target_count": 256,
+          "upper_bound_fraction": 0.0
+        }
+      },
+      "one_step_angle_mse": 0.04233285236618012,
+      "one_step_reward_mse": 0.007646339534335198,
+      "pair": 2,
+      "panel": "dev6",
+      "predictions": {
+        "bytes": 1371586,
+        "path": "runs/reacher-innovation-pilot-v1/attempt/evaluation/pair2-normalized/final/dev6/predictions.pt",
+        "sha256": "a7e67a0ee7f2fecc200cd3c78c30d14bbbaf284c35c01852549303daf6196a29"
+      },
+      "primary_recovery_mse": 0.09490105946796845,
+      "recovery_points_per_episode": 2,
+      "stage": "final",
+      "variant": "normalized"
+    },
+    "normalized/2/initial/dev10": {
+      "coordinate_count_per_episode": 16,
+      "episodes": 128,
+      "horizons": [
+        1,
+        3
+      ],
+      "moment_diagnostics": {
+        "all_visible_targets": {
+          "coordinate_count": 15360,
+          "empirical_by_coordinate": [
+            0.7034134500891353,
+            0.56541333394478,
+            0.44402888444244304,
+            0.37604684102736
+          ],
+          "empirical_squared_residual": 0.5222256273759278,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.2654359812348917,
+          "mean_predicted_squared_residual_scale": 1.9905901536966364,
+          "predicted_by_coordinate": [
+            1.82694957278048,
+            2.051266369192551,
+            2.001268280825267,
+            2.082876391988248
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.811743524918389,
+          "target_count": 3840,
+          "upper_bound_fraction": 0.0
+        },
+        "other_visible_targets": {
+          "coordinate_count": 14336,
+          "empirical_by_coordinate": [
+            0.7122614366240302,
+            0.5687296325034219,
+            0.43745154058193064,
+            0.3707915855810865
+          ],
+          "empirical_squared_residual": 0.5223085488226157,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.265481394286268,
+          "mean_predicted_squared_residual_scale": 1.9912258048342275,
+          "predicted_by_coordinate": [
+            1.8285866496818406,
+            2.0545850037264506,
+            2.0006167085043023,
+            2.081114857424317
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.8123553775308388,
+          "target_count": 3584,
+          "upper_bound_fraction": 0.0
+        },
+        "returning_observation_priors": {
+          "coordinate_count": 1024,
+          "empirical_by_coordinate": [
+            0.5795416386006011,
+            0.518985154123802,
+            0.5361116984896075,
+            0.44962041727517754
+          ],
+          "empirical_squared_residual": 0.521064727122297,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.26480019851562364,
+          "mean_predicted_squared_residual_scale": 1.9816910377703607,
+          "predicted_by_coordinate": [
+            1.804030496161431,
+            2.0048054857179523,
+            2.0103902933187783,
+            2.1075378758832812
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.8031571407926945,
+          "target_count": 256,
+          "upper_bound_fraction": 0.0
+        }
+      },
+      "one_step_angle_mse": 0.5222256273759278,
+      "one_step_reward_mse": 0.06968984691598169,
+      "pair": 2,
+      "panel": "dev10",
+      "predictions": {
+        "bytes": 1371586,
+        "path": "runs/reacher-innovation-pilot-v1/attempt/evaluation/pair2-normalized/initial/dev10/predictions.pt",
+        "sha256": "6c75fafc1bbe197fd3a9aa4be6a39cb8945cd5685a0b34344f355345bccd416f"
+      },
+      "primary_recovery_mse": 0.5289002528855407,
+      "recovery_points_per_episode": 2,
+      "stage": "initial",
+      "variant": "normalized"
+    },
+    "normalized/2/initial/dev6": {
+      "coordinate_count_per_episode": 16,
+      "episodes": 128,
+      "horizons": [
+        1,
+        3
+      ],
+      "moment_diagnostics": {
+        "all_visible_targets": {
+          "coordinate_count": 19456,
+          "empirical_by_coordinate": [
+            0.689619473440783,
+            0.5589040872382013,
+            0.4671652366308048,
+            0.38326783193740904
+          ],
+          "empirical_squared_residual": 0.5247391573117983,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.26670936847152527,
+          "mean_predicted_squared_residual_scale": 1.9891143325458918,
+          "predicted_by_coordinate": [
+            1.828247821399648,
+            2.04976436106096,
+            1.9972466035795056,
+            2.081198544143454
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.7906725748007526,
+          "target_count": 4864,
+          "upper_bound_fraction": 0.0
+        },
+        "other_visible_targets": {
+          "coordinate_count": 18432,
+          "empirical_by_coordinate": [
+            0.692979261317868,
+            0.5617672176127463,
+            0.46462954629647,
+            0.38119908226340893
+          ],
+          "empirical_squared_residual": 0.5251437768726225,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.2668526772077362,
+          "mean_predicted_squared_residual_scale": 1.9896601065411232,
+          "predicted_by_coordinate": [
+            1.8297967627489318,
+            2.052434782911506,
+            1.9965062951410397,
+            2.0799025853630155
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.788791173324196,
+          "target_count": 4608,
+          "upper_bound_fraction": 0.0
+        },
+        "returning_observation_priors": {
+          "coordinate_count": 1024,
+          "empirical_by_coordinate": [
+            0.6291432916532407,
+            0.5073677404963866,
+            0.5128076626488303,
+            0.42050532606940416
+          ],
+          "empirical_squared_residual": 0.517456005216965,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.2641298112197288,
+          "mean_predicted_squared_residual_scale": 1.9792904006317258,
+          "predicted_by_coordinate": [
+            1.8003668771125376,
+            2.0016967677511275,
+            2.010572155471891,
+            2.104525802191347
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.8250409323239487,
+          "target_count": 256,
+          "upper_bound_fraction": 0.0
+        }
+      },
+      "one_step_angle_mse": 0.5247391573117983,
+      "one_step_reward_mse": 0.06899618658354244,
+      "pair": 2,
+      "panel": "dev6",
+      "predictions": {
+        "bytes": 1371586,
+        "path": "runs/reacher-innovation-pilot-v1/attempt/evaluation/pair2-normalized/initial/dev6/predictions.pt",
+        "sha256": "3085451109859951d96e00e1d2c7ae4ffc85d692f836d292221aacda52cd4aec"
+      },
+      "primary_recovery_mse": 0.5226736169525816,
+      "recovery_points_per_episode": 2,
+      "stage": "initial",
+      "variant": "normalized"
+    },
+    "raw/0/final/dev10": {
+      "coordinate_count_per_episode": 16,
+      "episodes": 128,
+      "horizons": [
+        1,
+        3
+      ],
+      "moment_diagnostics": {
+        "all_visible_targets": {
+          "coordinate_count": 15360,
+          "empirical_by_coordinate": [
+            0.057551775374964094,
+            0.039759031564652735,
+            0.055283159836781,
+            0.030158701697218255
+          ],
+          "empirical_squared_residual": 0.045688167118404836,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.06509122040255044,
+          "mean_predicted_squared_residual_scale": 0.6257004395447439,
+          "predicted_by_coordinate": [
+            0.5828037864916648,
+            0.60217642581556,
+            0.6922913254626716,
+            0.6255302204090791
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 13.695021687413877,
+          "target_count": 3840,
+          "upper_bound_fraction": 0.0
+        },
+        "other_visible_targets": {
+          "coordinate_count": 14336,
+          "empirical_by_coordinate": [
+            0.037063539828602464,
+            0.016720711510380983,
+            0.034149562944831326,
+            0.016141041322110944
+          ],
+          "empirical_squared_residual": 0.026018713901481954,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.04043374625431092,
+          "mean_predicted_squared_residual_scale": 0.6132444292296506,
+          "predicted_by_coordinate": [
+            0.569431919762532,
+            0.5920495433882544,
+            0.6784645353493813,
+            0.6130317184184345
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 23.569359790482263,
+          "target_count": 3584,
+          "upper_bound_fraction": 0.0
+        },
+        "returning_observation_priors": {
+          "coordinate_count": 1024,
+          "empirical_by_coordinate": [
+            0.34438707302403243,
+            0.3622955123244651,
+            0.3511535163240781,
+            0.22640594694872418
+          ],
+          "empirical_squared_residual": 0.3210605121553251,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.41029585847790384,
+          "mean_predicted_squared_residual_scale": 0.8000845839560498,
+          "predicted_by_coordinate": [
+            0.7700099206995219,
+            0.7439527797978371,
+            0.8858663870487362,
+            0.8005092482781038
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 2.4920055680001494,
+          "target_count": 256,
+          "upper_bound_fraction": 0.0
+        }
+      },
+      "one_step_angle_mse": 0.045688167118404836,
+      "one_step_reward_mse": 0.007788521525861918,
+      "pair": 0,
+      "panel": "dev10",
+      "predictions": {
+        "bytes": 1371586,
+        "path": "runs/reacher-innovation-pilot-v1/attempt/evaluation/pair0-raw/final/dev10/predictions.pt",
+        "sha256": "71c73474d63740276d2fc760e826e3892c740ad6a52f5946154c4fa6e455d1ff"
+      },
+      "primary_recovery_mse": 0.08630797281381078,
+      "recovery_points_per_episode": 2,
+      "stage": "final",
+      "variant": "raw"
+    },
+    "raw/0/final/dev6": {
+      "coordinate_count_per_episode": 16,
+      "episodes": 128,
+      "horizons": [
+        1,
+        3
+      ],
+      "moment_diagnostics": {
+        "all_visible_targets": {
+          "coordinate_count": 19456,
+          "empirical_by_coordinate": [
+            0.05025663454632005,
+            0.02737798507723018,
+            0.04891198086347664,
+            0.02336306283122462
+          ],
+          "empirical_squared_residual": 0.03747741582956373,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.05503282420711159,
+          "mean_predicted_squared_residual_scale": 0.6323152447899032,
+          "predicted_by_coordinate": [
+            0.5898145868528732,
+            0.6068737473106012,
+            0.6996361871654364,
+            0.6329364578307018
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 16.871900871327068,
+          "target_count": 4864,
+          "upper_bound_fraction": 0.0
+        },
+        "other_visible_targets": {
+          "coordinate_count": 18432,
+          "empirical_by_coordinate": [
+            0.03722490254617576,
+            0.015573351335292097,
+            0.035685960153865076,
+            0.01591666937933671
+          ],
+          "empirical_squared_residual": 0.026100220853668112,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.03984453621229735,
+          "mean_predicted_squared_residual_scale": 0.6265377094039448,
+          "predicted_by_coordinate": [
+            0.5834122084068238,
+            0.6020966055608975,
+            0.6932218613736849,
+            0.6274201622743729
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 24.005073095612964,
+          "target_count": 4608,
+          "upper_bound_fraction": 0.0
+        },
+        "returning_observation_priors": {
+          "coordinate_count": 1024,
+          "empirical_by_coordinate": [
+            0.284827810548921,
+            0.23986139243212007,
+            0.28698035363648755,
+            0.15739814496520987
+          ],
+          "empirical_squared_residual": 0.24226692539568484,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.3284220081137677,
+          "mean_predicted_squared_residual_scale": 0.736310881737154,
+          "predicted_by_coordinate": [
+            0.7050573988817632,
+            0.6928622988052666,
+            0.8150940514169633,
+            0.7322297778446227
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.0392546590277107,
+          "target_count": 256,
+          "upper_bound_fraction": 0.0
+        }
+      },
+      "one_step_angle_mse": 0.03747741582956373,
+      "one_step_reward_mse": 0.007567534623262761,
+      "pair": 0,
+      "panel": "dev6",
+      "predictions": {
+        "bytes": 1371586,
+        "path": "runs/reacher-innovation-pilot-v1/attempt/evaluation/pair0-raw/final/dev6/predictions.pt",
+        "sha256": "c83368c2f5e2efab90d730c40119abb264522509cd566e3dbbeb1067ad21be3a"
+      },
+      "primary_recovery_mse": 0.08421975043954301,
+      "recovery_points_per_episode": 2,
+      "stage": "final",
+      "variant": "raw"
+    },
+    "raw/0/initial/dev10": {
+      "coordinate_count_per_episode": 16,
+      "episodes": 128,
+      "horizons": [
+        1,
+        3
+      ],
+      "moment_diagnostics": {
+        "all_visible_targets": {
+          "coordinate_count": 15360,
+          "empirical_by_coordinate": [
+            0.4878744763206971,
+            0.6198837445568282,
+            0.39602345931987987,
+            0.41374501091743043
+          ],
+          "empirical_squared_residual": 0.47938167277870725,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.23991774006684963,
+          "mean_predicted_squared_residual_scale": 2.0072113753684486,
+          "predicted_by_coordinate": [
+            1.9048483612947167,
+            1.9924787747673691,
+            2.1091353703911104,
+            2.0223829950205983
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 4.187084090498845,
+          "target_count": 3840,
+          "upper_bound_fraction": 0.0
+        },
+        "other_visible_targets": {
+          "coordinate_count": 14336,
+          "empirical_by_coordinate": [
+            0.4919544741851199,
+            0.6282313977266419,
+            0.3880372861193181,
+            0.4064885625792359
+          ],
+          "empirical_squared_residual": 0.4786779301525769,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.23977207419246188,
+          "mean_predicted_squared_residual_scale": 2.0060749513878755,
+          "predicted_by_coordinate": [
+            1.9016637980405773,
+            1.994843719959525,
+            2.1055972150393893,
+            2.0221950725120093
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 4.19086576802997,
+          "target_count": 3584,
+          "upper_bound_fraction": 0.0
+        },
+        "returning_observation_priors": {
+          "coordinate_count": 1024,
+          "empirical_by_coordinate": [
+            0.4307545062187794,
+            0.5030166001794389,
+            0.5078298841277467,
+            0.5153352876521569
+          ],
+          "empirical_squared_residual": 0.4892340695445304,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.2419570623082779,
+          "mean_predicted_squared_residual_scale": 2.0231213110964745,
+          "predicted_by_coordinate": [
+            1.9494322468526661,
+            1.9593695420771837,
+            2.158669545315206,
+            2.025013910140842
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 4.135282959708776,
+          "target_count": 256,
+          "upper_bound_fraction": 0.0
+        }
+      },
+      "one_step_angle_mse": 0.47938167277870725,
+      "one_step_reward_mse": 0.03991446844795401,
+      "pair": 0,
+      "panel": "dev10",
+      "predictions": {
+        "bytes": 1371586,
+        "path": "runs/reacher-innovation-pilot-v1/attempt/evaluation/pair0-raw/initial/dev10/predictions.pt",
+        "sha256": "35901f01d0f16f567563a9554fd67fd4c3839d863ae26102d3ba9b987d4d0d63"
+      },
+      "primary_recovery_mse": 0.49043272609243393,
+      "recovery_points_per_episode": 2,
+      "stage": "initial",
+      "variant": "raw"
+    },
+    "raw/0/initial/dev6": {
+      "coordinate_count_per_episode": 16,
+      "episodes": 128,
+      "horizons": [
+        1,
+        3
+      ],
+      "moment_diagnostics": {
+        "all_visible_targets": {
+          "coordinate_count": 19456,
+          "empirical_by_coordinate": [
+            0.4841844831139609,
+            0.5976724673957254,
+            0.4127007637721412,
+            0.4366669602709514
+          ],
+          "empirical_squared_residual": 0.4828061686381926,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.24148636885845498,
+          "mean_predicted_squared_residual_scale": 2.007396825913977,
+          "predicted_by_coordinate": [
+            1.903104122115397,
+            1.9939879811319865,
+            2.111001393267591,
+            2.0214938071409336
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 4.157769631601971,
+          "target_count": 4864,
+          "upper_bound_fraction": 0.0
+        },
+        "other_visible_targets": {
+          "coordinate_count": 18432,
+          "empirical_by_coordinate": [
+            0.48653573135063294,
+            0.601360723734988,
+            0.4089573626436256,
+            0.4335962546592731
+          ],
+          "empirical_squared_residual": 0.4826125180971281,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.2415144527428191,
+          "mean_predicted_squared_residual_scale": 2.0065390942294874,
+          "predicted_by_coordinate": [
+            1.9005111443241023,
+            1.9959352505134627,
+            2.108516493398282,
+            2.021193488682103
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 4.157660688415176,
+          "target_count": 4608,
+          "upper_bound_fraction": 0.0
+        },
+        "returning_observation_priors": {
+          "coordinate_count": 1024,
+          "empirical_by_coordinate": [
+            0.4418620148538402,
+            0.5312838532890002,
+            0.48008198408541913,
+            0.49193966128115796
+          ],
+          "empirical_squared_residual": 0.4862918783773542,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.24098085893990187,
+          "mean_predicted_squared_residual_scale": 2.0228359962347895,
+          "predicted_by_coordinate": [
+            1.9497777223587036,
+            1.9589371322654188,
+            2.1557295909151435,
+            2.026899539399892
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 4.1597157719033575,
+          "target_count": 256,
+          "upper_bound_fraction": 0.0
+        }
+      },
+      "one_step_angle_mse": 0.4828061686381926,
+      "one_step_reward_mse": 0.039674489627241356,
+      "pair": 0,
+      "panel": "dev6",
+      "predictions": {
+        "bytes": 1371586,
+        "path": "runs/reacher-innovation-pilot-v1/attempt/evaluation/pair0-raw/initial/dev6/predictions.pt",
+        "sha256": "63a06957098b2e343ffad758ff8b0bc6ef97293e78a2c77dc449d858f254f785"
+      },
+      "primary_recovery_mse": 0.4855466753530684,
+      "recovery_points_per_episode": 2,
+      "stage": "initial",
+      "variant": "raw"
+    },
+    "raw/1/final/dev10": {
+      "coordinate_count_per_episode": 16,
+      "episodes": 128,
+      "horizons": [
+        1,
+        3
+      ],
+      "moment_diagnostics": {
+        "all_visible_targets": {
+          "coordinate_count": 15360,
+          "empirical_by_coordinate": [
+            0.062463765748902,
+            0.037822255848604686,
+            0.05981417585759431,
+            0.029403572242655284
+          ],
+          "empirical_squared_residual": 0.047375942424439946,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.06267352598048,
+          "mean_predicted_squared_residual_scale": 0.6955256357701728,
+          "predicted_by_coordinate": [
+            0.7655844735757759,
+            0.6037814169811706,
+            0.7882378693670035,
+            0.6244987831567415
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 14.680987863818626,
+          "target_count": 3840,
+          "upper_bound_fraction": 0.0
+        },
+        "other_visible_targets": {
+          "coordinate_count": 14336,
+          "empirical_by_coordinate": [
+            0.04119127919661003,
+            0.015863366646763678,
+            0.03894535922507799,
+            0.016760551609728103
+          ],
+          "empirical_squared_residual": 0.0281901391695455,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.03656967474091849,
+          "mean_predicted_squared_residual_scale": 0.6903087695713371,
+          "predicted_by_coordinate": [
+            0.7598543364770843,
+            0.5992670031014963,
+            0.7799045023109231,
+            0.6222092363958447
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 24.48759707852364,
+          "target_count": 3584,
+          "upper_bound_fraction": 0.0
+        },
+        "returning_observation_priors": {
+          "coordinate_count": 1024,
+          "empirical_by_coordinate": [
+            0.36027857748099434,
+            0.3452467046743872,
+            0.35197760871282724,
+            0.206405861103639
+          ],
+          "empirical_squared_residual": 0.31597718799296226,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.42812744333434105,
+          "mean_predicted_squared_residual_scale": 0.7685617625538725,
+          "predicted_by_coordinate": [
+            0.8458063929574564,
+            0.6669832112966105,
+            0.9049050081521273,
+            0.656552437809296
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 2.432333066306643,
+          "target_count": 256,
+          "upper_bound_fraction": 0.0
+        }
+      },
+      "one_step_angle_mse": 0.047375942424439946,
+      "one_step_reward_mse": 0.007751039372366752,
+      "pair": 1,
+      "panel": "dev10",
+      "predictions": {
+        "bytes": 1371586,
+        "path": "runs/reacher-innovation-pilot-v1/attempt/evaluation/pair1-raw/final/dev10/predictions.pt",
+        "sha256": "0c10e39658f2dec8fff8aa147b1f55c569de8e33047a402dc1f13edf64eeae1f"
+      },
+      "primary_recovery_mse": 0.08932512529509662,
+      "recovery_points_per_episode": 2,
+      "stage": "final",
+      "variant": "raw"
+    },
+    "raw/1/final/dev6": {
+      "coordinate_count_per_episode": 16,
+      "episodes": 128,
+      "horizons": [
+        1,
+        3
+      ],
+      "moment_diagnostics": {
+        "all_visible_targets": {
+          "coordinate_count": 19456,
+          "empirical_by_coordinate": [
+            0.054402868498990925,
+            0.027251089867503586,
+            0.05395144851182942,
+            0.023480728469577525
+          ],
+          "empirical_squared_residual": 0.03977153383697618,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.052256152270113335,
+          "mean_predicted_squared_residual_scale": 0.7086402206462624,
+          "predicted_by_coordinate": [
+            0.7794610303642816,
+            0.6167745522566532,
+            0.8001416216935276,
+            0.6381836782705872
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 17.817774480385495,
+          "target_count": 4864,
+          "upper_bound_fraction": 0.0
+        },
+        "other_visible_targets": {
+          "coordinate_count": 18432,
+          "empirical_by_coordinate": [
+            0.04108815853398372,
+            0.015151832263259751,
+            0.04069721830630892,
+            0.016525356239502288
+          ],
+          "empirical_squared_residual": 0.0283656413357644,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.036497577684446086,
+          "mean_predicted_squared_residual_scale": 0.7071481214305904,
+          "predicted_by_coordinate": [
+            0.777730915760104,
+            0.6155631585699868,
+            0.7967733354243036,
+            0.6385250759679669
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 24.92974204461202,
+          "target_count": 4608,
+          "upper_bound_fraction": 0.0
+        },
+        "returning_observation_priors": {
+          "coordinate_count": 1024,
+          "empirical_by_coordinate": [
+            0.2940676478691205,
+            0.2450377267438983,
+            0.29252759221119884,
+            0.14867742861093491
+          ],
+          "empirical_squared_residual": 0.24507759885878833,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.33591049481212376,
+          "mean_predicted_squared_residual_scale": 0.7354980065283598,
+          "predicted_by_coordinate": [
+            0.8106030932394788,
+            0.6385796386166476,
+            0.8607707745395601,
+            0.6320385197177529
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.001082146851568,
+          "target_count": 256,
+          "upper_bound_fraction": 0.0
+        }
+      },
+      "one_step_angle_mse": 0.03977153383697618,
+      "one_step_reward_mse": 0.007491197067121825,
+      "pair": 1,
+      "panel": "dev6",
+      "predictions": {
+        "bytes": 1371586,
+        "path": "runs/reacher-innovation-pilot-v1/attempt/evaluation/pair1-raw/final/dev6/predictions.pt",
+        "sha256": "0c40278529c4c9e18047b14b7ee25b347ec3d2c42c1bb155c857f648d821ffbd"
+      },
+      "primary_recovery_mse": 0.08607468431125304,
+      "recovery_points_per_episode": 2,
+      "stage": "final",
+      "variant": "raw"
+    },
+    "raw/1/initial/dev10": {
+      "coordinate_count_per_episode": 16,
+      "episodes": 128,
+      "horizons": [
+        1,
+        3
+      ],
+      "moment_diagnostics": {
+        "all_visible_targets": {
+          "coordinate_count": 15360,
+          "empirical_by_coordinate": [
+            0.798199420040786,
+            0.5768601931593618,
+            0.3724104325491445,
+            0.40193954987097574
+          ],
+          "empirical_squared_residual": 0.5373523989050656,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.27378217642912067,
+          "mean_predicted_squared_residual_scale": 1.9697725136221076,
+          "predicted_by_coordinate": [
+            2.067797664490839,
+            1.7952873596611123,
+            2.130617866571993,
+            1.8853871637644868
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.6656996742469343,
+          "target_count": 3840,
+          "upper_bound_fraction": 0.0
+        },
+        "other_visible_targets": {
+          "coordinate_count": 14336,
+          "empirical_by_coordinate": [
+            0.8115704347066106,
+            0.5829733366370099,
+            0.36480652728617985,
+            0.39457640061255145
+          ],
+          "empirical_squared_residual": 0.5384816748105864,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.27410890769029744,
+          "mean_predicted_squared_residual_scale": 1.9716618223880817,
+          "predicted_by_coordinate": [
+            2.0699111862174635,
+            1.7939637663242007,
+            2.1327429773019895,
+            1.8900293597086733
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.6615207436383486,
+          "target_count": 3584,
+          "upper_bound_fraction": 0.0
+        },
+        "returning_observation_priors": {
+          "coordinate_count": 1024,
+          "empirical_by_coordinate": [
+            0.6110052147192471,
+            0.4912761844722889,
+            0.47886510623064904,
+            0.5050236394889129
+          ],
+          "empirical_squared_residual": 0.5215425362277744,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.26920793877264526,
+          "mean_predicted_squared_residual_scale": 1.9433221908984706,
+          "predicted_by_coordinate": [
+            2.0382083603180945,
+            1.8138176663778722,
+            2.1008663163520396,
+            1.820396420545876
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.7261048829385595,
+          "target_count": 256,
+          "upper_bound_fraction": 0.0
+        }
+      },
+      "one_step_angle_mse": 0.5373523989050656,
+      "one_step_reward_mse": 0.028785219145356963,
+      "pair": 1,
+      "panel": "dev10",
+      "predictions": {
+        "bytes": 1371586,
+        "path": "runs/reacher-innovation-pilot-v1/attempt/evaluation/pair1-raw/initial/dev10/predictions.pt",
+        "sha256": "d0d2147559ce34c669f8605b28b846d7f5f4a51e6b6eb6347bb5ea7d775a8c1a"
+      },
+      "primary_recovery_mse": 0.5216933559034569,
+      "recovery_points_per_episode": 2,
+      "stage": "initial",
+      "variant": "raw"
+    },
+    "raw/1/initial/dev6": {
+      "coordinate_count_per_episode": 16,
+      "episodes": 128,
+      "horizons": [
+        1,
+        3
+      ],
+      "moment_diagnostics": {
+        "all_visible_targets": {
+          "coordinate_count": 19456,
+          "empirical_by_coordinate": [
+            0.7786299807989261,
+            0.5561220533850131,
+            0.38366764981299545,
+            0.42348670826248136
+          ],
+          "empirical_squared_residual": 0.5354765980648516,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.2731363290945448,
+          "mean_predicted_squared_residual_scale": 1.9671295093017092,
+          "predicted_by_coordinate": [
+            2.0665437423035895,
+            1.789288529121366,
+            2.1285398017713115,
+            1.8841459640105696
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.6736050023673865,
+          "target_count": 4864,
+          "upper_bound_fraction": 0.0
+        },
+        "other_visible_targets": {
+          "coordinate_count": 18432,
+          "empirical_by_coordinate": [
+            0.7857941719838021,
+            0.5584935296331811,
+            0.38042391950184645,
+            0.42017834726791237
+          ],
+          "empirical_squared_residual": 0.5362224920966834,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.2732965453755825,
+          "mean_predicted_squared_residual_scale": 1.9686480553290393,
+          "predicted_by_coordinate": [
+            2.0682395442854613,
+            1.7885053084594094,
+            2.130344336697211,
+            1.8875030318740755
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.6713268919985604,
+          "target_count": 4608,
+          "upper_bound_fraction": 0.0
+        },
+        "returning_observation_priors": {
+          "coordinate_count": 1024,
+          "empirical_by_coordinate": [
+            0.6496745394711516,
+            0.5134354809179772,
+            0.44205479541366616,
+            0.4830372061647213
+          ],
+          "empirical_squared_residual": 0.5220505054918789,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.27025243603586735,
+          "mean_predicted_squared_residual_scale": 1.939795680809766,
+          "predicted_by_coordinate": [
+            2.036019306629896,
+            1.8033865010365844,
+            2.0960581731051207,
+            1.823718742467463
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.7157241692201404,
+          "target_count": 256,
+          "upper_bound_fraction": 0.0
+        }
+      },
+      "one_step_angle_mse": 0.5354765980648516,
+      "one_step_reward_mse": 0.0284069783972063,
+      "pair": 1,
+      "panel": "dev6",
+      "predictions": {
+        "bytes": 1371586,
+        "path": "runs/reacher-innovation-pilot-v1/attempt/evaluation/pair1-raw/initial/dev6/predictions.pt",
+        "sha256": "ea49883cdd00acbddb62ead6af48ea37c7bf296db799eb9e93707ae8a7ed82fc"
+      },
+      "primary_recovery_mse": 0.5258106765689661,
+      "recovery_points_per_episode": 2,
+      "stage": "initial",
+      "variant": "raw"
+    },
+    "raw/2/final/dev10": {
+      "coordinate_count_per_episode": 16,
+      "episodes": 128,
+      "horizons": [
+        1,
+        3
+      ],
+      "moment_diagnostics": {
+        "all_visible_targets": {
+          "coordinate_count": 15360,
+          "empirical_by_coordinate": [
+            0.06602390411842163,
+            0.04032168165066319,
+            0.06319019298037452,
+            0.03021321551905996
+          ],
+          "empirical_squared_residual": 0.04993724856713062,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.05774020583355088,
+          "mean_predicted_squared_residual_scale": 0.7646643571720536,
+          "predicted_by_coordinate": [
+            0.6917918458542166,
+            0.8082762846645589,
+            0.7765780499825875,
+            0.7820112481868515
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 15.312504775751025,
+          "target_count": 3840,
+          "upper_bound_fraction": 0.0
+        },
+        "other_visible_targets": {
+          "coordinate_count": 14336,
+          "empirical_by_coordinate": [
+            0.04587761006398028,
+            0.018244332771841655,
+            0.04312931345561348,
+            0.016741733921501138
+          ],
+          "empirical_squared_residual": 0.03099824755323472,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.03964474733733736,
+          "mean_predicted_squared_residual_scale": 0.7463145708742169,
+          "predicted_by_coordinate": [
+            0.6767284729409896,
+            0.7918966447718309,
+            0.7544585376412475,
+            0.7621746281427997
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 24.07602460727938,
+          "target_count": 3584,
+          "upper_bound_fraction": 0.0
+        },
+        "returning_observation_priors": {
+          "coordinate_count": 1024,
+          "empirical_by_coordinate": [
+            0.3480720208806054,
+            0.34940456595416947,
+            0.3440425063270311,
+            0.21881395788488545
+          ],
+          "empirical_squared_residual": 0.3150832627616731,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.3110766247805401,
+          "mean_predicted_squared_residual_scale": 1.0215613653417677,
+          "predicted_by_coordinate": [
+            0.9026790666393936,
+            1.0375912431627512,
+            1.086251222761348,
+            1.059723928803578
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.2421949563042007,
+          "target_count": 256,
+          "upper_bound_fraction": 0.0
+        }
+      },
+      "one_step_angle_mse": 0.04993724856713062,
+      "one_step_reward_mse": 0.007896795698244887,
+      "pair": 2,
+      "panel": "dev10",
+      "predictions": {
+        "bytes": 1371586,
+        "path": "runs/reacher-innovation-pilot-v1/attempt/evaluation/pair2-raw/final/dev10/predictions.pt",
+        "sha256": "4b6b09b6e5aee126b7396ec4eaeba511cfb67538bb52308a76aa4727b84f5fae"
+      },
+      "primary_recovery_mse": 0.0978607444104296,
+      "recovery_points_per_episode": 2,
+      "stage": "final",
+      "variant": "raw"
+    },
+    "raw/2/final/dev6": {
+      "coordinate_count_per_episode": 16,
+      "episodes": 128,
+      "horizons": [
+        1,
+        3
+      ],
+      "moment_diagnostics": {
+        "all_visible_targets": {
+          "coordinate_count": 19456,
+          "empirical_by_coordinate": [
+            0.05855983608271399,
+            0.029319011611814633,
+            0.05760519181555205,
+            0.0241060009119614
+          ],
+          "empirical_squared_residual": 0.04239751010551123,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.05088937103237092,
+          "mean_predicted_squared_residual_scale": 0.7734067950246084,
+          "predicted_by_coordinate": [
+            0.699382518127095,
+            0.8189139457505294,
+            0.7842403748746667,
+            0.7910903413461423
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 18.24179752772967,
+          "target_count": 4864,
+          "upper_bound_fraction": 0.0
+        },
+        "other_visible_targets": {
+          "coordinate_count": 18432,
+          "empirical_by_coordinate": [
+            0.04565769621158433,
+            0.017425638035127138,
+            0.04455715083913686,
+            0.016674956942690212
+          ],
+          "empirical_squared_residual": 0.031078860507135327,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.03955473150610695,
+          "mean_predicted_squared_residual_scale": 0.7638381410304445,
+          "predicted_by_coordinate": [
+            0.6920667679223698,
+            0.8109630980050295,
+            0.7719730924517434,
+            0.780349605742635
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 24.57741785143881,
+          "target_count": 4608,
+          "upper_bound_fraction": 0.0
+        },
+        "returning_observation_priors": {
+          "coordinate_count": 1024,
+          "empirical_by_coordinate": [
+            0.29079835376304497,
+            0.24339973599219417,
+            0.29246992939102523,
+            0.15786479235884454
+          ],
+          "empirical_squared_residual": 0.24613320287627746,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.2549128825051224,
+          "mean_predicted_squared_residual_scale": 0.9456425669195596,
+          "predicted_by_coordinate": [
+            0.8310660218121484,
+            0.9620292051695287,
+            1.0050514584872872,
+            0.9844235822092742
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.841995130559045,
+          "target_count": 256,
+          "upper_bound_fraction": 0.0
+        }
+      },
+      "one_step_angle_mse": 0.04239751010551123,
+      "one_step_reward_mse": 0.007655157974780744,
+      "pair": 2,
+      "panel": "dev6",
+      "predictions": {
+        "bytes": 1371586,
+        "path": "runs/reacher-innovation-pilot-v1/attempt/evaluation/pair2-raw/final/dev6/predictions.pt",
+        "sha256": "681bf009974d3fd5901eeefad90425c3246f7add80270e5585abb568be892115"
+      },
+      "primary_recovery_mse": 0.09508189780826601,
+      "recovery_points_per_episode": 2,
+      "stage": "final",
+      "variant": "raw"
+    },
+    "raw/2/initial/dev10": {
+      "coordinate_count_per_episode": 16,
+      "episodes": 128,
+      "horizons": [
+        1,
+        3
+      ],
+      "moment_diagnostics": {
+        "all_visible_targets": {
+          "coordinate_count": 15360,
+          "empirical_by_coordinate": [
+            0.7031660750354167,
+            0.5663625207398705,
+            0.4457789701886475,
+            0.3742260978646731
+          ],
+          "empirical_squared_residual": 0.5223834159571505,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.26560042056909045,
+          "mean_predicted_squared_residual_scale": 1.9899404094942534,
+          "predicted_by_coordinate": [
+            1.8269841870293022,
+            2.050284941215068,
+            1.9999353835359215,
+            2.0825571261967224
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.8093483611996635,
+          "target_count": 3840,
+          "upper_bound_fraction": 0.0
+        },
+        "other_visible_targets": {
+          "coordinate_count": 14336,
+          "empirical_by_coordinate": [
+            0.712105051643312,
+            0.569678219172807,
+            0.43918384454946036,
+            0.368998445364593
+          ],
+          "empirical_squared_residual": 0.5224913901825415,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.2656536823148485,
+          "mean_predicted_squared_residual_scale": 1.9906192023356977,
+          "predicted_by_coordinate": [
+            1.8286433491988905,
+            2.053690691711381,
+            1.9993428272594298,
+            2.0807999411730895
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.809860295765333,
+          "target_count": 3584,
+          "upper_bound_fraction": 0.0
+        },
+        "returning_observation_priors": {
+          "coordinate_count": 1024,
+          "empirical_by_coordinate": [
+            0.5780204025248756,
+            0.5199427426787709,
+            0.5381107291372574,
+            0.44741323286579837
+          ],
+          "empirical_squared_residual": 0.5208717768016753,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.2648547561284774,
+          "mean_predicted_squared_residual_scale": 1.9804373097140342,
+          "predicted_by_coordinate": [
+            1.8037559166550636,
+            2.0026044342666864,
+            2.0082311714068055,
+            2.107157716527581
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.8021589917475915,
+          "target_count": 256,
+          "upper_bound_fraction": 0.0
+        }
+      },
+      "one_step_angle_mse": 0.5223834159571505,
+      "one_step_reward_mse": 0.06934396411377604,
+      "pair": 2,
+      "panel": "dev10",
+      "predictions": {
+        "bytes": 1371586,
+        "path": "runs/reacher-innovation-pilot-v1/attempt/evaluation/pair2-raw/initial/dev10/predictions.pt",
+        "sha256": "245a6578c96a68e260251e68afd27e42b1993789bf46dc146c183518809f6524"
+      },
+      "primary_recovery_mse": 0.5288989297330702,
+      "recovery_points_per_episode": 2,
+      "stage": "initial",
+      "variant": "raw"
+    },
+    "raw/2/initial/dev6": {
+      "coordinate_count_per_episode": 16,
+      "episodes": 128,
+      "horizons": [
+        1,
+        3
+      ],
+      "moment_diagnostics": {
+        "all_visible_targets": {
+          "coordinate_count": 19456,
+          "empirical_by_coordinate": [
+            0.6893719491920478,
+            0.5602721634420428,
+            0.46957520488989846,
+            0.38093658588140517
+          ],
+          "empirical_squared_residual": 0.5250389758513468,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.26696036600934914,
+          "mean_predicted_squared_residual_scale": 1.9883866096405607,
+          "predicted_by_coordinate": [
+            1.82843341710242,
+            2.048628746482887,
+            1.9956235707443404,
+            2.0808607042325953
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.787121911123658,
+          "target_count": 4864,
+          "upper_bound_fraction": 0.0
+        },
+        "other_visible_targets": {
+          "coordinate_count": 18432,
+          "empirical_by_coordinate": [
+            0.6928079695118405,
+            0.5631443112281921,
+            0.46701912893167474,
+            0.37887585411658314
+          ],
+          "empirical_squared_residual": 0.5254618159470711,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.2671104515857397,
+          "mean_predicted_squared_residual_scale": 1.9889640424581658,
+          "predicted_by_coordinate": [
+            1.8300005078522696,
+            2.051364876407509,
+            1.9949230923731294,
+            2.0795676931997553
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.785173312495291,
+          "target_count": 4608,
+          "upper_bound_fraction": 0.0
+        },
+        "returning_observation_priors": {
+          "coordinate_count": 1024,
+          "empirical_by_coordinate": [
+            0.6275235834357862,
+            0.5085735032913387,
+            0.5155845721379133,
+            0.41802975764820166
+          ],
+          "empirical_squared_residual": 0.5174278541283096,
+          "lower_bound_fraction": 0.0,
+          "mean_error_squared_divided_by_predicted_scale": 0.2642588256343189,
+          "mean_predicted_squared_residual_scale": 1.977992818923667,
+          "predicted_by_coordinate": [
+            1.8002257836051285,
+            1.9993784078396857,
+            2.0082321814261377,
+            2.1041349028237164
+          ],
+          "ratio_mean_predicted_to_mean_empirical": 3.822741282948352,
+          "target_count": 256,
+          "upper_bound_fraction": 0.0
+        }
+      },
+      "one_step_angle_mse": 0.5250389758513468,
+      "one_step_reward_mse": 0.06870884491251533,
+      "pair": 2,
+      "panel": "dev6",
+      "predictions": {
+        "bytes": 1371586,
+        "path": "runs/reacher-innovation-pilot-v1/attempt/evaluation/pair2-raw/initial/dev6/predictions.pt",
+        "sha256": "475857747b445c2fe59451794dcfceb170244244e1d0e1a457861ad3b3733906"
+      },
+      "primary_recovery_mse": 0.5226849633527834,
+      "recovery_points_per_episode": 2,
+      "stage": "initial",
+      "variant": "raw"
+    }
+  },
+  "gate": {
+    "checks": [
+      {
+        "control": 0.08841068321227173,
+        "left": 0.08840704913116826,
+        "name": "dev6/normalized/age/family_recovery",
+        "passed": false,
+        "ratio": 0.97,
+        "threshold": 0.08575836271590358
+      },
+      {
+        "control": 0.08387114479203689,
+        "left": 0.08425802176515042,
+        "name": "dev6/normalized/age/pair0_recovery",
+        "passed": false,
+        "ratio": 1.0,
+        "threshold": 0.08387114479203689
+      },
+      {
+        "control": 0.08642219844753792,
+        "left": 0.08606206616038589,
+        "name": "dev6/normalized/age/pair1_recovery",
+        "passed": true,
+        "ratio": 1.0,
+        "threshold": 0.08642219844753792
+      },
+      {
+        "control": 0.09493870639724038,
+        "left": 0.09490105946796845,
+        "name": "dev6/normalized/age/pair2_recovery",
+        "passed": true,
+        "ratio": 1.0,
+        "threshold": 0.09493870639724038
+      },
+      {
+        "control": 0.08845877751968734,
+        "left": 0.08840704913116826,
+        "name": "dev6/normalized/raw/family_recovery",
+        "passed": false,
+        "ratio": 0.97,
+        "threshold": 0.08580501419409671
+      },
+      {
+        "control": 0.08421975043954301,
+        "left": 0.08425802176515042,
+        "name": "dev6/normalized/raw/pair0_recovery",
+        "passed": false,
+        "ratio": 1.0,
+        "threshold": 0.08421975043954301
+      },
+      {
+        "control": 0.08607468431125304,
+        "left": 0.08606206616038589,
+        "name": "dev6/normalized/raw/pair1_recovery",
+        "passed": true,
+        "ratio": 1.0,
+        "threshold": 0.08607468431125304
+      },
+      {
+        "control": 0.09508189780826601,
+        "left": 0.09490105946796845,
+        "name": "dev6/normalized/raw/pair2_recovery",
+        "passed": true,
+        "ratio": 1.0,
+        "threshold": 0.09508189780826601
+      },
+      {
+        "control": 0.0884359283533615,
+        "left": 0.08840704913116826,
+        "name": "dev6/normalized/constant/family_recovery",
+        "passed": true,
+        "ratio": 1.0,
+        "threshold": 0.0884359283533615
+      },
+      {
+        "control": 0.03979495950995289,
+        "left": 0.039875369207185256,
+        "name": "dev6/normalized/age/one_step_angle_mse",
+        "passed": true,
+        "ratio": 1.02,
+        "threshold": 0.04059085870015195
+      },
+      {
+        "control": 0.007578525429892675,
+        "left": 0.007573232178930384,
+        "name": "dev6/normalized/age/one_step_reward_mse",
+        "passed": true,
+        "ratio": 1.05,
+        "threshold": 0.00795745170138731
+      },
+      {
+        "control": 0.03988215325735039,
+        "left": 0.039875369207185256,
+        "name": "dev6/normalized/raw/one_step_angle_mse",
+        "passed": true,
+        "ratio": 1.02,
+        "threshold": 0.040679796322497394
+      },
+      {
+        "control": 0.00757129655505511,
+        "left": 0.007573232178930384,
+        "name": "dev6/normalized/raw/one_step_reward_mse",
+        "passed": true,
+        "ratio": 1.05,
+        "threshold": 0.007949861382807866
+      },
+      {
+        "control": 0.09124655664754495,
+        "left": 0.09113548414101817,
+        "name": "dev10/normalized/age/family_recovery",
+        "passed": false,
+        "ratio": 0.97,
+        "threshold": 0.0885091599481186
+      },
+      {
+        "control": 0.08582074314404012,
+        "left": 0.08637225787446466,
+        "name": "dev10/normalized/age/pair0_recovery",
+        "passed": false,
+        "ratio": 1.0,
+        "threshold": 0.08582074314404012
+      },
+      {
+        "control": 0.08980886953177085,
+        "left": 0.08930297072042173,
+        "name": "dev10/normalized/age/pair1_recovery",
+        "passed": true,
+        "ratio": 1.0,
+        "threshold": 0.08980886953177085
+      },
+      {
+        "control": 0.09811005726682392,
+        "left": 0.09773122382816814,
+        "name": "dev10/normalized/age/pair2_recovery",
+        "passed": true,
+        "ratio": 1.0,
+        "threshold": 0.09811005726682392
+      },
+      {
+        "control": 0.09116461417311233,
+        "left": 0.09113548414101817,
+        "name": "dev10/normalized/raw/family_recovery",
+        "passed": false,
+        "ratio": 0.97,
+        "threshold": 0.08842967574791896
+      },
+      {
+        "control": 0.08630797281381078,
+        "left": 0.08637225787446466,
+        "name": "dev10/normalized/raw/pair0_recovery",
+        "passed": false,
+        "ratio": 1.0,
+        "threshold": 0.08630797281381078
+      },
+      {
+        "control": 0.08932512529509662,
+        "left": 0.08930297072042173,
+        "name": "dev10/normalized/raw/pair1_recovery",
+        "passed": true,
+        "ratio": 1.0,
+        "threshold": 0.08932512529509662
+      },
+      {
+        "control": 0.0978607444104296,
+        "left": 0.09773122382816814,
+        "name": "dev10/normalized/raw/pair2_recovery",
+        "passed": true,
+        "ratio": 1.0,
+        "threshold": 0.0978607444104296
+      },
+      {
+        "control": 0.09130301981070565,
+        "left": 0.09113548414101817,
+        "name": "dev10/normalized/constant/family_recovery",
+        "passed": true,
+        "ratio": 1.0,
+        "threshold": 0.09130301981070565
+      },
+      {
+        "control": 0.04757094595716448,
+        "left": 0.04765842464582196,
+        "name": "dev10/normalized/age/one_step_angle_mse",
+        "passed": true,
+        "ratio": 1.02,
+        "threshold": 0.048522364876307775
+      },
+      {
+        "control": 0.007819932574983748,
+        "left": 0.007813204884960208,
+        "name": "dev10/normalized/age/one_step_reward_mse",
+        "passed": true,
+        "ratio": 1.05,
+        "threshold": 0.008210929203732936
+      },
+      {
+        "control": 0.047667119369991795,
+        "left": 0.04765842464582196,
+        "name": "dev10/normalized/raw/one_step_angle_mse",
+        "passed": true,
+        "ratio": 1.02,
+        "threshold": 0.04862046175739163
+      },
+      {
+        "control": 0.0078121188654911855,
+        "left": 0.007813204884960208,
+        "name": "dev10/normalized/raw/one_step_reward_mse",
+        "passed": true,
+        "ratio": 1.05,
+        "threshold": 0.008202724808765745
+      },
+      {
+        "control": 0.48616571358559857,
+        "left": 0.08425802176515042,
+        "name": "dev6/normalized/pair0/initial_learning",
+        "passed": true,
+        "ratio": 0.9,
+        "threshold": 0.4375491422270387
+      },
+      {
+        "control": 0.525850673665696,
+        "left": 0.08606206616038589,
+        "name": "dev6/normalized/pair1/initial_learning",
+        "passed": true,
+        "ratio": 0.9,
+        "threshold": 0.47326560629912645
+      },
+      {
+        "control": 0.5226736169525816,
+        "left": 0.09490105946796845,
+        "name": "dev6/normalized/pair2/initial_learning",
+        "passed": true,
+        "ratio": 0.9,
+        "threshold": 0.4704062552573235
+      }
+    ],
+    "checks_passed": 21,
+    "failed_names": [
+      "dev6/normalized/age/family_recovery",
+      "dev6/normalized/age/pair0_recovery",
+      "dev6/normalized/raw/family_recovery",
+      "dev6/normalized/raw/pair0_recovery",
+      "dev10/normalized/age/family_recovery",
+      "dev10/normalized/age/pair0_recovery",
+      "dev10/normalized/raw/family_recovery",
+      "dev10/normalized/raw/pair0_recovery"
+    ],
+    "interpretation": "All4 family superiority checks miss the required3% recovery improvement. Pair0 is worse than both age/raw in each panel; the other8 paired nonworse checks pass. Constant-family, one-step-regression and all3 own-initial-learning checks pass.",
+    "passed": false,
+    "total_checks": 29
+  },
+  "learning_vs_initial": {
+    "age/dev10": {
+      "final": 0.09124655664754495,
+      "initial": 0.5141656128083066,
+      "pair_percent_reduction": [
+        82.54844585566127,
+        82.78780775204841,
+        81.45214984649577
+      ],
+      "percent_reduction": 82.25346962641707
+    },
+    "age/dev6": {
+      "final": 0.08841068321227173,
+      "initial": 0.5119580994514902,
+      "pair_percent_reduction": [
+        82.7859777071972,
+        83.568075884746,
+        81.83713406172829
+      ],
+      "percent_reduction": 82.7308751815833
+    },
+    "constant/dev10": {
+      "final": 0.09130301981070565,
+      "initial": 0.5141997278687646,
+      "pair_percent_reduction": [
+        82.58179167911268,
+        82.76518274006291,
+        81.4147506847753
+      ],
+      "percent_reduction": 82.24366625219058
+    },
+    "constant/dev6": {
+      "final": 0.0884359283533615,
+      "initial": 0.5119875820814821,
+      "pair_percent_reduction": [
+        82.80321576828796,
+        83.55628924698799,
+        81.82131659879586
+      ],
+      "percent_reduction": 82.72693880702617
+    },
+    "normalized/dev10": {
+      "final": 0.09113548414101817,
+      "initial": 0.5138488091645945,
+      "pair_percent_reduction": [
+        82.40633251448526,
+        82.88290641549393,
+        81.5218042920244
+      ],
+      "percent_reduction": 82.26414413819806
+    },
+    "normalized/dev6": {
+      "final": 0.08840704913116826,
+      "initial": 0.5115633347346255,
+      "pair_percent_reduction": [
+        82.66886795785626,
+        83.63374424141197,
+        81.84315098564116
+      ],
+      "percent_reduction": 82.71825927926801
+    },
+    "raw/dev10": {
+      "final": 0.09116461417311233,
+      "initial": 0.5136750039096537,
+      "pair_percent_reduction": [
+        82.40166933771383,
+        82.87784878141579,
+        81.49726934410343
+      ],
+      "percent_reduction": 82.25247218976095
+    },
+    "raw/dev6": {
+      "final": 0.08845877751968734,
+      "initial": 0.5113474384249392,
+      "pair_percent_reduction": [
+        82.6546540807221,
+        83.63009954972578,
+        81.80894717185674
+      ],
+      "percent_reduction": 82.7008466509269
+    }
+  },
+  "limits": [
+    "All development episodes come from the original training corpus; ten-gap inputs censor additional previously visible packets on the same off-policy trajectories, not a fresh native rollout.",
+    "Three fits are descriptive paired replicates. No significance test, new bootstrap draw, fit selection, early stopping or posthoc threshold change was performed.",
+    "Residual scale head estimates bounded per-coordinate residual second moments, including mean bias; it is not a standard deviation, full covariance or Gaussian coverage claim on the cosine/sine manifold.",
+    "All normalized visible-target bound-hit fractions are zero; this rules out direct saturation at the declared bounds in these predictions, not underfitting or optimization limitations.",
+    "Predicted scales fell from initialization, but these saved outputs alone cannot determine whether variance-head parameters changed, establish convergence, or show that scale error caused the primary gate result.",
+    "No gradients, Adam transitions or numerical neural forwards were replayed. All scientific inputs remain unchanged; only the review JSON is new."
+  ],
+  "normalized_primary_effects": {
+    "normalized-vs-age/dev10": {
+      "absolute_reduction": 0.00011107250652678258,
+      "control": 0.09124655664754495,
+      "normalized": 0.09113548414101817,
+      "pair_percent_reduction": [
+        -0.6426356964759558,
+        0.563306067637507,
+        0.3861310952306318
+      ],
+      "percent_reduction": 0.12172788827069789
+    },
+    "normalized-vs-age/dev6": {
+      "absolute_reduction": 3.6340811034735188e-06,
+      "control": 0.08841068321227173,
+      "normalized": 0.08840704913116826,
+      "pair_percent_reduction": [
+        -0.46127541727588345,
+        0.41671271226760065,
+        0.039653931152594565
+      ],
+      "percent_reduction": 0.0041104547227038
+    },
+    "normalized-vs-constant/dev10": {
+      "absolute_reduction": 0.00016753566968748246,
+      "control": 0.09130301981070565,
+      "normalized": 0.09113548414101817,
+      "pair_percent_reduction": [
+        -0.8110696619122277,
+        0.6958896778915918,
+        0.5815747100525791
+      ],
+      "percent_reduction": 0.18349411666210652
+    },
+    "normalized-vs-constant/dev6": {
+      "absolute_reduction": 2.8879222193245457e-05,
+      "control": 0.0884359283533615,
+      "normalized": 0.08840704913116826,
+      "pair_percent_reduction": [
+        -0.5433170979032654,
+        0.48958562807556627,
+        0.12474437066250756
+      ],
+      "percent_reduction": 0.032655531220131914
+    },
+    "normalized-vs-raw/dev10": {
+      "absolute_reduction": 2.9130032094162872e-05,
+      "control": 0.09116461417311233,
+      "normalized": 0.09113548414101817,
+      "pair_percent_reduction": [
+        -0.07448333978665204,
+        0.024802175873470177,
+        0.1323519282852149
+      ],
+      "percent_reduction": 0.031953222594512276
+    },
+    "normalized-vs-raw/dev6": {
+      "absolute_reduction": 5.1728388519078905e-05,
+      "control": 0.08845877751968734,
+      "normalized": 0.08840704913116826,
+      "pair_percent_reduction": [
+        -0.04544222157827638,
+        0.014659537781766208,
+        0.19019218638464674
+      ],
+      "percent_reduction": 0.0584773947475888
+    }
+  },
+  "normalized_scale_diagnostics": {
+    "dev10": {
+      "all_visible_targets": {
+        "empirical_squared_residual": 0.04765842464582196,
+        "lower_bound_fraction": 0.0,
+        "mean_error_squared_divided_by_predicted_scale": 0.0616327976312738,
+        "mean_predicted_squared_residual_scale": 0.6975864532089973,
+        "ratio_family_mean_predicted_to_family_mean_empirical": 14.637211749930389,
+        "upper_bound_fraction": 0.0
+      },
+      "other_visible_targets": {
+        "empirical_squared_residual": 0.028394896196878124,
+        "lower_bound_fraction": 0.0,
+        "mean_error_squared_divided_by_predicted_scale": 0.03869877008545892,
+        "mean_predicted_squared_residual_scale": 0.6856969924095514,
+        "ratio_family_mean_predicted_to_family_mean_empirical": 24.148600074295757,
+        "upper_bound_fraction": 0.0
+      },
+      "returning_observation_priors": {
+        "empirical_squared_residual": 0.31734782293103564,
+        "lower_bound_fraction": 0.0,
+        "mean_error_squared_divided_by_predicted_scale": 0.38270918327268216,
+        "mean_predicted_squared_residual_scale": 0.8640389044012409,
+        "ratio_family_mean_predicted_to_family_mean_empirical": 2.7226873542756564,
+        "upper_bound_fraction": 0.0
+      }
+    },
+    "dev6": {
+      "all_visible_targets": {
+        "empirical_squared_residual": 0.039875369207185256,
+        "lower_bound_fraction": 0.0,
+        "mean_error_squared_divided_by_predicted_scale": 0.052516634572072646,
+        "mean_predicted_squared_residual_scale": 0.7071715847743785,
+        "ratio_family_mean_predicted_to_family_mean_empirical": 17.73454638375991,
+        "upper_bound_fraction": 0.0
+      },
+      "other_visible_targets": {
+        "empirical_squared_residual": 0.028507596883181805,
+        "lower_bound_fraction": 0.0,
+        "mean_error_squared_divided_by_predicted_scale": 0.03844468757958503,
+        "mean_predicted_squared_residual_scale": 0.7016117020132326,
+        "ratio_family_mean_predicted_to_family_mean_empirical": 24.61139410972771,
+        "upper_bound_fraction": 0.0
+      },
+      "returning_observation_priors": {
+        "empirical_squared_residual": 0.2444952710392473,
+        "lower_bound_fraction": 0.0,
+        "mean_error_squared_divided_by_predicted_scale": 0.30581168043684964,
+        "mean_predicted_squared_residual_scale": 0.8072494744750051,
+        "ratio_family_mean_predicted_to_family_mean_empirical": 3.3016977017335534,
+        "upper_bound_fraction": 0.0
+      }
+    }
+  },
+  "reportable_claims": [
+    "All12 fits and48 initial/final development evaluations completed in one recorded attempt. Independent saved-output audit passed completeness; the prospective development continuation gate FAILED21/29.",
+    "All four gate families learned much better recovery predictions than their own initializations, but normalized gating did not establish the specified improvement over simpler gates.",
+    "Normalized family recovery advantages over age/raw are tiny (under0.13% in both panels), not the required3%, and pair0 is slightly worse in both comparisons and panels.",
+    "The predicted diagonal residual scales substantially exceed empirical squared residuals on the same visible-target development samples. This is observable marginal scale overprediction; it does not identify the cause of the failed gate or establish conditional calibration.",
+    "No current finding establishes native control improvement, untouched-test performance, biological or Bayesian superiority, or an ICLR novelty claim."
+  ],
+  "scope": "Independent saved-output development result review; no learned inference, training, optimizer or native calls",
+  "status": "reviewed",
+  "timing": {
+    "recorded_audit_helper_seconds": 0.8847017909865826,
+    "recorded_audit_outer_seconds": 1.4290671250782907,
+    "recorded_child_seconds": 99.08824512502179,
+    "recorded_pilot_outer_seconds": 100.60642595891841,
+    "review_seconds_before_write": 0.38276833295822144
+  },
+  "verification": {
+    "all_manifest_members_rehashed": {
+      "execution": {
+        "bytes": 97534533,
+        "members": 281
+      },
+      "protocol": {
+        "bytes": 5943529,
+        "members": 148
+      }
+    },
+    "audit_exit_code": 0,
+    "audit_functions_imported": false,
+    "episode_primary_metrics_recomputed": 6144,
+    "final_prediction_rows_recomputed": 24,
+    "initial_prediction_rows_recomputed": 24,
+    "max_primary_episode_difference_from_audit": 0.0,
+    "max_primary_fit_mean_difference_from_audit": 0.0,
+    "new_model_calls": 0,
+    "new_native_calls": 0,
+    "new_optimizer_steps": 0,
+    "no_retry_declared": true,
+    "pilot_exit_code": 0,
+    "source_count_rehashed": 136,
+    "source_mismatches": []
+  }
+}

@@ -1,8 +1,10 @@
 # Prediction-error memory updates: prototype
 
-**Status:** the model, loss and small synthetic integration checks are complete.
-Scientific training, controller integration, speed and effectiveness remain
-unmeasured. The current two-observation study is unchanged.
+**Status:** the model, loss and synthetic integration checks are complete. The
+[twelve-fit development pilot](../../research/reacher-innovation-pilot.md) has
+now finished: 21/29 checks passed, and the normalized-error gate failed its
+continuation rule. Controller integration and comparative speed remain
+unmeasured. The separate two-observation study is unchanged.
 
 The question is whether prediction error helps decide when to update slow
 memory after sensing returns, beyond knowing the elapsed observation gap.
