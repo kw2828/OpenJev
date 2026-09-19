@@ -4,6 +4,10 @@ Completed studies, including failures and controls. A passing implementation che
 
 ## Complete experiment list
 
+- [Candidate-conditioned dialogue encoding cost screen](dialogue-joint-capacity-results.md): a valid **512-text** probe projects **20.91 minutes**, exceeding the fixed **12-minute** admission limit. Disk projection passes at 1.74 GiB. Independent audit confirms the stop; no full encoding, training or new accuracy result. [Shared-token follow-up design](dialogue-token-evidence-design.md).
+
+[![Measured capacity probe and projected full cost, with the unchanged admission thresholds](../output/dialogue-joint-v1/figure/capacity.png)](dialogue-joint-capacity-results.md)
+
 - [Corrected candidate dialogue memory](dialogue-copy-v2-results.md): **15 fresh fits**, valid internal probabilities, independently audited **7/13** scientific checks passed. Selective unseen macro remains **72.89%**, versus scalar's **72.58%**; the proposed mechanism still fails. The numerical correction changes no continuation decision. All **56,202,005** executed question positions passed each state-normalization check.
 
 [![All fifteen corrected candidate-memory fits](../output/dialogue-copy-v2/report-01/comparison.png)](dialogue-copy-v2-results.md)
