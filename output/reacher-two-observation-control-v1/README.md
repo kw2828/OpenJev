@@ -1,6 +1,6 @@
 # Two-observation control: implementation status
 
-The completed [memory comparison](../../research/reacher-geometry-memory.md) passed its 25 continuation checks. This follow-up asks whether two recent valid observations and the intervening issued actions explain the persistent model's advantage. **The follow-up has not been trained or scored.**
+The completed [memory comparison](../../research/reacher-geometry-memory.md) passed its 25 continuation checks. This follow-up asks whether two recent valid observations and the intervening issued actions explain the persistent model's advantage. **The scientific follow-up has not been trained or scored.**
 
 The [prospective design](../reacher-geometry-memory-v1/history-control-design.md) was written before the preceding comparison's results were reviewed. It keeps the original GRU64 parameter schema, data, initial tensors, minibatch orders, loss and update count. The new model reconstructs its state from a bounded public history at every real observation. Every reconstruction pays for all twelve observation updates and eleven transitions, including padding.
 
@@ -28,12 +28,18 @@ These component checks include hand-built histories, tiny training fixtures and 
 
 A retained [tiny integration](training-integration-attempt-01/completed.json) completed all three fits, serialization and independent saved-training audits in 0.96 seconds. Each fit made four real optimizer updates. The fits intentionally reused the same synthetic seed410 tensors and orders; they are not independent training replicates. All saved files were hash-checked and all 90 frozen scientific sources remained unchanged. No native control or scientific evaluation occurred. [Driver](integrate_training.py) · [Process exit](training-integration-attempt-01/process.json).
 
+## Complete engineering rehearsal
+
+The [retained rehearsal](../reacher-two-observation-rehearsal-v1/attempt-01/review.md) completed preparation, three tiny fits, all 42 control rows and the independent saved-output audit in 113.98 seconds. All three subprocesses exited successfully. The audit replayed 1,232,886 simulator transitions plus 4,851 observer transitions with zero error. All 8,119 execution payloads and 116 source files passed hash checks. The [qualification receipt](../reacher-two-observation-rehearsal-v1/attempt-01/qualification.json) binds the complete locally retained artifacts and actual process exits.
+
+This used four-dimensional models, one case per panel and two updates per new fit. Its diagnostic gate passed 14 of 25 checks and failed overall; that result does not test scientific superiority. Full-size capacity measurement and a separate scientific freeze remain pending. The [as-run driver](run_rehearsal.py) is preserved unchanged.
+
 ## Proposed experiment
 
 Train three new history models from the three authenticated original initializations. Retain the three persistent and three single-observation GRUs as paired references. Evaluate all nine models and five reference controllers on the same fresh 64 cases in full sensing, six-step gaps and ten-step gaps: 42 rows in total.
 
 The proposed rule requires persistent memory to improve mean cost by at least 3% against both learned controls on both gap panels, lose no paired fit comparison, degrade full-sensing means by no more than 2%, and pass the declared zero-action competence checks. All 25 checks must pass. A failed superiority check does not prove equivalence or show that short history explains the earlier result.
 
-Before scientific fitting, finish the [study integration](study-integration-map.md), authenticate the inherited inputs and all source dependencies, verify fresh random streams, and complete a retained rehearsal and capacity measurement. Freeze the executable protocol and measured limits separately from the current prospective definitions. The existing 90 frozen scientific sources remain unchanged.
+The [study integration](study-integration-map.md) and retained rehearsal are complete. Before scientific fitting, measure full-size capacity, then freeze the executable protocol, authenticated inputs, fresh random streams and measured limits separately from the current prospective definitions. The existing 90 frozen scientific sources remain unchanged.
 
 This tests a stronger conventional control. It does not by itself test biological wiring, Bayesian inference, a new architecture or transfer to another environment.

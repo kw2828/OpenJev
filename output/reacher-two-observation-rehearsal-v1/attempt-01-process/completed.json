@@ -1,0 +1,38 @@
+{
+  "engineering": true,
+  "limits": "Actual full-tree engineering integration; no scientific performance result.",
+  "phases": [
+    {
+      "command": [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv-robotics/bin/python",
+        "-c",
+        "from reacher_two_observation_fixture import prepare_fixture; prepare_fixture('/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/reacher-two-observation-rehearsal-v1/attempt-01',cap_seconds=600,audit_cap_seconds=600)"
+      ],
+      "exit_code": 0,
+      "phase": "prepare",
+      "wall_seconds": 4.783465832937509
+    },
+    {
+      "command": [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv-robotics/bin/python",
+        "-c",
+        "from pathlib import Path; import json; from reacher_two_observation_fixture import HistoryFixture,run_fixture; p=Path('/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/reacher-two-observation-rehearsal-v1/attempt-01'); d=json.loads((p/'preparation-completed.json').read_text())['plan_sha256']; run_fixture(HistoryFixture(p,p/'plan.json',d,p/'execution'))"
+      ],
+      "exit_code": 0,
+      "phase": "execution",
+      "wall_seconds": 73.24475475004874
+    },
+    {
+      "command": [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv-robotics/bin/python",
+        "-c",
+        "from pathlib import Path; import json; from reacher_two_observation_fixture import HistoryFixture,audit_fixture; p=Path('/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/reacher-two-observation-rehearsal-v1/attempt-01'); d=json.loads((p/'preparation-completed.json').read_text())['plan_sha256']; audit_fixture(HistoryFixture(p,p/'plan.json',d,p/'execution'),p/'audit')"
+      ],
+      "exit_code": 0,
+      "phase": "audit",
+      "wall_seconds": 35.94727895804681
+    }
+  ],
+  "status": "completed",
+  "wall_seconds": 113.97759962501004
+}

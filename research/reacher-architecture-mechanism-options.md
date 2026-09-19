@@ -4,8 +4,8 @@
 now establishes a persistent-policy advantage over the trained current-packet
 and single-observation controls. The supplied public-kinematic controller still
 performs better. The [two-observation learned control](../output/reacher-two-observation-control-v1/README.md)
-is implemented and has passed tiny fit/audit integration; its full comparison
-has not run. The original mechanism review below remains a proposal, with no
+is implemented and has passed a complete tiny engineering rehearsal, including
+all 42 control rows and independent audit. Its scientific comparison has not run. The original mechanism review below remains a proposal, with no
 biological or architectural efficacy claim.
 
 Decision note, September 18, 2026. **Proposed, unfrozen and unrun.** This review
