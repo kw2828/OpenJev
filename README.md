@@ -66,6 +66,10 @@ Open **http://127.0.0.1:8000**. Local text scoring uses Qwen3-4B; the free brows
 
 ## More experiments
 
+- [Recurrent expert coordination](research/pose-coordination-results.md): nine new selector fits completed. The recurrent and summary selectors put about **97% weight on the GRU** in both robot archives. Recurrence shows no advantage and costs more. **1/17 requirements pass**. Saved training forecasts reveal that expert rankings change outside their training examples.
+
+[![Two frozen experts, fixed combinations and all nine learned selector fits](output/pose-coordination-v1/visualization-01/physical-errors.png)](research/pose-coordination-results.md)
+
 - [Recency and robust adaptation](research/pose-support-results.md): with the same trained weights, position error falls **36.6% / 15.4%** versus no adaptation. Plain rotation improves; zigzag rotation regresses **7.6%**. Recent-five explains most of the position gain. **5/17 requirements pass**, so no new architecture advantage is established.
 
 [![Recency, robust updates and controls with equal total support weight](output/pose-support-v1/visualization-01/physical-errors.png)](research/pose-support-results.md)
