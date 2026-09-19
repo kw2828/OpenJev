@@ -1,6 +1,7 @@
-"""Byte-only capacity driver checks. No Torch, NumPy, model or native calls."""
+"""Byte fixtures and real import resolution; no model, optimizer or native work."""
 from __future__ import annotations
 
+import ast
 import copy
 import importlib.util
 import sys
@@ -12,6 +13,38 @@ import pytest
 spec = importlib.util.spec_from_file_location("two_observation_capacity_probe", Path(__file__).with_name("capacity_probe.py"))
 probe = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(probe)
+
+
+def test_all_function_scope_imports_resolve_without_numerical_work(monkeypatch):
+    import gymnasium
+    import mujoco
+    import numpy as np
+    import torch
+
+    def forbidden(*args, **kwargs):
+        pytest.fail("Import resolution must not construct models/optimizers/environments or draw samples")
+
+    monkeypatch.syspath_prepend(str(probe.ROOT / "scripts"))
+    monkeypatch.setattr(torch.nn.Module, "__init__", forbidden)
+    monkeypatch.setattr(torch.optim.Optimizer, "__init__", forbidden)
+    monkeypatch.setattr(torch, "manual_seed", forbidden)
+    monkeypatch.setattr(torch, "randperm", forbidden)
+    monkeypatch.setattr(np.random, "default_rng", forbidden)
+    monkeypatch.setattr(gymnasium, "make", forbidden)
+    monkeypatch.setattr(mujoco, "MjData", forbidden)
+    monkeypatch.setattr(mujoco, "mj_step", forbidden)
+    tree = ast.parse(Path(probe.__file__).read_text())
+    statements = [node for function in tree.body if isinstance(function, ast.FunctionDef)
+                  for node in ast.walk(function) if isinstance(node, (ast.Import, ast.ImportFrom))]
+    assert len(statements) == 15
+    namespace = {}
+    for node in statements:
+        # Execute the actual import AST only, never any enclosing function.
+        exec(compile(ast.Module(body=[node], type_ignores=[]), probe.__file__, "exec"), namespace)  # noqa: S102
+    assert namespace["GRUResidualRewardWorldModel"].__module__ == "openjev.research.reacher_reward_residual"
+    assert callable(namespace["runner"].reference_control)
+    assert callable(namespace["audit"].audit_history_control)
+    assert callable(namespace["audit"].audit_reference_control)
 
 
 def rehearsal(tmp_path, monkeypatch):

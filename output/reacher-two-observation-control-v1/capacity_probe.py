@@ -220,8 +220,8 @@ def _measure(root, out, binding, deadline, progress):
     from openjev.research.reacher_cached_observation import CachedObservationGRUWorldModel
     from openjev.research.reacher_memory_training import make_orders
     from openjev.research.reacher_objective_training import canonical_state_hash, canonical_tensor_hash
+    from openjev.research.reacher_reward_residual import GRUResidualRewardWorldModel
     from openjev.research.reacher_two_observation_history import TwoObservationHistoryGRUWorldModel
-    from openjev.research.reacher_world_models import GRUResidualRewardWorldModel
 
     runner = _imports(root)
     settings = protocol.settings(engineering=True)
