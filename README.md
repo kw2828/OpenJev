@@ -66,7 +66,7 @@ Open **http://127.0.0.1:8000**. Local text scoring uses Qwen3-4B; the free brows
 
 ## More experiments
 
-- [Planning diagnostic](research/reacher-common-root-diagnostic.md): a longer horizon lowered mean branch cost by 7.33%, but missed the consistency rule; accurate dynamics gained 2.51%. All three comparisons failed, so this tracking setup is closed. [Earlier plan-memory test](research/reacher-proposal-memory.md).
+- [Planning diagnostic](research/reacher-common-root-diagnostic.md): a longer horizon lowered mean branch cost by 7.33%, but missed the consistency rule; accurate dynamics lowered selected branch cost by 2.51%. All three comparisons failed, so this tracking setup is closed. [Earlier plan-memory test](research/reacher-proposal-memory.md).
 - [Error-gated memory pilot](research/reacher-innovation-pilot.md): twelve fits learned, but normalized-error gating failed its continuation rule (21/29 checks). Its gain over age-only gating was below 0.13%.
 - [Earlier robot reward-prediction study](research/reacher-reward-residual-control.md): 9/17 continuation checks passed. [Biological learning and JEPA follow-up](research/connectome-learning-program.md).
 - [Chess action-outcome supervision](docs/chess-continuation.md): nine fits and 192 games; no established gameplay improvement.

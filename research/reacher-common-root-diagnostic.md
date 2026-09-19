@@ -1,6 +1,6 @@
 # What limits the tracking controller?
 
-**Longer planning helped on average, but none of the three comparisons met its continuation rule.** A 24-step horizon lowered native branch cost by **7.33%** versus two 12-step search restarts. It was nonworse on only **7 of 12** state slots, below the required eight. Correct dynamics improved candidate ranking by **2.51%**, below the required 3%. We are closing this task/controller configuration as evidence for learned adaptation.
+**Longer planning helped on average, but none of the three comparisons met its continuation rule.** A 24-step horizon lowered native branch cost by **7.33%** versus two 12-step search restarts. It was nonworse on only **7 of 12** state slots, below the required eight. Correct-gain scoring lowered selected native branch cost by **2.51%**, below the required 3%. We are closing this task/controller configuration as evidence for learned adaptation.
 
 ![All twelve state slots and three fixed planning comparisons](../output/reacher-common-root-diagnostic-v1/review-01/figure.png)
 
