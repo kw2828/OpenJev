@@ -1,6 +1,6 @@
 # Does persistent memory help once scoring is held constant?
 
-**Status: frozen, execution started, no scientific result yet.** The protocol was pushed before evaluation. Results require the complete independent audit; partial rows will not be used to select methods or change thresholds.
+**Status: execution complete; independent audit running. No scientific result yet.** All 51 comparisons finished in 2,109.2 seconds, within the fixed 5,700-second execution limit. The protocol was pushed before evaluation. Results require the complete independent audit; partial rows have not been used to select methods or change thresholds.
 
 The [completed geometry intervention](reacher-geometry-score.md) improved control with unchanged model weights. This next experiment tests the already-trained memory controls under that same scoring rule.
 
@@ -21,8 +21,11 @@ Execution has a fixed 5,700-second limit; independent audit has a separate 3,300
 
 Even a pass would not establish a novel architecture or biological advantage. A stronger explicit history baseline remains necessary. Conditional case intervals also do not quantify uncertainty over new training datasets or training-seed populations.
 
+That [stronger history component](../output/reacher-two-observation-control-v1/integration-review.md) is now prepared with 49 passing synthetic tests. It reconstructs the same GRU from the last two valid observations and intervening issued actions. It has not been fitted or evaluated; a future study remains conditional on the current comparison and needs its own frozen protocol and capacity checks.
+
 - [Frozen protocol](../evidence/reacher-geometry-memory-v1/protocol/plan.json)
 - [Readiness receipt](../evidence/reacher-geometry-memory-v1/protocol/readiness.json)
 - [Independent freeze review](../output/reacher-geometry-memory-v1/freeze-review.md)
 - [Capacity measurements and limits](../output/reacher-geometry-memory-v1/readiness-review.md)
 - [Launch receipt](../evidence/reacher-geometry-memory-v1/launch.json)
+- [Execution completion binding and independent audit launch](../evidence/reacher-geometry-memory-v1/audit-launch.json)
