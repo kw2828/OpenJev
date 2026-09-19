@@ -1,6 +1,21 @@
 # Learning mechanisms for the next OpenJev experiments
 
-Updated September 18, 2026. The completed
+Updated September 18, 2026. The latest
+[fixed-geometry memory comparison](reacher-geometry-memory.md) passed all 25
+continuation checks. Persistent GRU reduced control cost by 31.9%/26.0% against
+the trained single-observation GRU on six-step/ten-step sensing gaps. All three
+fit pairs improved, although supplied-physics controllers remain better.
+This establishes a useful trained memory policy in this task, not biological
+superiority or a new architecture.
+
+The next test is the [trained two-observation control](../output/reacher-two-observation-control-v1/README.md).
+It reconstructs state from two actual measurements and the intervening commands
+at every decision. The components and tiny fit/audit integration are checked;
+the full comparison has not run. Complete that control before attributing the
+gain to long memory or adding a biological mechanism. The mechanism proposals
+below remain prospective; they are not results of the latest study.
+
+The earlier completed
 [adaptive-search study](reacher-adaptive-search.md) gives this roadmap a stronger
 control baseline. With unchanged fitted models, residual-family CEM256 lowered
 mean episode cost by **25.48% under ordinary sensing and 25.26% under shifted
@@ -28,7 +43,10 @@ mechanism. It specifies distinct tests of slow context, plastic state and
 state-space recurrence, including the controls needed for a topology claim.
 The [current-observation components](reacher-observation-baseline.md) now provide
 an initialization-identical GRU control and a separate MLP for that future test.
-They have only synthetic engineering checks, with no research fits or scores.
+Those controls were subsequently trained in the
+[cache comparison](reacher-cache-ablation.md), then reused in the completed
+fixed-geometry comparison above. The stronger two-observation control is still
+awaiting its full trained evaluation.
 
 ## What we are borrowing
 
@@ -117,8 +135,9 @@ parameter count does not match gradient strength or total training computation.
 Its 50 synthetic checks pass, alongside 108 existing latent/world-model/residual
 checks. Both components leave the original anchor loss unchanged. Simply
 increasing the original rollout horizon would also change reward supervision
-and terminal weighting, so it is not the matched comparator. No objective
-ablation result has been independently audited yet.
+and terminal weighting, so it is not the matched comparator. The subsequent
+[objective ablation](reacher-objective-ablation.md) completed independent
+auditing and failed its original continuation rule (27/31).
 
 A proposed continuation rule is at least 5% lower native episode cost than both
 controls on fresh ordinary and longer-gap cases, no paired fit worse, and a
