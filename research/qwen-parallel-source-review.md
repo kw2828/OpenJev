@@ -65,9 +65,12 @@ verified unique single-token labels A-L, then returns stable caller IDs. It
 also exposes candidate vocabulary mass and explicitly marks probabilities as
 uncalibrated. Preserve those properties.
 
-The missing optimization is shared-prefix caching and batched independent
-question suffixes. The current API permits one to four questions and runs a
-fresh prefill for each. A new implementation should retain exactly the same
+The production API permits one to four questions and runs a fresh prefill for
+each. A separate [shared-prefix prototype](shared-prefix-results.md) now
+implements caching and batched independent question suffixes. It measured a
+2.08x median paired speedup on four-question synthetic requests; single-question
+caching was slower. The production path remains unchanged. Any integration
+should retain exactly the same
 tokenized prompts where possible, sharing only their actual common token
 prefix. If a new prompt layout is needed, version it and test quality separately
 from the cache optimization. Independent field marginals do not enforce
@@ -82,9 +85,12 @@ supported question counts. Add optimized constrained JSON generation as a
 separate baseline. Do not infer a 5.6-7x OpenJev gain from the upstream card.
 
 The [implementation follow-up](../output/qwen-parallel-followup-review.md)
-specifies four matched methods to separate batching from prefix reuse while
+specified four matched methods to separate batching from prefix reuse while
 preserving the pinned model, candidate vocabulary mass and request timing
-semantics. This benchmark remains proposed, not measured.
+semantics. The [completed benchmark](shared-prefix-results.md) reports all
+four methods, including slower cases and the easy, high-margin workload's
+quality limitations. It does not reproduce the upstream autoregressive-JSON
+comparison or establish calibrated probabilities.
 
 For research, keep choice preference separate from probability of an action's
 outcome. A recurrent world model could forecast the latter, trained and tested
