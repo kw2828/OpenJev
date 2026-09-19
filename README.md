@@ -66,6 +66,8 @@ Open **http://127.0.0.1:8000**. Local text scoring uses Qwen3-4B; the free brows
 
 ## More experiments
 
+- [Action-conditioned robot memory](research/action-filter-results.md): 15 new fits on published simulated-robot data. A linear predictor beat every neural model; the proposed memory had 18.3 times the GRU's forecast error. [Comparison figure](output/action-filter-v1/visualization-01/forecast-results.png). No architecture advantage established.
+
 [![Same memories, better confidence: all five associative families solve every card game](output/card-calibration-v1/visualization-01/calibration.png)](research/card-calibration-results.md)
 
 [![First fixed card game under baseline, calibrated and hard probabilities](output/card-calibration-v1/visualization-01/fixed-public-replay.gif)](research/card-calibration-results.md)

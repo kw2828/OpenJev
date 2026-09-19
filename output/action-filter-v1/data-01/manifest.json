@@ -1,0 +1,212 @@
+{
+  "alignment": "obs[t] to obs[t+1] conditioned on jointAppliedTorques[t]; upstream loader alignment",
+  "excluded": [
+    "pos fourth channel (slope)",
+    "vel",
+    "jointPos",
+    "jointVel",
+    "jointReactionForces"
+  ],
+  "feature_order": [
+    "x",
+    "y",
+    "z",
+    "sin_roll",
+    "sin_pitch",
+    "sin_yaw",
+    "cos_roll",
+    "cos_pitch",
+    "cos_yaw"
+  ],
+  "limits": [
+    "simulated PyBullet robot, not real hardware",
+    "recorded applied torques, not authenticated issued commands",
+    "no terrain-disjoint or independently collected-run claim",
+    "exact whole-trajectory duplicate check only; no proof against shifted overlaps",
+    "no explicit upstream code/data license found; raw and derivative data stay local",
+    "no test outcomes inspected or model/simulator/RNG calls"
+  ],
+  "loaded_keys": [
+    "pos",
+    "orn_euler",
+    "jointAppliedTorques"
+  ],
+  "new_model_calls": 0,
+  "new_native_calls": 0,
+  "normalization": "float64 mean/population std from train raw IDs only; constant std uses scale1; output float32",
+  "shapes": {
+    "dev": {
+      "actions": [
+        9,
+        1749,
+        4
+      ],
+      "obs": [
+        9,
+        1750,
+        9
+      ],
+      "source_ids": [
+        9
+      ]
+    },
+    "test": {
+      "actions": [
+        11,
+        1749,
+        4
+      ],
+      "obs": [
+        11,
+        1750,
+        9
+      ],
+      "source_ids": [
+        11
+      ]
+    },
+    "train": {
+      "actions": [
+        30,
+        1749,
+        4
+      ],
+      "obs": [
+        30,
+        1750,
+        9
+      ],
+      "source_ids": [
+        30
+      ]
+    }
+  },
+  "source": {
+    "bytes": 30162192,
+    "repository_sha": "f4adef0ce5ed4b37c9847973df320f72965bd330",
+    "sha256": "361e6f45b917e9883b004fc90bebaab5d7fa5ca935b1423aac3f2f4fe49d4dc6",
+    "url": "https://raw.githubusercontent.com/ALRhub/HiP-RSSM/f4adef0ce5ed4b37c9847973df320f72965bd330/data/MobileRobot/sin2/ts_002_50x2000_w_grad.npz"
+  },
+  "source_sha256": "0151b75aad2566e0999ddc36330ea2335fcedf7096cf8176e1f18ac99b9a05c4",
+  "split_rule": "upstream test30..40 retained; original training41..49 withheld for development; train0..29",
+  "splits": {
+    "dev": [
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49
+    ],
+    "test": [
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40
+    ],
+    "train": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29
+    ]
+  },
+  "status": "prepared_not_trained",
+  "timing": {
+    "nominal_dt_seconds": 0.002,
+    "source": "upstream frequency500 configuration; no timestamps supplied"
+  },
+  "trajectory_sha256": {
+    "0": "b5826e9ecd4855fe95d1f2336a4555072ca47c589b1755e871197ba979c45476",
+    "1": "220137ef17d5833439aa6911ec9fa19b1d290dbf93c5c8922988f73569fa6b13",
+    "10": "4c3f01bbf36ff178044081ec61e2de95acdebd30e34c72f52140b368df548c53",
+    "11": "15582f69629d5073e81736017cb3c3aca6a19a370fa2bb88c66aec34bc05bb03",
+    "12": "daba409827d287c6af288a6855f61ad2e3d7c369254b81df9a99e4c9dc04dc28",
+    "13": "3d4698bde1ab6fffa34b754d11813ca1083d733905fd41cbb1d6455e3ccbfba8",
+    "14": "9626aee2ab8803f222b740c3b711607085045f5e73d08119f061f9ddf2ca9fc4",
+    "15": "41c41fd6bac5813af8bb016103fc13dd9dc0085dc326acf04362b9ef13e712ec",
+    "16": "7914c7871338b315c1275d55cc9f2a18482dc570b8d694892a9590448573d2e6",
+    "17": "c813ff5ea26ea581d7de74d42edcc9a79cc6f267bab31eb6b4c9077ba79580dd",
+    "18": "9c00f4f4e17cc92771e8c93b1c6a0a0946c0ccf8ff0da103b964264e5285c00c",
+    "19": "5c13568f2b589945cffc1fdde297e7b70813d9af256dc77e19001d626e88b799",
+    "2": "f6f7e5aa747e67e97ef451c8cb178c62a08d70f054c13466286324fd7c0ae52f",
+    "20": "db039500ed807aacfc36b249c74e4bb990400a1ad19d8c367c403941ef10cef6",
+    "21": "d1f72892f2575a537deb4651dd12831889da1484a7e763e92c0d74c07fd6d549",
+    "22": "d266c2eb70f0330bee8aa21892e8f32569cd5555ab42f31abe078078f5f6e445",
+    "23": "b583a98252128e3f39d4cf4edb409596174d290695cb30585a86e6ef04b5916d",
+    "24": "ab76383d21f48dd3c68d73d33f286d3eb5cabb9e3221ccd1b2931284edf7634d",
+    "25": "c9ef47cfde1a2a62b899a628919097ce0e06ddfa445639b885ec808e13531a1b",
+    "26": "25e67306804512e3b475f6b31b14396b237c426b4a9a2423d18b6b6b5e1e136c",
+    "27": "1c709048317073854d9969da3e2c50eb2b7882bf6a6ed8e3ebbdd7a5ccaf19ae",
+    "28": "20b3787a20d978bab8ba3fa4c7b0c75900b58fe0fb993670bd702061a3398b6a",
+    "29": "15bd5471c442b12625c8ffc0d6cc7b949c33b96324f8e8518aedd5a3693fac5e",
+    "3": "ba3b4eba10623b07a41a9ebfe5fcf178a562ff225a96014e56dfa5e11115c262",
+    "30": "257d6a9b1742d4afe1f0fbd21d38501cd380816534d1bf17df65a97712014491",
+    "31": "b836490d50325b0302a128a7a234d30ac1b421a2a0aeab1a3d86a044910dc7ad",
+    "32": "a3ea9c14bbf637c459fbbe09388ac2efde93afd07b123b549822f50e95732698",
+    "33": "3bec95552e9f280aa92df385b7bf809cfbbb355389db2b960ab7cc9aca742aa7",
+    "34": "db99a0390ae7e230e8dc8488b8102fe56200e1df868b193d960b98c184387611",
+    "35": "7d2a8bf229a6667fd455040c53aaea654cfcb0656d4970d5ed40c3fe231e81f7",
+    "36": "50f7309c06466cc24b624c2c6be25e70b76a192e2e2674c0ce0a01159eef903a",
+    "37": "d42b849b6e7dffb5220f6dcba9c0ea6e598dd9bc20e9aa04dff789c464fe28a4",
+    "38": "34a9f18ebb2423b6d7adfde0a0d72a93f3fc7f59c977684590e2561aaefcc0ff",
+    "39": "ed14c09135a6a13c678f978af4e879283427142e4166fee5e0ba6b2db75dd140",
+    "4": "40f8e8b2caeb9312ea63950a416185ac268cf1e6a8ea065a910919d7c99c2dbf",
+    "40": "c6c7c4dedd3b3705fdc5c9d70e972514c8da6241d0fd4d215d99b4afec50fcc7",
+    "41": "d14e37b01227c16a53cb0c4142ade1c08efe65be23c0cbd5ffb6a631fb219ac5",
+    "42": "1c354fa097f9d05d011966afc70490cc38419e955b836a9cfa93a2471546226d",
+    "43": "9a97d5c5f8d71afa519d0993f183409daa05980c659e61c6bef12b7fce0012e1",
+    "44": "46956ee76f9844bdb82ad0754d721400c1caab5b69d9fb0ad0839618b134c5d1",
+    "45": "bc91070f8fd532cf6ae063013edcbaaa0507b732d1b95a3e2f38b0538a01222b",
+    "46": "1bb6eae5896ead761674206a7f906e94d4ffa35cf9eda6b4b107213e25bc7df7",
+    "47": "2e5f987155708423ddc0c68d2776edfdea96bfe7d8a45684ab76faaa06538108",
+    "48": "6336c22184eace18cb7f1b9e058e37eceb40c00ac2293f0f5e54525d2eb65955",
+    "49": "fda6d07573550485c9dc8e8397284696d6648c963276ed53ab8f0fd01dd4c66f",
+    "5": "d058898d385f29e8ff1ab8ff62524b78596312c6e748c63c55b1d1caa405c595",
+    "6": "5137b5e8d67d6c818ddca9274b6a6dbd6ce3a0d9b4071434782bcef86eb2731c",
+    "7": "a8e329149b125a2ff17a48f4a3576a78385e52aa5589bf1a3787c891c9da8cdc",
+    "8": "9c73786954ffe7d4b84c191192d63c27a82cd0fd33a02176337c93714d29a6ff",
+    "9": "a769afc4fa773b1f7e5d89eb17dd79bc9a2ad80556742328d943dd0daa8a5a8e"
+  },
+  "upstream_loader": {
+    "sha256": "d975063583c7cedfaeb99048fdbd1a94e23870b907a9b035a99f474f31d9c383",
+    "url": "https://github.com/ALRhub/HiP-RSSM/blob/f4adef0ce5ed4b37c9847973df320f72965bd330/data/mobileDataSeq.py"
+  },
+  "version": "action-filter-data-v1"
+}

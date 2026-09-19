@@ -1,0 +1,52 @@
+{
+  "schema": "action-filter-v1",
+  "data_hashes": {
+    "train.npz": "13473ffb734f667b6f1ac338d83486c4d50b4073522e8037c7b5ffbfcc86a367",
+    "dev.npz": "ad447709242ee8abd93a79cd779d3617ece6a58220231ff2939ea82e55cf979d",
+    "test.npz": "7dae68b9ad95467fcac516ca97814280e957e539f2352b6a2c4e4d2296e3caa7",
+    "normalization.npz": "af88beb6aba6a4e20332079f26bb64c04c9c4bb16e10132fadd28450488c88b4",
+    "manifest.json": "777d94b2687e4839f99abce0dbe5324a272d478101a3b511476bf08aa827dce7",
+    "completed.json": "fa0aed946d737ccdc338ae016e023f33b774722edf3058fb7c27239a277d7842"
+  },
+  "data_path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/action-filter-v1/data-01",
+  "sources": {
+    "scripts/train_action_filter.py": "1357defa8557ab9da2f898a93d3ba042500cfcba71468ab81b508aee0d299bfb",
+    "scripts/prepare_action_filter_data.py": "0151b75aad2566e0999ddc36330ea2335fcedf7096cf8176e1f18ac99b9a05c4",
+    "src/openjev/research/action_filter_models.py": "9f421020059f0f04db1032c00a2530e1fc9a33fb093c4da04c6993a342f2b5ed",
+    "tests/test_action_filter_models.py": "166ff8392655891b9eed8523a536fb22b155392180d01989133a6a8a765d2e03",
+    "tests/test_action_filter_data.py": "9fd1445c3409a1b132193736d9d07431fa5dc64e657fc3fb6bb3e9bc57839d76",
+    "tests/test_action_filter_training.py": "d58c4f5b3a0d4325d064f05986a3b791ba22da6031ee3aa702a77b2a1eb91057",
+    "research/action-filter-protocol.md": "9043f688d1589e1e72390da6ce5a40cdfe1714499aaa180a21ca7e62c6246c32"
+  },
+  "modes": [
+    "transported_delta",
+    "decay_delta",
+    "gru",
+    "history16",
+    "diagonal_filter"
+  ],
+  "seeds": [
+    101,
+    202,
+    303
+  ],
+  "context": 32,
+  "horizon": 10,
+  "windows_per_trajectory": 16,
+  "epochs": 20,
+  "batch_size": 32,
+  "learning_rate": 0.003,
+  "optimizer": "Adam",
+  "clip_gradient_norm": 1.0,
+  "checkpoint": "last epoch, no selection",
+  "primary": "mean normalized squared error over 10 forecast steps and all 9 channels",
+  "continuation": "transported_delta improves >=5% over every other neural family, ridge16 and hold_last; all 3 seeds improve over paired neural fits and both references; median full-window predictor latency <=1.5x GRU",
+  "claim": "exploratory offline prediction only; not policy, real robot, terrain shift, or novel principle",
+  "environment": {
+    "python": "3.12.13",
+    "torch": "2.14.0",
+    "numpy": "2.5.3",
+    "platform": "macOS-26.6.1-arm64-arm-64bit",
+    "threads": 1
+  }
+}
