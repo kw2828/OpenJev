@@ -1,0 +1,107 @@
+{
+  "action_block": 3,
+  "all_rows_before_audits": true,
+  "arms": [
+    "nominal",
+    "adaptive",
+    "frozen",
+    "public_gain",
+    "true_state",
+    "zero"
+  ],
+  "audit_cap_seconds": 600,
+  "automatic_retry": false,
+  "case_count": 1,
+  "engineering": true,
+  "execution_cap_seconds": 600,
+  "freeze_after": 40,
+  "gain_after": 1.3,
+  "gain_before": 0.7,
+  "gain_change_step": 80,
+  "gain_grid": [
+    0.5,
+    0.55,
+    0.6,
+    0.65,
+    0.7,
+    0.75,
+    0.8,
+    0.8500000000000001,
+    0.9,
+    0.95,
+    1.0,
+    1.05,
+    1.1,
+    1.15,
+    1.2000000000000002,
+    1.25,
+    1.3,
+    1.35,
+    1.4,
+    1.4500000000000002,
+    1.5
+  ],
+  "limits": "Single repeated engineering initial condition and fixed target/gain recipe; no fresh scientific cohort, fitting or benchmark qualification.",
+  "noise_std": 0.05,
+  "planning_horizon": 12,
+  "protected_sources": [
+    {
+      "plan": "evidence/reacher-two-observation-study-v1/protocol/plan.json",
+      "unchanged_sources": 116
+    },
+    {
+      "plan": "evidence/reacher-innovation-pilot-v1/protocol/plan.json",
+      "unchanged_sources": 136
+    }
+  ],
+  "runtime": {
+    "packages": {
+      "gymnasium": "1.3.0",
+      "mujoco": "3.13.0",
+      "numpy": "2.5.3",
+      "torch": "2.14.0"
+    },
+    "platform": "macOS-26.6.1-arm64-arm-64bit",
+    "python": "3.12.13",
+    "torch_threads": 1
+  },
+  "scientific_gate": null,
+  "seed": 410,
+  "source_sha256": {
+    "output/persistent-dynamics-qualification-v1/run_control_engineering.py": "aeb94b726292103a97d62bdd1c5c06d7f945380a1b644a17623ea182cc534062",
+    "src/openjev/research/reacher_adaptive_search.py": "c4041429363240a6bcbc5b520cc71aeaa8208c58e61844a14d797293842054ba",
+    "src/openjev/research/reacher_geometry_physics.py": "31332b0226a27a44602548bd8a8679bf0c4456d6f9f4ca505dfdebff28aab101",
+    "src/openjev/research/reacher_geometry_reward.py": "62c650a4414cb56c0a88923993f1713b15ec8e956141f49f6137a0271b701c4e",
+    "src/openjev/research/reacher_physics_control.py": "7355d15dec86d4d254ed2f8ad49863b219c317668f20402df8f5c43e2a8b7f9a",
+    "src/openjev/research/reacher_reward_residual.py": "72aadee9db1362f258edd4813e56e517c64fdb74dd9f54b0b67a21f2a00d9308",
+    "src/openjev/research/reacher_search_protocol.py": "5d0ed8c721dcc21defbdaf8c0490bfb4248f95858084826b16b2cbfa604aa395",
+    "src/openjev/research/reacher_tracking_audit.py": "a17911455347a05883d789aaead1731775cc1840bef1df7a04cbcedea7b2dee6",
+    "src/openjev/research/reacher_tracking_control.py": "c892b630a82fe55424fea635a83db37e78306efc9ae8ac9483a033b9d6742cdc",
+    "src/openjev/research/reacher_tracking_dynamics.py": "d1bd6780f4e8d6b9601de0738e5cd3f7bc7088b98f95e3857514d5c80c5dfba2",
+    "src/openjev/research/reacher_tracking_identification.py": "0798bb0918b5c7147eb9930c5bce1f66b77897ebdbdac58c7573f5d72f7fb971",
+    "src/openjev/research/reacher_tracking_policy.py": "835a764012be2a0a8e6841129e4474b82760885005bad4cad248e74911f8d08a",
+    "src/openjev/research/reacher_tracking_rollout.py": "33432dd1b88fa7eee5ed8d86c7c26832eb3d01558391c27eba7d41d74ce30742",
+    "src/openjev/research/robotics_reacher.py": "33f827018883744669e468c0bb5b5d4c3c7531f19febe32f9de1d8637d5a3de9"
+  },
+  "status": "started",
+  "steps": 200,
+  "target_events": {
+    "0": [
+      0.12,
+      -0.04
+    ],
+    "100": [
+      0.08,
+      0.13
+    ],
+    "150": [
+      -0.09,
+      -0.12
+    ],
+    "50": [
+      -0.12,
+      0.08
+    ]
+  },
+  "window": 20
+}

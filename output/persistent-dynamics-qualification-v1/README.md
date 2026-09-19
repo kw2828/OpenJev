@@ -1,5 +1,13 @@
 # Tracking changing dynamics: engineering preview
 
+**Update:** the [six-controller engineering run](../../research/reacher-tracking-engineering.md)
+is complete with full replay. Post-change adaptation improved cost by only 0.21%
+versus nominal physics on the single reused case. The fresh-case screen remains
+unlaunched pending planner and observer diagnosis. The earlier pulse diagnostic
+and prospective design below retain their original scope.
+
+![Completed engineering comparison](control-engineering-results.png)
+
 The [stronger trained-history comparison](../../research/reacher-two-observation-control.md)
 is complete and failed its continuation rule (24/25). The separate
 [normalized-error gate pilot](../../research/reacher-innovation-pilot.md)
@@ -24,6 +32,12 @@ control value. No neural comparison is justified by identification alone.
   nominal physics evaluates a declared grid of gains against recent observed
   transitions. An exactly flat bank retains the prior estimate. Neither the
   actual gain, simulator velocity nor future goals enter the estimator.
+
+- [Controller and planner bank](../../src/openjev/research/reacher_tracking_policy.py):
+  six explicit information roles, current-gain privileges and isolated planning models.
+- [Rollout](../../src/openjev/research/reacher_tracking_rollout.py) and
+  [independent audit](../../src/openjev/research/reacher_tracking_audit.py):
+  compact complete traces, native/CEM replay, paid-work counters and partial failures.
 
 Independent reviews passed the 37 wrapper and 27 estimator engineering tests.
 [Wrapper review](wrapper-review.md) · [Estimator review](identifier-review.md).
@@ -52,7 +66,7 @@ updates or planner decisions. The original
 [driver](probe_identification.py), [declared conditions](identification-engineering-01/started.json)
 and all six array files are retained. [Independent saved-output check](probe-review.json).
 There is no scientific seed allocation, closed-loop qualification or learned
-adaptation result yet.
+adaptation result yet. The later closed-loop engineering result is linked above.
 
 ## Next decision
 
