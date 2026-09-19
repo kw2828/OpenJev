@@ -32,22 +32,24 @@ A retained [tiny integration](training-integration-attempt-01/completed.json) co
 
 The [retained rehearsal](../reacher-two-observation-rehearsal-v1/attempt-01/review.md) completed preparation, three tiny fits, all 42 control rows and the independent saved-output audit in 113.98 seconds. All three subprocesses exited successfully. The audit replayed 1,232,886 simulator transitions plus 4,851 observer transitions with zero error. All 8,119 execution payloads and 116 source files passed hash checks. The [qualification receipt](../reacher-two-observation-rehearsal-v1/attempt-01/qualification.json) binds the complete locally retained artifacts and actual process exits.
 
-This used four-dimensional models, one case per panel and two updates per new fit. Its diagnostic gate passed 14 of 25 checks and failed overall; that result does not test scientific superiority. Capacity qualification and a separate scientific freeze remain pending. The [as-run driver](run_rehearsal.py) is preserved unchanged.
+This used four-dimensional models, one case per panel and two updates per new fit. Its diagnostic gate passed 14 of 25 checks and failed overall; that result does not test scientific superiority. The [as-run driver](run_rehearsal.py) is preserved unchanged.
 
 ## Full-size capacity measurement
 
 The [second capacity attempt](capacity-launch-attempt02.json) completed 24 real updates at the full model and batch size, nine learned-controller rows and five references in 719.44 seconds. Its original saved-output audit stopped after 11.89 seconds on a mismatch between two work-count field names. The [failure review](../reacher-two-observation-capacity-v1/attempt-02-audit-failure-review.json) preserves both process exits and verifies all 2,888 measurement payloads, totaling 6.49 GB.
 
-The separate [saved-only audit repair](../reacher-two-observation-capacity-v1/audit-repair-root-verification.json) completed in 456.28 seconds. All 14 rows passed, including 44,800 executed, 26,247,168 candidate and 9,600 selected simulator transitions with zero replay error. No model inference or training was repeated. Original measurements, source versions and failed audit remain retained. Independent sizing and the scientific freeze are separate next steps. Large engineering payloads are retained locally; these repository receipts bind their membership and hashes.
+The separate [saved-only audit repair](../reacher-two-observation-capacity-v1/audit-repair-root-verification.json) completed in 456.28 seconds. All 14 rows passed, including 44,800 executed, 26,247,168 candidate and 9,600 selected simulator transitions with zero replay error. No model inference or training was repeated. Original measurements, source versions and failed audit remain retained. The [completed capacity qualification](../reacher-two-observation-capacity-v1/qualification.json) binds 3,069 retained files and the [independent sizing review](../reacher-two-observation-capacity-v1/sizing-review.md). Large engineering payloads are retained locally; these repository receipts bind their membership and hashes.
 
 The [first attempt](../reacher-two-observation-capacity-v1/attempt-01-failure-review.json) stopped on an incorrect import before any numerical work; its failure is preserved. The import repair passed 36 focused checks, including real resolution of every delayed import. Neither capacity attempt is an efficacy experiment.
 
-## Proposed experiment
+## Frozen experiment
 
 Train three new history models from the three authenticated original initializations. Retain the three persistent and three single-observation GRUs as paired references. Evaluate all nine models and five reference controllers on the same fresh 64 cases in full sensing, six-step gaps and ten-step gaps: 42 rows in total.
 
 The proposed rule requires persistent memory to improve mean cost by at least 3% against both learned controls on both gap panels, lose no paired fit comparison, degrade full-sensing means by no more than 2%, and pass the declared zero-action competence checks. All 25 checks must pass. A failed superiority check does not prove equivalence or show that short history explains the earlier result.
 
-The [study integration](study-integration-map.md) and retained rehearsal are complete. Before scientific fitting, measure full-size capacity, then freeze the executable protocol, authenticated inputs, fresh random streams and measured limits separately from the current prospective definitions. The existing 90 frozen scientific sources remain unchanged.
+The [plan](../../evidence/reacher-two-observation-study-v1/protocol/plan.json) and [separate freeze](../../evidence/reacher-two-observation-study-v1/protocol/freeze.json) are prepared and verified before execution. Measured nominal projections are 2,996 seconds for execution and 1,347 seconds for auditing. Reviewed limits are 7,200 and 3,600 seconds respectively, with explicit reserves for repeated evidence checks, storage and shared-host variability. These are planning limits, not guaranteed completion times. All 116 scientific sources, including the original 90, remain unchanged. [Preparation verification](../reacher-two-observation-study-v1/preparation-verification.json).
+
+No new scientific fitting or evaluation has started at this freeze. The explicit launcher requires the published plan and freeze, retains all process exits and has no automatic retry.
 
 This tests a stronger conventional control. It does not by itself test biological wiring, Bayesian inference, a new architecture or transfer to another environment.
