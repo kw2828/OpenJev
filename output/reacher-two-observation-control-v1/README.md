@@ -21,6 +21,10 @@ The [prospective design](../reacher-geometry-memory-v1/history-control-design.md
 
 These component checks include hand-built histories, tiny training fixtures and fake episode orchestration. They are not a whole-study rehearsal or an empirical performance result. Each adjacent validation JSON records the author's test report and the separate static review. The history auditor checks saved public evidence without recomputing learned hidden states.
 
+## Actual training integration
+
+A retained [tiny integration](training-integration-attempt-01/completed.json) completed all three fits, serialization and independent saved-training audits in 0.96 seconds. Each fit made four real optimizer updates. The fits intentionally reused the same synthetic seed410 tensors and orders; they are not independent training replicates. All saved files were hash-checked and all 90 frozen scientific sources remained unchanged. No native control or scientific evaluation occurred. [Driver](integrate_training.py) · [Process exit](training-integration-attempt-01/process.json).
+
 ## Proposed experiment
 
 Train three new history models from the three authenticated original initializations. Retain the three persistent and three single-observation GRUs as paired references. Evaluate all nine models and five reference controllers on the same fresh 64 cases in full sensing, six-step gaps and ten-step gaps: 42 rows in total.
