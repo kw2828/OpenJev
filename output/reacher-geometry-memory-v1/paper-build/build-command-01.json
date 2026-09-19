@@ -1,0 +1,29 @@
+{
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--network",
+    "none",
+    "--read-only",
+    "--tmpfs",
+    "/tmp",
+    "-e",
+    "HOME=/tmp",
+    "-v",
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev:/work:ro",
+    "-v",
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/reacher-geometry-memory-v1/paper-build:/build",
+    "-w",
+    "/work",
+    "texlive/texlive@sha256:4984977ccf5afe883cb382d0163f267de0d029d140bb7a9e8f4c19f0b781d57b",
+    "latexmk",
+    "-pdf",
+    "-interaction=nonstopmode",
+    "-halt-on-error",
+    "-outdir=/build",
+    "paper/reacher-geometry-memory-study.tex"
+  ],
+  "exit_code": 12,
+  "wall_seconds": 0.9003276659641415
+}

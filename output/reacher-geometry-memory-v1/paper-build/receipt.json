@@ -1,0 +1,250 @@
+{
+  "status": "completed",
+  "scope": "Four-page development report from completed authenticated saved artifacts; not an ICLR submission or new scientific run.",
+  "completed_utc": "2026-09-19T04:15:44.245560+00:00",
+  "latex_source": {
+    "paper/reacher-geometry-memory-study.tex": {
+      "sha256": "6d6b0fa6c5ba43b6f13133444b135ca2f2e8c3d6fe49752e0c1e687235eaf49f",
+      "bytes": 11847
+    }
+  },
+  "pdf": {
+    "output/pdf/openjev-reacher-geometry-memory-study.pdf": {
+      "sha256": "0213d32eb9182c80123ed08ca9ec316fe3a2cb83de61caa55ed42d9f00970665",
+      "bytes": 295431
+    }
+  },
+  "inputs": {
+    "evidence/reacher-geometry-memory-v1/protocol/plan.json": {
+      "sha256": "23c93e4adfbb45cf224383ffa31d7323df2405807eb3f1c4c75bb27378bcd9ee",
+      "bytes": 6986491
+    },
+    "evidence/reacher-geometry-memory-v1/audit/receipt.json": {
+      "sha256": "cb64ded7bbcc4ad6e342f9ac3b431e085e754f77075bb2e4852d6b82d29a54c6",
+      "bytes": 1216831
+    },
+    "evidence/reacher-geometry-memory-v1/audit/summary.json": {
+      "sha256": "921c7f12f73169dd788fbe8204ee5377949e3a5c8b7cd88023887a4da6e5753d",
+      "bytes": 458035
+    },
+    "evidence/reacher-geometry-memory-v1/report/report.json": {
+      "sha256": "ab04c012bf61ce9d2c80fe850ef4872e3d5cde185184ad3caa932b89ce683e70",
+      "bytes": 167692
+    },
+    "evidence/reacher-geometry-memory-v1/report/tables.md": {
+      "sha256": "7658111906530f1478572c771f4c827a5d663fe11b25ee38cf8d37d1c63554eb",
+      "bytes": 12641
+    },
+    "evidence/reacher-geometry-memory-v1/report/native-costs.pdf": {
+      "sha256": "ff0a8f4606d66ad8df41ba9ff5c0e855d63e1c1dc43e27e6cfe61b0b998a6ce0",
+      "bytes": 26553
+    },
+    "evidence/reacher-geometry-memory-v1/report/utility-vs-cost.pdf": {
+      "sha256": "2fb6c333d84445fe294f5706e698b732f74b4f2b77eb8252429e0d08b36574a2",
+      "bytes": 28835
+    },
+    "research/reacher-geometry-memory.md": {
+      "sha256": "460d13f59504f86408673780fd8509cfb2632082a2ccb3e2df5848f7238ca7c3",
+      "bytes": 9400
+    },
+    "evidence/reacher-geometry-memory-v1/report/receipt.json": {
+      "sha256": "4183fdaa008f20abd6fb3676daa93531b0c76c488b985861ce0461c4451a0528",
+      "bytes": 20641
+    },
+    "evidence/reacher-geometry-memory-v1/terminal-verification.json": {
+      "sha256": "8c65730d6547b118eaeaca86ef61857ef0e4f52145f3eea214316f23f32dbae2",
+      "bytes": 18197
+    }
+  },
+  "input_snapshot_root": "output/reacher-geometry-memory-v1/paper-build/input-snapshots",
+  "build": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--read-only",
+      "--tmpfs",
+      "/tmp",
+      "-e",
+      "HOME=/tmp",
+      "-v",
+      "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev:/work:ro",
+      "-v",
+      "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/reacher-geometry-memory-v1/paper-build:/build",
+      "-w",
+      "/work",
+      "texlive/texlive@sha256:4984977ccf5afe883cb382d0163f267de0d029d140bb7a9e8f4c19f0b781d57b",
+      "latexmk",
+      "-pdf",
+      "-interaction=nonstopmode",
+      "-halt-on-error",
+      "-outdir=/build",
+      "paper/reacher-geometry-memory-study.tex"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 1.1548926250543445
+  },
+  "retained_failed_compile": {
+    "command": "build-command-01.json",
+    "log": "compile-01.log",
+    "source": "source-at-first-compile.tex",
+    "reason": "Title used display-math delimiter before spacing instead of a LaTeX line break; corrected before successful compile. No input or scientific result changed."
+  },
+  "qa": {
+    "pages": 4,
+    "rotations_degrees": [
+      0,
+      90,
+      90,
+      0
+    ],
+    "text_words_per_page": [
+      438,
+      352,
+      326,
+      431
+    ],
+    "latex_overfull_boxes": 0,
+    "latex_underfull_boxes": 0,
+    "undefined_references": 0,
+    "benign_warnings": [
+      "Two caption hypcap warnings: captionof outside a float; visible captions and hyperlinks inspected."
+    ],
+    "render": {
+      "tool": "pdftoppm",
+      "dpi": 120,
+      "exit_code": 0
+    },
+    "visual_review": {
+      "method": "All four final rendered PNGs inspected with view_image by the authoring agent.",
+      "pages_inspected": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "findings": "No clipped or overlapping text, broken glyphs, illegible figure labels, or table overflow. Portrait pages 1/4 and landscape pages 2/3 retain page numbering."
+    },
+    "table_validation": "All nine controller means across three panels checked against authenticated audit summary; all fit-level figures reused unchanged.",
+    "new_analysis_draws": 0,
+    "new_model_calls": 0,
+    "new_native_calls": 0
+  },
+  "files": {
+    "build-command-01.json": {
+      "sha256": "492dc17dbfdf37e36284388e30767c310571c80773d5b23dcfea89d2e4f173e8",
+      "bytes": 694
+    },
+    "build-command.json": {
+      "sha256": "97f4a7d51c3c41712bfd92e2ea35dc3115e5e8f19e7db3d0df92b652ddd381ab",
+      "bytes": 693
+    },
+    "compile-01.log": {
+      "sha256": "a12b7deabd0577c7958aaf033250b18ce97d5577cb14c24ab842046ea295e92c",
+      "bytes": 6588
+    },
+    "compile.log": {
+      "sha256": "ae4f0662d33f247b92f88f4e31301f06cd6da1a00f3f4a881b65c1936f70e9a5",
+      "bytes": 15490
+    },
+    "extracted.txt": {
+      "sha256": "4eeda2cbe41e931a831ae0d57289f09a2332c0cb144b82990b8819079a1a7439",
+      "bytes": 11328
+    },
+    "final-source.tex": {
+      "sha256": "6d6b0fa6c5ba43b6f13133444b135ca2f2e8c3d6fe49752e0c1e687235eaf49f",
+      "bytes": 11847
+    },
+    "finalize.py": {
+      "sha256": "9068abca0fef98fffe434499298131d97983b3ca2382f105709defd9124217a5",
+      "bytes": 4458
+    },
+    "input-authentication.json": {
+      "sha256": "fc0fbba3ce6a08bfee8902e78e06a6e88fa1e78ae6b4cebbb8f4277ae7a58817",
+      "bytes": 1558
+    },
+    "input-snapshots/evidence/reacher-geometry-memory-v1/audit/summary.json": {
+      "sha256": "921c7f12f73169dd788fbe8204ee5377949e3a5c8b7cd88023887a4da6e5753d",
+      "bytes": 458035
+    },
+    "input-snapshots/evidence/reacher-geometry-memory-v1/protocol/plan.json": {
+      "sha256": "23c93e4adfbb45cf224383ffa31d7323df2405807eb3f1c4c75bb27378bcd9ee",
+      "bytes": 6986491
+    },
+    "input-snapshots/evidence/reacher-geometry-memory-v1/report/native-costs.pdf": {
+      "sha256": "ff0a8f4606d66ad8df41ba9ff5c0e855d63e1c1dc43e27e6cfe61b0b998a6ce0",
+      "bytes": 26553
+    },
+    "input-snapshots/evidence/reacher-geometry-memory-v1/report/report.json": {
+      "sha256": "ab04c012bf61ce9d2c80fe850ef4872e3d5cde185184ad3caa932b89ce683e70",
+      "bytes": 167692
+    },
+    "input-snapshots/evidence/reacher-geometry-memory-v1/report/tables.md": {
+      "sha256": "7658111906530f1478572c771f4c827a5d663fe11b25ee38cf8d37d1c63554eb",
+      "bytes": 12641
+    },
+    "input-snapshots/evidence/reacher-geometry-memory-v1/report/utility-vs-cost.pdf": {
+      "sha256": "2fb6c333d84445fe294f5706e698b732f74b4f2b77eb8252429e0d08b36574a2",
+      "bytes": 28835
+    },
+    "input-snapshots/evidence/reacher-geometry-memory-v1/terminal-verification.json": {
+      "sha256": "8c65730d6547b118eaeaca86ef61857ef0e4f52145f3eea214316f23f32dbae2",
+      "bytes": 18197
+    },
+    "input-snapshots/research/reacher-geometry-memory.md": {
+      "sha256": "460d13f59504f86408673780fd8509cfb2632082a2ccb3e2df5848f7238ca7c3",
+      "bytes": 9400
+    },
+    "page-1.png": {
+      "sha256": "c2e56a03be6d28c9f69369cbb91207df638024d0f6de6efe1c994941c119e917",
+      "bytes": 287646
+    },
+    "page-2.png": {
+      "sha256": "05c1792bb0c1c19afec260c85b74007ae78e391c79daf5e268637f9fedc5e063",
+      "bytes": 177378
+    },
+    "page-3.png": {
+      "sha256": "3c8e7d21d54373edf552d6aa51497158a37c5bd4bfd31dce557a6a2a0f217e3f",
+      "bytes": 157325
+    },
+    "page-4.png": {
+      "sha256": "470342c75a73db8f18d509a85a50d54c56072968247577508eb4baf4152df894",
+      "bytes": 291741
+    },
+    "qa.json": {
+      "sha256": "02b99e6eea692db95fd5908f848024555ef8868cf51761017efca1788b030292",
+      "bytes": 1038
+    },
+    "reacher-geometry-memory-study.aux": {
+      "sha256": "90e1b8dee4e3d51bf13cc078cad132ff770831573a383949db25258ef90a811f",
+      "bytes": 1434
+    },
+    "reacher-geometry-memory-study.fdb_latexmk": {
+      "sha256": "eb9bab56a8b081861af12bca425b1886bd68326765281a459a35e7a4dc4d9bb2",
+      "bytes": 14500
+    },
+    "reacher-geometry-memory-study.fls": {
+      "sha256": "0bf97f220f458f03a920da0a24949a49b9a5769fd18350a55d7beb771354f999",
+      "bytes": 15188
+    },
+    "reacher-geometry-memory-study.log": {
+      "sha256": "0c57fae69abdf6d7822d3ef5aa3714d149f90fa9d97b3631a251e984433595a1",
+      "bytes": 24621
+    },
+    "reacher-geometry-memory-study.out": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "reacher-geometry-memory-study.pdf": {
+      "sha256": "0213d32eb9182c80123ed08ca9ec316fe3a2cb83de61caa55ed42d9f00970665",
+      "bytes": 295431
+    },
+    "source-at-first-compile.tex": {
+      "sha256": "24607c0d4a8f0cff53c1629dc10d697e9b1678aa727653c25328a7873054196e",
+      "bytes": 11838
+    }
+  },
+  "limits": "This receipt binds rendered report artifacts. It reuses the existing scientific audit; it does not rerun or independently certify neural predictions."
+}

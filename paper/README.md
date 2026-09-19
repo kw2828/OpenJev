@@ -10,6 +10,14 @@ This is a working development report, not a submitted or accepted ICLR paper. It
 
 Nine original chess students, a 24-position public puzzle panel and 18 recorded games are complete. The circuit topology gate failed. This separate six-page development report includes a proposed memory/state-transition experiment; that proposal has not been run and is not an established ICLR contribution. Build with `latexmk -pdf -outdir=build/chess chess-study.tex` from this directory.
 
+## Geometry-scored robot memory
+
+[Four-page PDF](../output/pdf/openjev-reacher-geometry-memory-study.pdf) · [LaTeX source](reacher-geometry-memory-study.tex) · [Results](../research/reacher-geometry-memory.md) · [Build receipt and exact input snapshots](../output/reacher-geometry-memory-v1/paper-build/receipt.json)
+
+Twelve inherited models and all 51 comparisons are retained. Persistent GRU reduced control cost by 31.86%/25.99% versus cached-observation GRU on six-step/ten-step gaps, passing all 25 frozen checks. Supplied-physics references still perform better. This is a development report with an unresolved stronger history control, not an ICLR submission or a new-architecture claim. It is separate from the earlier Doom and chess PDFs.
+
+From the repository root, build with `latexmk -pdf -interaction=nonstopmode -halt-on-error -outdir=paper/build/reacher-memory paper/reacher-geometry-memory-study.tex`. The recorded build used the existing pinned TeX container without network access. Both plot pages use landscape orientation for legibility; all four rendered pages were checked. No new model or native-environment calls were made to write the paper.
+
 ## Build
 
 From the repository root, regenerate figures and the evidence-derived table:

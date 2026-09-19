@@ -46,7 +46,7 @@ The latest [24-fit graph comparison](docs/chess-pin-quality.md) found **36.43% /
 
 ![All twelve models and five references with fixed geometry scoring and search budgets](evidence/reacher-geometry-memory-v1/report/native-costs.png)
 
-Supplied-physics controllers still perform better. Equal search budgets do not match total compute. The GIF is a schematic replay of the preselected first case, not a performance summary. This supports a trained memory policy in one task, not a new architecture or biological-wiring advantage. [All 51 comparisons, compute costs and independent audit](research/reacher-geometry-memory.md).
+Supplied-physics controllers still perform better. Equal search budgets do not match total compute. The GIF is a schematic replay of the preselected first case, not a performance summary. This supports a trained memory policy in one task, not a new architecture or biological-wiring advantage. [All 51 comparisons and audit](research/reacher-geometry-memory.md) · [Four-page report](output/pdf/openjev-reacher-geometry-memory-study.pdf) · [LaTeX](paper/reacher-geometry-memory-study.tex).
 
 The [earlier geometry intervention](research/reacher-geometry-score.md) improved scoring with unchanged weights. The [earlier cache comparison](research/reacher-cache-ablation.md) remains a failed result (15/28 checks). Next: test whether two recent observations and intervening actions explain the persistent model's advantage.
 

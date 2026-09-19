@@ -1,0 +1,16 @@
+Completed Reacher memory comparison: **all 25 frozen continuation checks passed**. Twelve inherited models, 64 fresh paired cases, three observation conditions and all 51 control rows are retained. No new fitting occurred.
+
+Persistent GRU reduced native control cost by **31.86%/25.99%** versus cached-observation GRU and **38.22%/35.36%** versus current-packet GRU on six-step/ten-step sensing gaps. Every paired fit improved. The cached-MLP comparison is secondary. All planned controllers use geometry scoring and CEM256; supplied-physics controllers remain better, and total compute and information are not matched.
+
+- [Complete results, all controls and fixed first-case GIF](https://github.com/kw2828/OpenJev/blob/research-reacher-geometry-memory-v1/research/reacher-geometry-memory.md)
+- [All 51 rows, timings, conditional intervals and 25 checks](https://github.com/kw2828/OpenJev/blob/research-reacher-geometry-memory-v1/evidence/reacher-geometry-memory-v1/report/tables.md)
+- [Independent arithmetic and interpretation review](https://github.com/kw2828/OpenJev/blob/research-reacher-geometry-memory-v1/output/reacher-geometry-memory-v1/independent-results-review.md)
+- [Four-page development report](https://github.com/kw2828/OpenJev/blob/research-reacher-geometry-memory-v1/output/pdf/openjev-reacher-geometry-memory-study.pdf) and [LaTeX source](https://github.com/kw2828/OpenJev/blob/research-reacher-geometry-memory-v1/paper/reacher-geometry-memory-study.tex)
+
+The saved-output audit checked 163,200 executed transitions, 78,741,504 nominal physics candidate transitions and 28,800 selected advances, plus 310,464 public-observer transitions, with zero replay discrepancy. It authenticated all 90 frozen sources and made no learned-model calls. Neural predictions remain source-bound saved evidence. Execution took 2,109.20 seconds; audit took 1,384.44 seconds, both within frozen limits.
+
+The scientific archive includes the complete 9,505-member execution plus completion record, all twelve inherited models, protocol, source, audit, terminal verification and figures. The separate preparation archive preserves the complete new rehearsal and capacity evidence. Earlier preparation, including failed ancestors, remains a hash-bound dependency of the [previous verified release](https://github.com/kw2828/OpenJev/releases/tag/research-reacher-geometry-score-v1); this is not a fully offline bundle of every historical dependency.
+
+For split archives, concatenate their ordered parts listed in `receipt.json`, then verify the complete compressed size and SHA-256 before extracting. `manifest.json` identifies every member; `SHA256SUMS` covers the uploaded assets. Parts are consecutive bytes, not independently extractable archives.
+
+These development results support the trained persistent update policy over the declared reset controls. All three GRUs remain recurrent in imagined rollouts, and benefits also appear with full angle sensing while velocity stays hidden. A stronger two-observation/action-history comparator is next. No biological superiority, new architecture, calibrated uncertainty or cross-environment robotics result is claimed. Earlier negative results remain unchanged.

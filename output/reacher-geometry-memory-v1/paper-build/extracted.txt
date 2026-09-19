@@ -1,0 +1,168 @@
+OpenJev development report Geometry-scored memory comparison
+Persistent Memory with Fixed Geometry Scoring
+An OpenJev Reacher development study
+OpenJev project·September 19, 2026 (UTC)
+Development report; not an ICLR submission or an independently replicated result.
+Abstract.We evaluate whether persistent learned state remains useful when Reacher controllers share a fixed geometry-
+based scoring rule. Twelve inherited models, comprising three paired fits of four learned families, are evaluated on 64
+fresh paired cases in each of three sensing conditions. No models are fitted in this study. Persistent GRU reduces mean
+native episode cost by 31.86% under six-step sensing gaps and 25.99% under ten-step gaps relative to a GRU that resets
+its hidden state and retains the last observed angles. All 25 frozen continuation checks pass. Supplied-physics controllers
+still outperform every learned fit. The result supports these trained persistent update policies over the declared reset
+controls in this task; it does not establish a novel architecture, biological mechanism, calibrated uncertainty or general
+robotics capability. A trained two-valid-observation/action-history control remains unresolved.
+1 Comparison and task
+The environment is Gymnasium Reacher-v5 with native reward weights 1 for distance and control cost, 50 actions per
+episode and∆t= 0.02seconds. An issued commanda t∈[−1,1]2 receives independent hidden Gaussian actuator noise
+withstandarddeviation0.05andisclippedagainbeforeexecution. ReportedutilityisnativeepisodecostC=− ∑︁49
+t=0 rt,
+so lower is better. The learned controller sees
+pt = [cosq 0,cosq1,sinq0,sinq1, gx, gy,valid,age],
+with unavailable angle entries masked to zero. Native velocity, realized noise and fingertip displacement are excluded.
+The public target remains known. Conditions are full sensing and two gaps of length six or ten; gap onset phase varies
+by case. Full sensing is still partially observed because velocity is withheld.
+The GRU families share the same 36,805-parameter schema and paired original initialization, training corpus, order
+and update count, but their final weights were trained separately. Persistent GRU carries learned state across real
+observations and actions. Current-packet GRU resets and encodes the actual packet; cached-observation GRU resets
+and encodes the last measured angles with current goal, validity and age. Cached MLP has 36,599 parameters and
+the same public angle cache. All GRUs remain recurrent in imagined rollouts. The treatment includes the trained
+real-observation update policy and validity gating, rather than recurrence in isolation.
+T able 1:Mean native episode cost. Learned families average all three saved fits; each reference is evaluated on the same 64
+cases. No best-fit selection.
+Controller Full sensing Six-step gaps Ten-step gaps
+Persistent GRU 5.537576 5.709233 6.296307
+Current-packet GRU 8.034106 9.240609 9.740743
+Cached-observation GRU 7.902708 8.378622 8.507414
+Cached-observation MLP 6.705506 6.975331 7.234155
+Known-state physics 4.568717 4.568717 4.568717
+Particle physics 4.731065 4.786677 4.892595
+Public-kinematic physics 4.580680 4.640030 4.755555
+Zero action 11.830064 11.830064 11.830064
+Uniform action 42.796284 42.796284 42.796284
+1
+
+OpenJev development report Geometry-scored memory comparison
+2 All fits retained; persistent update policies improve cost
+0 5 10 15 20 25 30 35 40
+Mean episode native cost (lower is better)
+Persistent GRU
+Reset GRU / current packet
+Reset GRU / cached angles
+Cached-angle MLP
+Known-state physics / CEM256
+Particle physics / CEM256
+Public kinematics / CEM256
+Zero action
+Uniform action
+Full observations
+0 5 10 15 20 25 30 35 40
+Mean episode native cost (lower is better)
+Ordinary: six-step gaps
+0 5 10 15 20 25 30 35 40
+Mean episode native cost (lower is better)
+Shift: ten-step gaps
+OpenJev: real-observation memory policies, fixed geometry scoring
+All 36 learned points and 15 references. All planned rows use CEM256; floors use no planner. No best-fit selection.
+pair0 pair1 pair2 All-three-fit mean
+Figure 1:All 36 learned fit/panel points and 15 reference points. Shapes identify the three saved fit pairs; ticks show their family mean. References retain distinct information
+privileges. No error bars over three fits or episode-by-episode dominance are implied.
+Against current-packet GRU, persistent GRU lowers mean cost by 38.22% and 35.36% on the two gap panels. Against cached-observation GRU, the corresponding
+reductions are 31.86% and 25.99%; all three paired fits improve in both panels. The full-sensing reductions are 31.07% and 29.93%, respectively, so the benefit
+is not confined to missing measurements. This experiment does not identify velocity inference as the mechanism.
+For persistent minus cached GRU, the saved conditional paired-case 95% cost-difference intervals are[−3.1291,−2.2102]for six-step gaps and[−2.5642,−1.8672]
+for ten-step gaps. These intervals hold the three fits and training corpus fixed; they are neither training-seed population uncertainty nor multiplicity-corrected
+confirmation. No new resampling was performed for this report.
+Persistent GRU also improves over cached MLP by 18.15% and 12.96% on the gap panels, a secondary result that cannot rescue the primary rule. All three
+supplied-physics references are better than every learned fit in every panel. Persistent cost is 23.04% and 32.40% higher than public-kinematic physics on the
+gap panels. These physics references use supplied nominal dynamics; known-state physics additionally receives current true position and velocity. They are not
+optimal stochastic-control oracles.
+2
+
+OpenJev development report Geometry-scored memory comparison
+3 Fixed scoring and candidate budgets, unequal total computation
+10− 1 100 101
+Whole-row wall / (64 cases × 50 actions), ms
+5
+10
+15
+20
+25
+30
+35
+40Mean native episode cost (lower is better)
+Full observations
+10− 1 100 101
+Whole-row wall / (64 cases × 50 actions), ms
+Ordinary: six-step gaps
+10− 1 100 101
+Whole-row wall / (64 cases × 50 actions), ms
+Shift: ten-step gaps
+Utility versus measured control cost: every fit and reference
+Shared host; setup, native steps and traces included. Amortized throughput, not isolated latency, matched total compute or a selected frontier.
+Persistent GRU
+Reset GRU / current packet
+Reset GRU / cached angles
+Cached-angle MLP
+Known-state physics / CEM256
+Particle physics / CEM256
+Public kinematics / CEM256
+Zero action
+Uniform action
+pair0
+pair1
+pair2
+Figure 2:All learned fits and references, with no selected frontier. The horizontal coordinate is complete recorded row wall time divided by64×50, on a log scale. This is
+amortized shared-host throughput, not isolated action latency or a cross-machine speed result.
+Every nonfloor controller uses geometry scoring and CEM256 with horizon 12, three-action blocks, a paid mean candidate, global-best retention and terminal
+truncation. Geometry projects predicted trigonometric features withatan2, uses 0.10/0.11m link offsets, and subtracts expected clipped actuator cost once.
+Predicted per-step rewards are clipped to[−2.5,0]for planning. Original learned reward heads still execute and are charged. Native episode cost is reported
+without replacing it by this planning score.
+Reset states, hidden disturbances and planner innovations are paired across rows; score-adaptive CEM proposals can subsequently differ. Equal candidate budgets
+do not match information or total compute. Persistent rows take 20.49 to 22.85s; other learned rows, 21.76 to 24.62s; supplied-physics rows, 138.31 to 143.96s.
+These times include controller setup, native stepping and trace storage. Global source/checkpoint validation and copying are separate execution costs. The
+complete execution takes 2,109.20s within its frozen 5,700s cap; audit takes 1,384.44s within its separate 3,300s cap.
+3
+
+OpenJev development report Geometry-scored memory comparison
+4 Frozen decision rule and verification boundary
+The study retains all twelve inherited fits, all 51 control rows and all 64 cases per row. There are zero new fits, optimizer
+updates or Astra calls. The frozen rule requires persistent GRU to improve both reset-GRU family means by at least
+3% on both gap panels, be no worse in any paired fit, and degrade by no more than 2% on full sensing. Persistent fits
+on both gap panels and known-state physics on ordinary gaps must each beat zero action by at least 10%. All25/25
+checks passwithout threshold changes.
+T able 2:Audited paid work and replay scopes. Selected one-step predictions are additional to the candidate trajectories; nested
+work is not additive wall time.
+Scope Count
+Learned candidate sequences 29,491,200
+Learned imagined candidate transitions 314,966,016
+Learned selected one-step advances 115,200
+Physics candidate sequences 7,372,800
+Physics nominal candidate transitions replayed 78,741,504
+Physics selected advances replayed 28,800
+Executed native control transitions replayed 163,200
+Public-observer transitions checked 310,464
+The saved-output auditor authenticates the 90 frozen sources, checkpoint lineage, all 9,505 execution members, public-
+history boundaries, chosen actions and search arithmetic. Native-control, nominal-planning and public-observer replays
+each have maximum absolute discrepancy zero. The audit makeszero learned-model calls: saved neural predictions
+and hidden states remain source-bound evidence, not independently recomputed neural outputs. Equal before/after
+weights alone do not prove the absence of intermediate updates. Publication uses saved artifacts only and adds no
+scientific calls.
+5 Interpretation and next control
+This is fresh-case evaluation of previously trained models in a repeatedly studied simulator, not an independent training
+replication. The common geometry score approximates native RK4 cached-body reward; distance at projected mean
+angles is not expected distance. Neither the physics advantage nor the learned gap quantifies optimal control. Training
+data and paired initialization reduce some confounds, but differing trained update rules, validity gates and final weights
+prevent attributing the result to recurrence alone.
+The next conventional control is a parameter-identical GRU trained to rebuild state from its last two valid observations
+andallinterveningissuedactions. Thattrainedcomparisonisunresolved. Componenttestsdonotsupplyaneffectiveness
+result. A separate protocol, complete runner/audit, rehearsal and capacity measurement are required before fitting or
+evaluation. A second environment and fresh training replication remain separate evidence needs. No connectome or
+biological advantage, Bayesian inference, calibrated uncertainty, architectural novelty or general robotics performance
+is established.
+Evidence and artifact identity
+Study report; all fit-level results and conditional intervals; frozen protocol; audit receipt. These links locate the project artifacts;
+the following SHA256 identities bind the exact local inputs used here. The paper is a summary, not a complete raw-trace archive.
+Plan23c93e4adfbb45cf224383ffa31d7323df2405807eb3f1c4c75bb27378bcd9ee
+Auditcb64ded7bbcc4ad6e342f9ac3b431e085e754f77075bb2e4852d6b82d29a54c6
+Summary921c7f12f73169dd788fbe8204ee5377949e3a5c8b7cd88023887a4da6e5753d
+4
