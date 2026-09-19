@@ -1,0 +1,41 @@
+# Next direction: qualify public route memory on Mystery Path
+
+**Prospective recommendation only. No environment, model, training, or scientific random stream was run or allocated for this note.**
+
+Move to the existing **Memory Gym `MysteryPath-Grid-v0`**, with its official default task unchanged. First establish that retaining discovered route information improves decisions beyond a strong finite-history controller. Only then implement an action-conditioned recurrent memory mechanism. This is a sensorimotor memory benchmark, not another actuator-identification task or evidence of learned physical dynamics.
+
+The closed recipes stay closed. The common-root diagnostic failed all three continuation flags: more search increased native cost by 0.01769%; the longer horizon improved the pooled mean by 7.327% but met only 7/12 nonworse slots; true-gain ranking improved 2.510%, below its 3% margin. The [Pendulum qualification](../../research/robotics-pendulum-qualification.md) already showed that a short public velocity estimate nearly matched supplied physics, with little control cost attributable to the late gain change. The [trained Reacher comparison](../../research/reacher-two-observation-control.md) failed 24/25 because persistent memory improved the ten-step-gap family mean by 2.94%, below 3%. None licenses another same-case horizon, gain, reward, or gating sweep.
+
+## Why this particular existing task
+
+Mystery Path makes discoveries matter within an episode: moving off an invisible route produces visible failure feedback and returns the agent to the origin. Earlier safe and unsafe locations can therefore affect a later choice after a restart. The published Memory Gym study includes finite-history baselines and reports that exposing origin/goal cues materially changes their effectiveness. That motivates using the existing hidden-cue default, rather than designing a new task around our architecture. Its large neural training campaigns are not evidence that reproducing them is cheap on our CPU. [Memory Gym, Pleines et al., arXiv:2309.17207v6, Appendix C](https://arxiv.org/html/2309.17207v6#A3).
+
+The official grid implementation has a 7-by-7 arena, 84-by-84 RGB observations, four discrete actions, a 128-action limit, hidden origin/goal cues, visible failure feedback, and reward 1 only at the goal. It supports a headless PyGame backend. These are suitable for a small CPU qualification; local throughput remains unmeasured. Pin repository revision `a94f2b60d1769ea44df3226561488768e1dff9f4`, verified through the GitHub commit API on 2026-09-19. Preserve its reset and terminal semantics, including the forced return following a failure. [Official implementation](https://github.com/MarcoMeter/endless-memory-gym/blob/a94f2b60d1769ea44df3226561488768e1dff9f4/memory_gym/mystery_path_grid.py), [registration](https://github.com/MarcoMeter/endless-memory-gym/blob/a94f2b60d1769ea44df3226561488768e1dff9f4/memory_gym/__init__.py), [MIT license](https://github.com/MarcoMeter/endless-memory-gym/blob/a94f2b60d1769ea44df3226561488768e1dff9f4/LICENSE).
+
+I rejected POPGym Labyrinth for this purpose: its own maze implementation warns that memoryless solutions are effective and discourages using it as a POMDP benchmark. [Official warning](https://github.com/proroklab/popgym/blob/master/popgym/core/maze.py#L59-L64).
+
+## First qualification: no learned model
+
+Freeze the following before any new cases. Use 64 fresh layouts paired across five controllers and four fixed cyclic action-priority orders: 1,280 episodes, at most 163,840 environment steps. Priority orders are a robustness check, not independent layout samples. No seed values are chosen here.
+
+All public controllers receive the same deterministic extraction of **visible** agent location and failure cue from the actual RGB frame, plus issued actions and rewards. Test this extractor separately before qualification. It may not read the path object, simulator position, seed, debug rendering, or evaluator information. Public controller performance is then an explicitly disclosed structured-observation qualification, not a pixels-only benchmark score.
+
+1. **Full public map:** store observed safe/failed destinations, plan a shortest route over confirmed safe cells to an unexplored frontier, and resolve ties using the declared action priority. Never inspect an unseen route or goal.
+2. **Last 16 transitions:** reconstruct that same map/search controller from only its last 16 public observation-action transitions at every decision.
+3. **Last 32 transitions:** the stronger bounded-history comparator, otherwise identical.
+4. **Erase on failure:** use the full public-map algorithm but erase discovered route information whenever the visible failure cue occurs. This directly tests whether information from earlier attempts matters.
+5. **Privileged known-route reference:** supplied route plus the same action interface, kept completely outside public-policy inputs. It verifies locomotion and evaluator competence; it cannot establish public memory usefulness.
+
+The bounded controllers retain no previous map, frontier queue, plan, route cursor, or recurrent state outside the declared window. Current pixel-derived position is allowed to all controllers. Charge parsing, reconstruction, planning, copies, environment work, and storage; record retained bytes. No CEM, reward reshaping, extra preview, or dynamics tuning is involved.
+
+**Continue only if all conditions hold:** known-route success is at least 95%; full-public-map success is at least 80%; full-public-map success exceeds each of the two window controls and the erase-on-failure control by at least 15 percentage points pooled, and by at least 5 points in every action-priority order. Success is official goal reward before termination; every layout remains in the denominator. Also report paired success tables, falls, all-episode action counts, and latency. These are proposed engineering admission margins, not a statistical discovery claim. Freeze exact inequalities and representation before implementation is evaluated.
+
+**Kill rule:** any failed condition closes this particular qualification recipe. Do not hide a successful 32-step controller, shorten its window, reveal cues selectively, lengthen episodes, or replace layouts after observing results. A perception/adapter defect is a separately retained engineering failure, not evidence for memory. Passing only establishes an information-retention opportunity; it does not establish an architectural contribution.
+
+## One architecture hypothesis after qualification
+
+Test **selective, location-action-addressed recurrent writes that preserve negative evidence across restarts**. Maintain an episode-local memory matrix; a real transition updates only the addressed entry using observed success/failure residuals. A shared action-conditioned decoder predicts the next public location and failure cue. Imagined branches use private state copies and cannot write into deployed memory. Ordinary episode reset clears memory; the task's within-episode return to origin does not.
+
+The falsifiable hypothesis is that local writes suffer less interference when a discovered prefix must be replayed after a mistake. Compare identical data/update budgets with a dense GRU, a genuine 32-transition model, a conventional spatial memory, and the explicit public map. Match trainable parameters and report actual retained state and whole decision cost separately. Disable selective writes and permute address-to-write routing at matched size/degree as mechanism ablations; do not call an arbitrary sparse graph a fly connectome.
+
+Spatially addressed neural memory is established prior art: **Neural Map** already introduced learned writes into a spatial memory for partially observed navigation. Our proposed selective-write mechanism is an implementation hypothesis, not demonstrated novelty. [Parisotto and Salakhutdinov, arXiv:1702.08360v1](https://arxiv.org/abs/1702.08360v1). A paper would require a defensible difference from that family, an interference/generalization result across fresh layouts and a second task, and superiority or a clearly measured cost advantage over conventional memory. A single finite Mystery Path success rate, or beating our failed Reacher controller, would not suffice.

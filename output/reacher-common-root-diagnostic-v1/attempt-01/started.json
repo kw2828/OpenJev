@@ -1,0 +1,136 @@
+{
+  "inputs_completed_sha256": "c5aa5252075d86d93dff635594da21a05db5648aeda191e58490a09e28c74543",
+  "protected_sources": [
+    {
+      "count": 116,
+      "plan": "evidence/reacher-two-observation-study-v1/protocol/plan.json",
+      "sha256": "e3196e1e3ed6b513ad65918a1f7780def1f708867c6ec7aaa61ccba668624038"
+    },
+    {
+      "count": 136,
+      "plan": "evidence/reacher-innovation-pilot-v1/protocol/plan.json",
+      "sha256": "561eb5a73f30ce81453941a6ade73cf15f0332af26cfb6ef49a7a17a35eff3de"
+    }
+  ],
+  "protocol": {
+    "action_block": 3,
+    "audit_cap_seconds": 300,
+    "automatic_retry": false,
+    "candidate_budget_per_search": 256,
+    "cap_sizing": "The immediately prior 5,377,536-candidate-transition experiment executed in89.63s and audited in84.82s; this diagnostic has at most415,944 total transitions, plus larger state records. Caps fixed before execution.",
+    "classification": "privileged open-loop diagnostic on exposed engineering histories; no scientific qualification",
+    "contrasts": {
+      "gain": "actual-gain full24 union-score selection versus nominal-gain full24 union-score selection; fixed identical union",
+      "horizon": "actual-gain H24 A versus actual-gain H12 best(A,B) extended to24; primary planning contrast",
+      "search": "actual-gain H12 best(A,B) versus actual-gain H12 A; both extended to24"
+    },
+    "engineering_usefulness_rule": {
+      "aggregation": "equal four-branch mean within slot, equal four slots within source trajectory, equal12slot mean pooled; use math.fsum slot totals and inclusive candidate_total <=0.97*baseline_total and <=baseline_total-12*0.001 comparisons. Startup duplicates explicit, no independent-sample inference",
+      "all_three_source_trajectory_means_nonworse": true,
+      "nonworse_slot_means_min": 8,
+      "pooled_cost_reduction_fraction_min": 0.03,
+      "pooled_cost_reduction_per_action_min": 0.001,
+      "slot_count": 12
+    },
+    "evaluation": "Each unique union sequence cross-scored under nominal1 and current actual gain. Prefix12 and full24 sequential clipped float32 scores saved. Four fresh shared noise branches per root step, applied to all unique sequences and source roles. Hold current gain/target fixed; verify all source intervals event-free. Native branch outcomes never select a plan.",
+    "execution_cap_seconds": 300,
+    "failure_rule": "Exclusive preparation and attempt paths. Preserve partial work and original error, demote late completion. All12slots and independent audits must complete before numerical interpretation. No extra root, restart, horizon or noise branch after outcomes.",
+    "gain_order": [
+      "nominal",
+      "actual"
+    ],
+    "innovations": "A preserves every saved H12 innovation in its first four blocks and appends fresh four-block tails. B has eight fresh blocks. Same arrays across roles and gain assumptions. Short searches use first four blocks. No RNG after preparation.",
+    "interpretation": "Three contrasts reported separately; search cannot rescue horizon. If gain and horizon pass, investigate only longer horizon in a separate closed-loop protocol. Else if gain and search pass, investigate only extra short search. Otherwise stop this task/controller recipe as evidence for learned adaptation. No automatic fresh-case launch, threshold change, neural training or architecture claim.",
+    "long_horizon": 24,
+    "maximum_execution_transitions": {
+      "cross_score": 40320,
+      "native_branch": 80640,
+      "search_candidate": 294912,
+      "selected_advance": 72,
+      "total": 415944
+    },
+    "native_objective": "mean per-action 3D cached native distance plus squared applied normalized command, charged once; no reward clipping in native outcome",
+    "noise_branches": 4,
+    "noise_std": 0.05,
+    "prior_completed_sha256": "82785582063738b97588e6487397e4bddcf58e98f9c352e8ce74f85ae834c5ec",
+    "rng_algorithm": "numpy.Generator(PCG64(named_seed(namespace, role))); separate role for each step/kind/field and step/branch_noise",
+    "rng_namespace": "openjev-reacher-common-root-diagnostic-v1-engineering-20260919",
+    "roles": [
+      "nominal",
+      "public_gain",
+      "true_state"
+    ],
+    "root_source": "audit.decision_states[t], after public target installation; exact float64 qpos/qvel and integration state",
+    "root_steps": [
+      0,
+      50,
+      100,
+      150
+    ],
+    "scientific_gate": null,
+    "search_order": [
+      "short_a",
+      "short_b",
+      "long_a"
+    ],
+    "search_rule": "Frozen CEM256; fresh single-gain bank per search. Short baseline reuses A from A+B. Select A on an exact tie. Search resets solver from identical qpos/qvel; native branches restore full integration state then forward.",
+    "short_horizon": 12,
+    "steps": 200,
+    "union": "Initial 64 H24 A sequences then six selected sequences: nominal short_a, best(short_a,short_b), long_a, actual same three. Extend short plans by holding final command. Canonicalize signed zero in union only. Preserve all70 slots and exact first-occurrence deduplication map.",
+    "version": "reacher-common-root-diagnostic-v1",
+    "work_scope": "Two mj_step calls per transition. Full independent replay is additional. Count actual unique union sequences. Include model/bank construction, forward/reset calls, copy/hash/serialization and total wall time; no deployment speed claim."
+  },
+  "report_arithmetic": {
+    "precedence": "Clarifies the engineering_usefulness_rule aggregation clause. math.fsum remains the displayed-mean calculation; gate comparisons use exact sums of Fraction(str(float(slot_mean_cost))) and exact decimal threshold fractions.",
+    "preparation_completed_sha256": "c5aa5252075d86d93dff635594da21a05db5648aeda191e58490a09e28c74543",
+    "reason": "Boundary tests showed that rounded floating-point totals could merge an exact threshold with the next representable worse cost.",
+    "timing": "Declared before any full diagnostic search, branch evaluation or outcome report; prepared random arrays are unchanged.",
+    "tolerance": "None; no rounding to a fixed number of decimal places and no numerical slack.",
+    "unchanged": "The 3 percent and 0.001 per-action margins, three trajectory conditions, eight of twelve slot condition, roots, draws, work and decision precedence are unchanged.",
+    "version": "exact-canonical-decimal-gates-v1"
+  },
+  "runtime": {
+    "packages": {
+      "gymnasium": "1.3.0",
+      "mujoco": "3.13.0",
+      "numpy": "2.5.3",
+      "torch": "2.14.0"
+    },
+    "platform": "macOS-26.6.1-arm64-arm-64bit",
+    "python": "3.12.13",
+    "torch_threads": 1
+  },
+  "source_sha256": {
+    "output/persistent-dynamics-qualification-v1/run_control_engineering.py": "aeb94b726292103a97d62bdd1c5c06d7f945380a1b644a17623ea182cc534062",
+    "output/reacher-common-root-diagnostic-v1/prepare_inputs.py": "c3616c383cc610a4338be7334b1c6b16424f8a66abf88eabd7ade9f2439d0e47",
+    "output/reacher-common-root-diagnostic-v1/protocol.json": "dc1a48b81f7e9a29b610d53dd97825afebc650722d9d20b75b1f1a1f30cb9561",
+    "output/reacher-common-root-diagnostic-v1/report-arithmetic.json": "b8a37d706210273889efba2db8656303ac4f87f02e9ae01f51294abc97f58788",
+    "output/reacher-common-root-diagnostic-v1/report_results.py": "56395fff05c2a243686ef74bedc5634075d38df4bad12994bc3c3eebf1ff5911",
+    "output/reacher-common-root-diagnostic-v1/run_diagnostic.py": "e082c9e517bd33c6d10831316226483a628dbfbe3cf751fb9d13a2b52e896790",
+    "output/reacher-proposal-memory-engineering-v1/protocol.json": "7ffea079cfaea91eb71ce091db54123fa8d0666966325488a729f61f08fe2711",
+    "output/reacher-proposal-memory-engineering-v1/report_results.py": "859d7dcf7b6d3ade1672a16caf02997e283e2345c5ac16a61a299b771a1c5e69",
+    "output/reacher-proposal-memory-engineering-v1/run_engineering.py": "29c6ce379ebe1a492923d562936c6dd0ffc409534f215822d9824993e1cf4779",
+    "src/openjev/research/reacher_adaptive_search.py": "c4041429363240a6bcbc5b520cc71aeaa8208c58e61844a14d797293842054ba",
+    "src/openjev/research/reacher_cem_proposal_memory.py": "65935bf14870cae33a58d5218b78aa089f6efe55bd56f8a57721e7da0e2e5106",
+    "src/openjev/research/reacher_common_root_audit.py": "5cf5910567082d048054c54f465e8d94c57dcdcd35540a8fbeff6875c2042f97",
+    "src/openjev/research/reacher_common_root_branches.py": "d24c24d3aa5dc71fea4de6264f661787e3d0bd959c49d68b9f5d7131bcfdb7eb",
+    "src/openjev/research/reacher_geometry_physics.py": "31332b0226a27a44602548bd8a8679bf0c4456d6f9f4ca505dfdebff28aab101",
+    "src/openjev/research/reacher_geometry_reward.py": "62c650a4414cb56c0a88923993f1713b15ec8e956141f49f6137a0271b701c4e",
+    "src/openjev/research/reacher_physics_control.py": "7355d15dec86d4d254ed2f8ad49863b219c317668f20402df8f5c43e2a8b7f9a",
+    "src/openjev/research/reacher_proposal_memory_audit.py": "5a416b7006805f11c18a0d8f8cce9f38fa6239737b8d99e363d7fe7f83b8373e",
+    "src/openjev/research/reacher_proposal_memory_rollout.py": "cee7edbc46f9c162528d36705ca7e4894b898238fb8679164488d10422d4a0a9",
+    "src/openjev/research/reacher_reward_residual.py": "72aadee9db1362f258edd4813e56e517c64fdb74dd9f54b0b67a21f2a00d9308",
+    "src/openjev/research/reacher_search_protocol.py": "5d0ed8c721dcc21defbdaf8c0490bfb4248f95858084826b16b2cbfa604aa395",
+    "src/openjev/research/reacher_tracking_audit.py": "a17911455347a05883d789aaead1731775cc1840bef1df7a04cbcedea7b2dee6",
+    "src/openjev/research/reacher_tracking_control.py": "c892b630a82fe55424fea635a83db37e78306efc9ae8ac9483a033b9d6742cdc",
+    "src/openjev/research/reacher_tracking_dynamics.py": "d1bd6780f4e8d6b9601de0738e5cd3f7bc7088b98f95e3857514d5c80c5dfba2",
+    "src/openjev/research/reacher_tracking_identification.py": "0798bb0918b5c7147eb9930c5bce1f66b77897ebdbdac58c7573f5d72f7fb971",
+    "src/openjev/research/reacher_tracking_policy.py": "835a764012be2a0a8e6841129e4474b82760885005bad4cad248e74911f8d08a",
+    "src/openjev/research/reacher_tracking_rollout.py": "33432dd1b88fa7eee5ed8d86c7c26832eb3d01558391c27eba7d41d74ce30742",
+    "src/openjev/research/robotics_reacher.py": "33f827018883744669e468c0bb5b5d4c3c7531f19febe32f9de1d8637d5a3de9",
+    "tests/test_reacher_common_root_audit.py": "b7b7a067b7f7e153e430eb066a8a812b794000a3a190f685d9343dc8d529937c",
+    "tests/test_reacher_common_root_branches.py": "55abf4a55b11a62bf4306ffdd90dd94fdb597c873020539d41b715df55fa8329",
+    "tests/test_reacher_common_root_report.py": "a7c05077309fb30cca7a5427889db2b7c883bbb06987609e3a262f90a37298c4"
+  },
+  "status": "started"
+}

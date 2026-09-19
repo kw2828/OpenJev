@@ -1,6 +1,8 @@
 # Common-root planning diagnostic
 
-Status at protocol publication: **prepared, not executed**.
+**Completed: all twelve slots passed replay; all three performance contrasts failed.** Longer-horizon planning improved mean branch cost by 7.33% but missed the required slot consistency. Correct dynamics improved ranking by 2.51%, below the 3% margin. [Results and chart](review-01/report.md) · [Decision](next-decision.md).
+
+The original protocol and prepared inputs were published before execution at `c9a428ad9341db2aa74fe71f8fb6c3c8cc16f00f`.
 
 This diagnostic separates search effort, horizon and dynamics-dependent ranking on twelve preselected slots from three exposed robot trajectories. The repeated startup states are retained as repeated identities, not independent cases. Every contrast starts from the same copied native state. Short plans hold their final command through step 24, so outcomes describe open-loop branches, not receding-horizon control.
 
