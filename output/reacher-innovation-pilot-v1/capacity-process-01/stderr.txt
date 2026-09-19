@@ -1,0 +1,26 @@
+Traceback (most recent call last):
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/reacher-innovation-pilot-v1/capacity.py", line 124, in <module>
+    main()
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/reacher-innovation-pilot-v1/capacity.py", line 78, in main
+    fit = fit_one(weights, orders, training, OUT / variant / "fit", config=config,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/src/openjev/research/reacher_innovation_pilot.py", line 282, in fit_one
+    "final_weights_sha256": final_hash, "checkpoint_sha256": canonical_state_hash(checkpoint),
+                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/src/openjev/research/reacher_objective_training.py", line 126, in canonical_state_hash
+    json.dumps(description(value), ensure_ascii=False, separators=(",", ":"), allow_nan=False).encode()
+               ^^^^^^^^^^^^^^^^^^
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/src/openjev/research/reacher_objective_training.py", line 114, in description
+    [type(key).__name__, key, description(item[key])]
+                              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/src/openjev/research/reacher_objective_training.py", line 114, in description
+    [type(key).__name__, key, description(item[key])]
+                              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/src/openjev/research/reacher_objective_training.py", line 114, in description
+    [type(key).__name__, key, description(item[key])]
+                              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/src/openjev/research/reacher_objective_training.py", line 120, in description
+    require(item is None or type(item) in (bool, str, int, float), "Unsafe checkpoint metadata type")
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/src/openjev/research/reacher_objective_training.py", line 57, in require
+    raise ValueError(message)
+ValueError: Unsafe checkpoint metadata type
