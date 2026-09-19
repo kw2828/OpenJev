@@ -1,0 +1,25 @@
+# Independent controller-driver source review
+
+Reviewed 2026-09-19 UTC. **No remaining material blocker found in the reviewed source.** This is a bounded static review, not authorization by an execution receipt or evidence of controller effectiveness.
+
+| Reviewed file | SHA-256 |
+| --- | --- |
+| `scripts/evaluate_card_controllers.py` | `19ee53d5a9f36c38424edf34fb1be7bfc58c7b8fececee910a021ea74359e38f` |
+| `tests/test_evaluate_card_controllers.py` | `5ccbe00a2bd759163f94606995664c9f0eda6d397a24a37e8f64d4bf020d141e` |
+| `src/openjev/research/card_memory_picker.py` | `4db23cb5115e6cf4ed097b9c1e7b83e40231eff1eb91cce35845002a7f79a247` |
+
+The author reports **37 synthetic/fake tests passed in 5.78 seconds and Ruff clean** at these driver/test hashes. I inspected the tests and did not rerun them, construct models, call a native environment or allocate random streams for this review. The separate picker validation previously reproduced all 130,730 original saved decisions across 1,280 authenticated episodes, without neural or native replay.
+
+The driver requires the original source/runtime boundary, completed training and pre-evaluation boundary, independent review, all eighteen final fit trees, and external protocol/input/checkpoint-map/source-binding hashes before its first model restoration or reset. It excludes old declared seeds and engineering literals from the supplied fresh case list. The code restores each learned controller once, resets only episode memory, and verifies its parameter hash after all three policy evaluations. This review checked the validation logic; it did not independently execute that full lineage validation against the eventual new frozen package.
+
+Coverage is exactly twenty controllers, three pickers and sixty-four paired cases. Case-wise A/B/C rotation is fixed by index, independent of outcomes. Each actual action uses one public prediction, one picker decision and one selected-reveal write. The exact-table and last-32-selected-reveal references use only public evidence. The sole privileged read is a post-reset deck digest for evaluator identity: neither the deck nor digest reaches the model, tracker or picker. Native returned frames retain the upstream mismatch timing.
+
+One concrete defect was found and fixed: an early reset-info or layout-validation failure could ask the uninitialized tracker for matched cards while constructing the failure receipt, losing the current reset/identity counters. The explicit `tracker_ready` guard now preserves that receipt. The author also charges an actual returned `get_state()` call before validating its layout and added malformed-reset/layout regressions. Raw prefixes, failed writes, cleanup errors, exclusive output, storage limits and late-completion demotion are covered by the synthetic suite. Original exceptions remain primary.
+
+The 1,800-second cooperative cap covers authentication through final serialization/hash checks; success is demoted after a late final write. Successful output must remain within six billion bytes. Failure preservation can retain an additional partial payload. Whole-controller time includes its one shared restore and all three policies; the shared restore repeated in policy receipts must not be summed three times. Per-episode time includes construction, reset, evaluator identity, public processing, neural calls, native steps, close and NPZ storage/hash, while JSON receipts remain outer work. A pays an additional score pass for equivalence diagnostics, so recorded picker timings do not establish an intrinsic speed advantage under matched arithmetic.
+
+A supplementary producer-schema read of `scripts/report_card_controllers.py` at SHA-256 `c32b495228757d8a59e8d8c066114837257cd50842675a7188898838ab1138d2` found no mismatch in the 7,742 payload members, per-step diagnostics, case/checkpoint identity, public-layout reconstruction or nested timer fields. The table correctly labels its policy-level measure as episode milliseconds per action. Saved-output checks do not numerically verify learned checkpoint forwards, and no new gate can revise the original failed architecture criterion.
+
+## Final pre-execution addendum
+
+The final driver is SHA-256 `33b68a28f4429a480c81a17e1f85ad2bdd593468799ba646229489ed33a9ce00`; its tests are `f9a2ac564fc2120189bb27e2066893daee8eeb4615ebd770020969747665cb66`. I inspected the two narrow changes: new bindings must explicitly include the driver and picker sources, and a successfully counted episode clears its active partial snapshot before later cap/finalization checks. Thus a late failure cannot count that same episode again as unfinished work. The late-completion regression checks 3,840 completed fake episodes with no additional partial receipt or NPZ. The author reports **39 fake tests passed in 6.44 seconds and Ruff clean**. No reviewer test, model or native calls were added. **No remaining material blocker found at these final hashes.** This addendum supersedes the initial driver/test identities above.

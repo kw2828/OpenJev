@@ -1,0 +1,106 @@
+{
+  "bindings_file": "evidence/card-controllers-v1/source-bindings.json",
+  "budget": {
+    "episodes": 3840,
+    "identity_reads": 3840,
+    "max_learned_predict_calls": 359424,
+    "max_learned_write_calls": 359424,
+    "max_native_actions": 399360,
+    "max_reference_actions": 39936,
+    "new_training_updates": 0
+  },
+  "continuation": {
+    "B_minus_A": "descriptive numerical-policy contrast only",
+    "all_required": true,
+    "contrast": "C_minus_B",
+    "every_family_mean_nonnegative": true,
+    "minimum_overall_learned_mean_return_difference": 0.03,
+    "minimum_positive_paired_fits_per_family": 2,
+    "not_a_retest_of_original_architecture_gate": true
+  },
+  "evaluation": {
+    "controllers": 20,
+    "episodes": 64,
+    "max_actions": 104,
+    "output_cap_bytes": 6000000000,
+    "policies": [
+      "A",
+      "B",
+      "C"
+    ],
+    "wall_cap_seconds": 1800
+  },
+  "layout_identity": {
+    "method": "SHA256 prefix card-layout-int64le-v1 followed by NUL and 52 contiguous little-endian int64 ranks",
+    "public_verification": "reconstruct from union of actual returned public reveals when complete",
+    "scope": "evaluator-only post-reset get_state()[0] read; only digest saved; never passed to actor; duplicates retained"
+  },
+  "limits": [
+    "No new training, selected checkpoints, alternative seeds, native retries or cap extensions",
+    "Original architecture result remains FAIL 1/6",
+    "B bundles normalization and numerical tie handling; does not isolate those separately",
+    "C is an information-seeking tie heuristic, not optimal information gain or a new memory architecture",
+    "64 paired layout draws, not 3840 independent decks; actual trajectories may diverge",
+    "This follow-up tests the controller; novelty and broader architectural efficacy remain unestablished"
+  ],
+  "lineage": {
+    "checkpoint_map": {
+      "path": "output/card-memory-pilot-v1/training-01/checkpoint-map.json",
+      "sha256": "dc3c2cc33e007faf27c27137aecaee8e23fdc2d41690f89253badc9f4e1098b6"
+    },
+    "independent_review": {
+      "path": "output/card-memory-pilot-v1/independent-results-review.json",
+      "sha256": "172d06c680db4570476ca7039c611bb3df89db9e080c2c5157f750f73daa310f"
+    },
+    "old_bindings": {
+      "path": "evidence/card-memory-pilot-v1/source-bindings.json",
+      "sha256": "ea725853a9040f415f4f1ea84554d14720d290d7c51c0166626eefda79c947be"
+    },
+    "old_inputs": {
+      "path": "evidence/card-memory-pilot-v1/inputs.json",
+      "sha256": "1b19eaebb17e429c9865ecdad581ad338bdefa2c9882b72666ef94b6087ad32f"
+    },
+    "old_protocol": {
+      "path": "evidence/card-memory-pilot-v1/protocol.json",
+      "sha256": "46cc7beff760699d0532b1a9c818c84f6184d788b82a0ce6460c872029f99dbd"
+    },
+    "training_boundary": {
+      "path": "output/card-memory-pilot-v1/training-01/training-completed.json",
+      "sha256": "6df6267901f7e90280fa4b971e4464177e5591ef84ba1450b89d800ee44a6dc9"
+    },
+    "training_completed": {
+      "path": "output/card-memory-pilot-v1/training-01/completed.json",
+      "sha256": "a190fe337ff82333d28beb443e915b55a4c547457c4bf7af7d5555d90ab906ad"
+    }
+  },
+  "metrics": [
+    "native return",
+    "success",
+    "matched pairs",
+    "actions",
+    "per-fit and per-deck paired differences",
+    "unseen first-choice rate",
+    "positions discovered",
+    "repeat selections",
+    "row-mass drift",
+    "tie-set sizes",
+    "C-vs-B on C-prefix choice difference",
+    "full controller cost"
+  ],
+  "order": "Controller order delta, gated_delta, kalman, innovation_local, innovation_matched, gru each pair 0, 1, 2, then exact,last32; within each controller, case 0..63 then explicit rotating policy_order",
+  "policy_definitions": {
+    "A": "Exact original PublicCardTracker choice and public overrides; no normalization or tolerance",
+    "B": "Float64 raw-row normalization, original public overrides, inclusive 1e-12 band from maximum score; lexicographic first pair endpoint or smallest second-card index",
+    "C": "Same B scores and tie set; on first card choose smallest unseen endpoint among tied pairs if any, otherwise B; second choice exactly B"
+  },
+  "sizing": {
+    "output_cap_includes": "all files in exclusive output directory, before closure and after final receipt",
+    "prior_evaluation_seconds": 66.92255804198794,
+    "threefold_linear_reference_seconds": 200.76767412596382,
+    "two_probability_arrays_max_uncompressed_bytes": 4319477760,
+    "wall_cap_includes": "authentication, all resets/layout hashes/decisions/model reads and writes/native steps, serialization and final hash checks"
+  },
+  "status": "prospective",
+  "tie_tolerance": 1e-12,
+  "version": "card-controllers-v1"
+}
