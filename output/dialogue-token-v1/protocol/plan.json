@@ -1,0 +1,85 @@
+{
+  "admission_seconds": 720,
+  "batch_size": 128,
+  "capacity_seconds": 120,
+  "capacity_unique_contexts": 512,
+  "chunk_tokens": 254,
+  "context_occurrences": 44410,
+  "counts": {
+    "dev": {
+      "dialogues": 2363,
+      "public_question_steps": 117386,
+      "public_turns": 23810
+    },
+    "train": {
+      "dialogues": 2017,
+      "public_question_steps": 91856,
+      "public_turns": 20600
+    }
+  },
+  "device": "mps",
+  "disk_cap_bytes": 4294967296,
+  "dtype": "float32",
+  "encoder": "sentence-transformers/all-MiniLM-L6-v2",
+  "encoding_seconds": 900,
+  "inputs": {
+    "data": {
+      "completed_sha256": "677d37ea581b3165b0adc96a0a0daab74271e0434df2ad23ace9568537e2cd12",
+      "path": "runs/sgd-state-v1/data"
+    },
+    "lexical": {
+      "completed_sha256": "2e3e528ae05e55a32aa812d25a9dd609d7878e4daff77130994b0a63c32dad54",
+      "path": "runs/dialogue-copy-v1/lexical-01"
+    },
+    "packet": {
+      "completed_sha256": "e4503c3dd63d28b74e91877dfc9c69b81f4b880e4f07d240cf8c08331fa0b308",
+      "path": "runs/sgd-state-v1/features-02"
+    }
+  },
+  "layout_files": {
+    "context-indices.npy": "ae3372fb0c60f76e778d1f2437369bc4e661dbf6626948bbac2f8fb627ad50d9",
+    "index.json": "404afb1fed87ee6c52228247a5c1142e43b985e48dfab9546f64fbffa5a56378",
+    "texts.jsonl": "aee1fbef717d45c564616295805e9d2251f260a70eb19144f6182d542cbf42f9"
+  },
+  "model_files_sha256": {
+    "config.json": "953f9c0d463486b10a6871cc2fd59f223b2c70184f49815e7efbcab5d8908b41",
+    "model.safetensors": "53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db",
+    "special_tokens_map.json": "303df45a03609e4ead04bc3dc1536d0ab19b5358db685b6f3da123d05ec200e3",
+    "tokenizer.json": "be50c3628f2bf5bb5e3a7f17b1f74611b2561a3a27eeab05e5aa30f411572037",
+    "tokenizer_config.json": "acb92769e8195aabd29b7b2137a9e6d6e25c476a4f15aa4355c233426c61576b",
+    "vocab.txt": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3"
+  },
+  "original_encoder_source_sha256": "1408986f6185e4f2ba8d289e274bcef3fa5897c97337b861c114f208d8f5d4f0",
+  "pooling_max_abs_tolerance": 2e-05,
+  "prior": "n_chunk / (sum_content_tokens * (n_chunk+2)) for every valid token, including each CLS/SEP",
+  "protocol_path": "research/dialogue-token-protocol.md",
+  "protocol_sha256": "19ecae2d11b73e30ac161b14703a8f5e2d7566ce2124c6adb7db3c2d7ab91533",
+  "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "runtime": {
+    "huggingface-hub": "1.31.0",
+    "numpy": "2.5.3",
+    "platform": "macOS-26.6.1-arm64-arm-64bit",
+    "python": "3.12.13",
+    "torch": "2.14.0",
+    "transformers": "5.17.0"
+  },
+  "scope": "All existing public System/User contexts once; no candidate tokens or label-dependent selection",
+  "source_sha256": {
+    "research/dialogue-token-protocol.md": "19ecae2d11b73e30ac161b14703a8f5e2d7566ce2124c6adb7db3c2d7ab91533",
+    "scripts/prepare_dialogue_copy.py": "1cbc255f1d90498c48ec7e6c86610c89653fce1093099476c839a9c3f39b1f04",
+    "scripts/prepare_dialogue_joint.py": "d57f9f647203606ce047b7dfbf5f42396adb829ca029adc39601ef385e9430d3",
+    "scripts/prepare_dialogue_tokens.py": "fa630dfb96d3b37184045703981dad6054813e03c2fcb948c14ca98ffda9b409",
+    "scripts/prepare_sgd_state.py": "c19c862379b889b21180da96ddac08d1f1afcc823c0123df8a8467ecdd93e4b6",
+    "scripts/study_dialogue_memory.py": "51a46d35c3d9dd2857bd3ded5fc289652c7e18f05b85b8f82dd245ade7626e2c",
+    "src/openjev/research/dialogue_copy_features.py": "78a2c2e26c7fae4a30fad0380a6832b998b1f696c8d0edbb7b53cd3aaa1ac503",
+    "src/openjev/research/dialogue_state_data.py": "7749e97e64575ae02c9fc843573e93e82d5e9cbb301410e47881e18190f0c102",
+    "tests/test_dialogue_copy_features.py": "94e54afece7dc34548344fe2c158dc3519023a6bc8d95173464593aa854cbfcc",
+    "tests/test_dialogue_state_data.py": "e6b5001dba0424b3ebca3c95e76d723956638c5fefdf463d730cff0dcec5faa3",
+    "tests/test_prepare_dialogue_joint.py": "3907ba36e469c5457f99d9bde4e87c59546b963229245dc096d2b6e9824a0b50",
+    "tests/test_prepare_dialogue_tokens.py": "12dd42259da075517d12a5c9322f70c1d0a8a07199cfab27e465fb6f5ac33311"
+  },
+  "template": "'System: ' + previous_system_text + '\\nUser: ' + current_user_text",
+  "unique_contexts": 43553,
+  "version": "dialogue-token-minilm-v1",
+  "width": 384
+}
