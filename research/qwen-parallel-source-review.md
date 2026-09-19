@@ -55,6 +55,11 @@ work counts. Report cold and warmed end-to-end latency, memory, and all
 supported question counts. Add optimized constrained JSON generation as a
 separate baseline. Do not infer a 5.6-7x OpenJev gain from the upstream card.
 
+The [implementation follow-up](../output/qwen-parallel-followup-review.md)
+specifies four matched methods to separate batching from prefix reuse while
+preserving the pinned model, candidate vocabulary mass and request timing
+semantics. This benchmark remains proposed, not measured.
+
 For research, keep choice preference separate from probability of an action's
 outcome. A recurrent world model could forecast the latter, trained and tested
 against observed outcomes. Compare accuracy, log loss/Brier score, calibration,

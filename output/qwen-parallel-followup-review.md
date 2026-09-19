@@ -1,0 +1,20 @@
+# Qwen parallel follow-up: implementation delta only
+
+September 18, 2026. This supplements the existing [source review](../research/qwen-parallel-source-review.md) and [54-request pilot proposal](../research/parallel-constrained-decoding-reference.md); it does not repeat their upstream architecture or confidence claims. The eight preserved upstream files and repository metadata still match their recorded SHA-256 hashes. No model calls, weight downloads, training or current cache-study artifacts were used.
+
+**Keep the proposed 54-request pilot. Refine its implementation comparison to isolate prefix reuse from batching.**
+
+The current [OpenJev scorer](../src/openjev/decisions.py) supplies four concrete constraints:
+
+1. `messages_for` places context before the question and candidates (lines 99-109). Compute the longest shared prefix of the already tokenized full prompts. This can preserve the exact current prompt protocol without adopting the upstream compact schema prompt. A common character substring alone is insufficient at token boundaries.
+2. MLX already projects only the final hidden position, but still projects the full vocabulary (lines 204-214). Candidate vocabulary mass (lines 112-126) depends on the full-vocabulary normalizer. Replacing that with only selected projection rows would silently change an existing API output. Prefix/batch reuse can preserve it.
+3. The default model is pinned Qwen3-4B-Instruct-2507 at `50d427756c6b1b2fe0c0a10f67fbda1fc8e82c1b`, not the upstream 1.5B model. Keep model, quantization, token sequences, label ordering and normalization fixed. The [upstream MLX code](https://huggingface.co/harshatheg/Qwen-2.5-1B-RLCD/blob/2af86848be75847ccb3553b0941cc51d6ef7e4e9/core/engine_mlx.py#L292) supports a prefix-plus-batched-suffix optimization, not a predicted speed ratio for this scorer.
+4. `DecisionResponse.questions_sequential` defaults to true. A batched implementation must report its actual execution mode. Request wall time should be the primary latency endpoint; any per-question latency attribution must explain shared prefill and overlapping work rather than implying additive independent timings. The service already has one model-owner thread, so this change need not introduce concurrent model access.
+
+On the same 54 frozen requests, compare four methods: current serial fresh-prefill; batched full prompts without reuse; one shared prefill with separate serial suffix branches; and shared prefill with batched suffix branches. This separates batching from avoiding repeated prefix work. The already proposed five paired warm repetitions imply **1,080 timed request evaluations** across four methods; declare warmups and model-loading measurements separately. Reuse the existing one/two/four-question, short/long-context and two/four/twelve-candidate grid. Retain the one-question cells even if caching loses there.
+
+Freeze the same complete token sequences and engineering-only numerical tolerance before timing. Check all selected IDs, conditional probabilities and candidate vocabulary masses; include unequal suffix lengths, reordered fields, isolated candidate caches and repeated independent requests. Count actual prefill/suffix calls and tokens, synchronized end-to-end wall time and peak memory, including copying and probability readback. Keep the full forward vocabulary calculation and no-generation behavior. Any unexplained semantic mismatch blocks a speed claim, even if timing improves. This remains a systems experiment, not a training or calibration result.
+
+If parity passes, a separate labeled check can use [MultiRC](https://cogcomp.seas.upenn.edu/multirc/): one two-label correctness decision per proposed answer, with decisions sharing their paragraph. Several answers can be correct, so the original options must not be normalized as mutually exclusive choices. That is a later quality check, not an expansion of the initial 54-request pilot. Prefix caching supplies no recurrent state-learning or outcome-prediction mechanism.
+
+Scorer bytes inspected: SHA-256 `3a1e4fca3dff7de0643e6db30fa5c1cbe4bfc411bd139580d29a68e1ed4af5b6`. No source or execution files changed.
