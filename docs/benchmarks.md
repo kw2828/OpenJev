@@ -26,9 +26,17 @@ Nine original chess students trained on the same 4,096 Stockfish-labeled positio
 
 ## Recurrent world models
 
+![Persistent memory against trained reset controls, all twelve models and five references](../evidence/reacher-geometry-memory-v1/report/native-costs.png)
+
+The latest **fixed-score memory comparison passed 25/25 checks**. Persistent GRU lowered native control cost by **31.86%/25.99%** versus cached-observation GRU and **38.22%/35.36%** versus current-packet GRU on six-step/ten-step gaps. Every paired fit improved. The secondary cached-MLP reductions were **18.15%/12.96%**. All twelve saved fits were evaluated without retraining. [All 51 rows, fixed first-case GIF and audit](../research/reacher-geometry-memory.md).
+
+![All memory policies and supplied-physics references with complete row timing](../evidence/reacher-geometry-memory-v1/report/utility-vs-cost.png)
+
+All planned rows now use CEM256 and geometry scoring. The three supplied-physics references still beat every learned fit on every panel, while taking more measured controller time. Equal candidate budgets do not match information or total compute. Independent audit replayed **78,933,504 executed/candidate/selected native transitions**, plus **310,464 public-observer transitions**, with zero discrepancy. The result supports these trained memory policies in one development environment, not biological wiring or a new architecture. A stronger two-observation/action-history baseline is next.
+
 ![Fixed models with learned and approximate geometric scoring, every fit and reference](../evidence/reacher-geometry-score-v1/report/native-costs.png)
 
-The latest **zero-fit scoring intervention passed 25/25 checks**. Approximate geometry reduced persistent-GRU native control cost by **35.7%/28.7%** on six-step/ten-step sensing gaps. With the same geometry score, GRU beat cached MLP by **22.6%/15.7%**, improving every paired fit. This supports changing the score while retaining the learned transition model; it does not establish architecture or biological novelty. [All 51 rows, audit and fixed-case replay](../research/reacher-geometry-score.md).
+The preceding **zero-fit scoring intervention passed 25/25 checks**. Approximate geometry reduced persistent-GRU native control cost by **35.7%/28.7%** on six-step/ten-step sensing gaps. With the same geometry score, GRU beat cached MLP by **22.6%/15.7%**, improving every paired fit. This supports changing the score while retaining the learned transition model; it does not establish architecture or biological novelty. [All 51 rows, audit and fixed-case replay](../research/reacher-geometry-score.md).
 
 ![Every model's utility and measured whole-controller cost after the scoring intervention](../evidence/reacher-geometry-score-v1/report/utility-vs-cost.png)
 

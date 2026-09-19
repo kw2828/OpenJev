@@ -40,17 +40,15 @@ The latest [24-fit graph comparison](docs/chess-pin-quality.md) found **36.43% /
 
 ## Robot reaching
 
-[![Fixed first robot case: learned versus geometric scoring for recurrent and cached models](evidence/reacher-geometry-score-v1/report/fixed-case-replay.gif)](research/reacher-geometry-score.md)
+[![First robot case: persistent memory and three trained reset controls](evidence/reacher-geometry-memory-v1/report/fixed-case-replay.gif)](research/reacher-geometry-memory.md)
 
-**Better scoring unlocked useful recurrent predictions: all 25 continuation checks passed.** With the same six trained models, geometric scoring reduced GRU control cost by **35.7%/28.7%** on six-step/ten-step sensing gaps. GRU also beat the cached MLP using that same score by **22.6%/15.7%**, in every paired fit.
+**Persistent memory improved control: all 25 continuation checks passed.** With scoring and search budgets held constant, persistent GRU lowered control cost by **31.9%/26.0%** versus a GRU retaining only the last observation, on six-step/ten-step sensing gaps. All three paired fits improved. Twelve saved models and all five references are retained.
 
-![All six saved models, both scoring methods and all physics references](evidence/reacher-geometry-score-v1/report/native-costs.png)
+![All twelve models and five references with fixed geometry scoring and search budgets](evidence/reacher-geometry-memory-v1/report/native-costs.png)
 
-The gain cost about **53% more measured controller time** than GRU's original scoring. This is a fixed-model scoring result, not a new architecture or biological-wiring result. The GIF is a schematic replay of the preselected first case, not a performance summary. [Results, all 51 comparisons and compute costs](research/reacher-geometry-score.md).
+Supplied-physics controllers still perform better. Equal search budgets do not match total compute. The GIF is a schematic replay of the preselected first case, not a performance summary. This supports a trained memory policy in one task, not a new architecture or biological-wiring advantage. [All 51 comparisons, compute costs and independent audit](research/reacher-geometry-memory.md).
 
-The [earlier cache comparison](research/reacher-cache-ablation.md) remains a failed result (15/28 checks): with learned rewards, cached MLP beat GRU. The new intervention changes the score while preserving those models and that history.
-
-Now running: [does persistent memory help when scoring and search budgets are held constant?](research/reacher-geometry-memory.md) No result is claimed before the complete independent audit.
+The [earlier geometry intervention](research/reacher-geometry-score.md) improved scoring with unchanged weights. The [earlier cache comparison](research/reacher-cache-ablation.md) remains a failed result (15/28 checks). Next: test whether two recent observations and intervening actions explain the persistent model's advantage.
 
 ## Run locally
 
