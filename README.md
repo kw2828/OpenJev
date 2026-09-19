@@ -66,9 +66,11 @@ Open **http://127.0.0.1:8000**. Local text scoring uses Qwen3-4B; the free brows
 
 ## More experiments
 
-- [Can better blending help?](research/pose-capacity-results.md): ideal continuous blends show **17-21% lower error** against the strongest controls when given future answers. Even perfect stepwise hard switching misses the required margin. This is a capacity diagnosis, **not a model improvement**; rotation bounds apply to projected geometry. All 960 searches are retained, including one capped search.
+- [Can past errors choose the blend?](research/pose-probe-blend-results.md): the fitted probe passed **0/17 requirements**. Simple inverse-error weights beat it on all four measurements and all twelve paired seed comparisons. Full cost is **9.65 ms versus 6.22 ms** for the GRU. All 36 rows remain included.
 
-[![Hindsight capacity: fixed hard choices, stepwise choices and continuous blending](output/pose-capacity-v1/visualization-01/capacity.png)](research/pose-capacity-results.md)
+[![Past-error blending: all six variants and failed continuation rule](output/pose-probe-blend-v1/visualization-02/physical-errors.png)](research/pose-probe-blend-results.md)
+
+The [earlier capacity diagnosis](research/pose-capacity-results.md) found 17-21% potential improvement when given future answers. The tested past-error rule did not realize that potential; no architecture improvement is established.
 
 - [Parent-excluded selector training](research/pose-crossfit-results.md): 30 neural fits produced small improvements, but only **2/17 requirements passed**. The [earlier coordination screen](research/pose-coordination-results.md) passed 1/17. Neither established an architecture advantage.
 
