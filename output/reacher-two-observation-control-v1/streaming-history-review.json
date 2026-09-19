@@ -1,0 +1,49 @@
+{
+  "schema": "openjev-streaming-history-component-review-v1",
+  "observed_utc": "2026-09-19T06:13:37.477916+00:00",
+  "status": "independent_tiny_synthetic_component_checks_passed",
+  "source_sha256": {
+    "src/openjev/research/reacher_two_anchor_streaming.py": "d4e2dd4a6df0ea07cda8df749b0fa8fc44e14c4efb054d3b48287c68777d44ee",
+    "tests/test_reacher_two_anchor_streaming.py": "f28557fcbd36457cab4c4db70801046c3bbd78a7ab049cd8834b775330095985"
+  },
+  "reviewer": "residual_results_review",
+  "validation_provenance": "Commands and numerical discrepancies reported by independent reviewer; root checked source hashes and frozen source preservation, without repeating tests.",
+  "commands": [
+    ".venv/bin/python -m pytest -q -s tests/test_reacher_two_anchor_streaming.py",
+    ".venv/bin/python -m ruff check src/openjev/research/reacher_two_anchor_streaming.py tests/test_reacher_two_anchor_streaming.py"
+  ],
+  "checks": {
+    "pytest_passed": 39,
+    "pytest_seconds": 1.41,
+    "ruff": "passed",
+    "tested_roots_predictions_rewards": "bitwise_equal_float32_and_float64"
+  },
+  "max_gradient_absolute_difference": {
+    "float32": {
+      "parameters": 1.78813934e-07,
+      "packets": 3.7252903e-09,
+      "commands": 7.4505806e-09
+    },
+    "float64": {
+      "parameters": 2.77555756e-16,
+      "packets": 6.9388939e-18,
+      "commands": 1.38777878e-17
+    }
+  },
+  "completed_parent_work": {
+    "startup_assimilations": 1,
+    "per_later_packet_assimilations": 3,
+    "per_later_packet_full_advances": 2,
+    "unused_readout_heads_computed": true
+  },
+  "scientific_sources_checked": 116,
+  "scientific_sources_changed": [],
+  "current_study_integrated": false,
+  "limits": [
+    "Tiny fixed-weight CPU synthetic cases only.",
+    "No measured speed, trained-weight parity, optimizer equivalence or control effectiveness.",
+    "Root-only objectives can produce absent versus explicit-zero readout gradients, with different optimizer behavior.",
+    "Shared gradient accumulation can round differently; graph storage, validation and copies add work.",
+    "Functional complete-sequence API only; returned tensors are caller-owned and not a cross-call cache."
+  ]
+}

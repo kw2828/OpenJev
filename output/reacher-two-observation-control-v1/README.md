@@ -53,3 +53,25 @@ The [plan](../../evidence/reacher-two-observation-study-v1/protocol/plan.json) a
 The protocol was published in commit `a0852048625b9fcf13b8f0884254e134c7dff1b7` before launch. The first fit has begun. The explicit launcher verifies the published plan and freeze, retains all process exits and has no automatic retry. Completion still requires all three fits, all 42 comparison rows and the separate audit; partial progress is not a performance result.
 
 This tests a stronger conventional control. It does not by itself test biological wiring, Bayesian inference, a new architecture or transfer to another environment.
+
+## Optional history reuse kernel
+
+The separate [streaming kernel](../../src/openjev/research/reacher_two_anchor_streaming.py)
+implements the [prospective reuse design](streaming-history-design.md). It keeps
+two branches anchored at real measurements so a fixed-weight sequence can share
+repeated history work. The running experiment still uses the original full
+reconstruction implementation.
+
+The 39 [synthetic tests](../../tests/test_reacher_two_anchor_streaming.py) compare
+every real root, private forecasts and public-input/parameter gradients with
+reconstruction. They also check causal dependence, missing-data sanitization,
+window limits and actual parent-module work counts. Shared gradient accumulation
+can change floating-point rounding; unused heads can have absent rather than
+explicitly zero gradients for a root-only objective. These checks do not
+establish identical optimizer trajectories, faster training or better control.
+An independent reviewer reran them successfully; the [review receipt](streaming-history-review.json)
+records the source hashes and measured gradient discrepancies.
+
+The [mechanism screen](error-gated-mechanism-screen.md) separately examines
+prediction-error correction and fast/slow memory against five primary papers.
+Its proposed experiment is unfrozen and unrun.

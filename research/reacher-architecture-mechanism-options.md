@@ -4,9 +4,16 @@
 now establishes a persistent-policy advantage over the trained current-packet
 and single-observation controls. The supplied public-kinematic controller still
 performs better. The [two-observation learned control](../output/reacher-two-observation-control-v1/README.md)
-is implemented and has passed a complete tiny engineering rehearsal, including
-all 42 control rows and independent audit. Its scientific comparison has not run. The original mechanism review below remains a proposal, with no
+is now training under a published frozen protocol after passing the complete
+engineering rehearsal and full-size capacity audit. Its scientific comparison
+is not complete. The original mechanism review below remains a proposal, with no
 biological or architectural efficacy claim.
+
+The [error-gated correction screen](../output/reacher-two-observation-control-v1/error-gated-mechanism-screen.md)
+compares five close precedents. It narrows the proposed question to whether
+uncertainty-normalized innovation adds useful correction beyond elapsed-gap
+gating and conventional learned filtering; no new experiment is established by
+that literature screen.
 
 Decision note, September 18, 2026. **Proposed, unfrozen and unrun.** This review
 uses published papers, official source code and the existing
