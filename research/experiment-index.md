@@ -4,9 +4,13 @@ Completed studies, including failures and controls. A passing implementation che
 
 ## Complete experiment list
 
-- [Internal dialogue-memory qualification](dialogue-evidence-qualification-results.md): stopped after the first scalar fit reproduced all **62,329** saved predictions but failed internal normalization checks on **7,989** prior states. The old output metrics remain descriptive; the scalar mechanism comparison needs correction and new training. No counterfactual efficacy result was produced.
+- [Corrected candidate dialogue memory](dialogue-copy-v2-results.md): **15 fresh fits**, valid internal probabilities, independently audited **7/13** scientific checks passed. Selective unseen macro remains **72.89%**, versus scalar's **72.58%**; the proposed mechanism still fails. The numerical correction changes no continuation decision. All **56,202,005** executed question positions passed each state-normalization check.
 
-- [Candidate dialogue memory with lexical observations](dialogue-copy-results.md): **15 fits**. Selective memory improves unseen macro accuracy to **72.89%**, versus literal carry's **65.76%**. Simpler scalar memory reaches **72.58%** and beats selective on seen services. The primary fails its rule with **7/13 checks passed** and still trails literal carry on unseen revisions. Shared lexical and history observations help; a selective-retention advantage is not established.
+[![All fifteen corrected candidate-memory fits](../output/dialogue-copy-v2/report-01/comparison.png)](dialogue-copy-v2-results.md)
+
+- [Internal dialogue-memory qualification](dialogue-evidence-qualification-results.md): stopped after the first scalar fit reproduced all **62,329** saved predictions but failed internal normalization checks on **7,989** prior states. The old output metrics remain descriptive; this motivated the corrected fresh training above. No counterfactual efficacy result was produced by the failed qualification.
+
+- [Historical candidate dialogue memory with lexical observations](dialogue-copy-results.md): **15 fits**. Selective memory improves unseen macro accuracy to **72.89%**, versus literal carry's **65.76%**. Simpler scalar memory reaches **72.58%** and beats selective on seen services. The primary fails its rule with **7/13 checks passed** and still trails literal carry on unseen revisions. Its internal normalization defect is addressed by the fresh corrected study above; retain these outputs as historical evidence.
 
 [![All fifteen candidate-memory fits and both deterministic references](../output/dialogue-copy-v1/report-01/comparison.png)](dialogue-copy-results.md)
 

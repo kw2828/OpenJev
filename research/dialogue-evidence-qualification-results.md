@@ -1,5 +1,7 @@
 # Memory qualification stopped on an internal normalization defect
 
+**Follow-up completed:** [15 fresh normalized fits](dialogue-copy-v2-results.md) passed internal-state checks and still failed the scientific rule, 7/13. The failed qualification below remains preserved and was not retried.
+
 **The first replay reproduced every saved prediction but failed its internal probability checks.** Do not use this attempt to choose a new memory gate or claim an improved architecture. The failure exposes a numerical defect in the original scalar-memory implementation.
 
 ![Observed internal probability mass and sample counts for the first scalar fit](../output/dialogue-evidence-qualification-v1/figure/normalization-failure.png)
@@ -37,6 +39,6 @@ Only the first scalar fit's internal factors were captured. Do not extend its me
 
 ## Corrected version
 
-The separate [V2 implementation](dialogue-memory-normalization-fix.md) normalizes memory before using it as a feature and after each real update. It preserves the original source and adds no learned parameters. Forty-five focused tests include 512-turn float32 sequences; the combined V2 and qualification suite passes **78 tests**, with Ruff clean and an independent source review. These are implementation checks only. No V2 training or evaluation on the corpus has run, and the failed six-fit qualification was not retried.
+The separate [V2 implementation](dialogue-memory-normalization-fix.md) normalizes memory before using it as a feature and after each real update. It preserves the original source and adds no learned parameters. Forty-five focused tests include 512-turn float32 sequences; the combined V2 and qualification suite passed **78 tests**, with Ruff clean and an independent source review. Those were implementation checks only, before any V2 corpus training. The separately frozen [corrected replication](dialogue-copy-v2-results.md) subsequently completed; the failed six-fit qualification was not retried.
 
 [Failed execution receipt](../output/dialogue-evidence-qualification-v1/replay-01/failed.json) · [Published and retained file manifest](../output/dialogue-evidence-qualification-v1/replay-01/publication-manifest.json) · [Frozen protocol](dialogue-evidence-qualification-protocol.md) · [Reproduction contract](dialogue-evidence-reproduction.md) · [Saved-output error analysis](../output/dialogue-copy-error-diagnostic-v1/README.md)

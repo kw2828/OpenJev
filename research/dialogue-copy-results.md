@@ -1,5 +1,7 @@
 # A stronger candidate-memory baseline; selective retention fails its test
 
+**Corrected replication completed:** [15 fresh normalized fits](dialogue-copy-v2-results.md) pass internal-state checks and reproduce the scientific failure, with 7/13 requirements passed. Use that study for the corrected scalar comparison. This page preserves the historical V1 results.
+
 **Numerical erratum:** a [later internal-state replay](dialogue-evidence-qualification-results.md) reproduced the first scalar fit's saved outputs but found substantial drift in its recurrent probability mass. The metrics below remain records of the frozen implementation; scalar comparisons do not establish the intended normalized-memory mechanism. A correction requires a new training study. The failed continuation decision is unchanged.
 
 All **15 fits** completed. The proposed selective memory reaches **72.89%** three-stratum macro accuracy on unseen services, above literal copying's **65.76%**. However, a simpler scalar update reaches nearly the same unseen score, **72.58%**, and wins on seen services. The proposed method passes **7 of 13** predeclared requirements and fails the continuation rule.

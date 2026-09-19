@@ -1,5 +1,7 @@
 # Candidate-memory normalization defect and additive correction
 
+The later [15-fit corrected replication](dialogue-copy-v2-results.md) validates the recorded normalized states and retains the scientific failure, 7/13. This page describes the preceding numerical correction and its synthetic validation.
+
 The frozen candidate-copy comparison has a numerical recurrence defect. Reproducing its saved predictions does not establish that its internal state implements the stated probability transition. The first qualification fit, `scalar-4101`, matched all 62,329 saved predictions, then stopped because its captured factors violated the prospectively fixed normalization checks. The [failed receipt](../output/dialogue-evidence-qualification-v1/replay-01/failed.json) records 74 completed forwards and no completed qualification fit. This correction does not rerun that attempt or relax its tolerance. See the [independent audit and figure](dialogue-evidence-qualification-results.md).
 
 ## Why scalar drift grows

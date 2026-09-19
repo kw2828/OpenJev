@@ -1,0 +1,98 @@
+{
+  "config": {
+    "batch_size": 32,
+    "epochs": 20,
+    "gradient_clip": 1.0,
+    "gru_width": 16,
+    "hidden_dim": 64,
+    "learning_rate": 0.001,
+    "loss": "Equal training weight across three state-transition strata",
+    "methods": [
+      "readout",
+      "scalar",
+      "selective",
+      "selective_no_lexical",
+      "candidate_gru"
+    ],
+    "projection_dim": 64,
+    "seeds": [
+      4101,
+      4102,
+      4103
+    ],
+    "selection": "All final fits; no best epoch, seed or variant; development only",
+    "threads": 4,
+    "weight_decay": 0.0001
+  },
+  "implementation_version": "dialogue-copy-memory-v2-normalized",
+  "lexical_completed_sha256": "2e3e528ae05e55a32aa812d25a9dd609d7878e4daff77130994b0a63c32dad54",
+  "loss_counts": {
+    "0": 32718,
+    "1": 14331,
+    "2": 4692
+  },
+  "loss_weights": [
+    0.5271410232899322,
+    1.2034749842997696,
+    3.675831202046036
+  ],
+  "normalization_tolerance": 2e-06,
+  "old_completed_sha256": "8317abad5ef8235f31f5381591944ad152c42fddb98743fa64fd1f5cd8c3f300",
+  "old_plan_sha256": "609a0758f2a4ae4722052bb27740c74b3d1bdac396d8134eb39f5118f1429a2b",
+  "optimizer_updates_per_fit": 1280,
+  "packet_completed_sha256": "e4503c3dd63d28b74e91877dfc9c69b81f4b880e4f07d240cf8c08331fa0b308",
+  "paths": {
+    "lexical": "runs/dialogue-copy-v1/lexical-01",
+    "old_study": "output/dialogue-copy-v1/execution-01",
+    "packet": "runs/sgd-state-v1/features-02"
+  },
+  "practical_checks": {
+    "conventional_controls": [
+      "readout",
+      "candidate_gru"
+    ],
+    "macro_gain_over_literal": 0.03,
+    "macro_gain_over_scalar": 0.005,
+    "maximum_revision_deficit_to_literal": 0.01,
+    "micro_nll_no_worse_than": "scalar",
+    "panels": [
+      "seen",
+      "unseen"
+    ],
+    "primary": "selective",
+    "required_complete_fits": 15,
+    "strict_paired_macro_wins_over_scalar": 2,
+    "total_panel_checks": 12
+  },
+  "runtime": {
+    "numpy": "2.5.3",
+    "platform": "macOS-26.6.1-arm64-arm-64bit",
+    "python": "3.12.13",
+    "torch": "2.14.0"
+  },
+  "scope": "Fresh fits under corrected numerical implementation; exposed development only; no old-weight warm start",
+  "source_sha256": {
+    "research/dialogue-copy-protocol.md": "75c7eaad7d421d18a2872fa2af7a458a72f5aa6722c2e888df2301dcae2519c0",
+    "research/dialogue-copy-v2-protocol.md": "3007b7471c4fdb7ca223a5de8a4e42db8ae69e98a2c09d750a5e8d9ab99846fa",
+    "scripts/prepare_dialogue_copy.py": "1cbc255f1d90498c48ec7e6c86610c89653fce1093099476c839a9c3f39b1f04",
+    "scripts/report_dialogue_copy.py": "e5601033aeebdd73cff71fed41e285f9db148db2eb1d70dcba202bbf34571202",
+    "scripts/report_dialogue_copy_v2.py": "3182086abbd32f7d3dfe0555d26fe1ee2ff108f5f18445099b32061fd9634788",
+    "scripts/report_dialogue_memory.py": "bcaf33e75c87705b6bc11866e1ccf6ae558a624f00d586b5e86e3808f7a736c7",
+    "scripts/study_dialogue_copy.py": "d628616f24d973f40a43d68b18758010547449877bdc569324e2cd920cd49996",
+    "scripts/study_dialogue_copy_v2.py": "e7ba25714685e905071ba7c4381c9ebc5253039773c8daafc21dbffb9ffe3d39",
+    "scripts/study_dialogue_memory.py": "51a46d35c3d9dd2857bd3ded5fc289652c7e18f05b85b8f82dd245ade7626e2c",
+    "src/openjev/research/dialogue_carry.py": "efc092a1be9e4180ffdb5199a3da24d405d76315b342f986dab0882580604db3",
+    "src/openjev/research/dialogue_copy_features.py": "78a2c2e26c7fae4a30fad0380a6832b998b1f696c8d0edbb7b53cd3aaa1ac503",
+    "src/openjev/research/dialogue_copy_memory.py": "182c71a944c6d787533bf129bca1631ff3b366b8559e3db7567e7fd9b19a8717",
+    "src/openjev/research/dialogue_copy_memory_v2.py": "3fc1e84e5fe9da0076e8d83e7d5c67e61607d67b49ce2b0357a81e2206d3714b",
+    "tests/test_dialogue_copy_features.py": "94e54afece7dc34548344fe2c158dc3519023a6bc8d95173464593aa854cbfcc",
+    "tests/test_dialogue_copy_memory.py": "d87239726cf3b81ccf570c9a748203ed785f9a1eed14c2029852c9ae9ab69661",
+    "tests/test_dialogue_copy_memory_v2.py": "3d8e4b41425d892ede8293261057c8c905942da80e2cd743537c9dd7d8d44dde",
+    "tests/test_report_dialogue_copy.py": "e14675867fc3d54b9e2f9c61baa185422c8d8f7e978069ba47551fc95ccf8a12",
+    "tests/test_report_dialogue_copy_v2.py": "96c15ea0055d0d4fd2ace92eec883685e17416fc28724eecbb31ddbe9498e5da",
+    "tests/test_study_dialogue_copy.py": "fbb73f441ea8da60635376a266e6c36fe95e3d58fd5ddf86fa951b82511d5ede",
+    "tests/test_study_dialogue_copy_v2.py": "b4be77b55b536f7ac1064683b7512e83528f4509e01a7ae401f0d17a61289db2"
+  },
+  "study": "dialogue-copy-v2",
+  "wall_cap_seconds": 3600.0
+}

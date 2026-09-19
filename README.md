@@ -66,7 +66,7 @@ Open **http://127.0.0.1:8000**. Local text scoring uses Qwen3-4B; the free brows
 
 ## Research results
 
-- [Candidate text memory](research/dialogue-copy-results.md): **15 fits**, with **7/13 checks passed**. Selective memory reaches **72.89%** unseen-service macro accuracy versus **65.76%** for literal copying. A [later replay found internal probability drift](research/dialogue-evidence-qualification-results.md) in the scalar baseline; a corrected comparison is required.
+- [Corrected candidate text memory](research/dialogue-copy-v2-results.md): **15 fresh fits** pass internal probability checks, but selective memory still fails its rule (**7/13**). Unseen-service macro accuracy is **72.89%**, versus **72.58%** for simpler scalar memory and **65.76%** for literal copying. The correction establishes numerical validity, not an architecture advantage.
 - [Earlier recurrent text memory](research/dialogue-memory-results.md): 21 fits; the proposed memory lost to literal copying on unseen services.
 - [Text inference](research/shared-prefix-results.md): shared-context prototype, **2.08x faster** for four-question workloads. Synthetic speed benchmark; single-question caching is slower.
 - [Biological wiring](docs/chess-connectome.md): the controlled chess study **did not establish a connectome advantage**.
@@ -74,7 +74,7 @@ Open **http://127.0.0.1:8000**. Local text scoring uses Qwen3-4B; the free brows
 - [Robot dynamics screen](research/drive-qualification-results.md): 252 episodes; classical calibration leaves too little benefit from exact parameters to justify neural training here.
 - [All experiments and visualizations](research/experiment-index.md): complete results, including negative findings, training receipts and paper sources.
 
-[![All fifteen candidate-memory fits, including simple controls and revision accuracy](output/dialogue-copy-v1/report-01/comparison.png)](research/dialogue-copy-results.md)
+[![All fifteen corrected candidate-memory fits, including simple controls and revision accuracy](output/dialogue-copy-v2/report-01/comparison.png)](research/dialogue-copy-v2-results.md)
 
 Candidate scores are uncalibrated and relative to the supplied choices. These experiments use different models and protocols. The root MIT license applies except where component notices specify other terms, including GPL-3.0-only chess research files. Third-party data and model licenses apply separately.
 

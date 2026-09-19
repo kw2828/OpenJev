@@ -59,3 +59,20 @@ The report checks all 15 fits, internal-state coverage and the original 13
 scientific criteria. It produces a comparison chart and retains every seed.
 Technical validity and scientific effectiveness are separate outcomes. V1
 deltas are descriptive and do not enter the continuation rule.
+
+## Recorded completion
+
+The [actual campaign](dialogue-copy-v2-results.md) completed all 15 fits once,
+with technical validity passing and scientific continuation failing, 7/13.
+Its exact identities are:
+
+- Plan: `9c39c3b27c7219190bc3f45fc342bc4da4eb408e622402a92ce51efb68ed3905`.
+- Execution completion: `768376e24824523b9a5c26923c14206e567fda4f3578ed1babdf7cbdfb1d89f4`.
+- Report receipt: `fa4e47979b9fab18c40f009423ed1aeb0603991aa4944b29cfa8ffb5e6002a2a`.
+
+The [publication manifest](../output/dialogue-copy-v2/execution-01/manifest.json)
+identifies 33 byte-identical public metadata and batch-journal files and the
+31 local-only payloads. The public subset is not a complete run directory
+for the commands above. An [independent saved-output auditor](../output/dialogue-copy-v2/independent-audit-01/README.md)
+recomputed metrics and all 13 checks; a [descriptive diagnostic](../output/dialogue-copy-v2/error-diagnostic-01/result-01/README.md)
+reports subgroup errors without changing the continuation rule.
