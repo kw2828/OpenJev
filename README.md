@@ -66,9 +66,11 @@ Open **http://127.0.0.1:8000**. Local text scoring uses Qwen3-4B; the free brows
 
 ## More experiments
 
-- [Geometry and recurrent memory](research/pose-transport-results.md): 12 new fits with physical position/rotation errors and stronger motion baselines. Rotating memory improved the matched model by only 0.1% to 1.4%; **345/541 checks passed**, so the continuation rule failed.
+- [Learning through context adaptation](research/pose-adaptation-results.md): twelve new fits. Disabling adaptation in the **same trained model** lowers both physical errors on both robot archives for every seed. Only **1/17 requirements** passed; the adaptation recipe failed.
 
-[![Physical errors across recurrent models and motion baselines](output/pose-transport-v1/visualization-02/physical-errors.png)](research/pose-transport-results.md)
+[![Context adaptation versus the same prior, static models and motion references](output/pose-adaptation-v1/visualization-01/physical-errors.png)](research/pose-adaptation-results.md)
+
+- [Geometry and recurrent memory](research/pose-transport-results.md): 12 new fits with physical position/rotation errors and stronger motion baselines. Rotating memory improved the matched model by only 0.1% to 1.4%; **345/541 checks passed**, so the continuation rule failed.
 
 - [Residual dynamics and online correction](research/residual-dynamics-results.md): six new fits and 500 ms forecasts. Error fell 52% on one archive and rose 27% on another; **36/49 checks passed**, so the continuation rule failed. The gain is concentrated in one trajectory, and simple motion prediction explains much of the position improvement. [Figure](output/residual-dynamics-v1/visualization-03/forecast-results.png).
 

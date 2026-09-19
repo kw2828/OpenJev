@@ -1,0 +1,86 @@
+{
+  "study": "pose-adaptation-v1",
+  "scope": "exposed-data development, not confirmation",
+  "data": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/residual-dynamics-v1/data-01",
+  "data_hashes": {
+    "completed.json": "5dce491809299ade3310e0852370cd511bf8b2ae9118ffb6f298ef83d757a6f3",
+    "dev.npz": "30d259ef22f231e271a0c44c4fbfe0b25a01ad3ad576c67df91731c9f665f563",
+    "manifest.json": "7471d4ec0920dd1c2c0d8d9b35949e9d157d6fb674a4229ca574a6b925faaa5b",
+    "normalization.npz": "0e07ba075c29987455cedb11971b95ce92f9509bee99b2795439ab4daf11beec",
+    "test_sin.npz": "1a402646581edbd6152c51db090f401e357c744db9d2e8c10ce2a37ec0f077f6",
+    "test_zigzag.npz": "7ad0ad932c480add80952ad22a176039f6ffa1319106f6d3a3d0b7abf5373407",
+    "train.npz": "f6b049365f931d1ead0806f53883ae35a5fccb63b5e6fd75df5d782833bfe9b4"
+  },
+  "sources": {
+    "scripts/train_pose_adaptation.py": "2211d642948600a8c2286b8fb34ec517ddc54f1390d3baeb8d996336076c066d",
+    "scripts/audit_pose_adaptation.py": "1147f387ec9499d66edbc60cad17afbbef00720f98495593001b6d1bd65aac01",
+    "scripts/audit_pose_transport.py": "abca9f05a1043f8741a43c11342ae289be08f73763aafed02d89afa823676026",
+    "src/openjev/research/pose_adaptation.py": "5a1b7aac70cd208e728cd99c9166ea219bc491b81ee6a350e26b66d2467f28a5",
+    "src/openjev/research/pose_transport.py": "e8c3cbb651341aee8f28d336acc26de03a6905ad21eb0a2e3daa2968eb149050",
+    "src/openjev/research/pose_references.py": "6ec51a4faf8e34a15a776732fdd048fc8d88252074b108131358e77eb9d5682e",
+    "src/openjev/research/rigid_motion.py": "d93e93911888a6e99f905474182e33851e7ecc05f5defd74b76b715ad905873a",
+    "tests/test_pose_adaptation.py": "c6ef072bdde81357063fd9cce01f7848cc8d9dfc0f643e956fcec9aefd435369",
+    "tests/test_pose_adaptation_training.py": "47125965abb48bc64ad504c5a7e279f849c74e04c50732de0a8c9d6cb2446684",
+    "tests/test_audit_pose_adaptation.py": "b3b4a35426c023c9c604a9f3ec09b383469f9c086df1a44b8203856f08dba5c3",
+    "research/pose-adaptation-protocol.md": "c2da3d4403d7b192c95c1ba5edab60c7b88899d5032e923e90964711487a3b67",
+    "research/pose-adaptation-diagnosis.md": "933990d3fe4b0e974157fbae7c70c16df0e2075caf4726083eeebc856e90c525"
+  },
+  "seeds": [
+    1101,
+    1202,
+    1303
+  ],
+  "variants": [
+    "meta",
+    "meta_prior",
+    "static",
+    "static_adapt",
+    "public",
+    "gru"
+  ],
+  "train_variants": [
+    "meta",
+    "static",
+    "public",
+    "gru"
+  ],
+  "references": [
+    "hold",
+    "cv1",
+    "cv16",
+    "ls16",
+    "body16",
+    "ridge16"
+  ],
+  "panels": [
+    "test_sin",
+    "test_zigzag"
+  ],
+  "epochs": 30,
+  "batch": 32,
+  "context": 32,
+  "horizon": 25,
+  "learning_rate": 0.001,
+  "grad_norm_cap": 1.0,
+  "optimizer": "Adam",
+  "expected_fits": 12,
+  "updates_per_fit": 690,
+  "position_loss_scale_m": 0.1,
+  "rotation_loss_scale_rad": 0.1,
+  "support_rows": 30,
+  "ridge_precision": 1.0,
+  "posterior_solve": "float64 Cholesky then float32 weights",
+  "feature_normalization": "L2 normalization eps1e-8 then intercept1",
+  "checkpoint": "final only; no selection, retries or sweep",
+  "primary": "position and geodesic rotation RMSE separately, all25 steps; family pools3 fits",
+  "gate": "meta at least10% better on each physical endpoint against every learned and classical control on both panels; all3 paired fit endpoints nonworse; at least8/10 parents nonworse for each endpoint/control/panel; strictly lower MSE after each leave-one-parent-out; median full-window latency<=1.5x gru. Failure stays failed.",
+  "gate_grouping": "17 grouped requirements retain all661 elementary comparisons",
+  "prior_failure": "residual-dynamics-v1 failed36/49 and pose-transport-v1 failed345/541 remain unchanged",
+  "runtime": {
+    "python": "3.12.13",
+    "torch": "2.14.0",
+    "numpy": "2.5.3",
+    "threads": 1,
+    "platform": "macOS-26.6.1-arm64-arm-64bit"
+  }
+}

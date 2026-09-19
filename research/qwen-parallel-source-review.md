@@ -46,6 +46,17 @@ not prove the speedup false, but the example cannot serve as an internally
 consistent measurement receipt. A new benchmark needs actual repeated runs
 and complete timing records.
 
+September 19, 2026 refresh: two further source checks limit comparability.
+The [current presets](https://huggingface.co/harshatheg/Qwen-2.5-1B-RLCD/tree/2af86848be75847ccb3553b0941cc51d6ef7e4e9/presets)
+contain 28 fintech fields, 28 security fields and four tariff fields, while the
+[README table](https://huggingface.co/harshatheg/Qwen-2.5-1B-RLCD/blob/2af86848be75847ccb3553b0941cc51d6ef7e4e9/README.md#L38)
+describes four, four and one respectively. The
+[schema prompt functions, lines 109-130](https://huggingface.co/harshatheg/Qwen-2.5-1B-RLCD/blob/2af86848be75847ccb3553b0941cc51d6ef7e4e9/core/schema.py#L109)
+show that the baseline lists only the first 20 choices when a field has more
+than 50, while the parallel catalog includes field descriptions without
+enumerating candidate values. These are different prompts and workloads, not
+a controlled estimate of cache reuse alone. No upstream inference was run.
+
 ## Fit with OpenJev
 
 Our [decision scorer](../src/openjev/decisions.py) already reads a final-position
