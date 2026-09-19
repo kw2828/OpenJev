@@ -1,0 +1,25 @@
+{
+  "scope": "engineering progress only; no scored experiment launched or outcomes inspected",
+  "previous_goal_turn": {
+    "classification": "progress",
+    "evidence": "Published verified memory-study release and pushed publication receipts in commit4e568db6208ac6c12dbfa8eca996270c86ce7bf5"
+  },
+  "checks": [
+    {
+      "command": "pytest tests/test_reacher_cache_training.py tests/test_reacher_cache_control.py tests/test_reacher_cache_study.py",
+      "passed": 111,
+      "failed": 5,
+      "seconds": 12.73,
+      "failure": "New causality fixture changed future commands but incorrectly required h3/h7 windows containing those commands to stay unchanged. All five model variants failed the same overbroad expectation.",
+      "resolution": "Perturb only future observed angular packets; keep issued commands and static target unchanged."
+    },
+    {
+      "command": "pytest tests/test_reacher_cache_control.py -k prediction_all_complete",
+      "passed": 5,
+      "failed": 0,
+      "deselected": 33,
+      "seconds": 1.3
+    }
+  ],
+  "frozen_historical_sources_changed": false
+}

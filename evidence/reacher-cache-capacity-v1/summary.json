@@ -1,0 +1,138 @@
+{
+  "all_arm_count": 5,
+  "captured_source_sha256": {
+    "src/openjev/research/reacher_cache_control.py": "c773aed0d784b22c6c2726a4923fa270dee2458fb44c511b66ae2715b054a0cd",
+    "src/openjev/research/reacher_cache_protocol.py": "ec1e4733494c0a10f3b94e98e09d40c0071dc7a0aa2feb5aa34c18f3ded7f84f",
+    "src/openjev/research/reacher_cache_training.py": "8ceba58f2984e2ae9e62326d0992072365079cb28590af67cda9189d2e2a4a60",
+    "src/openjev/research/reacher_cached_observation.py": "4f34fc6a56ff30d5b7b4a293ebfee41492ccbc3eee5d11c93f315af9d9239bbc",
+    "src/openjev/research/reacher_objective_training.py": "0a1d80a141c6bd90ac3b37dc0516503bbca06ac5d7af0449b490d5a5a1f85fbf",
+    "src/openjev/research/reacher_observation_baseline.py": "93f6f91b43aabe59544501b83e4fdba6512dcf5da1853e97d41489849450188d",
+    "src/openjev/research/reacher_reward_residual.py": "72aadee9db1362f258edd4813e56e517c64fdb74dd9f54b0b67a21f2a00d9308",
+    "src/openjev/research/reacher_world_models.py": "84a4a9f9122d0e8099bac19e04619faff22adabf0acf516eff9d5367ded2060e"
+  },
+  "checkpoints": {
+    "cached_gru": {
+      "cursor": {
+        "batch": 4,
+        "epoch": 0
+      },
+      "data_sha256": "0f2af9a3850c9311ac2a379cb26506f6677631862d2f675922870745f7bdce58",
+      "model_class": "CachedObservationGRUWorldModel",
+      "parameters": 36805,
+      "runtime_recorded_at_execution": {
+        "purpose": "synthetic-capacity",
+        "threads": 2
+      },
+      "sha256": "fdaab4d46d1e7b4725ba1bd4f7b77ffdbc54f15762dd4355462189b644a771d9",
+      "successful_updates": 4
+    },
+    "cached_mlp": {
+      "cursor": {
+        "batch": 4,
+        "epoch": 0
+      },
+      "data_sha256": "0f2af9a3850c9311ac2a379cb26506f6677631862d2f675922870745f7bdce58",
+      "model_class": "CachedObservationMLPWorldModel",
+      "parameters": 36599,
+      "runtime_recorded_at_execution": {
+        "purpose": "synthetic-capacity",
+        "threads": 2
+      },
+      "sha256": "f86720aeba3eeb10f9351ed5f5cf8e4da32171bf2e2c326a166b74dfddbdd8b5",
+      "successful_updates": 4
+    },
+    "encoded_current_gru": {
+      "cursor": {
+        "batch": 4,
+        "epoch": 0
+      },
+      "data_sha256": "0f2af9a3850c9311ac2a379cb26506f6677631862d2f675922870745f7bdce58",
+      "model_class": "EncodedCurrentGRUWorldModel",
+      "parameters": 36805,
+      "runtime_recorded_at_execution": {
+        "purpose": "synthetic-capacity",
+        "threads": 2
+      },
+      "sha256": "87c767ecc22e56df21b2ca5f809dd7b2b3aa3bf282aae951dd5b887bfd848254",
+      "successful_updates": 4
+    },
+    "packet_mlp": {
+      "cursor": {
+        "batch": 4,
+        "epoch": 0
+      },
+      "data_sha256": "0f2af9a3850c9311ac2a379cb26506f6677631862d2f675922870745f7bdce58",
+      "model_class": "FeedForwardObservationWorldModel",
+      "parameters": 36599,
+      "runtime_recorded_at_execution": {
+        "purpose": "synthetic-capacity",
+        "threads": 2
+      },
+      "sha256": "a6ef5e5c4422651b1d3ce819b560476f69757c2d09255d623e78ac02390279b1",
+      "successful_updates": 4
+    },
+    "residual_gru": {
+      "cursor": {
+        "batch": 4,
+        "epoch": 0
+      },
+      "data_sha256": "0f2af9a3850c9311ac2a379cb26506f6677631862d2f675922870745f7bdce58",
+      "model_class": "GRUResidualRewardWorldModel",
+      "parameters": 36805,
+      "runtime_recorded_at_execution": {
+        "purpose": "synthetic-capacity",
+        "threads": 2
+      },
+      "sha256": "c42bc7739dde3b0d0223c9268b928ac0d3ad274f699873bd05ddc8717cafda84",
+      "successful_updates": 4
+    }
+  },
+  "measurement_script_sha256": "4a500fb50cca7f6c60ecb112f2de9f3597020e3bc60a2f48e9183f592d794dcb",
+  "observed": {
+    "candidate_evaluations_per_case": 256,
+    "device_recorded": "cpu",
+    "episode_steps": 50,
+    "hidden_size": 64,
+    "initialization_pairs_exercised": 1,
+    "mlp_width": 107,
+    "native_control_episodes": 0,
+    "scientific_scores": 0,
+    "search_batch_cases": 64,
+    "search_count_per_arm": 3,
+    "search_horizon": 12,
+    "torch_threads_recorded": 2,
+    "train_batch_episodes": 32,
+    "training_data_episodes": 768,
+    "update_count_per_arm": 4,
+    "whole_measurement_seconds": 3.417170791188255
+  },
+  "projection": {
+    "cap_is_proposed_not_authorized_by_this_receipt": true,
+    "excluded": [
+      "real packet assimilation and executed-action advance",
+      "native simulation and data collection",
+      "all reference controllers and filters",
+      "training preparation/initialization and restoration",
+      "prediction evaluation",
+      "serialization/trace storage and manifest hashing",
+      "independent audit and publication"
+    ],
+    "learned_search_seconds": 308.3254754310474,
+    "limits": "Four training updates and three same-startup-root searches per arm; no steady-state claim, confidence interval, end-to-end runtime guarantee, utility or speed superiority claim. All four updates, including the first, enter training projection. Full 12-step searches are extrapolated across all 50 decisions although real terminal horizons shrink.",
+    "measured_component_projection_seconds": 880.2958896299824,
+    "proposed_run_cap_seconds": 3600,
+    "search_formula": "sum(mean(three_full_batch_cem_seconds) * 50 decisions * 3 fits * 3 panels)",
+    "training_formula": "sum(whole_trainer_training_seconds / 4 * 1152 updates * 3 fits)",
+    "training_seconds": 571.970414198935,
+    "two_times_measured_component_projection_seconds": 1760.5917792599648,
+    "unmeasured_headroom_at_two_times_projection_seconds": 1839.4082207400352
+  },
+  "projection_fit_count": 15,
+  "projection_learned_control_rows": 45,
+  "raw_completed_sha256": "fae078f72a7e635fb651f88a0cf2aded64dd5b0781f56cb27de2951f0a5b689a",
+  "raw_started_sha256": "8dfb9edd7aff95662c3b53b5a89f4efd197c0175205b62fc540583707733e2bc",
+  "recorded_plan_namespace": "reacher-cache-engineering-capacity-v1",
+  "scope": "engineering_capacity_only_not_scientific_result",
+  "synthetic_data_seed": 410,
+  "synthetic_data_sha256": "0f2af9a3850c9311ac2a379cb26506f6677631862d2f675922870745f7bdce58"
+}
