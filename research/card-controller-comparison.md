@@ -56,3 +56,9 @@ The prospective code, seeds, source snapshots and criteria were published in com
 The run retained 1.33 GB of compressed trajectory and receipt files. The evidence release includes every new trajectory, report, figure and source snapshot. Its inherited checkpoints and training data remain in the [original pilot release](https://github.com/kw2828/OpenJev/releases/tag/research-card-memory-pilot-v1); both releases are needed for the complete training-to-evaluation chain.
 
 The result establishes a better controller baseline for future work. Before another architecture claim, a separate experiment must show that learned recurrent memory improves useful retained-history performance beyond the cheap last-32 reference, with fresh training data and a scenario shift. This run does not establish that advantage.
+
+## Separate exploratory error review
+
+A later [saved-output diagnostic](../output/card-controller-posthoc-v1/short.md) covers all 576 C-policy games from Kalman, local innovation and gated delta. Every one of their 345 failed games leaves cards undiscovered. Failed-game accuracy over all eligible previously seen, currently hidden position-time queries is 99.37-99.49%, while repeated mismatches occur in 80.36-84.68% of failed games. These repeated query counts are not independent samples, and the success/failure subsets contain different histories.
+
+This does not show that recall errors are harmless: a few errors may cause repeated choices and incomplete discovery. Confidence on repeated failed pairs was not measured. It identifies concrete symptoms for a future decision-policy or calibration experiment, with fresh cases and a separately fixed rule. The diagnostic is outside the closed evidence archive and changes neither continuation criterion.
