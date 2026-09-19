@@ -66,6 +66,10 @@ Open **http://127.0.0.1:8000**. Local text scoring uses Qwen3-4B; the free brows
 
 ## More experiments
 
+- [Shared-context text scoring](research/shared-prefix-results.md): a cache prototype is **2.08x faster** across the four-question workloads, with every selected answer preserved in 1,296 synthetic request evaluations. One-question caching is slower. This is a serving benchmark, not a new model or calibration result.
+
+[![Shared-prefix prototype: all methods and workload cells](output/shared-prefix-v1/report-01/warm-latency.png)](research/shared-prefix-results.md)
+
 - [Does ordered error memory help?](research/pose-innovation-results.md): **45 fits across nine methods**, evaluated on twelve held-out training parents. The recurrent head lowers error by about 4%, but simple summary ridge beats it on both endpoints in all nine paired comparisons. **223/368 checks passed; the recipe failed.**
 
 [![All nine error-history methods and held-out training results](output/pose-innovation-v1/visualization-01/physical-errors.png)](research/pose-innovation-results.md)
