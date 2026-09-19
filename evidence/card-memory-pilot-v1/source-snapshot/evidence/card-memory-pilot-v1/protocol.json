@@ -1,0 +1,105 @@
+{
+  "bindings_file": "evidence/card-memory-pilot-v1/source-bindings.json",
+  "continuation": {
+    "all_required": true,
+    "conventional_modes": [
+      "delta",
+      "gated_delta",
+      "kalman",
+      "gru"
+    ],
+    "development_age_gt32_accuracy_margin_local_minus_matched": 0.02,
+    "development_min_eligible_age_gt32_episodes_per_fit": 24,
+    "incomplete_or_nonfinite": "fail; never substitute seeds, checkpoints or favorable strata",
+    "local_minus_matched_mean_return_margin": 0.02,
+    "local_minus_matched_positive_in_every_paired_fit": true,
+    "scope": "candidate worth fresh-seed and scenario-shift validation; not publication readiness",
+    "utility_margin_over_strongest_conventional_mean": 0.03,
+    "utility_positive_in_every_paired_fit": true
+  },
+  "data": {
+    "behavior_random_probability_per_action": 0.5,
+    "development_episodes": 32,
+    "engineering_episodes": 4,
+    "native_replay_required": true,
+    "train_episodes": 128,
+    "wall_cap_seconds": 300
+  },
+  "eligibility": {
+    "age": "native action count since last public visibility",
+    "learned_targets": "previously seen and currently hidden card ranks before current action",
+    "loss_weighting": "mean queried cards within boundary; mean nonempty boundaries within episode; mean eligible episodes",
+    "padding": "no writes or supervision after episode end"
+  },
+  "evaluation": {
+    "controllers": 20,
+    "episodes": 64,
+    "max_actions": 104,
+    "wall_cap_seconds": 3600
+  },
+  "limits": [
+    "single supervised memory task and shared supplied planner, not end-to-end RL",
+    "GRU matches 512 mean-state scalars only, not parameter count or compute",
+    "Kalman arms carry32 extra state scalars",
+    "no connectome wiring, robotic transfer, calibrated probability, SOTA or novelty claim",
+    "development and evaluation used once; no checkpoint selection, tuning or automatic retry",
+    "the closed Mystery Path and robotics recipes are not reopened"
+  ],
+  "mechanism": {
+    "local": "scale * key**2",
+    "matched_diffuse": "scale * sum(key**4) / sum(key**2) in each coordinate",
+    "matched_quantity": "same-input-state extra key-projected covariance and immediate gain along current key; not trace or future histories",
+    "name": "innovation-directed covariance reopening",
+    "residual_gradients": "fully differentiable in both arms",
+    "scale": "softplus(kappa) * mean(prewrite_residual**2)",
+    "uncertainty_claim": "heuristic positive covariance scale, not calibrated or exact Bayesian posterior"
+  },
+  "modes": [
+    "delta",
+    "gated_delta",
+    "kalman",
+    "innovation_local",
+    "innovation_matched",
+    "gru"
+  ],
+  "name": "Public associative memory for ConcentrationHard",
+  "references": [
+    "exact public table",
+    "last32 actual selected reveals plus shared current-visible override"
+  ],
+  "shared_controller": {
+    "external_metadata": "seen and matched masks, current public frame, pending first index, action count",
+    "pair_score": "sum of products of candidate rank probabilities",
+    "tie_rule": "first lexicographic maximum of float64 computed scores, no epsilon",
+    "unseen_override": "uniform over 13 ranks",
+    "visible_override": "exact public rank",
+    "weights_at_deployment": "frozen",
+    "write": "exactly one actual selected reveal per native action"
+  },
+  "status": "prospective",
+  "training": {
+    "all_fits_before_development": true,
+    "batch_size": 16,
+    "checkpoint": "final_only",
+    "development_wall_cap_seconds": 300,
+    "device": "cpu",
+    "epochs": 16,
+    "float_dtype": "float32",
+    "gradient_clip_norm": 1.0,
+    "learning_rate": 0.003,
+    "optimizer": "Adam",
+    "paired_fits": 3,
+    "per_fit_wall_cap_seconds": 180,
+    "threads": 1,
+    "updates_per_fit": 128,
+    "wall_cap_seconds": 1800,
+    "weight_decay": 0
+  },
+  "upstream": {
+    "commit": "410d5aa626dae8024f498354d8781a0d1870c399",
+    "environment": "ConcentrationHard",
+    "max_actions": 104,
+    "repository": "https://github.com/proroklab/popgym"
+  },
+  "version": "card-memory-pilot-v1"
+}
