@@ -83,4 +83,6 @@ The new workflow passed 189 component tests and a complete engineering rehearsal
 - [Independent arithmetic and interpretation review](../output/reacher-geometry-score-v1/independent-results-review.md)
 - [Prospective conditional follow-ups and primary papers](../output/reacher-geometry-score-v1/conditional-followups.md)
 
-The full source, checkpoints and traces are being packaged separately from the complete preparation archive, which preserves unsuccessful engineering attempts. No raw-release publication is claimed until its verification receipt exists.
+The [complete evidence release](https://github.com/kw2828/OpenJev/releases/tag/research-reacher-geometry-score-v1) is public. Its 18 assets contain the scientific execution, six checkpoints, source, audit and figures, plus a separate preparation archive preserving unsuccessful engineering attempts. Follow the release's README and checksums to reassemble split archives before extraction.
+
+The [publication receipt](../evidence/reacher-geometry-score-v1/scored-publication/release-verification.json) verifies every remote asset's size and SHA-256 and the exact release commit. Three public sidecars were downloaded and hashed; large parts were verified through GitHub's digests after local archive verification.
