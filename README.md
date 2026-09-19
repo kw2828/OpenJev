@@ -66,9 +66,11 @@ Open **http://127.0.0.1:8000**. Local text scoring uses Qwen3-4B; the free brows
 
 ## More experiments
 
-- [Learning through context adaptation](research/pose-adaptation-results.md): twelve new fits. Disabling adaptation in the **same trained model** lowers both physical errors on both robot archives for every seed. Only **1/17 requirements** passed; the adaptation recipe failed.
+- [Recency and robust adaptation](research/pose-support-results.md): with the same trained weights, position error falls **36.6% / 15.4%** versus no adaptation. Plain rotation improves; zigzag rotation regresses **7.6%**. Recent-five explains most of the position gain. **5/17 requirements pass**, so no new architecture advantage is established.
 
-[![Context adaptation versus the same prior, static models and motion references](output/pose-adaptation-v1/visualization-01/physical-errors.png)](research/pose-adaptation-results.md)
+[![Recency, robust updates and controls with equal total support weight](output/pose-support-v1/visualization-01/physical-errors.png)](research/pose-support-results.md)
+
+- [Learning through context adaptation](research/pose-adaptation-results.md): twelve new fits. Disabling adaptation in the **same trained model** lowers both physical errors on both robot archives for every seed. Only **1/17 requirements** passed; the adaptation recipe failed.
 
 - [Geometry and recurrent memory](research/pose-transport-results.md): 12 new fits with physical position/rotation errors and stronger motion baselines. Rotating memory improved the matched model by only 0.1% to 1.4%; **345/541 checks passed**, so the continuation rule failed.
 
