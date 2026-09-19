@@ -50,6 +50,8 @@ The gain cost about **53% more measured controller time** than GRU's original sc
 
 The [earlier cache comparison](research/reacher-cache-ablation.md) remains a failed result (15/28 checks): with learned rewards, cached MLP beat GRU. The new intervention changes the score while preserving those models and that history.
 
+Now running: [does persistent memory help when scoring and search budgets are held constant?](research/reacher-geometry-memory.md) No result is claimed before the complete independent audit.
+
 ## Run locally
 
 Apple Silicon macOS, Python 3.11-3.13:

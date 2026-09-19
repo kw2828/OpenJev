@@ -1,0 +1,43 @@
+{
+  "status": "completed",
+  "scope": "synthetic_terminal_helper_validation_only",
+  "created_utc": "2026-09-19T03:27:31.857011+00:00",
+  "plan_sha256": "23c93e4adfbb45cf224383ffa31d7323df2405807eb3f1c4c75bb27378bcd9ee",
+  "helper_sha256": "fadc2209e2ae38aa0dc4dffe2bb6c26bf26d893d70f61b7ba025e402d6a76457",
+  "tests_sha256": "9d03ffaf221a357413914d14d5e7b1ae9d6c939aaa39d60d2c6360bec28a7119",
+  "renderer_sha256": "d8c79dd3442c10ad6aeaceb3007b0e1ed0d9f97f5c74dda69566310bcb07c659",
+  "frozen_sources_verified": 90,
+  "frozen_sources_changed": 0,
+  "pytest": {
+    "command": ".venv-robotics/bin/python -m pytest output/reacher-geometry-memory-v1/test_verify_terminal.py -q",
+    "exit_code": 0,
+    "passed": 12,
+    "reported_seconds": 0.14
+  },
+  "ruff": {
+    "exit_code": 0,
+    "result": "All checks passed"
+  },
+  "independent_static_review": {
+    "reviewer": "architecture_bottleneck",
+    "status": "no_remaining_blocker",
+    "resolved_finding": "Execute exact SHA-authenticated renderer source bytes, bypassing timestamp-valid bytecode caches."
+  },
+  "coverage": [
+    "nonzero and boolean exit rejection before artifact reads",
+    "externally pinned completion hash rejection",
+    "passed and failed scientific qualification retained unchanged",
+    "existing receipt preservation and separate repeated failure receipts",
+    "changed summary gate and bound source rejection",
+    "unreviewed renderer rejection",
+    "same-size same-mtime stale bytecode bypass"
+  ],
+  "limits": [
+    "Renderer artifact authentication is injected in orchestration tests; these tests do not establish acceptance of real execution or audit artifacts.",
+    "Subprocess exits must be supplied by the supervising caller; the verifier does not supervise or rerun processes.",
+    "No production terminal verification, rendering, model calls, native replay or active outcome reads occurred."
+  ],
+  "new_model_calls": 0,
+  "new_native_calls": 0,
+  "production_outcome_reads": 0
+}
