@@ -1,0 +1,28 @@
+{
+  "stage": "preflight before training",
+  "protocol_sha256": "ac59480f11927a5aa0fd50af6eb4635d4ebb7600d7618ab0201aac99e8bc61c3",
+  "tests": {
+    "command": "PYTHONPATH=src:scripts .venv-robotics/bin/python -m pytest -q tests/test_rigid_motion.py tests/test_pose_transport.py tests/test_pose_references.py tests/test_pose_transport_training.py tests/test_audit_pose_transport.py",
+    "result": "116 passed in 2.53s",
+    "scope": "synthetic geometry, causality, gradients, reference arithmetic, loader schema, auditor closure/gates"
+  },
+  "ruff": "passed for all eleven Python source/test/render files",
+  "source_hashes": {
+    "scripts/train_pose_transport.py": "760a3808ea2fe9fbb1bdf239bc147a52c0603523d093f22ab9ce892101f4042a",
+    "scripts/audit_pose_transport.py": "abca9f05a1043f8741a43c11342ae289be08f73763aafed02d89afa823676026",
+    "src/openjev/research/pose_transport.py": "e8c3cbb651341aee8f28d336acc26de03a6905ad21eb0a2e3daa2968eb149050",
+    "src/openjev/research/pose_references.py": "6ec51a4faf8e34a15a776732fdd048fc8d88252074b108131358e77eb9d5682e",
+    "src/openjev/research/rigid_motion.py": "d93e93911888a6e99f905474182e33851e7ecc05f5defd74b76b715ad905873a",
+    "tests/test_pose_transport.py": "a4a6bac58e408bdc5a3c68349b9f31471f7c984893824cb2161164b516860daf",
+    "tests/test_pose_references.py": "6cecf8cfad95ad3ae28f3ca0d581b50da25dd9e5707f7ddd4983e73cc09b4d17",
+    "tests/test_rigid_motion.py": "d41fd06af0e9a7aa69c7ab5388b35045607c8e68c7f4ecb4ebc645854190d517",
+    "tests/test_audit_pose_transport.py": "9a9240afc55f16a61f4d2f7241fd42ad8418ed87d3f54eb11c55f73e7688ac40",
+    "tests/test_pose_transport_training.py": "aab4ef9809a082469af15dac423072f266628799e932e4061e21d6b27ffbc0ff",
+    "research/pose-transport-protocol.md": "031fc5213b3058fc3aba9cd4b845605a0ce9e125f02b0f4b544ae61a27006260"
+  },
+  "independent_reviews": [
+    "model and training geometry/state/causality clear",
+    "auditor schema/numerical pooling/541 checks clear"
+  ],
+  "research_scope": "exposed development data; prior failed study unchanged"
+}
