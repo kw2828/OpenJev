@@ -26,6 +26,15 @@ Nine original chess students trained on the same 4,096 Stockfish-labeled positio
 
 ## Recurrent world models
 
+![Persistent memory versus explicit caches, all paired fits](../evidence/reacher-cache-ablation-v1/figures/paired-comparisons.png)
+
+The latest **15-fit cache comparison failed its continuation rule, passing 15/28 checks**. Cached MLP lowered mean control cost by **6.32%/5.57%** versus persistent GRU on six-step/ten-step gaps and improved every paired fit. It also beat the packet MLP by **5.04%/5.22%**; cached GRU instead worsened relative to its current-only control. Persistent recurrence predicted angles and rewards better on the shared prediction cohort but controlled worse than cached MLP. These are development results in one environment, not cache equivalence or an architectural novelty claim. [All results, GIF and reproducible evidence](../research/reacher-cache-ablation.md).
+
+![Every model's native control cost and full controller-row time](../evidence/reacher-cache-ablation-v1/figures/utility-vs-cost.png)
+
+Cached MLP used about **38% more whole-row time** than persistent GRU on the gap panels. All 15 fits and 60 rows are retained. Total execution took **1,234.34 seconds**, followed by a **36.72-second audit** of 235,200 native transitions with zero discrepancy. Timings include validation, copies and traces where charged to controller rows; training and global hashing remain separate. Equal updates and near-equal parameters do not match compute.
+
+
 ![All six paired memory comparisons, retaining every fit](../evidence/reacher-memory-ablation-v1/paired-figure/paired-improvements.png)
 
 The completed **12-fit Reacher memory comparison passed 25/25 checks**. Persistent GRU recurrence lowered mean control cost by **9.27%/9.00%** versus a GRU trained without cross-decision history on six-step/ten-step gaps. Its longer-gap advantage over a three-packet GRU was **6.51%**. Every paired GRU comparison improved on both gap panels, although one fit contributes much of the current-only mean gain. The MLP was much closer, with only **1.06%/1.72%** lower cost for persistent recurrence in the family means and a paired fit that beats persistent recurrence. Supplied-physics references remain better. This qualifies useful public-history memory under the fixed recipe, not biological wiring, velocity inference or a new architecture. [All fits, criteria, prediction errors and replay](../research/reacher-memory-ablation.md).

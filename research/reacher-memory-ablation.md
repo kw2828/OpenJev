@@ -15,6 +15,12 @@ was inconsistent across fits and did not establish useful memory. This study
 tests that explanation before adding another architecture. The earlier failed
 study remains a failure; this is a separate protocol with fresh fits and cases.
 
+A subsequent [15-fit explicit-cache comparison](reacher-cache-ablation.md)
+failed its stronger persistent-memory rule: 15/28 checks passed. Cached MLP
+outperformed persistence on both gap panels in every paired fit. That result
+does not alter this study's original criterion, but limits the case for adding
+recurrent complexity based on it.
+
 ## Results and limits
 
 Lower cost is better. Each learned value averages all three fits over the same
