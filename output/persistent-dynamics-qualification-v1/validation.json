@@ -1,0 +1,54 @@
+{
+  "checks": [
+    {
+      "command": [
+        ".venv-robotics/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_reacher_tracking_dynamics.py",
+        "tests/test_reacher_tracking_identification.py"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "................................................................         [100%]\n64 passed in 0.35s\n",
+      "wall_seconds": 0.5449675829149783
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "ruff",
+        "check",
+        "src/openjev/research/reacher_tracking_dynamics.py",
+        "src/openjev/research/reacher_tracking_identification.py",
+        "tests/test_reacher_tracking_dynamics.py",
+        "tests/test_reacher_tracking_identification.py",
+        "output/persistent-dynamics-qualification-v1/probe_identification.py"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "All checks passed!\n",
+      "wall_seconds": 0.05718216602690518
+    }
+  ],
+  "protected_sources": [
+    {
+      "plan": "evidence/reacher-two-observation-study-v1/protocol/plan.json",
+      "unchanged_sources": 116
+    },
+    {
+      "plan": "evidence/reacher-innovation-pilot-v1/protocol/plan.json",
+      "unchanged_sources": 136
+    }
+  ],
+  "scope": "engineering tests and lint, not scientific efficacy",
+  "source_sha256": {
+    "output/persistent-dynamics-qualification-v1/probe_identification.py": "4fad29d74c6902a8d3c3cdeb5eac3931caf34769d4c5982d3a3b2d6a8fca7c1e",
+    "src/openjev/research/reacher_tracking_dynamics.py": "d1bd6780f4e8d6b9601de0738e5cd3f7bc7088b98f95e3857514d5c80c5dfba2",
+    "src/openjev/research/reacher_tracking_identification.py": "0798bb0918b5c7147eb9930c5bce1f66b77897ebdbdac58c7573f5d72f7fb971",
+    "tests/test_reacher_tracking_dynamics.py": "550fe18c06254befd09b3c962d20d4af71921fd2561887673e78b8eb03af35fd",
+    "tests/test_reacher_tracking_identification.py": "97b2aa5ddb075a46c4104478342fbf3fd6b35de31c0586c235d9a05927dcc210"
+  },
+  "status": "passed"
+}

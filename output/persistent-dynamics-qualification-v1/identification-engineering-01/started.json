@@ -1,0 +1,120 @@
+{
+  "automatic_retry": false,
+  "block_steps": 10,
+  "cap_seconds": 30,
+  "cases": [
+    [
+      "low",
+      0.7,
+      0.7,
+      false
+    ],
+    [
+      "high",
+      1.3,
+      1.3,
+      false
+    ],
+    [
+      "low-to-high",
+      0.7,
+      1.3,
+      false
+    ],
+    [
+      "high-to-low",
+      1.3,
+      0.7,
+      false
+    ],
+    [
+      "zero-low",
+      0.7,
+      0.7,
+      true
+    ],
+    [
+      "zero-high",
+      1.3,
+      1.3,
+      true
+    ]
+  ],
+  "change_step": 40,
+  "engineering_only": true,
+  "gain_grid": [
+    0.5,
+    0.55,
+    0.6,
+    0.65,
+    0.7,
+    0.75,
+    0.8,
+    0.8500000000000001,
+    0.9,
+    0.95,
+    1.0,
+    1.05,
+    1.1,
+    1.15,
+    1.2000000000000002,
+    1.25,
+    1.3,
+    1.35,
+    1.4,
+    1.4500000000000002,
+    1.5
+  ],
+  "horizon": 80,
+  "learned_models": 0,
+  "native_qualification": false,
+  "negative_check": "both zero cases retain gain1 and exactly flat banks for all80 updates; trajectories identical",
+  "noise": "exactly zero",
+  "positive_check": "mean absolute gain error <=0.1 over final10 completed transitions, each of4 pulse cases",
+  "prior_gain": 1.0,
+  "pulse_blocks": [
+    [
+      0.015,
+      0.0
+    ],
+    [
+      0.0,
+      -0.015
+    ],
+    [
+      -0.015,
+      0.0
+    ],
+    [
+      0.0,
+      0.015
+    ]
+  ],
+  "repetitions": 2,
+  "scientific_seed_allocation": false,
+  "seed": 410,
+  "sensing": "full",
+  "source_sha256": {
+    "output/persistent-dynamics-qualification-v1/probe_identification.py": "4fad29d74c6902a8d3c3cdeb5eac3931caf34769d4c5982d3a3b2d6a8fca7c1e",
+    "src/openjev/research/reacher_tracking_dynamics.py": "d1bd6780f4e8d6b9601de0738e5cd3f7bc7088b98f95e3857514d5c80c5dfba2",
+    "src/openjev/research/reacher_tracking_identification.py": "0798bb0918b5c7147eb9930c5bce1f66b77897ebdbdac58c7573f5d72f7fb971"
+  },
+  "targets": [
+    [
+      0,
+      0.12,
+      -0.04
+    ],
+    [
+      20,
+      0.08,
+      0.1
+    ],
+    [
+      60,
+      -0.08,
+      -0.1
+    ]
+  ],
+  "window": 20
+}

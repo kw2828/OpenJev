@@ -1,6 +1,6 @@
 # Learning mechanisms for the next OpenJev experiments
 
-Updated September 18, 2026. The latest
+Updated September 19, 2026. The completed
 [fixed-geometry memory comparison](reacher-geometry-memory.md) passed all 25
 continuation checks. Persistent GRU reduced control cost by 31.9%/26.0% against
 the trained single-observation GRU on six-step/ten-step sensing gaps. All three
@@ -8,12 +8,21 @@ fit pairs improved, although supplied-physics controllers remain better.
 This establishes a useful trained memory policy in this task, not biological
 superiority or a new architecture.
 
-The next test is the [trained two-observation control](../output/reacher-two-observation-control-v1/README.md).
-It reconstructs state from two actual measurements and the intervening commands
-at every decision. Its full scientific run is now running under a published
-freeze after engineering rehearsal and capacity qualification. Complete that
-control before attributing the gain to long memory or adding a biological mechanism. The mechanism proposals
-below remain prospective; they are not results of the latest study.
+The [completed two-observation comparison](reacher-two-observation-control.md)
+reconstructs state from two actual measurements and intervening commands at
+every decision. Persistent memory improved mean cost by 4.44%/2.94% against it,
+but failed the stronger continuation rule (24/25) because ten-step improvement
+was below 3%. This limits the long-memory interpretation without establishing
+equivalence. The mechanism proposals below remain prospective.
+
+The separate [four-gate development pilot](reacher-innovation-pilot.md) now has
+12 completed fits and an independent saved-output audit. Its normalized-error
+gate failed the continuation rule (21/29), including all four required 3% mean
+improvement checks. This closes that comparison without an architecture claim.
+The next mechanism test first needs a task where persistent dynamics changes
+matter to control. The [clean Pendulum result](robotics-pendulum-qualification.md)
+already showed that parameter identification alone is not enough: its late
+gain switch had almost no effect on total cost.
 
 The earlier completed
 [adaptive-search study](reacher-adaptive-search.md) gives this roadmap a stronger
@@ -45,8 +54,8 @@ The [current-observation components](reacher-observation-baseline.md) now provid
 an initialization-identical GRU control and a separate MLP for that future test.
 Those controls were subsequently trained in the
 [cache comparison](reacher-cache-ablation.md), then reused in the completed
-fixed-geometry comparison above. The stronger two-observation control is still
-awaiting its full trained evaluation.
+fixed-geometry comparison above. The stronger two-observation control has now
+completed its trained evaluation and independent audit, as reported above.
 
 ## What we are borrowing
 

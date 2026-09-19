@@ -1,6 +1,6 @@
 # Two-observation control: implementation status
 
-The completed [memory comparison](../../research/reacher-geometry-memory.md) passed its 25 continuation checks. This follow-up asks whether two recent valid observations and the intervening issued actions explain the persistent model's advantage. **The scientific follow-up is running under its published frozen protocol; no completed result is available yet.** [Launch verification](../reacher-two-observation-study-v1/launch-verification.json).
+The completed [memory comparison](../../research/reacher-geometry-memory.md) passed its 25 continuation checks. This follow-up asks whether two recent valid observations and the intervening issued actions explain the persistent model's advantage. **The scientific follow-up is complete and independently audited: continuation failed (24/25).** Persistent memory improved mean gap cost by 4.44%/2.94%, missing the required 3% margin on ten-step gaps. [All results](../../research/reacher-two-observation-control.md) · [Launch verification](../reacher-two-observation-study-v1/launch-verification.json).
 
 The [prospective design](../reacher-geometry-memory-v1/history-control-design.md) was written before the preceding comparison's results were reviewed. It keeps the original GRU64 parameter schema, data, initial tensors, minibatch orders, loss and update count. The new model reconstructs its state from a bounded public history at every real observation. Every reconstruction pays for all twelve observation updates and eleven transitions, including padding.
 
@@ -50,7 +50,7 @@ The proposed rule requires persistent memory to improve mean cost by at least 3%
 
 The [plan](../../evidence/reacher-two-observation-study-v1/protocol/plan.json) and [separate freeze](../../evidence/reacher-two-observation-study-v1/protocol/freeze.json) are prepared and verified before execution. Measured nominal projections are 2,996 seconds for execution and 1,347 seconds for auditing. Reviewed limits are 7,200 and 3,600 seconds respectively, with explicit reserves for repeated evidence checks, storage and shared-host variability. These are planning limits, not guaranteed completion times. All 116 scientific sources, including the original 90, remain unchanged. [Preparation verification](../reacher-two-observation-study-v1/preparation-verification.json).
 
-The protocol was published in commit `a0852048625b9fcf13b8f0884254e134c7dff1b7` before launch. The first fit has begun. The explicit launcher verifies the published plan and freeze, retains all process exits and has no automatic retry. Completion still requires all three fits, all 42 comparison rows and the separate audit; partial progress is not a performance result.
+The protocol was published in commit `a0852048625b9fcf13b8f0884254e134c7dff1b7` before launch. All three fits, all 42 comparison rows and the separate audit completed. Execution took 2,772.48 seconds and auditing took 1,356.93 seconds, with both processes exiting successfully. The explicit launcher verified the published plan and freeze and retained the original process exits without retry. The failed scientific continuation rule remains unchanged.
 
 This tests a stronger conventional control. It does not by itself test biological wiring, Bayesian inference, a new architecture or transfer to another environment.
 

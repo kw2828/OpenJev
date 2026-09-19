@@ -1,0 +1,185 @@
+{
+  "new_model_calls": 0,
+  "new_native_calls": 0,
+  "new_optimizer_steps": 0,
+  "new_rng_draws": 0,
+  "probe": {
+    "all_four_positive_cases_one_grid_step_high": true,
+    "all_sources_match": true,
+    "checks": [
+      {
+        "comparison": "<=",
+        "name": "low/last10_gain_mae",
+        "passed": true,
+        "threshold": 0.1,
+        "value": 0.050000000000000044
+      },
+      {
+        "comparison": "<=",
+        "name": "high/last10_gain_mae",
+        "passed": true,
+        "threshold": 0.1,
+        "value": 0.050000000000000044
+      },
+      {
+        "comparison": "<=",
+        "name": "low-to-high/last10_gain_mae",
+        "passed": true,
+        "threshold": 0.1,
+        "value": 0.050000000000000044
+      },
+      {
+        "comparison": "<=",
+        "name": "high-to-low/last10_gain_mae",
+        "passed": true,
+        "threshold": 0.1,
+        "value": 0.050000000000000044
+      },
+      {
+        "flat_count": 80,
+        "name": "zero-low/all80_flat_and_prior_retained",
+        "passed": true,
+        "prior": 1.0
+      },
+      {
+        "flat_count": 80,
+        "name": "zero-high/all80_flat_and_prior_retained",
+        "passed": true,
+        "prior": 1.0
+      },
+      {
+        "name": "zero_controls/identical_qpos",
+        "passed": true
+      }
+    ],
+    "checks_passed": 7,
+    "completed_sha256": "1ad98e2bc8813674a3f2ba8808dc8e7083a5e552939d9e219ae8162834d6a1d5",
+    "exact_member_count": 8,
+    "identifier_native_transitions_recorded": 10080,
+    "limits": [
+      "One repeated seed410 reset, noiseless deterministic pulses and full sensing.",
+      "All four positive cases finish one0.05 grid step above the true gain, which is itself on the grid. Passing<=0.1 is approximate recovery, not exact identification.",
+      "No noisy closed-loop tracking, planner, neural model or architecture advantage is tested.",
+      "Saved prediction/residual/selection arithmetic is independently recalculated; native transitions are not replayed here."
+    ],
+    "native_decisions_recorded": 480,
+    "prior_retained_flat_updates": 160,
+    "rows": [
+      {
+        "criterion_passed": true,
+        "file": "output/persistent-dynamics-qualification-v1/identification-engineering-01/low.npz",
+        "final_gain": 0.75,
+        "flat_bank_count": 0,
+        "identifier_native_transitions": 1680,
+        "last10_mean_absolute_gain_error": 0.050000000000000044,
+        "last10_mean_absolute_velocity_error": 0.001175498102635787,
+        "last10_mean_signed_gain_error": 0.050000000000000044,
+        "name": "low",
+        "native_decisions": 80,
+        "sha256": "c7bd91e6f145c8eb3713a667315ea78d6a06800f889ed485b028104d012da8a5",
+        "true_final_gain": 0.7
+      },
+      {
+        "criterion_passed": true,
+        "file": "output/persistent-dynamics-qualification-v1/identification-engineering-01/high.npz",
+        "final_gain": 1.35,
+        "flat_bank_count": 0,
+        "identifier_native_transitions": 1680,
+        "last10_mean_absolute_gain_error": 0.050000000000000044,
+        "last10_mean_absolute_velocity_error": 0.0021833305839612928,
+        "last10_mean_signed_gain_error": 0.050000000000000044,
+        "name": "high",
+        "native_decisions": 80,
+        "sha256": "aa333c975bb7373ce712a245bfe1ea9e6034ecb97320a3dcc99f888e475f9a02",
+        "true_final_gain": 1.3
+      },
+      {
+        "criterion_passed": true,
+        "file": "output/persistent-dynamics-qualification-v1/identification-engineering-01/low-to-high.npz",
+        "final_gain": 1.35,
+        "flat_bank_count": 0,
+        "identifier_native_transitions": 1680,
+        "last10_mean_absolute_gain_error": 0.050000000000000044,
+        "last10_mean_absolute_velocity_error": 0.0021836392319949105,
+        "last10_mean_signed_gain_error": 0.050000000000000044,
+        "name": "low-to-high",
+        "native_decisions": 80,
+        "sha256": "67a0a9dda4ba20aeda976d3bf5c01d345a59e75521580698aaa34b796a4966cd",
+        "true_final_gain": 1.3
+      },
+      {
+        "criterion_passed": true,
+        "file": "output/persistent-dynamics-qualification-v1/identification-engineering-01/high-to-low.npz",
+        "final_gain": 0.75,
+        "flat_bank_count": 0,
+        "identifier_native_transitions": 1680,
+        "last10_mean_absolute_gain_error": 0.050000000000000044,
+        "last10_mean_absolute_velocity_error": 0.0011750857241049548,
+        "last10_mean_signed_gain_error": 0.050000000000000044,
+        "name": "high-to-low",
+        "native_decisions": 80,
+        "sha256": "f73814ccbb245aa5c2fc665b2f8e7b21bbb94cd1f34ff553002ed5ba61280ae5",
+        "true_final_gain": 0.7
+      },
+      {
+        "criterion_passed": true,
+        "file": "output/persistent-dynamics-qualification-v1/identification-engineering-01/zero-low.npz",
+        "final_gain": 1.0,
+        "flat_bank_count": 80,
+        "identifier_native_transitions": 1680,
+        "last10_mean_absolute_gain_error": 0.3,
+        "last10_mean_absolute_velocity_error": 1.2527333869232333e-07,
+        "last10_mean_signed_gain_error": 0.3,
+        "name": "zero-low",
+        "native_decisions": 80,
+        "sha256": "8f58326fe79e69cd08eaf65e9ea28656c2f5bf3083d25970cdd41a5c839008ae",
+        "true_final_gain": 0.7
+      },
+      {
+        "criterion_passed": true,
+        "file": "output/persistent-dynamics-qualification-v1/identification-engineering-01/zero-high.npz",
+        "final_gain": 1.0,
+        "flat_bank_count": 80,
+        "identifier_native_transitions": 1680,
+        "last10_mean_absolute_gain_error": 0.3,
+        "last10_mean_absolute_velocity_error": 1.2527333869232333e-07,
+        "last10_mean_signed_gain_error": -0.3,
+        "name": "zero-high",
+        "native_decisions": 80,
+        "sha256": "295d4d84e7f576eecaf93928492c4cbfaa814945511d4b5c9ef5000c9ae5a433",
+        "true_final_gain": 1.3
+      }
+    ],
+    "source_ordering": {
+      "completed_binds_started_bytes": true,
+      "condition_and_criterion_definition_before_native_calls": true,
+      "first_native_or_identifier_call_line": 57,
+      "limitation": "Source-bound receipt ordering, not a cryptographic signature or independent temporal attestation.",
+      "started_write_line": 48
+    },
+    "source_sha256": {
+      "output/persistent-dynamics-qualification-v1/probe_identification.py": "4fad29d74c6902a8d3c3cdeb5eac3931caf34769d4c5982d3a3b2d6a8fca7c1e",
+      "src/openjev/research/reacher_tracking_dynamics.py": "d1bd6780f4e8d6b9601de0738e5cd3f7bc7088b98f95e3857514d5c80c5dfba2",
+      "src/openjev/research/reacher_tracking_identification.py": "0798bb0918b5c7147eb9930c5bce1f66b77897ebdbdac58c7573f5d72f7fb971"
+    },
+    "started_sha256": "cbcf1aa825d5c9530d95d6912e0a89082d8f39264fdc2df05ea013f63a285a71",
+    "total_checks": 7
+  },
+  "review_kind": "saved_only_probe_recalculation_and_report_visual_check",
+  "scientific_report": {
+    "all116_frozen_sources_still_match": true,
+    "all42_csv_rows_match": true,
+    "all_family_and_reference_table_entries_match": true,
+    "figure_receipt_sha256": "80ad965a125f500f111533f76bf39a4fa6858ca76bed2038efc68f61cbe57c5a",
+    "figure_sha256": "c568fcc1d82df3b4f4baf555062d5bd513e616d71b67e763d6824fa7981b75e4",
+    "material_issues": [],
+    "readme_sha256": "a6cc253a38a5f66139e3c630bcf8c2436b973a436d7469718b31880c5ff4a995",
+    "report_path": "research/reacher-two-observation-control.md",
+    "report_sha256": "10a8a9bd9a584cf892d1fc24f2a21989300a6b96c3e0c58d889543c1ab7e3d31",
+    "saved_results_review_sha256": "a685eeead30dca4caa391b37bbd7760ad5b97a877e95106d51ea0384c3ec2be5",
+    "scope_review": "Failed24/25 rule retained, same3pairedfits/64cases, no equivalence/biology claim, raw release not overstated; earlier GIF explicitly distinguished.",
+    "visual_review": "Inspected PNG: all3panels,9fit points perpanel,5references, familymeans andfailedgate visible; logscale clearly labeled; no clipped labels or missing rows."
+  },
+  "status": "completed",
+  "wall_seconds": 0.03187187504954636
+}

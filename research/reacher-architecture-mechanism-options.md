@@ -3,11 +3,12 @@
 **Current status:** the [fixed-geometry comparison](reacher-geometry-memory.md)
 now establishes a persistent-policy advantage over the trained current-packet
 and single-observation controls. The supplied public-kinematic controller still
-performs better. The [two-observation learned control](../output/reacher-two-observation-control-v1/README.md)
-is now running under a published frozen protocol after passing the complete
-engineering rehearsal and full-size capacity audit. Its scientific comparison
-is not complete. The original mechanism review below remains a proposal, with no
-biological or architectural efficacy claim.
+performs better. The [completed two-observation comparison](reacher-two-observation-control.md)
+failed its stronger continuation rule (24/25): persistent memory improved mean
+cost by 4.44%/2.94%, missing the required 3% margin on ten-step gaps. All three
+paired fits improved on both gap panels. This is neither equivalence nor an
+architectural or biological efficacy result. The original mechanism review
+below remains a proposal.
 
 The [error-gated correction screen](../output/reacher-two-observation-control-v1/error-gated-mechanism-screen.md)
 compares five close precedents. It narrows the proposed question to whether
@@ -16,10 +17,22 @@ gating and conventional learned filtering; no new experiment is established by
 that literature screen.
 
 The [isolated fast/slow prototype](../output/reacher-innovation-context-v1/README.md)
-now implements constant, age-only, raw-error and normalized-error gates with
-the same modules, plus detached public-target error-scale supervision. Small
-synthetic model/loss checks pass. Scientific training and controller evaluation
-have not run for these variants.
+implements constant, age-only, raw-error and normalized-error gates with
+the same modules, plus detached public-target error-scale supervision. Its
+[12-fit development pilot](reacher-innovation-pilot.md) is now complete and
+independently audited. The normalized gate failed all four required 3% mean
+improvement checks; the full continuation rule failed (21/29). All variants
+learned, but none of those comparisons establishes a useful normalized-error
+mechanism. Native controller evaluation was not part of that pilot.
+
+Before another architecture fit, qualify a task with control-relevant persistent
+hidden dynamics. The earlier [clean Pendulum qualification](robotics-pendulum-qualification.md)
+already ruled out expanding that task: short history recovered most of the
+benefit, and its late gain switch contributed almost no additional cost.
+The proposed tracking task therefore needs both public identifiability and
+post-change control benefit, with a classical parameter estimator as a baseline.
+The [six-paper adaptation review](reacher-fast-adaptation-source-review.md)
+places transition-weight adaptation against close neural and classical precedents.
 
 Decision note, September 18, 2026. **Proposed, unfrozen and unrun.** This review
 uses published papers, official source code and the existing

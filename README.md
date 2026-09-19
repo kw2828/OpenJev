@@ -42,13 +42,13 @@ The latest [24-fit graph comparison](docs/chess-pin-quality.md) found **36.43% /
 
 [![First robot case: persistent memory and three trained reset controls](evidence/reacher-geometry-memory-v1/report/fixed-case-replay.gif)](research/reacher-geometry-memory.md)
 
-**Persistent memory improved control: all 25 continuation checks passed.** With scoring and search budgets held constant, persistent GRU lowered control cost by **31.9%/26.0%** versus a GRU retaining only the last observation, on six-step/ten-step sensing gaps. All three paired fits improved. Twelve saved models and all five references are retained.
+**The stronger memory comparison failed its continuation rule: 24/25 checks.** Persistent GRU lowered control cost by **4.44%/2.94%** versus a separately trained model using two observations and intervening actions. The rule required at least 3% on both sensing-gap panels. All three paired fits improved, but the ten-step mean missed the required margin.
 
-![All twelve models and five references with fixed geometry scoring and search budgets](evidence/reacher-geometry-memory-v1/report/native-costs.png)
+![All nine models and five references in the completed two-observation comparison](evidence/reacher-two-observation-study-v1/report/native-costs.png)
 
-Supplied-physics controllers still perform better. Equal search budgets do not match total compute. The GIF is a schematic replay of the preselected first case, not a performance summary. This supports a trained memory policy in one task, not a new architecture or biological-wiring advantage. [All 51 comparisons and audit](research/reacher-geometry-memory.md) · [Four-page report](output/pdf/openjev-reacher-geometry-memory-study.pdf) · [LaTeX](paper/reacher-geometry-memory-study.tex).
+Supplied-physics controllers still perform better. Equal search budgets do not match total compute. The GIF replays the preselected first case from the earlier study; the chart shows all 42 rows of the new comparison. [New results and audit](research/reacher-two-observation-control.md).
 
-The [earlier geometry intervention](research/reacher-geometry-score.md) improved scoring with unchanged weights. The [earlier cache comparison](research/reacher-cache-ablation.md) remains a failed result (15/28 checks). Next: test whether two recent observations and intervening actions explain the persistent model's advantage.
+The [earlier comparison](research/reacher-geometry-memory.md) passed all 25 checks against the weaker one-observation control, with 31.9%/26.0% lower cost. Neither study establishes a new architecture or biological-wiring advantage. [Earlier paper](output/pdf/openjev-reacher-geometry-memory-study.pdf) · [LaTeX](paper/reacher-geometry-memory-study.tex).
 
 ## Run locally
 
