@@ -34,6 +34,10 @@ The [retained rehearsal](../reacher-two-observation-rehearsal-v1/attempt-01/revi
 
 This used four-dimensional models, one case per panel and two updates per new fit. Its diagnostic gate passed 14 of 25 checks and failed overall; that result does not test scientific superiority. Full-size capacity measurement and a separate scientific freeze remain pending. The [as-run driver](run_rehearsal.py) is preserved unchanged.
 
+## Full-size capacity measurement
+
+The [second capacity attempt](capacity-launch-attempt02.json) is running. It has completed 24 real updates at the full model and batch size and is measuring nine learned-controller rows plus five references. Independent saved-output auditing and sizing review remain pending. The [first attempt](../reacher-two-observation-capacity-v1/attempt-01-failure-review.json) stopped on an incorrect import before any numerical work; its failure is preserved. The import repair passed 36 focused checks, including real resolution of every delayed import.
+
 ## Proposed experiment
 
 Train three new history models from the three authenticated original initializations. Retain the three persistent and three single-observation GRUs as paired references. Evaluate all nine models and five reference controllers on the same fresh 64 cases in full sensing, six-step gaps and ten-step gaps: 42 rows in total.
