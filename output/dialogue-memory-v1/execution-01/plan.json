@@ -1,0 +1,84 @@
+{
+  "config": {
+    "batch_size": 32,
+    "epochs": 12,
+    "gradient_clip": 1.0,
+    "gru_width": 128,
+    "innovation_eta": 0.1,
+    "learning_rate": 0.001,
+    "loss": "equal weight across changed, assigned-retention, unmentioned-retention bins",
+    "methods": [
+      "current",
+      "gru",
+      "attention",
+      "gated_delta",
+      "kalman",
+      "innovation_kalman",
+      "carry"
+    ],
+    "seeds": [
+      1729,
+      2718,
+      3141
+    ],
+    "selection": "final epoch, all seeds; no development selection or test access",
+    "threads": 4,
+    "train_dialogues": 2048,
+    "weight_decay": 0.0001,
+    "width": 16
+  },
+  "loss_counts": {
+    "0": 32718,
+    "1": 14331,
+    "2": 4692
+  },
+  "loss_weights": [
+    0.5271410232899322,
+    1.2034749842997696,
+    3.675831202046036
+  ],
+  "packet_completed_sha256": "e4503c3dd63d28b74e91877dfc9c69b81f4b880e4f07d240cf8c08331fa0b308",
+  "practical_checks": {
+    "conventional_controls": [
+      "gru",
+      "attention",
+      "carry"
+    ],
+    "macro_definition": "equal three-stratum mean",
+    "macro_gain_over_kalman": 0.01,
+    "macro_no_worse_than": "gated_delta",
+    "maximum_macro_deficit_to_best_conventional": 0.01,
+    "micro_nll_no_worse_than": "kalman",
+    "panels": [
+      "seen",
+      "unseen"
+    ],
+    "primary": "innovation_kalman",
+    "required_complete_fits": 21,
+    "strict_paired_macro_wins_over_kalman": 2,
+    "total_panel_checks": 10
+  },
+  "prospective_checks": "See frozen research/dialogue-memory-protocol.md",
+  "runtime": {
+    "numpy": "2.5.3",
+    "platform": "macOS-26.6.1-arm64-arm-64bit",
+    "python": "3.12.13",
+    "torch": "2.14.0"
+  },
+  "scope": "Development only, supplied categorical schema queries, fixed pretrained encoder",
+  "source_sha256": {
+    "research/dialogue-memory-protocol.md": "7015754390023951ebccca037d56597f7137481a48ed4eae1115e370f3c3895b",
+    "scripts/prepare_sgd_state.py": "c19c862379b889b21180da96ddac08d1f1afcc823c0123df8a8467ecdd93e4b6",
+    "scripts/report_dialogue_memory.py": "bcaf33e75c87705b6bc11866e1ccf6ae558a624f00d586b5e86e3808f7a736c7",
+    "scripts/study_dialogue_memory.py": "51a46d35c3d9dd2857bd3ded5fc289652c7e18f05b85b8f82dd245ade7626e2c",
+    "src/openjev/research/dialogue_carry.py": "efc092a1be9e4180ffdb5199a3da24d405d76315b342f986dab0882580604db3",
+    "src/openjev/research/dialogue_fast_memory.py": "4e906af8031b87d825e1cdf986ad3bb5496f208e57569b595855edf8c3bc65ec",
+    "src/openjev/research/dialogue_state_data.py": "7749e97e64575ae02c9fc843573e93e82d5e9cbb301410e47881e18190f0c102",
+    "tests/test_dialogue_carry.py": "9b69040d3ef0723c4095676e8805546deb2dd431efc5a2749d393bb5a1f01224",
+    "tests/test_dialogue_fast_memory.py": "0594d58f0e8b36bf8bfd96c7732ec13b0a6eb6d078c2845c5233759cd5c63c78",
+    "tests/test_dialogue_state_data.py": "e6b5001dba0424b3ebca3c95e76d723956638c5fefdf463d730cff0dcec5faa3",
+    "tests/test_report_dialogue_memory.py": "c4f4aa4e3b748616d20b11d2c7c4ec60ac20270187c3493b2dde00777094aa2e",
+    "tests/test_study_dialogue_memory.py": "e4252bac6e1eda5b0b8e23aed4e6eadfa8120796d0ced25679af1d50586cf509"
+  },
+  "study": "dialogue-memory-v1"
+}

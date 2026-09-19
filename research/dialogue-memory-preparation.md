@@ -1,6 +1,6 @@
 # Dialogue-memory preparation and provenance
 
-Preparation completed before training. The 21-fit study has now launched under its frozen plan; final results are pending. This is an official-development-set comparison for supplied categorical service/slot queries, not full dialogue-state tracking, a test-set result, or an architecture claim. No official test dialogue contents were fetched or parsed. Raw dialogues, embeddings, and individual label packets remain local under ignored `runs/sgd-state-v1/`.
+Preparation completed before training. All 21 fits subsequently completed; the proposed extension [failed its continuation rule](dialogue-memory-results.md). This is an official-development-set comparison for supplied categorical service/slot queries, not full dialogue-state tracking, a test-set result, or an architecture claim. No official test dialogue contents were fetched or parsed. Raw dialogues, embeddings, and individual label packets remain local under ignored `runs/sgd-state-v1/`.
 
 ## Attribution and scope
 

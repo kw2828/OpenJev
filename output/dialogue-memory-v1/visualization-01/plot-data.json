@@ -1,0 +1,377 @@
+{
+  "continuation_gate": {
+    "checks": [
+      {
+        "name": "all_21_fits_completed",
+        "passed": true
+      },
+      {
+        "arithmetic": "exact integer-ratio accuracy; no epsilon",
+        "comparison": "ge",
+        "left": 0.7165195041958031,
+        "name": "seen/macro_gain_over_kalman_1pp",
+        "passed": false,
+        "right": 0.7229584884989979
+      },
+      {
+        "arithmetic": "direct float64 mean NLL; no epsilon",
+        "comparison": "le",
+        "left": 0.7278910034929885,
+        "name": "seen/micro_nll_nonworse_kalman",
+        "passed": false,
+        "right": 0.7228988905750059
+      },
+      {
+        "arithmetic": "integer paired-win count",
+        "comparison": "ge",
+        "left": 2.0,
+        "name": "seen/strict_macro_win_at_least_two_pairs",
+        "passed": true,
+        "right": 2.0
+      },
+      {
+        "arithmetic": "exact integer-ratio accuracy; no epsilon",
+        "comparison": "ge",
+        "left": 0.7165195041958031,
+        "name": "seen/macro_nonworse_delta",
+        "passed": false,
+        "right": 0.7182055923296378
+      },
+      {
+        "arithmetic": "exact integer-ratio accuracy; no epsilon",
+        "comparison": "ge",
+        "left": 0.7165195041958031,
+        "name": "seen/within_1pp_strongest_conventional",
+        "passed": true,
+        "right": 0.584443792263883,
+        "strongest": "carry"
+      },
+      {
+        "arithmetic": "exact integer-ratio accuracy; no epsilon",
+        "comparison": "ge",
+        "left": 0.5398406849045359,
+        "name": "unseen/macro_gain_over_kalman_1pp",
+        "passed": true,
+        "right": 0.5315585251376523
+      },
+      {
+        "arithmetic": "direct float64 mean NLL; no epsilon",
+        "comparison": "le",
+        "left": 1.0699770466442586,
+        "name": "unseen/micro_nll_nonworse_kalman",
+        "passed": true,
+        "right": 1.1651901798570092
+      },
+      {
+        "arithmetic": "integer paired-win count",
+        "comparison": "ge",
+        "left": 3.0,
+        "name": "unseen/strict_macro_win_at_least_two_pairs",
+        "passed": true,
+        "right": 2.0
+      },
+      {
+        "arithmetic": "exact integer-ratio accuracy; no epsilon",
+        "comparison": "ge",
+        "left": 0.5398406849045359,
+        "name": "unseen/macro_nonworse_delta",
+        "passed": true,
+        "right": 0.5243522661914104
+      },
+      {
+        "arithmetic": "exact integer-ratio accuracy; no epsilon",
+        "comparison": "ge",
+        "left": 0.5398406849045359,
+        "name": "unseen/within_1pp_strongest_conventional",
+        "passed": true,
+        "right": 0.4709827494850676,
+        "strongest": "carry"
+      }
+    ],
+    "checks_passed": 8,
+    "checks_total": 11,
+    "panel_checks_total": 10,
+    "passed": false,
+    "scope": "Fixed development screen; not full DST, significance or architecture novelty"
+  },
+  "methods": [
+    "current",
+    "gru",
+    "attention",
+    "gated_delta",
+    "kalman",
+    "innovation_kalman",
+    "carry"
+  ],
+  "metrics": {
+    "macro_three": {
+      "seen": {
+        "methods": {
+          "attention": {
+            "mean_accuracy": 0.5932634449972187,
+            "seed_accuracy": [
+              0.6057157746309185,
+              0.5893851622416691,
+              0.5846893981190685
+            ]
+          },
+          "carry": {
+            "mean_accuracy": 0.594443792263883,
+            "seed_accuracy": [
+              0.5854320152704335,
+              0.634531110466818,
+              0.5633682510543975
+            ]
+          },
+          "current": {
+            "mean_accuracy": 0.575178105720057,
+            "seed_accuracy": [
+              0.5715342899399705,
+              0.5710664535846862,
+              0.5829335736355142
+            ]
+          },
+          "gated_delta": {
+            "mean_accuracy": 0.7182055923296377,
+            "seed_accuracy": [
+              0.6896855534800418,
+              0.740870606556578,
+              0.7240606169522934
+            ]
+          },
+          "gru": {
+            "mean_accuracy": 0.5752629606119709,
+            "seed_accuracy": [
+              0.5927381760341875,
+              0.5831836818938233,
+              0.5498670239079021
+            ]
+          },
+          "innovation_kalman": {
+            "mean_accuracy": 0.7165195041958031,
+            "seed_accuracy": [
+              0.6914989688220077,
+              0.7255000772000546,
+              0.7325594665653471
+            ]
+          },
+          "kalman": {
+            "mean_accuracy": 0.7129584884989978,
+            "seed_accuracy": [
+              0.6839198123282705,
+              0.7278081070445946,
+              0.7271475461241286
+            ]
+          }
+        },
+        "references": {
+          "literal": 0.5474530669001233,
+          "none": 0.3333333333333333
+        },
+        "revision_queries": 241
+      },
+      "unseen": {
+        "methods": {
+          "attention": {
+            "mean_accuracy": 0.4693040782323017,
+            "seed_accuracy": [
+              0.46722777225868645,
+              0.4741455569296276,
+              0.4665389055085909
+            ]
+          },
+          "carry": {
+            "mean_accuracy": 0.4809827494850676,
+            "seed_accuracy": [
+              0.4756105238166107,
+              0.49443106718080204,
+              0.47290665745779004
+            ]
+          },
+          "current": {
+            "mean_accuracy": 0.47906379027453516,
+            "seed_accuracy": [
+              0.479530942216501,
+              0.48004120050852545,
+              0.47761922809857915
+            ]
+          },
+          "gated_delta": {
+            "mean_accuracy": 0.5243522661914105,
+            "seed_accuracy": [
+              0.49223948294658415,
+              0.5423682460367862,
+              0.5384490695908609
+            ]
+          },
+          "gru": {
+            "mean_accuracy": 0.4631744389520904,
+            "seed_accuracy": [
+              0.4717525008263763,
+              0.4611864646092038,
+              0.4565843514206908
+            ]
+          },
+          "innovation_kalman": {
+            "mean_accuracy": 0.5398406849045359,
+            "seed_accuracy": [
+              0.5335096504739506,
+              0.5540716791370471,
+              0.5319407251026098
+            ]
+          },
+          "kalman": {
+            "mean_accuracy": 0.5215585251376523,
+            "seed_accuracy": [
+              0.5023351073508899,
+              0.543257112983243,
+              0.5190833550788242
+            ]
+          }
+        },
+        "references": {
+          "literal": 0.6576421912853396,
+          "none": 0.3333333333333333
+        },
+        "revision_queries": 203
+      }
+    },
+    "revision": {
+      "seen": {
+        "methods": {
+          "attention": {
+            "mean_accuracy": 0.313969571230982,
+            "seed_accuracy": [
+              0.33195020746887965,
+              0.2863070539419087,
+              0.3236514522821577
+            ]
+          },
+          "carry": {
+            "mean_accuracy": 0.367911479944675,
+            "seed_accuracy": [
+              0.37344398340248963,
+              0.4107883817427386,
+              0.31950207468879666
+            ]
+          },
+          "current": {
+            "mean_accuracy": 0.38035961272475793,
+            "seed_accuracy": [
+              0.4190871369294606,
+              0.3651452282157676,
+              0.35684647302904565
+            ]
+          },
+          "gated_delta": {
+            "mean_accuracy": 0.4412171507607192,
+            "seed_accuracy": [
+              0.47717842323651455,
+              0.45228215767634855,
+              0.3941908713692946
+            ]
+          },
+          "gru": {
+            "mean_accuracy": 0.32918395573997233,
+            "seed_accuracy": [
+              0.33195020746887965,
+              0.34024896265560167,
+              0.3153526970954357
+            ]
+          },
+          "innovation_kalman": {
+            "mean_accuracy": 0.3817427385892116,
+            "seed_accuracy": [
+              0.3070539419087137,
+              0.4315352697095436,
+              0.4066390041493776
+            ]
+          },
+          "kalman": {
+            "mean_accuracy": 0.3789764868603043,
+            "seed_accuracy": [
+              0.24481327800829875,
+              0.4730290456431535,
+              0.4190871369294606
+            ]
+          }
+        },
+        "references": {
+          "literal": 0.4979253112033195,
+          "none": 0.0
+        },
+        "revision_queries": 241
+      },
+      "unseen": {
+        "methods": {
+          "attention": {
+            "mean_accuracy": 0.3645320197044335,
+            "seed_accuracy": [
+              0.3645320197044335,
+              0.3694581280788177,
+              0.35960591133004927
+            ]
+          },
+          "carry": {
+            "mean_accuracy": 0.34646962233169126,
+            "seed_accuracy": [
+              0.3497536945812808,
+              0.35467980295566504,
+              0.33497536945812806
+            ]
+          },
+          "current": {
+            "mean_accuracy": 0.3842364532019705,
+            "seed_accuracy": [
+              0.39408866995073893,
+              0.35960591133004927,
+              0.39901477832512317
+            ]
+          },
+          "gated_delta": {
+            "mean_accuracy": 0.4088669950738916,
+            "seed_accuracy": [
+              0.4433497536945813,
+              0.43349753694581283,
+              0.3497536945812808
+            ]
+          },
+          "gru": {
+            "mean_accuracy": 0.38259441707717573,
+            "seed_accuracy": [
+              0.4088669950738916,
+              0.39408866995073893,
+              0.3448275862068966
+            ]
+          },
+          "innovation_kalman": {
+            "mean_accuracy": 0.3957307060755337,
+            "seed_accuracy": [
+              0.4187192118226601,
+              0.4088669950738916,
+              0.35960591133004927
+            ]
+          },
+          "kalman": {
+            "mean_accuracy": 0.42036124794745483,
+            "seed_accuracy": [
+              0.39901477832512317,
+              0.4433497536945813,
+              0.4187192118226601
+            ]
+          }
+        },
+        "references": {
+          "literal": 0.7980295566502463,
+          "none": 0.0
+        },
+        "revision_queries": 203
+      }
+    }
+  },
+  "seeds": [
+    1729,
+    2718,
+    3141
+  ]
+}

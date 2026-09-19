@@ -4,6 +4,10 @@ Completed studies, including failures and controls. A passing implementation che
 
 ## Complete experiment list
 
+- [Recurrent dialogue memory](dialogue-memory-results.md): **21 fits** on a supplied-schema SGD subtask. Surprise-adaptive Kalman memory scores **71.65% / 53.98%** seen/unseen macro accuracy and fails its fixed continuation rule with **8/11 checks passed**. A literal-match-and-carry reference scores **65.76%** on unseen services and beats all neural models there. No new architecture advantage established.
+
+[![All dialogue memory models and deterministic references](../output/dialogue-memory-v1/visualization-01/comparison.png)](dialogue-memory-results.md)
+
 - [Robot dynamics opportunity screen](drive-qualification-results.md): **252 episodes and 75,600 simulated transitions**. Exact parameters improve late tracking by only 3.76% and 9.49%; **6/10 requirements pass**. Strong calibration controls close this fixed configuration before any neural fit.
 
 [![All robot observers and paired seeds in the completed dynamics screen](../output/drive-qualification-v1/report-01/paired-costs.png)](drive-qualification-results.md)
