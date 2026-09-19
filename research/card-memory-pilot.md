@@ -22,7 +22,7 @@ The local policy repeated 236 previously failed pairs across 192 games. The GRU 
 
 The saved-score check also found substantial numerical sensitivity: normalizing the same probability rows changes **4,026 of 9,984 first-card choices (40.33%)** for the local model. All changes occur within score gaps no larger than `1e-7`; the median original gap is `5.79e-9`. The second-card choices do not change. On those same saved prefixes, choosing an unseen first card rises from 798 to 2,016. **No alternate trajectories were executed**, so this establishes sensitivity, not improved returns or a causal explanation of the failed games. It limits architectural interpretation of this picker-based comparison. [Saved-score diagnostic](../output/card-memory-pilot-v1/picker-diagnostic-01.json).
 
-A follow-up should separate probability normalization and numerically stable tie handling from an information-seeking tie preference, using the existing weights and fresh evaluation seeds. The original six criteria and failed outcome remain unchanged.
+The [completed controller follow-up](card-controller-comparison.md) separates stable scoring from an information-seeking tie preference, using these same weights and 64 fresh decks. The exploration preference improves gameplay, while stable scoring alone makes it worse. The original six criteria and failed outcome remain unchanged.
 
 ## Experiment fixed before training
 
