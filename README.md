@@ -66,6 +66,9 @@ Open **http://127.0.0.1:8000**. Local text scoring uses Qwen3-4B; the free brows
 
 ## More experiments
 
+[![Learned card memories: all 18 fits and exact-memory references](output/card-memory-pilot-v1/visualization-01/benchmark.png)](research/card-memory-pilot.md)
+
+- [Learned decision memory](research/card-memory-pilot.md): 18 fits and 1,280 games. About 93% development recall did not translate into successful games. The proposed local correction failed its continuation rule; both simple memory references finished every game. Saved-score checks also exposed numerical sensitivity in the action picker, limiting architectural conclusions. [First-game GIF](output/card-memory-pilot-v1/visualization-01/cards.gif).
 - [Route memory](research/mystery-path-memory-qualification.md): full memory reached 76.2% success versus 29.7% with the last 32 transitions, but missed the fixed 80% requirement. These are rule-based controls; no neural-model result is claimed. [Recorded GIF](output/mystery-path-qualification-v1/visualization-01/episode.gif).
 - [Planning diagnostic](research/reacher-common-root-diagnostic.md): a longer horizon lowered mean branch cost by 7.33%, but missed the consistency rule; accurate dynamics lowered selected branch cost by 2.51%. All three comparisons failed, so this tracking setup is closed. [Earlier plan-memory test](research/reacher-proposal-memory.md).
 - [Error-gated memory pilot](research/reacher-innovation-pilot.md): twelve fits learned, but normalized-error gating failed its continuation rule (21/29 checks). Its gain over age-only gating was below 0.13%.
