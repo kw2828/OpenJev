@@ -48,6 +48,7 @@ CACHE_VERSION = "dialogue-token-minilm-v1"
 TEMPLATE = "'System: ' + previous_system_text + '\\nUser: ' + current_user_text"
 MODEL_FILES = {"config.json", "model.safetensors", "tokenizer_config.json", "special_tokens_map.json", "tokenizer.json", "vocab.txt"}
 DISK_CAP = 4 * 1024**3
+TOKEN_FILES = {"tokens.npy", "priors.npy", "offsets.npy", "chunk-offsets.npy", "chunk-lengths.npy"}
 GROUPS = ("assigned_true", "assigned_false", "dontcare")
 
 
@@ -179,6 +180,77 @@ def cache_geometry(directory, packet, data, index, receipt):
     return {int(i): offsets[j+1]-offsets[j] for j, i in enumerate(source_ids)}
 
 
+def token_schedule(lengths):
+    """Reconstruct sequential content chunks and 128-sequence padding without a tokenizer."""
+    base.require(lengths.dtype == np.int64 and lengths.ndim == 1 and len(lengths) > 0
+                 and (lengths > 0).all(), "Capacity token-count vector")
+    offsets, chunk_offsets, chunks = [0], [0], []
+    for length in lengths:
+        local = [min(254, int(length)-j) for j in range(0, int(length), 254)]
+        chunks.extend(local)
+        chunk_offsets.append(len(chunks))
+        offsets.append(offsets[-1]+int(length)+2*len(local))
+    sizes = [n+2 for n in chunks]
+    counts = {"unique_texts": len(lengths), "input_tokens": sum(map(int, lengths)),
+        "encoder_sequences": len(chunks), "encoder_calls": math.ceil(len(chunks)/128),
+        "encoder_tokens_with_special": offsets[-1],
+        "padded_token_slots": sum(len(sizes[i:i+128])*max(sizes[i:i+128]) for i in range(0, len(sizes), 128)),
+        "overlength_texts_chunked": int((lengths > 254).sum()), "truncated_tokens": 0,
+        "minimum_text_tokens": int(lengths.min()), "maximum_text_tokens": int(lengths.max())}
+    return counts, offsets, chunk_offsets, chunks
+
+
+def authenticate_capacity(cap_path, cap, tokens, receipt, prep, inventory):
+    """Check the measured fixed prefix and projected bytes against authenticated payloads."""
+    expected = TOKEN_FILES | {"started.json", "plan.json", "original-encoder-source.py", "token-profile.json",
+        "text-token-counts.npy"} | {"sources/"+name for name in prep["source_sha256"]}
+    base.require(set(cap["files"]) == expected and not any(p.is_symlink() for p in cap_path.rglob("*"))
+                 and {p.relative_to(cap_path).as_posix() for p in cap_path.rglob("*") if p.is_file()}
+                 == expected | {"completed.json"}, "Capacity payload closure")
+    base.require(cap["phase"] == "capacity" and cap["version"] == CACHE_VERSION and cap["no_retry"] is True
+                 and cap["test_contents_accessed"] is False and cap["parameter_training_steps"] == 0
+                 and 0 < cap["wall_seconds"] <= 120, "Capacity scope")
+    for k in ("plan_sha256", "source_sha256", "runtime", "model_files_sha256", "encoder", "revision", "device",
+              "packet_completed_sha256", "lexical_completed_sha256", "data_completed_sha256"):
+        base.require(cap[k] == receipt[k], "Capacity/cache identity: "+k)
+    bind(cap_path / "plan.json", receipt["plan_sha256"], inventory)
+    bind(cap_path / "original-encoder-source.py", prep["original_encoder_source_sha256"], inventory)
+    for name, digest in prep["source_sha256"].items():
+        bind(base.safe(cap_path / "sources", name), digest, inventory)
+    for name in ("token-profile.json", "text-token-counts.npy"):
+        base.require(cap["files"][name]["sha256"] == receipt["files"][name]["sha256"], "Unbound or changed full profile")
+    lengths = np.load(cap_path / "text-token-counts.npy", allow_pickle=False, mmap_mode="r")
+    base.require(lengths.shape == (prep["unique_contexts"],), "Capacity full context count")
+    full, _, _, full_chunks = token_schedule(lengths)
+    profile = base.read(cap_path / "token-profile.json")
+    base.require(all(profile[k] == v for k, v in full.items()), "Capacity full token profile")
+    sample = min(512, len(lengths))
+    counts, offsets, chunk_offsets, chunks = token_schedule(lengths[:sample])
+    base.require(cap["unique_contexts_encoded"] == sample and cap["full_unique_contexts"] == len(lengths)
+                 and cap["counts"] == prep["counts"], "Fixed capacity sample")
+    work, progress, eq = cap["work"], cap["progress"], cap["pooling_equivalence"]
+    base.require(progress["encoder_calls_attempted"] == progress["encoder_calls_returned"] == counts["encoder_calls"]
+                 and progress["encoded_sequences"] == counts["encoder_sequences"] and progress["encoded_texts"] == sample,
+                 "Capacity encoder call coverage")
+    base.require(all(work[k] == counts[k] for k in ("input_tokens", "encoder_tokens_with_special", "padded_token_slots", "truncated_tokens"))
+                 and work["retained_token_rows"] == counts["encoder_tokens_with_special"]
+                 and work["overlength_contexts_chunked"] == counts["overlength_texts_chunked"], "Capacity encoder token coverage")
+    base.require(eq["contexts_checked"] == sample and eq["tolerance"] == 2e-5
+                 and math.isfinite(eq["max_abs_error"]) and 0 <= eq["max_abs_error"] <= 2e-5, "Capacity pooling witness")
+    for name, values in (("offsets.npy", offsets), ("chunk-offsets.npy", chunk_offsets), ("chunk-lengths.npy", chunks)):
+        value = np.load(cap_path / name, allow_pickle=False, mmap_mode="r")
+        base.require(value.dtype == np.int64 and np.array_equal(value, values), "Capacity token geometry")
+    for name, shape in (("tokens.npy", (offsets[-1], 384)), ("priors.npy", (offsets[-1],))):
+        value = np.load(cap_path / name, allow_pickle=False, mmap_mode="r")
+        base.require(value.dtype == np.float32 and value.shape == shape and np.isfinite(value).all(), "Capacity raw token shape")
+    projected_bytes = (full["encoder_tokens_with_special"]*1540 + 2*(len(lengths)+1)*8 + len(full_chunks)*8
+        + sum(v["bytes"] for name, v in cap["files"].items() if name not in TOKEN_FILES)
+        + sum((tokens/name).stat().st_size for name in ("index.json", "context-indices.npy")) + 8*1024**2)
+    base.require(type(cap["projection"]["projected_cache_bytes"]) is int
+                 and cap["projection"]["projected_cache_bytes"] == projected_bytes, "Capacity projected byte reconstruction")
+    return full
+
+
 def authenticate_tokens(tokens, packet, lexical, data, plan, root, inventory):
     receipt = bind_tree(tokens, plan["tokens_completed_sha256"], inventory)
     expected = {"tokens.npy", "priors.npy", "offsets.npy", "chunk-offsets.npy", "chunk-lengths.npy", "started.json", "plan.json",
@@ -221,13 +293,8 @@ def authenticate_tokens(tokens, packet, lexical, data, plan, root, inventory):
                  and prep["protocol_sha256"] == plan["source_sha256"][prep["protocol_path"]], "Preparation protocol differs")
     cap_path = base.safe(root, receipt["capacity_path"])
     cap = bind_tree(cap_path, receipt["capacity_completed_sha256"], inventory)
-    base.require(cap["phase"] == "capacity" and cap["version"] == CACHE_VERSION and cap["no_retry"] is True
-                 and 0 < cap["wall_seconds"] <= 120 and cap["unique_contexts_encoded"] == min(512, prep["unique_contexts"]), "Capacity scope")
-    for k in ("plan_sha256", "source_sha256", "runtime", "model_files_sha256"):
-        base.require(cap[k] == receipt[k], "Capacity/cache identity")
-    for n in ("token-profile.json", "text-token-counts.npy"):
-        base.require(n in cap["files"] and cap["files"][n]["sha256"] == receipt["files"][n]["sha256"], "Unbound or changed full profile")
-    full, projection = base.read(tokens / "token-profile.json"), cap["projection"]
+    full = authenticate_capacity(cap_path, cap, tokens, receipt, prep, inventory)
+    projection = cap["projection"]
     for k in ("forward_transfer_seconds", "retention_seconds", "padded_token_slots", "retained_token_rows"):
         base.positive(cap["work"][k], "capacity units")
     forward = cap["work"]["forward_transfer_seconds"]/cap["work"]["padded_token_slots"]*full["padded_token_slots"]

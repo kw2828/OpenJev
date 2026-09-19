@@ -1,5 +1,9 @@
 # Shared token evidence: execution guide
 
+The [recorded preparation](dialogue-token-preparation-results.md) passed its
+capacity rule and independent cache audit. The full cache completed in 17.88
+seconds. These cost and representation checks do not establish task quality.
+
 This follows the [prospective protocol](dialogue-token-protocol.md) using the
 existing authenticated local inputs. It is not a tested clean-install recipe.
 Raw dialogue strings, token vectors and individual predictions remain local;

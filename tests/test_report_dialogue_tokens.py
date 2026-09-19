@@ -125,6 +125,20 @@ def test_token_work_charges_real_and_padded_tokens_without_raw_candidate_repeats
     assert slot["real_question_updates"] == 7 and slot["real_candidate_updates"] == 24
 
 
+def test_capacity_schedule_uses_first_512_and_sequential_chunk_batch_padding():
+    lengths = np.array([254, 255]+[1]*510+[1000], np.int64)
+    sample, offsets, chunk_offsets, chunks = r.token_schedule(lengths[:512])
+    full, full_offsets, _, _ = r.token_schedule(lengths)
+    assert sample == {"unique_texts": 512, "input_tokens": 1019, "encoder_sequences": 513,
+        "encoder_calls": 5, "encoder_tokens_with_special": 2045, "padded_token_slots": 33923,
+        "overlength_texts_chunked": 1, "truncated_tokens": 0, "minimum_text_tokens": 1, "maximum_text_tokens": 255}
+    assert offsets[:3] == [0, 256, 515] and offsets[-1] == 2045
+    assert chunk_offsets[:3] == [0, 1, 3] and chunks[:3] == [254, 254, 1]
+    assert full["encoder_sequences"] == 517 and full["encoder_calls"] == 5
+    assert full["encoder_tokens_with_special"] == full_offsets[-1] == 3053
+    assert full["padded_token_slots"] == 35200 and full["input_tokens"] == 2019
+
+
 def put(path, value):
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(value, sort_keys=True, allow_nan=False))
@@ -199,20 +213,33 @@ def build_tokens(root, data, packet_dir, lexical):
         "layout_files": {n: b.sha(folder/n) for n in ("index.json", "context-indices.npy")}}
     put(folder / "plan.json", prep)
     put(folder / "started.json", {"status": "started"})
-    profile = {"input_tokens": 3, "encoder_tokens_with_special": 5, "padded_token_slots": 5,
-               "overlength_texts_chunked": 0, "truncated_tokens": 0, "encoder_calls": 1, "encoder_sequences": 1}
+    profile = {"unique_texts": 1, "input_tokens": 3, "encoder_tokens_with_special": 5, "padded_token_slots": 5,
+               "overlength_texts_chunked": 0, "truncated_tokens": 0, "encoder_calls": 1, "encoder_sequences": 1,
+               "minimum_text_tokens": 3, "maximum_text_tokens": 3}
     for d in (folder, cap):
         put(d / "token-profile.json", profile)
         np.save(d / "text-token-counts.npy", np.array([3], np.int64))
     common = {"status": "completed", "version": r.CACHE_VERSION, "plan_sha256": b.sha(folder / "plan.json"),
         "source_sha256": source_map, "runtime": prep["runtime"], "model_files_sha256": prep["model_files_sha256"],
         "encoder": r.ENCODER, "revision": r.REVISION, "device": "mps", "unique_contexts_encoded": 1, "full_unique_contexts": 1,
-        "no_retry": True, "work": {**profile, "forward_transfer_seconds": .1, "retention_seconds": .2, "retained_token_rows": 5},
+        "no_retry": True, "test_contents_accessed": False, "parameter_training_steps": 0,
+        **{k+"_completed_sha256": v["completed_sha256"] for k, v in prep["inputs"].items()},
+        "work": {**profile, "forward_transfer_seconds": .1, "retention_seconds": .2, "retained_token_rows": 5,
+                 "overlength_contexts_chunked": 0},
         "counts": counts, "pooling_equivalence": {"contexts_checked": 1, "max_abs_error": 0., "tolerance": 2e-5},
         "progress": {"encoder_calls_attempted": 1, "encoder_calls_returned": 1, "encoded_sequences": 1, "encoded_texts": 1}}
+    cap_members = r.TOKEN_FILES | {"started.json", "plan.json", "original-encoder-source.py", "token-profile.json",
+                                  "text-token-counts.npy"} | {"sources/"+n for n in source_map}
+    for name in cap_members:
+        (cap/name).parent.mkdir(parents=True, exist_ok=True)
+        (cap/name).write_bytes((folder/name).read_bytes())
+    # Hand-computed variable bytes, plus actual fixed payloads and original layout.
+    projected_bytes = (5*1540+2*2*8+8 + sum((cap/n).stat().st_size for n in cap_members-r.TOKEN_FILES)
+                       + (folder/"index.json").stat().st_size + (folder/"context-indices.npy").stat().st_size + 8*1024**2)
     projection = {"projected_forward_transfer_seconds": .1, "projected_retention_seconds": .2,
         "observed_other_seconds": .1, "projected_total_seconds": .1+.2+.1,
-        "maximum_projected_seconds": 720., "projected_cache_bytes": 10000, "maximum_cache_bytes": r.DISK_CAP, "encoding_permitted": True}
+        "maximum_projected_seconds": 720., "projected_cache_bytes": projected_bytes,
+        "maximum_cache_bytes": r.DISK_CAP, "encoding_permitted": True}
     seal(cap, {**common, "phase": "capacity", "wall_seconds": .5, "projection": projection})
     receipt = seal(folder, {**common, "phase": "encode", "test_contents_accessed": False, "parameter_training_steps": 0,
         "wall_seconds": .6, "capacity_path": "capacity", "capacity_completed_sha256": b.sha(cap / "completed.json"),
@@ -420,6 +447,60 @@ def test_joint_cache_resealed_geometry_model_and_capacity_reject(tree, tmp_path,
     plan["tokens_completed_sha256"] = b.sha(joint / "completed.json")
     with pytest.raises(ValueError):
         r.authenticate_tokens(joint, packet_dir, lexical, packet(), plan, root, {})
+
+
+@pytest.mark.parametrize("kind, message", [
+    ("padded", "token coverage"), ("retained", "token coverage"), ("content", "token coverage"),
+    ("overlength", "token coverage"), ("calls", "call coverage"), ("sequences", "call coverage"),
+    ("contexts", "pooling witness"), ("equivalence", "pooling witness"), ("bytes", "byte reconstruction"),
+    ("encoder", "identity"), ("revision", "identity"), ("device", "identity"),
+    ("packet", "identity"), ("lexical", "identity"), ("data", "identity"),
+    ("scope", "scope"), ("geometry", "token geometry"), ("raw_shape", "raw token shape"),
+    ("source", "Changed or missing file"), ("extra", "payload closure"),
+])
+def test_capacity_resealed_sample_identity_and_projection_corruptions_reject(tree, kind, message):
+    root, run, packet_dir, lexical, tokens = tree
+    plan, cap_path = b.read(run/"plan.json"), root/"capacity"
+    cap = b.read(cap_path/"completed.json")
+    if kind in ("padded", "retained", "content", "overlength"):
+        key = {"padded": "padded_token_slots", "retained": "retained_token_rows",
+               "content": "input_tokens", "overlength": "overlength_contexts_chunked"}[kind]
+        cap["work"][key] += 1
+        # Keep all old reported projection arithmetic self-consistent: only the
+        # independent sample reconstruction can expose invented denominators.
+        p, w = cap["projection"], cap["work"]
+        p["projected_forward_transfer_seconds"] = w["forward_transfer_seconds"]/w["padded_token_slots"]*5
+        p["projected_retention_seconds"] = w["retention_seconds"]/w["retained_token_rows"]*5
+        p["projected_total_seconds"] = p["projected_forward_transfer_seconds"]+p["projected_retention_seconds"]+p["observed_other_seconds"]
+    elif kind in ("calls", "sequences"):
+        cap["progress"]["encoder_calls_attempted" if kind == "calls" else "encoded_sequences"] += 1
+    elif kind == "contexts":
+        cap["pooling_equivalence"]["contexts_checked"] = 0
+    elif kind == "equivalence":
+        cap["pooling_equivalence"]["max_abs_error"] = 3e-5
+    elif kind == "bytes":
+        cap["projection"]["projected_cache_bytes"] -= 1
+    elif kind in ("encoder", "revision", "device"):
+        cap[kind] = "wrong"
+    elif kind in ("packet", "lexical", "data"):
+        cap[kind+"_completed_sha256"] = "f"*64
+    elif kind == "scope":
+        cap["parameter_training_steps"] = 1
+    elif kind == "geometry":
+        np.save(cap_path/"chunk-lengths.npy", np.array([4], np.int64))
+    elif kind == "raw_shape":
+        np.save(cap_path/"tokens.npy", np.zeros((4, 384), np.float32))
+    elif kind == "source":
+        (cap_path/"sources/scripts/prepare_dialogue_tokens.py").write_text("different snapshot")
+    else:
+        (cap_path/"unexpected.json").write_text("extra payload")
+    seal(cap_path, cap)
+    done = b.read(tokens/"completed.json")
+    done["capacity_completed_sha256"] = b.sha(cap_path/"completed.json")
+    put(tokens/"completed.json", done)
+    plan["tokens_completed_sha256"] = b.sha(tokens/"completed.json")
+    with pytest.raises(ValueError, match=message):
+        r.authenticate_tokens(tokens, packet_dir, lexical, packet(), plan, root, {})
 
 
 def test_failure_receipt_failure_keeps_original_cause(tmp_path, monkeypatch):
