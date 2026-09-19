@@ -18,6 +18,7 @@ The [prospective design](../reacher-geometry-memory-v1/history-control-design.md
 | Fit serialization and partial updates | 33 | [Fitting review](fitting-review.md) |
 | Explicit random streams and history separation | 48 | [Stream review](streams-review.md) |
 | Saved training state and update accounting | 86 | [Training audit review](training-audit-review.md) |
+| Complete execution and terminal failures | 45 | [Runner review](runner-review.md) |
 
 These component checks include hand-built histories, tiny training fixtures and fake episode orchestration. They are not a whole-study rehearsal or an empirical performance result. Each adjacent validation JSON records the author's test report and the separate static review. The history auditor checks saved public evidence without recomputing learned hidden states.
 
