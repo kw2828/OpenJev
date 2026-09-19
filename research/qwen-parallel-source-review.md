@@ -4,6 +4,12 @@ Source inspection, September 18, 2026. The user's diagram describes a useful
 inference optimization, but is not a verified diagram of TypeSafe's internals.
 This review did not run the upstream engine or reproduce its speed claims.
 
+The [source refresh](../output/parallel-constrained-decoding-review/source-refresh.md)
+also checked the linked Hugging Face Space. Its engine files match this pinned
+repository, while its ZeroGPU A10G environment differs from the reported M4 Max
+MLX benchmark. The refresh adds exact backend behavior and source hashes; no
+speed or accuracy measurements were made.
+
 The [upstream repository](https://huggingface.co/harshatheg/Qwen-2.5-1B-RLCD/tree/2af86848be75847ccb3553b0941cc51d6ef7e4e9)
 was inspected at `2af86848be75847ccb3553b0941cc51d6ef7e4e9`.
 [Source receipt and snapshots](../evidence/qwen-parallel-source-review-v1/receipt.json)

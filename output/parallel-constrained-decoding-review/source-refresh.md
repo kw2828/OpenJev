@@ -1,0 +1,37 @@
+# Public Qwen RLCD repository: source check
+
+**The useful mechanism is shared-prefix, batched decision scoring. The inspected repository does not provide a newly trained RLCD checkpoint or evidence of calibrated probabilities.** This live refresh agrees with the earlier [review](../../research/qwen-parallel-source-review.md). It evaluates the public implementation, not TypeSafe's undisclosed architecture.
+
+Pinned identities:
+
+- [Model repository](https://huggingface.co/harshatheg/Qwen-2.5-1B-RLCD/tree/2af86848be75847ccb3553b0941cc51d6ef7e4e9): `2af86848be75847ccb3553b0941cc51d6ef7e4e9`, unchanged from the prior review.
+- [Linked Space](https://huggingface.co/spaces/drinkmoonshine/parallel-constrained-decoding/tree/2cb1107ab79b2120a1c35984cf57993af5356b63): `2cb1107ab79b2120a1c35984cf57993af5356b63`. Its engine router, both backends and app have identical bytes to the inspected model repository. Live Space metadata reports ZeroGPU A10G; it is not the card's M4 Max MLX benchmark.
+
+## What the source actually does
+
+| Claim | Source-grounded finding |
+|---|---|
+| A new 1B RLCD model | The [API file inventory](https://huggingface.co/api/models/harshatheg/Qwen-2.5-1B-RLCD) lists 26 application/source files, no weight shards, model configuration, tokenizer or training pipeline. The RLCD name is an inference alias. Absence here does not establish what training someone may have done elsewhere. |
+| Model architecture | [MLX line 22](https://huggingface.co/harshatheg/Qwen-2.5-1B-RLCD/blob/2af86848be75847ccb3553b0941cc51d6ef7e4e9/core/engine_mlx.py#L22) loads `mlx-community/Qwen2.5-1.5B-Instruct-4bit`. [Torch line 22](https://huggingface.co/harshatheg/Qwen-2.5-1B-RLCD/blob/2af86848be75847ccb3553b0941cc51d6ef7e4e9/core/engine_torch.py#L22) defaults to `Qwen/Qwen2.5-1.5B-Instruct`. Its [official configuration](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct/blob/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/config.json) specifies `Qwen2ForCausalLM`, 28 layers, hidden width 1536, 12 attention heads and 2 KV heads. These are ordinary decoder Transformer weights, not a connectome or recurrent-world-model architecture. |
+| Shared KV | [MLX lines 330-352](https://huggingface.co/harshatheg/Qwen-2.5-1B-RLCD/blob/2af86848be75847ccb3553b0941cc51d6ef7e4e9/core/engine_mlx.py#L330) prefill once, then use `mx.repeat` to replicate KV tensors across fields. This saves repeated prefix computation; it does not show constant-size, zero-copy prefix storage. |
+| Only allowed logits computed | The model first returns ordinary vocabulary logits; candidate IDs are gathered afterward. This is restricted scoring, not a demonstrated candidate-only vocabulary projection. |
+| Exact multi-token choice probabilities | [Schema lines 147-172](https://huggingface.co/harshatheg/Qwen-2.5-1B-RLCD/blob/2af86848be75847ccb3553b0941cc51d6ef7e4e9/core/schema.py#L147) remove a common character prefix and retain the first token of each remainder. That does not sum full sequence probabilities. |
+| Token-tree disambiguation | MLX's collision branch greedily continues up to four unrestricted tokens, heuristically matches choices, and can fall back to the first choice. It is not exhaustive constrained-trie scoring. Its sliced cache also retains right-padding history for shorter suffixes, a static correctness concern requiring a parity test. Torch reads the collision flag but never uses it; colliding candidates receive identical logits. |
+| Calibrated confidence | Distinct-token choices use softmax with default temperature 1. Collision output instead floors the winner at 0.75, caps it at 0.9999, and distributes the remainder uniformly. No calibration fit, labeled calibration set or held-out calibration metric is supplied. These probabilities are neither measured correctness nor outcome-success probabilities. |
+| One pass, zero generation | MLX makes a prefix call plus a batched suffix call, and may make continuation calls. Nevertheless it returns `sequential_forward_passes=1` and `total_tokens_generated=0`. Those fields do not account for all executed work. |
+
+The backend code supporting the last four findings is [MLX lines 359-453](https://huggingface.co/harshatheg/Qwen-2.5-1B-RLCD/blob/2af86848be75847ccb3553b0941cc51d6ef7e4e9/core/engine_mlx.py#L359) and [Torch lines 139-157](https://huggingface.co/harshatheg/Qwen-2.5-1B-RLCD/blob/2af86848be75847ccb3553b0941cc51d6ef7e4e9/core/engine_torch.py#L139). Constructing JSON from choices can guarantee serialization structure; it does not establish semantic accuracy or consistency between independently scored fields.
+
+## What the speed claim establishes
+
+The [card](https://huggingface.co/harshatheg/Qwen-2.5-1B-RLCD/blob/2af86848be75847ccb3553b0941cc51d6ef7e4e9/README.md) reports 5.6-7.0x against autoregressive JSON. The [baseline prompt](https://huggingface.co/harshatheg/Qwen-2.5-1B-RLCD/blob/2af86848be75847ccb3553b0941cc51d6ef7e4e9/core/prompt_builder.py#L10) explicitly requests multiline indented JSON, while parallel inference uses a different compact schema prompt. Thus the comparison combines prompt changes, avoiding generated formatting, batching and cache reuse. Even the one-field example claims 5.6x, where cross-field batching cannot explain the result.
+
+The [benchmark runner](https://huggingface.co/harshatheg/Qwen-2.5-1B-RLCD/blob/2af86848be75847ccb3553b0941cc51d6ef7e4e9/core/benchmark.py) performs one comparison per preset after warmup, without repeated-run distributions or accuracy labels. The card's 148 tokens in 421.3 ms imply about 351 tokens/s, conflicting with its 122.4 tokens/s entry. This inconsistency does not disprove a speed benefit; the example is insufficient as an internally consistent measurement receipt. Model revisions are not pinned by the loader and dependencies use broad version ranges, adding reproduction uncertainty.
+
+## Implication for OpenJev
+
+The current [OpenJev scorer](../../src/openjev/decisions.py) already avoids generated answers, maps descriptions to verified unique single-token labels A-L, returns stable IDs and candidate vocabulary mass, and explicitly labels scores uncalibrated. Its MLX and CPU paths still prefill each question separately. Sharing the actual common token prefix and batching suffixes is a useful optimization to test; the upstream ratio is not evidence for its speedup over our existing scorer.
+
+The direct benchmark should preserve the same model, precision, tokenized prompts and candidate labels, compare serial versus batched scoring with/without prefix reuse, and verify logits, choices and unequal-length cache isolation before timing. Measure complete latency and memory, including cache copies and synchronization. Accuracy/calibration needs separate labeled data. No inference, timing experiment, remote-code execution or weight download was performed for this source check. The browser tool could read the repository/Space metadata but could not open individual source pages; pinned source bytes were retrieved directly over HTTPS and inspected as text, never imported or executed.
+
+Checked source SHA-256 values: MLX `9429d1f3df66133c5b6675c8295680a6302c366f364a2f2e9e6365157df993b2`; Torch `eff09b903672fd0a80a259d27681814577dbc71d3cc84927af09b3c30da12c2f`; schema `5fdfa2ffe4fd83c64e98331802d4a0f0858aa85197380cfc1ff6a39100f73232`; benchmark `93c779f04abe8d8db3cc618f6c5d9d8d6f3d69cf6fdb6eeffb8e19c738a4ab84`. Only this new note was written.
