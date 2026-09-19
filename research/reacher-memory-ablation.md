@@ -58,6 +58,15 @@ targets are audit-only labels. The MLP's close control performance despite
 much worse observation prediction is another reason not to equate prediction
 quality with decision quality. There is no direct velocity-inference result.
 
+A separate [post hoc reward diagnostic](../output/reacher-memory-ablation-v1/reward-bottleneck-diagnostic.md)
+finds that persistent recurrence improves reward prediction much less than angle
+prediction. On the same 96 exploration histories, reward MSE improves by 31.90%
+versus the MLP; the control gain remains only 1-2% and inconsistent across fits.
+Most remaining selected-action reward error lies in the learned distance
+residual. This motivates a future reward-model intervention, but saved one-step
+errors do not establish which unchosen action sequences the planner misranks.
+The diagnostic changes neither the original result nor its continuation rule.
+
 [Every fit, qualification check, prediction error and timing](../evidence/reacher-memory-ablation-v1/figures/tables.md)
 is retained alongside the [saved-output audit](../evidence/reacher-memory-ablation-v1/audit/summary.json).
 The [research release](https://github.com/kw2828/OpenJev/releases/tag/research-reacher-memory-ablation-v1)
