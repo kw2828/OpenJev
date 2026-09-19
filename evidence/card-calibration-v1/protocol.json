@@ -1,0 +1,114 @@
+{
+  "bindings_file": "evidence/card-calibration-v1/source-bindings.json",
+  "budget": {
+    "calibration_source_episodes": 1152,
+    "evaluator_layout_reads": 3584,
+    "learned_predictions_max": 359424,
+    "learned_restores": 18,
+    "learned_writes_max": 359424,
+    "native_actions_max": 372736,
+    "native_episodes": 3584,
+    "new_neural_weight_updates": 0,
+    "proper_score_test_prefix_episodes": 1152,
+    "scalar_parameters_fitted": 18
+  },
+  "calibration": {
+    "beta_bounds": [
+      0.05,
+      20.0
+    ],
+    "bisection_iterations": 64,
+    "episodes_per_fit": 64,
+    "fits": 18,
+    "max_oracle_evaluations": 1224,
+    "new_model_calls": 0,
+    "new_native_calls": 0,
+    "output_cap_bytes": 200000000,
+    "wall_cap_seconds": 900
+  },
+  "calibration_source_role": "previous_C_evaluation_repurposed_as_training",
+  "continuation": {
+    "all_required": true,
+    "baseline_prefix_brier_nonincrease": true,
+    "baseline_prefix_relative_nll_reduction_min": 0.05,
+    "family_mean_return_difference_min": -0.01,
+    "hard_control_descriptive_only": true,
+    "original_architecture_gate_unchanged": true,
+    "paired_fit_aggregate_positive_all": true,
+    "temperature_minus_baseline_mean_return_min": 0.03
+  },
+  "evaluation": {
+    "controllers": 20,
+    "episodes": 64,
+    "max_actions": 104,
+    "output_cap_bytes": 6000000000,
+    "policies": [
+      "baseline",
+      "temperature",
+      "hard"
+    ],
+    "wall_cap_seconds": 1800
+  },
+  "fit_rule": "Minimize mean query NLL within each nonempty boundary, then mean boundaries within each episode, then mean all 64 episodes equally. Fit independently per checkpoint from all 64 prior C histories. Evaluate beta endpoints [0.05, 20], identity, and 64 fixed bisections if the optimum is interior, followed by the final midpoint: at most 68 objective and derivative passes. Exact ties or a candidate NLL worse than identity use beta=1. No probability floor: a zero probability on a true target fails fitting.",
+  "layout_identity": "Use the same evaluator-only deck digest as before. Neither hidden ranks nor the digest reach the actor. Reconstruct all 64 layouts from the union of actual public frames in the saved-output audit. Retain duplicate layouts without replacement.",
+  "limits": [
+    "The prior C evaluation set is now training input for this new study; its results cannot serve as this study's test.",
+    "No tuning on the new 64 test cases, adopting the hard control after observing a win, checkpoint selection, retraining, retries, or budget extensions.",
+    "The original architecture FAIL (1 of 6 criteria) and previous controller PASS remain unchanged.",
+    "Scalar temperature scaling is established prior art, not a novel memory architecture, RL algorithm, or calibrated Bayesian posterior.",
+    "There are 64 paired deck draws with 18 fixed fits. Repeated games and queries are not independent layouts.",
+    "Probability power scaling uses saved float32 softmax values cast to float64, not inaccessible pre-softmax logits. Disclose underflow separately; never silently smooth wrong hard beliefs.",
+    "A calibration pass qualifies a stronger control only. It does not establish superiority to last32, scenario transfer, or ICLR readiness."
+  ],
+  "lineage": {
+    "checkpoint_map": {
+      "path": "output/card-memory-pilot-v1/training-01/checkpoint-map.json",
+      "sha256": "dc3c2cc33e007faf27c27137aecaee8e23fdc2d41690f89253badc9f4e1098b6"
+    },
+    "controller_bindings": {
+      "path": "evidence/card-controllers-v1/source-bindings.json",
+      "sha256": "bbd609e4d9542c6fb1e4bc51dd7144347a96f951c6a091a8a509d916c4d5f49d"
+    },
+    "controller_completed": {
+      "path": "output/card-controllers-v1/evaluation-01/completed.json",
+      "sha256": "cc0d22c85fe8c9dadb36ce4b6c4fb047ad920c05a929752b1d0df2be94df22ba"
+    },
+    "controller_inputs": {
+      "path": "evidence/card-controllers-v1/inputs.json",
+      "sha256": "72f1daf2c6717ea6d0b7def3433316284590a721a71841b9134e5a9ea6105939"
+    },
+    "controller_protocol": {
+      "path": "evidence/card-controllers-v1/protocol.json",
+      "sha256": "7cf3b82dad7023c4c3e0ba044dc2283861d70beb60bf56bb6abb86f8cdd025ee"
+    },
+    "controller_report_receipt": {
+      "path": "output/card-controllers-v1/report-01/receipt.json",
+      "sha256": "f1543d5c87c4ae9f85db14155a21fc2583713dc6eb4918c9081cc3aefc2a48ed"
+    },
+    "controller_summary": {
+      "path": "output/card-controllers-v1/report-01/summary.json",
+      "sha256": "3343959b8df20680de12557a89652843459100121cfcd2513db8f3e944fe2e51"
+    }
+  },
+  "order": "Run delta, gated_delta, kalman, innovation_local, innovation_matched, gru, each with paired fits 0, 1, 2. Run cases 0 through 63 with their literal rotating belief order. Then run exact and last32, each baseline only. All 18 scalar fits must complete and be hash-bound before the first fresh model restore or reset.",
+  "policies": {
+    "baseline": "Same frozen C picker and original raw model probabilities; no temperature fitting affects this arm",
+    "hard": "Deterministic lowest-index argmax rank becomes one-hot, followed by identical C picker/overrides. This is a nonprobabilistic control; any wrong queried rank has infinite NLL",
+    "temperature": "Fitted positive inverse temperature beta on saved raw probabilities, p**beta normalized, then unchanged C normalization and public overrides; beta=1 exact value bypass"
+  },
+  "preset_visualization": {
+    "case_index": 0,
+    "controller": "kalman-pair0",
+    "selection": "First literal evaluation case, chosen before scalar fitting or fresh native evaluation; show all three policies even if none succeeds."
+  },
+  "proper_score_rule": "On all 64 NEW baseline trajectories per fit, compare baseline, temperature, and hard on exactly the same raw outputs, public pre-action masks and labels, and hierarchical weights. This fixed-prefix comparison is separate from native utility on diverging transformed-policy histories. NLL reduction is (baseline-temperature)/baseline; a zero baseline makes the criterion undefined and failed. Brier sums the 13 squared class errors.",
+  "rationale": {
+    "confidence_diagnostic_completed": {
+      "path": "output/card-confidence-diagnostic-v1/attempt-01/completed.json",
+      "sha256": "39b72955d711dc29cbddc45c3435338e66109925e7f290d80af04bc04eb44211"
+    },
+    "primary_prior_art": "https://proceedings.mlr.press/v70/guo17a.html"
+  },
+  "status": "prospective",
+  "version": "card-calibration-v1"
+}
