@@ -1,0 +1,58 @@
+{
+  "checks": [
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_dialogue_copy_features.py",
+        "tests/test_dialogue_copy_memory.py",
+        "tests/test_study_dialogue_copy.py",
+        "tests/test_report_dialogue_copy.py"
+      ],
+      "output": "check-0.txt",
+      "returncode": 0,
+      "wall_seconds": 3.3670006659813225
+    },
+    {
+      "command": [
+        ".venv/bin/ruff",
+        "check",
+        "scripts/study_dialogue_copy.py",
+        "scripts/prepare_dialogue_copy.py",
+        "scripts/report_dialogue_copy.py",
+        "src/openjev/research/dialogue_copy_features.py",
+        "src/openjev/research/dialogue_copy_memory.py",
+        "tests/test_dialogue_copy_features.py",
+        "tests/test_dialogue_copy_memory.py",
+        "tests/test_study_dialogue_copy.py",
+        "tests/test_report_dialogue_copy.py"
+      ],
+      "output": "check-1.txt",
+      "returncode": 0,
+      "wall_seconds": 0.03778245905414224
+    }
+  ],
+  "files": {
+    "check-0.txt": "624e9862b4f8c953d8869bbe4a4e8dbc6347c77d94a02b3c9fc1825ee41c3e17",
+    "check-1.txt": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+  },
+  "scope": "Synthetic engineering tests and lint; no scientific efficacy evidence",
+  "source_sha256": {
+    "research/dialogue-copy-protocol.md": "75c7eaad7d421d18a2872fa2af7a458a72f5aa6722c2e888df2301dcae2519c0",
+    "scripts/prepare_dialogue_copy.py": "1cbc255f1d90498c48ec7e6c86610c89653fce1093099476c839a9c3f39b1f04",
+    "scripts/report_dialogue_copy.py": "e5601033aeebdd73cff71fed41e285f9db148db2eb1d70dcba202bbf34571202",
+    "scripts/report_dialogue_memory.py": "bcaf33e75c87705b6bc11866e1ccf6ae558a624f00d586b5e86e3808f7a736c7",
+    "scripts/study_dialogue_copy.py": "d628616f24d973f40a43d68b18758010547449877bdc569324e2cd920cd49996",
+    "scripts/study_dialogue_memory.py": "51a46d35c3d9dd2857bd3ded5fc289652c7e18f05b85b8f82dd245ade7626e2c",
+    "src/openjev/research/dialogue_carry.py": "efc092a1be9e4180ffdb5199a3da24d405d76315b342f986dab0882580604db3",
+    "src/openjev/research/dialogue_copy_features.py": "78a2c2e26c7fae4a30fad0380a6832b998b1f696c8d0edbb7b53cd3aaa1ac503",
+    "src/openjev/research/dialogue_copy_memory.py": "182c71a944c6d787533bf129bca1631ff3b366b8559e3db7567e7fd9b19a8717",
+    "tests/test_dialogue_copy_features.py": "94e54afece7dc34548344fe2c158dc3519023a6bc8d95173464593aa854cbfcc",
+    "tests/test_dialogue_copy_memory.py": "d87239726cf3b81ccf570c9a748203ed785f9a1eed14c2029852c9ae9ab69661",
+    "tests/test_report_dialogue_copy.py": "e14675867fc3d54b9e2f9c61baa185422c8d8f7e978069ba47551fc95ccf8a12",
+    "tests/test_study_dialogue_copy.py": "fbb73f441ea8da60635376a266e6c36fe95e3d58fd5ddf86fa951b82511d5ede"
+  },
+  "status": "completed"
+}
