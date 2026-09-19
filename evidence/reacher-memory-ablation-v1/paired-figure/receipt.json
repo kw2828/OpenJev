@@ -1,0 +1,184 @@
+{
+  "status": "completed",
+  "study": "reacher-memory-ablation-v1",
+  "engineering": false,
+  "plan_sha256": "05f09ee5425190f5d652aedb10af1641037035d85e906d04d86baf33552a5786",
+  "report_receipt_sha256": "61596ed1562c73da64ac8e6c4da744e40e305531e0e0e6c539e1f05808cb95c7",
+  "audit_receipt_sha256": "2589383326a2312d7f738821da7fd11f82b9bee1b7168aba2e7f44aaa4946d5d",
+  "audit_summary_sha256": "f12d56c9dbc2571515bfaa099ca58f3b3dc92e518e82219aebbf3c668af3ff0e",
+  "source_sha256": "5d59fcdb69dacb55d053da91b4ea9e12bc491797075996ac3543e12e8b87ddb6",
+  "new_model_calls": 0,
+  "new_simulator_calls": 0,
+  "wall_seconds": 0.31022416707128286,
+  "comparisons": [
+    {
+      "panel": "ordinary",
+      "comparator": "current_gru",
+      "pair_ids": [
+        "pair0",
+        "pair1",
+        "pair2"
+      ],
+      "persistent_pair_costs": [
+        7.577298549207042,
+        8.786396414786172,
+        7.919174856000282
+      ],
+      "comparator_pair_costs": [
+        9.546608823919266,
+        9.131271922626606,
+        8.084527844811792
+      ],
+      "paired_improvement_percent": [
+        20.62837507050742,
+        3.7768616547915856,
+        2.0453017416177777
+      ],
+      "persistent_family_mean_cost": 8.094289939997832,
+      "comparator_family_mean_cost": 8.92080286378589,
+      "family_improvement_percent": 9.26500603598468
+    },
+    {
+      "panel": "ordinary",
+      "comparator": "bounded_gru",
+      "pair_ids": [
+        "pair0",
+        "pair1",
+        "pair2"
+      ],
+      "persistent_pair_costs": [
+        7.577298549207042,
+        8.786396414786172,
+        7.919174856000282
+      ],
+      "comparator_pair_costs": [
+        8.53086373651651,
+        9.485365339195557,
+        8.061929545651116
+      ],
+      "paired_improvement_percent": [
+        11.177826967599014,
+        7.368919376474581,
+        1.7707260878736086
+      ],
+      "persistent_family_mean_cost": 8.094289939997832,
+      "comparator_family_mean_cost": 8.692719540454396,
+      "family_improvement_percent": 6.884262142262587
+    },
+    {
+      "panel": "ordinary",
+      "comparator": "packet_mlp",
+      "pair_ids": [
+        "pair0",
+        "pair1",
+        "pair2"
+      ],
+      "persistent_pair_costs": [
+        7.577298549207042,
+        8.786396414786172,
+        7.919174856000282
+      ],
+      "comparator_pair_costs": [
+        8.11279671014858,
+        8.271359597340927,
+        8.15794401070826
+      ],
+      "paired_improvement_percent": [
+        6.600660414326221,
+        -6.2267491986543355,
+        2.9268300247533574
+      ],
+      "persistent_family_mean_cost": 8.094289939997832,
+      "comparator_family_mean_cost": 8.180700106065922,
+      "family_improvement_percent": 1.0562685949582429
+    },
+    {
+      "panel": "shift",
+      "comparator": "current_gru",
+      "pair_ids": [
+        "pair0",
+        "pair1",
+        "pair2"
+      ],
+      "persistent_pair_costs": [
+        7.654218838383476,
+        9.038461074795212,
+        7.991898386428884
+      ],
+      "comparator_pair_costs": [
+        9.760126175789386,
+        9.199877654852912,
+        8.165719275143884
+      ],
+      "paired_improvement_percent": [
+        21.576640501121258,
+        1.7545513768061238,
+        2.1286659859114043
+      ],
+      "persistent_family_mean_cost": 8.228192766535857,
+      "comparator_family_mean_cost": 9.041907701928729,
+      "family_improvement_percent": 8.999372280910345
+    },
+    {
+      "panel": "shift",
+      "comparator": "bounded_gru",
+      "pair_ids": [
+        "pair0",
+        "pair1",
+        "pair2"
+      ],
+      "persistent_pair_costs": [
+        7.654218838383476,
+        9.038461074795212,
+        7.991898386428884
+      ],
+      "comparator_pair_costs": [
+        8.703752534961385,
+        9.516139454889235,
+        8.183030811474492
+      ],
+      "paired_improvement_percent": [
+        12.058404606083684,
+        5.0196656150157555,
+        2.335716795512921
+      ],
+      "persistent_family_mean_cost": 8.228192766535857,
+      "comparator_family_mean_cost": 8.800974267108371,
+      "family_improvement_percent": 6.508160155781317
+    },
+    {
+      "panel": "shift",
+      "comparator": "packet_mlp",
+      "pair_ids": [
+        "pair0",
+        "pair1",
+        "pair2"
+      ],
+      "persistent_pair_costs": [
+        7.654218838383476,
+        9.038461074795212,
+        7.991898386428884
+      ],
+      "comparator_pair_costs": [
+        8.239292533685703,
+        8.514799168889201,
+        8.363685037503046
+      ],
+      "paired_improvement_percent": [
+        7.101018599718345,
+        -6.150020634888609,
+        4.445249305862886
+      ],
+      "persistent_family_mean_cost": 8.228192766535857,
+      "comparator_family_mean_cost": 8.37259224669265,
+      "family_improvement_percent": 1.724668727464107
+    }
+  ],
+  "pair_formula": "100 * (1 - persistent_pair_cost / comparator_pair_cost)",
+  "family_formula": "100 * (1 - mean(persistent_pair_costs) / mean(comparator_pair_costs))",
+  "family_is_not_mean_of_pair_percentages": true,
+  "all_fit_pairs_retained": true,
+  "files": {
+    "paired-improvements.png": "18d7bf78b2d28b58a36de2b731867bd990c4eab49a3913035508a7eefe46e58d"
+  }
+}

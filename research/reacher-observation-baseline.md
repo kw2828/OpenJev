@@ -103,11 +103,12 @@ does not authorize resuming any frozen experiment.
 passed, including 51 trainer checks and the 63 model checks above. Two-update
 parity and uninterrupted-versus-restored training were checked for all four
 classes, including an epoch boundary and partial minibatch. These are
-engineering checks, not control results. A scientific protocol, deployment
-runner, independent audit and cost checks remain to be completed before a new
-comparison is launched.
+engineering checks, not control results. Their original receipts remain
+unchanged.
 
-The [prospective memory comparison](reacher-memory-ablation.md) now specifies
-all four trained arms and the two-measurement physics reference. Its runner and
-independent audit are undergoing a complete engineering rehearsal. It has not
-been frozen or run as a scientific experiment.
+The subsequent [memory comparison](reacher-memory-ablation.md) completed all
+12 scientific fits and 51 control rows, passing its 25-check continuation rule.
+Persistent recurrence beat the trained current-only and three-packet GRUs in
+every paired gap comparison. Its advantage over the MLP was small and
+inconsistent by fit. The report distinguishes that scored result from the
+earlier engineering checks and retains the full cost accounting.

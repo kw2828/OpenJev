@@ -40,13 +40,15 @@ The latest [24-fit graph comparison](docs/chess-pin-quality.md) found **36.43% /
 
 ## Robot reaching
 
-![All six recurrent models with random and adaptive planning, including full observations and two sensor-gap panels](evidence/reacher-search-v1/figures/search-control.png)
+[![Four locally trained models, first scheduled robot case](evidence/reacher-memory-ablation-v1/replay/first-ordinary-case-pair0.gif)](research/reacher-memory-ablation.md)
 
-Adaptive search lowered control cost by **25.5% with ordinary sensor gaps and 25.3% with longer gaps**, versus random search at the same candidate-scoring budget. Every residual-model fit improved. The primary 8/8 and control-competence 15/15 checks passed. This is a planning gain with existing recurrent models; memory, JEPA and biological-wiring benefits remain unproven. [Results, compute and complete traces](research/reacher-adaptive-search.md).
+The **12-fit memory comparison passed all 25 checks**. Persistent GRU memory lowered mean control cost by **9.3% with six-step observation gaps and 9.0% with ten-step gaps**, versus a GRU trained on the current observation only. It beat three-step history by **6.5% on longer gaps**. Every paired GRU comparison improved on both gap panels.
 
-The [nine-fit objective comparison](research/reacher-objective-ablation.md) found **5.8% lower mean control cost** from latent prediction on both gap panels. It still **failed its rule (27/31 checks)**: one paired fit worsened and memory-reset effects were too small. Latent training took about 3.5 times the baseline's fitting time. A trained short-history control comes next.
+![Every paired gain, including losses against the small MLP](evidence/reacher-memory-ablation-v1/paired-figure/paired-improvements.png)
 
-![All nine objective fits, including the worse paired fit](evidence/reacher-objective-ablation-v1/figures/native-costs.png)
+Gains vary by fit. A small MLP is within 1-2% on the gap panels, and supplied-physics controllers remain better. The schematic GIF shows the fixed first case, which favors the MLP; it is not a performance summary. This supports useful memory in this setup, not a new architecture or biological-wiring advantage. [All fits, timings, replay and limits](research/reacher-memory-ablation.md).
+
+Earlier studies found a [25% planning improvement](research/reacher-adaptive-search.md), while the [latent-objective comparison failed its continuation rule](research/reacher-objective-ablation.md). Their results and original criteria remain separate.
 
 ## Run locally
 

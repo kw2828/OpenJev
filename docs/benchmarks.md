@@ -26,6 +26,14 @@ Nine original chess students trained on the same 4,096 Stockfish-labeled positio
 
 ## Recurrent world models
 
+![All six paired memory comparisons, retaining every fit](../evidence/reacher-memory-ablation-v1/paired-figure/paired-improvements.png)
+
+The completed **12-fit Reacher memory comparison passed 25/25 checks**. Persistent GRU recurrence lowered mean control cost by **9.27%/9.00%** versus a GRU trained without cross-decision history on six-step/ten-step gaps. Its longer-gap advantage over a three-packet GRU was **6.51%**. Every paired GRU comparison improved on both gap panels, although one fit contributes much of the current-only mean gain. The MLP was much closer, with only **1.06%/1.72%** lower cost for persistent recurrence in the family means and a paired fit that beats persistent recurrence. Supplied-physics references remain better. This qualifies useful public-history memory under the fixed recipe, not biological wiring, velocity inference or a new architecture. [All fits, criteria, prediction errors and replay](../research/reacher-memory-ablation.md).
+
+![Native utility versus complete recorded control-row time](../evidence/reacher-memory-ablation-v1/figures/utility-vs-cost.png)
+
+All four families share the training corpus and 1,152 updates per fit. They do not match compute. Three-packet training took **2.89 times** persistent-GRU fitting time. The complete execution took **1,083.97 seconds**, plus **30.97 seconds** for a saved-output audit that replayed **206,400 native transitions** with zero discrepancy. Plot timings amortize the whole controller row, including setup, native steps and traces; fitting and final global hashing are separate. Shared-host measurements do not establish isolated latency or Rust/Python speed differences.
+
 ![All six saved Reacher models under random and adaptive search](../evidence/reacher-search-v1/figures/search-control.png)
 
 The completed Reacher search comparison reused all six saved recurrent models on fresh cases. For the residual family, adaptive cross-entropy search lowered native control cost by **25.48% ordinarily and 25.26% with longer sensor gaps**, compared with random search using the same 256 candidate evaluations per decision. Every paired residual fit improved; the primary 8/8 and adaptive-search competence 15/15 checks passed. Supplied-physics references remain better. This establishes a planning improvement, not a memory, connectome or JEPA advantage. The earlier reward-head study's failed continuation rule remains unchanged. [Full results, all fits, diagnostic exceptions and reproducible traces](../research/reacher-adaptive-search.md).
