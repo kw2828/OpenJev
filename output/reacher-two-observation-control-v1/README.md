@@ -11,7 +11,7 @@ The [prospective design](../reacher-geometry-memory-v1/history-control-design.md
 | History model and causal buffers | 49 | [Model review](integration-review.md) |
 | Paired, resumable training | 63 | [Training review](training-review.md) |
 | Geometry-scored CEM controller | 24 | [Controller review](control-review.md) |
-| Prospective scope and 25 checks | 60 | [Protocol review](protocol-review.md) |
+| Prospective scope and 25 checks | 64 | [Protocol review](protocol-review.md), [engineering metadata correction](protocol-engineering-width-validation.json) |
 | Independent public-history reconstruction | 76 | [History audit review](public-audit-review.md) |
 | Complete paired-result arithmetic | 37 | [Results review](results-review.md) |
 | Episode recording and partial failures | 23 | [Episode review](episode-review.md) |

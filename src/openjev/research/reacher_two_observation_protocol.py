@@ -333,7 +333,10 @@ def validate_settings(plan, *, engineering=False):
     expected = settings(engineering=engineering)
     require(isinstance(plan, dict) and set(plan) == set(expected), "Exact prospective settings; preparation bindings are separate")
     flexible = {"rng_namespace"}
-    dimensions = {"train_episodes", "epochs", "batch_size", "hidden_size", "control_episodes", "threads", "bootstrap_samples"}
+    # Preserve the original tiny parent's unused MLP metadata during rehearsal.
+    # Scientific settings still require the exact original width107 above.
+    dimensions = {"train_episodes", "epochs", "batch_size", "hidden_size", "mlp_width",
+                  "control_episodes", "threads", "bootstrap_samples"}
     if engineering:
         flexible |= dimensions
     for key, value in expected.items():

@@ -169,7 +169,7 @@ def test_symbolic_roles_include_all_filter_children_unused_innovations_and_share
 @pytest.mark.parametrize("key,value", [
     ("arms", ["residual_gru", "two_observation_gru"]), ("pairs", ["pair0"]),
     ("references", ["known_state", "zero"]), ("panels", ["ordinary", "shift"]),
-    ("train_episodes", 767), ("epochs", 47), ("batch_size", 16), ("hidden_size", 63),
+    ("train_episodes", 767), ("epochs", 47), ("batch_size", 16), ("hidden_size", 63), ("mlp_width", 7),
     ("steps", 49), ("learning_rate", .002), ("gradient_clip", 1.), ("rollout_horizon", 7),
     ("rollout_weight", 0.), ("reward_scale", 1.), ("control_episodes", 63),
     ("planner", "rs256"), ("physics_planner", "rs64"), ("planning_horizon", 11),
@@ -185,7 +185,7 @@ def test_production_scope_drift_rejected_without_preparing_any_stream(key, value
 
 def test_engineering_shrinks_only_sizes_without_removing_fits_physics_or_checks():
     plan = protocol.settings(engineering=True)
-    plan.update(train_episodes=3, epochs=2, batch_size=2, hidden_size=3, control_episodes=1,
+    plan.update(train_episodes=3, epochs=2, batch_size=2, hidden_size=3, mlp_width=7, control_episodes=1,
                 threads=1, bootstrap_samples=8, rng_namespace=protocol.ENGINEERING_NAMESPACES[-1])
     assert protocol.validate_settings(plan, engineering=True) is plan
     counts = protocol.coverage(plan)
@@ -201,7 +201,8 @@ def test_engineering_shrinks_only_sizes_without_removing_fits_physics_or_checks(
 
 
 @pytest.mark.parametrize("key,value", [("control_episodes", True), ("epochs", 0), ("batch_size", 33),
-                                       ("hidden_size", 65), ("steps", 4), ("rng_namespace", protocol.SCORED_NAMESPACE)])
+                                       ("hidden_size", 65), ("mlp_width", 0), ("mlp_width", 108), ("mlp_width", True),
+                                       ("steps", 4), ("rng_namespace", protocol.SCORED_NAMESPACE)])
 def test_engineering_cannot_relax_scientific_or_type_boundaries(key, value):
     plan = protocol.settings(engineering=True)
     plan[key] = value
