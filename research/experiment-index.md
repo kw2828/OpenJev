@@ -4,6 +4,8 @@ Completed studies, including failures and controls. A passing implementation che
 
 ## Complete experiment list
 
+- [Internal dialogue-memory qualification](dialogue-evidence-qualification-results.md): stopped after the first scalar fit reproduced all **62,329** saved predictions but failed internal normalization checks on **7,989** prior states. The old output metrics remain descriptive; the scalar mechanism comparison needs correction and new training. No counterfactual efficacy result was produced.
+
 - [Candidate dialogue memory with lexical observations](dialogue-copy-results.md): **15 fits**. Selective memory improves unseen macro accuracy to **72.89%**, versus literal carry's **65.76%**. Simpler scalar memory reaches **72.58%** and beats selective on seen services. The primary fails its rule with **7/13 checks passed** and still trails literal carry on unseen revisions. Shared lexical and history observations help; a selective-retention advantage is not established.
 
 [![All fifteen candidate-memory fits and both deterministic references](../output/dialogue-copy-v1/report-01/comparison.png)](dialogue-copy-results.md)

@@ -66,7 +66,7 @@ Open **http://127.0.0.1:8000**. Local text scoring uses Qwen3-4B; the free brows
 
 ## Research results
 
-- [Candidate text memory](research/dialogue-copy-results.md): **15 fits**. Selective memory reaches **72.89%** unseen-service macro accuracy versus **65.76%** for literal copying. Simpler scalar memory reaches **72.58%** and wins on seen services. The selective proposal fails its rule with **7/13 checks passed**.
+- [Candidate text memory](research/dialogue-copy-results.md): **15 fits**, with **7/13 checks passed**. Selective memory reaches **72.89%** unseen-service macro accuracy versus **65.76%** for literal copying. A [later replay found internal probability drift](research/dialogue-evidence-qualification-results.md) in the scalar baseline; a corrected comparison is required.
 - [Earlier recurrent text memory](research/dialogue-memory-results.md): 21 fits; the proposed memory lost to literal copying on unseen services.
 - [Text inference](research/shared-prefix-results.md): shared-context prototype, **2.08x faster** for four-question workloads. Synthetic speed benchmark; single-question caching is slower.
 - [Biological wiring](docs/chess-connectome.md): the controlled chess study **did not establish a connectome advantage**.
