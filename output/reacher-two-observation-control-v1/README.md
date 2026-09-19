@@ -32,11 +32,13 @@ A retained [tiny integration](training-integration-attempt-01/completed.json) co
 
 The [retained rehearsal](../reacher-two-observation-rehearsal-v1/attempt-01/review.md) completed preparation, three tiny fits, all 42 control rows and the independent saved-output audit in 113.98 seconds. All three subprocesses exited successfully. The audit replayed 1,232,886 simulator transitions plus 4,851 observer transitions with zero error. All 8,119 execution payloads and 116 source files passed hash checks. The [qualification receipt](../reacher-two-observation-rehearsal-v1/attempt-01/qualification.json) binds the complete locally retained artifacts and actual process exits.
 
-This used four-dimensional models, one case per panel and two updates per new fit. Its diagnostic gate passed 14 of 25 checks and failed overall; that result does not test scientific superiority. Full-size capacity measurement and a separate scientific freeze remain pending. The [as-run driver](run_rehearsal.py) is preserved unchanged.
+This used four-dimensional models, one case per panel and two updates per new fit. Its diagnostic gate passed 14 of 25 checks and failed overall; that result does not test scientific superiority. Capacity qualification and a separate scientific freeze remain pending. The [as-run driver](run_rehearsal.py) is preserved unchanged.
 
 ## Full-size capacity measurement
 
-The [second capacity attempt](capacity-launch-attempt02.json) is running. It has completed 24 real updates at the full model and batch size and is measuring nine learned-controller rows plus five references. Independent saved-output auditing and sizing review remain pending. The [first attempt](../reacher-two-observation-capacity-v1/attempt-01-failure-review.json) stopped on an incorrect import before any numerical work; its failure is preserved. The import repair passed 36 focused checks, including real resolution of every delayed import.
+The [second capacity attempt](capacity-launch-attempt02.json) completed 24 real updates at the full model and batch size, nine learned-controller rows and five references in 719.44 seconds. Its original saved-output audit stopped after 11.89 seconds on a mismatch between two work-count field names. The [failure review](../reacher-two-observation-capacity-v1/attempt-02-audit-failure-review.json) preserves both process exits and verifies all 2,888 measurement payloads, totaling 6.49 GB. A separately versioned saved-only audit repair and independent sizing review remain pending; training and gameplay are not being repeated.
+
+The [first attempt](../reacher-two-observation-capacity-v1/attempt-01-failure-review.json) stopped on an incorrect import before any numerical work; its failure is preserved. The import repair passed 36 focused checks, including real resolution of every delayed import. Neither capacity attempt is an efficacy experiment.
 
 ## Proposed experiment
 
