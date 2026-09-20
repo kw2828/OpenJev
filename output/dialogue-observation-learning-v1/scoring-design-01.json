@@ -1,0 +1,166 @@
+{
+  "canonical_rows": {
+    "cohort_rows": 62329,
+    "dialogues": 2363,
+    "identity": [
+      "split",
+      "dialogue_id",
+      "source_row_index",
+      "time",
+      "query_index"
+    ],
+    "order": "Prepared DEV dialogue order, then each targets-dev record rows in source order; contiguous global row_index",
+    "required_fields": [
+      "row_index",
+      "split",
+      "dialogue_id",
+      "source_row_index",
+      "time",
+      "query_index",
+      "service",
+      "slot",
+      "candidate_ids",
+      "candidate_values",
+      "label_index",
+      "label_id",
+      "bin",
+      "unseen"
+    ],
+    "source_join": "Join prepared actor query_ids to row query_index; candidate IDs must equal original catalog order and label_id must equal candidate_ids[label_index]. Keep actor annotations separate."
+  },
+  "contrasts": [
+    "trainable_numbers - frozen_numbers",
+    "trainable_original - frozen_original",
+    "frozen_numbers - frozen_original",
+    "trainable_numbers - trainable_original"
+  ],
+  "denominator_source": {
+    "path": "output/dialogue-copy-v2/report-01/summary.json",
+    "scope": "Only previously recorded support counts read; aggregate strata agree with new preparation plan.",
+    "sha256": "84a2a49d8e53efe4dd3f20e539aa82d2dcda802954efc4b486d547871cdc32a2"
+  },
+  "denominators": {
+    "seen": {
+      "all": 29236,
+      "assigned_retention": 10317,
+      "changed": 3165,
+      "clear": 0,
+      "first_assignment": 2924,
+      "revision": 241,
+      "unmentioned_retention": 15754
+    },
+    "unseen": {
+      "all": 33093,
+      "assigned_retention": 7642,
+      "changed": 2543,
+      "clear": 0,
+      "first_assignment": 2340,
+      "revision": 203,
+      "unmentioned_retention": 22908
+    }
+  },
+  "interaction": "(trainable_numbers-frozen_numbers)-(trainable_original-frozen_original), paired by seed, descriptive only",
+  "metrics": {
+    "assigned_retention_error": "Incorrect assigned-retention endpoints divided by all assigned-retention endpoints.",
+    "boolean_slot": "Set of stripped casefold ordinary candidate values exactly equals {true,false}; reserved values excluded.",
+    "brier": "Mean over endpoints of sum over candidates (exp(float64(log_probs))-onehot)^2.",
+    "changed": "first_assignment OR revision OR clear",
+    "dontcare": "Exact reserved:DONTCARE identity.",
+    "macro_accuracy": "Equal mean of unmentioned_retention, assigned_retention and pooled changed count ratios; then equal three-seed mean.",
+    "nll": "Mean negative target log_probs promoted directly to float64, no exp/log roundtrip.",
+    "types": "All/seen/unseen, all five bins, per service and candidate types with zero support explicit and undefined rates null."
+  },
+  "predictions": {
+    "choice": "First supported argmax in supplied canonical candidate order",
+    "failure": "Supported -inf/NaN/+inf or invalid mass is technical failure. Preserve raw offending artifacts and failure receipt, report no complete gate and drop no endpoints.",
+    "mass_tolerance": 2e-06,
+    "npz_fields": {
+      "log_probs": "float32[N,12], finite at every supported candidate, -inf only padding",
+      "row_indices": "int64[N] exactly canonical row order"
+    },
+    "repair": "None; no temperature, clipping, floor, second softmax or renormalization"
+  },
+  "preparation": {
+    "completed_sha256": "d1461a1ea64b23338b2112d581479798c6618c8ccebfbde24ce131059474cf83",
+    "plan_sha256": "4c5b2ddead9626e3c4f90819cb50d829f3894ee1fa1bae4adfe249c0ac178c8e",
+    "targets_dev_sha256": "70edd2aa59c5177cbed5e2632b7d859144537b7f4b5e4e53a0814baaefe2e9c2"
+  },
+  "primary": "trainable_numbers minus frozen_numbers",
+  "remaining_authoring": "Pure metrics helper and tests next; future runner/reporter must authenticate full source, preparation and execution lineage before metrics. No scientific fit authorized by this note.",
+  "reuse": {
+    "adapt": [
+      "report_dialogue_copy_v2 invariant aggregation/validation per single-dialogue microbatch",
+      "Reference grouping for both deterministic literal-register arrays"
+    ],
+    "direct": [
+      "report_dialogue_memory.macro_exact",
+      "report_dialogue_memory.mean_defined",
+      "Pinned metadata/hash/JSON utilities and grouping constants"
+    ],
+    "replace": [
+      "Probability-based score with direct-log score",
+      "Hard-coded old family/seed/criteria/execution closure",
+      "Old batch32 actor geometry and old original-initialization requirements"
+    ]
+  },
+  "review_result": "Agrees with all seven prospective conditions. Boolean type derivation and supported-nonfinite failure wording clarified by protocol author before this note.",
+  "reviewed_source_sha256": {
+    "research/dialogue-observation-learning-preparation.md": "f16633a1210826afe70eb1f4c1186318d9400ff72892a4aac277cde393615445",
+    "research/dialogue-observation-learning-scoring.md": "54f89bad71954c48dab6098d28cc82a0b7071313801c3a3798f00d5e9248dc1c",
+    "research/dialogue-observation-learning-status.md": "2b61a8b2a26c622f69e97d89da972d69042e6054714de369a784146f29048a08",
+    "scripts/prepare_dialogue_conditional.py": "ec3fb56feee3e8ecd517472cfd6edecaa407e3a8f3a72850f0db459431b44a69",
+    "scripts/qualify_dialogue_observation_batches.py": "ceb97d5c8060353b0bb95886e7862d0c330b3d0767fedafec0b5a208ca0362b0",
+    "scripts/report_dialogue_copy.py": "e5601033aeebdd73cff71fed41e285f9db148db2eb1d70dcba202bbf34571202",
+    "scripts/report_dialogue_copy_v2.py": "3182086abbd32f7d3dfe0555d26fe1ee2ff108f5f18445099b32061fd9634788",
+    "scripts/report_dialogue_memory.py": "bcaf33e75c87705b6bc11866e1ccf6ae558a624f00d586b5e86e3808f7a736c7",
+    "src/openjev/research/dialogue_finetune_dataset.py": "f24c32dad49c7037a09ecd5a3af95e74364ce6e8db45a396d6faf5ec16e4222c",
+    "src/openjev/research/dialogue_finetune_dataset_v2.py": "46e2b4dd5e7b9bd3a61d72217d4119fc0952279892cd0a11a49806f4eef41f7f",
+    "src/openjev/research/dialogue_state_data.py": "7749e97e64575ae02c9fc843573e93e82d5e9cbb301410e47881e18190f0c102"
+  },
+  "scope": "Independent implementation design only; no new task scores, prediction reads, model calls or tests.",
+  "seeds": [
+    6901,
+    6902,
+    6903
+  ],
+  "seven_checks": [
+    {
+      "name": "unseen_macro_gain_1pp",
+      "operator": ">=",
+      "threshold": "1/100"
+    },
+    {
+      "name": "unseen_macro_strict_paired_wins",
+      "operator": ">=",
+      "threshold": 2
+    },
+    {
+      "name": "unseen_micro_nll_nonworse",
+      "operator": "<=",
+      "threshold": 0
+    },
+    {
+      "name": "unseen_micro_brier_nonworse",
+      "operator": "<=",
+      "threshold": 0
+    },
+    {
+      "name": "seen_macro_deficit_at_most_1pp",
+      "operator": ">=",
+      "threshold": "-1/100"
+    },
+    {
+      "name": "seen_assigned_retention_error_increase_at_most_half_pp",
+      "operator": "<=",
+      "threshold": "1/200"
+    },
+    {
+      "name": "unseen_assigned_retention_error_increase_at_most_half_pp",
+      "operator": "<=",
+      "threshold": "1/200"
+    }
+  ],
+  "status": "source_review_complete",
+  "technical_prerequisite": "Exact four arms by three seeds complete, all rows and finite supported predictions valid, every public recurrent update monitored. Separate from seven scientific checks.",
+  "version": "dialogue-observation-scoring-design-v1"
+}

@@ -1,0 +1,45 @@
+{
+  "status": "passed",
+  "scope": "Synthetic NumPy arithmetic only; no real task data, corpus, tokenizer or model calls",
+  "cpu_threads": 1,
+  "per_command_timeout_seconds": 60,
+  "source_before": {
+    "src/openjev/research/dialogue_observation_metrics.py": "e0913097f05b59c18d2e57b6cf295440639f979ea260ed46545e53ea229be766",
+    "tests/test_dialogue_observation_metrics.py": "0ffb223e2d2a1254c2d034ea5e19aeb3f39305d02727036bcb602e1f7a21c974",
+    "research/dialogue-observation-learning-scoring.md": "54f89bad71954c48dab6098d28cc82a0b7071313801c3a3798f00d5e9248dc1c"
+  },
+  "source_after": {
+    "src/openjev/research/dialogue_observation_metrics.py": "e0913097f05b59c18d2e57b6cf295440639f979ea260ed46545e53ea229be766",
+    "tests/test_dialogue_observation_metrics.py": "0ffb223e2d2a1254c2d034ea5e19aeb3f39305d02727036bcb602e1f7a21c974",
+    "research/dialogue-observation-learning-scoring.md": "54f89bad71954c48dab6098d28cc82a0b7071313801c3a3798f00d5e9248dc1c"
+  },
+  "checks": [
+    {
+      "name": "pytest",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_dialogue_observation_metrics.py"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.322282665874809,
+      "log": "pytest.log",
+      "log_sha256": "14ce6f3e0f0c8063bf4ee47a818cd266ef1bcafbd086e0e43d61df88e4609a66"
+    },
+    {
+      "name": "ruff",
+      "command": [
+        ".venv/bin/ruff",
+        "check",
+        "src/openjev/research/dialogue_observation_metrics.py",
+        "tests/test_dialogue_observation_metrics.py"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.01913025020621717,
+      "log": "ruff.log",
+      "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    }
+  ]
+}
