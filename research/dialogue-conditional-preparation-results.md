@@ -1,0 +1,21 @@
+# Conditional observation: metadata preparation
+
+The frozen metadata preparation and independent saved-output audit passed. They identify **93,880 eligible adjacent-query rows** for the proposed conditional-observation diagnostic. No model was trained or evaluated, and no accuracy or loss was computed. The official test split was untouched.
+
+| Cohort | Original scored rows | Admitted rows | Changed | Retained | Revisions |
+|---|---:|---:|---:|---:|---:|
+| Train | 51,741 | 42,810 | 3,347 | 39,463 | 396 |
+| Development, seen services | 29,236 | 23,841 | 2,012 | 21,829 | 241 |
+| Development, unseen services | 33,093 | 27,229 | 1,704 | 25,525 | 203 |
+
+Changed combines first assignment, revision and clear. Admission requires a scored predecessor for the same service/slot at the immediately preceding public USER step, with its exact candidate ID present in the current schema. Selection does not depend on a model prediction. Of 114,070 original scored rows, preparation excluded 10,096 first-step rows and 10,094 rows without an adjacent scored predecessor. No row was excluded because its previous candidate ID was absent. The complete counts and cache-address geometry are in the [aggregate summary](../output/dialogue-conditional-v1/preparation-summary-01/summary.json).
+
+Development contains **no FALSE targets and no clear transitions** among admitted rows. The unseen subset has 473 TRUE targets and 162 DONTCARE targets; the seen subset has 1,689 and 94 respectively. Training has 136 FALSE targets and 25 clear transitions. These support limits prevent a general claim about polarity or clearing from development results. Rows within a dialogue are correlated, and seen/unseen dialogue counts overlap. Seen/unseen flags retain the authenticated original parser's full-schema definition; the metadata audit checks consistency but does not reconstruct full-schema membership independently.
+
+The prospective [conditional-observation design](dialogue-conditional-observation-design.md) supplies the correct previous value as privileged input. Its question is whether current observation features distinguish an update given that value. It does not measure autonomous state tracking, and its results cannot relabel earlier failed studies. Current lexical features also retain the disclosed literal-register history. This preparation provides neither training-runtime evidence nor permission to resume closed token fits.
+
+The [preparation protocol](dialogue-conditional-preparation-protocol.md) fixed a 120-second cap and 256 MiB output cap. Recorded preparation wall time was 3.89046 seconds through the payload manifest, before completion serialization, write and hash; the cap remained checked through return. The complete local output occupied 100,963,373 bytes. Preparation recorded zero model calls, encoder calls, optimizer steps and decoded floating-point feature arrays. It decoded only permitted metadata, integer index arrays and floating-point array headers; other payloads were authenticated as opaque bytes.
+
+The independent [audit summary](../output/dialogue-conditional-v1/preparation-audit-01/summary.json) and [receipt](../output/dialogue-conditional-v1/preparation-audit-01/receipt.json) confirm all 114,070 reconstructed rows, all admission decisions and aggregate counts, five run files and ten frozen sources. Existing floating-point finiteness, pooled-vector equivalence and encoder work remain inherited authenticated witnesses, not newly executed checks. The [published auditor](../scripts/audit_dialogue_conditional_preparation_saved.py) is byte-identical to the executed temporary source, SHA-256 `53a90db7883c3f0093aeae8d149bd4be9e19fcac461b8e5d260d37fba8476f2b`. Its original receipt still records `/private/tmp/openjev_conditional_preparation_saved_audit.py`; copying it did not rerun the audit.
+
+The [publication export receipt](../output/dialogue-conditional-v1/preparation-summary-01/receipt.json) binds byte-identical aggregate, start and completion copies to source completion `960afa60172056134bc4d3cc523338b5fdb8886b55e2ef41e8ce125c72dffbb3`. The local `catalog.json` (59,397 bytes) and `rows.jsonl` (100,812,734 bytes) are omitted from this aggregate-only export; their exact hashes and sizes remain recorded. No raw text, feature arrays or row ledger is newly published here.

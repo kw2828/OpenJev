@@ -1,0 +1,507 @@
+{
+  "admitted_dev_rows": 51070,
+  "admitted_train_rows": 42810,
+  "config": {
+    "batch_size": 256,
+    "deterministic": true,
+    "dtype": "float32",
+    "epochs": 20,
+    "gradient_clip": 1.0,
+    "hidden_dim": 64,
+    "input_dim": 384,
+    "interop_threads": 1,
+    "learning_rate": 0.001,
+    "methods": [
+      "mean",
+      "slot",
+      "candidate"
+    ],
+    "projection_dim": 64,
+    "seeds": [
+      5301,
+      5302,
+      5303
+    ],
+    "threads": 4,
+    "weight_decay": 0.0001
+  },
+  "evaluation_batches_per_fit": 200,
+  "expected_fits": [
+    "mean-5301",
+    "slot-5301",
+    "candidate-5301",
+    "slot-5302",
+    "candidate-5302",
+    "mean-5302",
+    "candidate-5303",
+    "mean-5303",
+    "slot-5303"
+  ],
+  "feature_headers": {
+    "features": {
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/runs/sgd-state-v1/features-02/features.npy",
+      "shape": [
+        44763,
+        384
+      ]
+    },
+    "lexical": {
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/runs/dialogue-copy-v1/lexical-01/lexical.npy",
+      "shape": [
+        20007650
+      ]
+    },
+    "priors": {
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/runs/dialogue-token-v1/features-01/priors.npy",
+      "shape": [
+        1304325
+      ]
+    },
+    "tokens": {
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/runs/dialogue-token-v1/features-01/tokens.npy",
+      "shape": [
+        1304325,
+        384
+      ]
+    }
+  },
+  "limits": {
+    "output_bytes": 536870912,
+    "rss_bytes": 6442450944,
+    "wall_seconds": 3600.0
+  },
+  "no_quality_metrics_in_runner": true,
+  "no_retry": true,
+  "objective": {
+    "counts": [
+      25271,
+      14192,
+      3347
+    ],
+    "weights": [
+      0.5646788809307111,
+      1.0054960541149944,
+      4.263519569763968
+    ]
+  },
+  "orders": {
+    "5301": {
+      "file": "orders-5301.npy",
+      "sha256": "383351a082f4e97ed221824ef29f2385e32df1144660abf1727f2dde9f6d60d8",
+      "shape": [
+        20,
+        42810
+      ]
+    },
+    "5302": {
+      "file": "orders-5302.npy",
+      "sha256": "f7307c75e05941e74fb8c13ee9c15f697d91f75e1ce44ce0fa026dc715d7a46a",
+      "shape": [
+        20,
+        42810
+      ]
+    },
+    "5303": {
+      "file": "orders-5303.npy",
+      "sha256": "f5fd4f2e473bc106011e487a61e4e68686ec6da0826ee40ee4434d458bb9ed5b",
+      "shape": [
+        20,
+        42810
+      ]
+    }
+  },
+  "prepared_completed_sha256": "960afa60172056134bc4d3cc523338b5fdb8886b55e2ef41e8ce125c72dffbb3",
+  "prepared_files": {
+    "catalog.json": {
+      "bytes": 59397,
+      "sha256": "835dbf5bb45d84487c6bb9cce4443f98dae295aa3199be3e0107be94fb57b723"
+    },
+    "rows.jsonl": {
+      "bytes": 100812734,
+      "sha256": "f397d388d9a70aee29bc213176512ae2059a2d570e71a0ae41bc50e016b44cca"
+    },
+    "started.json": {
+      "bytes": 2509,
+      "sha256": "448578803c1b33c3690135ec72e521336bc98639ff3149ee6d69fc3afa41348b"
+    },
+    "summary.json": {
+      "bytes": 62031,
+      "sha256": "6b88bc231d3f03d8072e2a9902471771ed9981b6b5a1c4aa4e447a00d9626c40"
+    }
+  },
+  "prepared_path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/runs/dialogue-conditional-v1/preparation-01",
+  "prepared_plan_sha256": "fa68f62c708abf545785aa61eab9a54494c9d3bb9979bbf34891a6a473ba8f47",
+  "primary": "unseen changed mean row NLL; candidate-slot paired differences must each be strictly negative",
+  "runtime": {
+    "numpy": "2.5.3",
+    "platform": "macOS-26.6.1-arm64-arm-64bit",
+    "python": "3.12.13",
+    "torch": "2.14.0"
+  },
+  "source_sha256": {
+    "research/dialogue-conditional-observation-design.md": "32eb0e0d58075280d489882f2440499019d00f5f38e6a09eaace571388457f96",
+    "research/dialogue-conditional-preparation-protocol.md": "7884780255b81cd4b6eb6f84f04c94127fa414564e9665a67673e0f2fabfaaa5",
+    "research/dialogue-conditional-training-protocol.md": "0f90e50df9cf142c79e348e2d5061ef763329ddf3b4ea5e09a5748d929e7a3f3",
+    "scripts/prepare_dialogue_conditional.py": "ec3fb56feee3e8ecd517472cfd6edecaa407e3a8f3a72850f0db459431b44a69",
+    "scripts/prepare_dialogue_tokens.py": "fa630dfb96d3b37184045703981dad6054813e03c2fcb948c14ca98ffda9b409",
+    "scripts/report_dialogue_conditional.py": "a38737e4a45e1f584d6e86ebf789c8640f3691a0f5d1e667edf45325ec01ee5d",
+    "scripts/study_dialogue_conditional.py": "c66c1ee0f07bef4fe2e93ad968fa25b39381713bdbe7aa1538d4309ab3843902",
+    "scripts/study_dialogue_copy.py": "d628616f24d973f40a43d68b18758010547449877bdc569324e2cd920cd49996",
+    "scripts/study_dialogue_memory.py": "51a46d35c3d9dd2857bd3ded5fc289652c7e18f05b85b8f82dd245ade7626e2c",
+    "scripts/study_dialogue_tokens.py": "88e28a1455862c02f562798b31c1b9992c844b7abcb35c4a8649e7ff37075bee",
+    "src/openjev/research/dialogue_conditional_observation.py": "2141d8f24f973bdad51f98f3963990ccf7f932b50b0777ac87628db434771982",
+    "src/openjev/research/dialogue_copy_features.py": "78a2c2e26c7fae4a30fad0380a6832b998b1f696c8d0edbb7b53cd3aaa1ac503",
+    "src/openjev/research/dialogue_copy_memory.py": "182c71a944c6d787533bf129bca1631ff3b366b8559e3db7567e7fd9b19a8717",
+    "src/openjev/research/dialogue_state_data.py": "7749e97e64575ae02c9fc843573e93e82d5e9cbb301410e47881e18190f0c102",
+    "tests/test_dialogue_conditional_observation.py": "c14fa662dbeffed56179a35ab8472a91285d520b0af66cd78cfeb527b35426aa",
+    "tests/test_prepare_dialogue_conditional.py": "61efdbf327c892d11be4bae6cf695a69f97b7f8506bf0551accfbae1f5135864",
+    "tests/test_report_dialogue_conditional.py": "65098baa74af3769819f5a94e1fe07337e802ca543dea176f367923cc02d8b6e",
+    "tests/test_study_dialogue_conditional.py": "9a37d66f1e238b3d67204e9ad9d3659ef55434abaa92ae3dff204a503194863b"
+  },
+  "updates_per_fit": 3360,
+  "version": "dialogue-conditional-training-v1",
+  "work_schedules": {
+    "candidate-5301": {
+      "evaluation": {
+        "batches": 200,
+        "maximum_batch_float_input_bytes": 45438976,
+        "totals": {
+          "attention_query_positions": 473450,
+          "attention_score_positions": 31138132,
+          "boolean_input_bytes": 3850726,
+          "float_input_bytes": 6027499560,
+          "float_input_scalars": 1506874890,
+          "padded_candidate_positions": 473450,
+          "padded_token_positions": 3377276,
+          "rows": 51070,
+          "scorer_positions": 473450,
+          "supported_candidate_positions": 292409,
+          "supported_token_positions": 1600179,
+          "token_key_positions": 3377276
+        }
+      },
+      "training": {
+        "batches": 3360,
+        "maximum_batch_float_input_bytes": 42699776,
+        "totals": {
+          "attention_query_positions": 10273120,
+          "attention_score_positions": 781236616,
+          "boolean_input_bytes": 75384726,
+          "float_input_bytes": 117818526040,
+          "float_input_scalars": 29454631510,
+          "padded_candidate_positions": 10273120,
+          "padded_token_positions": 65111606,
+          "rows": 856200,
+          "scorer_positions": 10273120,
+          "supported_candidate_positions": 5040940,
+          "supported_token_positions": 27047100,
+          "token_key_positions": 65111606
+        }
+      }
+    },
+    "candidate-5302": {
+      "evaluation": {
+        "batches": 200,
+        "maximum_batch_float_input_bytes": 45438976,
+        "totals": {
+          "attention_query_positions": 473450,
+          "attention_score_positions": 31138132,
+          "boolean_input_bytes": 3850726,
+          "float_input_bytes": 6027499560,
+          "float_input_scalars": 1506874890,
+          "padded_candidate_positions": 473450,
+          "padded_token_positions": 3377276,
+          "rows": 51070,
+          "scorer_positions": 473450,
+          "supported_candidate_positions": 292409,
+          "supported_token_positions": 1600179,
+          "token_key_positions": 3377276
+        }
+      },
+      "training": {
+        "batches": 3360,
+        "maximum_batch_float_input_bytes": 42699776,
+        "totals": {
+          "attention_query_positions": 10271550,
+          "attention_score_positions": 781937972,
+          "boolean_input_bytes": 75450624,
+          "float_input_bytes": 117919946160,
+          "float_input_scalars": 29479986540,
+          "padded_candidate_positions": 10271550,
+          "padded_token_positions": 65179074,
+          "rows": 856200,
+          "scorer_positions": 10271550,
+          "supported_candidate_positions": 5040940,
+          "supported_token_positions": 27047100,
+          "token_key_positions": 65179074
+        }
+      }
+    },
+    "candidate-5303": {
+      "evaluation": {
+        "batches": 200,
+        "maximum_batch_float_input_bytes": 45438976,
+        "totals": {
+          "attention_query_positions": 473450,
+          "attention_score_positions": 31138132,
+          "boolean_input_bytes": 3850726,
+          "float_input_bytes": 6027499560,
+          "float_input_scalars": 1506874890,
+          "padded_candidate_positions": 473450,
+          "padded_token_positions": 3377276,
+          "rows": 51070,
+          "scorer_positions": 473450,
+          "supported_candidate_positions": 292409,
+          "supported_token_positions": 1600179,
+          "token_key_positions": 3377276
+        }
+      },
+      "training": {
+        "batches": 3360,
+        "maximum_batch_float_input_bytes": 42699776,
+        "totals": {
+          "attention_query_positions": 10273482,
+          "attention_score_positions": 781503294,
+          "boolean_input_bytes": 75404466,
+          "float_input_bytes": 117848940120,
+          "float_input_scalars": 29462235030,
+          "padded_candidate_positions": 10273482,
+          "padded_token_positions": 65130984,
+          "rows": 856200,
+          "scorer_positions": 10273482,
+          "supported_candidate_positions": 5040940,
+          "supported_token_positions": 27047100,
+          "token_key_positions": 65130984
+        }
+      }
+    },
+    "mean-5301": {
+      "evaluation": {
+        "batches": 200,
+        "maximum_batch_float_input_bytes": 5640192,
+        "totals": {
+          "attention_query_positions": 0,
+          "attention_score_positions": 0,
+          "boolean_input_bytes": 473450,
+          "float_input_bytes": 904938040,
+          "float_input_scalars": 226234510,
+          "padded_candidate_positions": 473450,
+          "padded_token_positions": 0,
+          "rows": 51070,
+          "scorer_positions": 473450,
+          "supported_candidate_positions": 292409,
+          "supported_token_positions": 0,
+          "token_key_positions": 0
+        }
+      },
+      "training": {
+        "batches": 3360,
+        "maximum_batch_float_input_bytes": 5640192,
+        "totals": {
+          "attention_query_positions": 0,
+          "attention_score_positions": 0,
+          "boolean_input_bytes": 10273120,
+          "float_input_bytes": 18861776000,
+          "float_input_scalars": 4715444000,
+          "padded_candidate_positions": 10273120,
+          "padded_token_positions": 0,
+          "rows": 856200,
+          "scorer_positions": 10273120,
+          "supported_candidate_positions": 5040940,
+          "supported_token_positions": 0,
+          "token_key_positions": 0
+        }
+      }
+    },
+    "mean-5302": {
+      "evaluation": {
+        "batches": 200,
+        "maximum_batch_float_input_bytes": 5640192,
+        "totals": {
+          "attention_query_positions": 0,
+          "attention_score_positions": 0,
+          "boolean_input_bytes": 473450,
+          "float_input_bytes": 904938040,
+          "float_input_scalars": 226234510,
+          "padded_candidate_positions": 473450,
+          "padded_token_positions": 0,
+          "rows": 51070,
+          "scorer_positions": 473450,
+          "supported_candidate_positions": 292409,
+          "supported_token_positions": 0,
+          "token_key_positions": 0
+        }
+      },
+      "training": {
+        "batches": 3360,
+        "maximum_batch_float_input_bytes": 5640192,
+        "totals": {
+          "attention_query_positions": 0,
+          "attention_score_positions": 0,
+          "boolean_input_bytes": 10271550,
+          "float_input_bytes": 18859295400,
+          "float_input_scalars": 4714823850,
+          "padded_candidate_positions": 10271550,
+          "padded_token_positions": 0,
+          "rows": 856200,
+          "scorer_positions": 10271550,
+          "supported_candidate_positions": 5040940,
+          "supported_token_positions": 0,
+          "token_key_positions": 0
+        }
+      }
+    },
+    "mean-5303": {
+      "evaluation": {
+        "batches": 200,
+        "maximum_batch_float_input_bytes": 5640192,
+        "totals": {
+          "attention_query_positions": 0,
+          "attention_score_positions": 0,
+          "boolean_input_bytes": 473450,
+          "float_input_bytes": 904938040,
+          "float_input_scalars": 226234510,
+          "padded_candidate_positions": 473450,
+          "padded_token_positions": 0,
+          "rows": 51070,
+          "scorer_positions": 473450,
+          "supported_candidate_positions": 292409,
+          "supported_token_positions": 0,
+          "token_key_positions": 0
+        }
+      },
+      "training": {
+        "batches": 3360,
+        "maximum_batch_float_input_bytes": 5640192,
+        "totals": {
+          "attention_query_positions": 0,
+          "attention_score_positions": 0,
+          "boolean_input_bytes": 10273482,
+          "float_input_bytes": 18862347960,
+          "float_input_scalars": 4715586990,
+          "padded_candidate_positions": 10273482,
+          "padded_token_positions": 0,
+          "rows": 856200,
+          "scorer_positions": 10273482,
+          "supported_candidate_positions": 5040940,
+          "supported_token_positions": 0,
+          "token_key_positions": 0
+        }
+      }
+    },
+    "slot-5301": {
+      "evaluation": {
+        "batches": 200,
+        "maximum_batch_float_input_bytes": 45438976,
+        "totals": {
+          "attention_query_positions": 473450,
+          "attention_score_positions": 31138132,
+          "boolean_input_bytes": 3850726,
+          "float_input_bytes": 6027499560,
+          "float_input_scalars": 1506874890,
+          "padded_candidate_positions": 473450,
+          "padded_token_positions": 3377276,
+          "rows": 51070,
+          "scorer_positions": 473450,
+          "supported_candidate_positions": 292409,
+          "supported_token_positions": 1600179,
+          "token_key_positions": 3377276
+        }
+      },
+      "training": {
+        "batches": 3360,
+        "maximum_batch_float_input_bytes": 42699776,
+        "totals": {
+          "attention_query_positions": 10273120,
+          "attention_score_positions": 781236616,
+          "boolean_input_bytes": 75384726,
+          "float_input_bytes": 117818526040,
+          "float_input_scalars": 29454631510,
+          "padded_candidate_positions": 10273120,
+          "padded_token_positions": 65111606,
+          "rows": 856200,
+          "scorer_positions": 10273120,
+          "supported_candidate_positions": 5040940,
+          "supported_token_positions": 27047100,
+          "token_key_positions": 65111606
+        }
+      }
+    },
+    "slot-5302": {
+      "evaluation": {
+        "batches": 200,
+        "maximum_batch_float_input_bytes": 45438976,
+        "totals": {
+          "attention_query_positions": 473450,
+          "attention_score_positions": 31138132,
+          "boolean_input_bytes": 3850726,
+          "float_input_bytes": 6027499560,
+          "float_input_scalars": 1506874890,
+          "padded_candidate_positions": 473450,
+          "padded_token_positions": 3377276,
+          "rows": 51070,
+          "scorer_positions": 473450,
+          "supported_candidate_positions": 292409,
+          "supported_token_positions": 1600179,
+          "token_key_positions": 3377276
+        }
+      },
+      "training": {
+        "batches": 3360,
+        "maximum_batch_float_input_bytes": 42699776,
+        "totals": {
+          "attention_query_positions": 10271550,
+          "attention_score_positions": 781937972,
+          "boolean_input_bytes": 75450624,
+          "float_input_bytes": 117919946160,
+          "float_input_scalars": 29479986540,
+          "padded_candidate_positions": 10271550,
+          "padded_token_positions": 65179074,
+          "rows": 856200,
+          "scorer_positions": 10271550,
+          "supported_candidate_positions": 5040940,
+          "supported_token_positions": 27047100,
+          "token_key_positions": 65179074
+        }
+      }
+    },
+    "slot-5303": {
+      "evaluation": {
+        "batches": 200,
+        "maximum_batch_float_input_bytes": 45438976,
+        "totals": {
+          "attention_query_positions": 473450,
+          "attention_score_positions": 31138132,
+          "boolean_input_bytes": 3850726,
+          "float_input_bytes": 6027499560,
+          "float_input_scalars": 1506874890,
+          "padded_candidate_positions": 473450,
+          "padded_token_positions": 3377276,
+          "rows": 51070,
+          "scorer_positions": 473450,
+          "supported_candidate_positions": 292409,
+          "supported_token_positions": 1600179,
+          "token_key_positions": 3377276
+        }
+      },
+      "training": {
+        "batches": 3360,
+        "maximum_batch_float_input_bytes": 42699776,
+        "totals": {
+          "attention_query_positions": 10273482,
+          "attention_score_positions": 781503294,
+          "boolean_input_bytes": 75404466,
+          "float_input_bytes": 117848940120,
+          "float_input_scalars": 29462235030,
+          "padded_candidate_positions": 10273482,
+          "padded_token_positions": 65130984,
+          "rows": 856200,
+          "scorer_positions": 10273482,
+          "supported_candidate_positions": 5040940,
+          "supported_token_positions": 27047100,
+          "token_key_positions": 65130984
+        }
+      }
+    }
+  }
+}

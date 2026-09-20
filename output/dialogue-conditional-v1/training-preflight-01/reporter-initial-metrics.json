@@ -1,0 +1,46 @@
+{
+  "after": {
+    "scripts/report_dialogue_conditional.py": "e5be20fdc787c504783350a6802a22495df99e509e7c8326f1fdf9ae5ef33b2f",
+    "tests/test_report_dialogue_conditional.py": "badfacc24064e6a57dac69db2e00bc63050b6ab550e5aab48a1fca584579476b"
+  },
+  "before": {
+    "scripts/report_dialogue_conditional.py": "e5be20fdc787c504783350a6802a22495df99e509e7c8326f1fdf9ae5ef33b2f",
+    "tests/test_report_dialogue_conditional.py": "badfacc24064e6a57dac69db2e00bc63050b6ab550e5aab48a1fca584579476b"
+  },
+  "commands": [
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_report_dialogue_conditional.py"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ".........................                                                [100%]\n25 passed in 0.11s\n",
+      "wall_seconds": 0.281947375042364
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-m",
+        "ruff",
+        "check",
+        "scripts/report_dialogue_conditional.py",
+        "tests/test_report_dialogue_conditional.py"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "All checks passed!\n",
+      "wall_seconds": 0.06263229111209512
+    }
+  ],
+  "environment_overrides": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "PYTHONPATH": "src:scripts",
+    "VECLIB_MAXIMUM_THREADS": "1"
+  },
+  "scope": "Synthetic saved-analysis metric preflight, no models or actual study predictions"
+}

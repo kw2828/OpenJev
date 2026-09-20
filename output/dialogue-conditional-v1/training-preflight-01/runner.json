@@ -1,0 +1,55 @@
+{
+  "scope": "Focused synthetic correctness only, no corpus/model-on-real-data or timing claim",
+  "cwd": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev",
+  "environment_overrides": {
+    "PYTHONPATH": "src:scripts",
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1"
+  },
+  "attempts": [
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_study_dialogue_conditional.py"
+      ],
+      "source_hashes_before": {
+        "scripts/study_dialogue_conditional.py": "c66c1ee0f07bef4fe2e93ad968fa25b39381713bdbe7aa1538d4309ab3843902",
+        "tests/test_study_dialogue_conditional.py": "9a37d66f1e238b3d67204e9ad9d3659ef55434abaa92ae3dff204a503194863b"
+      },
+      "source_hashes_after": {
+        "scripts/study_dialogue_conditional.py": "c66c1ee0f07bef4fe2e93ad968fa25b39381713bdbe7aa1538d4309ab3843902",
+        "tests/test_study_dialogue_conditional.py": "9a37d66f1e238b3d67204e9ad9d3659ef55434abaa92ae3dff204a503194863b"
+      },
+      "stdout": "..............................                                           [100%]\n30 passed in 1.39s\n",
+      "stderr": "",
+      "exit_code": 0,
+      "wall_seconds": 1.7776962080970407
+    },
+    {
+      "command": [
+        ".venv/bin/ruff",
+        "check",
+        "scripts/study_dialogue_conditional.py",
+        "tests/test_study_dialogue_conditional.py"
+      ],
+      "source_hashes_before": {
+        "scripts/study_dialogue_conditional.py": "c66c1ee0f07bef4fe2e93ad968fa25b39381713bdbe7aa1538d4309ab3843902",
+        "tests/test_study_dialogue_conditional.py": "9a37d66f1e238b3d67204e9ad9d3659ef55434abaa92ae3dff204a503194863b"
+      },
+      "source_hashes_after": {
+        "scripts/study_dialogue_conditional.py": "c66c1ee0f07bef4fe2e93ad968fa25b39381713bdbe7aa1538d4309ab3843902",
+        "tests/test_study_dialogue_conditional.py": "9a37d66f1e238b3d67204e9ad9d3659ef55434abaa92ae3dff204a503194863b"
+      },
+      "stdout": "All checks passed!\n",
+      "stderr": "",
+      "exit_code": 0,
+      "wall_seconds": 0.043933208798989654
+    }
+  ]
+}

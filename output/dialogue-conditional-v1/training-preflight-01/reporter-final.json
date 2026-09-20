@@ -1,0 +1,56 @@
+{
+  "kind": "synthetic-only reporter final preflight",
+  "cwd": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev",
+  "environment_overrides": {
+    "PYTHONPATH": "src:scripts"
+  },
+  "before_sha256": {
+    "scripts/report_dialogue_conditional.py": "a38737e4a45e1f584d6e86ebf789c8640f3691a0f5d1e667edf45325ec01ee5d",
+    "tests/test_report_dialogue_conditional.py": "65098baa74af3769819f5a94e1fe07337e802ca543dea176f367923cc02d8b6e"
+  },
+  "preserved_prior_attempt": "/tmp/openjev-conditional-reporter-preflight-01.json",
+  "commands": [
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-c",
+        "import sys,numpy; print(sys.version); print(numpy.__version__)"
+      ],
+      "exit_code": 0,
+      "stdout": "3.12.13 (main, Jul 23 2026, 14:33:47) [Clang 22.1.3 ]\n2.5.3\n",
+      "stderr": "",
+      "wall_seconds": 0.06978462520055473
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_report_dialogue_conditional.py"
+      ],
+      "exit_code": 0,
+      "stdout": "........................................................                 [100%]\n56 passed in 1.06s\n",
+      "stderr": "",
+      "wall_seconds": 1.2333870001602918
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-m",
+        "ruff",
+        "check",
+        "scripts/report_dialogue_conditional.py",
+        "tests/test_report_dialogue_conditional.py"
+      ],
+      "exit_code": 0,
+      "stdout": "All checks passed!\n",
+      "stderr": "",
+      "wall_seconds": 0.059408292174339294
+    }
+  ],
+  "after_sha256": {
+    "scripts/report_dialogue_conditional.py": "a38737e4a45e1f584d6e86ebf789c8640f3691a0f5d1e667edf45325ec01ee5d",
+    "tests/test_report_dialogue_conditional.py": "65098baa74af3769819f5a94e1fe07337e802ca543dea176f367923cc02d8b6e"
+  }
+}
