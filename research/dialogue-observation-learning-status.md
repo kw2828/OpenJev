@@ -1,4 +1,4 @@
-# Observation learning: scientific comparison frozen, training pending
+# Observation learning: twelve-fit scientific comparison running
 
 The corrected preparation completed for **4,380 dialogues and 114,070 scored
 endpoints**. Independent saved-input auditing passed. The subsequent
@@ -69,7 +69,7 @@ sources, tests and failure evidence remain intact. The correction keeps
 `(split, dialogue_id)` uniqueness and changes no cohort, target, observation or
 scientific condition. [Failure manifest](../output/dialogue-observation-learning-v1/failed-preparation-publication-01/manifest.json).
 
-## Next execution
+## Scientific execution
 
 The twelve fits require 15,360 optimizer updates, 484,080 training dialogue
 visits and 12,417,840 supervised endpoint presentations. The completed cost pilot
@@ -80,7 +80,7 @@ Measured work supports a prospective eight-hour allocation with explicit
 headroom. Runner, metric and saved-results checks are complete. The independent
 source review binds all 53 source files. The metadata freeze completed in
 1.832 seconds with zero model calls; its parent exited 0 with process group
-14697 absent. Actual training has not started.
+14697 absent. Independent saved-only freeze auditing also passed.
 
 - [Frozen scientific plan](../output/dialogue-observation-learning-v1/scientific-freeze-01/plan.json):
   `acb79b4600c66966762895d28eb2dc1d2be15c761d677c5e87c5750dde47f237`.
@@ -88,11 +88,30 @@ source review binds all 53 source files. The metadata freeze completed in
   `c3a53a94dd4a36e677b36d4e358bb779abd6419711941a792e50ce48feab36c3`.
 - [Scientific source review](../output/dialogue-observation-learning-v1/scientific-source-review-01/receipt.json):
   `45921e885a9cd1cf67036e5d2dfd065e5a3e3e767777d4c62210e12a599fd815`.
+- [Independent freeze review](../output/dialogue-observation-learning-v1/scientific-freeze-review-01/receipt.json):
+  `c9fd029c80fee2c7f7d790e75fb612b5f529e0ea40b5c189d08cfa5605fb3d18`.
 
 The frozen plan fixes all twelve fits, row order, scorer, seven primary
 conditions and independent process watchdog. The eight-hour allocation is a
 hard stop, not a promise of completion. A failure preserves the partial attempt;
 it does not permit a replacement seed, resume or cap extension.
+
+The scientific worker started on September 20, 2026 after the frozen plan was
+published in `b5d57a9`. Session **90741**, process group **14919**, is running
+with one CPU thread and MPS. Startup verification observed ten completed
+optimizer updates in the first fit, `frozen_original-6901`. This establishes
+execution only. No fit has been selected or scored for task quality, and no
+complete scientific result is available.
+
+- [Actual supervisor launch](../output/dialogue-observation-learning-v1/scientific-process-01.launch.json):
+  `87034aabfbf9862a54b34076d37794a1578b9ad254580b13bf742fa43952b1fd`.
+- [Worker start](../output/dialogue-observation-learning-v1/scientific-run-01/started.json):
+  `e76773d8f7de3588b61cca50d8dc7aa73582ff8969a46893ab2c97db2e774afd`.
+
+The shared compute slot was released before startup. Other explicitly recorded
+CPU-only work may overlap; it cannot support clean standalone latency claims.
+All training journals, partial outputs and terminal evidence will be preserved.
+Scoring waits for the entire twelve-fit attempt and its actual terminal state.
 
 Official DEV is exposed development evidence. Official TEST remains sealed.
 An eventual representation-learning gain would strengthen the baseline for a

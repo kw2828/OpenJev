@@ -82,7 +82,7 @@ Removing flags also removes some full-history information and shortens prompts. 
 
 The [complete history audit](research/dialogue-history-support-results.md) found that apparent delayed references mostly came from matching digits while missing number words. We are prioritizing better text interpretation with autonomous scalar state before another recurrent architecture comparison. The earlier [retention diagnosis and blinded Astra6 review](research/dialogue-qwen-retention-results.md) remain diagnostic.
 
-The [full-batch training pilot](research/dialogue-observation-learning-cost-results.md) passed **40 cases and 52 updates in 75.3 seconds**, including real encoder gradients and checkpoint writing. It uses synthetic targets. The twelve-fit accuracy comparison is specified but has not run.
+The [full-batch training pilot](research/dialogue-observation-learning-cost-results.md) passed **40 cases and 52 updates in 75.3 seconds**, including real encoder gradients and checkpoint writing. It uses synthetic targets. The [twelve-fit accuracy comparison](research/dialogue-observation-learning-status.md) is now running under a frozen eight-hour limit; there is no accuracy result yet.
 
 - [Earlier text learning experiments](research/dialogue-objective-results.md): matched training objectives and recurrent variants have not established an architecture advantage.
 - [Text inference speed](research/shared-prefix-results.md): shared-context scoring is **2.08x faster** for four-question synthetic workloads; single-question caching is slower.

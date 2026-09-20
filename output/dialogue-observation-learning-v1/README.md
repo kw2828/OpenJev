@@ -38,3 +38,9 @@ records. Its canonical evaluator rows and literal references stay local, as do
 duplicate source snapshots; the original source files were published in commit
 `f5b59be` before this freeze. The completion manifest binds every local payload.
 The freeze made zero model calls and is not a training result.
+
+`scientific-freeze-review-01` contains the independent saved-only freeze audit.
+The published scientific worker start and supervisor launch establish that the
+single attempt began. Mutable training journals, evaluator inputs, checkpoints
+and individual predictions remain local while it runs. No result can be inferred
+from a launch receipt or a partially completed fit.
