@@ -4,7 +4,9 @@ Studies and frozen work awaiting execution, including failures and controls. A p
 
 ## Complete experiment list
 
-- [Complete observation-learning inputs](dialogue-observation-learning-status.md): all **4,380 dialogues / 114,070 endpoints** prepared, with an independently verified four-arm factorial, 60 paired epoch orders and complete work profiles. A split-ID metadata defect stopped the first attempt and is preserved; the additive correction completed in **14.35 seconds with zero neural calls**. Worst-case cost qualification and scientific training remain pending; no new quality result.
+- [Full-batch observation-learning qualification](dialogue-observation-learning-cost-results.md): **40 cells / 52 updates / 1,168 training visits** completed in **75.306 seconds**, with independent agreement on all work, gradient and state witnesses. The prospective twelve-fit comparison has an eight-hour cap supported by a cost heuristic with headroom. Scientific execution remains pending; no accuracy gain is claimed.
+
+- [Complete observation-learning inputs](dialogue-observation-learning-status.md): all **4,380 dialogues / 114,070 endpoints** prepared, with an independently verified four-arm factorial, 60 paired epoch orders and complete work profiles. A split-ID metadata defect stopped the first attempt and is preserved; the additive correction completed in **14.35 seconds with zero neural calls**. The separate cost qualification passed; scientific training remains pending.
 
 - [Trainable observations through autonomous memory](dialogue-finetune-qualification-results.md): the real MiniLM gradient/cost qualification passed all **six cells in 8.15 phase seconds**, with **18 updates, 72 repeated dialogue visits and 168 encoder batch calls**. All checked states were valid; trainable encoder gradients reached embeddings and attention. Synthetic targets only, no quality evaluation or architecture claim. [Protocol](dialogue-finetune-qualification-protocol.md) · [Execution history](dialogue-finetune-qualification-status.md).
 

@@ -1,8 +1,11 @@
-# Observation learning: complete inputs ready, training pending
+# Observation learning: full-batch path qualified, training pending
 
 The corrected preparation completed for **4,380 dialogues and 114,070 scored
-endpoints**. Independent saved-input auditing passed. This prepares the matched
-encoder-learning comparison; it produces no accuracy or architecture result.
+endpoints**. Independent saved-input auditing passed. The subsequent
+[full-batch cost pilot](dialogue-observation-learning-cost-results.md) also passed
+all 40 cells and 52 updates in 75.306 seconds, with an independent audit. These
+steps prepare the matched encoder-learning comparison; they produce no accuracy
+or architecture result.
 
 The planned factorial uses frozen/trainable MiniLM and original/number-normalized
 lexical observations under the same autonomous scalar memory. All twelve fresh
@@ -69,11 +72,13 @@ scientific condition. [Failure manifest](../output/dialogue-observation-learning
 ## Next execution
 
 The twelve fits require 15,360 optimizer updates, 484,080 training dialogue
-visits and 12,417,840 supervised endpoint presentations. A separate cost pilot
-will test three largest full batches, three training extremes, a one-dialogue
-tail and three evaluation extremes under all four arms. It will use synthetic
-targets and include backward, effective-batch weighting and checkpoint I/O.
-Full-study cost and a hard allocation remain to be established before training.
+visits and 12,417,840 supervised endpoint presentations. The completed cost pilot
+tested three largest full batches, three training extremes, a one-dialogue
+tail and three evaluation extremes under all four arms. It used synthetic
+targets and included backward, effective-batch weighting and checkpoint I/O.
+Measured work supports a prospective eight-hour allocation with explicit
+headroom. Complete scientific runner/reporter checks and a bound allocation
+remain necessary before training.
 
 Official DEV is exposed development evidence. Official TEST remains sealed.
 An eventual representation-learning gain would strengthen the baseline for a

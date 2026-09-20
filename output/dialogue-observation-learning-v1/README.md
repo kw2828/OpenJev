@@ -21,3 +21,14 @@ with no neural execution or quality scoring.
 
 The tiny synthetic preflights preserve their original failures and narrow
 corrections. They establish implementation behavior, not empirical efficacy.
+
+`cost-preparation-01` fixes all forty cost-pilot cells. `cost-pilot-01` publishes
+its start/completion records, complete timed event journal and aggregate summary.
+The four qualification `.pt` checkpoints stay local; their byte counts and hashes
+remain in the manifest. They use synthetic targets and must never initialize
+scientific training. `cost-audit-01/result-01` contains the independent saved-only
+audit, with all source and actual process-terminal identities.
+
+`cost-estimate-01.json` is a prospective scheduling heuristic, not a duration
+guarantee or quality result. Scientific runner/reporter preflights and protocol
+files do not by themselves establish that the twelve-fit study has run.

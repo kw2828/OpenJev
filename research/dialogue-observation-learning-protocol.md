@@ -86,8 +86,10 @@ all attempted work, including incomplete work, separately from quality.
 ## Allocation and stop boundary
 
 Before scientific execution, publish a hash-bound allocation JSON containing
-the measured cost completion and independent audit identities, complete source
-closure, this protocol, runtime, and whole-study wall/RSS/MPS/output limits.
+the measured cost completion and independent audit identities, this protocol
+and whole-study wall/RSS/MPS/output limits. The scientific plan separately binds
+that allocation, the complete source closure, runtime, orders and evaluator
+ledger before training starts.
 There is no default training allocation. Estimate duration from the complete
 prepared workload inventory and measured qualification costs, label the estimate
 as a heuristic and include explicit overhead and headroom. Sampled MPS memory
