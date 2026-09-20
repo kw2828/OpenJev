@@ -2,6 +2,8 @@
 
 [Read the compiled paper](../output/pdf/openjev-rl-paper.pdf) · [LaTeX source](main.tex) · [References](references.bib)
 
+These PDFs are scoped development snapshots. The [experiment archive](../research/experiment-index.md) records later results and active studies; the PDFs have not been expanded to include every follow-up.
+
 This is a working development report, not a submitted or accepted ICLR paper. It reports the original pilots, the frozen 1,980-episode causal-memory follow-up, and three prospective engineering studies totaling 6,408 further episodes. Event memory improves command efficiency, but all three earlier broader continuation gates failed. The memory continuation gate failed against the capacity control, so the conditional downstream efficacy experiments were not launched. A subsequent PPO/DQN study trained nine fits for 294,912 interactions. History-PPO passed its separately frozen combat gate on fresh seeds; Line behavior matches always-fire. The report includes this distinction and the delayed-hit limitation of the earlier command metric. It does not claim proprietary RLCD reproduction or a new RL algorithm. Project-level authorship is used until the authors and affiliations are confirmed.
 
 ## Chess development report
@@ -14,7 +16,9 @@ Nine original chess students, a 24-position public puzzle panel and 18 recorded 
 
 [Four-page PDF](../output/pdf/openjev-reacher-geometry-memory-study.pdf) · [LaTeX source](reacher-geometry-memory-study.tex) · [Results](../research/reacher-geometry-memory.md) · [Build receipt and exact input snapshots](../output/reacher-geometry-memory-v1/paper-build/receipt.json)
 
-Twelve inherited models and all 51 comparisons are retained. Persistent GRU reduced control cost by 31.86%/25.99% versus cached-observation GRU on six-step/ten-step gaps, passing all 25 frozen checks. Supplied-physics references still perform better. This is a development report with an unresolved stronger history control, not an ICLR submission or a new-architecture claim. It is separate from the earlier Doom and chess PDFs.
+Twelve inherited models and all 51 comparisons are retained. Persistent GRU reduced control cost by 31.86%/25.99% versus cached-observation GRU on six-step/ten-step gaps, passing all 25 frozen checks. Supplied-physics references still perform better. This is a development report, not an ICLR submission or a new-architecture claim. It is separate from the earlier Doom and chess PDFs.
+
+The [subsequent stronger history control](../research/reacher-two-observation-control.md) is now complete. Against two observations and intervening actions, the memory advantage shrank to 4.44%/2.94%. Its continuation rule failed with 24/25 checks passed because the ten-step mean missed the required 3% margin. The earlier PDF and its positive weaker-control result remain unchanged; they do not establish superiority over this later control.
 
 From the repository root, build with `latexmk -pdf -interaction=nonstopmode -halt-on-error -outdir=paper/build/reacher-memory paper/reacher-geometry-memory-study.tex`. The recorded build used the existing pinned TeX container without network access. Both plot pages use landscape orientation for legibility; all four rendered pages were checked. No new model or native-environment calls were made to write the paper.
 
