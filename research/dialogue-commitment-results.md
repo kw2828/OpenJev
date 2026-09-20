@@ -137,7 +137,8 @@ paired repair/harm tables are in the full summary. The independent checker
 reproduces the primary panels and paired comparisons only. It does not
 independently reproduce every service table or re-audit model training.
 
-The next useful control is training-objective weighting before adding memory.
+The [next specified control](dialogue-weight-prior-diagnostic.md) checks the
+known training-objective weights before adding memory.
 The original recipe deliberately gives changed, unmentioned-retention and
 assigned-retention strata equal loss mass. A separately specified comparison
 can test ordinary row-uniform cross-entropy alongside a commitment/value
