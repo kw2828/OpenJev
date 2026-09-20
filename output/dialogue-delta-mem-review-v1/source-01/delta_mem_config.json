@@ -1,0 +1,30 @@
+{
+  "rank": 8,
+  "alpha": 16.0,
+  "beta_bias_init": -1.5,
+  "normalize_qk": true,
+  "couple_lambda": true,
+  "state_update_mode": "standard",
+  "rankwise_gates": true,
+  "output_init": "base_slice_fixed",
+  "base_slice_ref_width": 8,
+  "online_gain": 0.05,
+  "num_state_heads": 1,
+  "memory_readout_mode": "delta",
+  "memory_write_granularity": "token",
+  "target_modules": [
+    "self_attn"
+  ],
+  "target_layers": [],
+  "delta_heads": [
+    "q",
+    "o"
+  ],
+  "delta_o_rmsnorm": false,
+  "delta_o_rmsnorm_eps": 1e-06,
+  "trainable_delta_scale": false,
+  "delta_scale_init": 1.0,
+  "delta_scale_max": 2.0,
+  "delta_scale_granularity": "layer",
+  "delta_scale_parameterization": "alpha_over_rank"
+}
