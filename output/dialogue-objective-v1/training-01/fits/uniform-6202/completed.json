@@ -1,0 +1,212 @@
+{
+  "allocation": "Separate six-fit objective comparison, 6000 seconds; prior scientific and cost failures unchanged",
+  "configuration": {
+    "alignment": "Bidirectional softmax(dot/sqrt(P)+log(opposite_prior)), masked on opposite tokens",
+    "branches": [
+      "NONE",
+      "DONTCARE",
+      "concrete"
+    ],
+    "candidate_chunk_size": 1,
+    "candidate_types": {
+      "DONTCARE": 1,
+      "FALSE": 3,
+      "NONE": 0,
+      "OTHER": 4,
+      "TRUE": 2
+    },
+    "class": "DialogueTokenAlignment",
+    "common_scorer_parameters": 75138,
+    "comparison": "Shared tanh(Linear([x,a,x-a,x*a])); supplied-prior pooling on each side; tanh(Linear([context,schema]))",
+    "feature_dim": 401,
+    "feature_order": "u,q,c,u*q,u*c,q*c,lexical10,type_onehot5,previous_onehot,zero_entropy",
+    "hidden_dim": 64,
+    "initialization": "Copy complete tensors between mean/aligned; copy only COMMON_TENSORS to/from the separate flat baseline. No old fitted checkpoint reuse",
+    "input_dim": 384,
+    "lexical_fields": [
+      "user_match",
+      "system_match",
+      "unique_longest_user",
+      "unique_longest_system",
+      "literal_current",
+      "literal_previous",
+      "is_none",
+      "is_dontcare",
+      "affirmative_cue_for_true",
+      "negative_cue_for_false"
+    ],
+    "memory": "Sequential candidate processing limits individual temporaries; autograd retains candidate graphs through backward. Not a peak-memory or runtime bound",
+    "mode": "aligned",
+    "normalization": "log_softmax(z_c+g_branch)",
+    "padding_type": -1,
+    "parameter_count_scope": "Registered counts, identical across new modes. No unused attention or turn-projection modules. Entropy-column weights receive zero input; head/gate scalar biases are common shifts",
+    "parameters": 124482,
+    "parent_source_sha256": "cd3c38ffea6d177431e73c8a4e2d6b10644d5e1d90e4b949451d44d50f35e493",
+    "projection": "Shared Linear(D,P) with bias, no pre-alignment activation or L2 normalization",
+    "projection_dim": 64,
+    "scope": "Public candidate types and privileged previous one-hot; no current target, recurrent state, calibration or novelty claim",
+    "token_comparison_parameters": 49344,
+    "version": "dialogue-token-alignment-v1",
+    "work": "Context projection once; schema projection and comparisons once per candidate, including padded slots. Aligned score matrices are B*L*S per candidate, never B*C*L*S*P"
+  },
+  "counts": {
+    "backward_attempted": 18260,
+    "backward_returned": 18260,
+    "evaluation_rows": 13599,
+    "forward_attempted": 18685,
+    "forward_returned": 18685,
+    "optimizer_attempted": 2300,
+    "optimizer_returned": 2300,
+    "training_rows": 584220
+  },
+  "epochs": 20,
+  "evaluation": {
+    "effective_batches": 54,
+    "microbatches": 425,
+    "normalization": {
+      "batches": 425,
+      "masked_candidates": 43017,
+      "max_abs_mass_error": 1.9778804016823415e-07,
+      "max_supported_log_prob": 0.0,
+      "min_supported_log_prob": -44.93672561645508,
+      "rows": 13599,
+      "supported_candidates": 78188
+    },
+    "wall_seconds": 7.82864004210569,
+    "work": {
+      "attention_query_positions": 121205,
+      "attention_score_positions": 6159493,
+      "boolean_input_bytes": 823812,
+      "candidate_type_input_bytes": 969640,
+      "float_input_bytes": 1294406744,
+      "float_input_scalars": 323601686,
+      "padded_candidate_positions": 121205,
+      "padded_token_positions": 702607,
+      "rows": 13599,
+      "schema_padded_candidate_positions": 121205,
+      "schema_padded_context_token_positions": 702607,
+      "schema_padded_pairwise_positions": 236497160,
+      "schema_padded_schema_token_positions": 4652712,
+      "schema_schema_boolean_input_bytes": 4652712,
+      "schema_schema_float_input_bytes": 7165176480,
+      "schema_supported_candidate_positions": 78188,
+      "schema_supported_context_token_positions": 424474,
+      "schema_supported_pairwise_positions": 70494539,
+      "schema_supported_schema_token_positions": 2271932,
+      "scorer_positions": 121205,
+      "supported_candidate_positions": 78188,
+      "supported_token_positions": 424474,
+      "token_key_positions": 702607
+    }
+  },
+  "files": {
+    "predictions.npz": {
+      "bytes": 325846,
+      "sha256": "d1119859e1dc672afea8138771ea3e5fc1193d84eef38971cd3828ba7f3e177f"
+    },
+    "updates.jsonl": {
+      "bytes": 6874050,
+      "sha256": "5f263d2bf7707c625e5ed93e0b10e271ab0a5597f8786bada94265f8df887d96"
+    },
+    "weights.pt": {
+      "bytes": 503411,
+      "sha256": "82135c6a6da1d7e45869e65954f557052f0b6e08cc2c27f47187e888bd9849a4"
+    }
+  },
+  "initial_common_sha256": "47a816c54e7cf9c1688322c52b1efe8a062c4ab299fa5846df5b239cd402126f",
+  "initial_state_sha256": "1a37eb01be0e7ae53e58497b264f331f44b33ebfe90c75fe53340bfb3825b37b",
+  "initializer_witness": {
+    "common_state_sha256": {
+      "stratum": "47a816c54e7cf9c1688322c52b1efe8a062c4ab299fa5846df5b239cd402126f",
+      "uniform": "47a816c54e7cf9c1688322c52b1efe8a062c4ab299fa5846df5b239cd402126f"
+    },
+    "common_tensors": [
+      "query_projection.weight",
+      "query_projection.bias",
+      "candidate_projection.weight",
+      "candidate_projection.bias",
+      "feature.0.weight",
+      "feature.0.bias",
+      "head.weight",
+      "head.bias",
+      "gate.weight",
+      "gate.bias"
+    ],
+    "full_state_sha256": {
+      "stratum": "1a37eb01be0e7ae53e58497b264f331f44b33ebfe90c75fe53340bfb3825b37b",
+      "uniform": "1a37eb01be0e7ae53e58497b264f331f44b33ebfe90c75fe53340bfb3825b37b"
+    },
+    "original_sequence": {
+      "common_state_sha256": {
+        "flat_stratum": "47a816c54e7cf9c1688322c52b1efe8a062c4ab299fa5846df5b239cd402126f",
+        "token_aligned": "47a816c54e7cf9c1688322c52b1efe8a062c4ab299fa5846df5b239cd402126f",
+        "token_mean": "47a816c54e7cf9c1688322c52b1efe8a062c4ab299fa5846df5b239cd402126f"
+      },
+      "common_tensors": [
+        "query_projection.weight",
+        "query_projection.bias",
+        "candidate_projection.weight",
+        "candidate_projection.bias",
+        "feature.0.weight",
+        "feature.0.bias",
+        "head.weight",
+        "head.bias",
+        "gate.weight",
+        "gate.bias"
+      ],
+      "full_state_sha256": {
+        "flat_stratum": "4937a378d1b236a18fa9aed49c1e1e66f7da20365068bd6d7167ee246bd75d2b",
+        "token_aligned": "1a37eb01be0e7ae53e58497b264f331f44b33ebfe90c75fe53340bfb3825b37b",
+        "token_mean": "1a37eb01be0e7ae53e58497b264f331f44b33ebfe90c75fe53340bfb3825b37b"
+      }
+    }
+  },
+  "method": "uniform",
+  "model_method": "token_aligned",
+  "objective_weighting": "uniform",
+  "orders_sha256": "e8c9bad9aedd74a717fd74b23bbe40469a8d2069daaa22fe1b43351d9170bd74",
+  "original_capacity_admitted": false,
+  "plan_sha256": "ea5660f97f75256246808b0971e80ab3ec086baa614ea2080c893716838d4baa",
+  "process_lifetime_peak_rss_bytes": 1818787840,
+  "seed": 6202,
+  "status": "completed",
+  "training_effective_batches": 2300,
+  "training_microbatches": 18260,
+  "training_normalization": {
+    "batches": 18260,
+    "masked_candidates": 3281867,
+    "max_abs_mass_error": 2.4871042114682496e-07,
+    "max_supported_log_prob": 0.0,
+    "min_supported_log_prob": -44.736175537109375,
+    "rows": 584220,
+    "supported_candidates": 3477180
+  },
+  "training_wall_seconds": 738.0939777919557,
+  "training_work": {
+    "attention_query_positions": 6759047,
+    "attention_score_positions": 421515015,
+    "boolean_input_bytes": 43197855,
+    "candidate_type_input_bytes": 54072376,
+    "float_input_bytes": 67692420500,
+    "float_input_scalars": 16923105125,
+    "padded_candidate_positions": 6759047,
+    "padded_token_positions": 36438808,
+    "rows": 584220,
+    "schema_padded_candidate_positions": 6759047,
+    "schema_padded_context_token_positions": 36438808,
+    "schema_padded_pairwise_positions": 16892035442,
+    "schema_padded_schema_token_positions": 270879861,
+    "schema_schema_boolean_input_bytes": 270879861,
+    "schema_schema_float_input_bytes": 417154985940,
+    "schema_supported_candidate_positions": 3477180,
+    "schema_supported_context_token_positions": 18557620,
+    "schema_supported_pairwise_positions": 2895951240,
+    "schema_supported_schema_token_positions": 92257100,
+    "scorer_positions": 6759047,
+    "supported_candidate_positions": 3477180,
+    "supported_token_positions": 18557620,
+    "token_key_positions": 36438808
+  },
+  "version": "dialogue-objective-v1",
+  "wall_seconds": 745.9267072919756
+}

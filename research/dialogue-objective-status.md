@@ -1,10 +1,12 @@
-# Paired objective comparison: running
+# Paired objective comparison: completed, continuation failed
 
 The six-fit study launched once on **20 September 2026 at 10:52 UTC**, after
-the coordinated CPU allocation became available. **Training is running; no
-quality has been scored and no performance result exists.** Implementation,
-synthetic checks and the metadata freeze are complete. Frozen inputs and all
-56 scientific source files remain unchanged.
+the coordinated CPU allocation became available. All six fits completed in
+**4,480.1063 seconds (74.67 minutes)** before quality scoring. The saved-output
+reporter and independent primary audit agree: **continuation failed, with
+6 of 13 checks passed**. See the [completed results](dialogue-objective-results.md)
+for every requirement and seed variation. Frozen inputs and all 56 scientific
+source files remained unchanged; there was no retry.
 
 The [published protocol](dialogue-objective-protocol.md) compares ordinary
 row-uniform training with the existing stratum-weighted objective in the same
@@ -20,15 +22,16 @@ The practical checks also require improvement over historical corrected flat.
 These are development requirements; a pass would support a training choice,
 not establish a new architecture or untouched confirmation.
 
-The [result plotter](../scripts/plot_dialogue_objective.py) is ready for the
-completed report. It displays all three seeds for every fixed fresh and
+The [result plotter](../scripts/plot_dialogue_objective.py) displays all three
+seeds for every fixed fresh and
 historical readout, with separate panels for changes, retention, overall
 accuracy and log loss under both weighting schemes. One
 [synthetic layout check](../output/dialogue-objective-v1/figure-preflight-01/receipt.json)
 verified the 240 displayed seed values and readable PNG/PDF output. Those
 invented values are prominently marked and are not research results. The
-plotter reads saved report summaries only; the independent metric audit
-remains a separate required step.
+plotter reads saved report summaries only. The completed independent primary
+audit agrees on 3,566 scalar comparisons, 60 primary cells, 30 paired cells
+and all thirteen decisions; it does not replay training or model inference.
 
 ## What is verified
 
@@ -63,11 +66,13 @@ official DEV inference is measured.
 | [Plan](../output/dialogue-objective-v1/protocol-01/plan.json) | `ea5660f97f75256246808b0971e80ab3ec086baa614ea2080c893716838d4baa` |
 | [Freeze completion](../output/dialogue-objective-v1/protocol-01/completed.json) | `c2ea94560792c9d6b84e8e6f10fb0aef2a3135918c17bbeb09334ff0b3c3f6ea` |
 
-## Execution in progress
+## Completed execution
 
-The single launch uses the frozen whole-run limits of **6,000 seconds,
-6 GiB peak RSS and 512 MiB output**. The historical workload projects about
-76 minutes; that remains an estimate, not a measurement of this run.
+The single run stayed within the frozen whole-run limits of **6,000 seconds,
+6 GiB peak RSS and 512 MiB output**. Actual time was 74.67 minutes, peak
+process-lifetime RSS was 1,901,625,344 bytes, and execution output was
+73,697,480 bytes across 32 files. The earlier 76-minute figure was a historical
+estimate, separate from this measurement.
 The launch command is recorded below for provenance, not as a retry instruction.
 
 ```sh
@@ -78,11 +83,12 @@ PYTHONPATH=src:scripts OMP_NUM_THREADS=4 MKL_NUM_THREADS=4 \
   --out output/dialogue-objective-v1/training-01
 ```
 
-All six final fits must be saved before any quality scoring. The saved-output
-reporter and independent primary check remain pending, followed by publication
-of all paired results and a figure. Any failed or partial outcome must be
-retained. There is no replacement seed, outcome-based checkpoint selection or
-retry within this frozen campaign.
+All six final fits were saved before quality scoring, with 13,800 optimizer
+updates completed. The [report](../output/dialogue-objective-v1/report-01/report.md)
+and [independent audit](../output/dialogue-objective-v1/audit-01/receipt.json)
+are complete. No replacement seed, outcome-based checkpoint selection or retry
+occurred. Completed technical validation does not override the failed
+scientific rule.
 
 The earlier token-alignment result remains **FAIL, 18/22**. The subsequent
 [fixed weight correction](dialogue-weight-prior-results.md) improves retention
@@ -91,4 +97,5 @@ goal of a strong novel architecture remains unachieved.
 
 The [source-specific memory note](dialogue-source-memory-decision.md) records
 one conditional fallback and its established prior work. It admits no new
-experiment and is canceled if the simpler objective resolves this tradeoff.
+experiment. The objective did not satisfy the prescribed tradeoff; that
+failure neither proves source confusion nor automatically admits the fallback.
