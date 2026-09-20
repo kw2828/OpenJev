@@ -105,3 +105,11 @@ original independent auditor, without importing reporter metric code. Exact
 prompt subtraction, tokenization, actual inference, timing and secondary metrics
 remain outside this arithmetic audit. It has not run against real ablation
 outputs.
+
+The [comparison plotter](../scripts/plot_dialogue_qwen_lexical_ablation.py) is
+prepared and visually checked on a clearly watermarked synthetic fixture.
+Its [preflight receipt](../output/dialogue-qwen-lexical-ablation-v1/figure-preflight-01/preflight-receipt.json)
+also records rejection of incorrect pins and extra directory members before
+quality-summary decoding. The figure will display both arms, both weightings,
+32 metric values and all 16 decisions, requiring an agreeing completed audit.
+No real comparison figure has been generated yet.
