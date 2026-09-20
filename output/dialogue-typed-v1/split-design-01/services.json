@@ -1,0 +1,147 @@
+{
+  "heldout_count": 6,
+  "rule": {
+    "alternate_split": false,
+    "evaluation": "Existing admitted TRAIN rows in dialogues containing any heldout service",
+    "fit": "Existing admitted TRAIN rows in dialogues whose full original services list contains no heldout service",
+    "heldout_count": "ceil(0.20 * number of services)",
+    "ordering": "Ascending (SHA256(UTF8('openjev-typed-v1:'+exact_service_name)).hexdigest(), exact_service_name)",
+    "primary": "Evaluation rows whose supplied query service belongs to heldout services",
+    "searches": 1,
+    "secondary": "Other evaluation rows, partitioned by whether their service has any admitted fit support",
+    "universe": "Union of services in every original official TRAIN dialogue.services list, including noncategorical services"
+  },
+  "service_count": 26,
+  "services_in_hash_order": [
+    {
+      "digest": "01f907288f49b289b827f217d68157f5d4f60c79bdb5cb9d99bd272eb2777c52",
+      "heldout": true,
+      "service": "Homes_1"
+    },
+    {
+      "digest": "055e41577355b8ff09173892240d46e6efcb534e8b5c40b64a67efc70ed0156f",
+      "heldout": true,
+      "service": "Services_3"
+    },
+    {
+      "digest": "12440c5f351ecc48c6236c48508590b5f3bddfd89a4a7cd19205ef6edca5513a",
+      "heldout": true,
+      "service": "Music_2"
+    },
+    {
+      "digest": "19d0450f7900709f514e4edaadec45439c3ea952882df09570cd1ee3042c1856",
+      "heldout": true,
+      "service": "Services_1"
+    },
+    {
+      "digest": "2a9be48f152aa29133000c23feeb6107a6acdcb670535ee765c0a579ca61ca9b",
+      "heldout": true,
+      "service": "Events_1"
+    },
+    {
+      "digest": "3613711b239af41b78a53549575c0153ab1f4836cf21a89672148df0a4955927",
+      "heldout": true,
+      "service": "Hotels_1"
+    },
+    {
+      "digest": "41d7692f03b4d5a6310c3ebd223fdc80deaa9e9d739656fb8e3786fbf8b4fb41",
+      "heldout": false,
+      "service": "Music_1"
+    },
+    {
+      "digest": "48ea64258c52cb4de604fc576b6aba930eb5e9b40c984ae2016fd8a11bd1906b",
+      "heldout": false,
+      "service": "RentalCars_1"
+    },
+    {
+      "digest": "4d7b53c30b0f84f6b94dcdcfec175956de881995bc94aa79ff54a84c87d05e4b",
+      "heldout": false,
+      "service": "RentalCars_2"
+    },
+    {
+      "digest": "68f717f4fd4fc8d65f6cb42493eabb6b026cc02813fd7bca841514b3af3ce531",
+      "heldout": false,
+      "service": "Weather_1"
+    },
+    {
+      "digest": "69ae2b03e4ccd635d56e1cb093a63312874b7dad1f4c3ce20849bbe2c6401144",
+      "heldout": false,
+      "service": "Restaurants_1"
+    },
+    {
+      "digest": "6e3de7d82002e4169bcd02f0d1df4fb56408ea9f648af6433cd370e118b31944",
+      "heldout": false,
+      "service": "RideSharing_1"
+    },
+    {
+      "digest": "73ff81badae3d20fd4c380fbe292ff7a21b95318803cbfec085d18b548a880b2",
+      "heldout": false,
+      "service": "Events_2"
+    },
+    {
+      "digest": "783d3b6f4dc2280485784a7422b97ad89bf0317507a64e71a1b3982b4320a178",
+      "heldout": false,
+      "service": "Buses_1"
+    },
+    {
+      "digest": "793be74adf805067a540a04753ca62aa6d92d1f3c30bfb9f05cf13f901f63d8b",
+      "heldout": false,
+      "service": "RideSharing_2"
+    },
+    {
+      "digest": "799dc2deb58cb67347ca3cff6c244b3192a89d2fc00ae8c632f04e67261003b3",
+      "heldout": false,
+      "service": "Flights_2"
+    },
+    {
+      "digest": "7dd91a14fe2a4b937be8fad36ae16f3b0594b472e63f0637669aaa9e78cbdb77",
+      "heldout": false,
+      "service": "Services_2"
+    },
+    {
+      "digest": "82a8133d23badd66ae768c32f32a035c56293e977dea6776c3ce826befb0f35c",
+      "heldout": false,
+      "service": "Hotels_2"
+    },
+    {
+      "digest": "8f9f24f6881a5682ac0a3d0423ba6b41284f67d75d82f9177488ef1863ea513a",
+      "heldout": false,
+      "service": "Travel_1"
+    },
+    {
+      "digest": "b99d7ad6a7b3b16cf0ef1ed95599a65ee173c7763008db9d808e9cf33189cd54",
+      "heldout": false,
+      "service": "Hotels_3"
+    },
+    {
+      "digest": "bf2e9b775ab43b41224e4249d47775a2388f968435a0e48a47f2d01fc9d077f1",
+      "heldout": false,
+      "service": "Media_1"
+    },
+    {
+      "digest": "cd7d5b911298f98d57c539c8d203ff49929677606ceb05aa67eb29fc6bbdb25a",
+      "heldout": false,
+      "service": "Movies_1"
+    },
+    {
+      "digest": "e27ac42f4efecd27574edc4b38faaad0d38b959fc3d24d2cdf1b0cd87135686b",
+      "heldout": false,
+      "service": "Calendar_1"
+    },
+    {
+      "digest": "e7964c1c4474a06f98d530a646899e04acca88edfd8fbef087bd09e4cd49848e",
+      "heldout": false,
+      "service": "Banks_1"
+    },
+    {
+      "digest": "f58ded3ebb150f21141e52880b23077ae43ae0d9c2c885051491c640ca3a92e4",
+      "heldout": false,
+      "service": "Flights_1"
+    },
+    {
+      "digest": "fa60e4fe8482a1ce6f8336464e5c3caf448b45489d25a57bedfb92a2f27c38f2",
+      "heldout": false,
+      "service": "Buses_2"
+    }
+  ]
+}

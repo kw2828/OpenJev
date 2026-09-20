@@ -1,0 +1,25 @@
+{
+  "allowed_raw_fields": [
+    "dialogue_id",
+    "services"
+  ],
+  "input_pins": {
+    "runs/dialogue-conditional-v1/preparation-01/completed.json": "960afa60172056134bc4d3cc523338b5fdb8886b55e2ef41e8ce125c72dffbb3",
+    "runs/sgd-state-v1/data/completed.json": "677d37ea581b3165b0adc96a0a0daab74271e0434df2ad23ace9568537e2cd12"
+  },
+  "no_retry": true,
+  "python": "3.12.13",
+  "rule": {
+    "alternate_split": false,
+    "evaluation": "Existing admitted TRAIN rows in dialogues containing any heldout service",
+    "fit": "Existing admitted TRAIN rows in dialogues whose full original services list contains no heldout service",
+    "heldout_count": "ceil(0.20 * number of services)",
+    "ordering": "Ascending (SHA256(UTF8('openjev-typed-v1:'+exact_service_name)).hexdigest(), exact_service_name)",
+    "primary": "Evaluation rows whose supplied query service belongs to heldout services",
+    "searches": 1,
+    "secondary": "Other evaluation rows, partitioned by whether their service has any admitted fit support",
+    "universe": "Union of services in every original official TRAIN dialogue.services list, including noncategorical services"
+  },
+  "script_sha256": "3b2bbfc85543e443a845ac847e42c0a61fd24d879d3c3aad995583e2024b6d60",
+  "version": "dialogue-typed-split-design-v1"
+}
