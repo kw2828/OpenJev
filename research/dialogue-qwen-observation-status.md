@@ -90,3 +90,14 @@ rare-category, equal-dialogue or paired-repair metrics. Its saved-artifact
 allocation is 60 seconds, 2 GiB RSS and 64 MiB output. The figure allocation is
 60 seconds, 1 GiB RSS and 32 MiB output. Neither has read real quality results
 or executed against this run yet.
+
+The unchanged independent checker now passes
+[12 synthetic regression checks](../output/dialogue-qwen-observation-v1/result-audit-preflight-01/receipt.json)
+in **0.46 seconds**, with one CPU thread and no model, tokenizer, checkpoint or
+live-score access. These cover a complete artificial report, corrupted metrics,
+decisions and probabilities, missing/reordered requests, authentication before
+score decoding, prompt-order ties, underflow-safe log loss, service weighting
+and preservation of failed attempts. The test fixture replaces only local
+paths, historical pins and cohort counts; this is an engineering check, not an
+audit of the live experiment or a quality result. All frozen study, reporter
+and auditor sources remain unchanged.
