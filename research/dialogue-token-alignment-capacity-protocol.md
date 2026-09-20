@@ -32,8 +32,10 @@ all 20 epoch permutations per seed. Every arm uses these exact orders.
 Enumerate actual row microbatch padding costs for all 6,900 training updates
 and 162 evaluation batches per arm across the three seeds, including tails.
 Partition training and evaluation into three deterministic workload strata
-using padded pairwise positions. Select the first batch attaining the maximum
-geometry cost within each stratum. Record the boundaries, representatives,
+using the fixed algebraic proxy `384*64*(context_positions+schema_positions)
++4*64^2*comparison_positions+3*64*pairwise_positions`. All positions use actual
+microbatch padding; comparison positions are `B*C*(L+S)`. Select the first
+batch attaining the maximum proxy within each stratum. Record the boundaries, representatives,
 full counts and total workload before model execution.
 Record component maxima as well: the largest pairwise matrix need not maximize
 baseline attention work or comparison-network work. A stratum representative
