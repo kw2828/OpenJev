@@ -78,6 +78,8 @@ Both behavioral comparisons and both probability-score checks fail. The independ
 
 The [retention diagnosis and blinded Astra6 review](research/dialogue-qwen-retention-results.md) identify state resets and a preference-versus-action ambiguity to test next. They add no new performance claim.
 
+**Running:** a [complete paired test without lexical flags](research/dialogue-qwen-lexical-ablation-status.md) checks whether removing that input representation improves decisions. The fresh cost pilot passed; quality results remain pending.
+
 [![Complete Qwen comparison: both history conditions and all historical seeds, with separate accuracy, retention and probability-score failures](output/dialogue-qwen-observation-v1/figure-02/comparison.png)](research/dialogue-qwen-observation-results.md)
 
 - [Earlier text learning experiments](research/dialogue-objective-results.md): matched training objectives and recurrent variants have not established an architecture advantage.

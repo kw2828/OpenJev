@@ -67,11 +67,14 @@ source hashes, coverage and paid work. Session **53911 exited 0**; PID/process
 group **90676** was absent on the
 [terminal check](../output/dialogue-qwen-lexical-ablation-v1/pilot-terminal-01.json).
 
-The full allocation is admitted but has not started. The numerical slot was
-temporarily released for the other research task's previously requested bounded
-CPU qualification. Full inference waits for its explicit terminal cleanup and
-release. Failure ends this version without retry, resume or scope reduction.
-No partial quality will be inspected.
+The full allocation started at **2026-09-20 14:24:45 UTC**, after the other
+research task explicitly returned the numerical slot with terminal status and
+process-group cleanup. Session **46815**, PID/process group **91127**, is running
+the complete 7,444-request comparison under the 7,200-second cap. The
+[launch record](../output/dialogue-qwen-lexical-ablation-v1/run-launch-01.json)
+binds the prepared plan and admitted pilot. This records launch, not completion.
+Failure ends this version without retry, resume or scope reduction. No partial
+quality will be inspected.
 
 After successful complete inference, a separate saved-only report compares the
 new predictions to the original corresponding-arm predictions. All **16**
@@ -85,5 +88,8 @@ The [separate reporter](../scripts/report_dialogue_qwen_lexical_ablation.py) pas
 [15 synthetic checks](../output/dialogue-qwen-lexical-ablation-v1/report-preflight-01/receipt.json)
 in 0.72 seconds and lint. It binds both completed campaigns, reconstructs their
 paired choices/probabilities and reports all sixteen conditions. It has not
-read new model outputs. Its reconstruction inherits the pinned original
+read new model outputs. Independent source review found no material issue at
+reporter hash `c25ea0f6727fa96ee0af17eca4a3530ad379e70ae58f37ac9e7de8a028516928`
+and test hash `0dbde93d198845cc1da14684cf4e4d885a4b69e2aff0ee05f6d001b7d03d3a3d`.
+Its reconstruction inherits the pinned original
 reporter and is not an additional independent result audit.

@@ -4,6 +4,8 @@ Studies and frozen work awaiting execution, including failures and controls. A p
 
 ## Complete experiment list
 
+- [Qwen lexical-input ablation](dialogue-qwen-lexical-ablation-status.md), **running**: the fresh 28-batch cost pilot passed; the complete paired comparison started on 20 September. It removes lexical flags from the same 15,638 decisions. Quality results remain pending. [Frozen protocol](dialogue-qwen-lexical-ablation-protocol.md).
+
 - [Qwen retention diagnosis and blinded Astra6 review](dialogue-qwen-retention-results.md): all **15,638 saved decisions** reconciled. Retained TRUE errors are **521/551** current and **531/551** with history; previously unset errors rise **461 → 780**. Three completed reviewers agree on all 12 fixed sampled choices, including two defensible answers that conflict with reference labels. One planned reviewer could not start and remains missing. This error-conditioned review is diagnostic, not new accuracy or architecture evidence.
 
 - [Qwen observation and recent history](dialogue-qwen-observation-results.md): all **15,638 decisions completed in 53.8 minutes**. Current-exchange Qwen reaches **83.74%** changed accuracy but **17.40%** retained error, versus **58.59% / 2.46%** for the historical corrected-flat mean. Four exchanges worsen changed accuracy to **82.35%** and retained error to **21.67%**. Both behavioral comparisons and both proper-score nonregression checks fail; the independent audit agrees. Correct previous values are supplied on exposed development rows. [Chart](../output/dialogue-qwen-observation-v1/figure-02/comparison.png) · [Execution history](dialogue-qwen-observation-status.md) · [Prospective protocol](dialogue-qwen-observation-protocol.md).
