@@ -93,3 +93,15 @@ reporter hash `c25ea0f6727fa96ee0af17eca4a3530ad379e70ae58f37ac9e7de8a028516928`
 and test hash `0dbde93d198845cc1da14684cf4e4d885a4b69e2aff0ee05f6d001b7d03d3a3d`.
 Its reconstruction inherits the pinned original
 reporter and is not an additional independent result audit.
+
+The [independent saved-result checker](../scripts/audit_dialogue_qwen_lexical_result.py)
+is also ready. Its single
+[synthetic preflight](../output/dialogue-qwen-lexical-ablation-v1/result-audit-preflight-01/receipt.json)
+passed **14 tests in 2.33 seconds** and lint; independent source review found no
+material issue at source hash
+`f0067b1a71902e8388f127cda0b93eaa96b8cc79db0a55a143936dd683413a29`.
+It reconstructs 84 primary metric cells and all 16 decisions through the pinned
+original independent auditor, without importing reporter metric code. Exact
+prompt subtraction, tokenization, actual inference, timing and secondary metrics
+remain outside this arithmetic audit. It has not run against real ablation
+outputs.
