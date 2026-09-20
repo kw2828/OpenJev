@@ -132,6 +132,10 @@ The separately owned BLACKOUT [brief qualification](../output/dialogue-observati
 and [learning-study startup](../output/dialogue-observation-learning-v1/external-overlap-02-start.json)
 are recorded as owner-reported CPU-only work, with independent process-group
 liveness checks. No partial quality results from that study were opened.
+The BLACKOUT worker subsequently [released its CPU slot](../output/dialogue-observation-learning-v1/external-overlap-02-terminal.json):
+the owner reported exit 0 after 1,553.723 seconds, and its process group was
+independently confirmed absent while OpenJev remained live. Its quality audit
+was still pending; the release supplies execution provenance only.
 All training journals, partial outputs and terminal evidence will be preserved.
 Scoring waits for the entire twelve-fit attempt and its actual terminal state.
 
