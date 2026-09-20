@@ -66,6 +66,7 @@ Open **http://127.0.0.1:8000**. Local text scoring uses Qwen3-4B; the free brows
 
 ## Research results
 
+- [Typed decisions and rare-category weighting](research/dialogue-typed-results.md): **12 fits completed in 9.2 minutes**. Typed normalization lowers changed-state loss **26.92%**, but accuracy falls **50.52% to 47.40%** and retained-value errors increase. The original flat/stratum control reaches **70.88%** changed accuracy. Only **5/9 checks pass**, so the rule fails. No architecture advantage established.
 - [Conditional observation](research/dialogue-conditional-results.md): **9/9 fits completed in 8.2 minutes**, but candidate attention fails the consistency rule. Unseen-change NLL improves in two seeds and worsens in one; accuracy falls from **69.74% to 68.64%** versus slot attention. Every model receives the correct previous value, so this is a diagnostic, not autonomous memory. [Error diagnosis](research/dialogue-conditional-error-results.md): all nine models miss every unseen TRUE update by choosing the previous NOT_MENTIONED value.
 - [Shared-token dialogue experiment](research/dialogue-token-results.md): training stopped at **7/12 fits**. The [shared-columns cost check](research/dialogue-token-shared-columns-results.md) passes all 16 numerical checks and **15/16 timing requirements**. One case reaches **1.088x**, below the fixed 1.10x requirement, so training remains closed. No new accuracy result.
 - [Candidate-conditioned encoding cost screen](research/dialogue-joint-capacity-results.md): the 512-text probe completed, but **20.91 minutes projected** exceeded the fixed 12-minute threshold. Full encoding and training did not run. The next proposal reuses dialogue token features across candidates.
@@ -77,7 +78,7 @@ Open **http://127.0.0.1:8000**. Local text scoring uses Qwen3-4B; the free brows
 - [Robot dynamics screen](research/drive-qualification-results.md): 252 episodes; classical calibration leaves too little benefit from exact parameters to justify neural training here.
 - [All experiments and visualizations](research/experiment-index.md): complete results, including negative findings, training receipts and paper sources.
 
-[![Nine conditional-observation fits: paired scores, accuracy and measured cost](output/dialogue-conditional-v1/figure-01/comparison.png)](research/dialogue-conditional-results.md)
+[![All twelve typed-decision fits: lower loss, failed recall and error criteria, and observed training cost](output/dialogue-typed-v1/figure-01/typed-observation.png)](research/dialogue-typed-results.md)
 
 Candidate scores are uncalibrated and relative to the supplied choices. These experiments use different models and protocols. The root MIT license applies except where component notices specify other terms, including GPL-3.0-only chess research files. Third-party data and model licenses apply separately.
 

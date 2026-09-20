@@ -4,6 +4,8 @@ Completed studies, including failures and controls. A passing implementation che
 
 ## Complete experiment list
 
+- [Typed decisions and rare-category support](dialogue-typed-results.md): **12 fresh fits and 27,600 updates** complete in **551.82 seconds**. Typed-balanced reduces changed equal-service NLL **26.92%**, but changed accuracy falls **50.52% to 47.40%** and retained error rises **2.18% to 3.52%** against flat-balanced. The flat/stratum control reaches **70.88%** changed accuracy. **5/9 requirements pass; the recipe fails.** Independent arithmetic agrees. The original pre-scoring reader failure and its separate correction are preserved. [All-fit figure](../output/dialogue-typed-v1/figure-01/typed-observation.png).
+
 - [Conditional decision error diagnosis](dialogue-conditional-error-results.md): a saved-output analysis finds that all nine fits choose the previous NOT_MENTIONED value on every unseen TRUE update. The small favorable mean NLL difference comes from TRUE/DONTCARE probability changes despite incorrect choices, offset by an ordinary-value regression. No new training or change to the failed study.
 
 - [Conditional observation with the correct previous value](dialogue-conditional-results.md): all **9 fits** and **30,240 updates** complete in **489.08 seconds**. Candidate attention improves unseen-change NLL in two seeds and worsens in one, failing the fixed consistency rule despite a 1.07% favorable mean. Unseen-change accuracy is **68.64%**, versus **69.74%** for slot attention; mean pooling has the lowest average NLL. Independent audit verifies all metrics and costs. No memory or architecture advantage. [Figure](../output/dialogue-conditional-v1/figure-01/comparison.png).
