@@ -1,5 +1,9 @@
 # Next execution candidate: separate observation and state terms
 
+Follow-up: this proposal was implemented and [measured](dialogue-token-factoring-results.md).
+It passes 14/16 speed requirements but fails the full qualification. The
+original prospective design follows.
+
 Status: source-based design, unimplemented and unmeasured. The
 [projected-pooling comparison](dialogue-token-projection-results.md) passes
 10/16 speed checks, including all four real-mask cases, but fails its fixed
