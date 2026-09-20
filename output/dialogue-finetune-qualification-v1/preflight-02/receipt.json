@@ -1,0 +1,42 @@
+{
+  "checks": [
+    {
+      "command": [
+        ".venv/bin/pytest",
+        "-q",
+        "tests/test_qualify_dialogue_finetune.py"
+      ],
+      "exit_code": 0,
+      "log": "check-0.txt",
+      "log_sha256": "7c79c30d66c59f899346b8cdedb8c362c49658d311af79f56e2f5cb54d11df35",
+      "wall_seconds": 3.1798107500653714
+    },
+    {
+      "command": [
+        ".venv/bin/ruff",
+        "check",
+        "scripts/qualify_dialogue_finetune.py",
+        "tests/test_qualify_dialogue_finetune.py",
+        "src/openjev/research/dialogue_trainable_encoder.py",
+        "tests/test_dialogue_trainable_encoder.py",
+        "src/openjev/research/dialogue_finetune_inputs.py",
+        "tests/test_dialogue_finetune_inputs.py"
+      ],
+      "exit_code": 0,
+      "log": "check-1.txt",
+      "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "wall_seconds": 0.04289724980480969
+    }
+  ],
+  "passed": true,
+  "scope": "Affected root synthetic tests and all source lint; unchanged helper suites already passed in preflight-01",
+  "sources": {
+    "research/dialogue-finetune-qualification-protocol.md": "598377115d243e458fe3bfe203c69185b1dfab41e5b3be07944f4ed493d817b7",
+    "scripts/qualify_dialogue_finetune.py": "1b818ad79d84245203192050613659f59d81a087c49f22c4d563149df057fc57",
+    "src/openjev/research/dialogue_finetune_inputs.py": "94361a5e8112dac3a3ac822dfe54523eee46fce704bb8f8b2d9b912ec8971378",
+    "src/openjev/research/dialogue_trainable_encoder.py": "94458b55ccf744ece3245b243a32157eb9e4f9750cf71e76ba7c17bb08c1ec14",
+    "tests/test_dialogue_finetune_inputs.py": "d634121901cce2ff58aa66f19972dbc70aa1624696369f4fb4bc1b9d3970f917",
+    "tests/test_dialogue_trainable_encoder.py": "efe9c778d718d0e08309535dce0e1af3632d825d66a923cebc939bd454b2604c",
+    "tests/test_qualify_dialogue_finetune.py": "fb2d6230a65d69e8d680d2b4ed633dbe7fd85328faa9d60c65ec28a1de0d2d6e"
+  }
+}

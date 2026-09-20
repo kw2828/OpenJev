@@ -1,0 +1,78 @@
+RUF100 [*] Unused `noqa` directive (non-enabled: `E402`)
+  --> tests/test_qualify_dialogue_finetune.py:22:59
+   |
+20 | pilot = importlib.util.module_from_spec(spec)
+21 | spec.loader.exec_module(pilot)
+22 | from study_dialogue_copy_v2 import MonitoredCopyMemoryV2  # noqa: E402
+   |                                                           ^^^^^^^^^^^^
+23 |
+24 | torch.set_num_threads(1)
+   |
+help: Remove unused `noqa` directive
+   |
+21 | spec.loader.exec_module(pilot)
+   - from study_dialogue_copy_v2 import MonitoredCopyMemoryV2  # noqa: E402
+22 + from study_dialogue_copy_v2 import MonitoredCopyMemoryV2
+23 |
+   |
+
+SIM117 Use a single `with` statement with multiple contexts instead of nested `with` statements
+   --> tests/test_qualify_dialogue_finetune.py:99:5
+    |
+ 97 |   def test_failed_attempt_preserves_progress_and_demotes_completion(tmp_path):
+ 98 |       out = tmp_path / "attempt"
+ 99 | /     with pytest.raises(ValueError, match="deliberate"):
+100 | |         with pilot.attempt(out, "fake", {}) as (_, progress, _):
+    | |________________________________________________________________^
+101 |               progress["encoder_calls"] = 7
+102 |               pilot.write(out / "completed.json", {"status": "premature"})
+    |
+help: Combine `with` statements
+
+SIM117 [*] Use a single `with` statement with multiple contexts instead of nested `with` statements
+   --> tests/test_qualify_dialogue_finetune.py:109:5
+    |
+107 |       assert receipt["progress"]["encoder_calls"] == 7
+108 |       assert receipt["error_type"] == "ValueError"
+109 | /     with pytest.raises(FileExistsError):
+110 | |         with pilot.attempt(out, "fake", {}):
+    | |____________________________________________^
+111 |               pass
+    |
+help: Combine `with` statements
+    |
+108 |     assert receipt["error_type"] == "ValueError"
+    -     with pytest.raises(FileExistsError):
+    -         with pilot.attempt(out, "fake", {}):
+    -             pass
+109 +     with pytest.raises(FileExistsError), pilot.attempt(out, "fake", {}):
+110 +         pass
+111 |
+    |
+
+SIM117 [*] Use a single `with` statement with multiple contexts instead of nested `with` statements
+   --> tests/test_qualify_dialogue_finetune.py:118:5
+    |
+116 |       monkeypatch.setattr(pilot, "rss", lambda: peak[0])
+117 |       out = tmp_path / "attempt"
+118 | /     with pytest.raises(ValueError, match="RSS cap"):
+119 | |         with pilot.attempt(out, "fake", {}):
+    | |____________________________________________^
+120 |               pilot.write(out / "completed.json", {"status": "premature"})
+121 |               peak[0] = pilot.CONFIG["rss_bytes"] + 1
+    |
+help: Combine `with` statements
+    |
+117 |     out = tmp_path / "attempt"
+    -     with pytest.raises(ValueError, match="RSS cap"):
+    -         with pilot.attempt(out, "fake", {}):
+    -             pilot.write(out / "completed.json", {"status": "premature"})
+    -             peak[0] = pilot.CONFIG["rss_bytes"] + 1
+118 +     with pytest.raises(ValueError, match="RSS cap"), pilot.attempt(out, "fake", {}):
+119 +         pilot.write(out / "completed.json", {"status": "premature"})
+120 +         peak[0] = pilot.CONFIG["rss_bytes"] + 1
+121 |     assert (out / "failed.json").exists() and not (out / "completed.json").exists()
+    |
+
+Found 4 errors.
+[*] 3 fixable with the `--fix` option.
