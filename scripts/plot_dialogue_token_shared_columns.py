@@ -44,7 +44,8 @@ def main():
     ax.set_facecolor("white")
     ax.axvline(1., color="#738294", ls="--", lw=1)
     all_ratios = [x for c in cells for x in c["paired_ratios"]]
-    lower, upper = max(0., min(all_ratios)-.12), max(all_ratios)+.3
+    lower = max(0., min(all_ratios)-.12)
+    upper = max(max(all_ratios), max(c["minimum_ratio"] for c in cells), 1.)+.3
     labels = []
     for i, cell in enumerate(cells):
         ratios = cell["paired_ratios"]
