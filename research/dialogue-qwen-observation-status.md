@@ -58,3 +58,11 @@ full-run time guarantee; the full run retains its hard two-hour cap.
 No labels were accessed, no quality-bearing outputs were retained, and no
 accuracy claim follows. [Pilot receipt](../output/dialogue-qwen-observation-v1/pilot-01/completed.json),
 SHA256 `3b8bcf6a4e1fb27322e6260e4cdc10b0514b9db72c98760e5a7d04284137f54d`.
+
+The saved-output reporter is independently source-reviewed and passes
+[30 focused synthetic checks](../output/dialogue-qwen-observation-v1/report-preflight-02/receipt.json).
+It reconstructs decisions from candidate logits, applies the two separate
+behavioral rules and proper-score checks, and retains every service and
+historical seed. The first synthetic fixture/lint failure is preserved.
+No real accuracy outputs have been read. The reporting allocation is fixed
+before execution at 60 seconds, 2 GiB RSS and 64 MiB output.

@@ -1,0 +1,50 @@
+{
+  "status": "completed",
+  "python": "3.12.13",
+  "environment": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "PYTHONPATH": "src:scripts:tests"
+  },
+  "sources_before": {
+    "scripts/report_dialogue_qwen_observation.py": "eebf0c8a36259197523e16155542879e34f4202f210d50e2aa1ffaf30db4ec51",
+    "tests/test_report_dialogue_qwen_observation.py": "b3c3ea1b713b958bae99699cef6c3b7764c603803c5ff31d45c8c9c1b2fdb0b1"
+  },
+  "commands": [
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_report_dialogue_qwen_observation.py"
+      ],
+      "exit_code": 1,
+      "wall_seconds": 0.5053023749496788,
+      "stdout": ".....F.......................                                            [100%]\n=================================== FAILURES ===================================\n___________ test_inconsistent_saved_witness_rejected[candidate_ids] ____________\n\nfield = 'candidate_ids'\n\n    @pytest.mark.parametrize(\"field\", [\"log_probs\", \"probabilities\", \"label_ids\", \"candidate_ids\",\n                                      \"candidate_max_tie_count\", \"candidate_shifted_log_partition\",\n                                      \"full_vocabulary_shifted_log_partition\", \"candidate_token_mass\"])\n    def test_inconsistent_saved_witness_rejected(field):\n        ids = [r.NONE, r.DC, \"value:True\", \"value:False\"]\n        saved = distribution([0, 1, 2, 3], ids, ids)\n        if isinstance(saved[field], list):\n            saved[field][0] = \"wrong\" if field == \"candidate_ids\" else saved[field][0]+.1\n        else:\n            saved[field] += .1\n>       with pytest.raises(ValueError):\n             ^^^^^^^^^^^^^^^^^^^^^^^^^\nE       Failed: DID NOT RAISE ValueError\n\ntests/test_report_dialogue_qwen_observation.py:62: Failed\n=========================== short test summary info ============================\nFAILED tests/test_report_dialogue_qwen_observation.py::test_inconsistent_saved_witness_rejected[candidate_ids]\n1 failed, 28 passed in 0.33s\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-m",
+        "ruff",
+        "check",
+        "scripts/report_dialogue_qwen_observation.py",
+        "tests/test_report_dialogue_qwen_observation.py"
+      ],
+      "exit_code": 1,
+      "wall_seconds": 0.0637080839369446,
+      "stdout": "B023 Function definition does not bind loop variable `correct`\n   --> scripts/report_dialogue_qwen_observation.py:510:69\n    |\n508 |         correct = selected == target\n509 |         def accuracy(mask):\n510 |             return {\"rows\": int(mask.sum()), \"correct\": int((mask & correct).sum()), \"accuracy\": means(correct, rows, mask)}\n    |                                                                     ^^^^^^^\n511 |         references[name] = {\"cells\": {k: accuracy(m) for k, m in groups.items()},\n512 |                             \"services\": {s: {k: accuracy(m & sm) for k, m in groups.items()} for s, sm in service_masks.items()}}\n    |\n\nB023 Function definition does not bind loop variable `correct`\n   --> scripts/report_dialogue_qwen_observation.py:510:104\n    |\n508 |         correct = selected == target\n509 |         def accuracy(mask):\n510 |             return {\"rows\": int(mask.sum()), \"correct\": int((mask & correct).sum()), \"accuracy\": means(correct, rows, mask)}\n    |                                                                                                        ^^^^^^^\n511 |         references[name] = {\"cells\": {k: accuracy(m) for k, m in groups.items()},\n512 |                             \"services\": {s: {k: accuracy(m & sm) for k, m in groups.items()} for s, sm in service_masks.items()}}\n    |\n\nISC004 Unparenthesized implicit string concatenation in collection\n   --> scripts/report_dialogue_qwen_observation.py:559:27\n    |\n557 |                        f\"{c['all']['metrics']['nll']['row']:.6f} | {c['all']['metrics']['brier']['row']:.6f} |\")\n558 |       for name, result in summary[\"decisions\"].items():\n559 |           lines.extend((\"\", f\"{name}: behavioral {'PASS' if result['behavioral']['passed'] else 'FAIL'}; \"\n    |  ___________________________^\n560 | |                       f\"proper-score nonregression {'PASS' if result['proper_score_nonregression']['passed'] else 'FAIL'}.\"))\n    | |___________________________________________________________________________________________________________________________^\n561 |       lines.extend((\"\", \"All row, equal-service and equal-dialogue metrics, all historical seeds, sparse-category denominators, \"\n562 |                     \"per-service results and paired repairs/harms are retained in summary.json. No combined architecture gate.\",\n    |\nhelp: Did you forget a comma?\nhelp: Wrap implicitly concatenated strings in parentheses\n\nISC004 Unparenthesized implicit string concatenation in collection\n   --> scripts/report_dialogue_qwen_observation.py:561:23\n    |\n559 |           lines.extend((\"\", f\"{name}: behavioral {'PASS' if result['behavioral']['passed'] else 'FAIL'}; \"\n560 |                         f\"proper-score nonregression {'PASS' if result['proper_score_nonregression']['passed'] else 'FAIL'}.\"))\n561 |       lines.extend((\"\", \"All row, equal-service and equal-dialogue metrics, all historical seeds, sparse-category denominators, \"\n    |  _______________________^\n562 | |                   \"per-service results and paired repairs/harms are retained in summary.json. No combined architecture gate.\",\n    | |_____________________________________________________________________________________________________________________________^\n563 |                     \"\", f\"Preparation {summary['costs']['preparation_seconds']:.3f}s; pilot {summary['costs']['pilot_seconds']:.3f}s;\u2026\n564 |                     f\"full run {summary['costs']['run_seconds']:.3f}s. Pilot decisions were repeated and paid separately.\"))\n    |\nhelp: Did you forget a comma?\nhelp: Wrap implicitly concatenated strings in parentheses\n\nISC004 Unparenthesized implicit string concatenation in collection\n   --> scripts/report_dialogue_qwen_observation.py:563:23\n    |\n561 |       lines.extend((\"\", \"All row, equal-service and equal-dialogue metrics, all historical seeds, sparse-category denominators, \"\n562 |                     \"per-service results and paired repairs/harms are retained in summary.json. No combined architecture gate.\",\n563 |                     \"\", f\"Preparation {summary['costs']['preparation_seconds']:.3f}s; pilot {summary['costs']['pilot_seconds']:.3f}s;\u2026\n    |  _______________________^\n564 | |                   f\"full run {summary['costs']['run_seconds']:.3f}s. Pilot decisions were repeated and paid separately.\"))\n    | |________________________________________________________________________________________________________________________^\n565 |       return \"\\n\".join(lines)+\"\\n\"\n    |\nhelp: Did you forget a comma?\nhelp: Wrap implicitly concatenated strings in parentheses\n\nFound 5 errors.\nNo fixes available (3 hidden fixes can be enabled with the `--unsafe-fixes` option).\n",
+      "stderr": ""
+    }
+  ],
+  "sources_after": {
+    "scripts/report_dialogue_qwen_observation.py": "eebf0c8a36259197523e16155542879e34f4202f210d50e2aa1ffaf30db4ec51",
+    "tests/test_report_dialogue_qwen_observation.py": "b3c3ea1b713b958bae99699cef6c3b7764c603803c5ff31d45c8c9c1b2fdb0b1"
+  },
+  "passed": false
+}

@@ -1,0 +1,51 @@
+{
+  "status": "completed",
+  "python": "3.12.13",
+  "environment": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "PYTHONPATH": "src:scripts:tests"
+  },
+  "sources_before": {
+    "scripts/report_dialogue_qwen_observation.py": "a387c0f3dbba40553b9fe24942dda30ed030c278a18303e761cfc6a89a7ccd1c",
+    "tests/test_report_dialogue_qwen_observation.py": "9536ffd866bba3bca438a426de563db17f99ef5757c554f2b363eacc33f8806f"
+  },
+  "commands": [
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_report_dialogue_qwen_observation.py"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.4640312499832362,
+      "stdout": "..............................                                           [100%]\n30 passed in 0.30s\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-m",
+        "ruff",
+        "check",
+        "scripts/report_dialogue_qwen_observation.py",
+        "tests/test_report_dialogue_qwen_observation.py"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.035396625055000186,
+      "stdout": "All checks passed!\n",
+      "stderr": ""
+    }
+  ],
+  "prior_attempt": "report-preflight-01; fixture aliasing and lint errors retained",
+  "sources_after": {
+    "scripts/report_dialogue_qwen_observation.py": "a387c0f3dbba40553b9fe24942dda30ed030c278a18303e761cfc6a89a7ccd1c",
+    "tests/test_report_dialogue_qwen_observation.py": "9536ffd866bba3bca438a426de563db17f99ef5757c554f2b363eacc33f8806f"
+  },
+  "passed": true
+}
