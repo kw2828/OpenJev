@@ -15,7 +15,7 @@ import matplotlib.pyplot as plt
 
 METHODS = ("flat", "MM", "AA", "MA", "AM")
 SEEDS = (6201, 6202, 6203)
-LABELS = ("Flat\nreference", "Mean\nself", "Aligned\nself", "Mean mass\nAligned alternatives", "Aligned mass\nMean alternatives")
+LABELS = ("Flat\nreference", "MM\nMean model", "AA\nAligned model", "MA\nMean mass /\naligned scores", "AM\nAligned mass /\nmean scores")
 SUPPORT = {"all": 7819, "changed": 578, "retained": 7241,
            "unmentioned_retention": 4032, "assigned_retention": 3209}
 VERSION = "dialogue-commitment-primary-figure-v1"
@@ -41,14 +41,14 @@ def read_pinned(path, pin):
     return json.loads(Path(path).read_text())
 
 
-def values(summary, stratum, metric):
+def values(summary, stratum, metric, weighting="row"):
     output = []
     for method in METHODS:
         row = []
         for seed in SEEDS:
             cell = summary["fits"][f"{method}-{seed}"]["cells"]["heldout_service/"+stratum]
             require(cell["rows"] == SUPPORT[stratum], "Fixed primary support")
-            value = cell["metrics"][metric]["row"]
+            value = cell["metrics"][metric][weighting]
             require(type(value) in (int, float) and math.isfinite(value) and 0 <= value <= 1,
                     "Finite diagnostic rate")
             row.append(100*value)
@@ -77,16 +77,19 @@ def execute(args):
                 "Matching independent primary audit required")
         require(set(summary["fits"]) == {f"{m}-{s}" for m in METHODS for s in SEEDS},
                 "All fifteen construction/seed cells required")
-        fig, axes = plt.subplots(2, 2, figsize=(14, 10))
-        panels = (("changed", "accuracy", "A  Changed-value accuracy", True),
-                  ("retained", "error", "B  Retained-value errors", False),
-                  ("unmentioned_retention", "error", "C  False assignments to unmentioned slots", False),
-                  ("assigned_retention", "error", "D  Errors preserving assigned values", False))
+        fig, axes = plt.subplots(3, 2, figsize=(14, 13.5))
+        panels = (("changed", "accuracy", "row", "A  Changed-value accuracy", True),
+                  ("retained", "error", "row", "B  Retained-value errors", False),
+                  ("unmentioned_retention", "error", "row", "C  False assignments to unmentioned slots", False),
+                  ("assigned_retention", "error", "row", "D  Errors preserving assigned values", False),
+                  ("all", "accuracy", "equal_service", "E  Equal-service overall accuracy", True),
+                  ("retained", "error", "equal_service", "F  Equal-service retained-value errors", False))
         colors, markers = ("#306aa7", "#c37737", "#428565"), ("o", "s", "^")
         plotted = {}
-        for ax, (stratum, metric, title, higher) in zip(axes.flat, panels, strict=True):
-            panel = values(summary, stratum, metric)
-            plotted[stratum] = {"metric": metric, "seed_order": SEEDS, "percentages": dict(zip(METHODS, panel, strict=True))}
+        for ax, (stratum, metric, weighting, title, higher) in zip(axes.flat, panels, strict=True):
+            panel = values(summary, stratum, metric, weighting)
+            plotted[stratum+"/"+weighting] = {"metric": metric, "weighting": weighting, "seed_order": SEEDS,
+                "percentages": dict(zip(METHODS, panel, strict=True))}
             for x, numbers in enumerate(panel):
                 for i, value in enumerate(numbers):
                     ax.scatter(x+(i-1)*.06, value, color=colors[i], marker=markers[i], s=48,
@@ -97,7 +100,8 @@ def execute(args):
             ax.set_xlim(-.5, 4.5)
             maximum = max(max(row) for row in panel)
             ax.set_ylim(0, 100 if higher else max(5, math.ceil(maximum*1.2/5)*5))
-            ax.set_ylabel(f"Percent of {SUPPORT[stratum]:,} rows; {'higher' if higher else 'lower'} is better")
+            weight_label = f"Percent of {SUPPORT[stratum]:,} rows" if weighting == "row" else "Mean service percent"
+            ax.set_ylabel(f"{weight_label}; {'higher' if higher else 'lower'} is better")
             ax.set_title(title, loc="left", fontsize=12, fontweight="bold")
             ax.grid(axis="y", color="#dce3eb")
             ax.set_axisbelow(True)
@@ -115,7 +119,7 @@ def execute(args):
         fig.text(.05, .075, "MM/AA reconstruct the original models. MA/AM combine two source distributions; both source predictions have a cost.", fontsize=10, color="#47566b")
         fig.text(.05, .05, "Exposed TRAIN development with correct previous values supplied. Seeds repeat optimization, not independent service sampling.", fontsize=10, color="#47566b")
         fig.text(.05, .025, "Probability-factor diagnostic, not a trained model, causal gate intervention, fresh evaluation, or reversal of the failed study.", fontsize=10, color="#47566b")
-        fig.subplots_adjust(left=.075, right=.98, top=.855, bottom=.2, hspace=.5, wspace=.2)
+        fig.subplots_adjust(left=.075, right=.98, top=.875, bottom=.175, hspace=.65, wspace=.2)
         fig.savefig(out/"commitment.png", dpi=180, facecolor="white")
         fig.savefig(out/"commitment.pdf", facecolor="white")
         plt.close(fig)
