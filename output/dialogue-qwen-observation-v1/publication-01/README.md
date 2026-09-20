@@ -2,6 +2,8 @@
 
 The 116,762,047-byte request packet exceeds GitHub's single-file limit. This gzip is a lossless delivery copy, verified by streaming decompression and SHA256. The original preparation manifest remains unchanged.
 
+Dialogue and schema content comes from Google's [Schema-Guided Dialogue dataset](https://github.com/google-research-datasets/dstc8-schema-guided-dialogue/tree/e852981ae34990f4358979625854259302feaa78), under [CC BY-SA 4.0](https://github.com/google-research-datasets/dstc8-schema-guided-dialogue/blob/e852981ae34990f4358979625854259302feaa78/LICENSE.txt). This derived request packet and the associated `preparation-02/labels.jsonl` retain that license. OpenJev selected official-TRAIN rows, assembled causal exchange windows, and added task prompts, canonical candidate mappings, lexical features and tokenizer IDs. The dataset authors do not endorse this study. The original dataset is provided without warranty; see its [notice](https://github.com/google-research-datasets/dstc8-schema-guided-dialogue#overview).
+
 From the repository root, restore the exact file before reproducing scoring:
 
 ```sh
