@@ -1,0 +1,141 @@
+{
+  "configuration": {
+    "attention": "softmax(log(token_prior)+dot(Wq[pair],Wk[token])/sqrt(64)); prior positive on support and sum within2e-6",
+    "attention_mode": "candidate",
+    "attention_parameters": 73728,
+    "attention_width": 64,
+    "branch_gate": "Shared Linear(hidden,1) on masked mean hidden per branch",
+    "branches": [
+      "NONE",
+      "DONTCARE",
+      "concrete"
+    ],
+    "candidate_types": {
+      "DONTCARE": 1,
+      "FALSE": 3,
+      "NONE": 0,
+      "OTHER": 4,
+      "TRUE": 2
+    },
+    "class": "DialogueTypedObservation",
+    "entropy": "Exactly zero; previous categorical value is certain",
+    "feature_dim": 401,
+    "feature_order": "u,q,c,u*q,u*c,q*c,lexical10,type_onehot5,previous_onehot,zero_entropy",
+    "hidden_dim": 64,
+    "inactive_parameters": "Entropy-column weights have zero input; writer and gate scalar biases are common shifts. Typed singleton within-branch writer scores have zero output effect",
+    "initialization": "Same constructor draws in both modes; copy full new-model state before fitting. No old-checkpoint identity claim",
+    "input_dim": 384,
+    "lexical_fields": [
+      "user_match",
+      "system_match",
+      "unique_longest_user",
+      "unique_longest_system",
+      "literal_current",
+      "literal_previous",
+      "is_none",
+      "is_dontcare",
+      "affirmative_cue_for_true",
+      "negative_cue_for_false"
+    ],
+    "mode": "typed",
+    "normalization": "log_softmax(g)_branch + within_branch_log_softmax(z)_c",
+    "output_validation": "Finite supported log probabilities; -inf off support; raw exponentiated output sums within2e-6, without floor or renormalization",
+    "padding_type": -1,
+    "parameter_count_scope": "Registered counts only, not equal effective capacity or gradient paths; same tensors and all shared score computation in both modes",
+    "parameters": 173506,
+    "parent_source_sha256": "2141d8f24f973bdad51f98f3963990ccf7f932b50b0777ac87628db434771982",
+    "pooling": "Mean uses supplied cached normalized vector without renormalizing; token modes L2-normalize weighted raw token sum, eps1e-12",
+    "previous_value": "Caller-supplied correct previous one-hot, supported and exact 0/1; privileged in training and evaluation",
+    "projection_dim": 64,
+    "schema_pair": "[query;candidate]",
+    "scope": "Public candidate ontology types and privileged previous value; no current target or transition labels, no recurrence, no calibration claim",
+    "shared_scorer_parameters": 99778,
+    "softmax_shift_parameters": 2,
+    "version": "dialogue-typed-observation-v1",
+    "writer": "head Linear(hidden_dim,1); V2 writer feature order, no departure row",
+    "zero_input_parameters": 64
+  },
+  "counts": {
+    "backward_attempted": 2300,
+    "backward_returned": 2300,
+    "evaluation_rows": 13599,
+    "forward_attempted": 2354,
+    "forward_returned": 2354,
+    "optimizer_attempted": 2300,
+    "optimizer_returned": 2300,
+    "training_rows": 584220
+  },
+  "evaluation": {
+    "normalization": {
+      "batches": 54,
+      "masked_candidates": 56553,
+      "max_abs_mass_error": 2.1379037207225338e-07,
+      "max_supported_log_prob": 0.0,
+      "min_supported_log_prob": -33.51608657836914,
+      "rows": 13599,
+      "supported_candidates": 78188
+    },
+    "wall_seconds": 0.592059750109911,
+    "work": {
+      "attention_query_positions": 134741,
+      "attention_score_positions": 8951365,
+      "boolean_input_bytes": 1041220,
+      "candidate_type_input_bytes": 1077928,
+      "float_input_bytes": 1629756504,
+      "float_input_scalars": 407439126,
+      "padded_candidate_positions": 134741,
+      "padded_token_positions": 906479,
+      "rows": 13599,
+      "scorer_positions": 134741,
+      "supported_candidate_positions": 78188,
+      "supported_token_positions": 424474,
+      "token_key_positions": 906479
+    }
+  },
+  "files": {
+    "predictions.npz": {
+      "bytes": 331706,
+      "sha256": "26425b54c6260ff19692a75d1a5b4bd0a7fc68050bbc28ac17e8d372f262b71c"
+    },
+    "updates.jsonl": {
+      "bytes": 5888806,
+      "sha256": "9cfed18b3eb36e5fa9776c35bca2c6b6e27fbc36f07c8725045d5d46642dc5cb"
+    },
+    "weights.pt": {
+      "bytes": 698809,
+      "sha256": "9dbfdc485f994dc1dc1dcb204c9c8252f29d95f4148f266226f555bfa664fa2a"
+    }
+  },
+  "initial_state_sha256": "1dc5002041babaa05218d4e8cced97ee0e027f9ffbdfd0be58d82f3d3589d22d",
+  "method": "typed_balanced",
+  "orders_sha256": "c170f37ed85ad176bfad4419ede3270c129bb0bc0714f8e3ac86a64df07f5a6a",
+  "plan_sha256": "1558d64b88b981d625ae1b4d001bb46b0c2984d6e5dd78a7e595f35981772c07",
+  "seed": 6103,
+  "status": "completed",
+  "training_normalization": {
+    "batches": 2300,
+    "masked_candidates": 3532705,
+    "max_abs_mass_error": 2.948263500002213e-07,
+    "max_supported_log_prob": 0.0,
+    "min_supported_log_prob": -39.09906768798828,
+    "rows": 584220,
+    "supported_candidates": 3477180
+  },
+  "training_wall_seconds": 45.225050249835476,
+  "training_work": {
+    "attention_query_positions": 7009885,
+    "attention_score_positions": 536731481,
+    "boolean_input_bytes": 51741783,
+    "candidate_type_input_bytes": 56079080,
+    "float_input_bytes": 80860103140,
+    "float_input_scalars": 20215025785,
+    "padded_candidate_positions": 7009885,
+    "padded_token_positions": 44731898,
+    "rows": 584220,
+    "scorer_positions": 7009885,
+    "supported_candidate_positions": 3477180,
+    "supported_token_positions": 18557620,
+    "token_key_positions": 44731898
+  },
+  "wall_seconds": 45.82240812503733
+}
