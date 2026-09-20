@@ -118,4 +118,6 @@ sequence has not established an architecture, biological-learning or
 recurrent-world-model advantage. Another small execution rewrite is not
 justified by the remaining cell alone. A future scientific experiment should
 address the unresolved observation-versus-transition question with a distinct
-prospective design.
+prospective design. The [conditional observation proposal](dialogue-conditional-observation-design.md)
+compares evidence extraction with a supplied correct previous value; it is a
+diagnostic design only, with no new training or performance result.
