@@ -1,0 +1,35 @@
+{
+  "source_sha256": {
+    "scripts/diagnose_dialogue_typed.py": "5c9b2c47520cbb7b3cc1a5601ceb2611668f4bc340e5a27664083d4fc4bb882a",
+    "tests/test_diagnose_dialogue_typed.py": "85a0348480882e942e7d8368e8236840d2979e215c94a0730226d53be47a1e1f",
+    "research/dialogue-typed-decomposition-protocol.md": "4f3824ff6265d51bac06ca2006bce1da421fcdee468ba114f9307dfc088155df"
+  },
+  "checks": [
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_diagnose_dialogue_typed.py"
+      ],
+      "exit_code": 0,
+      "output": "output/dialogue-typed-decomposition-v1/preflight-01/check-0.txt",
+      "sha256": "bef8623b25b25ab880ba85efeef2d92c7d65627f885fe3b9c983593ce2c4795b"
+    },
+    {
+      "command": [
+        ".venv/bin/ruff",
+        "check",
+        "scripts/diagnose_dialogue_typed.py",
+        "tests/test_diagnose_dialogue_typed.py"
+      ],
+      "exit_code": 0,
+      "output": "output/dialogue-typed-decomposition-v1/preflight-01/check-1.txt",
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    }
+  ],
+  "wall_seconds": 0.2495303328614682,
+  "real_predictions_read": false,
+  "previous_synthetic_checks": "5 passed initially; 6 passed after failure-preservation test; lint findings corrected before this captured final preflight"
+}
