@@ -4,6 +4,8 @@ Completed studies, including failures and controls. A passing implementation che
 
 ## Complete experiment list
 
+- [Sharing state-weight columns within each dialogue forward](dialogue-token-shared-columns-results.md): all sixteen numerical comparisons and **15/16** speed requirements pass. Minimum cells all pass, but medium candidate/scalar reaches **1.088x**, below its 1.10x threshold. The single 160-update qualification fails admission. No training restart. [All paired timings](../output/dialogue-token-shared-columns-v1/figure-01/timing.png).
+
 - [Computing only required schema-fill rows](dialogue-token-required-fill-results.md): all sixteen numerical comparisons and **15/16** speed requirements pass. All twelve larger cells meet 1.10x; minimum candidate/readout remains below its floor at **0.845x**. Overall qualification fails despite removing all seven unused fill rows in that layout. No training admission. [All paired timings](../output/dialogue-token-required-fill-v1/figure-01/timing.png).
 
 - [Consolidating supported dialogue evidence before projection](dialogue-token-consolidation-results.md): all sixteen numerical comparisons and **15/16** speed requirements pass. All twelve larger cells meet 1.10x, including **1.61-1.87x** on the fixed real-mask layout. Minimum candidate/readout reaches **0.897x**, below its 0.90 floor, so overall qualification fails. No training admission. [All paired timings](../output/dialogue-token-consolidation-v1/figure-02/timing.png).

@@ -1,10 +1,12 @@
 # Conditional cost coverage over the closed training ledger
 
-Status: prospective design only. The shared-state-columns sixteen-cell timing
-screen is frozen but remains unlaunched while another CPU training job is
-active. This proposal becomes eligible only if that screen completes and passes
-every unchanged requirement. It neither replaces that screen nor authorizes
-timing, fixture extraction, new training, a retry or a cap extension.
+Status: prospective design only, **eligibility not met**. The
+[shared-state-columns screen](dialogue-token-shared-columns-results.md) completed
+and failed its unchanged requirement: medium candidate/scalar reached 1.088323x
+against 1.10x. This conditional proposal does not proceed. No metadata export,
+fixture selection, additional timing, new training, retry or cap extension has
+been executed under it. The design below is retained as a conditional proposal,
+not a way to replace the failed screen.
 
 Earlier training and implementation qualifications remain closed. The purpose
 of a later check would be to cover more of the recorded public workload before

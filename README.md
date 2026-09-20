@@ -66,7 +66,7 @@ Open **http://127.0.0.1:8000**. Local text scoring uses Qwen3-4B; the free brows
 
 ## Research results
 
-- [Shared-token dialogue experiment](research/dialogue-token-results.md): training stopped at **7/12 fits**. The [latest completed cost check](research/dialogue-token-required-fill-results.md) passed **15/16 timing requirements**; overall admission failed. [Shared state columns](research/dialogue-token-shared-columns-status.md) now pass **113 focused tests**; the frozen timing run awaits an idle CPU. No new speed or accuracy result.
+- [Shared-token dialogue experiment](research/dialogue-token-results.md): training stopped at **7/12 fits**. The [shared-columns cost check](research/dialogue-token-shared-columns-results.md) passes all 16 numerical checks and **15/16 timing requirements**. One case reaches **1.088x**, below the fixed 1.10x requirement, so training remains closed. No new accuracy result.
 - [Candidate-conditioned encoding cost screen](research/dialogue-joint-capacity-results.md): the 512-text probe completed, but **20.91 minutes projected** exceeded the fixed 12-minute threshold. Full encoding and training did not run. The next proposal reuses dialogue token features across candidates.
 - [Corrected candidate text memory](research/dialogue-copy-v2-results.md): **15 fresh fits** pass internal probability checks, but selective memory still fails its rule (**7/13**). Unseen-service macro accuracy is **72.89%**, versus **72.58%** for simpler scalar memory and **65.76%** for literal copying. The correction establishes numerical validity, not an architecture advantage. [What selective retention changes](research/dialogue-selective-one-step-analysis.md).
 - [Earlier recurrent text memory](research/dialogue-memory-results.md): 21 fits; the proposed memory lost to literal copying on unseen services.
@@ -76,7 +76,7 @@ Open **http://127.0.0.1:8000**. Local text scoring uses Qwen3-4B; the free brows
 - [Robot dynamics screen](research/drive-qualification-results.md): 252 episodes; classical calibration leaves too little benefit from exact parameters to justify neural training here.
 - [All experiments and visualizations](research/experiment-index.md): complete results, including negative findings, training receipts and paper sources.
 
-[![All sixteen required-fill timing cells, including the failed small workload](output/dialogue-token-required-fill-v1/figure-01/timing.png)](research/dialogue-token-required-fill-results.md)
+[![All sixteen shared-columns timing cells, including the failed medium workload](output/dialogue-token-shared-columns-v1/figure-01/timing.png)](research/dialogue-token-shared-columns-results.md)
 
 Candidate scores are uncalibrated and relative to the supplied choices. These experiments use different models and protocols. The root MIT license applies except where component notices specify other terms, including GPL-3.0-only chess research files. Third-party data and model licenses apply separately.
 

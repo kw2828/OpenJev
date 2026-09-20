@@ -1,8 +1,10 @@
 # Prospective execution control: share state columns within each forward
 
-Status: source-only design. No implementation, tests, model calls, new timing
-or training admission. The required-fill qualification and all earlier
-qualification and incomplete training attempts remain closed.
+Status: original prospective design, retained below. The subsequent
+[single qualification](dialogue-token-shared-columns-results.md) completed and
+failed its fixed speed rule. The implementation and all earlier qualification
+and incomplete training attempts remain closed to further execution under
+their existing protocols.
 
 The [required-fill completion](../output/dialogue-token-required-fill-v1/qualification-01/completed.json)
 has SHA256 `465e6ec7a6326c063582262529522f7ef66d0449327363fc3e7ce9def46b3665`.
@@ -119,8 +121,10 @@ evidence. A pass would support bounded implementation admission only.
 
 ## Implementation follow-up
 
-The [shared-column implementation and status](dialogue-token-shared-columns-status.md)
-now record 113 passing focused tests and a published 71-source qualification
-freeze. The timed attempt has not started because another independent training
-job is using the host. The design above is the original prospective rationale;
-there is still no measured speed effect or training admission.
+The [completed shared-column comparison](dialogue-token-shared-columns-results.md)
+followed 113 passing focused tests and a published 71-source freeze. All sixteen
+numerical checks and fifteen speed requirements passed. Medium candidate/scalar
+reached 1.088323x, below 1.10x, so overall admission failed. The design above is
+the original prospective rationale. Timing compares against the original model,
+not directly against required fill; it does not isolate the incremental benefit
+of sharing columns. No full training was admitted.
