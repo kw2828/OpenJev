@@ -58,6 +58,10 @@ full-run time guarantee; the full run retains its hard two-hour cap.
 No labels were accessed, no quality-bearing outputs were retained, and no
 accuracy claim follows. [Pilot receipt](../output/dialogue-qwen-observation-v1/pilot-01/completed.json),
 SHA256 `3b8bcf6a4e1fb27322e6260e4cdc10b0514b9db72c98760e5a7d04284137f54d`.
+The [independent pilot audit](../output/dialogue-qwen-observation-v1/pilot-audit-01/receipt.json)
+agrees on all selected requests, work totals, payload hashes and the exact
+6,316-second projection. Finite logits, timing and memory are authenticated
+execution witnesses, with no replayed model calls.
 
 The saved-output reporter is independently source-reviewed and passes
 [30 focused synthetic checks](../output/dialogue-qwen-observation-v1/report-preflight-02/receipt.json).
