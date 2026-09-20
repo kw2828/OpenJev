@@ -140,6 +140,12 @@ context controls. A reset-adapter gain alone would not demonstrate a benefit
 from carrying delta state. This is a conditional research direction; no new efficacy
 claim or numerical run follows from this source review.
 
+The later [memory decision note](dialogue-memory-next-decision.md) narrows the
+next question further: a learned carried state must beat an explicit
+proposal/commitment ledger on autonomous streams before adding an adapter or
+connectome. The current gold-previous observation task cannot establish that
+contribution.
+
 ## A separate benchmark lead
 
 [StateMemBench](https://arxiv.org/html/2608.19652v1) separates current, superseded
