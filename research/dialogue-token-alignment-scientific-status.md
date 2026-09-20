@@ -55,3 +55,12 @@ Frozen plan SHA256:
 This page records the launch, not successful completion. The final execution,
 report and independent audit receipts will determine the outcome. No new
 accuracy, calibration, biological-wiring or architectural-novelty claim is made.
+
+## Research reviewed during training
+
+These source-only reviews do not change the current experiment or use its
+partial predictions:
+
+- [Queryable beliefs and the decision after this comparison](queryable-belief-prior-art.md)
+- [Gated delta, TTT, Titans, Mamba-3 and DeltaProduct](dialogue-recurrent-prior-art-review.md)
+- [Stronger autonomous-memory controls and fresh-evaluation requirements](dialogue-recurrent-evidence-review.md)
