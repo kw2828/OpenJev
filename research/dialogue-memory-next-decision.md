@@ -5,6 +5,10 @@ still running; no predictions from that run were inspected for this note.
 This is a conditional research decision, not a frozen protocol or an admitted
 training run.
 
+The subsequent [primary-source prior-art review](dialogue-commitment-prior-art.md)
+finds direct precedents in TripPy and SOM-DST. Separate proposal memory, carry
+operations and update-before-value decisions are not novel by themselves.
+
 The current observation comparisons supply the correct previous value. They
 test interpretation and retention of known state, so an improvement cannot
 establish autonomous memory. Adding a recurrent adapter or biological wiring
@@ -33,6 +37,12 @@ the observation features, candidate interface, supervision and objective;
 count ingestion, retained storage and decision computation for every method.
 Role features alone are not a new mechanism because earlier models already
 received them.
+
+An unrestricted two-register control must also match storage and observation
+inputs to distinguish the proposed write rule from extra capacity. The explicit
+ledger's proposal extractor must use the same public text and paid observation
+computation, not annotated system acts. Carry and clear are distinct operations;
+an unmentioned-state candidate must not silently become a no-update instruction.
 
 Every method must maintain its own predicted state over the complete public
 stream, including unscored turns. Do not inject correct previous values or reset
