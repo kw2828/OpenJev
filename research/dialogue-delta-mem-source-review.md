@@ -1,9 +1,10 @@
 # A pretrained recurrent control for the Qwen observation baseline
 
-Source review, 20 September 2026. The live Qwen comparison remains unchanged.
-This review read public papers, source and configuration metadata only. It did
-not download weights, import upstream code, run a model or inspect the live
-experiment's predictions.
+Source and checkpoint review, 20 September 2026. The live Qwen comparison remains
+unchanged. The initial phase read public papers, source and configuration only.
+A subsequent bounded inspection downloaded the pinned adapter once and read its
+tensor metadata on the meta device. Neither phase imported upstream code, built
+or ran a model, or inspected the live experiment's predictions.
 
 **Delta-mem is a useful missing control, not a new OpenJev architecture.** Our
 [earlier comparison](dialogue-memory-results.md) tested small recurrent heads
@@ -26,9 +27,9 @@ and must not be attributed to this released TSW adapter.
 
 - Official code commit: `5cd5d9153c7f408764728d953565201e198c39e2`.
 - Adapter revision: `c46dc31155608e412d44bf56638d5a6f856f2e7e`.
-- Published weight metadata: 11,017,893 bytes, SHA256
+- Locally verified weight file: 11,017,893 bytes, SHA256
   `a7c346c0166698070cc32dbe3bf2e7450c7b9aae86667f28b64d2d020ed039ec`.
-  This is upstream metadata, not a locally verified weight digest.
+  The subsequent download matches the upstream size and digest.
 - [Retrieved configuration and source descriptors](../output/dialogue-delta-mem-review-v1/source-01/receipt.json).
   Source snapshots stay local; descriptors identify the exact upstream URLs and
   retrieved hashes. Configuration and file-list metadata are included.
@@ -50,6 +51,40 @@ The [repository](https://github.com/declare-lab/delta-Mem) recommends CUDA/PyTor
 Its public tree contains no detected license file and GitHub reports no license;
 the adapter card declares CC BY 4.0. We have not copied its implementation into
 OpenJev or established an executable Apple Silicon adapter.
+
+## Checkpoint dimensions match, numerical compatibility remains untested
+
+The [bounded inspection receipt](../output/dialogue-delta-mem-review-v1/weights-inspection-01/receipt.json)
+records one download and one `torch.load(map_location="meta", weights_only=True)`
+in **2.36 seconds**, under a prospective 60-second limit. No tensor values were
+evaluated. The downloaded checkpoint stays local; the published receipt includes
+its official pinned URL through `started.json`, size and verified digest.
+
+The [shape comparison](../output/dialogue-delta-mem-review-v1/shape-check-01.json)
+matches all **324 tensor names and shapes** against the pinned source and our
+cached Qwen configuration. Every stored tensor is bfloat16. The adapter contains
+**5,456,160 stored scalars**, including inactive key/value corrections; its
+released query/output configuration activates **4,866,336 scalars in 252 tensors**.
+
+There is one **8 by 8 recurrent matrix per layer**, across 36 layers: 2,304 state
+scalars per stream, or 4,608 bytes if stored in bfloat16. This excludes the base
+model, adapter weights, KV cache and runtime workspace.
+
+The source establishes several requirements for a future port:
+
+- Apply the 4,096-wide query correction before query normalization and RoPE, and
+  the 2,560-wide output correction after the attention output projection.
+- Preserve pre-write reads and the released row-wise update
+  `S_next = diag(lambda) S - diag(beta) (S k) k^T + diag(beta) v k^T`,
+  with `lambda = 1 - beta`.
+- Use correction scale `alpha / rank = 2`. The configuration's
+  `online_gain = 0.05` governs initialization, not an extra inference multiplier.
+- Preserve the quantized base projections and distinguish token-validity masks
+  from causal attention masks, including padding, offsets and dialogue resets.
+
+The installed MLX Qwen implementation has matching mathematical insertion
+points. This is static structural agreement only: no numerical parity, memory
+measurement, speed result or task-quality improvement has been established.
 
 ## What comparison would answer a new question
 
