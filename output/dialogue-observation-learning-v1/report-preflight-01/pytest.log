@@ -1,0 +1,30 @@
+F.........................                                               [100%]
+=================================== FAILURES ===================================
+_____________ test_complete_synthetic_saved_controller_and_report ______________
+
+study = namespace(args=namespace(run=PosixPath('/private/var/folders/57/43njbt192fgcplwy_cxy07ch0000gn/T/pytest-of-kevinwu/pyt...e/var/folders/57/43njbt192fgcplwy_cxy07ch0000gn/T/pytest-of-kevinwu/pytest-1471/test_complete_synthetic_saved_0/repo'))
+
+    def test_complete_synthetic_saved_controller_and_report(study):
+>       receipt = r.execute(study.args)
+                  ^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_report_dialogue_observation.py:188: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+scripts/report_dialogue_observation.py:579: in execute
+    bind(plan["source_sha256"])
+scripts/report_dialogue_observation.py:134: in bind
+    require(digest(pin) and sha(root / name) == pin, "Bound source/input changed: " + name)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ok = False
+message = 'Bound source/input changed: scripts/report_dialogue_observation.py'
+
+    def require(ok, message):
+        if not ok:
+>           raise ValueError(message)
+E           ValueError: Bound source/input changed: scripts/report_dialogue_observation.py
+
+scripts/report_dialogue_observation.py:68: ValueError
+=========================== short test summary info ============================
+FAILED tests/test_report_dialogue_observation.py::test_complete_synthetic_saved_controller_and_report
+1 failed, 25 passed in 0.93s

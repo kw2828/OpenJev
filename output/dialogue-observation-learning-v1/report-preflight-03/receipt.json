@@ -1,0 +1,45 @@
+{
+  "after": {
+    "scripts/report_dialogue_observation.py": "36847018d165a3d41ab606bdfc2d93a5743eede011f32e591d873912ca4ad7a8",
+    "tests/test_report_dialogue_observation.py": "7ac275107b84204a2a08bfe1173337bacc5a94afd066be48038efe8936b6b1d3"
+  },
+  "before": {
+    "scripts/report_dialogue_observation.py": "36847018d165a3d41ab606bdfc2d93a5743eede011f32e591d873912ca4ad7a8",
+    "tests/test_report_dialogue_observation.py": "7ac275107b84204a2a08bfe1173337bacc5a94afd066be48038efe8936b6b1d3"
+  },
+  "change": "Parent prospectively sets reporter CAPS to300s/4GiB/256MiB before any real scoring; only CAPS assignment changed; study/gates unchanged",
+  "preceding_receipt_sha256": "65d4939580e96886f276da651b9d558434d5b11b94f33d0633de771384aa23e5",
+  "runs": [
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_report_dialogue_observation.py::test_complete_synthetic_saved_controller_and_report"
+      ],
+      "exit_code": 0,
+      "log_sha256": "016a4093788648644b08006f7d1d171ca7639313677f5aa929f004d4a3e52465",
+      "name": "pytest",
+      "wall_seconds": 0.37646508403122425
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "ruff",
+        "check",
+        "scripts/report_dialogue_observation.py",
+        "tests/test_report_dialogue_observation.py"
+      ],
+      "exit_code": 0,
+      "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "name": "ruff",
+      "wall_seconds": 0.0480101250577718
+    }
+  ],
+  "scope": "Synthetic successful saved-report fixture only; no official data, models or tokenizers",
+  "status": "passed",
+  "synthetic_only": true,
+  "wall_seconds": 0.42462712503038347
+}
