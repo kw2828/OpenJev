@@ -98,17 +98,28 @@ it does not permit a replacement seed, resume or cap extension.
 
 The scientific worker started on September 20, 2026 after the frozen plan was
 published in `b5d57a9`. Session **90741**, process group **14919**, is running
-with one CPU thread and MPS. The first fit, **frozen_original-6901**, completed
-in **915.03 seconds** and the second fit started. It recorded all **1,280
-optimizer updates, 40,340 training dialogue visits and 62,329 final development
-predictions**. Its recorded operation totals match the frozen plan, and its
-encoder remained unchanged. This establishes execution only. No fit has been
-selected or scored for task quality; the twelve-fit study remains incomplete.
+with one CPU thread and MPS. **Both frozen-encoder controls for seed 6901 have
+completed**, and `trainable_original-6901` is running. Each completed fit recorded
+all **1,280 optimizer updates, 40,340 training dialogue visits and 62,329 final
+development predictions**. Their recorded operation totals match the frozen
+plan, and both encoders remained unchanged. The first trainable fit's initial
+update recorded nonzero embedding and attention gradients. This establishes
+execution only. No fit has been selected or scored for task quality; the
+twelve-fit study remains incomplete.
+
+| Completed fit | Total recorded seconds | Final DEV predictions |
+| --- | ---: | ---: |
+| frozen_original-6901 | 915.03 | 62,329 |
+| frozen_numbers-6901 | 924.56 | 62,329 |
 
 [First-fit completion](../output/dialogue-observation-learning-v1/scientific-run-01/frozen_original-6901/completed.json)
 has SHA-256 `737309a4092aed7f5a2f4d43d17f106103dbca849eac22bcd36d001bf66f2e61`.
-The [progress snapshot](../output/dialogue-observation-learning-v1/scientific-progress-01.json)
-records the live process check separately from final scientific validity.
+The [second-fit completion](../output/dialogue-observation-learning-v1/scientific-run-01/frozen_numbers-6901/completed.json)
+has SHA-256 `d591f17465ddd6df7a9ff6970dfbd33bc85b66abe26b79450ca1be6fc695ed14`.
+The [current progress snapshot](../output/dialogue-observation-learning-v1/scientific-progress-02.json)
+records the live process and initial gradient witnesses separately from final
+scientific validity. The [first snapshot](../output/dialogue-observation-learning-v1/scientific-progress-01.json)
+is retained.
 
 - [Actual supervisor launch](../output/dialogue-observation-learning-v1/scientific-process-01.launch.json):
   `87034aabfbf9862a54b34076d37794a1578b9ad254580b13bf742fa43952b1fd`.
@@ -117,6 +128,10 @@ records the live process check separately from final scientific validity.
 
 The shared compute slot was released before startup. Other explicitly recorded
 CPU-only work may overlap; it cannot support clean standalone latency claims.
+The separately owned BLACKOUT [brief qualification](../output/dialogue-observation-learning-v1/external-overlap-01.json)
+and [learning-study startup](../output/dialogue-observation-learning-v1/external-overlap-02-start.json)
+are recorded as owner-reported CPU-only work, with independent process-group
+liveness checks. No partial quality results from that study were opened.
 All training journals, partial outputs and terminal evidence will be preserved.
 Scoring waits for the entire twelve-fit attempt and its actual terminal state.
 
