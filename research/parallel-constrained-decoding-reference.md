@@ -38,7 +38,7 @@ In the MLX overlapping-token branch, the engine greedily generates up to four
 tokens, heuristically matches a candidate and falls back to the first choice
 if matching fails. It then clamps the selected confidence to at least .75 and
 spreads the remaining mass uniformly over other choices. Those values are not
-empirically calibrated probabilities. The same return object reports zero
+shown to be empirically calibrated probabilities. The same return object reports zero
 generated tokens and one sequential forward pass even when that branch makes
 additional model calls.
 
@@ -79,7 +79,14 @@ counts, two context lengths, three candidate counts and three requests per cell,
 with five paired warm repetitions. Freeze those requests before timing. This
 does not replace a labeled accuracy or calibration evaluation.
 
-This is a proposed systems experiment, not an implemented optimization. Decoder
-KV reuse does not transfer directly to our separate bidirectional text student.
-It supplies an inference baseline for OpenJev; it provides no evidence about
-connectome wiring, JEPA objectives, recurrent world models or a new RL method.
+Follow-up: the [shared-prefix experiment is now complete](shared-prefix-results.md).
+It measured a **2.08x median paired speedup** for four-question synthetic requests
+against OpenJev's serial scorer. Single-question caching was slower. All selected
+IDs were preserved, but the questions had unusually high margins, so this does
+not establish accuracy or calibration on difficult inputs. The production
+scorer remains unchanged. This result does not reproduce the upstream comparison
+against autoregressive JSON generation.
+
+Decoder KV reuse does not transfer directly to our separate bidirectional text
+student. It supplies an inference baseline for OpenJev; it provides no evidence
+about connectome wiring, JEPA objectives, recurrent world models or a new RL method.

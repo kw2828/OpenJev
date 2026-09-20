@@ -4,6 +4,8 @@ Completed studies, including failures and controls. A passing implementation che
 
 ## Complete experiment list
 
+- [Conditional decision error diagnosis](dialogue-conditional-error-results.md): a saved-output analysis finds that all nine fits choose the previous NOT_MENTIONED value on every unseen TRUE update. The small favorable mean NLL difference comes from TRUE/DONTCARE probability changes despite incorrect choices, offset by an ordinary-value regression. No new training or change to the failed study.
+
 - [Conditional observation with the correct previous value](dialogue-conditional-results.md): all **9 fits** and **30,240 updates** complete in **489.08 seconds**. Candidate attention improves unseen-change NLL in two seeds and worsens in one, failing the fixed consistency rule despite a 1.07% favorable mean. Unseen-change accuracy is **68.64%**, versus **69.74%** for slot attention; mean pooling has the lowest average NLL. Independent audit verifies all metrics and costs. No memory or architecture advantage. [Figure](../output/dialogue-conditional-v1/figure-01/comparison.png).
 
 - [Sharing state-weight columns within each dialogue forward](dialogue-token-shared-columns-results.md): all sixteen numerical comparisons and **15/16** speed requirements pass. Minimum cells all pass, but medium candidate/scalar reaches **1.088x**, below its 1.10x threshold. The single 160-update qualification fails admission. No training restart. [All paired timings](../output/dialogue-token-shared-columns-v1/figure-01/timing.png).

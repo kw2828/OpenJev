@@ -4,6 +4,11 @@ All **nine fits completed**, and the independent saved-output audit found no dis
 
 The diagnostic supplies the **correct previous categorical value** to every model. It measures conditional interpretation of the current observation, not autonomous memory, recurrent rollout, calibration or a novel architecture. Development data were already exposed; official test remains untouched.
 
+The subsequent [saved-output error diagnosis](dialogue-conditional-error-results.md)
+finds that every model chooses the previous NOT_MENTIONED value on all 31 unseen
+TRUE updates. It separates that error pattern from ordinary-value regressions;
+the original failed result is unchanged.
+
 ![All nine conditional-observation fits, including the failed primary comparison](../output/dialogue-conditional-v1/figure-01/comparison.png)
 
 ## Primary result
