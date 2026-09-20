@@ -1,0 +1,42 @@
+{
+  "commands": [
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "tests/test_dialogue_history_support.py",
+        "tests/test_audit_dialogue_history_support.py",
+        "-q"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": ".............................................                            [100%]\n45 passed in 0.22s\n",
+      "wall_seconds": 0.3883160420227796
+    },
+    {
+      "command": [
+        ".venv/bin/ruff",
+        "check",
+        "src/openjev/research/dialogue_history_support.py",
+        "scripts/audit_dialogue_history_support.py",
+        "tests/test_dialogue_history_support.py",
+        "tests/test_audit_dialogue_history_support.py"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "All checks passed!\n",
+      "wall_seconds": 0.039773124968633056
+    }
+  ],
+  "model_calls": 0,
+  "scope": "Synthetic implementation qualification only; no corpus/model results",
+  "source_sha256": {
+    "research/dialogue-history-support-protocol.md": "5574c2e4edc21b8b7ce0b13447f1f66443bf448157fff0e28736fd210b0925e6",
+    "scripts/audit_dialogue_history_support.py": "56c96eb2b74651d852343ec1b89444368471d6c78cf4ff7421958b80aa428779",
+    "src/openjev/research/dialogue_history_support.py": "f9f7146815734b36e295fd1366bb0d36fc001a28fc4867b7d4de13db989cce11",
+    "tests/test_audit_dialogue_history_support.py": "b0ed559b916a5352f461a59efa8b1db9a465dba06c09241522c6ac1b5f494f06",
+    "tests/test_dialogue_history_support.py": "477bb4cb733bdbf806eb09dc2f77b570b625af28894afee805dab37e98fc1048"
+  },
+  "status": "passed"
+}
