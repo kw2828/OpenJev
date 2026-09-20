@@ -6,6 +6,12 @@ design, not a frozen training protocol or an admitted run. The completed
 the proposed delayed-proposal mechanism on this cohort. It points back to
 interpretation of public text and caller-supplied values.
 
+The subsequent [implementation qualification](dialogue-finetune-qualification-results.md)
+has now passed all six real-checkpoint workload/arm cells. This establishes the
+cross-device gradient path and bounded measured cost, not task quality or
+automatic admission of the comparison below. The prospective implementation
+notes are retained as the original design.
+
 ## The comparison
 
 Fit fresh instances of the same normalized scalar memory with either a frozen

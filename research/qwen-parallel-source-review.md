@@ -4,6 +4,12 @@ Source inspection, September 18, 2026. The user's diagram describes a useful
 inference optimization, but is not a verified diagram of TypeSafe's internals.
 This review did not run the upstream engine or reproduce its speed claims.
 
+September 20 refresh after the supplied screenshot: the repository revision
+remains unchanged. Live source inspection still finds inference code using
+existing Qwen weights, including the heuristic collision-confidence floor
+described below. The screenshot's latency statement is an author-reported
+comparison, not an independently reproduced OpenJev result.
+
 The [source refresh](../output/parallel-constrained-decoding-review/source-refresh.md)
 also checked the linked Hugging Face Space. Its engine files match this pinned
 repository, while its ZeroGPU A10G environment differs from the reported M4 Max

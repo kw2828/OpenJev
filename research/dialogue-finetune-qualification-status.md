@@ -26,7 +26,28 @@ The reversible token payload remains local; its identity and publication scope
 are documented in the [artifact README](../output/dialogue-finetune-qualification-v1/README.md).
 
 The parent supervisor observed exit **0** and process group **6014** absent in
-**6.499 seconds**, including startup and shutdown. The single model pilot is
-prepared but has not executed. It requires the shared MPS/CPU allocation and
-must complete all six cells within 300 seconds. Preparation success is not
-numerical qualification or an accuracy result.
+**6.499 seconds**, including startup and shutdown. The prepared plan was
+published in `27b0457` before model execution. An independent saved-input audit
+verified the complete local manifest, all 27 source identities, the fixed ranks
+and every selected workload field without importing the producer or executing
+a tokenizer or model. [Audit receipt](../output/dialogue-finetune-qualification-v1/preparation-audit-01.json).
+
+After reserving the shared MPS/CPU1 allocation, the single pilot completed all
+six cells, 18 updates and 72 synthetic-target dialogue visits. The worker
+recorded **8.147 seconds**. Session **99963 exited 0**; the parent supervisor
+recorded **8.471 seconds**, no timeout and process group **6333 absent** at
+termination. The allocation was released immediately afterward. There was no
+retry, changed device, extended budget or scope reduction.
+
+- [Model completion](../output/dialogue-finetune-qualification-v1/pilot-01/completed.json):
+  `a0f91d8f80a6edab85ef5a8e9eff1d989ab53b7605f9fd59a7ee9343f8dd0250`.
+- [Launch](../output/dialogue-finetune-qualification-v1/pilot-process-01.launch.json)
+  and [actual terminal observation](../output/dialogue-finetune-qualification-v1/pilot-process-01.terminal.json).
+- [All six cells, numerical witnesses and timing limitations](dialogue-finetune-qualification-results.md).
+- [Independent saved-only pilot audit](../output/dialogue-finetune-qualification-v1/pilot-audit-01.json):
+  `eed44eaa50d5e95713a45f82c1c8437d8aacf6bda80cc8dc18db623d1eca8584`.
+
+The implementation qualified on the three selected workloads. No official
+targets were used, official TEST remained unopened, and no model weights were
+saved. This does not establish a task-quality or architecture result and does
+not automatically admit a larger training campaign.
