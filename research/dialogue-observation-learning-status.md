@@ -113,6 +113,13 @@ CPU-only work may overlap; it cannot support clean standalone latency claims.
 All training journals, partial outputs and terminal evidence will be preserved.
 Scoring waits for the entire twelve-fit attempt and its actual terminal state.
 
+An [independent saved-results checker](../output/dialogue-observation-learning-v1/result-audit-01/README.md)
+is ready, with nine synthetic tests passed. It independently recomputes the
+primary scores and all seven conditions. The [figure generator](../output/dialogue-observation-learning-v1/figure-01/README.md)
+has also passed synthetic presentation checks. Neither has read actual study
+predictions. Both were prepared without changing the frozen scientific sources.
+Their short CPU-only checks overlapped training and are recorded separately.
+
 Official DEV is exposed development evidence. Official TEST remains sealed.
 An eventual representation-learning gain would strengthen the baseline for a
 later recurrent or connectome comparison, not establish such a contribution.
