@@ -70,8 +70,8 @@ All **56 run files**, including all twelve final weights, distributions, update 
 
 ## Next question
 
-Neither the output factorization nor extra rare-category weighting solves the decision errors. The next bounded probe should decompose the saved loss into the correct branch's loss and the correct value's conditional loss within that branch. Use all twelve fits and unchanged rows, with paired correct-to-wrong and wrong-to-correct decision counts. This can explain whether lower NLL comes from assigning less extreme probabilities to wrong branch choices or from improved value discrimination. It requires no new inference or fitting and cannot establish a causal representation change between separately trained models.
+The [saved branch/value decomposition](dialogue-typed-decomposition-results.md) is now complete. Most loss improvement occurs on decisions that remain wrong; the typed-balanced model breaks 176 previously correct choices and repairs 122 across repeated seed-row evaluations. Of the new mistakes, 164 select the wrong branch. The analysis changes no predictions, fitting or continuation decision and does not identify a causal representation change.
 
-If branch selection remains the bottleneck, a later blinded context-sufficiency check can compare the current SYSTEM/USER pair with its preceding public context, preserving the original labels and staying inside exposed training material. Recurrence becomes motivated only where history supplies missing evidence; otherwise strengthen the semantic observation baseline.
+The next [proposed observation-model comparison](dialogue-token-alignment-design.md) tests explicit token alignment against the original flat-stratum scorer and a token-input-matched mean control. A separate context-sufficiency check remains possible if these stronger observation models fail. Recurrence becomes motivated only where history supplies missing evidence.
 
-This is a proposed diagnostic, not an executed result, a changed continuation rule or an ICLR novelty claim.
+The alignment comparison is not executed and is not an ICLR novelty claim. The completed diagnostic does not rescue this failed recipe.

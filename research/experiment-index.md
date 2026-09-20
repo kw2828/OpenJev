@@ -4,6 +4,8 @@ Completed studies, including failures and controls. A passing implementation che
 
 ## Complete experiment list
 
+- [Why typed loss improves while decisions worsen](dialogue-typed-decomposition-results.md): no new fits. Exact saved-probability decomposition shows **176 correct-to-wrong versus 122 wrong-to-correct events**; 164 of the new mistakes choose the wrong branch. The largest favorable loss contribution is among still-wrong rows. Two independent numerical readers agree within their declared scopes. Original **5/9 failure** unchanged. [Figure](../output/dialogue-typed-decomposition-v1/figure-01/typed-decomposition.png) · [Next observation-model design](dialogue-token-alignment-design.md).
+
 - [Typed decisions and rare-category support](dialogue-typed-results.md): **12 fresh fits and 27,600 updates** complete in **551.82 seconds**. Typed-balanced reduces changed equal-service NLL **26.92%**, but changed accuracy falls **50.52% to 47.40%** and retained error rises **2.18% to 3.52%** against flat-balanced. The flat/stratum control reaches **70.88%** changed accuracy. **5/9 requirements pass; the recipe fails.** Independent arithmetic agrees. The original pre-scoring reader failure and its separate correction are preserved. [All-fit figure](../output/dialogue-typed-v1/figure-01/typed-observation.png).
 
 - [Conditional decision error diagnosis](dialogue-conditional-error-results.md): a saved-output analysis finds that all nine fits choose the previous NOT_MENTIONED value on every unseen TRUE update. The small favorable mean NLL difference comes from TRUE/DONTCARE probability changes despite incorrect choices, offset by an ordinary-value regression. No new training or change to the failed study.
