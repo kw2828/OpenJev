@@ -116,3 +116,11 @@ full-update accounting. Retain the **0.90** floor for each minimum cell,
 validation and diagnostics. No selective retiming, retries, cap or gate
 changes. These exposed engineering fixtures do not provide fresh task-quality
 evidence. A pass would support bounded implementation admission only.
+
+## Implementation follow-up
+
+The [shared-column implementation and status](dialogue-token-shared-columns-status.md)
+now record 113 passing focused tests and a published 71-source qualification
+freeze. The timed attempt has not started because another independent training
+job is using the host. The design above is the original prospective rationale;
+there is still no measured speed effect or training admission.
