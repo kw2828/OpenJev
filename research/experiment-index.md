@@ -4,6 +4,8 @@ Completed studies, including failures and controls. A passing implementation che
 
 ## Complete experiment list
 
+- [Mask-packed dialogue pooling](dialogue-token-packing-results.md): all sixteen output/gradient checks pass, but **0/12 larger cells** meets the speed requirement. The fixed 160-update run fails admission, including all four cells with a preselected real training mask. Values and labels remain synthetic. [Every paired timing measurement](../output/dialogue-token-packing-v1/figure-01/timing.png).
+
 - [Time-batched dialogue pooling](dialogue-token-batching-results.md): all twelve output/gradient checks pass, but only **1/8 medium/large cells** meets the speed requirement. The fixed 120-update engineering run fails admission. No training restart. [All paired timing measurements](../output/dialogue-token-batching-v1/figure-01/timing.png).
 
 - [Shared-token dialogue study](dialogue-token-results.md): preparation completed in **17.88 seconds**, with independently verified representations. Training then exceeded its fixed **3,600-second** cap at **7/12 complete fits**, with one partial fit preserved. No task predictions were scored. [Prospective batching qualification](dialogue-token-batching-protocol.md).
