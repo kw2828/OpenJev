@@ -1,0 +1,102 @@
+{
+  "review_id": "history4-02",
+  "packet_sha256": "f270cac1b6dfc85fba5e8a3b906732966bd5369bf3e58af5e0c6caa976db08c9",
+  "cases": [
+    {
+      "case_id": "0d132cd18e89387d026febfb925fa97a77dac5834ad377c706a27d946cd59123",
+      "candidate_id": "c03",
+      "ambiguous": false,
+      "support": "Yes, that's fine",
+      "reason": "The user accepts the immediately proposed kitchen speaker, updating the previous no-preference state.",
+      "state_definition_issue": ""
+    },
+    {
+      "case_id": "15a0b5a221612ca47bb5ad7d243d32a3a06dd4b08001aab80bc31724712aa530",
+      "candidate_id": "c02",
+      "ambiguous": false,
+      "support": "Can you tell me if there is a concert in the NYC area?",
+      "reason": "A request for a concert commits to a music event.",
+      "state_definition_issue": ""
+    },
+    {
+      "case_id": "424cf5b902628d7d005cd1826b4b7d1b38d8a299bb247cfec8ff73f764d1777d",
+      "candidate_id": "c02",
+      "ambiguous": false,
+      "support": "Value: True",
+      "reason": "The supplied previous unisex preference persists because requesting another salon does not retract it.",
+      "state_definition_issue": ""
+    },
+    {
+      "case_id": "4950bfb4dd1d6baa93880f1b30d264ad9d3c78016e9ea8f3c7271a8dd294e51d",
+      "candidate_id": "c02",
+      "ambiguous": false,
+      "support": "a three star hotel with wifi",
+      "reason": "The last turn changes room count and asks for alternatives without removing the wifi requirement.",
+      "state_definition_issue": ""
+    },
+    {
+      "case_id": "546dd850e7c240c3b3f1af420e5918ae2c88fcab29f324210e263245dce13d23",
+      "candidate_id": "c03",
+      "ambiguous": false,
+      "support": "Value: Sports",
+      "reason": "The user confirms the reservation details and does not change the previous Sports event type.",
+      "state_definition_issue": ""
+    },
+    {
+      "case_id": "63a82444906fc90008af0dc314d092089fa8e8227c724130c8cdbf1de814e179",
+      "candidate_id": "c00",
+      "ambiguous": true,
+      "support": "Value: NOT_MENTIONED (no constraint stated)",
+      "reason": "Taking the supplied previous state as authoritative, the final date answer does not update the unisex slot. Earlier approval after learning the salon is unisex could otherwise suggest True.",
+      "state_definition_issue": "Earlier dialogue suggests acceptance of a unisex salon, but the supplied immediately previous state says no constraint; acceptance of a property versus a search constraint is not fully defined."
+    },
+    {
+      "case_id": "64a1caa8232b2260315d8a4ad3df42b728b0fda0372da4a65cb4164571075a16",
+      "candidate_id": "c04",
+      "ambiguous": false,
+      "support": "are there alternative three star hotels with 2 rooms available?",
+      "reason": "The final request explicitly specifies three stars; two refers to rooms.",
+      "state_definition_issue": ""
+    },
+    {
+      "case_id": "78cf9deaa9e3b09ddff7b02eee6a0857b4ea87b8ea1720fc140f5c11ea586fc6",
+      "candidate_id": "c03",
+      "ambiguous": false,
+      "support": "Value: Sports",
+      "reason": "The final bank balance request leaves the previous Sports event preference unchanged.",
+      "state_definition_issue": ""
+    },
+    {
+      "case_id": "7d4d49874bd5911f5b9119531b2e265d28d5869d779076bf40dc41f5e0dd6ce8",
+      "candidate_id": "c02",
+      "ambiguous": false,
+      "support": "That's what I want.",
+      "reason": "The user explicitly confirms the proposed TV playback, updating the previous no-preference state.",
+      "state_definition_issue": ""
+    },
+    {
+      "case_id": "aa94a7fb3b934dc90fb685a1e509efc48af2c5588604723def0cb47faee0f134",
+      "candidate_id": "c02",
+      "ambiguous": false,
+      "support": "I'd like a more unisex salon.",
+      "reason": "The final turn expresses a preference for a unisex salon.",
+      "state_definition_issue": ""
+    },
+    {
+      "case_id": "c1a052798970ea37535818fe74d912a875fccfc50174571fb18b081642aa2a29",
+      "candidate_id": "c00",
+      "ambiguous": true,
+      "support": "Value: NOT_MENTIONED (no constraint stated)",
+      "reason": "The final turn confirms a visit and asks for a phone number, so I preserve the authoritative previous bath state. Confirming the selected property could alternatively be read as accepting its previously stated one bath.",
+      "state_definition_issue": "The task does not fully specify whether accepting a property or visit commits every property attribute as a slot constraint."
+    },
+    {
+      "case_id": "dbeb4c32ced5cc4280658c6b742a7764b467d21d13edc7e4fcc4f29581ec4f8c",
+      "candidate_id": "c02",
+      "ambiguous": false,
+      "support": "I prefer unisex salons.",
+      "reason": "The user explicitly requests a unisex salon despite the proposed salon not being unisex.",
+      "state_definition_issue": ""
+    }
+  ]
+}

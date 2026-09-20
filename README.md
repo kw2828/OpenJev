@@ -76,6 +76,8 @@ Open **http://127.0.0.1:8000**. Local text scoring uses Qwen3-4B; the free brows
 
 Both behavioral comparisons and both probability-score checks fail. The independent audit agrees. Every model receives the correct previous value on exposed development data; this is not an autonomous-memory or new-architecture result. [Full results and every seed](research/dialogue-qwen-observation-results.md).
 
+The [retention diagnosis and blinded Astra6 review](research/dialogue-qwen-retention-results.md) identify state resets and a preference-versus-action ambiguity to test next. They add no new performance claim.
+
 [![Complete Qwen comparison: both history conditions and all historical seeds, with separate accuracy, retention and probability-score failures](output/dialogue-qwen-observation-v1/figure-02/comparison.png)](research/dialogue-qwen-observation-results.md)
 
 - [Earlier text learning experiments](research/dialogue-objective-results.md): matched training objectives and recurrent variants have not established an architecture advantage.

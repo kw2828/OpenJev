@@ -188,6 +188,11 @@ as the cause. It therefore does **not justify porting the result into a learned
 recurrent memory** or claiming a new memory mechanism. All earlier failed
 continuation rules remain unchanged.
 
+The subsequent [saved-output retention diagnosis and blinded Astra6 review](dialogue-qwen-retention-results.md)
+partitions these failures and identifies a preference-versus-action ambiguity
+in two fixed sampled cases. It does not revise this experiment's labels,
+predictions, metrics or failed continuation decisions.
+
 The [question builder](../src/openjev/research/dialogue_qwen_observation.py),
 [inference runner](../scripts/run_dialogue_qwen_observation.py) and
 [reporter](../scripts/report_dialogue_qwen_observation.py) define the exact
