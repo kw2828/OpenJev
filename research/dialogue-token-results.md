@@ -6,6 +6,8 @@ after 653 of 1,280 updates. Four fits never started.** This is an execution
 failure, not a completed accuracy comparison or a measured failure of the
 fourteen task-quality conditions. No task predictions were inspected or scored.
 
+![All twelve planned fits, including preserved partial work and unstarted fits](../output/dialogue-token-v1/stop-figure-01/execution.png)
+
 The [preparation](dialogue-token-preparation-results.md) succeeded: shared
 contextual token vectors for 43,553 unique contexts took **17.88 seconds** and
 2.012 GB of payload. An independent saved-output audit verified all token
