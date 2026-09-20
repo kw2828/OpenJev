@@ -1,0 +1,60 @@
+{
+  "checks": [
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_dialogue_qwen_observation.py",
+        "tests/test_run_dialogue_qwen_observation.py",
+        "tests/test_shared_prefix.py",
+        "--junitxml",
+        "output/dialogue-qwen-observation-v1/preflight-02/tests.xml"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "ruff",
+        "check",
+        "src/openjev/research/dialogue_qwen_observation.py",
+        "scripts/prepare_dialogue_qwen_observation.py",
+        "scripts/run_dialogue_qwen_observation.py",
+        "tests/test_dialogue_qwen_observation.py",
+        "tests/test_run_dialogue_qwen_observation.py"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "files": {
+    "check-0.txt": {
+      "bytes": 99,
+      "sha256": "e8affd17c543d42d73e50255739456b8a400d2b28433e2b0ce1c2b884ac27163"
+    },
+    "check-1.txt": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "tests.xml": {
+      "bytes": 6461,
+      "sha256": "d3606c5e48de73b43cafa1d2bc1aa76bdeec965c2df338c28c529fd7b124df35"
+    }
+  },
+  "scope": "Synthetic CPU math and fake-backend tests only; zero task-model inference or dialogue quality scoring",
+  "source_sha256": {
+    "research/dialogue-qwen-observation-protocol.md": "a0127ad2895b376b0f73adf18a8bb31fada8697b88ba1b50be8945c7a44beb70",
+    "scripts/prepare_dialogue_qwen_observation.py": "e84f08a6258fdb47d3a0d0f7ccc5564760b7b776f5e86cc6f52a31851e07d918",
+    "scripts/run_dialogue_qwen_observation.py": "a84470b6d95feb28685f95510924bcab42b74a62cc6c4c4b84a6916efc71fde3",
+    "src/openjev/research/dialogue_qwen_observation.py": "12956cba68391168d80d896f8e1011548d5a48b5f0b24c42f56e4a2909b606c8",
+    "src/openjev/research/shared_prefix.py": "a34751b6033c0e065965d015e88e11ccd1ee88d0edc9c501d7471ce4f86da19a",
+    "tests/test_dialogue_qwen_observation.py": "f6e7c9aaf452fba6431df6371048d367add37efa3e5eba98d990758f21b8afdc",
+    "tests/test_run_dialogue_qwen_observation.py": "54cec96bed6fcea6b17f8efbce17541fbf90e00f9c7f2487096f9f604152edde",
+    "tests/test_shared_prefix.py": "be2e0f82a6f00a36affb63d57ab47350a9ee1a615b397a8ab8e2cd5ac447ad3a"
+  },
+  "sources_unchanged": true,
+  "status": "passed",
+  "wall_seconds": 3.1836503751110286
+}

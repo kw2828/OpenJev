@@ -1,0 +1,108 @@
+I001 [*] Import block is un-sorted or un-formatted
+  --> scripts/prepare_dialogue_qwen_observation.py:2:1
+   |
+ 1 |   """Freeze complete, target-separated Qwen prompts using local tokenization only."""
+ 2 | / from __future__ import annotations
+ 3 | |
+ 4 | | import argparse
+ 5 | | from collections import Counter, defaultdict
+ 6 | | import hashlib
+ 7 | | import importlib.metadata
+ 8 | | import json
+ 9 | | from pathlib import Path
+10 | | import platform
+11 | | import resource
+12 | | import signal
+13 | | import time
+14 | |
+15 | | import numpy as np
+16 | |
+17 | | from openjev.decisions import LABELS, MAX_TOKENS, MODEL_ID, MODEL_REVISION, messages_for
+18 | | from openjev.research.dialogue_qwen_observation import (ARMS, FEATURES, candidate_type, make_request,
+19 | |                                                        pilot_ids, public_context, question_from_metadata)
+   | |_________________________________________________________________________________________________________^
+20 |
+21 |   ROOT = Path(__file__).resolve().parents[1]
+   |
+help: Organize imports
+   |
+4  | import argparse
+   - from collections import Counter, defaultdict
+5  | import hashlib
+6  | import importlib.metadata
+7  | import json
+   - from pathlib import Path
+8  | import platform
+9  | import resource
+10 | import signal
+11 | import time
+12 + from collections import Counter, defaultdict
+13 + from pathlib import Path
+14 |
+15 | import numpy as np
+16 |
+17 | from openjev.decisions import LABELS, MAX_TOKENS, MODEL_ID, MODEL_REVISION, messages_for
+   - from openjev.research.dialogue_qwen_observation import (ARMS, FEATURES, candidate_type, make_request,
+   -                                                        pilot_ids, public_context, question_from_metadata)
+18 + from openjev.research.dialogue_qwen_observation import (
+19 +     ARMS,
+20 +     FEATURES,
+21 +     candidate_type,
+22 +     make_request,
+23 +     pilot_ids,
+24 +     public_context,
+25 +     question_from_metadata,
+26 + )
+27 |
+   |
+
+BLE001 Do not catch blind exception: `BaseException`
+   --> scripts/prepare_dialogue_qwen_observation.py:227:16
+    |
+225 |             write(out / "failed.json", {"status": "failed", "exception": type(exc).__name__,
+226 |                   "message": str(exc), "wall_seconds": time.monotonic() - started, "model_calls": 0})
+227 |         except BaseException as receipt_error:
+    |                ^^^^^^^^^^^^^
+228 |             if callable(getattr(exc, "add_note", None)):
+229 |                 exc.add_note("Could not preserve terminal receipt: " + repr(receipt_error))
+    |
+
+TRY004 Prefer `TypeError` exception for invalid type
+  --> src/openjev/research/dialogue_qwen_observation.py:55:13
+   |
+53 |         user = turns[i]["utterance"]
+54 |         if not isinstance(system, str) or not isinstance(user, str):
+55 |             raise ValueError("Public text must be strings")
+   |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+56 |         pairs.append({"SYSTEM": system, "USER": user})
+57 |     return json.dumps({"exchanges_oldest_first": pairs}, ensure_ascii=False, sort_keys=True)
+   |
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> tests/test_dialogue_qwen_observation.py:1:1
+  |
+1 | / import copy
+2 | |
+3 | | import pytest
+4 | |
+5 | | from openjev.decisions import messages_for
+6 | | from openjev.research.dialogue_qwen_observation import (candidate_type, make_question, public_context,
+7 | |                                                        pilot_ids, question_from_metadata)
+  | |_________________________________________________________________________________________^
+help: Organize imports
+   |
+5  | from openjev.decisions import messages_for
+   - from openjev.research.dialogue_qwen_observation import (candidate_type, make_question, public_context,
+   -                                                        pilot_ids, question_from_metadata)
+6  + from openjev.research.dialogue_qwen_observation import (
+7  +     candidate_type,
+8  +     make_question,
+9  +     pilot_ids,
+10 +     public_context,
+11 +     question_from_metadata,
+12 + )
+13 |
+   |
+
+Found 4 errors.
+[*] 2 fixable with the `--fix` option.
