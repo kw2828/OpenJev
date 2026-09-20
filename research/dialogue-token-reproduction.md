@@ -4,6 +4,11 @@ The [recorded preparation](dialogue-token-preparation-results.md) passed its
 capacity rule and independent cache audit. The full cache completed in 17.88
 seconds. These cost and representation checks do not establish task quality.
 
+The first [training attempt](dialogue-token-results.md) then hit its fixed
+one-hour cap with seven of twelve fits complete. Preserve that attempt; do not
+resume it or run its full-study reporter on partial outputs. The commands below
+document the frozen recipe, not permission to repeat the failed attempt.
+
 This follows the [prospective protocol](dialogue-token-protocol.md) using the
 existing authenticated local inputs. It is not a tested clean-install recipe.
 Raw dialogue strings, token vectors and individual predictions remain local;

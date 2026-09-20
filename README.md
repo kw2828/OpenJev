@@ -66,6 +66,7 @@ Open **http://127.0.0.1:8000**. Local text scoring uses Qwen3-4B; the free brows
 
 ## Research results
 
+- [Shared-token dialogue experiment](research/dialogue-token-results.md): cache preparation took **17.88 seconds**, but training hit its one-hour limit at **7/12 completed fits**. No accuracy comparison is claimed. A separate engineering check will test faster pooling while preserving recurrent updates.
 - [Candidate-conditioned encoding cost screen](research/dialogue-joint-capacity-results.md): the 512-text probe completed, but **20.91 minutes projected** exceeded the fixed 12-minute threshold. Full encoding and training did not run. The next proposal reuses dialogue token features across candidates.
 - [Corrected candidate text memory](research/dialogue-copy-v2-results.md): **15 fresh fits** pass internal probability checks, but selective memory still fails its rule (**7/13**). Unseen-service macro accuracy is **72.89%**, versus **72.58%** for simpler scalar memory and **65.76%** for literal copying. The correction establishes numerical validity, not an architecture advantage.
 - [Earlier recurrent text memory](research/dialogue-memory-results.md): 21 fits; the proposed memory lost to literal copying on unseen services.
