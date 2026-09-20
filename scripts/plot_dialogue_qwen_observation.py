@@ -178,7 +178,7 @@ def render(summary, data, out, synthetic):
     fig.suptitle(("SYNTHETIC LAYOUT ONLY\n" if synthetic else "")+"Qwen observation baseline with a correct previous value",
                  x=.04, y=.995, ha="left", fontsize=16, fontweight="bold")
     fig.text(.04, .952, "Exposed official TRAIN | 578 changed and 7,241 retained rows per arm | Zoomed metric axes", fontsize=10)
-    fig.text(.04, .927, "\n".join(status), fontsize=9, linespacing=1.5)
+    fig.text(.04, .938, "\n".join(status), fontsize=9, linespacing=1.5, va="top")
     handles = [Line2D([], [], linestyle="none", marker=m, color="#687786", label=f"Historical seed {s}")
                for s, m in zip(SEEDS, ("o", "s", "^"), strict=True)]
     handles.append(Line2D([], [], linestyle="none", marker="|", markersize=15, markeredgewidth=2,

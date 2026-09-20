@@ -66,23 +66,21 @@ Open **http://127.0.0.1:8000**. Local text scoring uses Qwen3-4B; the free brows
 
 ## Research results
 
-- [Matched training objectives](research/dialogue-objective-results.md): **six fits completed in 74.7 minutes; continuation fails at 6/13 checks**. Uniform training reduces retained-value errors **4.82% → 3.95%** versus corrected stratum training, but changed-value accuracy stays near **75.8%**. It does not beat the historical corrected-flat model on overall row accuracy or log loss. The independent audit agrees. All models receive the correct previous value on exposed development data.
-- [Training-weight correction](research/dialogue-weight-prior-results.md): a fixed correction improves overall accuracy in all nine models but misses more real changes. Aligned retention error falls **7.52% → 4.82%** while changed accuracy falls **83.45% → 75.89%**. Corrected flat remains strongest on pooled overall accuracy at **94.66%**. No new training or architecture advantage. [Earlier keep/update diagnostic](research/dialogue-commitment-results.md).
-- [Token alignment comparison](research/dialogue-token-alignment-scientific-results.md): **all nine fits completed in 69.2 minutes**. Changed-value accuracy rises to **83.45%**, versus **78.60%** for matched token means and **71.91%** for the baseline. Retained-value errors increase, overall accuracy falls, and **18/22 checks pass: continuation fails**. The independent audit agrees. This is exposed development data with the correct previous value supplied, not autonomous memory.
-- [Earlier token alignment cost screen](research/dialogue-token-alignment-capacity-results.md): **77.27 minutes projected**, above its fixed **48-minute admission limit**. That screen remains NOT ADMITTED. The separate comparison above allocates two hours before observing quality results.
-- [Typed decisions and rare-category weighting](research/dialogue-typed-results.md): **12 fits completed in 9.2 minutes**. Typed normalization lowers changed-state loss **26.92%**, but accuracy falls **50.52% to 47.40%** and retained-value errors increase. The original flat/stratum control reaches **70.88%** changed accuracy. Only **5/9 checks pass**, so the rule fails. [Error breakdown](research/dialogue-typed-decomposition-results.md): most loss improvement occurs on still-wrong decisions; the change breaks **176** correct predictions and fixes **122** across the three seeds. No architecture advantage established.
-- [Conditional observation](research/dialogue-conditional-results.md): **9/9 fits completed in 8.2 minutes**, but candidate attention fails the consistency rule. Unseen-change NLL improves in two seeds and worsens in one; accuracy falls from **69.74% to 68.64%** versus slot attention. Every model receives the correct previous value, so this is a diagnostic, not autonomous memory. [Error diagnosis](research/dialogue-conditional-error-results.md): all nine models miss every unseen TRUE update by choosing the previous NOT_MENTIONED value.
-- [Shared-token dialogue experiment](research/dialogue-token-results.md): training stopped at **7/12 fits**. The [shared-columns cost check](research/dialogue-token-shared-columns-results.md) passes all 16 numerical checks and **15/16 timing requirements**. One case reaches **1.088x**, below the fixed 1.10x requirement, so training remains closed. No new accuracy result.
-- [Candidate-conditioned encoding cost screen](research/dialogue-joint-capacity-results.md): the 512-text probe completed, but **20.91 minutes projected** exceeded the fixed 12-minute threshold. Full encoding and training did not run. The next proposal reuses dialogue token features across candidates.
-- [Corrected candidate text memory](research/dialogue-copy-v2-results.md): **15 fresh fits** pass internal probability checks, but selective memory still fails its rule (**7/13**). Unseen-service macro accuracy is **72.89%**, versus **72.58%** for simpler scalar memory and **65.76%** for literal copying. The correction establishes numerical validity, not an architecture advantage. [What selective retention changes](research/dialogue-selective-one-step-analysis.md).
-- [Earlier recurrent text memory](research/dialogue-memory-results.md): 21 fits; the proposed memory lost to literal copying on unseen services.
-- [Text inference](research/shared-prefix-results.md): shared-context prototype, **2.08x faster** for four-question workloads. Synthetic speed benchmark; single-question caching is slower.
-- [Biological wiring](docs/chess-connectome.md): the controlled chess study **did not establish a connectome advantage**.
-- [Recurrent robot memory](research/reacher-two-observation-control.md): small improvements over two-observation history, but the stronger continuation rule failed.
-- [Robot dynamics screen](research/drive-qualification-results.md): 252 episodes; classical calibration leaves too little benefit from exact parameters to justify neural training here.
-- [All experiments and visualizations](research/experiment-index.md): complete results, including negative findings, training receipts and paper sources.
+**Latest: more context did not improve the text decision baseline.** All 15,638 decisions completed in 53.8 minutes. Both Qwen arms make substantially more retention errors than our earlier small model, despite recognizing more real changes.
 
-[![Matched objective comparison: all paired seeds and historical references, continuation fails at six of thirteen checks](output/dialogue-objective-v1/figure-01/objective-decisions.png)](research/dialogue-objective-results.md)
+| Model | Changed-value accuracy ↑ | Retained-value error ↓ | Overall accuracy ↑ |
+| --- | ---: | ---: | ---: |
+| Earlier small model, three-seed mean | 58.59% | 2.46% | 94.66% |
+| Qwen, current exchange | 83.74% | 17.40% | 82.68% |
+| Qwen, four exchanges | 82.35% | 21.67% | 78.63% |
+
+Both behavioral comparisons and both probability-score checks fail. The independent audit agrees. Every model receives the correct previous value on exposed development data; this is not an autonomous-memory or new-architecture result. [Full results and every seed](research/dialogue-qwen-observation-results.md).
+
+[![Complete Qwen comparison: both history conditions and all historical seeds, with separate accuracy, retention and probability-score failures](output/dialogue-qwen-observation-v1/figure-02/comparison.png)](research/dialogue-qwen-observation-results.md)
+
+- [Earlier text learning experiments](research/dialogue-objective-results.md): matched training objectives and recurrent variants have not established an architecture advantage.
+- [Text inference speed](research/shared-prefix-results.md): shared-context scoring is **2.08x faster** for four-question synthetic workloads; single-question caching is slower.
+- [All experiments, failures and visualizations](research/experiment-index.md): complete results, protocols, receipts and paper sources.
 
 Candidate scores are uncalibrated and relative to the supplied choices. These experiments use different models and protocols. The root MIT license applies except where component notices specify other terms, including GPL-3.0-only chess research files. Third-party data and model licenses apply separately.
 

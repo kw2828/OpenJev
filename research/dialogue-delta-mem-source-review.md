@@ -1,7 +1,7 @@
 # A pretrained recurrent control for the Qwen observation baseline
 
-Source and checkpoint review, 20 September 2026. The live Qwen comparison remains
-unchanged. The initial phase read public papers, source and configuration only.
+Source and checkpoint review, 20 September 2026. This work left the Qwen
+comparison unchanged. The initial phase read public papers, source and configuration only.
 A subsequent bounded inspection downloaded the pinned adapter once and read its
 tensor metadata on the meta device. Neither phase imported upstream code, built
 or ran a model, or inspected the live experiment's predictions.
@@ -112,9 +112,14 @@ in this source review.
 
 ## What comparison would answer a new question
 
-First finish the [current semantic comparison](dialogue-qwen-observation-status.md).
-If Qwen establishes useful observation quality, qualify the released adapter's
-runtime and then compare carried state against the **same trained adapter reset
+The [completed semantic comparison](dialogue-qwen-observation-results.md) now
+fails both behavioral and proper-score requirements: improved changed-value
+recognition is outweighed by severe retention errors, and extra history worsens
+the aggregate result. **This result does not promote the adapter to a quality
+study.** Diagnose the observation interface and retained-value failures first.
+
+If a later controlled observation baseline earns continuation, qualify the
+released adapter's runtime and then compare carried state against the **same trained adapter reset
 before each exchange**, using identical context, precision and readout. Vanilla
 Qwen and an explicit candidate ledger remain practical controls. Match public
 inputs and the cache/text retention policy, and account for every retained cache

@@ -1,0 +1,383 @@
+{
+  "costs": {
+    "combined_seconds": 3259.922529874835,
+    "per_arm_request_seconds": {
+      "current": 1521.506169981556,
+      "history4": 1698.6876417645253
+    },
+    "pilot_projection": {
+      "admission_limit_seconds": 7200,
+      "admitted": true,
+      "arms": {
+        "current": {
+          "max_seconds_per_charged_slot": 0.0002850023585079641,
+          "max_seconds_per_request": 0.6344152500387281,
+          "request_scaled_seconds": 2361.293560644146,
+          "token_scaled_seconds": 1850.1121904148276,
+          "variable_seconds": 1850.1121904148276
+        },
+        "history4": {
+          "max_seconds_per_charged_slot": 0.00017429413020550157,
+          "max_seconds_per_request": 0.4478651660028845,
+          "request_scaled_seconds": 1666.9541478627361,
+          "token_scaled_seconds": 1268.8457557184631,
+          "variable_seconds": 1268.8457557184631
+        }
+      },
+      "factor": 2,
+      "fixed_seconds": 60,
+      "pilot_whole_wall_seconds": 17.56390708289109,
+      "projected_full_seconds": 6316,
+      "request_scaled_projection_seconds_descriptive_only": 8135,
+      "scope": "Heuristic token-rate admission, not a wall-time guarantee; request-rate estimate is descriptive only"
+    },
+    "pilot_seconds": 17.56390708289109,
+    "pilot_work": {
+      "branch_calls": 28,
+      "calls": 28,
+      "input_token_slots": 63886,
+      "padding_token_slots": 13844,
+      "prefill_calls": 0,
+      "prefix_tokens": 0
+    },
+    "preparation_seconds": 12.962522916961461,
+    "run_peak_rss_bytes": 3712122880,
+    "run_seconds": 3229.3960998749826,
+    "run_work": {
+      "branch_calls": 7444,
+      "calls": 7444,
+      "input_token_slots": 13771479,
+      "padding_token_slots": 1449566,
+      "prefill_calls": 0,
+      "prefix_tokens": 0
+    },
+    "scope": "Whole phases include load/authentication/IO; request timings exclude file writes and nest within the full run."
+  },
+  "decisions": {
+    "added_history": {
+      "behavioral": {
+        "checks": {
+          "changed_accuracy_equal_service": {
+            "difference": -0.02452093630361685,
+            "passed": false,
+            "relation": ">=",
+            "threshold": 0.02
+          },
+          "changed_accuracy_row": {
+            "difference": -0.01384083044982699,
+            "passed": false,
+            "relation": ">=",
+            "threshold": 0.02
+          },
+          "retained_error_equal_service": {
+            "difference": 0.023918903846848593,
+            "passed": false,
+            "relation": "<=",
+            "threshold": 0.0
+          },
+          "retained_error_row": {
+            "difference": 0.042673663858583066,
+            "passed": false,
+            "relation": "<=",
+            "threshold": 0.0
+          }
+        },
+        "passed": false
+      },
+      "proper_score_nonregression": {
+        "checks": {
+          "brier_equal_service": {
+            "difference": 0.06592079406441237,
+            "passed": false,
+            "relation": "<=",
+            "threshold": 0.0
+          },
+          "brier_row": {
+            "difference": 0.09147149395502785,
+            "passed": false,
+            "relation": "<=",
+            "threshold": 0.0
+          },
+          "nll_equal_service": {
+            "difference": 0.6158380322572377,
+            "passed": false,
+            "relation": "<=",
+            "threshold": 0.0
+          },
+          "nll_row": {
+            "difference": 0.7214046979493223,
+            "passed": false,
+            "relation": "<=",
+            "threshold": 0.0
+          }
+        },
+        "passed": false
+      }
+    },
+    "semantic_strength": {
+      "behavioral": {
+        "checks": {
+          "changed_accuracy_equal_service": {
+            "difference": 0.2338066058994785,
+            "passed": true,
+            "relation": ">=",
+            "threshold": 0.02
+          },
+          "changed_accuracy_row": {
+            "difference": 0.25144175317185696,
+            "passed": true,
+            "relation": ">=",
+            "threshold": 0.02
+          },
+          "retained_error_equal_service": {
+            "difference": 0.14935116756172864,
+            "passed": false,
+            "relation": "<=",
+            "threshold": 0.0
+          },
+          "retained_error_row": {
+            "difference": 0.14938084058371312,
+            "passed": false,
+            "relation": "<=",
+            "threshold": 0.0
+          }
+        },
+        "passed": false
+      },
+      "proper_score_nonregression": {
+        "checks": {
+          "brier_equal_service": {
+            "difference": 0.21320785475429832,
+            "passed": false,
+            "relation": "<=",
+            "threshold": 0.0
+          },
+          "brier_row": {
+            "difference": 0.22196411181399456,
+            "passed": false,
+            "relation": "<=",
+            "threshold": 0.0
+          },
+          "nll_equal_service": {
+            "difference": 1.2153316154679121,
+            "passed": false,
+            "relation": "<=",
+            "threshold": 0.0
+          },
+          "nll_row": {
+            "difference": 1.3757813264953573,
+            "passed": false,
+            "relation": "<=",
+            "threshold": 0.0
+          }
+        },
+        "passed": false
+      }
+    }
+  },
+  "panels": {
+    "all/brier/equal_service": {
+      "direction": "Lower is better",
+      "historical_mean": 0.08898344912795568,
+      "historical_seed_order": [
+        6201,
+        6202,
+        6203
+      ],
+      "historical_values": [
+        0.0835007083389711,
+        0.09415396817674125,
+        0.0892956708681547
+      ],
+      "metric": "brier",
+      "qwen": {
+        "current": 0.302191303882254,
+        "history4": 0.3681120979466664
+      },
+      "rows": 7819,
+      "scale": 1.0,
+      "stratum": "all",
+      "title": "Overall Brier score",
+      "unit": "squared probability error",
+      "weighting": "equal_service"
+    },
+    "all/brier/row": {
+      "direction": "Lower is better",
+      "historical_mean": 0.08751763517075335,
+      "historical_seed_order": [
+        6201,
+        6202,
+        6203
+      ],
+      "historical_values": [
+        0.08255963504838805,
+        0.09167252705272566,
+        0.08832074341114635
+      ],
+      "metric": "brier",
+      "qwen": {
+        "current": 0.3094817469847479,
+        "history4": 0.40095324093977575
+      },
+      "rows": 7819,
+      "scale": 1.0,
+      "stratum": "all",
+      "title": "Overall Brier score",
+      "unit": "squared probability error",
+      "weighting": "row"
+    },
+    "all/nll/equal_service": {
+      "direction": "Lower is better",
+      "historical_mean": 0.2229333180782939,
+      "historical_seed_order": [
+        6201,
+        6202,
+        6203
+      ],
+      "historical_values": [
+        0.20156762953598495,
+        0.21196539887813307,
+        0.2552669258207637
+      ],
+      "metric": "nll",
+      "qwen": {
+        "current": 1.438264933546206,
+        "history4": 2.0541029658034438
+      },
+      "rows": 7819,
+      "scale": 1.0,
+      "stratum": "all",
+      "title": "Overall log loss",
+      "unit": "nats",
+      "weighting": "equal_service"
+    },
+    "all/nll/row": {
+      "direction": "Lower is better",
+      "historical_mean": 0.21127641497536956,
+      "historical_seed_order": [
+        6201,
+        6202,
+        6203
+      ],
+      "historical_values": [
+        0.18850546875284416,
+        0.21088327302886306,
+        0.23444050314440146
+      ],
+      "metric": "nll",
+      "qwen": {
+        "current": 1.587057741470727,
+        "history4": 2.3084624394200493
+      },
+      "rows": 7819,
+      "scale": 1.0,
+      "stratum": "all",
+      "title": "Overall log loss",
+      "unit": "nats",
+      "weighting": "row"
+    },
+    "changed/accuracy/equal_service": {
+      "direction": "Higher is better",
+      "historical_mean": 0.49585874329771684,
+      "historical_seed_order": [
+        6201,
+        6202,
+        6203
+      ],
+      "historical_values": [
+        0.5215993153495188,
+        0.4540529856766979,
+        0.5119239288669338
+      ],
+      "metric": "accuracy",
+      "qwen": {
+        "current": 0.7296653491971954,
+        "history4": 0.7051444128935785
+      },
+      "rows": 578,
+      "scale": 100.0,
+      "stratum": "changed",
+      "title": "Changed-state accuracy",
+      "unit": "%",
+      "weighting": "equal_service"
+    },
+    "changed/accuracy/row": {
+      "direction": "Higher is better",
+      "historical_mean": 0.5859284890426758,
+      "historical_seed_order": [
+        6201,
+        6202,
+        6203
+      ],
+      "historical_values": [
+        0.6280276816608996,
+        0.5259515570934256,
+        0.6038062283737025
+      ],
+      "metric": "accuracy",
+      "qwen": {
+        "current": 0.8373702422145328,
+        "history4": 0.8235294117647058
+      },
+      "rows": 578,
+      "scale": 100.0,
+      "stratum": "changed",
+      "title": "Changed-state accuracy",
+      "unit": "%",
+      "weighting": "row"
+    },
+    "retained/error/equal_service": {
+      "direction": "Lower is better",
+      "historical_mean": 0.018946717156435793,
+      "historical_seed_order": [
+        6201,
+        6202,
+        6203
+      ],
+      "historical_values": [
+        0.02459139130698988,
+        0.016227798574570716,
+        0.016020961587746785
+      ],
+      "metric": "error",
+      "qwen": {
+        "current": 0.16829788471816445,
+        "history4": 0.19221678856501304
+      },
+      "rows": 7241,
+      "scale": 100.0,
+      "stratum": "retained",
+      "title": "Retained-state error",
+      "unit": "%",
+      "weighting": "equal_service"
+    },
+    "retained/error/row": {
+      "direction": "Lower is better",
+      "historical_mean": 0.024628274179441145,
+      "historical_seed_order": [
+        6201,
+        6202,
+        6203
+      ],
+      "historical_values": [
+        0.025548957326336143,
+        0.025134649910233394,
+        0.0232012153017539
+      ],
+      "metric": "error",
+      "qwen": {
+        "current": 0.17400911476315425,
+        "history4": 0.21668277862173732
+      },
+      "rows": 7241,
+      "scale": 100.0,
+      "stratum": "retained",
+      "title": "Retained-state error",
+      "unit": "%",
+      "weighting": "row"
+    }
+  },
+  "scope": "Descriptive rendering of an authenticated main report, not an independent numerical audit. Exposed official TRAIN; correct previous value supplied. Qwen has one frozen inference per arm; the three historical marks are optimizer seeds of earlier corrected-flat fits on the same rows. No architecture, autonomous-memory or calibration claim.",
+  "synthetic": false,
+  "version": "dialogue-qwen-observation-figure-v1"
+}
