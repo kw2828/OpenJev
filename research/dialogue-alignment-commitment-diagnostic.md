@@ -40,6 +40,15 @@ Implement logsumexp by subtracting the maximum. Compute change mass directly fro
 
 Check all four constructed distributions for finite supported logs and float64 unit mass within `1e-12`. Check each self reconstruction against `q_X` with `atol=1e-10, rtol=1e-12`. For self cells, use canonical `q_X` for scored output after that identity check, avoiding cancellation-induced tie changes. Require their choices to reproduce the original saved-log argmax exactly. For cross cells, choose the first maximum in original candidate order, with exact floating equality only and no tolerance-based tie enlargement. Record exact tie counts. This is deterministic tie handling, not candidate-permutation invariance at ties. Stop and preserve a failed receipt on any numerical or identity mismatch, without silently changing tolerances.
 
+Here, alternative ranking includes the full conditional distribution and its
+concentration, not just the order of candidate scores. A hybrid's hard keep
+decision compares the mass donor's stay/change odds with the largest
+conditional alternative probability. Therefore MA need not make the same
+hard keep decision as M. With exactly two supported candidates, there is only
+one alternative: MA reconstructs M and AM reconstructs A. Include that
+closed-form case in the synthetic checks. This clarification does not change
+the four numerical constructions.
+
 ## Reporting and interpretation
 
 Publish every construction and seed on all/seen-service/heldout-service panels, each with all, changed, retained, unmentioned-retention and assigned-retention strata. Keep inherited support membership fixed. The primary heldout panel has 7,819 rows: 578 changed, 7,241 retained, comprising 4,032 unmentioned retention and 3,209 assigned retention. Changed rows include 29 TRUE and five DONTCARE targets, with no FALSE or NONE changes. Show per-service breakdowns without selecting services afterward.
@@ -47,6 +56,19 @@ Publish every construction and seed on all/seen-service/heldout-service panels, 
 Report exact accuracy/error counts, wrong-selected-branch versus wrong-value counts, raw-target NLL of the constructed normalized distributions, Brier score, TRUE/DONTCARE recall and their inherited supported false-positive denominators. Preserve undefined zero-support cells. Give row, equal-service and equal-dialogue summaries, three-seed means and every paired seed difference. Pairwise correct-to-wrong/wrong-to-correct tables must use the same rows. Report both retained harm recovered relative to AA and changed advantage retained relative to MM; do not hide their tradeoff in a new weighted score.
 
 The hypothesis is weakened if MA does not reduce retention errors, or if any reduction consumes its changed-state advantage over MM. A favorable pattern would justify discussing a separately trained commitment/value factorization with matched evidence and controls. It would not prove that a hidden gate caused the original errors: these factors are derived from final categorical distributions, not the model's internal branch gate. No minimum useful gain, new continuation threshold or diagnostic pass/fail rule is declared here; those require a separate discussion before another study. Both cross combinations are posthoc algebraic counterfactuals, not newly trained or deployed models. The cost of obtaining both source predictions is not free.
+
+## Execution envelope
+
+The diagnostic and independent primary-metric audit each have a checked
+60-second wall limit, a 1 GiB process-lifetime peak-RSS limit and a 64 MiB
+output limit. They use exclusive output directories and preserve failure
+records. These bounds cover saved-output arithmetic, not model inference.
+No actual diagnostic run is admitted until source review and synthetic tests
+finish and the implementation, tests and this specification are hash-bound.
+Any input-path or implementation failure is retained separately; no result
+is silently overwritten. The independent audit recomputes the primary
+panels with separate arithmetic rather than importing the producer's
+construction or scoring functions.
 
 ## Frozen saved-input identities
 

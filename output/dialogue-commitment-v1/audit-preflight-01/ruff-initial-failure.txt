@@ -1,0 +1,12 @@
+BLE001 Do not catch blind exception: `BaseException`
+   --> scripts/audit_dialogue_commitment.py:461:16
+    |
+459 |                 "source_sha256": sources, "error": repr(error), "scope": SCOPE,
+460 |                 "wall_seconds": time.monotonic()-start, "model_calls": 0, "no_retry": True})
+461 |         except BaseException as secondary:
+    |                ^^^^^^^^^^^^^
+462 |             if callable(getattr(error, "add_note", None)):
+463 |                 error.add_note("Audit failure preservation: "+repr(secondary))
+    |
+
+Found 1 error.
