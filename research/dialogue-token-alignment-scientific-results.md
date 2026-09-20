@@ -189,3 +189,12 @@ source-bound execution witnesses. This comparison supports a changed-state
 benefit within the fixed recipe, alongside a measured retention cost. It does
 not establish a causal explanation for the additional errors or resolve the
 broader architecture research goal.
+
+## Next diagnostic
+
+The [saved-distribution commitment diagnostic](dialogue-alignment-commitment-diagnostic.md)
+specifies two fixed combinations of the models' keep/change probability mass
+and their ranking of alternative values, with both self reconstructions and
+all seeds retained. It will test whether the better alternative ranking can be
+separated from false assignments to unmentioned slots. It has not run. No
+threshold fitting, new training or reversal of this failed study is implied.
