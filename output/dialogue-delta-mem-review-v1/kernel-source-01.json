@@ -1,0 +1,19 @@
+{
+  "status": "source_review_completed",
+  "scope": "Static recurrence and runtime feasibility only. No model, kernel, benchmark or training execution. No live experiment predictions accessed.",
+  "upstream": {
+    "url": "https://raw.githubusercontent.com/declare-lab/delta-Mem/5cd5d9153c7f408764728d953565201e198c39e2/deltamem/kernels/affine_scan.py",
+    "commit": "5cd5d9153c7f408764728d953565201e198c39e2",
+    "access": "web text; no local source snapshot",
+    "functions": ["triton_scan_support", "_affine_scan_forward_kernel", "_TritonAffineScanFn.forward"]
+  },
+  "local_sources": {
+    ".venv/lib/python3.12/site-packages/mlx_lm/models/gated_delta.py": "9cf24faeee881977c0a6117843434f62f7d517ee446fed38c5e6ccb90659681f",
+    ".venv/lib/python3.12/site-packages/mlx/core/fast.pyi": "c93db10512917a4ef6581ee9b1b7f9b63c2dea72339c2b2ca2c26feb004d69f2",
+    "output/dialogue-delta-mem-review-v1/source-01/delta_impl.py": "2dbf52e3849070bc69372ec9c16b4846ad9f5d953fee6f4f945b043d35027934"
+  },
+  "inference_calls": 0,
+  "kernel_calls": 0,
+  "optimizer_updates": 0,
+  "next_step": "If the current observation comparison supports further recurrence work, qualify an inference-only rank-8 implementation with the released pre-write read, row-wise coefficients and explicit chunk-boundary precision before full-model integration."
+}

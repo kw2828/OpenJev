@@ -86,6 +86,30 @@ The installed MLX Qwen implementation has matching mathematical insertion
 points. This is static structural agreement only: no numerical parity, memory
 measurement, speed result or task-quality improvement has been established.
 
+### The recurrence needs its own runtime qualification
+
+The [pinned upstream scan](https://github.com/declare-lab/delta-Mem/blob/5cd5d9153c7f408764728d953565201e198c39e2/deltamem/kernels/affine_scan.py#L61)
+uses CUDA/Triton, with one program per batch/state row and a sequential token
+loop inside the kernel. It holds state in float32 internally, reads before
+writing, and casts at returned boundaries. Its forward wrapper also allocates
+state history. The non-Triton fallback uses per-token Python tensor operations.
+
+The installed MLX `gated_delta.py` is not a direct substitute: it predicts after
+decay, reads after writing, uses a head-scalar write gate, and its Metal indexing
+assumes a key width divisible by 32. The released adapter has rank 8 and row-wise
+gates. [Inspected local source identities](../output/dialogue-delta-mem-review-v1/kernel-source-01.json).
+
+A future port should first qualify an inference-only rank-8 Metal recurrence
+against an independent array reference. Check every read and final state with
+nonzero initial state, unequal gates, padding holes and write-disabled reads.
+Streaming comparisons must use identical chunk boundaries: bfloat16 rounding
+at returned boundaries can make an unsegmented pass differ. Only then measure
+single-token and prefill costs on a fixed shape grid, separating compilation
+and including projections as well as the recurrence. Tiny kernels may
+underutilize the GPU; a speedup is not established. Full-model integration and
+any training gradients require separate qualification. No kernel was executed
+in this source review.
+
 ## What comparison would answer a new question
 
 First finish the [current semantic comparison](dialogue-qwen-observation-status.md).
