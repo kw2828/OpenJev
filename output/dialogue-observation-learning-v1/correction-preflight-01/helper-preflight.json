@@ -1,0 +1,44 @@
+{
+  "scope": "Artificial metadata and tiny local order RNG only; no corpus/tokenizer/model calls",
+  "source_before": {
+    "src/openjev/research/dialogue_finetune_dataset_v2.py": "46e2b4dd5e7b9bd3a61d72217d4119fc0952279892cd0a11a49806f4eef41f7f",
+    "tests/test_dialogue_finetune_dataset_v2.py": "e6430cb5d8745a49f7632ccb327acf83887d9dc94a2f24d8444edd5e050c4ba1",
+    "src/openjev/research/dialogue_finetune_dataset.py": "f24c32dad49c7037a09ecd5a3af95e74364ce6e8db45a396d6faf5ec16e4222c",
+    "tests/test_dialogue_finetune_dataset.py": "2583793b542de3107748a5d4de5b32f200534c938f77e3ed38fff73e2a590757"
+  },
+  "source_after": {
+    "src/openjev/research/dialogue_finetune_dataset_v2.py": "46e2b4dd5e7b9bd3a61d72217d4119fc0952279892cd0a11a49806f4eef41f7f",
+    "tests/test_dialogue_finetune_dataset_v2.py": "e6430cb5d8745a49f7632ccb327acf83887d9dc94a2f24d8444edd5e050c4ba1",
+    "src/openjev/research/dialogue_finetune_dataset.py": "f24c32dad49c7037a09ecd5a3af95e74364ce6e8db45a396d6faf5ec16e4222c",
+    "tests/test_dialogue_finetune_dataset.py": "2583793b542de3107748a5d4de5b32f200534c938f77e3ed38fff73e2a590757"
+  },
+  "checks": [
+    {
+      "name": "pytest",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_dialogue_finetune_dataset_v2.py"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.35585125000216067,
+      "log": "/tmp/openjev-finetune-dataset-v2-pytest.log",
+      "log_sha256": "05f719ef099e58af8fafe59d888eb1b75c86aaeb988db05d45df4dbd1af3b1cb"
+    },
+    {
+      "name": "ruff",
+      "command": [
+        ".venv/bin/ruff",
+        "check",
+        "src/openjev/research/dialogue_finetune_dataset_v2.py",
+        "tests/test_dialogue_finetune_dataset_v2.py"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.043448165990412235,
+      "log": "/tmp/openjev-finetune-dataset-v2-ruff.log",
+      "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    }
+  ]
+}

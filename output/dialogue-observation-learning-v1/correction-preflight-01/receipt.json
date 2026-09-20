@@ -1,0 +1,39 @@
+{
+  "checks": [
+    {
+      "command": [
+        ".venv/bin/pytest",
+        "-q",
+        "tests/test_prepare_dialogue_observation_learning_v2.py",
+        "tests/test_dialogue_finetune_dataset_v2.py"
+      ],
+      "exit_code": 0,
+      "log": "check-0.txt",
+      "log_sha256": "1e7a2b94a32f949d284e67d2078d58730be5434f1e92caa42f6fbbb78b1816a2",
+      "wall_seconds": 0.38315233401954174
+    },
+    {
+      "command": [
+        ".venv/bin/ruff",
+        "check",
+        "scripts/prepare_dialogue_observation_learning_v2.py",
+        "tests/test_prepare_dialogue_observation_learning_v2.py",
+        "src/openjev/research/dialogue_finetune_dataset_v2.py",
+        "tests/test_dialogue_finetune_dataset_v2.py"
+      ],
+      "exit_code": 0,
+      "log": "check-1.txt",
+      "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "wall_seconds": 0.038742708042263985
+    }
+  ],
+  "passed": true,
+  "scope": "Synthetic namespace/lineage corrections only, no real tokenizer or model calls",
+  "source_sha256": {
+    "research/dialogue-observation-learning-preparation-correction.md": "28cf1703d0747f108711fb24694bbba1ce99a36f1c1abe96efaece1b006f327e",
+    "scripts/prepare_dialogue_observation_learning_v2.py": "b3e147e66c4a664d07392a4860b61d3260454e8ca52c0d9e3e3ecd2f1a1bc078",
+    "src/openjev/research/dialogue_finetune_dataset_v2.py": "46e2b4dd5e7b9bd3a61d72217d4119fc0952279892cd0a11a49806f4eef41f7f",
+    "tests/test_dialogue_finetune_dataset_v2.py": "e6430cb5d8745a49f7632ccb327acf83887d9dc94a2f24d8444edd5e050c4ba1",
+    "tests/test_prepare_dialogue_observation_learning_v2.py": "9e4f224969f615adf6fc4141c363d623b80ec30d9dfa9bba6856120c5fcd68e3"
+  }
+}

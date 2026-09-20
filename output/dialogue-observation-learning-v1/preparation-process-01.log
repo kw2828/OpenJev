@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/prepare_dialogue_observation_learning.py", line 254, in <module>
+    print(json.dumps({"status": "completed", "completed_sha256": prepare(args.out)}))
+                                                                 ^^^^^^^^^^^^^^^^^
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/prepare_dialogue_observation_learning.py", line 209, in prepare
+    profiles = aggregate_work_profiles(produce())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/src/openjev/research/dialogue_finetune_dataset.py", line 207, in aggregate_work_profiles
+    _require(did not in panels or panels[did] == split, "Dialogue shared across splits")
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/src/openjev/research/dialogue_finetune_inputs.py", line 19, in _require
+    raise ValueError(message)
+ValueError: Dialogue shared across splits

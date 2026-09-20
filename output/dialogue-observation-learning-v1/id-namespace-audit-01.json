@@ -1,0 +1,78 @@
+{
+  "actual_failure": {
+    "content_hashes": {
+      "dev": {
+        "exact_public_role_text_sha256": "ebca981a2d8dd76555e8086c4f45b93ab4a1ba9901446fa74c99e616c176479f",
+        "normalized_public_role_text_sha256": "a008196a3a55d5e289e4ca96969c6a14ee3a35ce4d87105d54cda2c8906cb762",
+        "public_turns": 16
+      },
+      "train": {
+        "exact_public_role_text_sha256": "30ec771692ba069f04e20fd6bfaef5ac93b03da30a013a90c8d3f159609438b3",
+        "normalized_public_role_text_sha256": "dd0c5fea8d4a666f9acbe3e7caeaf20add578ba26ad78ab11a5136ac3ae59803",
+        "public_turns": 32
+      }
+    },
+    "dialogue_id": "10_00001",
+    "failed_receipt_sha256": "f895a9883067dd9642707fb6b59c801265f00fca13b74beae693444f3732a1e1",
+    "last_actor_line_sha256": "28090b8499493eccf0f732d9ab1250ff9ebdde30b2478709ef0ed25284f53814",
+    "prepared_actor_counts": {
+      "dev": 2,
+      "train": 2017
+    },
+    "recorded_group_absent": true,
+    "source_pins_sha256": "f83957633a8363effde9121fb8220757045bae725511189810ccff250b5ab302",
+    "split": "dev",
+    "terminal_sha256": "7df7f434a43b0707bd6393e4eafc2ad53fc3d0a5e96d2240b0d51d8e28f984fc",
+    "zero_based_dev_cohort_position": 1
+  },
+  "agreement": true,
+  "bare_id_overlap_count": 298,
+  "cap_seconds": 30,
+  "cohort_counts": {
+    "dev": 2363,
+    "train": 2017
+  },
+  "cohort_unique_pairs": 4380,
+  "cross_pair_normalized_duplicates_in_overlap_subset": 0,
+  "diagnosis": "Invalid global bare-ID uniqueness assertion. Dialogue identity is (split, dialogue_id); all 298 selected cross-split name overlaps denote distinct public role/text sequences, not duplicated conversations.",
+  "equal_id_exact_content_duplicates": 0,
+  "equal_id_normalized_content_duplicates": 0,
+  "experimental_model_calls": 0,
+  "input_sha256": {
+    "runs/sgd-state-v1/data/completed.json": "677d37ea581b3165b0adc96a0a0daab74271e0434df2ad23ace9568537e2cd12",
+    "runs/sgd-state-v1/data/dev-dialogues.jsonl": "1309f6e5a8c511fe4c703a336337798cd221b1f3b0f3b9a234bf557bb2227be7",
+    "runs/sgd-state-v1/data/train-dialogues.jsonl": "04bf8797b35495d02c9a809a9b83259aefc24ff04a560f13aec989ba117b15aa",
+    "runs/sgd-state-v1/features-02/packet.json": "14dd89a633bfa406394945d279c44ce6796d3b8dc412f772e2abda794ec943cb",
+    "src/openjev/research/dialogue_finetune_dataset.py": "f24c32dad49c7037a09ecd5a3af95e74364ce6e8db45a396d6faf5ec16e4222c"
+  },
+  "limitations": [
+    "No quality labels or scores inspected, no tokenizer or neural call, no current frozen artifact modified.",
+    "Canonical content hashes ignore dialogue ID and any service metadata, preserving only the ordered complete SYSTEM/USER speakers and utterances.",
+    "Failure/process termination status inherited from authenticated saved receipts; no process was launched or signaled."
+  ],
+  "original_deduplication": {
+    "dev_duplicate_groups_retained": 0,
+    "excluded_dev_count": 0,
+    "exclusion_rule": "Exclude dev matches to any train text; retain all train; within-split duplicates retained and reported",
+    "normalization": "Ordered speaker roles + NFKC/casefold/whitespace-normalized text, entire dialogue",
+    "receipt_sha256": "dc8e971e8907d7721febe408425bc216bdec23685ad348b4a4d008f3cac0934f",
+    "scope": "Authenticated original receipt excludes normalized whole-dialogue DEV text matches against all original TRAIN; within-split text duplicates retained and reported. This audit rehashes public content only for the 298 selected overlapping IDs, not the entire historical text-duplicate comparison.",
+    "train_duplicate_groups_retained": 0
+  },
+  "overlap_content_hash_pairs_sha256": "10a5ed4e6d2374980b11089019b06641dd887b6d03bc9e60790217d93322487c",
+  "overlap_id_list_sha256": "651b151b1ccdf326ff378aba6d6145a55e4c9e21de413e7b6fb9ce01bb928d8c",
+  "peak_rss_bytes": 127254528,
+  "public_file_unique_ids": {
+    "dev": 2482,
+    "train": 16142
+  },
+  "recommended_correction": "Allow repeated bare IDs across different splits while retaining exact (split, dialogue_id) uniqueness, split-bound actor/evaluator joins and global original-feature-ID/token consistency. Preserve failed v1 and use an additive corrected preparation.",
+  "runtime": {
+    "imports": "standard library only",
+    "python": "3.14.6"
+  },
+  "scope": "Saved-input namespace diagnosis; standard library only. No tokenizer, model, score, loss, or evaluator-target file opened. Packet JSON containers decoded only to access ordered train/dev cohort IDs. Public role/utterance content inspected through hashes only for overlapping selected IDs.",
+  "status": "clear",
+  "tokenizer_calls": 0,
+  "wall_seconds": 0.2453357910271734
+}

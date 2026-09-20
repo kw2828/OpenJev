@@ -1,0 +1,43 @@
+{
+  "caps": {
+    "output_bytes": 536870912,
+    "rss_bytes": 8589934592,
+    "wall_seconds": 300
+  },
+  "config": {
+    "arms": [
+      "frozen_original",
+      "frozen_numbers",
+      "trainable_original",
+      "trainable_numbers"
+    ],
+    "chunk_tokens": 254,
+    "clip": 1.0,
+    "cpu_threads": 1,
+    "dropout": false,
+    "effective_batch": 32,
+    "encoder_batch": 32,
+    "encoder_lr": 2e-05,
+    "epochs": 20,
+    "loss": "sum(weight[stratum] * endpoint NLL) / eligible endpoints in effective batch",
+    "memory_lr": 0.001,
+    "memory_method": "scalar",
+    "microbatch": 1,
+    "seeds": [
+      6901,
+      6902,
+      6903
+    ],
+    "selection": "All final fits; no epoch, seed or variant selection",
+    "weight_decay": 0.0001
+  },
+  "runtime": {
+    "numpy": "2.5.3",
+    "platform": "macOS-26.6.1-arm64-arm-64bit",
+    "python": "3.12.13",
+    "tokenizers": "0.23.2",
+    "torch": "2.14.0",
+    "transformers": "5.17.0"
+  },
+  "study": "dialogue-observation-learning-v1"
+}
