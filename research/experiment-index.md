@@ -4,7 +4,7 @@ Studies and frozen work awaiting execution, including failures and controls. A p
 
 ## Complete experiment list
 
-- [Paired training-objective comparison](dialogue-objective-status.md): six-fit study frozen, with 59 focused synthetic cases passed across preserved attempts. **Training has not started.** It tests whether changing the loss improves on fixed score correction; this is not a new architecture result.
+- [Paired training-objective comparison](dialogue-objective-status.md): six-fit study launched once on **20 September 2026 at 10:52 UTC** and is running under the frozen 6,000-second, 6 GiB and 512 MiB limits. All 59 focused synthetic cases remain passed across preserved attempts. **No quality has been scored or performance result established; all six fits are required before scoring, with no retry.** It tests whether changing the loss improves on fixed score correction, not a new architecture.
 
 - [Fixed training-weight correction](dialogue-weight-prior-results.md): all nine fits gain pooled overall accuracy and lose changed accuracy. Corrected aligned reaches **93.75%** overall and **75.89%** changed accuracy; corrected flat reaches **94.66%** overall and **58.59%** changed. Independent agreement on 90 primary cells and 270 paired cells. This is a fixed readout tradeoff, with no new fitting or architecture advantage. [All-fit figure](../output/dialogue-weight-prior-v1/figure-01/weight-prior.png).
 

@@ -1,9 +1,10 @@
-# Paired objective comparison: frozen, not yet trained
+# Paired objective comparison: running
 
-Status on 20 September 2026: implementation, synthetic checks and the metadata
-freeze are complete. **No empirical fit has started and no new performance
-result exists.** A separate local experiment currently occupies the coordinated
-CPU allocation; release must be verified before this study launches.
+The six-fit study launched once on **20 September 2026 at 10:52 UTC**, after
+the coordinated CPU allocation became available. **Training is running; no
+quality has been scored and no performance result exists.** Implementation,
+synthetic checks and the metadata freeze are complete. Frozen inputs and all
+56 scientific source files remain unchanged.
 
 The [published protocol](dialogue-objective-protocol.md) compares ordinary
 row-uniform training with the existing stratum-weighted objective in the same
@@ -62,11 +63,12 @@ official DEV inference is measured.
 | [Plan](../output/dialogue-objective-v1/protocol-01/plan.json) | `ea5660f97f75256246808b0971e80ab3ec086baa614ea2080c893716838d4baa` |
 | [Freeze completion](../output/dialogue-objective-v1/protocol-01/completed.json) | `c2ea94560792c9d6b84e8e6f10fb0aef2a3135918c17bbeb09334ff0b3c3f6ea` |
 
-## Execution still required
+## Execution in progress
 
-After confirming CPU availability, run the six fits once within the frozen
-6,000-second, 6 GiB peak-RSS and 512 MiB output limits. The historical workload
-projects about 76 minutes; that is an estimate, not a measured new run.
+The single launch uses the frozen whole-run limits of **6,000 seconds,
+6 GiB peak RSS and 512 MiB output**. The historical workload projects about
+76 minutes; that remains an estimate, not a measurement of this run.
+The launch command is recorded below for provenance, not as a retry instruction.
 
 ```sh
 PYTHONPATH=src:scripts OMP_NUM_THREADS=4 MKL_NUM_THREADS=4 \
@@ -76,10 +78,11 @@ PYTHONPATH=src:scripts OMP_NUM_THREADS=4 MKL_NUM_THREADS=4 \
   --out output/dialogue-objective-v1/training-01
 ```
 
-Save every fit before quality scoring. Then run the saved-output reporter and
-independent primary check, publish all paired results and a figure, and retain
-any failed or partial outcome. There is no replacement seed, outcome-based
-checkpoint selection or retry within this frozen campaign.
+All six final fits must be saved before any quality scoring. The saved-output
+reporter and independent primary check remain pending, followed by publication
+of all paired results and a figure. Any failed or partial outcome must be
+retained. There is no replacement seed, outcome-based checkpoint selection or
+retry within this frozen campaign.
 
 The earlier token-alignment result remains **FAIL, 18/22**. The subsequent
 [fixed weight correction](dialogue-weight-prior-results.md) improves retention
