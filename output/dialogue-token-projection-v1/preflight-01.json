@@ -1,0 +1,48 @@
+{
+  "checks": [
+    {
+      "command": [
+        ".venv/bin/ruff",
+        "check",
+        "src/openjev/research/dialogue_token_projected.py",
+        "tests/test_dialogue_token_projected.py",
+        "scripts/qualify_dialogue_token_projection.py",
+        "tests/test_qualify_dialogue_token_projection.py",
+        "scripts/plot_dialogue_token_projection.py"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "All checks passed!\n",
+      "wall_seconds": 0.036068165907636285
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_dialogue_token_projected.py",
+        "tests/test_qualify_dialogue_token_projection.py"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "........................................................................ [ 80%]\n..................                                                       [100%]\n90 passed in 3.64s\n",
+      "wall_seconds": 4.162302416050807
+    }
+  ],
+  "environment": {
+    "OMP_NUM_THREADS": "4",
+    "OPENBLAS_NUM_THREADS": "1",
+    "PYTHONPATH": "src:scripts",
+    "VECLIB_MAXIMUM_THREADS": "4"
+  },
+  "scope": "Small implementation and harness tests, not frozen timing qualification",
+  "source_sha256": {
+    "research/dialogue-token-projection-protocol.md": "5d2befed0fea2af67a95f2cafe283a0885e787e408a66c475373eddd20eefe07",
+    "scripts/qualify_dialogue_token_projection.py": "6bc66c348b413000e5b0e02c2a03d9a345973148231e7ce1baf7092b9d40b70c",
+    "src/openjev/research/dialogue_token_projected.py": "25de6cb1656b4cce3904f1a708c5bc32a65f765cb0d37861f33bed5543fcf895",
+    "tests/test_dialogue_token_projected.py": "37033b097c0d0976fbbb601490ef874cb070f87de18fbd7b98a645f2cf793839",
+    "tests/test_qualify_dialogue_token_projection.py": "cf2298c55d2c08fb0f97ccbc5f21e56825b4017a8dae26821595f55ec1c13663"
+  },
+  "status": "passed"
+}
