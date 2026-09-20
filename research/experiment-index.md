@@ -4,6 +4,8 @@ Studies and frozen work awaiting execution, including failures and controls. A p
 
 ## Complete experiment list
 
+- [Stronger Qwen observation baseline](dialogue-qwen-observation-status.md): prompts frozen for **15,638 decisions**, comparing the current exchange with four public exchanges on the same 7,819 rows. Both receive correct previous values and the same public lexical-memory features. No model-quality result yet. [Prospective protocol](dialogue-qwen-observation-protocol.md).
+
 - [Paired training-objective comparison](dialogue-objective-results.md): all six fits completed once in **74.67 minutes**. Uniform training lowers retained error **4.82% → 3.95%** versus corrected stratum, but changed accuracy is **75.78% versus 75.89%**. Historical corrected flat remains stronger on pooled overall accuracy and log loss. **6/13 checks passed; continuation failed**, with independent agreement on all decisions. No architecture or autonomous-memory claim. [Decision figure](../output/dialogue-objective-v1/figure-01/objective-decisions.png) · [Overall figure](../output/dialogue-objective-v1/figure-01/objective-overall.png) · [Execution history](dialogue-objective-status.md).
 
 - [Fixed training-weight correction](dialogue-weight-prior-results.md): all nine fits gain pooled overall accuracy and lose changed accuracy. Corrected aligned reaches **93.75%** overall and **75.89%** changed accuracy; corrected flat reaches **94.66%** overall and **58.59%** changed. Independent agreement on 90 primary cells and 270 paired cells. This is a fixed readout tradeoff, with no new fitting or architecture advantage. [All-fit figure](../output/dialogue-weight-prior-v1/figure-01/weight-prior.png).
