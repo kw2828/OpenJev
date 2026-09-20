@@ -1,0 +1,36 @@
+{
+  "status": "failed",
+  "source_sha256": {
+    "scripts/report_dialogue_objective.py": "3ef439755a6dae623ec70db582c65581507e8ed219306b79925e11906e2ed195",
+    "tests/test_report_dialogue_objective.py": "aa545dbd57ec48a6ec33dd7a0e8cefeb06b6fb9b6cc9b542e7ad948ae0f938c4"
+  },
+  "commands": [
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_report_dialogue_objective.py"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.4275751248933375,
+      "log": "command-1.log",
+      "sha256": "83975f7abb679f50002c0d6c3164b85e3e6d8ad1d91f6bae28e7042b39673295"
+    },
+    {
+      "command": [
+        ".venv/bin/ruff",
+        "check",
+        "scripts/report_dialogue_objective.py",
+        "tests/test_report_dialogue_objective.py"
+      ],
+      "exit_code": 1,
+      "wall_seconds": 0.03913391591049731,
+      "log": "command-2.log",
+      "sha256": "f9a55b8664cb39ad7dddf2a216e1fd585b80da960a24c4f7446b2dea361b8ca0"
+    }
+  ],
+  "synthetic_only": true,
+  "real_prediction_reads": 0
+}

@@ -1,0 +1,184 @@
+.......FFFFF....                                                         [100%]
+=================================== FAILURES ===================================
+_____________ test_resealed_plan_metadata_tamper_rejected[runtime] _____________
+
+tmp_path = PosixPath('/private/var/folders/57/43njbt192fgcplwy_cxy07ch0000gn/T/pytest-of-kevinwu/pytest-1433/test_resealed_plan_metadata_ta0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x112cc56d0>
+field = 'runtime'
+
+    @pytest.mark.parametrize("field", ["runtime", "objective", "orders", "source_sha256", "objective_weightings"])
+    def test_resealed_plan_metadata_tamper_rejected(tmp_path, monkeypatch, field):
+        path = freeze_fixture(tmp_path, monkeypatch)
+>       plan = s.read(path); plan[field] = {}; s.write(path, plan)
+                                               ^^^^^^^^^^^^^^^^^^^
+
+tests/test_study_dialogue_objective.py:174: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+scripts/prepare_dialogue_conditional.py:88: in write
+    with Path(path).open("xb") as stream:
+         ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/private/var/folders/57/43njbt192fgcplwy_cxy07ch0000gn/T/pytest-of-kevinwu/pytest-1433/test_resealed_plan_metadata_ta0/freeze/plan.json')
+mode = 'xb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileExistsError: [Errno 17] File exists: '/private/var/folders/57/43njbt192fgcplwy_cxy07ch0000gn/T/pytest-of-kevinwu/pytest-1433/test_resealed_plan_metadata_ta0/freeze/plan.json'
+
+../../../../.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/pathlib.py:1013: FileExistsError
+____________ test_resealed_plan_metadata_tamper_rejected[objective] ____________
+
+tmp_path = PosixPath('/private/var/folders/57/43njbt192fgcplwy_cxy07ch0000gn/T/pytest-of-kevinwu/pytest-1433/test_resealed_plan_metadata_ta1')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x112cc5580>
+field = 'objective'
+
+    @pytest.mark.parametrize("field", ["runtime", "objective", "orders", "source_sha256", "objective_weightings"])
+    def test_resealed_plan_metadata_tamper_rejected(tmp_path, monkeypatch, field):
+        path = freeze_fixture(tmp_path, monkeypatch)
+>       plan = s.read(path); plan[field] = {}; s.write(path, plan)
+                                               ^^^^^^^^^^^^^^^^^^^
+
+tests/test_study_dialogue_objective.py:174: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+scripts/prepare_dialogue_conditional.py:88: in write
+    with Path(path).open("xb") as stream:
+         ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/private/var/folders/57/43njbt192fgcplwy_cxy07ch0000gn/T/pytest-of-kevinwu/pytest-1433/test_resealed_plan_metadata_ta1/freeze/plan.json')
+mode = 'xb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileExistsError: [Errno 17] File exists: '/private/var/folders/57/43njbt192fgcplwy_cxy07ch0000gn/T/pytest-of-kevinwu/pytest-1433/test_resealed_plan_metadata_ta1/freeze/plan.json'
+
+../../../../.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/pathlib.py:1013: FileExistsError
+_____________ test_resealed_plan_metadata_tamper_rejected[orders] ______________
+
+tmp_path = PosixPath('/private/var/folders/57/43njbt192fgcplwy_cxy07ch0000gn/T/pytest-of-kevinwu/pytest-1433/test_resealed_plan_metadata_ta2')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x112cc5f70>
+field = 'orders'
+
+    @pytest.mark.parametrize("field", ["runtime", "objective", "orders", "source_sha256", "objective_weightings"])
+    def test_resealed_plan_metadata_tamper_rejected(tmp_path, monkeypatch, field):
+        path = freeze_fixture(tmp_path, monkeypatch)
+>       plan = s.read(path); plan[field] = {}; s.write(path, plan)
+                                               ^^^^^^^^^^^^^^^^^^^
+
+tests/test_study_dialogue_objective.py:174: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+scripts/prepare_dialogue_conditional.py:88: in write
+    with Path(path).open("xb") as stream:
+         ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/private/var/folders/57/43njbt192fgcplwy_cxy07ch0000gn/T/pytest-of-kevinwu/pytest-1433/test_resealed_plan_metadata_ta2/freeze/plan.json')
+mode = 'xb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileExistsError: [Errno 17] File exists: '/private/var/folders/57/43njbt192fgcplwy_cxy07ch0000gn/T/pytest-of-kevinwu/pytest-1433/test_resealed_plan_metadata_ta2/freeze/plan.json'
+
+../../../../.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/pathlib.py:1013: FileExistsError
+__________ test_resealed_plan_metadata_tamper_rejected[source_sha256] __________
+
+tmp_path = PosixPath('/private/var/folders/57/43njbt192fgcplwy_cxy07ch0000gn/T/pytest-of-kevinwu/pytest-1433/test_resealed_plan_metadata_ta3')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x112d092e0>
+field = 'source_sha256'
+
+    @pytest.mark.parametrize("field", ["runtime", "objective", "orders", "source_sha256", "objective_weightings"])
+    def test_resealed_plan_metadata_tamper_rejected(tmp_path, monkeypatch, field):
+        path = freeze_fixture(tmp_path, monkeypatch)
+>       plan = s.read(path); plan[field] = {}; s.write(path, plan)
+                                               ^^^^^^^^^^^^^^^^^^^
+
+tests/test_study_dialogue_objective.py:174: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+scripts/prepare_dialogue_conditional.py:88: in write
+    with Path(path).open("xb") as stream:
+         ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/private/var/folders/57/43njbt192fgcplwy_cxy07ch0000gn/T/pytest-of-kevinwu/pytest-1433/test_resealed_plan_metadata_ta3/freeze/plan.json')
+mode = 'xb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileExistsError: [Errno 17] File exists: '/private/var/folders/57/43njbt192fgcplwy_cxy07ch0000gn/T/pytest-of-kevinwu/pytest-1433/test_resealed_plan_metadata_ta3/freeze/plan.json'
+
+../../../../.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/pathlib.py:1013: FileExistsError
+______ test_resealed_plan_metadata_tamper_rejected[objective_weightings] _______
+
+tmp_path = PosixPath('/private/var/folders/57/43njbt192fgcplwy_cxy07ch0000gn/T/pytest-of-kevinwu/pytest-1433/test_resealed_plan_metadata_ta4')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x112cc52e0>
+field = 'objective_weightings'
+
+    @pytest.mark.parametrize("field", ["runtime", "objective", "orders", "source_sha256", "objective_weightings"])
+    def test_resealed_plan_metadata_tamper_rejected(tmp_path, monkeypatch, field):
+        path = freeze_fixture(tmp_path, monkeypatch)
+>       plan = s.read(path); plan[field] = {}; s.write(path, plan)
+                                               ^^^^^^^^^^^^^^^^^^^
+
+tests/test_study_dialogue_objective.py:174: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+scripts/prepare_dialogue_conditional.py:88: in write
+    with Path(path).open("xb") as stream:
+         ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/private/var/folders/57/43njbt192fgcplwy_cxy07ch0000gn/T/pytest-of-kevinwu/pytest-1433/test_resealed_plan_metadata_ta4/freeze/plan.json')
+mode = 'xb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileExistsError: [Errno 17] File exists: '/private/var/folders/57/43njbt192fgcplwy_cxy07ch0000gn/T/pytest-of-kevinwu/pytest-1433/test_resealed_plan_metadata_ta4/freeze/plan.json'
+
+../../../../.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/pathlib.py:1013: FileExistsError
+=========================== short test summary info ============================
+FAILED tests/test_study_dialogue_objective.py::test_resealed_plan_metadata_tamper_rejected[runtime]
+FAILED tests/test_study_dialogue_objective.py::test_resealed_plan_metadata_tamper_rejected[objective]
+FAILED tests/test_study_dialogue_objective.py::test_resealed_plan_metadata_tamper_rejected[orders]
+FAILED tests/test_study_dialogue_objective.py::test_resealed_plan_metadata_tamper_rejected[source_sha256]
+FAILED tests/test_study_dialogue_objective.py::test_resealed_plan_metadata_tamper_rejected[objective_weightings]
+5 failed, 11 passed in 1.55s

@@ -1,0 +1,38 @@
+{
+  "status": "completed",
+  "source_sha256": {
+    "scripts/report_dialogue_objective.py": "e0622b0eb1b82e9b7d1708190104b1dfc9c442bee16011690e0244f616000d33",
+    "tests/test_report_dialogue_objective.py": "38d26c77e4a9b01d78247cd1eaf18663f169737feba2d6966e80a8229463dcf8"
+  },
+  "commands": [
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_report_dialogue_objective.py"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 2.0368156658951193,
+      "log": "command-1.log",
+      "sha256": "cb3868228f018815e74aa683e89cc199c76b18bae08ce40d5618cde348b376e7"
+    },
+    {
+      "command": [
+        ".venv/bin/ruff",
+        "check",
+        "scripts/report_dialogue_objective.py",
+        "tests/test_report_dialogue_objective.py"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.01550979190506041,
+      "log": "command-2.log",
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    }
+  ],
+  "synthetic_only": true,
+  "real_prediction_reads": 0,
+  "prior_attempt": "../report-preflight-01/receipt.json",
+  "authoring_note": "One intervening Python text-edit command had a syntax error and wrote no file; the intended whitespace edit was then applied with apply_patch."
+}

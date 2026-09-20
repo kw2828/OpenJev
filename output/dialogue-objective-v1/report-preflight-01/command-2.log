@@ -1,0 +1,27 @@
+ISC004 Unparenthesized implicit string concatenation in collection
+   --> scripts/report_dialogue_objective.py:473:14
+    |
+471 |       c = summary["continuation"]
+472 |       lines = ["# Fresh objective comparison", "", summary["scope"], "",
+473 | /              f"Continuation **{'PASS' if c['passed'] else 'FAIL'}**, {c['checks_passed']}/13 checks. "
+474 | |              f"Objective evidence: {c['objective_passed']}; practical evidence: {c['practical_passed']}.", "",
+    | |_________________________________________________________________________________________________________^
+475 |                "| Readout | Seed | Changed accuracy | Retained error | Overall NLL | Equal-service NLL |",
+476 |                "|---|---:|---:|---:|---:|---:|"]
+    |
+help: Did you forget a comma?
+help: Wrap implicitly concatenated strings in parentheses
+
+BLE001 Do not catch blind exception: `BaseException`
+   --> scripts/report_dialogue_objective.py:542:16
+    |
+540 |                   "execution_completed_sha256": args.run_sha256, "wall_seconds": time.monotonic()-started,
+541 |                   "model_calls": 0, "encoder_calls": 0, "no_retry": True})
+542 |         except BaseException as secondary:
+    |                ^^^^^^^^^^^^^
+543 |             if callable(getattr(error, "add_note", None)): error.add_note("Failure preservation: "+repr(secondary))
+544 |         raise
+    |
+
+Found 2 errors.
+No fixes available (1 hidden fix can be enabled with the `--unsafe-fixes` option).

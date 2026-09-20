@@ -1,0 +1,54 @@
+{
+  "after_sha256": {
+    "scripts/audit_dialogue_commitment.py": "862368fadf6d2f143b70e3a8a2a48b02418d849defd1a184f9251f881b8184ab",
+    "scripts/audit_dialogue_objective.py": "072d774d8b87cb98099d51e1aadc627968284b2c80525febb8e1261428bb819b",
+    "tests/test_audit_dialogue_objective.py": "49effae4ce9289ead3517801a5cbc5818dcaefcfbc8412a1e011fb89b2a8b73d"
+  },
+  "before_sha256": {
+    "scripts/audit_dialogue_commitment.py": "862368fadf6d2f143b70e3a8a2a48b02418d849defd1a184f9251f881b8184ab",
+    "scripts/audit_dialogue_objective.py": "072d774d8b87cb98099d51e1aadc627968284b2c80525febb8e1261428bb819b",
+    "tests/test_audit_dialogue_objective.py": "49effae4ce9289ead3517801a5cbc5818dcaefcfbc8412a1e011fb89b2a8b73d"
+  },
+  "commands": [
+    {
+      "command": [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/python",
+        "-m",
+        "pytest",
+        "tests/test_audit_dialogue_objective.py",
+        "-q"
+      ],
+      "cwd": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "...................                                                      [100%]\n19 passed in 2.14s\n",
+      "wall_seconds": 2.3146872089710087
+    },
+    {
+      "command": [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/python",
+        "-m",
+        "ruff",
+        "check",
+        "scripts/audit_dialogue_objective.py",
+        "tests/test_audit_dialogue_objective.py"
+      ],
+      "cwd": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev",
+      "exit_code": 1,
+      "stderr": "",
+      "stdout": "F401 [*] `pathlib.Path` imported but unused\n --> tests/test_audit_dialogue_objective.py:7:21\n  |\n5 | import json\n6 | from fractions import Fraction\n7 | from pathlib import Path\n  |                     ^^^^\n8 | from types import SimpleNamespace\n  |\nhelp: Remove unused import: `pathlib.Path`\n  |\n6 | from fractions import Fraction\n  - from pathlib import Path\n7 | from types import SimpleNamespace\n  |\n\nFound 1 error.\n[*] 1 fixable with the `--fix` option.\n",
+      "wall_seconds": 0.07757183304056525
+    }
+  ],
+  "environment": {
+    "MKL_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "PYTHONPATH": "src:scripts:tests"
+  },
+  "runtime": {
+    "numpy": "2.5.3",
+    "python": "3.12.13 (main, Jul 23 2026, 14:33:47) [Clang 22.1.3 ]"
+  },
+  "scope": "Independent audit artificial distributions/gates/moved-artifact tree and real-producer aggregate compatibility only; no real predictions or model calls",
+  "status": "failed"
+}

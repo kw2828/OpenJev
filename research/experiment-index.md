@@ -1,8 +1,10 @@
 # OpenJev experiment archive
 
-Completed studies, including failures and controls. A passing implementation check is not an architecture result.
+Studies and frozen work awaiting execution, including failures and controls. A passing implementation check is not an architecture result.
 
 ## Complete experiment list
+
+- [Paired training-objective comparison](dialogue-objective-status.md): six-fit study frozen, with 59 focused synthetic cases passed across preserved attempts. **Training has not started.** It tests whether changing the loss improves on fixed score correction; this is not a new architecture result.
 
 - [Fixed training-weight correction](dialogue-weight-prior-results.md): all nine fits gain pooled overall accuracy and lose changed accuracy. Corrected aligned reaches **93.75%** overall and **75.89%** changed accuracy; corrected flat reaches **94.66%** overall and **58.59%** changed. Independent agreement on 90 primary cells and 270 paired cells. This is a fixed readout tradeoff, with no new fitting or architecture advantage. [All-fit figure](../output/dialogue-weight-prior-v1/figure-01/weight-prior.png).
 
