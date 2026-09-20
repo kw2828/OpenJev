@@ -1,0 +1,42 @@
+{
+  "scope": "Synthetic text and fake tokenizer only; no corpus/model calls",
+  "supersedes_failed_preflight": "/tmp/openjev-number-lexical-preflight.json",
+  "changes": "Spaced-hyphen separator ordering fixed; literal-list lint cleanup.",
+  "source_before": {
+    "src/openjev/research/dialogue_number_lexical.py": "77e39d0531ea034add2464abfa32b3686a0dcf41b5b955d7a32c714cdbf9f62f",
+    "tests/test_dialogue_number_lexical.py": "896f91d92a0b2fa674d42e1b1eec9a8d7aa84e2f6d447e87912ccf0c562cacfe"
+  },
+  "source_after": {
+    "src/openjev/research/dialogue_number_lexical.py": "77e39d0531ea034add2464abfa32b3686a0dcf41b5b955d7a32c714cdbf9f62f",
+    "tests/test_dialogue_number_lexical.py": "896f91d92a0b2fa674d42e1b1eec9a8d7aa84e2f6d447e87912ccf0c562cacfe"
+  },
+  "checks": [
+    {
+      "name": "pytest",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_dialogue_number_lexical.py"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.23510583397001028,
+      "log": "/tmp/openjev-number-lexical-pytest-02.log",
+      "log_sha256": "f93b15404fb60cdbb4e259ef2d6ffb1be990da59f8db0a0a654aa06fa17c0f10"
+    },
+    {
+      "name": "ruff",
+      "command": [
+        ".venv/bin/ruff",
+        "check",
+        "src/openjev/research/dialogue_number_lexical.py",
+        "tests/test_dialogue_number_lexical.py"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.018703792011365294,
+      "log": "/tmp/openjev-number-lexical-ruff-02.log",
+      "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    }
+  ]
+}

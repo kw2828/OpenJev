@@ -1,0 +1,44 @@
+{
+  "checks": [
+    {
+      "command": [
+        ".venv/bin/pytest",
+        "-q",
+        "tests/test_prepare_dialogue_observation_learning.py",
+        "tests/test_dialogue_finetune_dataset.py",
+        "tests/test_dialogue_number_lexical.py"
+      ],
+      "exit_code": 0,
+      "log": "check-0.txt",
+      "log_sha256": "9254cd27b5faff14a44db0538c1011be74f1d20261a0c8cff52ecc03abfc3303",
+      "wall_seconds": 0.44746737484820187
+    },
+    {
+      "command": [
+        ".venv/bin/ruff",
+        "check",
+        "scripts/prepare_dialogue_observation_learning.py",
+        "tests/test_prepare_dialogue_observation_learning.py",
+        "src/openjev/research/dialogue_finetune_dataset.py",
+        "tests/test_dialogue_finetune_dataset.py",
+        "src/openjev/research/dialogue_number_lexical.py",
+        "tests/test_dialogue_number_lexical.py"
+      ],
+      "exit_code": 0,
+      "log": "check-1.txt",
+      "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "wall_seconds": 0.03788608289323747
+    }
+  ],
+  "passed": true,
+  "scope": "Artificial data and CPU1 tests, no corpus, tokenizer or model execution",
+  "source_sha256": {
+    "research/dialogue-observation-learning-preparation.md": "f16633a1210826afe70eb1f4c1186318d9400ff72892a4aac277cde393615445",
+    "scripts/prepare_dialogue_observation_learning.py": "17bf01c31051acdcd7b609361b54b0ee6ee09ffe92808ee28fb218c2f6d84af9",
+    "src/openjev/research/dialogue_finetune_dataset.py": "f24c32dad49c7037a09ecd5a3af95e74364ce6e8db45a396d6faf5ec16e4222c",
+    "src/openjev/research/dialogue_number_lexical.py": "77e39d0531ea034add2464abfa32b3686a0dcf41b5b955d7a32c714cdbf9f62f",
+    "tests/test_dialogue_finetune_dataset.py": "2583793b542de3107748a5d4de5b32f200534c938f77e3ed38fff73e2a590757",
+    "tests/test_dialogue_number_lexical.py": "896f91d92a0b2fa674d42e1b1eec9a8d7aa84e2f6d447e87912ccf0c562cacfe",
+    "tests/test_prepare_dialogue_observation_learning.py": "399cdfbb7c1f46541dc326a1b92bdb4e55a6cdcdfd0b192bbb17945528426d39"
+  }
+}

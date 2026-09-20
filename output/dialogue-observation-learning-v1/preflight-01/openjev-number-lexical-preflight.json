@@ -1,0 +1,40 @@
+{
+  "scope": "Synthetic text and fake tokenizer only; no corpus/model calls",
+  "source_before": {
+    "src/openjev/research/dialogue_number_lexical.py": "7a81e7cfb1f0a41663ddcef6020da48926529b7a28c85ad9df60c1abbca63062",
+    "tests/test_dialogue_number_lexical.py": "42466b4f2201a6ddc5d30340196ae7e055dee336d9601e4c323f9d18a7efd15c"
+  },
+  "source_after": {
+    "src/openjev/research/dialogue_number_lexical.py": "7a81e7cfb1f0a41663ddcef6020da48926529b7a28c85ad9df60c1abbca63062",
+    "tests/test_dialogue_number_lexical.py": "42466b4f2201a6ddc5d30340196ae7e055dee336d9601e4c323f9d18a7efd15c"
+  },
+  "checks": [
+    {
+      "name": "pytest",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_dialogue_number_lexical.py"
+      ],
+      "exit_code": 1,
+      "wall_seconds": 0.34098108299076557,
+      "log": "/tmp/openjev-number-lexical-pytest.log",
+      "log_sha256": "f3dd226ae5a80242af2c297308eac895334472f60f84017226671e0b8a4eb71d"
+    },
+    {
+      "name": "ruff",
+      "command": [
+        ".venv/bin/ruff",
+        "check",
+        "src/openjev/research/dialogue_number_lexical.py",
+        "tests/test_dialogue_number_lexical.py"
+      ],
+      "exit_code": 1,
+      "wall_seconds": 0.045633999863639474,
+      "log": "/tmp/openjev-number-lexical-ruff.log",
+      "log_sha256": "2192ff23ec1fcc3aae573c986018d17deae04267a1f25c48e801dbc4b671a068"
+    }
+  ]
+}
