@@ -1,0 +1,49 @@
+{
+  "checks": [
+    {
+      "command": [
+        ".venv/bin/ruff",
+        "check",
+        "src/openjev/research/dialogue_token_factored.py",
+        "tests/test_dialogue_token_factored.py",
+        "scripts/qualify_dialogue_token_factoring.py",
+        "tests/test_qualify_dialogue_token_factoring.py",
+        "scripts/plot_dialogue_token_factoring.py"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "All checks passed!\n",
+      "wall_seconds": 0.046504042111337185
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_dialogue_token_factored.py",
+        "tests/test_qualify_dialogue_token_factoring.py"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "........................................................................ [ 76%]\n......................                                                   [100%]\n94 passed in 3.80s\n",
+      "wall_seconds": 4.348710749996826
+    }
+  ],
+  "environment": {
+    "OMP_NUM_THREADS": "4",
+    "OPENBLAS_NUM_THREADS": "1",
+    "PYTHONPATH": "src:scripts",
+    "VECLIB_MAXIMUM_THREADS": "4"
+  },
+  "scope": "Small synthetic implementation and harness checks, not frozen cost qualification",
+  "source_sha256": {
+    "research/dialogue-token-factoring-protocol.md": "a64af87b04b36ce0b936d302ee1ca2c994b3e920d881e9a4779dd8517c197ece",
+    "scripts/qualify_dialogue_token_factoring.py": "2781d917d4dc4f14f3c77a54705227cddd9b21e6c44710514185d877c4dda1f2",
+    "src/openjev/research/dialogue_token_factored.py": "d817ae4646da4bc4cb4380cf64e678c927237f71f7a2ee27bfd198e5008b6f42",
+    "tests/test_dialogue_token_factored.py": "a483e2e65b4e7054008adf06eb4631a718357b2826d8282e4da6e969dee22212",
+    "tests/test_qualify_dialogue_token_factoring.py": "a7b5a1c384a20e028b13e071a24b20146b494ec9df8d302f8fbcc36854f5c662"
+  },
+  "sources_unchanged_after_checks": true,
+  "status": "passed"
+}
