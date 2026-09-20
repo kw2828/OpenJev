@@ -66,7 +66,7 @@ Open **http://127.0.0.1:8000**. Local text scoring uses Qwen3-4B; the free brows
 
 ## Research results
 
-- [Keep/update diagnostic](research/dialogue-commitment-results.md): combining saved model probabilities raises changed accuracy **78.60% → 80.68%**, but adds retention errors. Overall improvement is only **0.055 percentage points** over the mean model, and the retention benefit versus alignment reverses when services get equal weight. No new model or architecture advantage.
+- [Training-weight correction](research/dialogue-weight-prior-results.md): a fixed correction improves overall accuracy in all nine models but misses more real changes. Aligned retention error falls **7.52% → 4.82%** while changed accuracy falls **83.45% → 75.89%**. Corrected flat remains strongest on pooled overall accuracy at **94.66%**. No new training or architecture advantage. [Earlier keep/update diagnostic](research/dialogue-commitment-results.md).
 - [Token alignment comparison](research/dialogue-token-alignment-scientific-results.md): **all nine fits completed in 69.2 minutes**. Changed-value accuracy rises to **83.45%**, versus **78.60%** for matched token means and **71.91%** for the baseline. Retained-value errors increase, overall accuracy falls, and **18/22 checks pass: continuation fails**. The independent audit agrees. This is exposed development data with the correct previous value supplied, not autonomous memory.
 - [Earlier token alignment cost screen](research/dialogue-token-alignment-capacity-results.md): **77.27 minutes projected**, above its fixed **48-minute admission limit**. That screen remains NOT ADMITTED. The separate comparison above allocates two hours before observing quality results.
 - [Typed decisions and rare-category weighting](research/dialogue-typed-results.md): **12 fits completed in 9.2 minutes**. Typed normalization lowers changed-state loss **26.92%**, but accuracy falls **50.52% to 47.40%** and retained-value errors increase. The original flat/stratum control reaches **70.88%** changed accuracy. Only **5/9 checks pass**, so the rule fails. [Error breakdown](research/dialogue-typed-decomposition-results.md): most loss improvement occurs on still-wrong decisions; the change breaks **176** correct predictions and fixes **122** across the three seeds. No architecture advantage established.
@@ -81,7 +81,7 @@ Open **http://127.0.0.1:8000**. Local text scoring uses Qwen3-4B; the free brows
 - [Robot dynamics screen](research/drive-qualification-results.md): 252 episodes; classical calibration leaves too little benefit from exact parameters to justify neural training here.
 - [All experiments and visualizations](research/experiment-index.md): complete results, including negative findings, training receipts and paper sources.
 
-[![Saved-probability combinations: all seeds, partial gains and the equal-service reversal](output/dialogue-commitment-v1/figure-03/commitment.png)](research/dialogue-commitment-results.md)
+[![Fixed training-weight correction: all nine fits, fewer false updates and more missed changes](output/dialogue-weight-prior-v1/figure-01/weight-prior.png)](research/dialogue-weight-prior-results.md)
 
 Candidate scores are uncalibrated and relative to the supplied choices. These experiments use different models and protocols. The root MIT license applies except where component notices specify other terms, including GPL-3.0-only chess research files. Third-party data and model licenses apply separately.
 
