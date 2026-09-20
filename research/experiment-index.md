@@ -4,6 +4,8 @@ Studies and frozen work awaiting execution, including failures and controls. A p
 
 ## Complete experiment list
 
+- [Complete observation-learning inputs](dialogue-observation-learning-status.md): all **4,380 dialogues / 114,070 endpoints** prepared, with an independently verified four-arm factorial, 60 paired epoch orders and complete work profiles. A split-ID metadata defect stopped the first attempt and is preserved; the additive correction completed in **14.35 seconds with zero neural calls**. Worst-case cost qualification and scientific training remain pending; no new quality result.
+
 - [Trainable observations through autonomous memory](dialogue-finetune-qualification-results.md): the real MiniLM gradient/cost qualification passed all **six cells in 8.15 phase seconds**, with **18 updates, 72 repeated dialogue visits and 168 encoder batch calls**. All checked states were valid; trainable encoder gradients reached embeddings and attention. Synthetic targets only, no quality evaluation or architecture claim. [Protocol](dialogue-finetune-qualification-protocol.md) · [Execution history](dialogue-finetune-qualification-status.md).
 
 - [Complete-stream literal-history audit](dialogue-history-support-results.md): all **51,741 training endpoints in 2,017 dialogues**, completed in **2.57 seconds with zero model calls**. Of 38 apparent distant SYSTEM-only references, 34 already express the target number as words within four exchanges; four involve ambiguous older cross-service party-size transfer. The source-separated proposal branch is closed on this cohort. This is diagnostic evidence, not a performance result. [All case assessments](dialogue-history-support-case-review.md) · [Frozen protocol](dialogue-history-support-protocol.md).
