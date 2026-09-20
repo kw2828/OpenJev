@@ -4,6 +4,8 @@ Completed studies, including failures and controls. A passing implementation che
 
 ## Complete experiment list
 
+- [Token alignment scientific campaign](dialogue-token-alignment-scientific-status.md): **training launched September 20 at 08:29 UTC** under a separately published two-hour local allocation. All nine fresh fits, data, seeds, 20 epochs and 22 behavioral checks are unchanged from the original proposal. Source/input/order freeze published before fitting. No quality report until all nine authenticate; no accuracy result yet.
+
 - [Token alignment cost screen](dialogue-token-alignment-capacity-results.md): exact frozen schema cache and two matched 124,482-parameter models pass implementation checks. All **72 synthetic cost events** complete in **20.84 seconds**, but the nine-fit study projects to **77.27 minutes**, above the fixed **48-minute admission threshold**. No scientific fits or new quality result. The zero-call metadata failure and its correction are preserved. [Timing figure](../output/dialogue-token-alignment-v1/capacity-figure-02/capacity.png).
 
 - [Why typed loss improves while decisions worsen](dialogue-typed-decomposition-results.md): no new fits. Exact saved-probability decomposition shows **176 correct-to-wrong versus 122 wrong-to-correct events**; 164 of the new mistakes choose the wrong branch. The largest favorable loss contribution is among still-wrong rows. Two independent numerical readers agree within their declared scopes. Original **5/9 failure** unchanged. [Figure](../output/dialogue-typed-decomposition-v1/figure-01/typed-decomposition.png) · [Next observation-model design](dialogue-token-alignment-design.md).
