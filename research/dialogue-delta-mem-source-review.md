@@ -147,5 +147,8 @@ and other answers, with anti-update controls. It could expose failures missing
 from short SGD dialogues. However, its answer pool is used for grading and is
 **not shown to the original answering system**. Showing those alternatives to
 OpenJev would create a distinct candidate-supplied task, not a directly
-comparable reproduction. Dataset/code availability and licensing have not yet
-been verified, and no examples were used here.
+comparable reproduction. The subsequent
+[release and task-interface review](statemembench-release-review.md) could not
+verify an author-linked code or dataset release or its reuse license. It remains
+a source lead, not an admitted benchmark. No benchmark files or case/prompt
+appendices were opened in that metadata review.
