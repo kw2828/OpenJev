@@ -98,14 +98,15 @@ it does not permit a replacement seed, resume or cap extension.
 
 The scientific worker started on September 20, 2026 after the frozen plan was
 published in `b5d57a9`. Session **90741**, process group **14919**, is running
-with one CPU thread and MPS. **Three of twelve fits have completed**: both
-frozen-encoder controls and `trainable_original-6901`. The fourth fit,
-`trainable_numbers-6901`, is running. Each completed fit recorded
+with one CPU thread and MPS. **Four of twelve fits have completed**, covering
+all four variants for seed 6901. The fifth fit, `frozen_original-6902`, is
+running. Each completed fit recorded
 all **1,280 optimizer updates, 40,340 training dialogue visits and 62,329 final
 development predictions**. Their recorded operation totals match the frozen
-plan. Both frozen encoders remained unchanged; the completed trainable encoder's
-digest changed. Its initial update recorded nonzero embedding and attention
-gradients, and its recorded state checks stayed within tolerance. This establishes
+plan, and all four share the same initial encoder and memory hashes. Both frozen
+encoders remained unchanged; both trainable encoder digests changed. The first
+trainable fit's initial update recorded nonzero embedding and attention
+gradients. All recorded state checks stayed within tolerance. This establishes
 execution only. No fit has been selected or scored for task quality; the
 twelve-fit study remains incomplete.
 
@@ -114,6 +115,7 @@ twelve-fit study remains incomplete.
 | frozen_original-6901 | 915.03 | 62,329 |
 | frozen_numbers-6901 | 924.56 | 62,329 |
 | trainable_original-6901 | 2,005.16 | 62,329 |
+| trainable_numbers-6901 | 1,956.08 | 62,329 |
 
 [First-fit completion](../output/dialogue-observation-learning-v1/scientific-run-01/frozen_original-6901/completed.json)
 has SHA-256 `737309a4092aed7f5a2f4d43d17f106103dbca849eac22bcd36d001bf66f2e61`.
@@ -121,11 +123,14 @@ The [second-fit completion](../output/dialogue-observation-learning-v1/scientifi
 has SHA-256 `d591f17465ddd6df7a9ff6970dfbd33bc85b66abe26b79450ca1be6fc695ed14`.
 The [third-fit completion](../output/dialogue-observation-learning-v1/scientific-run-01/trainable_original-6901/completed.json)
 has SHA-256 `34c745bf3e464f647a3c2bffb18acd974fcc3f5c958e264e64f32b004754cec1`.
-The [current progress snapshot](../output/dialogue-observation-learning-v1/scientific-progress-03.json)
-records the live process, matched work totals, encoder-change witness and all 53
+The [fourth-fit completion](../output/dialogue-observation-learning-v1/scientific-run-01/trainable_numbers-6901/completed.json)
+has SHA-256 `3a8ddc92730a6a6fc2148690169d4a4cf9a42444fbacb329e20f3eb61dc7c8b2`.
+The [current progress snapshot](../output/dialogue-observation-learning-v1/scientific-progress-04.json)
+records the live process, matched work and initial states, encoder-change witnesses and all 53
 unchanged source pins separately from final scientific validity. The
-[first snapshot](../output/dialogue-observation-learning-v1/scientific-progress-01.json)
-and [initial gradient witnesses](../output/dialogue-observation-learning-v1/scientific-progress-02.json)
+[first snapshot](../output/dialogue-observation-learning-v1/scientific-progress-01.json),
+[initial gradient witnesses](../output/dialogue-observation-learning-v1/scientific-progress-02.json)
+and [first trainable completion snapshot](../output/dialogue-observation-learning-v1/scientific-progress-03.json)
 are retained.
 
 - [Actual supervisor launch](../output/dialogue-observation-learning-v1/scientific-process-01.launch.json):
