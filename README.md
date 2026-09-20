@@ -66,21 +66,21 @@ Open **http://127.0.0.1:8000**. Local text scoring uses Qwen3-4B; the free brows
 
 ## Research results
 
-**Latest: more context did not improve the text decision baseline.** All 15,638 decisions completed in 53.8 minutes. Both Qwen arms make substantially more retention errors than our earlier small model, despite recognizing more real changes.
+**Latest: removing lexical flags did not fix retention.** The complete 15,638-decision comparison finished in 41.3 minutes. Changed-value accuracy improved, but only **5/16** continuation checks passed. Both context settings failed, with independent arithmetic agreement.
 
 | Model | Changed-value accuracy ↑ | Retained-value error ↓ | Overall accuracy ↑ |
 | --- | ---: | ---: | ---: |
 | Earlier small model, three-seed mean | 58.59% | 2.46% | 94.66% |
-| Qwen, current exchange | 83.74% | 17.40% | 82.68% |
-| Qwen, four exchanges | 82.35% | 21.67% | 78.63% |
+| Qwen, current exchange, original inputs | 83.74% | 17.40% | 82.68% |
+| Qwen, current exchange, no lexical flags | 85.64% | 19.85% | 80.56% |
+| Qwen, four exchanges, original inputs | 82.35% | 21.67% | 78.63% |
+| Qwen, four exchanges, no lexical flags | 84.60% | 21.68% | 78.78% |
 
-Both behavioral comparisons and both probability-score checks fail. The independent audit agrees. Every model receives the correct previous value on exposed development data; this is not an autonomous-memory or new-architecture result. [Full results and every seed](research/dialogue-qwen-observation-results.md).
+Removing flags also removes some full-history information and shortens prompts. Overall log loss worsened in both context settings. Every model receives the correct previous value on exposed development data; this is not an autonomous-memory or new-architecture result. [Complete paired results](research/dialogue-qwen-lexical-ablation-results.md) · [Earlier baseline and every training seed](research/dialogue-qwen-observation-results.md).
 
-The [retention diagnosis and blinded Astra6 review](research/dialogue-qwen-retention-results.md) identify state resets and a preference-versus-action ambiguity to test next. They add no new performance claim.
+[![All sixteen lexical-ablation checks: improved revision accuracy, unresolved retention and failed probability-score conditions](output/dialogue-qwen-lexical-ablation-v1/figure-01/comparison.png)](research/dialogue-qwen-lexical-ablation-results.md)
 
-**Running:** a [complete paired test without lexical flags](research/dialogue-qwen-lexical-ablation-status.md) checks whether removing that input representation improves decisions. The fresh cost pilot passed; quality results remain pending.
-
-[![Complete Qwen comparison: both history conditions and all historical seeds, with separate accuracy, retention and probability-score failures](output/dialogue-qwen-observation-v1/figure-02/comparison.png)](research/dialogue-qwen-observation-results.md)
+The [retention diagnosis and blinded Astra6 review](research/dialogue-qwen-retention-results.md) remain diagnostic. The [next memory comparison](research/dialogue-memory-next-decision.md) requires an autonomous state ledger and established dialogue-state controls before another architecture claim.
 
 - [Earlier text learning experiments](research/dialogue-objective-results.md): matched training objectives and recurrent variants have not established an architecture advantage.
 - [Text inference speed](research/shared-prefix-results.md): shared-context scoring is **2.08x faster** for four-question synthetic workloads; single-question caching is slower.

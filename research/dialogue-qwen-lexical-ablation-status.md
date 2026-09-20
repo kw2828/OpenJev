@@ -3,7 +3,9 @@
 The [protocol](dialogue-qwen-lexical-ablation-protocol.md) and exact subtraction
 implementation were published before preparation. This is a development control
 motivated by the [retention diagnosis](dialogue-qwen-retention-results.md), not a
-new architecture result. No quality result is available yet.
+new architecture result. The complete comparison and independent result audit
+are finished: **5/16 conditions passed and both arms failed**. See the
+[paired results](dialogue-qwen-lexical-ablation-results.md).
 
 ## Source and synthetic qualification
 
@@ -69,33 +71,46 @@ group **90676** was absent on the
 
 The full allocation started at **2026-09-20 14:24:45 UTC**, after the other
 research task explicitly returned the numerical slot with terminal status and
-process-group cleanup. Session **46815**, PID/process group **91127**, is running
-the complete 7,444-request comparison under the 7,200-second cap. The
+process-group cleanup. Session **46815** exited **0** after all 7,444 requests
+and 15,638 decisions completed in **2,479.636 seconds (41.327 minutes)**, with
+**3,491,479,552 bytes** peak process RSS. All attempted calls returned. The
+completion receipt is
+`165552f6e7ca391145d6beade603829e2330e7d66511670d567af122109f9045`.
+PID/process group **91127** was absent at the
+[terminal check](../output/dialogue-qwen-lexical-ablation-v1/run-terminal-01.json)
+at **15:06:34 UTC**, and the shared model/plant allocation was released. The
 [launch record](../output/dialogue-qwen-lexical-ablation-v1/run-launch-01.json)
-binds the prepared plan and admitted pilot. This records launch, not completion.
-Failure ends this version without retry, resume or scope reduction. No partial
-quality will be inspected.
+binds the prepared plan and admitted pilot. No partial quality was inspected,
+and there was no retry, resume or scope reduction.
 
-After successful complete inference, a separate saved-only report compares the
+After successful complete inference, a separate saved-only report compared the
 new predictions to the original corresponding-arm predictions. All **16**
-prospective conditions must pass: each arm must reduce retained error by at
+prospective conditions were required: each arm had to reduce retained error by at
 least two percentage points, lose no more than one point of changed accuracy,
 and avoid increasing overall NLL or Brier, under both row and equal-service
-weighting. Passing would improve a development input representation; it would
-not establish autonomous memory or a novel architecture.
+weighting. Only **5/16** passed; both per-arm conjunctions failed. The no-flags
+representation was not promoted. No autonomous-memory or architecture claim
+follows.
 
 The [separate reporter](../scripts/report_dialogue_qwen_lexical_ablation.py) passes
 [15 synthetic checks](../output/dialogue-qwen-lexical-ablation-v1/report-preflight-01/receipt.json)
 in 0.72 seconds and lint. It binds both completed campaigns, reconstructs their
-paired choices/probabilities and reports all sixteen conditions. It has not
-read new model outputs. Independent source review found no material issue at
+paired choices/probabilities and reports all sixteen conditions. Independent
+source review found no material issue at
 reporter hash `c25ea0f6727fa96ee0af17eca4a3530ad379e70ae58f37ac9e7de8a028516928`
 and test hash `0dbde93d198845cc1da14684cf4e4d885a4b69e2aff0ee05f6d001b7d03d3a3d`.
 Its reconstruction inherits the pinned original
 reporter and is not an additional independent result audit.
 
+The actual report exited **0**, taking **7.742 seconds** and **609,746,944 bytes**
+peak RSS, with zero model calls. Its
+[receipt](../output/dialogue-qwen-lexical-ablation-v1/report-01/receipt.json) is
+`37a947e727099b05df00c64458e1e9218cc4de02931845eaee15e1e03d84fb0d`,
+and its summary is
+`3668414c4785d1d35bedb186b5a560550edb5612b97e8c8b669aae08934d583b`.
+
 The [independent saved-result checker](../scripts/audit_dialogue_qwen_lexical_result.py)
-is also ready. Its single
+was qualified by its single
 [synthetic preflight](../output/dialogue-qwen-lexical-ablation-v1/result-audit-preflight-01/receipt.json)
 passed **14 tests in 2.33 seconds** and lint; independent source review found no
 material issue at source hash
@@ -103,16 +118,23 @@ material issue at source hash
 It reconstructs 84 primary metric cells and all 16 decisions through the pinned
 original independent auditor, without importing reporter metric code. Exact
 prompt subtraction, tokenization, actual inference, timing and secondary metrics
-remain outside this arithmetic audit. It has not run against real ablation
-outputs.
+remain outside this arithmetic audit. The actual audit exited **0** and agreed
+on **1,455 scalar comparisons**, all 84 primary cells and all 16 decisions. It
+took **3.440 seconds** with **134,053,888 bytes** peak RSS and zero model calls.
+Its [receipt](../output/dialogue-qwen-lexical-ablation-v1/result-audit-01/receipt.json)
+is `f0e8d66984fb0cb68d9190803d74fa2a547d1d8f4480f87a7cd52023d8edbec6`.
 
 The [comparison plotter](../scripts/plot_dialogue_qwen_lexical_ablation.py) is
 prepared and visually checked on a clearly watermarked synthetic fixture.
 Its [preflight receipt](../output/dialogue-qwen-lexical-ablation-v1/figure-preflight-01/preflight-receipt.json)
 also records rejection of incorrect pins and extra directory members before
-quality-summary decoding. The figure will display both arms, both weightings,
+quality-summary decoding. The actual figure displays both arms, both weightings,
 32 metric values and all 16 decisions, requiring an agreeing completed audit.
-No real comparison figure has been generated yet.
+The [real comparison](../output/dialogue-qwen-lexical-ablation-v1/figure-01/comparison.png)
+was generated after the agreeing audit in **0.486 seconds**, with zero model
+calls. Its receipt is
+`9f052ae1cf41249e208ae2c8c079c2a70247d5f595e6632d7f4e6dcee871e846`.
+The rendered labels, all sixteen markers and scope notes were visually checked.
 
 A subsequent authentication-only refinement accepts the independent auditor's
 existing `2e-12` floating-point tolerance for metric deltas while keeping all
