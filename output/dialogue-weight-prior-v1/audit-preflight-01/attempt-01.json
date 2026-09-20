@@ -1,0 +1,50 @@
+{
+  "after_source_sha256": {
+    "research/dialogue-weight-prior-diagnostic.md": "e4ca9363e00ac4bddc3e6fedb7a6ef8e6200d3c08ad4169e8045bbbac97b3ac9",
+    "scripts/audit_dialogue_commitment.py": "862368fadf6d2f143b70e3a8a2a48b02418d849defd1a184f9251f881b8184ab",
+    "scripts/audit_dialogue_weight_prior.py": "f4f3edbc03e58c5184cab9b54c337a03578268343cc30e03428fcd71d7a3f661",
+    "scripts/diagnose_dialogue_weight_prior.py": "c51eba8f5fa837130f76b79f7e663801d99fd709fa40097f07e28334f7679ca1",
+    "tests/test_audit_dialogue_weight_prior.py": "087f25b25dc0ad555c3d1bfeb631e1b667cf372f13192f6274d9ac1c4c32c276"
+  },
+  "attempts": [
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_audit_dialogue_weight_prior.py"
+      ],
+      "exit_code": 0,
+      "label": "pytest",
+      "stderr": "pytest-01.stderr.txt",
+      "stdout": "pytest-01.stdout.txt",
+      "wall_seconds": 0.3152187499217689
+    },
+    {
+      "argv": [
+        ".venv/bin/ruff",
+        "check",
+        "scripts/audit_dialogue_weight_prior.py",
+        "tests/test_audit_dialogue_weight_prior.py"
+      ],
+      "exit_code": 0,
+      "label": "ruff",
+      "stderr": "ruff-01.stderr.txt",
+      "stdout": "ruff-01.stdout.txt",
+      "wall_seconds": 0.0413628329988569
+    }
+  ],
+  "before_source_sha256": {
+    "research/dialogue-weight-prior-diagnostic.md": "e4ca9363e00ac4bddc3e6fedb7a6ef8e6200d3c08ad4169e8045bbbac97b3ac9",
+    "scripts/audit_dialogue_commitment.py": "862368fadf6d2f143b70e3a8a2a48b02418d849defd1a184f9251f881b8184ab",
+    "scripts/audit_dialogue_weight_prior.py": "f4f3edbc03e58c5184cab9b54c337a03578268343cc30e03428fcd71d7a3f661",
+    "scripts/diagnose_dialogue_weight_prior.py": "c51eba8f5fa837130f76b79f7e663801d99fd709fa40097f07e28334f7679ca1",
+    "tests/test_audit_dialogue_weight_prior.py": "087f25b25dc0ad555c3d1bfeb631e1b667cf372f13192f6274d9ac1c4c32c276"
+  },
+  "collected_at_utc": "2026-09-20T10:10:58.813633+00:00",
+  "model_calls": 0,
+  "real_prediction_arrays_opened": false,
+  "scope": "Synthetic correctness and artificial producer compatibility only; no real diagnostic execution.",
+  "status": "passed"
+}
