@@ -4,6 +4,8 @@ Completed studies, including failures and controls. A passing implementation che
 
 ## Complete experiment list
 
+- [Projecting dialogue evidence before scattering](dialogue-token-projection-results.md): all sixteen numerical comparisons pass, with **1.28-1.45x** paired median speed ratios on the four real-mask cells. Overall admission still fails: **10/16** speed cells pass, including only 3/8 original medium/large cells. No training restart or task-quality claim. [All paired timings](../output/dialogue-token-projection-v1/figure-01/timing.png).
+
 - [Mask-packed dialogue pooling](dialogue-token-packing-results.md): all sixteen output/gradient checks pass, but **0/12 larger cells** meets the speed requirement. The fixed 160-update run fails admission, including all four cells with a preselected real training mask. Values and labels remain synthetic. [Every paired timing measurement](../output/dialogue-token-packing-v1/figure-01/timing.png).
 
 - [Time-batched dialogue pooling](dialogue-token-batching-results.md): all twelve output/gradient checks pass, but only **1/8 medium/large cells** meets the speed requirement. The fixed 120-update engineering run fails admission. No training restart. [All paired timing measurements](../output/dialogue-token-batching-v1/figure-01/timing.png).

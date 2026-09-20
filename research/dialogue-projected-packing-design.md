@@ -1,5 +1,9 @@
 # Next execution candidate: project before dense scattering
 
+Follow-up: this proposal was implemented and [measured](dialogue-token-projection-results.md).
+It passes 10/16 speed checks, including all four real-mask cells, but fails
+the full qualification. The original prospective design follows.
+
 Status: source-based proposal only. No implementation, speed measurement or
 training admission. The [completed mask-packing qualification](dialogue-token-packing-results.md)
 failed, and its sources and results remain unchanged.
