@@ -1,0 +1,93 @@
+{
+  "author_preflight_receipts": [
+    {
+      "commands": [
+        {
+          "argv": [
+            ".venv/bin/python",
+            "-m",
+            "pytest",
+            "-q",
+            "tests/test_qualify_dialogue_observation_batches.py"
+          ],
+          "exit_code": 0,
+          "stdout_summary": "................                                                         [100%]\n16 passed in 3.53s\n"
+        },
+        {
+          "argv": [
+            ".venv/bin/python",
+            "-m",
+            "ruff",
+            "check",
+            "scripts/qualify_dialogue_observation_batches.py",
+            "tests/test_qualify_dialogue_observation_batches.py"
+          ],
+          "exit_code": 1,
+          "stdout_summary": "Initial Ruff reported seven test-only style findings, preserved in source receipt."
+        }
+      ],
+      "path": "/tmp/openjev-observation-batches-preflight.json",
+      "recorded_status": "failed",
+      "sha256": "dda42b1072a0c20f3f8504bfe04920be9f0cef62cd068aae010fb911b71d4ef3"
+    },
+    {
+      "commands": [
+        {
+          "argv": [
+            ".venv/bin/python",
+            "-m",
+            "pytest",
+            "-q",
+            "tests/test_qualify_dialogue_observation_batches.py",
+            "-k",
+            "prepared_identity_runtime or attempt_failure or late_output or tiny_fake"
+          ],
+          "exit_code": 0,
+          "stdout_summary": ".......                                                                  [100%]\n7 passed, 9 deselected in 3.14s\n"
+        },
+        {
+          "argv": [
+            ".venv/bin/python",
+            "-m",
+            "ruff",
+            "check",
+            "scripts/qualify_dialogue_observation_batches.py",
+            "tests/test_qualify_dialogue_observation_batches.py"
+          ],
+          "exit_code": 0,
+          "stdout_summary": "All checks passed!\n"
+        }
+      ],
+      "path": "/tmp/openjev-observation-batches-preflight-02.json",
+      "recorded_status": "passed",
+      "sha256": "df41bda11cf14ba232bac0a4dfe931f473c6b89a2c5f5cd6b866f284f9472b39"
+    }
+  ],
+  "experimental_model_calls": 0,
+  "limitations": [
+    "Synthetic integration replaces assets/device and authentication intentionally; it does not qualify real MPS, real checkpoints or production input authentication.",
+    "Static clearance permits prospective cost-plan freeze, not a scientific fit, full-run cost conclusion or task-quality claim."
+  ],
+  "material_blockers": [],
+  "preflight_interpretation": "Author first ran all16 synthetic cases successfully but initial lint failed; final test-only changes were covered by7 affected passing cases and clean Ruff. Passing tests were not redundantly rerun by reviewer.",
+  "reviewer": "independent architecture_bottleneck source review",
+  "scope": "Final source/protocol and synthetic fixture inspection only; no test rerun, real preparation decode, tokenizer, model or cost execution by reviewer.",
+  "source_sha256": {
+    "research/dialogue-observation-learning-cost-protocol.md": "731aad524200b3cf1db4d471760a84341ffde1045bdaeb4d89290fdbd36dc1b2",
+    "scripts/qualify_dialogue_observation_batches.py": "ceb97d5c8060353b0bb95886e7862d0c330b3d0767fedafec0b5a208ca0362b0",
+    "tests/test_qualify_dialogue_observation_batches.py": "7e108aac3e98a24ad5d0305bae95b733eaf17494a56d04507b037c152b21db3d"
+  },
+  "status": "clear",
+  "tests_executed_by_reviewer": 0,
+  "verified_contracts": [
+    "Fixed complete schedule:40 cells,52 optimizer updates,1168 training dialogue visits,24 DEV forwards,412 parity dialogue encodings;1604 total encoder passes.",
+    "Full prepared closure/source/runtime and exact metadata cases authenticated before backend/model dispatch.",
+    "Fresh identical encoder and scalar initialization digests across all cells and arms; actual V2 state checks remain on the complete public stream.",
+    "Only scored time/query coordinates select loss geometry; synthetic targets and strata use fixed support and offset, not official values or bins.",
+    "Every training microbatch uses the same effective-batch endpoint denominator; final fixture directly witnesses unequal2+1 endpoint counts using denominator3 and single-dialogue count2.",
+    "DEV cases use no-grad forward-only execution and preserve initial encoder digest; final fixture checks no gradient witness is emitted for evaluation.",
+    "Actual encoder dispatches, attempted/returned operations, work totals, monitored states, checkpoints and all warm/measured cells are accounted for.",
+    "Event time includes assembly,encoding,recurrence,loss,backward,optimizer,validation and synchronization. Journal-write duration is recorded after append only in cell summaries and is charged to whole-phase wall time.",
+    "Exclusive failure preservation disables alarm, guards original exceptions and demotes any premature completed marker; no retry/resume path."
+  ]
+}
