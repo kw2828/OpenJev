@@ -1,4 +1,4 @@
-# Observation learning: full-batch path qualified, training pending
+# Observation learning: scientific comparison frozen, training pending
 
 The corrected preparation completed for **4,380 dialogues and 114,070 scored
 endpoints**. Independent saved-input auditing passed. The subsequent
@@ -77,8 +77,22 @@ tested three largest full batches, three training extremes, a one-dialogue
 tail and three evaluation extremes under all four arms. It used synthetic
 targets and included backward, effective-batch weighting and checkpoint I/O.
 Measured work supports a prospective eight-hour allocation with explicit
-headroom. Complete scientific runner/reporter checks and a bound allocation
-remain necessary before training.
+headroom. Runner, metric and saved-results checks are complete. The independent
+source review binds all 53 source files. The metadata freeze completed in
+1.832 seconds with zero model calls; its parent exited 0 with process group
+14697 absent. Actual training has not started.
+
+- [Frozen scientific plan](../output/dialogue-observation-learning-v1/scientific-freeze-01/plan.json):
+  `acb79b4600c66966762895d28eb2dc1d2be15c761d677c5e87c5750dde47f237`.
+- [Freeze completion](../output/dialogue-observation-learning-v1/scientific-freeze-01/completed.json):
+  `c3a53a94dd4a36e677b36d4e358bb779abd6419711941a792e50ce48feab36c3`.
+- [Scientific source review](../output/dialogue-observation-learning-v1/scientific-source-review-01/receipt.json):
+  `45921e885a9cd1cf67036e5d2dfd065e5a3e3e767777d4c62210e12a599fd815`.
+
+The frozen plan fixes all twelve fits, row order, scorer, seven primary
+conditions and independent process watchdog. The eight-hour allocation is a
+hard stop, not a promise of completion. A failure preserves the partial attempt;
+it does not permit a replacement seed, resume or cap extension.
 
 Official DEV is exposed development evidence. Official TEST remains sealed.
 An eventual representation-learning gain would strengthen the baseline for a

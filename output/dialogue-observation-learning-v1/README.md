@@ -32,3 +32,9 @@ audit, with all source and actual process-terminal identities.
 `cost-estimate-01.json` is a prospective scheduling heuristic, not a duration
 guarantee or quality result. Scientific runner/reporter preflights and protocol
 files do not by themselves establish that the twelve-fit study has run.
+
+`scientific-freeze-01` publishes its plan, allocation and start/completion
+records. Its canonical evaluator rows and literal references stay local, as do
+duplicate source snapshots; the original source files were published in commit
+`f5b59be` before this freeze. The completion manifest binds every local payload.
+The freeze made zero model calls and is not a training result.
