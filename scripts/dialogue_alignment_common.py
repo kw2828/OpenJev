@@ -30,7 +30,8 @@ def source_map(check=lambda: None):
 
 
 def load_metadata(check=lambda: None):
-    return typed.load_metadata(SimpleNamespace(check=check), payloads=True)
+    # The inherited authenticator also records how many opaque files it hashes.
+    return typed.load_metadata(SimpleNamespace(check=check, progress={"hashed_files": 0}), payloads=True)
 
 
 def schema_metadata(index, offsets):

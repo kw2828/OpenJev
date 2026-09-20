@@ -5,6 +5,14 @@ This is a synthetic engineering measurement for the
 quality result. Do not train on real examples unless this measurement admits
 the complete planned comparison. All earlier study outcomes remain final.
 
+Metadata correction: `capacity-protocol-01` failed before model execution
+because the adapter omitted the inherited authenticator's `hashed_files`
+counter. Preserve that directory and its zero-call failure. The separately
+published correction adds that bookkeeping field and a regression test;
+`capacity-protocol-02` is the only corrected freeze. No numerical model code,
+data membership, geometry, seeds, timings, thresholds or execution limits
+change. There has been no empirical capacity attempt to resume or replace.
+
 ## Fixed comparison
 
 Use `flat_stratum`, `token_mean`, and `token_aligned`, with fresh seeds

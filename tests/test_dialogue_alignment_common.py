@@ -20,6 +20,18 @@ def setup():
     return fit, evaluation, c.typed.public_candidate_types(queries), arrays, schema
 
 
+def test_metadata_adapter_preserves_inherited_authentication_bookkeeping(monkeypatch):
+    called = []
+    def inherited(budget, payloads):
+        budget.check()
+        budget.progress["hashed_files"] += 1
+        assert payloads is True
+        return "authenticated"
+    monkeypatch.setattr(c.typed, "load_metadata", inherited)
+    assert c.load_metadata(lambda: called.append(True)) == "authenticated"
+    assert called == [True]
+
+
 def test_exact_schema_token_assembly_and_current_label_invariance():
     fit, _, types, arrays, schema = setup()
     data, _ = c.actor(fit, arrays, types, schema, "token_aligned")
