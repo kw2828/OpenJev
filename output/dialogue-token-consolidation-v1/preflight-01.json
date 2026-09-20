@@ -1,0 +1,110 @@
+{
+  "checks": [
+    {
+      "receipt": {
+        "command": [
+          ".venv/bin/python",
+          "-m",
+          "pytest",
+          "-q",
+          "tests/test_dialogue_token_consolidated.py"
+        ],
+        "cwd": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev",
+        "environment_inheritance": "Other environment values inherited unchanged; per-test seed410 RNG fork and one Torch thread are defined in source",
+        "environment_overrides": {
+          "PYTHONPATH": "src:scripts"
+        },
+        "exit_code": 0,
+        "provenance": "Captured directly from this single subprocess execution; not a reconstructed result",
+        "scope": "Focused synthetic model correctness tests only; no benchmark, corpus or encoder calls",
+        "shell_login": false,
+        "source_sha256_after": {
+          "src/openjev/research/dialogue_token_consolidated.py": "03fa31be4ac35ff302fe34b367ef8a632416b7ff42c4aa11c331d7b25bf26ec8",
+          "tests/test_dialogue_token_consolidated.py": "bba0fd308c213b1f2a2636c27ef99be7a8fc35aca253edeca72b9faa25d9518a"
+        },
+        "source_sha256_before": {
+          "src/openjev/research/dialogue_token_consolidated.py": "03fa31be4ac35ff302fe34b367ef8a632416b7ff42c4aa11c331d7b25bf26ec8",
+          "tests/test_dialogue_token_consolidated.py": "bba0fd308c213b1f2a2636c27ef99be7a8fc35aca253edeca72b9faa25d9518a"
+        },
+        "stderr": "",
+        "stdout": "..........................................................               [100%]\n58 passed in 2.68s\n"
+      },
+      "receipt_sha256": "d41448683449885f39084091609359312eb2de028c6ac5510d1e6193a147810e"
+    },
+    {
+      "receipt": {
+        "actual_qualification_runs": 0,
+        "combined_stdout_stderr": ".......................................                                  [100%]\n39 passed in 3.23s\n",
+        "command": [
+          ".venv/bin/python",
+          "-m",
+          "pytest",
+          "-q",
+          "tests/test_qualify_dialogue_token_consolidation.py"
+        ],
+        "corpus_reads": 0,
+        "cwd": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev",
+        "encoder_calls": 0,
+        "environment_capture_scope": "Exact explicit override; inherited environment was not separately snapshotted before invocation. Tests isolate Torch RNG and set one intra-op thread per fixture.",
+        "environment_overrides": {
+          "PYTHONPATH": "src:scripts"
+        },
+        "exit_code": 0,
+        "login": false,
+        "provenance": {
+          "before_hashes": "Actual shasum output recorded immediately before author test dispatch; no edits afterward",
+          "receipt_written_after_completion": true,
+          "rerun_for_receipt": false,
+          "test_completion_chunk_id": "9e76d4",
+          "test_exec_chunk_id": "2a14f6",
+          "test_exec_session_id": 35105
+        },
+        "pytest_reported_seconds": 3.23,
+        "pytest_reported_tests_passed": 39,
+        "scope": "Focused tiny artificial harness tests, not the fixed qualification or full-study admission",
+        "shell": "/bin/zsh",
+        "shell_command": "PYTHONPATH=src:scripts .venv/bin/python -m pytest -q tests/test_qualify_dialogue_token_consolidation.py",
+        "source_sha256_after": {
+          "scripts/qualify_dialogue_token_consolidation.py": "e031c87386c645d45caad5051a7b30519fd1d7e3a4d228eeef2d2c96bc221642",
+          "tests/test_qualify_dialogue_token_consolidation.py": "1d659f1f43778235142a994e73acc5fda960059e2f6ced64d6f15d7c01340157"
+        },
+        "source_sha256_before": {
+          "scripts/qualify_dialogue_token_consolidation.py": "e031c87386c645d45caad5051a7b30519fd1d7e3a4d228eeef2d2c96bc221642",
+          "tests/test_qualify_dialogue_token_consolidation.py": "1d659f1f43778235142a994e73acc5fda960059e2f6ced64d6f15d7c01340157"
+        },
+        "source_unchanged": true,
+        "status": "passed",
+        "stderr": null,
+        "stdout": null,
+        "stdout_stderr_chunks": [
+          "..................",
+          ".....................                                  [100%]\n39 passed in 3.23s\n"
+        ],
+        "stream_capture_scope": "exec tool returned a merged output stream, so separate stdout/stderr are not asserted retroactively. Captured chunks are retained verbatim."
+      },
+      "receipt_sha256": "85dc798d6648b9d606523ef92606c0692a11adf31e8068a58c92365ff7b3498c"
+    }
+  ],
+  "focused_tests_passed": 97,
+  "inherited_sources_unchanged": 56,
+  "plot_lint": {
+    "combined_output": "All checks passed!\n",
+    "command": [
+      ".venv/bin/ruff",
+      "check",
+      "scripts/plot_dialogue_token_consolidation.py"
+    ],
+    "exit_code": 0,
+    "source_sha256": "8c52d4b8d03129b9b35d88ede130cc53fa3944d537fece6f7b35485c4ea3bf9d"
+  },
+  "repeat_tests_for_reporting": false,
+  "scope": "97 focused synthetic implementation and harness tests in two author runs; not a frozen cost qualification",
+  "source_sha256": {
+    "research/dialogue-token-consolidation-protocol.md": "a4379eaa26d128ee7d195b7de11963488509a9167ecaebcd8a0fa71be8da493f",
+    "scripts/qualify_dialogue_token_consolidation.py": "e031c87386c645d45caad5051a7b30519fd1d7e3a4d228eeef2d2c96bc221642",
+    "src/openjev/research/dialogue_token_consolidated.py": "03fa31be4ac35ff302fe34b367ef8a632416b7ff42c4aa11c331d7b25bf26ec8",
+    "tests/test_dialogue_token_consolidated.py": "bba0fd308c213b1f2a2636c27ef99be7a8fc35aca253edeca72b9faa25d9518a",
+    "tests/test_qualify_dialogue_token_consolidation.py": "1d659f1f43778235142a994e73acc5fda960059e2f6ced64d6f15d7c01340157"
+  },
+  "status": "passed"
+}
