@@ -80,7 +80,7 @@ Removing flags also removes some full-history information and shortens prompts. 
 
 [![All sixteen lexical-ablation checks: improved revision accuracy, unresolved retention and failed probability-score conditions](output/dialogue-qwen-lexical-ablation-v1/figure-01/comparison.png)](research/dialogue-qwen-lexical-ablation-results.md)
 
-The [retention diagnosis and blinded Astra6 review](research/dialogue-qwen-retention-results.md) remain diagnostic. The [next memory comparison](research/dialogue-memory-next-decision.md) requires an autonomous state ledger and established dialogue-state controls before another architecture claim.
+The [complete history audit](research/dialogue-history-support-results.md) found that apparent delayed references mostly came from matching digits while missing number words. We are prioritizing better text interpretation with autonomous scalar state before another recurrent architecture comparison. The earlier [retention diagnosis and blinded Astra6 review](research/dialogue-qwen-retention-results.md) remain diagnostic.
 
 - [Earlier text learning experiments](research/dialogue-objective-results.md): matched training objectives and recurrent variants have not established an architecture advantage.
 - [Text inference speed](research/shared-prefix-results.md): shared-context scoring is **2.08x faster** for four-question synthetic workloads; single-question caching is slower.
