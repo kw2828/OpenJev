@@ -52,10 +52,25 @@ selection agree. Its receipt is
 Tokenization and original public-input provenance remain inherited from the
 authenticated preparation chain; this is not a model or quality check.
 
-The fresh pilot may
-spend at most 300 seconds and saves no choices or probabilities. Complete
-inference is allowed only if its fixed cost projection admits the 7,200-second
-allocation. Failure ends this version without retry, resume or scope reduction.
+The fresh pilot completed **28 batches / 56 decisions** in **13.576 seconds**,
+using **2,762,457,088 bytes** peak process RSS. All 28 attempted calls returned;
+no choices or probabilities were saved and no labels were accessed. Its fixed
+projection is **4,171 seconds**, below the **7,200-second** admission ceiling.
+The descriptive request-rate alternative is 5,315 seconds and is not used for
+admission. This projection is a heuristic, not measured complete-run latency.
+
+The [pilot completion](../output/dialogue-qwen-lexical-ablation-v1/pilot-01/completed.json)
+is SHA256 `08498d59ab5e3129213f3a3d82b9d87b56c0e0a5b428b95c421daa5fd99d5bbd`.
+A [saved-only admission check](../output/dialogue-qwen-lexical-ablation-v1/pilot-admission-01.json)
+independently recomputed the timing formula and checked manifests, all fourteen
+source hashes, coverage and paid work. Session **53911 exited 0**; PID/process
+group **90676** was absent on the
+[terminal check](../output/dialogue-qwen-lexical-ablation-v1/pilot-terminal-01.json).
+
+The full allocation is admitted but has not started. The numerical slot was
+temporarily released for the other research task's previously requested bounded
+CPU qualification. Full inference waits for its explicit terminal cleanup and
+release. Failure ends this version without retry, resume or scope reduction.
 No partial quality will be inspected.
 
 After successful complete inference, a separate saved-only report compares the
