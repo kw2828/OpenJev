@@ -45,10 +45,11 @@ state, so it can be batched across turns while retaining the original ordered
 memory updates. This would reduce pooling invocations to 1,280; it does not
 reduce the attention arithmetic or establish a speedup.
 
-A separate [prospective qualification](dialogue-token-batching-protocol.md)
-checks numerical agreement and complete synthetic training-step cost. A pass
-would justify a representative cost check before considering another full
-study. The old failure and all frozen scientific sources remain unchanged.
+The separate [batching qualification](dialogue-token-batching-results.md)
+now passes numerical agreement in all twelve cells but fails its speed rule:
+only one of eight medium/large cells reaches the required benefit. No new
+training run was admitted. The old failure and all frozen scientific sources
+remain unchanged.
 
 This work tests observation extraction before introducing another memory
 mechanism. It has not established an architecture, biological-wiring,

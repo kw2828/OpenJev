@@ -66,7 +66,7 @@ Open **http://127.0.0.1:8000**. Local text scoring uses Qwen3-4B; the free brows
 
 ## Research results
 
-- [Shared-token dialogue experiment](research/dialogue-token-results.md): cache preparation took **17.88 seconds**, but training hit its one-hour limit at **7/12 completed fits**. No accuracy comparison is claimed. A separate engineering check will test faster pooling while preserving recurrent updates.
+- [Shared-token dialogue experiment](research/dialogue-token-results.md): training hit its one-hour limit at **7/12 completed fits**. The [batching follow-up](research/dialogue-token-batching-results.md) preserved outputs and gradients but failed its speed requirement. No new accuracy result or training restart.
 - [Candidate-conditioned encoding cost screen](research/dialogue-joint-capacity-results.md): the 512-text probe completed, but **20.91 minutes projected** exceeded the fixed 12-minute threshold. Full encoding and training did not run. The next proposal reuses dialogue token features across candidates.
 - [Corrected candidate text memory](research/dialogue-copy-v2-results.md): **15 fresh fits** pass internal probability checks, but selective memory still fails its rule (**7/13**). Unseen-service macro accuracy is **72.89%**, versus **72.58%** for simpler scalar memory and **65.76%** for literal copying. The correction establishes numerical validity, not an architecture advantage.
 - [Earlier recurrent text memory](research/dialogue-memory-results.md): 21 fits; the proposed memory lost to literal copying on unseen services.
@@ -76,7 +76,7 @@ Open **http://127.0.0.1:8000**. Local text scoring uses Qwen3-4B; the free brows
 - [Robot dynamics screen](research/drive-qualification-results.md): 252 episodes; classical calibration leaves too little benefit from exact parameters to justify neural training here.
 - [All experiments and visualizations](research/experiment-index.md): complete results, including negative findings, training receipts and paper sources.
 
-[![All fifteen corrected candidate-memory fits, including simple controls and revision accuracy](output/dialogue-copy-v2/report-01/comparison.png)](research/dialogue-copy-v2-results.md)
+[![All twelve batching timing cells, including regressions and the fixed thresholds](output/dialogue-token-batching-v1/figure-01/timing.png)](research/dialogue-token-batching-results.md)
 
 Candidate scores are uncalibrated and relative to the supplied choices. These experiments use different models and protocols. The root MIT license applies except where component notices specify other terms, including GPL-3.0-only chess research files. Third-party data and model licenses apply separately.
 

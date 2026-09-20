@@ -4,6 +4,8 @@ Completed studies, including failures and controls. A passing implementation che
 
 ## Complete experiment list
 
+- [Time-batched dialogue pooling](dialogue-token-batching-results.md): all twelve output/gradient checks pass, but only **1/8 medium/large cells** meets the speed requirement. The fixed 120-update engineering run fails admission. No training restart. [All paired timing measurements](../output/dialogue-token-batching-v1/figure-01/timing.png).
+
 - [Shared-token dialogue study](dialogue-token-results.md): preparation completed in **17.88 seconds**, with independently verified representations. Training then exceeded its fixed **3,600-second** cap at **7/12 complete fits**, with one partial fit preserved. No task predictions were scored. [Prospective batching qualification](dialogue-token-batching-protocol.md).
 
 - [Candidate-conditioned dialogue encoding cost screen](dialogue-joint-capacity-results.md): a valid **512-text** probe projects **20.91 minutes**, exceeding the fixed **12-minute** admission limit. Disk projection passes at 1.74 GiB. Independent audit confirms the stop; no full encoding, training or new accuracy result. [Shared-token follow-up design](dialogue-token-evidence-design.md).
