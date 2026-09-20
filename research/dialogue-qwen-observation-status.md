@@ -1,4 +1,4 @@
-# Stronger Qwen observation comparison: cost pilot admitted
+# Stronger Qwen observation comparison: full inference running
 
 The [prospective protocol](dialogue-qwen-observation-protocol.md) fixes two
 arms on all 7,819 existing development rows: current exchange and four public
@@ -13,7 +13,7 @@ present. [Failure receipt](../output/dialogue-qwen-observation-v1/preparation-01
 The preparation lookup now uses the same file filter as the production scorer,
 while still checking all eleven model-file hashes. No model, task wording,
 cohort, candidate, or numerical-run rule changed. A separate metadata preparation
-preserves the failed attempt. Full inference has not started.
+preserves the failed attempt. Full inference is now running.
 
 The second preparation completed in **12.96 seconds**, with **882,016,256 bytes**
 peak RSS and zero model calls. It froze **7,444 batches and 15,638 decisions**.
@@ -70,3 +70,13 @@ behavioral rules and proper-score checks, and retains every service and
 historical seed. The first synthetic fixture/lint failure is preserved.
 No real accuracy outputs have been read. The reporting allocation is fixed
 before execution at 60 seconds, 2 GiB RSS and 64 MiB output.
+
+## Full-run launch
+
+The sole full run started on **2026-09-20 at 12:45:45 UTC**, session **14410**,
+process group **83366**, after the other task released the numerical allocation.
+It scores all **7,444 batches / 15,638 decisions**, retaining the prospective
+**7,200-second** cap (approximately **14:45:45 UTC** deadline), 12 GiB RSS
+and 512 MiB output limits. No fitting, generated text or paid calls are involved.
+This is launch evidence only. No partial quality is inspected, and a failure
+cannot be resumed or used for complete-cohort conclusions.
