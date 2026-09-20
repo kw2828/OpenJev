@@ -1,5 +1,9 @@
 # Prospective execution control: compute only required schema fill
 
+Follow-up: this proposal was implemented and [measured](dialogue-token-required-fill-results.md).
+All numerical checks and 15/16 speed requirements pass, but the small
+candidate/readout workload still fails. The original prospective design follows.
+
 Status: source-only proposal. No implementation, numerical tests, new timing,
 model calls or training admission. The consolidation qualification and every
 earlier run remain closed. This proposes one general public-mask optimization,

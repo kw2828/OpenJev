@@ -4,6 +4,8 @@ Completed studies, including failures and controls. A passing implementation che
 
 ## Complete experiment list
 
+- [Computing only required schema-fill rows](dialogue-token-required-fill-results.md): all sixteen numerical comparisons and **15/16** speed requirements pass. All twelve larger cells meet 1.10x; minimum candidate/readout remains below its floor at **0.845x**. Overall qualification fails despite removing all seven unused fill rows in that layout. No training admission. [All paired timings](../output/dialogue-token-required-fill-v1/figure-01/timing.png).
+
 - [Consolidating supported dialogue evidence before projection](dialogue-token-consolidation-results.md): all sixteen numerical comparisons and **15/16** speed requirements pass. All twelve larger cells meet 1.10x, including **1.61-1.87x** on the fixed real-mask layout. Minimum candidate/readout reaches **0.897x**, below its 0.90 floor, so overall qualification fails. No training admission. [All paired timings](../output/dialogue-token-consolidation-v1/figure-02/timing.png).
 
 - [Separating observation and recurrent-state head computation](dialogue-token-factoring-results.md): all sixteen numerical comparisons pass and **14/16** speed requirements pass. Large candidate/scalar reaches 1.070x and real-mask slot/readout 1.005x, below the required 1.10x. Overall qualification fails; no training admission. [All paired timings](../output/dialogue-token-factoring-v1/figure-01/timing.png).
