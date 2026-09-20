@@ -98,10 +98,17 @@ it does not permit a replacement seed, resume or cap extension.
 
 The scientific worker started on September 20, 2026 after the frozen plan was
 published in `b5d57a9`. Session **90741**, process group **14919**, is running
-with one CPU thread and MPS. Startup verification observed ten completed
-optimizer updates in the first fit, `frozen_original-6901`. This establishes
-execution only. No fit has been selected or scored for task quality, and no
-complete scientific result is available.
+with one CPU thread and MPS. The first fit, **frozen_original-6901**, completed
+in **915.03 seconds** and the second fit started. It recorded all **1,280
+optimizer updates, 40,340 training dialogue visits and 62,329 final development
+predictions**. Its recorded operation totals match the frozen plan, and its
+encoder remained unchanged. This establishes execution only. No fit has been
+selected or scored for task quality; the twelve-fit study remains incomplete.
+
+[First-fit completion](../output/dialogue-observation-learning-v1/scientific-run-01/frozen_original-6901/completed.json)
+has SHA-256 `737309a4092aed7f5a2f4d43d17f106103dbca849eac22bcd36d001bf66f2e61`.
+The [progress snapshot](../output/dialogue-observation-learning-v1/scientific-progress-01.json)
+records the live process check separately from final scientific validity.
 
 - [Actual supervisor launch](../output/dialogue-observation-learning-v1/scientific-process-01.launch.json):
   `87034aabfbf9862a54b34076d37794a1578b9ad254580b13bf742fa43952b1fd`.

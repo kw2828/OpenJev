@@ -44,3 +44,9 @@ The published scientific worker start and supervisor launch establish that the
 single attempt began. Mutable training journals, evaluator inputs, checkpoints
 and individual predictions remain local while it runs. No result can be inferred
 from a launch receipt or a partially completed fit.
+
+Individual fit completion receipts and separate process-progress snapshots may
+be published as the fixed schedule advances. These are execution metadata;
+quality scoring and scientific conclusions require all twelve fits and the
+successful final report/audit. Completion manifests continue to bind local
+checkpoints, journals and predictions that are not included in Git.
