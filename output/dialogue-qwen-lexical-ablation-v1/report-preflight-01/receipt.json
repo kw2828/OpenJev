@@ -1,0 +1,50 @@
+{
+  "scope": "synthetic only; no real prediction/task payload reads",
+  "python": "3.12.13",
+  "environment_overrides": {
+    "PYTHONPATH": "src:scripts:tests",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1"
+  },
+  "source_sha256_before": {
+    "scripts/report_dialogue_qwen_lexical_ablation.py": "c25ea0f6727fa96ee0af17eca4a3530ad379e70ae58f37ac9e7de8a028516928",
+    "tests/test_report_dialogue_qwen_lexical_ablation.py": "0dbde93d198845cc1da14684cf4e4d885a4b69e2aff0ee05f6d001b7d03d3a3d"
+  },
+  "commands": [
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_report_dialogue_qwen_lexical_ablation.py"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.8915985829662532,
+      "stdout": "...............                                                          [100%]\n15 passed in 0.72s\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-m",
+        "ruff",
+        "check",
+        "scripts/report_dialogue_qwen_lexical_ablation.py",
+        "tests/test_report_dialogue_qwen_lexical_ablation.py"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.03795304195955396,
+      "stdout": "All checks passed!\n",
+      "stderr": ""
+    }
+  ],
+  "source_sha256_after": {
+    "scripts/report_dialogue_qwen_lexical_ablation.py": "c25ea0f6727fa96ee0af17eca4a3530ad379e70ae58f37ac9e7de8a028516928",
+    "tests/test_report_dialogue_qwen_lexical_ablation.py": "0dbde93d198845cc1da14684cf4e4d885a4b69e2aff0ee05f6d001b7d03d3a3d"
+  },
+  "passed": true
+}
