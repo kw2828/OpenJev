@@ -1,5 +1,9 @@
 # Next execution candidate: consolidate supported evidence rows
 
+Follow-up: this proposal was implemented and [measured](dialogue-token-consolidation-results.md).
+It passes 15/16 speed requirements but fails the fixed full qualification.
+The original prospective design follows.
+
 Status: prospective source-only design. No implementation, new measurement or
 training admission. The completed factoring qualification passed all sixteen
 parity checks and fourteen speed checks, but failed its fixed admission rule.
@@ -19,7 +23,7 @@ The two failures were `large-candidate-scalar`, with a median paired
 original/factored update-time ratio of **1.070468**, and
 `geometry-slot-readout`, at **1.004527**. Both required at least **1.10**.
 For the latter, median forward/validation/loss time fell from 95.17 to
-58.67 milliseconds, while backward/clipping rose from 82.02 to 113.29
+58.68 milliseconds, while backward/clipping rose from 82.02 to 113.29
 milliseconds. The large candidate-scalar cell improved both broad phases but
 still missed the paired whole-update threshold.
 

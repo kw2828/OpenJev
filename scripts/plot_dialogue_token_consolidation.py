@@ -57,7 +57,7 @@ def main():
         ax.scatter(ratios, [i-.09, i-.03, i+.03, i+.09], color=color, alpha=.45, s=20)
         ax.scatter([cell["median_speed_ratio"]], [i], color=color, s=55, zorder=4)
         ax.scatter([cell["minimum_ratio"]], [i], color="#344050", marker="|", s=105, zorder=3)
-        ax.text(upper-.025, i, f"{cell['median_speed_ratio']:.2f}x", va="center", ha="right", color=color, weight="bold")
+        ax.text(upper-.025, i, f"{cell['median_speed_ratio']:.3f}x", va="center", ha="right", color=color, weight="bold")
         size, mode, head = cell["case"].split("-")
         labels.append(f"{'Real masks' if size == 'geometry' else size.capitalize()}  |  {mode}/{head}")
     ax.set_yticks(range(16), labels)
