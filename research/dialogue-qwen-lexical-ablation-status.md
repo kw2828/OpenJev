@@ -113,3 +113,11 @@ also records rejection of incorrect pins and extra directory members before
 quality-summary decoding. The figure will display both arms, both weightings,
 32 metric values and all 16 decisions, requiring an agreeing completed audit.
 No real comparison figure has been generated yet.
+
+A subsequent authentication-only refinement accepts the independent auditor's
+existing `2e-12` floating-point tolerance for metric deltas while keeping all
+decision flags, thresholds, relations and 16 component identities exact. Its
+[focused qualification](../output/dialogue-qwen-lexical-ablation-v1/figure-auth-preflight-02/receipt.json)
+passes both valid and invalid cases and lint at plotter hash
+`3e1588bcc8e282c42a59f8cb7bd894c6df8c2025ef95f3b0554738290c72a424`.
+The rendering code and original synthetic figure are unchanged.

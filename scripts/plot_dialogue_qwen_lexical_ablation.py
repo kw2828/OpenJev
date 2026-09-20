@@ -83,6 +83,21 @@ def closure(path, receipt, members, bindings):
         bindings[target] = descriptor
 
 
+def same_decisions(reported, audited):
+    require({k: v for k, v in reported.items() if k != "checks"}
+            == {k: v for k, v in audited.items() if k != "checks"}
+            and set(reported["checks"]) == set(audited["checks"]), "Same audited continuation schema")
+    for key, value in reported["checks"].items():
+        other = audited["checks"][key]
+        require({k: v for k, v in value.items() if k != "difference"}
+                == {k: v for k, v in other.items() if k != "difference"}
+                and type(value["passed"]) is type(other["passed"]) is bool
+                and type(value["difference"]) in (int, float) and type(other["difference"]) in (int, float)
+                and math.isfinite(value["difference"]) and math.isfinite(other["difference"])
+                and math.isclose(value["difference"], other["difference"], abs_tol=2e-12, rel_tol=2e-12),
+                "Same exact decision and tolerance-matched float delta")
+
+
 def authenticate(args):
     summary_path, receipt_path, audit_path = (Path(getattr(args, n)).resolve() for n in ("summary", "receipt", "audit"))
     require(summary_path.name == "summary.json" and receipt_path.name == audit_path.name == "receipt.json"
@@ -118,12 +133,17 @@ def authenticate(args):
     require(summary["support"] == SUPPORT and set(summary["original"]) == set(summary["no_flags"]) == set(ARMS)
             and len(summary["services"]) == len(set(summary["services"])) == 6, "Complete fixed report cohort")
     decision = summary["continuation"]
-    require(decision == checked["continuation"] and decision["passed"] is receipt["continuation_passed"]
+    same_decisions(decision, checked["continuation"])
+    require(decision["passed"] is receipt["continuation_passed"]
             is audit["continuation_passed"], "Same audited continuation")
     expected = {f"{arm}/{s}/{m}/{w}" for arm in ARMS for s, m, *_ in PANELS for w in WEIGHTINGS}
     require(set(decision["checks"]) == expected and decision["total_checks"] == 16
             and all(type(v["passed"]) is bool for v in decision["checks"].values())
             and decision["checks_passed"] == sum(v["passed"] for v in decision["checks"].values()), "All 16 decision components")
+    for key, value in decision["checks"].items():
+        metric = key.split("/")[2]
+        require(value["threshold"] == {"accuracy": -.01, "error": -.02, "nll": 0., "brier": 0.}[metric]
+                and value["relation"] == (">=" if metric == "accuracy" else "<="), "Unchanged frozen decision boundary")
     require(decision["arms"] == {a: all(v["passed"] for k, v in decision["checks"].items() if k.startswith(a+"/")) for a in ARMS}
             and decision["passed"] is all(decision["arms"].values()), "Per-arm and joint conjunctions")
     return summary, checked, bindings
