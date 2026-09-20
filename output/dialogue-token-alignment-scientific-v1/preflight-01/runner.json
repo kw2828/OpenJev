@@ -1,0 +1,90 @@
+{
+  "attempts": [
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_study_dialogue_alignment.py"
+      ],
+      "env": {
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "PYTHONPATH": "src:scripts"
+      },
+      "source_before": {
+        "scripts/study_dialogue_alignment.py": "3a122299ff4663bb49fd1bcc0958037af55c769132d6c110adf246b78210cae1",
+        "tests/test_study_dialogue_alignment.py": "94fa3bd463044b3483e26f6f5938756d5818184f9bf0ae762ddc989cc81b9732"
+      },
+      "source_after": {
+        "scripts/study_dialogue_alignment.py": "3a122299ff4663bb49fd1bcc0958037af55c769132d6c110adf246b78210cae1",
+        "tests/test_study_dialogue_alignment.py": "94fa3bd463044b3483e26f6f5938756d5818184f9bf0ae762ddc989cc81b9732"
+      },
+      "stdout": ".FFF.........                                                            [100%]\n=================================== FAILURES ===================================\n_ test_microbatch_weighted_sum_matches_whole_batch_update_and_gradients[flat_stratum] _\n\ntmp_path = PosixPath('/private/var/folders/57/43njbt192fgcplwy_cxy07ch0000gn/T/pytest-of-kevinwu/pytest-1422/test_microbatch_weighted_sum_m0')\nmonkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10bea1640>\nmethod = 'flat_stratum'\n\n    @pytest.mark.parametrize(\"method\", s.METHODS)\n    def test_microbatch_weighted_sum_matches_whole_batch_update_and_gradients(tmp_path, monkeypatch, method):\n        fit, _, types, arrays, schema = setup(); rows = fit[:5]\n        models, _ = s.common.init_models(torch, 6201)\n        model = models[method]; whole = copy.deepcopy(model)\n        recipe = s.typed.objective(fit)\n        optimizer = torch.optim.AdamW(model.parameters(), lr=.001, weight_decay=.0001)\n        full_optimizer = torch.optim.AdamW(whole.parameters(), lr=.001, weight_decay=.0001)\n        monkeypatch.setattr(s, \"CONFIG\", {**s.CONFIG, \"microbatch_size\": 2})\n        record = s.update(model, optimizer, method, rows, arrays, types, schema, recipe, torch, active(tmp_path))\n        actor, _ = s.common.actor(rows, arrays, types, schema, method)\n        scores = whole(**{k: torch.from_numpy(v) for k, v in actor.items()})\n        labels, _ = s.base.supervision(rows)\n        weights = torch.from_numpy(s.typed.sample_weights(rows, recipe, \"stratum\"))\n        loss = (-scores[torch.arange(len(rows)), torch.from_numpy(labels)]*weights).mean()\n        loss.backward(); torch.nn.utils.clip_grad_norm_(whole.parameters(), s.CONFIG[\"gradient_clip\"], error_if_nonfinite=True)\n        full_optimizer.step()\n        assert record[\"weighted_loss\"] == pytest.approx(float(loss.detach()), abs=1e-6)\n        assert record[\"microbatches\"] == 3 and record[\"normalization\"][\"batches\"] == 3\n        assert record[\"normalization\"][\"rows\"] == 5\n        for p, expected in zip(model.parameters(), whole.parameters(), strict=True):\n            assert p.grad is not None and expected.grad is not None\n            torch.testing.assert_close(p.grad, expected.grad, atol=2e-6, rtol=2e-5)\n>           torch.testing.assert_close(p, expected, atol=2e-6, rtol=2e-5)\nE           AssertionError: Tensor-likes are not close!\nE           \nE           Mismatched elements: 1 / 24576 (0.0%)\nE           Greatest absolute difference: 4.235655069351196e-06 at index (4, 106) (up to 2e-06 allowed)\nE           Greatest relative difference: 0.0001787549554137513 at index (4, 106) (up to 2e-05 allowed)\n\ntests/test_study_dialogue_alignment.py:61: AssertionError\n_ test_microbatch_weighted_sum_matches_whole_batch_update_and_gradients[token_mean] _\n\ntmp_path = PosixPath('/private/var/folders/57/43njbt192fgcplwy_cxy07ch0000gn/T/pytest-of-kevinwu/pytest-1422/test_microbatch_weighted_sum_m1')\nmonkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10f33e480>\nmethod = 'token_mean'\n\n    @pytest.mark.parametrize(\"method\", s.METHODS)\n    def test_microbatch_weighted_sum_matches_whole_batch_update_and_gradients(tmp_path, monkeypatch, method):\n        fit, _, types, arrays, schema = setup(); rows = fit[:5]\n        models, _ = s.common.init_models(torch, 6201)\n        model = models[method]; whole = copy.deepcopy(model)\n        recipe = s.typed.objective(fit)\n        optimizer = torch.optim.AdamW(model.parameters(), lr=.001, weight_decay=.0001)\n        full_optimizer = torch.optim.AdamW(whole.parameters(), lr=.001, weight_decay=.0001)\n        monkeypatch.setattr(s, \"CONFIG\", {**s.CONFIG, \"microbatch_size\": 2})\n        record = s.update(model, optimizer, method, rows, arrays, types, schema, recipe, torch, active(tmp_path))\n        actor, _ = s.common.actor(rows, arrays, types, schema, method)\n        scores = whole(**{k: torch.from_numpy(v) for k, v in actor.items()})\n        labels, _ = s.base.supervision(rows)\n        weights = torch.from_numpy(s.typed.sample_weights(rows, recipe, \"stratum\"))\n        loss = (-scores[torch.arange(len(rows)), torch.from_numpy(labels)]*weights).mean()\n        loss.backward(); torch.nn.utils.clip_grad_norm_(whole.parameters(), s.CONFIG[\"gradient_clip\"], error_if_nonfinite=True)\n        full_optimizer.step()\n        assert record[\"weighted_loss\"] == pytest.approx(float(loss.detach()), abs=1e-6)\n        assert record[\"microbatches\"] == 3 and record[\"normalization\"][\"batches\"] == 3\n        assert record[\"normalization\"][\"rows\"] == 5\n        for p, expected in zip(model.parameters(), whole.parameters(), strict=True):\n            assert p.grad is not None and expected.grad is not None\n            torch.testing.assert_close(p.grad, expected.grad, atol=2e-6, rtol=2e-5)\n>           torch.testing.assert_close(p, expected, atol=2e-6, rtol=2e-5)\nE           AssertionError: Tensor-likes are not close!\nE           \nE           Mismatched elements: 3 / 25664 (0.0%)\nE           Greatest absolute difference: 1.5322118997573853e-05 at index (51, 343) (up to 2e-06 allowed)\nE           Greatest relative difference: 0.0007130023441277444 at index (51, 343) (up to 2e-05 allowed)\n\ntests/test_study_dialogue_alignment.py:61: AssertionError\n_ test_microbatch_weighted_sum_matches_whole_batch_update_and_gradients[token_aligned] _\n\ntmp_path = PosixPath('/private/var/folders/57/43njbt192fgcplwy_cxy07ch0000gn/T/pytest-of-kevinwu/pytest-1422/test_microbatch_weighted_sum_m2')\nmonkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10f35e180>\nmethod = 'token_aligned'\n\n    @pytest.mark.parametrize(\"method\", s.METHODS)\n    def test_microbatch_weighted_sum_matches_whole_batch_update_and_gradients(tmp_path, monkeypatch, method):\n        fit, _, types, arrays, schema = setup(); rows = fit[:5]\n        models, _ = s.common.init_models(torch, 6201)\n        model = models[method]; whole = copy.deepcopy(model)\n        recipe = s.typed.objective(fit)\n        optimizer = torch.optim.AdamW(model.parameters(), lr=.001, weight_decay=.0001)\n        full_optimizer = torch.optim.AdamW(whole.parameters(), lr=.001, weight_decay=.0001)\n        monkeypatch.setattr(s, \"CONFIG\", {**s.CONFIG, \"microbatch_size\": 2})\n        record = s.update(model, optimizer, method, rows, arrays, types, schema, recipe, torch, active(tmp_path))\n        actor, _ = s.common.actor(rows, arrays, types, schema, method)\n        scores = whole(**{k: torch.from_numpy(v) for k, v in actor.items()})\n        labels, _ = s.base.supervision(rows)\n        weights = torch.from_numpy(s.typed.sample_weights(rows, recipe, \"stratum\"))\n        loss = (-scores[torch.arange(len(rows)), torch.from_numpy(labels)]*weights).mean()\n        loss.backward(); torch.nn.utils.clip_grad_norm_(whole.parameters(), s.CONFIG[\"gradient_clip\"], error_if_nonfinite=True)\n        full_optimizer.step()\n        assert record[\"weighted_loss\"] == pytest.approx(float(loss.detach()), abs=1e-6)\n        assert record[\"microbatches\"] == 3 and record[\"normalization\"][\"batches\"] == 3\n        assert record[\"normalization\"][\"rows\"] == 5\n        for p, expected in zip(model.parameters(), whole.parameters(), strict=True):\n            assert p.grad is not None and expected.grad is not None\n            torch.testing.assert_close(p.grad, expected.grad, atol=2e-6, rtol=2e-5)\n>           torch.testing.assert_close(p, expected, atol=2e-6, rtol=2e-5)\nE           AssertionError: Tensor-likes are not close!\nE           \nE           Mismatched elements: 12 / 25664 (0.0%)\nE           Greatest absolute difference: 1.4863908290863037e-05 at index (51, 343) (up to 2e-06 allowed)\nE           Greatest relative difference: 0.0006920115556567907 at index (51, 343) (up to 2e-05 allowed)\n\ntests/test_study_dialogue_alignment.py:61: AssertionError\n=========================== short test summary info ============================\nFAILED tests/test_study_dialogue_alignment.py::test_microbatch_weighted_sum_matches_whole_batch_update_and_gradients[flat_stratum]\nFAILED tests/test_study_dialogue_alignment.py::test_microbatch_weighted_sum_matches_whole_batch_update_and_gradients[token_mean]\nFAILED tests/test_study_dialogue_alignment.py::test_microbatch_weighted_sum_matches_whole_batch_update_and_gradients[token_aligned]\n3 failed, 10 passed in 1.48s\n",
+      "stderr": "",
+      "exit_code": 1,
+      "wall_seconds": 1.8935019169002771,
+      "scope": "synthetic correctness only; no real data or scientific fit"
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_study_dialogue_alignment.py"
+      ],
+      "env": {
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "PYTHONPATH": "src:scripts"
+      },
+      "source_before": {
+        "scripts/study_dialogue_alignment.py": "3a122299ff4663bb49fd1bcc0958037af55c769132d6c110adf246b78210cae1",
+        "tests/test_study_dialogue_alignment.py": "2bfe55930b7b656c52898199a5e131c14bc800bd6ebe9dbc82e51dfdf9968eb8"
+      },
+      "source_after": {
+        "scripts/study_dialogue_alignment.py": "3a122299ff4663bb49fd1bcc0958037af55c769132d6c110adf246b78210cae1",
+        "tests/test_study_dialogue_alignment.py": "2bfe55930b7b656c52898199a5e131c14bc800bd6ebe9dbc82e51dfdf9968eb8"
+      },
+      "stdout": ".............                                                            [100%]\n13 passed in 1.37s\n",
+      "stderr": "",
+      "exit_code": 0,
+      "wall_seconds": 1.7747303750365973,
+      "scope": "synthetic correctness only; retained prior failure; corrected AdamW assertion"
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_study_dialogue_alignment.py::test_all_nine_synthetic_fits_pair_initializers_orders_manifest_and_report"
+      ],
+      "env": {
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "PYTHONPATH": "src:scripts"
+      },
+      "source_before": {
+        "scripts/study_dialogue_alignment.py": "3a122299ff4663bb49fd1bcc0958037af55c769132d6c110adf246b78210cae1",
+        "tests/test_study_dialogue_alignment.py": "15d7e7d3af5ed15521b1724a4289cb2d33f8904d147c498a9b1a070e11747346",
+        "scripts/report_dialogue_alignment.py": "68674dfd7ef456a6353a0567a9b9e54e2dc1cdbc2d9d59fc25ca92ee2d45539e"
+      },
+      "source_after": {
+        "scripts/study_dialogue_alignment.py": "3a122299ff4663bb49fd1bcc0958037af55c769132d6c110adf246b78210cae1",
+        "tests/test_study_dialogue_alignment.py": "15d7e7d3af5ed15521b1724a4289cb2d33f8904d147c498a9b1a070e11747346",
+        "scripts/report_dialogue_alignment.py": "68674dfd7ef456a6353a0567a9b9e54e2dc1cdbc2d9d59fc25ca92ee2d45539e"
+      },
+      "stdout": ".                                                                        [100%]\n1 passed in 1.37s\n",
+      "stderr": "",
+      "exit_code": 0,
+      "wall_seconds": 1.7525418330915272,
+      "scope": "Actual nine tiny synthetic fits through saved NPZ/JSON metric aggregate, report text and tamper rejection. Production authenticate_run and pinned corpus identity NOT exercised."
+    }
+  ]
+}
