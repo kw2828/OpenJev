@@ -80,3 +80,13 @@ It scores all **7,444 batches / 15,638 decisions**, retaining the prospective
 and 512 MiB output limits. No fitting, generated text or paid calls are involved.
 This is launch evidence only. No partial quality is inspected, and a failure
 cannot be resumed or used for complete-cohort conclusions.
+
+The [independent result checker](../scripts/audit_dialogue_qwen_result.py) and
+[figure renderer](../scripts/plot_dialogue_qwen_observation.py) are source-reviewed
+before results are read. The checker reconstructs candidate choices and
+distributions, 42 primary metric cells and the 16 decision components. It
+inherits inference/provenance witnesses and does not independently recheck
+rare-category, equal-dialogue or paired-repair metrics. Its saved-artifact
+allocation is 60 seconds, 2 GiB RSS and 64 MiB output. The figure allocation is
+60 seconds, 1 GiB RSS and 32 MiB output. Neither has read real quality results
+or executed against this run yet.
