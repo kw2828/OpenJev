@@ -1,0 +1,12 @@
+BLE001 Do not catch blind exception: `BaseException`
+   --> scripts/diagnose_dialogue_qwen_retention.py:362:16
+    |
+360 |             write(out/"failed.json", {"status": "failed", "version": VERSION, "request": request,
+361 |                   "source_sha256": sources, "error": repr(error), "wall_seconds": time.monotonic()-started})
+362 |         except BaseException as secondary:
+    |                ^^^^^^^^^^^^^
+363 |             if callable(getattr(error, "add_note", None)):
+364 |                 error.add_note("Failure receipt: "+repr(secondary))
+    |
+
+Found 1 error.
