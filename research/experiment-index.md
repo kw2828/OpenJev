@@ -4,7 +4,7 @@ Studies and frozen work awaiting execution, including failures and controls. A p
 
 ## Complete experiment list
 
-- [Stronger Qwen observation baseline](dialogue-qwen-observation-status.md): prompts frozen for **15,638 decisions**, comparing the current exchange with four public exchanges on the same 7,819 rows. Both receive correct previous values and the same public lexical-memory features. No model-quality result yet. [Prospective protocol](dialogue-qwen-observation-protocol.md).
+- [Stronger Qwen observation baseline](dialogue-qwen-observation-status.md): prompts frozen for **15,638 decisions**, comparing the current exchange with four public exchanges on the same 7,819 rows. Both receive correct previous values and the same public lexical-memory features. The cost-only pilot completed in **17.56 seconds** and admits the full run under its frozen projection. No model-quality result yet. [Prospective protocol](dialogue-qwen-observation-protocol.md).
 
 - [Paired training-objective comparison](dialogue-objective-results.md): all six fits completed once in **74.67 minutes**. Uniform training lowers retained error **4.82% → 3.95%** versus corrected stratum, but changed accuracy is **75.78% versus 75.89%**. Historical corrected flat remains stronger on pooled overall accuracy and log loss. **6/13 checks passed; continuation failed**, with independent agreement on all decisions. No architecture or autonomous-memory claim. [Decision figure](../output/dialogue-objective-v1/figure-01/objective-decisions.png) · [Overall figure](../output/dialogue-objective-v1/figure-01/objective-overall.png) · [Execution history](dialogue-objective-status.md).
 

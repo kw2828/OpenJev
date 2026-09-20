@@ -1,4 +1,4 @@
-# Stronger Qwen observation comparison: prompts frozen
+# Stronger Qwen observation comparison: cost pilot admitted
 
 The [prospective protocol](dialogue-qwen-observation-protocol.md) fixes two
 arms on all 7,819 existing development rows: current exchange and four public
@@ -13,7 +13,7 @@ present. [Failure receipt](../output/dialogue-qwen-observation-v1/preparation-01
 The preparation lookup now uses the same file filter as the production scorer,
 while still checking all eleven model-file hashes. No model, task wording,
 cohort, candidate, or numerical-run rule changed. A separate metadata preparation
-preserves the failed attempt. No pilot or full inference has started.
+preserves the failed attempt. Full inference has not started.
 
 The second preparation completed in **12.96 seconds**, with **882,016,256 bytes**
 peak RSS and zero model calls. It froze **7,444 batches and 15,638 decisions**.
@@ -45,3 +45,16 @@ batching, resource handling and fake-backend completion. The additional
 [partial-cache regression](../output/dialogue-qwen-observation-v1/preflight-03/receipt.json)
 passes. Initial lint findings remain preserved. These checks establish
 implementation behavior, not task quality.
+
+## Completed cost pilot
+
+The sole pilot completed all **28 batches / 56 decisions** in **17.564 seconds**,
+with **2,999,812,096 bytes** process-lifetime peak RSS. Its fixed token-rate
+projection is **6,316 seconds**, below the **7,200-second** admission limit.
+The separate request-count projection is **8,135 seconds** and remains
+descriptive under the prospective rule. Admission is a heuristic, not a
+full-run time guarantee; the full run retains its hard two-hour cap.
+
+No labels were accessed, no quality-bearing outputs were retained, and no
+accuracy claim follows. [Pilot receipt](../output/dialogue-qwen-observation-v1/pilot-01/completed.json),
+SHA256 `3b8bcf6a4e1fb27322e6260e4cdc10b0514b9db72c98760e5a7d04284137f54d`.
