@@ -20,7 +20,15 @@ peak RSS and zero model calls. It froze **7,444 batches and 15,638 decisions**.
 Current-exchange prompts contain 581-1,139 tokens; four-exchange prompts contain
 612-1,292. All 7,819 rows and every candidate are retained. The cost-only pilot
 has 28 batches selected before inference, including both arms of the longest
-prompt groups. Independent packet checking precedes pilot execution.
+prompt groups. An independent model-free audit now agrees on all 15,638
+decisions, all 7,819 evaluator rows, the exact public contexts and candidate
+mappings, and all 28 pilot requests. It completed in 1.56 seconds without
+model, tokenizer or encoder calls. Tokenization correctness and model-weight
+contents remain inherited preparation witnesses; the runner verifies both
+before inference.
+
+- [Independent preparation audit](../output/dialogue-qwen-observation-v1/preparation-audit-01/receipt.json).
+- [Actual runner metadata integration check](../output/dialogue-qwen-observation-v1/integration-01/receipt.json): all requests accepted in 2.46 seconds, with no model or label access.
 
 - [Plan](../output/dialogue-qwen-observation-v1/preparation-02/plan.json):
   `2d5f7e6b512ae7260cc01685ae03220891ad4ca5236092645197d4074be90111`.
