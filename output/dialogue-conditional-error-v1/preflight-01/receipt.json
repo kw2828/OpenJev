@@ -1,0 +1,44 @@
+{
+  "after": {
+    "research/dialogue-conditional-error-protocol.md": "9ee166f8f212fa89d796b82b59e475bac491deac8f0dff7b6cfc6821c10b5690",
+    "scripts/diagnose_dialogue_conditional.py": "68429dfb01ef98020e53ec5884443967e64df4e7789bdc80b1239c9dc752fc0e",
+    "tests/test_diagnose_dialogue_conditional.py": "4cb6ff2e4d6dbe52bb1953a5c88f8e6ec0812a924941e0e0d8297af013ff0351"
+  },
+  "before": {
+    "research/dialogue-conditional-error-protocol.md": "9ee166f8f212fa89d796b82b59e475bac491deac8f0dff7b6cfc6821c10b5690",
+    "scripts/diagnose_dialogue_conditional.py": "68429dfb01ef98020e53ec5884443967e64df4e7789bdc80b1239c9dc752fc0e",
+    "tests/test_diagnose_dialogue_conditional.py": "4cb6ff2e4d6dbe52bb1953a5c88f8e6ec0812a924941e0e0d8297af013ff0351"
+  },
+  "commands": [
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_diagnose_dialogue_conditional.py"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": ".......                                                                  [100%]\n7 passed in 0.09s\n"
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-m",
+        "ruff",
+        "check",
+        "scripts/diagnose_dialogue_conditional.py",
+        "tests/test_diagnose_dialogue_conditional.py"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "All checks passed!\n"
+    }
+  ],
+  "environment_overrides": {
+    "PYTHONPATH": "src:scripts"
+  },
+  "python": "3.12.13 (main, Jul 23 2026, 14:33:47) [Clang 22.1.3 ]",
+  "scope": "Synthetic saved-output diagnostic only; no scientific predictions or model calls"
+}
