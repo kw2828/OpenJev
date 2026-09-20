@@ -4,7 +4,7 @@ Completed studies, including failures and controls. A passing implementation che
 
 ## Complete experiment list
 
-- [Token alignment scientific campaign](dialogue-token-alignment-scientific-status.md): **training launched September 20 at 08:29 UTC** under a separately published two-hour local allocation. All nine fresh fits, data, seeds, 20 epochs and 22 behavioral checks are unchanged from the original proposal. Source/input/order freeze published before fitting. No quality report until all nine authenticate; no accuracy result yet.
+- [Token alignment scientific campaign](dialogue-token-alignment-scientific-results.md): **all nine fits completed in 69.19 minutes** under the separately published two-hour allocation. Changed-value accuracy is **83.45% aligned / 78.60% token mean / 71.91% baseline**. Every paired seed improves on changed values, but retained-value harms lower overall accuracy and the rule fails **18/22**. Main report and independent audit agree. [All-nine figure](../output/dialogue-token-alignment-scientific-v1/figure-01/alignment.png) · [Launch and resource history](dialogue-token-alignment-scientific-status.md).
 
 - [Token alignment cost screen](dialogue-token-alignment-capacity-results.md): exact frozen schema cache and two matched 124,482-parameter models pass implementation checks. All **72 synthetic cost events** complete in **20.84 seconds**, but the nine-fit study projects to **77.27 minutes**, above the fixed **48-minute admission threshold**. No scientific fits or new quality result. The zero-call metadata failure and its correction are preserved. [Timing figure](../output/dialogue-token-alignment-v1/capacity-figure-02/capacity.png).
 

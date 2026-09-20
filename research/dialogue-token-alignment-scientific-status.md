@@ -1,6 +1,13 @@
 # Token alignment: scientific campaign
 
-**Training started on September 20, 2026 at 08:29 UTC. No quality result is available yet.**
+**Completed September 20, 2026: all nine fits, 69.19 minutes, behavioral continuation FAIL (18/22 checks).**
+
+[Results, all-nine figure and evidence](dialogue-token-alignment-scientific-results.md).
+Changed-value accuracy improved against both controls in every seed, but
+retained-value harms lowered overall accuracy. Main reporting and the independent
+audit agree. The launch and resource-allocation history is preserved below.
+Training began at 08:29 UTC and the process exited successfully at approximately
+09:38 UTC.
 
 The question is whether matching words in a dialogue to words in its candidate
 answers improves actual decisions. The comparison contains three fresh fits
@@ -22,7 +29,7 @@ The aligned model must improve changed accuracy by at least two percentage
 points and reduce wrong-branch decisions by at least two points against both
 controls. It must also satisfy every paired-seed consistency and retained-value
 and rare-type harm limit. All 22 checks were fixed before fitting. No quality
-report will be run until all nine fits complete and authenticate.
+report was run until all nine fits completed and authenticated.
 
 ## Resource allocation and evidence
 
@@ -52,9 +59,11 @@ zero model calls, preserving 47 source files and all three original order files.
 Frozen plan SHA256:
 `e700080ee2dd28c83c0c13a0dad2640cdc83fb1992efb4bfd3777a90111877c1`.
 
-This page records the launch, not successful completion. The final execution,
-report and independent audit receipts will determine the outcome. No new
-accuracy, calibration, biological-wiring or architectural-novelty claim is made.
+The completed [execution](../output/dialogue-token-alignment-scientific-v1/training-01/completed.json),
+[report](../output/dialogue-token-alignment-scientific-v1/report-01/receipt.json)
+and [independent audit](../output/dialogue-token-alignment-scientific-v1/audit-01/result-01/receipt.json)
+now establish technical completion and failure of the fixed behavioral rule.
+No calibration, biological-wiring or architectural-novelty claim is made.
 
 ## Research reviewed during training
 

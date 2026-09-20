@@ -1,0 +1,188 @@
+{
+  "allocation": "Separate pre-quality 7200-second allocation; original cost screen remains not admitted",
+  "configuration": {
+    "alignment": "Bidirectional softmax(dot/sqrt(P)+log(opposite_prior)), masked on opposite tokens",
+    "branches": [
+      "NONE",
+      "DONTCARE",
+      "concrete"
+    ],
+    "candidate_chunk_size": 1,
+    "candidate_types": {
+      "DONTCARE": 1,
+      "FALSE": 3,
+      "NONE": 0,
+      "OTHER": 4,
+      "TRUE": 2
+    },
+    "class": "DialogueTokenAlignment",
+    "common_scorer_parameters": 75138,
+    "comparison": "Shared tanh(Linear([x,a,x-a,x*a])); supplied-prior pooling on each side; tanh(Linear([context,schema]))",
+    "feature_dim": 401,
+    "feature_order": "u,q,c,u*q,u*c,q*c,lexical10,type_onehot5,previous_onehot,zero_entropy",
+    "hidden_dim": 64,
+    "initialization": "Copy complete tensors between mean/aligned; copy only COMMON_TENSORS to/from the separate flat baseline. No old fitted checkpoint reuse",
+    "input_dim": 384,
+    "lexical_fields": [
+      "user_match",
+      "system_match",
+      "unique_longest_user",
+      "unique_longest_system",
+      "literal_current",
+      "literal_previous",
+      "is_none",
+      "is_dontcare",
+      "affirmative_cue_for_true",
+      "negative_cue_for_false"
+    ],
+    "memory": "Sequential candidate processing limits individual temporaries; autograd retains candidate graphs through backward. Not a peak-memory or runtime bound",
+    "mode": "aligned",
+    "normalization": "log_softmax(z_c+g_branch)",
+    "padding_type": -1,
+    "parameter_count_scope": "Registered counts, identical across new modes. No unused attention or turn-projection modules. Entropy-column weights receive zero input; head/gate scalar biases are common shifts",
+    "parameters": 124482,
+    "parent_source_sha256": "cd3c38ffea6d177431e73c8a4e2d6b10644d5e1d90e4b949451d44d50f35e493",
+    "projection": "Shared Linear(D,P) with bias, no pre-alignment activation or L2 normalization",
+    "projection_dim": 64,
+    "scope": "Public candidate types and privileged previous one-hot; no current target, recurrent state, calibration or novelty claim",
+    "token_comparison_parameters": 49344,
+    "version": "dialogue-token-alignment-v1",
+    "work": "Context projection once; schema projection and comparisons once per candidate, including padded slots. Aligned score matrices are B*L*S per candidate, never B*C*L*S*P"
+  },
+  "counts": {
+    "backward_attempted": 18260,
+    "backward_returned": 18260,
+    "evaluation_rows": 13599,
+    "forward_attempted": 18685,
+    "forward_returned": 18685,
+    "optimizer_attempted": 2300,
+    "optimizer_returned": 2300,
+    "training_rows": 584220
+  },
+  "epochs": 20,
+  "evaluation": {
+    "effective_batches": 54,
+    "microbatches": 425,
+    "normalization": {
+      "batches": 425,
+      "masked_candidates": 43017,
+      "max_abs_mass_error": 2.0131465561235018e-07,
+      "max_supported_log_prob": 0.0,
+      "min_supported_log_prob": -52.55082321166992,
+      "rows": 13599,
+      "supported_candidates": 78188
+    },
+    "wall_seconds": 7.85419995803386,
+    "work": {
+      "attention_query_positions": 121205,
+      "attention_score_positions": 6159493,
+      "boolean_input_bytes": 823812,
+      "candidate_type_input_bytes": 969640,
+      "float_input_bytes": 1294406744,
+      "float_input_scalars": 323601686,
+      "padded_candidate_positions": 121205,
+      "padded_token_positions": 702607,
+      "rows": 13599,
+      "schema_padded_candidate_positions": 121205,
+      "schema_padded_context_token_positions": 702607,
+      "schema_padded_pairwise_positions": 236497160,
+      "schema_padded_schema_token_positions": 4652712,
+      "schema_schema_boolean_input_bytes": 4652712,
+      "schema_schema_float_input_bytes": 7165176480,
+      "schema_supported_candidate_positions": 78188,
+      "schema_supported_context_token_positions": 424474,
+      "schema_supported_pairwise_positions": 70494539,
+      "schema_supported_schema_token_positions": 2271932,
+      "scorer_positions": 121205,
+      "supported_candidate_positions": 78188,
+      "supported_token_positions": 424474,
+      "token_key_positions": 702607
+    }
+  },
+  "files": {
+    "predictions.npz": {
+      "bytes": 325703,
+      "sha256": "bae0149549750430358c52ef0ecff2b2e237704ff442fc232d6ea2a912d4a170"
+    },
+    "updates.jsonl": {
+      "bytes": 6883354,
+      "sha256": "c276351f1667a5569d735f12d8c6767cbf167cd67a419fd9523a64d23294d856"
+    },
+    "weights.pt": {
+      "bytes": 503411,
+      "sha256": "1130bd74090c7a56ba06e5c85763635f001e3010f1d89a3a602a5d2c525b76b8"
+    }
+  },
+  "initial_common_sha256": "0242cb2e10bc8fa2f0b5f3de50c9fec4d3cfd50cb7472c2d99ff179f2845165e",
+  "initial_state_sha256": "f7e8fd08c41ce3d90aea3a69d6cf2df5c24a6f4c1132145b9c9bc4cc994b1c21",
+  "initializer_witness": {
+    "common_state_sha256": {
+      "flat_stratum": "0242cb2e10bc8fa2f0b5f3de50c9fec4d3cfd50cb7472c2d99ff179f2845165e",
+      "token_aligned": "0242cb2e10bc8fa2f0b5f3de50c9fec4d3cfd50cb7472c2d99ff179f2845165e",
+      "token_mean": "0242cb2e10bc8fa2f0b5f3de50c9fec4d3cfd50cb7472c2d99ff179f2845165e"
+    },
+    "common_tensors": [
+      "query_projection.weight",
+      "query_projection.bias",
+      "candidate_projection.weight",
+      "candidate_projection.bias",
+      "feature.0.weight",
+      "feature.0.bias",
+      "head.weight",
+      "head.bias",
+      "gate.weight",
+      "gate.bias"
+    ],
+    "full_state_sha256": {
+      "flat_stratum": "a2e1d828aee22190ec78d2158324f34fb0026f5a86e319a21b3e25cad7ee1367",
+      "token_aligned": "f7e8fd08c41ce3d90aea3a69d6cf2df5c24a6f4c1132145b9c9bc4cc994b1c21",
+      "token_mean": "f7e8fd08c41ce3d90aea3a69d6cf2df5c24a6f4c1132145b9c9bc4cc994b1c21"
+    }
+  },
+  "method": "token_aligned",
+  "orders_sha256": "fbfb43efa725bb633fbf5bff192cb0b80b479b4d8db29e90efb2074ebf466de2",
+  "original_capacity_admitted": false,
+  "plan_sha256": "e700080ee2dd28c83c0c13a0dad2640cdc83fb1992efb4bfd3777a90111877c1",
+  "process_lifetime_peak_rss_bytes": 1848737792,
+  "seed": 6201,
+  "status": "completed",
+  "training_effective_batches": 2300,
+  "training_microbatches": 18260,
+  "training_normalization": {
+    "batches": 18260,
+    "masked_candidates": 3279408,
+    "max_abs_mass_error": 2.494307409506291e-07,
+    "max_supported_log_prob": 0.0,
+    "min_supported_log_prob": -53.71493911743164,
+    "rows": 584220,
+    "supported_candidates": 3477180
+  },
+  "training_wall_seconds": 753.0378543341067,
+  "training_work": {
+    "attention_query_positions": 6756588,
+    "attention_score_positions": 421391802,
+    "boolean_input_bytes": 43196082,
+    "candidate_type_input_bytes": 54052704,
+    "float_input_bytes": 67689591720,
+    "float_input_scalars": 16922397930,
+    "padded_candidate_positions": 6756588,
+    "padded_token_positions": 36439494,
+    "rows": 584220,
+    "schema_padded_candidate_positions": 6756588,
+    "schema_padded_context_token_positions": 36439494,
+    "schema_padded_pairwise_positions": 16892283378,
+    "schema_padded_schema_token_positions": 270860176,
+    "schema_schema_boolean_input_bytes": 270860176,
+    "schema_schema_float_input_bytes": 417124671040,
+    "schema_supported_candidate_positions": 3477180,
+    "schema_supported_context_token_positions": 18557620,
+    "schema_supported_pairwise_positions": 2895951240,
+    "schema_supported_schema_token_positions": 92257100,
+    "scorer_positions": 6756588,
+    "supported_candidate_positions": 3477180,
+    "supported_token_positions": 18557620,
+    "token_key_positions": 36439494
+  },
+  "version": "dialogue-token-alignment-scientific-v1",
+  "wall_seconds": 760.8959037919994
+}
