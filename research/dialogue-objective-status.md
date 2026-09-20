@@ -19,6 +19,16 @@ The practical checks also require improvement over historical corrected flat.
 These are development requirements; a pass would support a training choice,
 not establish a new architecture or untouched confirmation.
 
+The [result plotter](../scripts/plot_dialogue_objective.py) is ready for the
+completed report. It displays all three seeds for every fixed fresh and
+historical readout, with separate panels for changes, retention, overall
+accuracy and log loss under both weighting schemes. One
+[synthetic layout check](../output/dialogue-objective-v1/figure-preflight-01/receipt.json)
+verified the 240 displayed seed values and readable PNG/PDF output. Those
+invented values are prominently marked and are not research results. The
+plotter reads saved report summaries only; the independent metric audit
+remains a separate required step.
+
 ## What is verified
 
 - **17 runner cases** cover paired initialization, loss and gradient arithmetic,
@@ -75,3 +85,7 @@ The earlier token-alignment result remains **FAIL, 18/22**. The subsequent
 [fixed weight correction](dialogue-weight-prior-results.md) improves retention
 while missing more real changes; it does not overturn that result. The broader
 goal of a strong novel architecture remains unachieved.
+
+The [source-specific memory note](dialogue-source-memory-decision.md) records
+one conditional fallback and its established prior work. It admits no new
+experiment and is canceled if the simpler objective resolves this tradeoff.
