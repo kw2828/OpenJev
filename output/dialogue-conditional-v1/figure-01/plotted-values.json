@@ -1,0 +1,964 @@
+{
+  "accuracy": {
+    "seen": {
+      "references": {
+        "literal_carry": 0.3573558648111332,
+        "previous_gold_carry": 0.0
+      },
+      "rows": 2012,
+      "seed_accuracy": {
+        "candidate": [
+          0.9239562624254473,
+          0.9309145129224652,
+          0.8901590457256461
+        ],
+        "mean": [
+          0.8538767395626242,
+          0.8573558648111332,
+          0.8334990059642147
+        ],
+        "slot": [
+          0.9140159045725647,
+          0.9224652087475149,
+          0.8961232604373758
+        ]
+      }
+    },
+    "unseen": {
+      "references": {
+        "literal_carry": 0.4835680751173709,
+        "previous_gold_carry": 0.0
+      },
+      "rows": 1704,
+      "seed_accuracy": {
+        "candidate": [
+          0.6467136150234741,
+          0.7376760563380281,
+          0.6748826291079812
+        ],
+        "mean": [
+          0.6942488262910798,
+          0.7012910798122066,
+          0.6625586854460094
+        ],
+        "slot": [
+          0.7089201877934272,
+          0.6995305164319249,
+          0.6836854460093896
+        ]
+      }
+    }
+  },
+  "cost": {
+    "cache_cost_scope": "Separate recorded costs; do not sum overlapping nested timing scopes or call shared caches free",
+    "conditional_metadata_preparation": {
+      "manifest_payload_bytes": 100936671,
+      "recorded_wall_seconds": 3.890459875110537,
+      "wall_scope": "Recorded through payload manifest, before completion serialization/write/hash; whole cap remains checked through return."
+    },
+    "fits": {
+      "candidate-5301": {
+        "configuration": {
+          "attention": "softmax(log(token_prior)+dot(Wq[pair],Wk[token])/sqrt(64)); prior positive on support and sum within2e-6",
+          "attention_parameters": 73728,
+          "attention_width": 64,
+          "class": "DialogueConditionalObservation",
+          "entropy": "Exactly zero; previous categorical value is certain",
+          "feature_dim": 396,
+          "hidden_dim": 64,
+          "inactive_parameters": "feature.0.weight final entropy column has zero input; scalar head.bias is a common softmax shift",
+          "initialization": "Copy common new decoder tensors across all arms; copy attention tensors across slot/candidate. No claim of V2 checkpoint initialization identity",
+          "input_dim": 384,
+          "lexical_fields": [
+            "user_match",
+            "system_match",
+            "unique_longest_user",
+            "unique_longest_system",
+            "literal_current",
+            "literal_previous",
+            "is_none",
+            "is_dontcare",
+            "affirmative_cue_for_true",
+            "negative_cue_for_false"
+          ],
+          "mode": "candidate",
+          "output_validation": "Finite supported log probabilities; -inf off support; raw exponentiated output sums within2e-6, without floor or renormalization",
+          "parameter_count_scope": "Registered counts only, not an effective dimension estimate. Slot uses duplicate query inputs; roundoff can produce a tiny common-bias gradient",
+          "parameters": 173121,
+          "pooling": "Mean uses supplied cached normalized vector without renormalizing; token modes L2-normalize weighted raw token sum, eps1e-12",
+          "previous_value": "Caller-supplied correct previous one-hot, supported and exact 0/1; privileged in training and evaluation",
+          "projection_dim": 64,
+          "schema_pair": "[query;candidate]",
+          "scope": "Independent conditional decoder; no current gold, operation label, recurrent state or sequence rollout",
+          "shared_scorer_parameters": 99393,
+          "softmax_shift_parameters": 1,
+          "version": "dialogue-conditional-observation-v1",
+          "writer": "head Linear(hidden_dim,1); V2 writer feature order, no departure row",
+          "zero_input_parameters": 64
+        },
+        "counts": {
+          "backward_attempted": 3360,
+          "backward_returned": 3360,
+          "evaluation_rows": 51070,
+          "forward_attempted": 3560,
+          "forward_returned": 3560,
+          "optimizer_attempted": 3360,
+          "optimizer_returned": 3360,
+          "training_rows": 856200
+        },
+        "evaluation": {
+          "normalization": {
+            "batches": 200,
+            "masked_candidates": 181041,
+            "max_abs_mass_error": 2.2448072911629424e-07,
+            "max_supported_log_prob": 0.0,
+            "min_supported_log_prob": -51.22803497314453,
+            "rows": 51070,
+            "supported_candidates": 292409
+          },
+          "rows": 51070,
+          "wall_seconds": 2.168485791888088,
+          "work": {
+            "attention_query_positions": 473450,
+            "attention_score_positions": 31138132,
+            "boolean_input_bytes": 3850726,
+            "float_input_bytes": 6027499560,
+            "float_input_scalars": 1506874890,
+            "padded_candidate_positions": 473450,
+            "padded_token_positions": 3377276,
+            "rows": 51070,
+            "scorer_positions": 473450,
+            "supported_candidate_positions": 292409,
+            "supported_token_positions": 1600179,
+            "token_key_positions": 3377276
+          }
+        },
+        "training_work": {
+          "attention_query_positions": 10273120,
+          "attention_score_positions": 781236616,
+          "boolean_input_bytes": 75384726,
+          "float_input_bytes": 117818526040,
+          "float_input_scalars": 29454631510,
+          "padded_candidate_positions": 10273120,
+          "padded_token_positions": 65111606,
+          "rows": 856200,
+          "scorer_positions": 10273120,
+          "supported_candidate_positions": 5040940,
+          "supported_token_positions": 27047100,
+          "token_key_positions": 65111606
+        },
+        "wall_seconds": 67.29353070887737
+      },
+      "candidate-5302": {
+        "configuration": {
+          "attention": "softmax(log(token_prior)+dot(Wq[pair],Wk[token])/sqrt(64)); prior positive on support and sum within2e-6",
+          "attention_parameters": 73728,
+          "attention_width": 64,
+          "class": "DialogueConditionalObservation",
+          "entropy": "Exactly zero; previous categorical value is certain",
+          "feature_dim": 396,
+          "hidden_dim": 64,
+          "inactive_parameters": "feature.0.weight final entropy column has zero input; scalar head.bias is a common softmax shift",
+          "initialization": "Copy common new decoder tensors across all arms; copy attention tensors across slot/candidate. No claim of V2 checkpoint initialization identity",
+          "input_dim": 384,
+          "lexical_fields": [
+            "user_match",
+            "system_match",
+            "unique_longest_user",
+            "unique_longest_system",
+            "literal_current",
+            "literal_previous",
+            "is_none",
+            "is_dontcare",
+            "affirmative_cue_for_true",
+            "negative_cue_for_false"
+          ],
+          "mode": "candidate",
+          "output_validation": "Finite supported log probabilities; -inf off support; raw exponentiated output sums within2e-6, without floor or renormalization",
+          "parameter_count_scope": "Registered counts only, not an effective dimension estimate. Slot uses duplicate query inputs; roundoff can produce a tiny common-bias gradient",
+          "parameters": 173121,
+          "pooling": "Mean uses supplied cached normalized vector without renormalizing; token modes L2-normalize weighted raw token sum, eps1e-12",
+          "previous_value": "Caller-supplied correct previous one-hot, supported and exact 0/1; privileged in training and evaluation",
+          "projection_dim": 64,
+          "schema_pair": "[query;candidate]",
+          "scope": "Independent conditional decoder; no current gold, operation label, recurrent state or sequence rollout",
+          "shared_scorer_parameters": 99393,
+          "softmax_shift_parameters": 1,
+          "version": "dialogue-conditional-observation-v1",
+          "writer": "head Linear(hidden_dim,1); V2 writer feature order, no departure row",
+          "zero_input_parameters": 64
+        },
+        "counts": {
+          "backward_attempted": 3360,
+          "backward_returned": 3360,
+          "evaluation_rows": 51070,
+          "forward_attempted": 3560,
+          "forward_returned": 3560,
+          "optimizer_attempted": 3360,
+          "optimizer_returned": 3360,
+          "training_rows": 856200
+        },
+        "evaluation": {
+          "normalization": {
+            "batches": 200,
+            "masked_candidates": 181041,
+            "max_abs_mass_error": 2.1363126068152383e-07,
+            "max_supported_log_prob": 0.0,
+            "min_supported_log_prob": -71.78034210205078,
+            "rows": 51070,
+            "supported_candidates": 292409
+          },
+          "rows": 51070,
+          "wall_seconds": 2.1486216250341386,
+          "work": {
+            "attention_query_positions": 473450,
+            "attention_score_positions": 31138132,
+            "boolean_input_bytes": 3850726,
+            "float_input_bytes": 6027499560,
+            "float_input_scalars": 1506874890,
+            "padded_candidate_positions": 473450,
+            "padded_token_positions": 3377276,
+            "rows": 51070,
+            "scorer_positions": 473450,
+            "supported_candidate_positions": 292409,
+            "supported_token_positions": 1600179,
+            "token_key_positions": 3377276
+          }
+        },
+        "training_work": {
+          "attention_query_positions": 10271550,
+          "attention_score_positions": 781937972,
+          "boolean_input_bytes": 75450624,
+          "float_input_bytes": 117919946160,
+          "float_input_scalars": 29479986540,
+          "padded_candidate_positions": 10271550,
+          "padded_token_positions": 65179074,
+          "rows": 856200,
+          "scorer_positions": 10271550,
+          "supported_candidate_positions": 5040940,
+          "supported_token_positions": 27047100,
+          "token_key_positions": 65179074
+        },
+        "wall_seconds": 68.29588091606274
+      },
+      "candidate-5303": {
+        "configuration": {
+          "attention": "softmax(log(token_prior)+dot(Wq[pair],Wk[token])/sqrt(64)); prior positive on support and sum within2e-6",
+          "attention_parameters": 73728,
+          "attention_width": 64,
+          "class": "DialogueConditionalObservation",
+          "entropy": "Exactly zero; previous categorical value is certain",
+          "feature_dim": 396,
+          "hidden_dim": 64,
+          "inactive_parameters": "feature.0.weight final entropy column has zero input; scalar head.bias is a common softmax shift",
+          "initialization": "Copy common new decoder tensors across all arms; copy attention tensors across slot/candidate. No claim of V2 checkpoint initialization identity",
+          "input_dim": 384,
+          "lexical_fields": [
+            "user_match",
+            "system_match",
+            "unique_longest_user",
+            "unique_longest_system",
+            "literal_current",
+            "literal_previous",
+            "is_none",
+            "is_dontcare",
+            "affirmative_cue_for_true",
+            "negative_cue_for_false"
+          ],
+          "mode": "candidate",
+          "output_validation": "Finite supported log probabilities; -inf off support; raw exponentiated output sums within2e-6, without floor or renormalization",
+          "parameter_count_scope": "Registered counts only, not an effective dimension estimate. Slot uses duplicate query inputs; roundoff can produce a tiny common-bias gradient",
+          "parameters": 173121,
+          "pooling": "Mean uses supplied cached normalized vector without renormalizing; token modes L2-normalize weighted raw token sum, eps1e-12",
+          "previous_value": "Caller-supplied correct previous one-hot, supported and exact 0/1; privileged in training and evaluation",
+          "projection_dim": 64,
+          "schema_pair": "[query;candidate]",
+          "scope": "Independent conditional decoder; no current gold, operation label, recurrent state or sequence rollout",
+          "shared_scorer_parameters": 99393,
+          "softmax_shift_parameters": 1,
+          "version": "dialogue-conditional-observation-v1",
+          "writer": "head Linear(hidden_dim,1); V2 writer feature order, no departure row",
+          "zero_input_parameters": 64
+        },
+        "counts": {
+          "backward_attempted": 3360,
+          "backward_returned": 3360,
+          "evaluation_rows": 51070,
+          "forward_attempted": 3560,
+          "forward_returned": 3560,
+          "optimizer_attempted": 3360,
+          "optimizer_returned": 3360,
+          "training_rows": 856200
+        },
+        "evaluation": {
+          "normalization": {
+            "batches": 200,
+            "masked_candidates": 181041,
+            "max_abs_mass_error": 2.406884007655208e-07,
+            "max_supported_log_prob": 0.0,
+            "min_supported_log_prob": -65.55567169189453,
+            "rows": 51070,
+            "supported_candidates": 292409
+          },
+          "rows": 51070,
+          "wall_seconds": 2.138024666113779,
+          "work": {
+            "attention_query_positions": 473450,
+            "attention_score_positions": 31138132,
+            "boolean_input_bytes": 3850726,
+            "float_input_bytes": 6027499560,
+            "float_input_scalars": 1506874890,
+            "padded_candidate_positions": 473450,
+            "padded_token_positions": 3377276,
+            "rows": 51070,
+            "scorer_positions": 473450,
+            "supported_candidate_positions": 292409,
+            "supported_token_positions": 1600179,
+            "token_key_positions": 3377276
+          }
+        },
+        "training_work": {
+          "attention_query_positions": 10273482,
+          "attention_score_positions": 781503294,
+          "boolean_input_bytes": 75404466,
+          "float_input_bytes": 117848940120,
+          "float_input_scalars": 29462235030,
+          "padded_candidate_positions": 10273482,
+          "padded_token_positions": 65130984,
+          "rows": 856200,
+          "scorer_positions": 10273482,
+          "supported_candidate_positions": 5040940,
+          "supported_token_positions": 27047100,
+          "token_key_positions": 65130984
+        },
+        "wall_seconds": 68.28075308306143
+      },
+      "mean-5301": {
+        "configuration": {
+          "attention": null,
+          "attention_parameters": 0,
+          "attention_width": null,
+          "class": "DialogueConditionalObservation",
+          "entropy": "Exactly zero; previous categorical value is certain",
+          "feature_dim": 396,
+          "hidden_dim": 64,
+          "inactive_parameters": "feature.0.weight final entropy column has zero input; scalar head.bias is a common softmax shift",
+          "initialization": "Copy common new decoder tensors across all arms; copy attention tensors across slot/candidate. No claim of V2 checkpoint initialization identity",
+          "input_dim": 384,
+          "lexical_fields": [
+            "user_match",
+            "system_match",
+            "unique_longest_user",
+            "unique_longest_system",
+            "literal_current",
+            "literal_previous",
+            "is_none",
+            "is_dontcare",
+            "affirmative_cue_for_true",
+            "negative_cue_for_false"
+          ],
+          "mode": "mean",
+          "output_validation": "Finite supported log probabilities; -inf off support; raw exponentiated output sums within2e-6, without floor or renormalization",
+          "parameter_count_scope": "Registered counts only, not an effective dimension estimate. Slot uses duplicate query inputs; roundoff can produce a tiny common-bias gradient",
+          "parameters": 99393,
+          "pooling": "Mean uses supplied cached normalized vector without renormalizing; token modes L2-normalize weighted raw token sum, eps1e-12",
+          "previous_value": "Caller-supplied correct previous one-hot, supported and exact 0/1; privileged in training and evaluation",
+          "projection_dim": 64,
+          "schema_pair": null,
+          "scope": "Independent conditional decoder; no current gold, operation label, recurrent state or sequence rollout",
+          "shared_scorer_parameters": 99393,
+          "softmax_shift_parameters": 1,
+          "version": "dialogue-conditional-observation-v1",
+          "writer": "head Linear(hidden_dim,1); V2 writer feature order, no departure row",
+          "zero_input_parameters": 64
+        },
+        "counts": {
+          "backward_attempted": 3360,
+          "backward_returned": 3360,
+          "evaluation_rows": 51070,
+          "forward_attempted": 3560,
+          "forward_returned": 3560,
+          "optimizer_attempted": 3360,
+          "optimizer_returned": 3360,
+          "training_rows": 856200
+        },
+        "evaluation": {
+          "normalization": {
+            "batches": 200,
+            "masked_candidates": 181041,
+            "max_abs_mass_error": 2.2564744028841233e-07,
+            "max_supported_log_prob": 0.0,
+            "min_supported_log_prob": -42.630714416503906,
+            "rows": 51070,
+            "supported_candidates": 292409
+          },
+          "rows": 51070,
+          "wall_seconds": 0.7731562089174986,
+          "work": {
+            "attention_query_positions": 0,
+            "attention_score_positions": 0,
+            "boolean_input_bytes": 473450,
+            "float_input_bytes": 904938040,
+            "float_input_scalars": 226234510,
+            "padded_candidate_positions": 473450,
+            "padded_token_positions": 0,
+            "rows": 51070,
+            "scorer_positions": 473450,
+            "supported_candidate_positions": 292409,
+            "supported_token_positions": 0,
+            "token_key_positions": 0
+          }
+        },
+        "training_work": {
+          "attention_query_positions": 0,
+          "attention_score_positions": 0,
+          "boolean_input_bytes": 10273120,
+          "float_input_bytes": 18861776000,
+          "float_input_scalars": 4715444000,
+          "padded_candidate_positions": 10273120,
+          "padded_token_positions": 0,
+          "rows": 856200,
+          "scorer_positions": 10273120,
+          "supported_candidate_positions": 5040940,
+          "supported_token_positions": 0,
+          "token_key_positions": 0
+        },
+        "wall_seconds": 22.365352374967188
+      },
+      "mean-5302": {
+        "configuration": {
+          "attention": null,
+          "attention_parameters": 0,
+          "attention_width": null,
+          "class": "DialogueConditionalObservation",
+          "entropy": "Exactly zero; previous categorical value is certain",
+          "feature_dim": 396,
+          "hidden_dim": 64,
+          "inactive_parameters": "feature.0.weight final entropy column has zero input; scalar head.bias is a common softmax shift",
+          "initialization": "Copy common new decoder tensors across all arms; copy attention tensors across slot/candidate. No claim of V2 checkpoint initialization identity",
+          "input_dim": 384,
+          "lexical_fields": [
+            "user_match",
+            "system_match",
+            "unique_longest_user",
+            "unique_longest_system",
+            "literal_current",
+            "literal_previous",
+            "is_none",
+            "is_dontcare",
+            "affirmative_cue_for_true",
+            "negative_cue_for_false"
+          ],
+          "mode": "mean",
+          "output_validation": "Finite supported log probabilities; -inf off support; raw exponentiated output sums within2e-6, without floor or renormalization",
+          "parameter_count_scope": "Registered counts only, not an effective dimension estimate. Slot uses duplicate query inputs; roundoff can produce a tiny common-bias gradient",
+          "parameters": 99393,
+          "pooling": "Mean uses supplied cached normalized vector without renormalizing; token modes L2-normalize weighted raw token sum, eps1e-12",
+          "previous_value": "Caller-supplied correct previous one-hot, supported and exact 0/1; privileged in training and evaluation",
+          "projection_dim": 64,
+          "schema_pair": null,
+          "scope": "Independent conditional decoder; no current gold, operation label, recurrent state or sequence rollout",
+          "shared_scorer_parameters": 99393,
+          "softmax_shift_parameters": 1,
+          "version": "dialogue-conditional-observation-v1",
+          "writer": "head Linear(hidden_dim,1); V2 writer feature order, no departure row",
+          "zero_input_parameters": 64
+        },
+        "counts": {
+          "backward_attempted": 3360,
+          "backward_returned": 3360,
+          "evaluation_rows": 51070,
+          "forward_attempted": 3560,
+          "forward_returned": 3560,
+          "optimizer_attempted": 3360,
+          "optimizer_returned": 3360,
+          "training_rows": 856200
+        },
+        "evaluation": {
+          "normalization": {
+            "batches": 200,
+            "masked_candidates": 181041,
+            "max_abs_mass_error": 2.2120525500213262e-07,
+            "max_supported_log_prob": 0.0,
+            "min_supported_log_prob": -44.99044418334961,
+            "rows": 51070,
+            "supported_candidates": 292409
+          },
+          "rows": 51070,
+          "wall_seconds": 0.8083257500547916,
+          "work": {
+            "attention_query_positions": 0,
+            "attention_score_positions": 0,
+            "boolean_input_bytes": 473450,
+            "float_input_bytes": 904938040,
+            "float_input_scalars": 226234510,
+            "padded_candidate_positions": 473450,
+            "padded_token_positions": 0,
+            "rows": 51070,
+            "scorer_positions": 473450,
+            "supported_candidate_positions": 292409,
+            "supported_token_positions": 0,
+            "token_key_positions": 0
+          }
+        },
+        "training_work": {
+          "attention_query_positions": 0,
+          "attention_score_positions": 0,
+          "boolean_input_bytes": 10271550,
+          "float_input_bytes": 18859295400,
+          "float_input_scalars": 4714823850,
+          "padded_candidate_positions": 10271550,
+          "padded_token_positions": 0,
+          "rows": 856200,
+          "scorer_positions": 10271550,
+          "supported_candidate_positions": 5040940,
+          "supported_token_positions": 0,
+          "token_key_positions": 0
+        },
+        "wall_seconds": 23.868522624950856
+      },
+      "mean-5303": {
+        "configuration": {
+          "attention": null,
+          "attention_parameters": 0,
+          "attention_width": null,
+          "class": "DialogueConditionalObservation",
+          "entropy": "Exactly zero; previous categorical value is certain",
+          "feature_dim": 396,
+          "hidden_dim": 64,
+          "inactive_parameters": "feature.0.weight final entropy column has zero input; scalar head.bias is a common softmax shift",
+          "initialization": "Copy common new decoder tensors across all arms; copy attention tensors across slot/candidate. No claim of V2 checkpoint initialization identity",
+          "input_dim": 384,
+          "lexical_fields": [
+            "user_match",
+            "system_match",
+            "unique_longest_user",
+            "unique_longest_system",
+            "literal_current",
+            "literal_previous",
+            "is_none",
+            "is_dontcare",
+            "affirmative_cue_for_true",
+            "negative_cue_for_false"
+          ],
+          "mode": "mean",
+          "output_validation": "Finite supported log probabilities; -inf off support; raw exponentiated output sums within2e-6, without floor or renormalization",
+          "parameter_count_scope": "Registered counts only, not an effective dimension estimate. Slot uses duplicate query inputs; roundoff can produce a tiny common-bias gradient",
+          "parameters": 99393,
+          "pooling": "Mean uses supplied cached normalized vector without renormalizing; token modes L2-normalize weighted raw token sum, eps1e-12",
+          "previous_value": "Caller-supplied correct previous one-hot, supported and exact 0/1; privileged in training and evaluation",
+          "projection_dim": 64,
+          "schema_pair": null,
+          "scope": "Independent conditional decoder; no current gold, operation label, recurrent state or sequence rollout",
+          "shared_scorer_parameters": 99393,
+          "softmax_shift_parameters": 1,
+          "version": "dialogue-conditional-observation-v1",
+          "writer": "head Linear(hidden_dim,1); V2 writer feature order, no departure row",
+          "zero_input_parameters": 64
+        },
+        "counts": {
+          "backward_attempted": 3360,
+          "backward_returned": 3360,
+          "evaluation_rows": 51070,
+          "forward_attempted": 3560,
+          "forward_returned": 3560,
+          "optimizer_attempted": 3360,
+          "optimizer_returned": 3360,
+          "training_rows": 856200
+        },
+        "evaluation": {
+          "normalization": {
+            "batches": 200,
+            "masked_candidates": 181041,
+            "max_abs_mass_error": 2.1828406926438504e-07,
+            "max_supported_log_prob": 0.0,
+            "min_supported_log_prob": -42.65019989013672,
+            "rows": 51070,
+            "supported_candidates": 292409
+          },
+          "rows": 51070,
+          "wall_seconds": 0.8347099998500198,
+          "work": {
+            "attention_query_positions": 0,
+            "attention_score_positions": 0,
+            "boolean_input_bytes": 473450,
+            "float_input_bytes": 904938040,
+            "float_input_scalars": 226234510,
+            "padded_candidate_positions": 473450,
+            "padded_token_positions": 0,
+            "rows": 51070,
+            "scorer_positions": 473450,
+            "supported_candidate_positions": 292409,
+            "supported_token_positions": 0,
+            "token_key_positions": 0
+          }
+        },
+        "training_work": {
+          "attention_query_positions": 0,
+          "attention_score_positions": 0,
+          "boolean_input_bytes": 10273482,
+          "float_input_bytes": 18862347960,
+          "float_input_scalars": 4715586990,
+          "padded_candidate_positions": 10273482,
+          "padded_token_positions": 0,
+          "rows": 856200,
+          "scorer_positions": 10273482,
+          "supported_candidate_positions": 5040940,
+          "supported_token_positions": 0,
+          "token_key_positions": 0
+        },
+        "wall_seconds": 24.56468104198575
+      },
+      "slot-5301": {
+        "configuration": {
+          "attention": "softmax(log(token_prior)+dot(Wq[pair],Wk[token])/sqrt(64)); prior positive on support and sum within2e-6",
+          "attention_parameters": 73728,
+          "attention_width": 64,
+          "class": "DialogueConditionalObservation",
+          "entropy": "Exactly zero; previous categorical value is certain",
+          "feature_dim": 396,
+          "hidden_dim": 64,
+          "inactive_parameters": "feature.0.weight final entropy column has zero input; scalar head.bias is a common softmax shift",
+          "initialization": "Copy common new decoder tensors across all arms; copy attention tensors across slot/candidate. No claim of V2 checkpoint initialization identity",
+          "input_dim": 384,
+          "lexical_fields": [
+            "user_match",
+            "system_match",
+            "unique_longest_user",
+            "unique_longest_system",
+            "literal_current",
+            "literal_previous",
+            "is_none",
+            "is_dontcare",
+            "affirmative_cue_for_true",
+            "negative_cue_for_false"
+          ],
+          "mode": "slot",
+          "output_validation": "Finite supported log probabilities; -inf off support; raw exponentiated output sums within2e-6, without floor or renormalization",
+          "parameter_count_scope": "Registered counts only, not an effective dimension estimate. Slot uses duplicate query inputs; roundoff can produce a tiny common-bias gradient",
+          "parameters": 173121,
+          "pooling": "Mean uses supplied cached normalized vector without renormalizing; token modes L2-normalize weighted raw token sum, eps1e-12",
+          "previous_value": "Caller-supplied correct previous one-hot, supported and exact 0/1; privileged in training and evaluation",
+          "projection_dim": 64,
+          "schema_pair": "[query;query]",
+          "scope": "Independent conditional decoder; no current gold, operation label, recurrent state or sequence rollout",
+          "shared_scorer_parameters": 99393,
+          "softmax_shift_parameters": 1,
+          "version": "dialogue-conditional-observation-v1",
+          "writer": "head Linear(hidden_dim,1); V2 writer feature order, no departure row",
+          "zero_input_parameters": 64
+        },
+        "counts": {
+          "backward_attempted": 3360,
+          "backward_returned": 3360,
+          "evaluation_rows": 51070,
+          "forward_attempted": 3560,
+          "forward_returned": 3560,
+          "optimizer_attempted": 3360,
+          "optimizer_returned": 3360,
+          "training_rows": 856200
+        },
+        "evaluation": {
+          "normalization": {
+            "batches": 200,
+            "masked_candidates": 181041,
+            "max_abs_mass_error": 2.2510571584533068e-07,
+            "max_supported_log_prob": 0.0,
+            "min_supported_log_prob": -45.622108459472656,
+            "rows": 51070,
+            "supported_candidates": 292409
+          },
+          "rows": 51070,
+          "wall_seconds": 2.3081827089190483,
+          "work": {
+            "attention_query_positions": 473450,
+            "attention_score_positions": 31138132,
+            "boolean_input_bytes": 3850726,
+            "float_input_bytes": 6027499560,
+            "float_input_scalars": 1506874890,
+            "padded_candidate_positions": 473450,
+            "padded_token_positions": 3377276,
+            "rows": 51070,
+            "scorer_positions": 473450,
+            "supported_candidate_positions": 292409,
+            "supported_token_positions": 1600179,
+            "token_key_positions": 3377276
+          }
+        },
+        "training_work": {
+          "attention_query_positions": 10273120,
+          "attention_score_positions": 781236616,
+          "boolean_input_bytes": 75384726,
+          "float_input_bytes": 117818526040,
+          "float_input_scalars": 29454631510,
+          "padded_candidate_positions": 10273120,
+          "padded_token_positions": 65111606,
+          "rows": 856200,
+          "scorer_positions": 10273120,
+          "supported_candidate_positions": 5040940,
+          "supported_token_positions": 27047100,
+          "token_key_positions": 65111606
+        },
+        "wall_seconds": 66.82946458319202
+      },
+      "slot-5302": {
+        "configuration": {
+          "attention": "softmax(log(token_prior)+dot(Wq[pair],Wk[token])/sqrt(64)); prior positive on support and sum within2e-6",
+          "attention_parameters": 73728,
+          "attention_width": 64,
+          "class": "DialogueConditionalObservation",
+          "entropy": "Exactly zero; previous categorical value is certain",
+          "feature_dim": 396,
+          "hidden_dim": 64,
+          "inactive_parameters": "feature.0.weight final entropy column has zero input; scalar head.bias is a common softmax shift",
+          "initialization": "Copy common new decoder tensors across all arms; copy attention tensors across slot/candidate. No claim of V2 checkpoint initialization identity",
+          "input_dim": 384,
+          "lexical_fields": [
+            "user_match",
+            "system_match",
+            "unique_longest_user",
+            "unique_longest_system",
+            "literal_current",
+            "literal_previous",
+            "is_none",
+            "is_dontcare",
+            "affirmative_cue_for_true",
+            "negative_cue_for_false"
+          ],
+          "mode": "slot",
+          "output_validation": "Finite supported log probabilities; -inf off support; raw exponentiated output sums within2e-6, without floor or renormalization",
+          "parameter_count_scope": "Registered counts only, not an effective dimension estimate. Slot uses duplicate query inputs; roundoff can produce a tiny common-bias gradient",
+          "parameters": 173121,
+          "pooling": "Mean uses supplied cached normalized vector without renormalizing; token modes L2-normalize weighted raw token sum, eps1e-12",
+          "previous_value": "Caller-supplied correct previous one-hot, supported and exact 0/1; privileged in training and evaluation",
+          "projection_dim": 64,
+          "schema_pair": "[query;query]",
+          "scope": "Independent conditional decoder; no current gold, operation label, recurrent state or sequence rollout",
+          "shared_scorer_parameters": 99393,
+          "softmax_shift_parameters": 1,
+          "version": "dialogue-conditional-observation-v1",
+          "writer": "head Linear(hidden_dim,1); V2 writer feature order, no departure row",
+          "zero_input_parameters": 64
+        },
+        "counts": {
+          "backward_attempted": 3360,
+          "backward_returned": 3360,
+          "evaluation_rows": 51070,
+          "forward_attempted": 3560,
+          "forward_returned": 3560,
+          "optimizer_attempted": 3360,
+          "optimizer_returned": 3360,
+          "training_rows": 856200
+        },
+        "evaluation": {
+          "normalization": {
+            "batches": 200,
+            "masked_candidates": 181041,
+            "max_abs_mass_error": 2.1979308817421384e-07,
+            "max_supported_log_prob": 0.0,
+            "min_supported_log_prob": -42.195648193359375,
+            "rows": 51070,
+            "supported_candidates": 292409
+          },
+          "rows": 51070,
+          "wall_seconds": 2.26144937495701,
+          "work": {
+            "attention_query_positions": 473450,
+            "attention_score_positions": 31138132,
+            "boolean_input_bytes": 3850726,
+            "float_input_bytes": 6027499560,
+            "float_input_scalars": 1506874890,
+            "padded_candidate_positions": 473450,
+            "padded_token_positions": 3377276,
+            "rows": 51070,
+            "scorer_positions": 473450,
+            "supported_candidate_positions": 292409,
+            "supported_token_positions": 1600179,
+            "token_key_positions": 3377276
+          }
+        },
+        "training_work": {
+          "attention_query_positions": 10271550,
+          "attention_score_positions": 781937972,
+          "boolean_input_bytes": 75450624,
+          "float_input_bytes": 117919946160,
+          "float_input_scalars": 29479986540,
+          "padded_candidate_positions": 10271550,
+          "padded_token_positions": 65179074,
+          "rows": 856200,
+          "scorer_positions": 10271550,
+          "supported_candidate_positions": 5040940,
+          "supported_token_positions": 27047100,
+          "token_key_positions": 65179074
+        },
+        "wall_seconds": 67.98008274985477
+      },
+      "slot-5303": {
+        "configuration": {
+          "attention": "softmax(log(token_prior)+dot(Wq[pair],Wk[token])/sqrt(64)); prior positive on support and sum within2e-6",
+          "attention_parameters": 73728,
+          "attention_width": 64,
+          "class": "DialogueConditionalObservation",
+          "entropy": "Exactly zero; previous categorical value is certain",
+          "feature_dim": 396,
+          "hidden_dim": 64,
+          "inactive_parameters": "feature.0.weight final entropy column has zero input; scalar head.bias is a common softmax shift",
+          "initialization": "Copy common new decoder tensors across all arms; copy attention tensors across slot/candidate. No claim of V2 checkpoint initialization identity",
+          "input_dim": 384,
+          "lexical_fields": [
+            "user_match",
+            "system_match",
+            "unique_longest_user",
+            "unique_longest_system",
+            "literal_current",
+            "literal_previous",
+            "is_none",
+            "is_dontcare",
+            "affirmative_cue_for_true",
+            "negative_cue_for_false"
+          ],
+          "mode": "slot",
+          "output_validation": "Finite supported log probabilities; -inf off support; raw exponentiated output sums within2e-6, without floor or renormalization",
+          "parameter_count_scope": "Registered counts only, not an effective dimension estimate. Slot uses duplicate query inputs; roundoff can produce a tiny common-bias gradient",
+          "parameters": 173121,
+          "pooling": "Mean uses supplied cached normalized vector without renormalizing; token modes L2-normalize weighted raw token sum, eps1e-12",
+          "previous_value": "Caller-supplied correct previous one-hot, supported and exact 0/1; privileged in training and evaluation",
+          "projection_dim": 64,
+          "schema_pair": "[query;query]",
+          "scope": "Independent conditional decoder; no current gold, operation label, recurrent state or sequence rollout",
+          "shared_scorer_parameters": 99393,
+          "softmax_shift_parameters": 1,
+          "version": "dialogue-conditional-observation-v1",
+          "writer": "head Linear(hidden_dim,1); V2 writer feature order, no departure row",
+          "zero_input_parameters": 64
+        },
+        "counts": {
+          "backward_attempted": 3360,
+          "backward_returned": 3360,
+          "evaluation_rows": 51070,
+          "forward_attempted": 3560,
+          "forward_returned": 3560,
+          "optimizer_attempted": 3360,
+          "optimizer_returned": 3360,
+          "training_rows": 856200
+        },
+        "evaluation": {
+          "normalization": {
+            "batches": 200,
+            "masked_candidates": 181041,
+            "max_abs_mass_error": 2.0951854295958583e-07,
+            "max_supported_log_prob": 0.0,
+            "min_supported_log_prob": -48.78992462158203,
+            "rows": 51070,
+            "supported_candidates": 292409
+          },
+          "rows": 51070,
+          "wall_seconds": 2.214500540867448,
+          "work": {
+            "attention_query_positions": 473450,
+            "attention_score_positions": 31138132,
+            "boolean_input_bytes": 3850726,
+            "float_input_bytes": 6027499560,
+            "float_input_scalars": 1506874890,
+            "padded_candidate_positions": 473450,
+            "padded_token_positions": 3377276,
+            "rows": 51070,
+            "scorer_positions": 473450,
+            "supported_candidate_positions": 292409,
+            "supported_token_positions": 1600179,
+            "token_key_positions": 3377276
+          }
+        },
+        "training_work": {
+          "attention_query_positions": 10273482,
+          "attention_score_positions": 781503294,
+          "boolean_input_bytes": 75404466,
+          "float_input_bytes": 117848940120,
+          "float_input_scalars": 29462235030,
+          "padded_candidate_positions": 10273482,
+          "padded_token_positions": 65130984,
+          "rows": 856200,
+          "scorer_positions": 10273482,
+          "supported_candidate_positions": 5040940,
+          "supported_token_positions": 27047100,
+          "token_key_positions": 65130984
+        },
+        "wall_seconds": 69.45787062495947
+      }
+    },
+    "inherited_cache_preparation": {
+      "lexical": {
+        "completed_sha256": "2e3e528ae05e55a32aa812d25a9dd609d7878e4daff77130994b0a63c32dad54",
+        "completion_receipt_bytes": 1794,
+        "interpretation": "Prior shared cache preparation, charged separately; not rerun or allocated per arm",
+        "recorded_manifest_payload_bytes": 81109526,
+        "recorded_wall_seconds": 2.2654252499341965,
+        "wall_scope": "Whole preparation wall as recorded by the inherited producer; no retrospective scope expansion"
+      },
+      "pooled": {
+        "completed_sha256": "e4503c3dd63d28b74e91877dfc9c69b81f4b880e4f07d240cf8c08331fa0b308",
+        "completion_receipt_bytes": 1678,
+        "interpretation": "Prior shared cache preparation, charged separately; not rerun or allocated per arm",
+        "recorded_manifest_payload_bytes": 95219635,
+        "recorded_wall_seconds": 15.256807666039094,
+        "wall_scope": "Whole preparation wall as recorded by the inherited producer; no retrospective scope expansion"
+      },
+      "tokens": {
+        "completed_sha256": "45d63e97698d1d549ad68c9c331cad2154bb17b9c70535392d00bd78edcd56ee",
+        "completion_receipt_bytes": 8723,
+        "interpretation": "Prior shared cache preparation, charged separately; not rerun or allocated per arm",
+        "recorded_manifest_payload_bytes": 2011987502,
+        "recorded_wall_seconds": 17.884518708800897,
+        "wall_scope": "Whole preparation wall as recorded by the inherited producer; no retrospective scope expansion"
+      }
+    },
+    "output_bytes": 124246259,
+    "process_lifetime_peak_rss_bytes": 3226877952,
+    "whole_run_wall_scope": "Includes all work through payload hashing; completion write/hash and return are also cap checked",
+    "whole_run_wall_seconds": 489.0815419999417
+  },
+  "fit_wall": {
+    "candidate": [
+      67.29353070887737,
+      68.29588091606274,
+      68.28075308306143
+    ],
+    "mean": [
+      22.365352374967188,
+      23.868522624950856,
+      24.56468104198575
+    ],
+    "slot": [
+      66.82946458319202,
+      67.98008274985477,
+      69.45787062495947
+    ]
+  },
+  "fit_wall_scope": "Includes optimizer setup, training/batch assembly/validation, evaluation, checkpoint and prediction I/O, and per-fit payload hashing. Excludes shared authentication/loading, model initialization and final receipt/whole-run hashing.",
+  "plan_sha256": "0bc43fadc5cd4bdb1055810c0a415dae9bc6930ae45129b2bee6774b82400835",
+  "primary": {
+    "continuation_allowed": false,
+    "mean_candidate_minus_slot_nll": -0.016574044204639222,
+    "paired": [
+      {
+        "candidate_minus_slot_nll": 0.16270415483130418,
+        "candidate_nll": 1.6493523148445837,
+        "seed": 5301,
+        "slot_nll": 1.4866481600132795
+      },
+      {
+        "candidate_minus_slot_nll": -0.1494230257075777,
+        "candidate_nll": 1.3517990584109227,
+        "seed": 5302,
+        "slot_nll": 1.5012220841185004
+      },
+      {
+        "candidate_minus_slot_nll": -0.06300326173764415,
+        "candidate_nll": 1.6066419963542322,
+        "seed": 5303,
+        "slot_nll": 1.6696452580918764
+      }
+    ],
+    "rows": 1704
+  }
+}
