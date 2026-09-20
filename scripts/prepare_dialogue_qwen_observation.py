@@ -39,6 +39,7 @@ SOURCES = (
     "src/openjev/research/dialogue_qwen_observation.py",
     "scripts/prepare_dialogue_qwen_observation.py", "scripts/run_dialogue_qwen_observation.py",
     "tests/test_dialogue_qwen_observation.py", "tests/test_run_dialogue_qwen_observation.py",
+    "tests/test_prepare_dialogue_qwen_observation.py",
     "research/dialogue-qwen-observation-protocol.md",
 )
 PREP_LIMITS = {"wall_seconds": 180, "rss_bytes": 2 * 1024**3, "output_bytes": 512 * 1024**2}
@@ -63,6 +64,14 @@ def require(condition, message):
         raise ValueError(message)
 
 
+def cached_model_path():
+    from huggingface_hub import snapshot_download
+
+    # Match the production scorer: repository documentation is not a model input.
+    return Path(snapshot_download(MODEL_ID, revision=MODEL_REVISION, local_files_only=True,
+                                  allow_patterns=["*.json", "*.safetensors", "*.jinja", "*.txt"]))
+
+
 def main(out):
     started = time.monotonic()
     out.mkdir(parents=True, exist_ok=False)
@@ -79,7 +88,6 @@ def main(out):
         require(sum(p.stat().st_size for p in out.iterdir() if p.is_file()) <= PREP_LIMITS["output_bytes"],
                 "Preparation output cap")
     try:
-        from huggingface_hub import snapshot_download
         from transformers import AutoTokenizer
 
         require(platform.system() == "Darwin", "RSS contract requires macOS")
@@ -119,7 +127,7 @@ def main(out):
         require(tuple(lex_index["features"]) == FEATURES, "Inherited lexical feature order")
         cohort = {x["id"]: x for x in lex_index["cohorts"]["train"]}
 
-        model_path = Path(snapshot_download(MODEL_ID, revision=MODEL_REVISION, local_files_only=True))
+        model_path = cached_model_path()
         # Reuse the existing sealed model manifest; compare every local file.
         old_protocol_path = authenticated("output/shared-prefix-v1/protocol.json",
                               "199a48fdcabb2240f09769bc14fa37b64f4783e6c2b03002252500c51643fc57")
