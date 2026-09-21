@@ -72,9 +72,11 @@ Open **http://127.0.0.1:8000**. Local text scoring uses Qwen3-4B; the free brows
 
 The GIF shows the preselected first baseline case, with illustrative timing. [All-controller chart](output/otto-action-head-v1/figure-01/action-head.png) · [Shifted replay](output/otto-action-head-v1/figure-01/first-case-shift.gif) · [Results, weights and audit](research/otto-action-head-results.md).
 
-The [original pretrained policy comparison](research/otto-released-reference-results.md) now completes **576 fresh searches**. It uses **7.29% fewer moves** in the baseline, but **94.88% more under a sensing shift**, with one failed search and much greater CPU cost. Competence **4/6**, teacher **6/12** and utility-compute **6/16** checks pass; all overall rules fail. [Baseline GIF](output/otto-released-reference-v1/figure-01/replay-base-case0.gif) · [Shifted GIF](output/otto-released-reference-v1/figure-01/replay-shift-case0.gif).
+The latest [768-search boundary control](research/otto-boundary-control-results.md) finds **9.67% / 13.24% fewer moves** for the existing pretrained model than analytic control, but roughly **92x / 85x** the CPU computation. All searches succeed. Restricting boundary choices changes **none of the 192 paired neural paths**, so no intervention benefit is demonstrated. Competence passes **6/6**; teacher consistency fails **8/12** and utility-compute fails **12/16**. This is not a new model result. [Baseline GIF](output/otto-boundary-control-v1/figure-01/replay-base-case0.gif) · [Shifted GIF](output/otto-boundary-control-v1/figure-01/replay-shift-case0.gif).
 
-[![Released policy versus both analytic controls, both regimes and all paired blocks](output/otto-released-reference-v1/figure-01/reference-comparison.png)](research/otto-released-reference-results.md)
+[![All four boundary-control policies, both regimes and every paired block](output/otto-boundary-control-v1/figure-01/boundary-comparison.png)](research/otto-boundary-control-results.md)
+
+The [earlier 576-search comparison](research/otto-released-reference-results.md) remains a failed result: one prolonged boundary stall caused a **94.88%** shifted move regression. The fresh cohort above never triggers that behavior and does not establish a rescue.
 
 The earlier [fixed-memory comparison](research/otto-spectral-control-results.md) completed **1,152 searches**: both compact memories found every source with **80.79% less evolving array state**, but used **31-39% more controller computation**. Its compact and utility-compute rules also failed.
 
