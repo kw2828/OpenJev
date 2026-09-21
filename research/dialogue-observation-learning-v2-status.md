@@ -41,14 +41,13 @@ local; manifests bind the complete 69-payload closure.
 ## Live execution
 
 The source and corrected plan were published in `6a93965` and `faf345d` before
-launch. Session **61998**, worker process group **41434**, is running. **Seven
+launch. Session **61998**, worker process group **41434**, is running. **Eight
 of twelve fits have completed** all 1,280 updates and their final DEV pass:
-all four variants for seed 6901, both frozen-encoder variants for seed 6902,
-and `trainable_original-6902`.
+all four variants for seeds 6901 and 6902.
 Their work counts, state checks and payload hashes match the frozen plan.
-All four frozen encoders are unchanged; all three trainable encoders'
+All four frozen encoders are unchanged; all four trainable encoders'
 fingerprints have changed. This confirms execution, not useful learning.
-The eighth fit, `trainable_numbers-6902`, is training.
+The ninth fit, `frozen_original-6903`, has started the third seed.
 All 64 source hashes still match.
 The worker has authenticated and
 inherited the parent's absolute native-clock deadline. This is execution
@@ -90,6 +89,11 @@ progress only; predictions have not been decoded for task-quality scoring.
   Independent metadata review passed all 15 execution checks, including the
   changed trainable encoder, payload hashes and all live and frozen source
   hashes. The eighth fit has started; task quality remains unscored.
+- [Second complete-seed snapshot](../output/dialogue-observation-learning-v2/scientific-progress-09.json)
+  binds all eight completed fits and the [second-seed trainable-numbers receipt](../output/dialogue-observation-learning-v2/scientific-run-01/trainable_numbers-6902/completed.json).
+  Independent metadata review passed all 15 execution checks. Both first seeds
+  now have all four variants; the third seed's first fit is training. These
+  completion checks establish execution only, with task quality still unscored.
 - [Compute context](../output/dialogue-observation-learning-v2/compute-prelaunch-01.json)
   records released prior worker groups and background demo services. These are
   not isolated hardware latency measurements.
