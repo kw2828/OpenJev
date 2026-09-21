@@ -2,6 +2,8 @@
 
 This directory is a separate version of the matched twelve-fit comparison.
 The [fresh twelve-fit execution is now running](../../research/dialogue-observation-learning-v2-status.md).
+The [first fit has completed and the second has started](scientific-progress-02.json).
+Execution counts and payload hashes match; task quality remains unscored.
 The [first attempt remains failed](../../research/dialogue-observation-learning-timing-failure.md).
 Its five completed fits and partial sixth are not scored, resumed or used to
 initialize this version.
@@ -27,8 +29,9 @@ and their targeted corrections remain in the
 [auditor](audit-preflight-02/receipt.json) preflight histories. Production scoring
 was unchanged by those fixture corrections. Peer source review is clear.
 The [source review](scientific-source-review-01/receipt.json) binds all 64 files
-and verifies unchanged ASTs for 21 scientific and scoring functions. Training
-still requires a separate metadata freeze and actual execution receipts.
+and verifies unchanged ASTs for 21 scientific and scoring functions. The
+separate metadata freeze and its independent audit passed before training;
+actual execution receipts are linked in the status page.
 
 The [saved-result figure generator](figure-01/README.md) has passed its synthetic
 qualification and independent source/visual review. It requires both complete

@@ -42,9 +42,12 @@ local; manifests bind the complete 69-payload closure.
 
 The source and corrected plan were published in `6a93965` and `faf345d` before
 launch. Session **61998**, worker process group **41434**, is running. The first
-fit is `frozen_original-6901`; its training journal contains completed optimizer
-updates. All 64 source hashes still match. The worker has authenticated and
-inherited the parent's absolute native-clock deadline.
+fit, `frozen_original-6901`, has completed all **1,280 updates** and its final
+DEV pass. Its work counts, state checks and payload hashes match the frozen
+plan; its frozen encoder is unchanged. The second fit, `frozen_numbers-6901`,
+has started. All 64 source hashes still match. The worker has authenticated and
+inherited the parent's absolute native-clock deadline. This is execution
+progress only; predictions have not been decoded for task-quality scoring.
 
 - [Actual supervisor launch](../output/dialogue-observation-learning-v2/scientific-process-01.launch.json):
   `eefba879336be7ebb3f211174091014f1405741872a80f9934fb461c81c4ada9`.
@@ -52,6 +55,9 @@ inherited the parent's absolute native-clock deadline.
   `7caf0c297f1966d08bc90b8e2b0891155c9f1fa35159a7ba4c008e4729f5ebdf`.
 - [First live snapshot](../output/dialogue-observation-learning-v2/scientific-progress-01.json)
   distinguishes observed execution from completed fits or scientific validity.
+- [First completed-fit snapshot](../output/dialogue-observation-learning-v2/scientific-progress-02.json)
+  binds the [fit receipt](../output/dialogue-observation-learning-v2/scientific-run-01/frozen_original-6901/completed.json)
+  and verifies execution metadata without reading predictions, weights or labels.
 - [Compute context](../output/dialogue-observation-learning-v2/compute-prelaunch-01.json)
   records released prior worker groups and background demo services. These are
   not isolated hardware latency measurements.
