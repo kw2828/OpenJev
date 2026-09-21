@@ -1,0 +1,189 @@
+{
+  "config_inspection": "pickletools.dis only; no pickle.load/loads or other pickle execution.",
+  "config_values_from_opcodes": {
+    "FC_layers": 3,
+    "FC_units": 1024,
+    "Ndim": 2,
+    "loss_function": "mean_squared_error",
+    "regularization_factor": 0.0
+  },
+  "expected_from_config_and_source_only": {
+    "biases": [
+      [
+        1024
+      ],
+      [
+        1024
+      ],
+      [
+        1024
+      ],
+      [
+        1
+      ]
+    ],
+    "input_shape": [
+      105,
+      105
+    ],
+    "kernels": [
+      [
+        11025,
+        1024
+      ],
+      [
+        1024,
+        1024
+      ],
+      [
+        1024,
+        1024
+      ],
+      [
+        1024,
+        1
+      ]
+    ],
+    "nominal_float32_parameter_bytes": 53563396,
+    "parameters": 13390849
+  },
+  "first_16_bytes_hex": "894844460d0a1a0a0000000000080800",
+  "fragment_scope": "Raw byte substrings, not independently parsed HDF5 links or datasets.",
+  "framework_imports": false,
+  "framework_installation": false,
+  "hdf5_magic_verified": true,
+  "later_extraction": "Use an isolated read-only HDF5 reader to inspect Keras layer_names/weight_names and extract exactly four kernels and four biases; verify shape/dtype/finiteness and preserve source order. No such extraction occurred here.",
+  "model_calls": 0,
+  "not_verified": [
+    "HDF5 dataset hierarchy",
+    "dataset shapes",
+    "dataset dtypes",
+    "tensor values/finite checks",
+    "checkpoint equality with benchmark release",
+    "TensorFlow load compatibility",
+    "NumPy inference or policy parity"
+  ],
+  "printable_fragments": [
+    {
+      "offset": 720,
+      "text": "dense_84"
+    },
+    {
+      "offset": 736,
+      "text": "dense_85"
+    },
+    {
+      "offset": 752,
+      "text": "dense_86"
+    },
+    {
+      "offset": 768,
+      "text": "dense_87"
+    },
+    {
+      "offset": 784,
+      "text": "flatten_21"
+    },
+    {
+      "offset": 840,
+      "text": "layer_names"
+    },
+    {
+      "offset": 888,
+      "text": "flatten_21dense_84"
+    },
+    {
+      "offset": 908,
+      "text": "dense_85"
+    },
+    {
+      "offset": 918,
+      "text": "dense_86"
+    },
+    {
+      "offset": 928,
+      "text": "dense_87"
+    },
+    {
+      "offset": 960,
+      "text": "backend"
+    },
+    {
+      "offset": 1032,
+      "text": "keras_version"
+    },
+    {
+      "offset": 1744,
+      "text": "dense_84"
+    },
+    {
+      "offset": 1912,
+      "text": "dense_84/kernel:0dense_84/bias:0"
+    },
+    {
+      "offset": 7328,
+      "text": "kernel:0"
+    },
+    {
+      "offset": 7344,
+      "text": "bias:0"
+    },
+    {
+      "offset": 45167448,
+      "text": "dense_85"
+    },
+    {
+      "offset": 45167616,
+      "text": "dense_85/kernel:0dense_85/bias:0"
+    },
+    {
+      "offset": 45168536,
+      "text": "kernel:0"
+    },
+    {
+      "offset": 45168552,
+      "text": "bias:0"
+    },
+    {
+      "offset": 45174248,
+      "text": "dense_86"
+    },
+    {
+      "offset": 45174416,
+      "text": "dense_86/kernel:0dense_86/bias:0"
+    },
+    {
+      "offset": 49373808,
+      "text": "kernel:0"
+    },
+    {
+      "offset": 49373824,
+      "text": "bias:0"
+    },
+    {
+      "offset": 49374896,
+      "text": "dense_87"
+    },
+    {
+      "offset": 49375064,
+      "text": "dense_87/kernel:0dense_87/bias:0"
+    },
+    {
+      "offset": 53575032,
+      "text": "kernel:0"
+    },
+    {
+      "offset": 53575048,
+      "text": "bias:0"
+    }
+  ],
+  "simulator_calls": 0,
+  "status": "completed",
+  "tensor_extraction": false,
+  "upstream_code": {
+    "load_lines": "13-30: config pickle then ValueModel/build_graph/load_weights",
+    "path": "tmp/otto-source-review-01/isotropic/classes/valuemodel.py",
+    "save_lines": "273-282: save_weights(save_format=h5) and separate config",
+    "sha256": "151eae8b84c42a92691d6dd817fe5384f2feb806ae405088a5c57da03d067eb8"
+  }
+}
