@@ -66,9 +66,11 @@ Open **http://127.0.0.1:8000**. Local text scoring uses Qwen3-4B; the free brows
 
 ## Research results
 
-[Olfactory search memory pilot](research/otto-memory-results.md): **512/512 searches succeed**, but full history improves over recent-32 by only **1.14%**. Most searches end before that window expires. **7/10 conditions pass; no learned memory pilot is admitted.** The sampled-source simulator and public filtering interface are now qualified.
+[Larger olfactory search](research/otto-large-memory-results.md): **768/768 searches succeed**. Full odor history reduces mean search time **41.13%** versus keeping 32 observations, but improves only **5/8 blocks**, below the required six. **9/10 conditions pass; continuation fails.** This is a classical memory comparison, with no trained-model or biological-wiring advantage.
 
-[![All eight olfactory-search controllers, search times, computation costs and paired differences](output/otto-memory-v1/figure-01/otto-memory.png)](research/otto-memory-results.md)
+[![All eight controllers in the 53x53 olfactory task, search times, computation costs and all paired blocks](output/otto-large-memory-v1/figure-01/otto-large-memory.png)](research/otto-large-memory-results.md)
+
+The [earlier 19x19 pilot](research/otto-memory-results.md) found only **1.14%** improvement over recent-32; continuation failed, with **7/10 conditions passed**. Both sampled-source settings and their public filtering interfaces passed qualification.
 
 [RockSample state representation comparison](research/rocksample-representation-results.md): **256 episodes**, with **42.81 reward** for full history versus **38.44** for recent history and **40.63** for quality-only. The broader representation beats fixed particles on every map, but misses the stronger controls' required margins and sometimes violates occupancy bounds. **8/13 conditions pass; no learned memory pilot is admitted.**
 

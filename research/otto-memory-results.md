@@ -1,5 +1,9 @@
 # Olfactory search: the small task offers little benefit from older odor evidence
 
+Follow-up: the [completed 53x53 comparison](otto-large-memory-results.md) finds a
+larger average memory benefit, but still fails its fixed block-consistency rule.
+The original 19x19 result below is unchanged.
+
 21 September 2026. We qualified the OTTO sampled-source simulator and completed
 **512 searches with eight classical controllers**. All searches succeeded.
 Space-aware infotaxis with full odor history averaged **11.9659 moves**, versus
