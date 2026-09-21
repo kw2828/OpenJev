@@ -1,0 +1,86 @@
+{
+  "status": "frozen_before_any_native_representation_calls",
+  "created_at": "2026-09-21T13:09:16.046971+00:00",
+  "scope": "state representation and information diagnostic; no learned architecture claim",
+  "sources": {
+    "src/openjev/research/rocksample_particle_belief.py": "26d7006d760f9897e11cbf78482c9ec9b016477091bc2a39bda22ebcc30eb25f",
+    "src/openjev/research/rocksample_quality_belief.py": "484658ed0b7f3612fd6cf84920dfedb01d07df620fb50b5deba9f5217415fa4b",
+    "src/openjev/research/rocksample_memory_controls.py": "9c2deead4c9dc1c0cf640daa58e446590719cb242103e15e1ff0d60cf7203f0d",
+    "src/openjev/research/rocksample_route_planner.py": "e57098b2c197d656d4325f357d6af63eb618d2cc199ab672ea4dd24d392de9fa",
+    "scripts/study_rocksample_policy_value.py": "49821400fe38d027b6c40640c9f7d162b09a34f8833119aed8efd19b1c488dd8",
+    "tests/test_rocksample_particle_belief.py": "dd0bdafd576bd8c03b829fc230fb82fab6d14acf0fd3ecb9ea194a1f30596707",
+    "tests/test_rocksample_quality_belief.py": "31e073ac1af2784d9dfd52fb16ca7091e9454fbe1d5ab8adab4b7ee5cef770c9",
+    "tests/test_rocksample_memory_controls.py": "57fb041507a3c5a90bdd887e1a671f4d53cdb5a3a67e0ca4425a2870ac1eefb0",
+    "tests/test_rocksample_route_planner.py": "b219c90756e3e8153fb5de5c23755f7c55b0651fed041b8e8f930eb3e5e87f0c",
+    "tests/test_rocksample_policy_value.py": "34b10b5dddc56770b73c1463e14d7fc8d48d46361b62f9bdf82d9cc1252c3df8",
+    "scripts/qualify_rocksample_runtime.py": "e2cb8914bc63f0bf5e2a75a512990252960ee2897a1dc8d1f3439e209a3b32a8",
+    "scripts/supervise_dialogue_observation_v2.py": "610a2fcd2d4d55eb35bce92e61942d5169491dee9d05e2f47f65e211fdf94144",
+    "src/openjev/research/suspend_clock.py": "cac9077db3c66f5ef43d9412b732f5b869c1004c4bac98589816780c120f6124",
+    "research/rocksample-policy-value-protocol.md": "1315204d7158cf9cd2c6969f13a82991dae8b2b5eb413c44e32250160a43d18c",
+    "research/rocksample-runtime-requirements.in": "8ce35c4144109aa0ee62f2459b1e4519dcf438f16fca301fb96da6aadc47f833",
+    "research/rocksample-runtime-requirements.lock.txt": "3c067b02f1b3225456d15ede688be72ac1737a7aff33ab84184124a99a04e648",
+    "src/openjev/research/rocksample_public_belief.py": "70b5916e2ddb34720849b1d8505c1624cbab35ea09a572e0a92ce406110dda39",
+    "src/openjev/research/rocksample_factorized_planning.py": "1f88ad636fc506c7cef52470ad93c5f79a7d529ca86f9337c147543650f32436",
+    "tests/test_rocksample_factorized_planning.py": "47d19f9b84d2e848cdd705841ad26fca52af9dafb2986723b166b53cbaa55747",
+    "scripts/study_rocksample_representations.py": "57da8fe4117e4a521ce2f30b28c3b141aa7dd9ec47fb20266b1ea0f228759736",
+    "tests/test_rocksample_representations.py": "e04151e90336190e6502ffe15b2805f14bfd34a1334bccd314bfb07f6980cb19",
+    "research/rocksample-representation-protocol.md": "e7664fbe545bc282e2631d8d084ec08373efe6f666516e7f17878d59883036bb"
+  },
+  "runtime_qualification_sha256": "b233dbd09714ae574626cdd2f58b3efde80c0127759af8f399147845ece4bcb2",
+  "runtime_terminal_sha256": "f89212345e14aab535b9a79ab11d7219f2e2ea01453762a4721d83ef7bf7c82a",
+  "engineering": {
+    "qualification": "output/rocksample-representations-v1/engineering-01/qualification.json",
+    "qualification_sha256": "6feb54519a1bfcfa5870635795247dec8d2594729c92596d0789fd4db19e602d",
+    "test_count": 267,
+    "timing": "output/rocksample-representations-v1/engineering-01/prior-timing-and-support.json",
+    "timing_sha256": "86a02669c5d9595d735f239858fe6c53a7fefd2a304826e2acba48ee11e55a08",
+    "native_environment_calls": 0,
+    "timing_planner_calls": 3
+  },
+  "cohort": {
+    "map_seeds": [
+      13001,
+      13002,
+      13003,
+      13004,
+      13005,
+      13006,
+      13007,
+      13008
+    ],
+    "reset_seeds": [
+      23001,
+      23002,
+      23003,
+      23004
+    ],
+    "arms": [
+      "exit",
+      "factorized_full",
+      "factorized_recent128",
+      "factorized_latest",
+      "particle_full",
+      "quality",
+      "known_map",
+      "privileged"
+    ],
+    "episodes": 256,
+    "transition_seed_base": 440000,
+    "transition_seed_rule": "base + map_index*4 + reset_index; shared across arms for each case",
+    "arm_order": "rotate by case index modulo eight",
+    "particle_bank_seed": 530001,
+    "particles": 256,
+    "episode_horizon": 1000,
+    "check_cap": 64
+  },
+  "limits": {
+    "wall_seconds": 1800,
+    "rss_bytes": 8589934592,
+    "output_bytes": 536870912,
+    "primitive_transitions": 192000
+  },
+  "continuation": "all13 predeclared conditions; no revised seeds, bank size, planner, sensor or outcome-dependent extension",
+  "previous_policy_value_status": "FAIL 3/10 unchanged; previous prediction diagnostic FAIL 4/6 unchanged",
+  "external_models": 0,
+  "trained_models": 0
+}
