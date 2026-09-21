@@ -42,10 +42,11 @@ local; manifests bind the complete 69-payload closure.
 
 The source and corrected plan were published in `6a93965` and `faf345d` before
 launch. Session **61998**, worker process group **41434**, is running. The first
-fit, `frozen_original-6901`, has completed all **1,280 updates** and its final
-DEV pass. Its work counts, state checks and payload hashes match the frozen
-plan; its frozen encoder is unchanged. The second fit, `frozen_numbers-6901`,
-has started. All 64 source hashes still match. The worker has authenticated and
+two fits, `frozen_original-6901` and `frozen_numbers-6901`, have each completed
+all **1,280 updates** and their final DEV pass. Their work counts, state checks
+and payload hashes match the frozen plan; both frozen encoders are unchanged.
+The third fit, `trainable_original-6901`, has started. All 64 source hashes
+still match. The worker has authenticated and
 inherited the parent's absolute native-clock deadline. This is execution
 progress only; predictions have not been decoded for task-quality scoring.
 
@@ -58,6 +59,9 @@ progress only; predictions have not been decoded for task-quality scoring.
 - [First completed-fit snapshot](../output/dialogue-observation-learning-v2/scientific-progress-02.json)
   binds the [fit receipt](../output/dialogue-observation-learning-v2/scientific-run-01/frozen_original-6901/completed.json)
   and verifies execution metadata without reading predictions, weights or labels.
+- [Second completed-fit snapshot](../output/dialogue-observation-learning-v2/scientific-progress-03.json)
+  binds both completed fits, including the [number-corrected frozen-encoder receipt](../output/dialogue-observation-learning-v2/scientific-run-01/frozen_numbers-6901/completed.json),
+  and records the start of training with a trainable encoder.
 - [Compute context](../output/dialogue-observation-learning-v2/compute-prelaunch-01.json)
   records released prior worker groups and background demo services. These are
   not isolated hardware latency measurements.
