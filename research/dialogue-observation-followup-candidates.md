@@ -1,12 +1,13 @@
 # Follow-up candidates depend on the observation-learning result
 
-Source review, 20 September 2026. This note uses completed reports and three
+Source review, 20 September 2026; control clarification, 21 September 2026.
+This note uses completed reports and three
 primary papers. No active scientific predictions, new dialogue examples,
 models, tests or timing experiments were accessed. It is a contingent design,
 not a protocol, allocation or efficacy claim.
 
 **Do not select another recurrent operator yet.** The running
-[observation-learning comparison](dialogue-observation-learning-protocol.md)
+[clock-corrected observation-learning comparison](dialogue-observation-learning-protocol-v2.md)
 is the appropriate next evidence. Its scalar head already receives its own
 candidate belief and entropy. The remaining structural question is whether
 that state should influence observation processing earlier, not whether to
@@ -61,9 +62,20 @@ lexical history and autonomous belief, but conditions that same encoder block
 on a prior-independent schema summary. Both still receive belief in the head;
 match tensor shapes, projections, attention calls, optimizer and paid work.
 An ordinary predicted-state input token is a second practical control against
-crediting sophisticated feedback for simply exposing state earlier. Report
+crediting sophisticated feedback for simply exposing state earlier. It must
+encode the same complete candidate distribution, including reserved candidates,
+through a differentiable representation. An argmax-only token would discard
+uncertainty and confound the mechanism comparison with richer information.
+
+Both the feedback and state-token controls must propagate gradients through
+prior belief, with the ordinary scalar recurrence still attached. Report
 effective gradient-path differences rather than claiming parameter equality
-proves equal capacity.
+proves equal capacity. The feedback path also changes how future losses train
+earlier observations. A gain would therefore support the combined forward and
+learning mechanism. Attributing it specifically to forward conditioning would
+require a separate control that stops gradients only on the encoder-feedback
+branch while retaining the ordinary scalar recurrence. This is a condition on
+that stronger claim, not an additional experiment admitted before V2 finishes.
 
 The hypothesis is that earlier conditioning improves revision interpretation
 without additional false updates. It is falsified if gains disappear against
