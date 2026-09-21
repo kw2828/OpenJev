@@ -1,0 +1,67 @@
+{
+  "control_plan": {
+    "path": "output/dialogue-calibration-runtime-v2/plan.json",
+    "sha256": "34a2e7923f770c2c0cdb7fa5c1cb04ee3ff578ee83d22bcae4ca8ce9d64488d9"
+  },
+  "environment": {
+    "numpy": "2.5.3",
+    "platform": "macOS-26.6.1-arm64-arm-64bit",
+    "python": "3.12.13",
+    "tokenizers": "0.23.2",
+    "torch": "2.14.0",
+    "transformers": "5.17.0"
+  },
+  "limits": {
+    "output_bytes": 134217728,
+    "rss_bytes": 4294967296,
+    "wall_seconds": 300
+  },
+  "out": "output/dialogue-calibration-runtime-v2/report-01",
+  "phases": {
+    "infer": {
+      "completed_sha256": "bf8e4081084d514aa76b0280a5cd1a03722c7b2311b5c9435531e644ab93233c",
+      "path": "runs/dialogue-calibration-runtime-v2/inference-01",
+      "terminal": {
+        "path": "output/dialogue-calibration-runtime-v2/inference-process-01.terminal.json",
+        "sha256": "fa73251e367c5b7028cce02de2948e85ae9664fd10d1429a6664647da58a16d7"
+      }
+    },
+    "pilot": {
+      "completed_sha256": "dff50b9e1fd59b6d00af5200bbfd08b5150ed1f89d8ec4c5f4a26309b136bbb9",
+      "path": "runs/dialogue-calibration-runtime-v2/pilot-01",
+      "terminal": {
+        "path": "output/dialogue-calibration-runtime-v2/pilot-process-01.terminal.json",
+        "sha256": "6245deec4355528e287c429e4a66b0228f3d8a0e397ab6f8a1609799bd369114"
+      }
+    },
+    "prepare": {
+      "completed_sha256": "896099f38f7316f23e549d1271d81f90a2884028e6c0281dcf3c035b6ee286e9",
+      "path": "runs/dialogue-calibration-control-v1/preparation-01",
+      "terminal": {
+        "path": "output/dialogue-calibration-control-v1/preparation-process-01.terminal.json",
+        "sha256": "9a3f54de5ee09259fdfafa9e569556fc51ff78c3bf7ea8b29842e9944aa05bd3"
+      }
+    },
+    "qualify": {
+      "completed_sha256": "ca06666f1849a49c3e230f8a1fa6f485f5214dbdbe36c9f7fccde1a2cf2e2a94",
+      "path": "runs/dialogue-calibration-control-v1/qualification-01",
+      "terminal": {
+        "path": "output/dialogue-calibration-control-v1/qualification-process-01.terminal.json",
+        "sha256": "b9ef0d20799f1e8a1fda7b565d57378a9bac7d7b3c53de5a48425d9bb6cf644b"
+      }
+    }
+  },
+  "sources": {
+    "scripts/report_dialogue_calibration.py": "419c22f6a11193a5adf7b3ffdf0cb45d3109d674fd867dc21f85c430d92d95a2",
+    "scripts/report_dialogue_runtime_calibration.py": "3d7da51f256cceb18ae46cb11b4d9e77f3d28544cea3eeecc4166965a44bf009",
+    "src/openjev/research/dialogue_calibration_metrics.py": "f7d38b1a2f3e4eacbb802469dadc01df94626cb2d92adaa89dd38a91a44f334a",
+    "tests/test_dialogue_calibration_metrics.py": "0f5716d47393b034157166dd6fc3f37a25cb73839e1ff25991f69d88c1810077",
+    "tests/test_report_dialogue_calibration.py": "71b30d1a060b28f2475d1804fc1ce02195e17f5f41de37722a70b09eac214b12",
+    "tests/test_report_dialogue_runtime_calibration.py": "92381264f4c55e1a21aa495cce340372d87b3bb0ca672902af7dd47770ea5657"
+  },
+  "synthetic_qualification": {
+    "path": "output/dialogue-calibration-runtime-v2/report-qualification-01/receipt.json",
+    "sha256": "f7e90ddf2c97930bc8660f4a564ba3b5a97645ccf4da7141b62ea5c5aa7fb58e"
+  },
+  "version": "dialogue-calibration-report-v2"
+}

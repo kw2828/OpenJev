@@ -1,0 +1,1548 @@
+{
+  "analysis_role": "calibration",
+  "calibration_work": {
+    "dialogue_count": 512,
+    "encoder_calls": 867,
+    "padded_attention_positions": 42839932,
+    "real_question_updates": 23353
+  },
+  "completed_forwards": 6144,
+  "cost_scope": "Parent deadline pays authentication, checkpoint loading, all complete forwards, synchronization, raw array and journal writes, parameter verification, final receipts and cleanup.",
+  "endpoint_rows_per_fit": 13333,
+  "environment": {
+    "numpy": "2.5.3",
+    "platform": "macOS-26.6.1-arm64-arm-64bit",
+    "python": "3.12.13",
+    "tokenizers": "0.23.2",
+    "torch": "2.14.0",
+    "transformers": "5.17.0"
+  },
+  "files": {
+    "frozen_numbers-6901/completed.json": {
+      "bytes": 3575,
+      "sha256": "9091e78a7cf4c8a9b366017c3be8f5f137163f60655d156d2540721143be3bea"
+    },
+    "frozen_numbers-6901/dialogues.jsonl": {
+      "bytes": 502500,
+      "sha256": "de87a00a2b39e328b891c26c86e4ccf3dd7fd11fcd69c093a9d01d675fbca834"
+    },
+    "frozen_numbers-6901/predictions.npz": {
+      "bytes": 747174,
+      "sha256": "b716ac076a90d76cf74746d31c217f5593169dddb81f7a07e727f47c140f8e81"
+    },
+    "frozen_numbers-6902/completed.json": {
+      "bytes": 3579,
+      "sha256": "3b7068ea5ee081db2decc524558f81a36721702b20160f9c9bc54c819dc5200b"
+    },
+    "frozen_numbers-6902/dialogues.jsonl": {
+      "bytes": 502420,
+      "sha256": "c1146db3dacfe3624a53c55d3ab5da13ba6373c9abe407ca39bbbfe5afc2d20f"
+    },
+    "frozen_numbers-6902/predictions.npz": {
+      "bytes": 747174,
+      "sha256": "968e20cf9dfc6001d8a4baed82bb054b66e92a4a3e5135fd7fd2f03fd388b5f2"
+    },
+    "frozen_numbers-6903/completed.json": {
+      "bytes": 3578,
+      "sha256": "b43f3d52e6fe37a4e062be0da2b98d4340def4ca2d3b383b12b0480ac566e9ed"
+    },
+    "frozen_numbers-6903/dialogues.jsonl": {
+      "bytes": 502384,
+      "sha256": "07902589c055585e43b99e67195eb63514d63167b6f25cd71bda635c8a975a76"
+    },
+    "frozen_numbers-6903/predictions.npz": {
+      "bytes": 747174,
+      "sha256": "f33eb0839db7335f1215316fb999e47b8d36bab6a93b35939fe77459a0d40137"
+    },
+    "frozen_original-6901/completed.json": {
+      "bytes": 3571,
+      "sha256": "d2e5cf8e8c78b5376533614692e2f1ec9342f511818d8118bd4529356f76292c"
+    },
+    "frozen_original-6901/dialogues.jsonl": {
+      "bytes": 502499,
+      "sha256": "025fac6e86ea84d7e115f8100f0b53b9664af26321e825eb02c6b28a4e40c7ff"
+    },
+    "frozen_original-6901/predictions.npz": {
+      "bytes": 747174,
+      "sha256": "82c37b9636efc4897bdbc744413473fea22f56dde8b5497da684734c35572047"
+    },
+    "frozen_original-6902/completed.json": {
+      "bytes": 3578,
+      "sha256": "3765a48e45e66eb0e64edbf175b2239e3d4a3a12318da5cc8cacea6754be04b6"
+    },
+    "frozen_original-6902/dialogues.jsonl": {
+      "bytes": 502497,
+      "sha256": "025fdeb0aea8a3496c09b25ea2eefdc5ab3aee0ddd39416869747c4d38d6ae09"
+    },
+    "frozen_original-6902/predictions.npz": {
+      "bytes": 747174,
+      "sha256": "8e1b472d19dc621359251a34fb0a47d15d809548620254bb3ca7889df6d41227"
+    },
+    "frozen_original-6903/completed.json": {
+      "bytes": 3586,
+      "sha256": "280ea0fd446a27bd445560f219199d62835429b2fb24d6b18bb0791c88108744"
+    },
+    "frozen_original-6903/dialogues.jsonl": {
+      "bytes": 502387,
+      "sha256": "9dca57080b1b868ee75d1108ff681a97dc37d539f670de2c1ae30e1e706e9e8b"
+    },
+    "frozen_original-6903/predictions.npz": {
+      "bytes": 747174,
+      "sha256": "753fe2b717ff0673c184689ae681fdbbf1d08cf5cde0218f507cb676dc4f4c39"
+    },
+    "started.json": {
+      "bytes": 1356,
+      "sha256": "d17e70c9e11aaa42768108a5a0686d75ca23c90f8f1439104ff5f13d72cfed2d"
+    },
+    "trainable_numbers-6901/completed.json": {
+      "bytes": 3581,
+      "sha256": "2f63e070264c66e3cae9e700b2905992ea94d0a6805f5167fa9c309025a8fc89"
+    },
+    "trainable_numbers-6901/dialogues.jsonl": {
+      "bytes": 502807,
+      "sha256": "d3a9440129c813c70c285e32334e50483b9acd10cb47eba710111b4101b18eae"
+    },
+    "trainable_numbers-6901/predictions.npz": {
+      "bytes": 747174,
+      "sha256": "4fa95a57a85a64bf00af3dfce00e8afb025ae19640b6078b78442cb4c21b71fb"
+    },
+    "trainable_numbers-6902/completed.json": {
+      "bytes": 3593,
+      "sha256": "3ebee4d895f6ab31f273706e8e5be12b588be394fd8478d22a0a1dad53fd3a07"
+    },
+    "trainable_numbers-6902/dialogues.jsonl": {
+      "bytes": 502762,
+      "sha256": "bc0c8b31b1fdd505bdfaff19ccc858aeb88b752701a99bd4f040b3e194fb0f92"
+    },
+    "trainable_numbers-6902/predictions.npz": {
+      "bytes": 747174,
+      "sha256": "762f74f653c7125aa4ac88e241ab6959727f3e55c36d13ce784f6f43ada55c0a"
+    },
+    "trainable_numbers-6903/completed.json": {
+      "bytes": 3589,
+      "sha256": "22f820734e851b54573ba6516bb897f52da93252953a2d32ec061a5a61fd1e50"
+    },
+    "trainable_numbers-6903/dialogues.jsonl": {
+      "bytes": 502704,
+      "sha256": "8bc0fa6046ae549b5c9437dd50fef3bc28ee3fd00f48fce31ea06587c44a803b"
+    },
+    "trainable_numbers-6903/predictions.npz": {
+      "bytes": 747174,
+      "sha256": "641a0ea5489460636275ecbb99cae94c619cb139bde6eeea02d40e6d3065bb03"
+    },
+    "trainable_original-6901/completed.json": {
+      "bytes": 3593,
+      "sha256": "26446c25e4608dcf8f05904c41fb2a43626610a7f6c15e57708d46a94f953fb8"
+    },
+    "trainable_original-6901/dialogues.jsonl": {
+      "bytes": 502667,
+      "sha256": "d4860548eca9386051a984b92dfe5d9d14d95c89e28f60f3a5d75d19efedefb5"
+    },
+    "trainable_original-6901/predictions.npz": {
+      "bytes": 747174,
+      "sha256": "9d0324615c34dfc4fef5d8f65868dc4f65f1090427755c8cd1445ebb5ac8a0bf"
+    },
+    "trainable_original-6902/completed.json": {
+      "bytes": 3590,
+      "sha256": "6c569324ef19fcb50e785009e6dfddc70f338540c21d7f6a2c977e12c085319b"
+    },
+    "trainable_original-6902/dialogues.jsonl": {
+      "bytes": 502653,
+      "sha256": "aeae74573ab5d92a8953ef10c0cf5be9cd917149da4f90f004d1555077f72b1a"
+    },
+    "trainable_original-6902/predictions.npz": {
+      "bytes": 747174,
+      "sha256": "86557a1011b84f99a933d21f90b0a1687b6a83690daeeebbeba9cb63b66f868b"
+    },
+    "trainable_original-6903/completed.json": {
+      "bytes": 3590,
+      "sha256": "9c4997a4888da577d302fa99ed9569ea545a856e70ce8f11a5f97fff13fe8469"
+    },
+    "trainable_original-6903/dialogues.jsonl": {
+      "bytes": 502567,
+      "sha256": "0f5a94cabbaf035db110c3ccd3721e4f0cf907b62005a9a289802b328ef34a31"
+    },
+    "trainable_original-6903/predictions.npz": {
+      "bytes": 747174,
+      "sha256": "5609fe36af1a720a400f992f32bd1646a1412dcb93921a88dc18cf5f64291a3b"
+    }
+  },
+  "fit_order": [
+    "frozen_original-6901",
+    "frozen_numbers-6901",
+    "trainable_original-6901",
+    "trainable_numbers-6901",
+    "frozen_original-6902",
+    "frozen_numbers-6902",
+    "trainable_original-6902",
+    "trainable_numbers-6902",
+    "frozen_original-6903",
+    "frozen_numbers-6903",
+    "trainable_original-6903",
+    "trainable_numbers-6903"
+  ],
+  "fits": [
+    {
+      "arm": "frozen_original",
+      "completed_sha256": "d2e5cf8e8c78b5376533614692e2f1ec9342f511818d8118bd4529356f76292c",
+      "dialogue_seconds": 11.529777205000013,
+      "dialogues": 512,
+      "endpoint_rows": 13333,
+      "files": {
+        "dialogues.jsonl": {
+          "bytes": 502499,
+          "sha256": "025fac6e86ea84d7e115f8100f0b53b9664af26321e825eb02c6b28a4e40c7ff"
+        },
+        "predictions.npz": {
+          "bytes": 747174,
+          "sha256": "82c37b9636efc4897bdbc744413473fea22f56dde8b5497da684734c35572047"
+        }
+      },
+      "fit_id": "frozen_original-6901",
+      "loading_seconds": 2.974816625,
+      "prediction_finalization_seconds": 0.000635041000000669,
+      "seed": 6901,
+      "status": "completed",
+      "wall_seconds": 14.590506209,
+      "witness": {
+        "arm": "frozen_original",
+        "checkpoint_sha256": "a5a2e259dd788ffbb9a0d0c2a1c26f5ccd5d694b7036c20d22c8a038bc58785b",
+        "chunk_tokens": 254,
+        "counts": {
+          "checkpoint_load_attempts": 1,
+          "checkpoint_load_returns": 1,
+          "encoder_forward_attempts": 867,
+          "encoder_forward_returns": 867,
+          "encoder_load_attempts": 1,
+          "encoder_load_returns": 1,
+          "encoding_attempts": 512,
+          "encoding_returns": 512,
+          "memory_forward_attempts": 512,
+          "memory_forward_returns": 512,
+          "public_forward_attempts": 512,
+          "public_forward_returns": 512
+        },
+        "dtype": "float32",
+        "encoder_attempted_work": {
+          "encoder_calls": 867,
+          "encoder_sequences": 19883,
+          "padded_attention_positions": 42839932,
+          "padded_token_positions": 896788,
+          "valid_token_positions": 550930
+        },
+        "encoder_batch": 32,
+        "encoder_device": "mps:0",
+        "encoder_returned_work": {
+          "encoder_calls": 867,
+          "encoder_sequences": 19883,
+          "padded_attention_positions": 42839932,
+          "padded_token_positions": 896788,
+          "valid_token_positions": 550930
+        },
+        "encoder_work": {
+          "content_tokens": 511164,
+          "encoder_calls": 867,
+          "encoder_sequences": 19883,
+          "input_texts": 19883,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 42839932,
+          "padded_token_positions": 896788,
+          "padding_token_positions": 345858,
+          "special_token_positions": 39766,
+          "truncated_tokens": 0,
+          "valid_token_positions": 550930
+        },
+        "final_sha256": {
+          "encoder": "6eb608dfaf4afd506e2bf41aad9b0e81726b8c6baca88bf9be4d583ef03aa426",
+          "memory": "67fa74fbe7a56a4e347a864aaab882dcfd78ac0fdd2294f53fdd2d1978903034"
+        },
+        "invariants": {
+          "advance_calls": 5228,
+          "advance_returned": 5228,
+          "executed_valid_question_slots": 23353,
+          "feature_checks": 23353,
+          "feature_max_sum_error": 2.4948349164333194e-07,
+          "forward_calls": 512,
+          "forward_returned": 512,
+          "incoming_checks": 23353,
+          "incoming_max_sum_error": 2.6635825634002686e-07,
+          "mass_above_one_count": 0,
+          "mass_checks": 23353,
+          "mass_max": 0.9997873306274414,
+          "mass_max_overshoot": 0.0,
+          "mass_min": 5.374554802983766e-06,
+          "real_question_updates": 23353,
+          "result_checks": 23353,
+          "result_max_sum_error": 2.6635825634002686e-07,
+          "tolerance": 2e-06,
+          "valid_turns": 5228
+        },
+        "memory_device": "cpu",
+        "optimizer_created": false,
+        "restored_sha256": {
+          "encoder": "6eb608dfaf4afd506e2bf41aad9b0e81726b8c6baca88bf9be4d583ef03aa426",
+          "memory": "67fa74fbe7a56a4e347a864aaab882dcfd78ac0fdd2294f53fdd2d1978903034"
+        },
+        "scope": "Work from public full-dialogue forwards only; evaluator collection is separate.",
+        "synthetic_injection": false,
+        "temperature_applied": false,
+        "version": "dialogue-calibration-inference-v1"
+      }
+    },
+    {
+      "arm": "frozen_numbers",
+      "completed_sha256": "9091e78a7cf4c8a9b366017c3be8f5f137163f60655d156d2540721143be3bea",
+      "dialogue_seconds": 11.353086377,
+      "dialogues": 512,
+      "endpoint_rows": 13333,
+      "files": {
+        "dialogues.jsonl": {
+          "bytes": 502500,
+          "sha256": "de87a00a2b39e328b891c26c86e4ccf3dd7fd11fcd69c093a9d01d675fbca834"
+        },
+        "predictions.npz": {
+          "bytes": 747174,
+          "sha256": "b716ac076a90d76cf74746d31c217f5593169dddb81f7a07e727f47c140f8e81"
+        }
+      },
+      "fit_id": "frozen_numbers-6901",
+      "loading_seconds": 0.20912708300000205,
+      "prediction_finalization_seconds": 0.0007301670000003924,
+      "seed": 6901,
+      "status": "completed",
+      "wall_seconds": 11.640736624999999,
+      "witness": {
+        "arm": "frozen_numbers",
+        "checkpoint_sha256": "fc74fe4e5f0e225251929c2d79350e074b42e07972e1290cffaefdd1a4640ade",
+        "chunk_tokens": 254,
+        "counts": {
+          "checkpoint_load_attempts": 1,
+          "checkpoint_load_returns": 1,
+          "encoder_forward_attempts": 867,
+          "encoder_forward_returns": 867,
+          "encoder_load_attempts": 1,
+          "encoder_load_returns": 1,
+          "encoding_attempts": 512,
+          "encoding_returns": 512,
+          "memory_forward_attempts": 512,
+          "memory_forward_returns": 512,
+          "public_forward_attempts": 512,
+          "public_forward_returns": 512
+        },
+        "dtype": "float32",
+        "encoder_attempted_work": {
+          "encoder_calls": 867,
+          "encoder_sequences": 19883,
+          "padded_attention_positions": 42839932,
+          "padded_token_positions": 896788,
+          "valid_token_positions": 550930
+        },
+        "encoder_batch": 32,
+        "encoder_device": "mps:0",
+        "encoder_returned_work": {
+          "encoder_calls": 867,
+          "encoder_sequences": 19883,
+          "padded_attention_positions": 42839932,
+          "padded_token_positions": 896788,
+          "valid_token_positions": 550930
+        },
+        "encoder_work": {
+          "content_tokens": 511164,
+          "encoder_calls": 867,
+          "encoder_sequences": 19883,
+          "input_texts": 19883,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 42839932,
+          "padded_token_positions": 896788,
+          "padding_token_positions": 345858,
+          "special_token_positions": 39766,
+          "truncated_tokens": 0,
+          "valid_token_positions": 550930
+        },
+        "final_sha256": {
+          "encoder": "6eb608dfaf4afd506e2bf41aad9b0e81726b8c6baca88bf9be4d583ef03aa426",
+          "memory": "952131d9a65e8bc5b3e8db73d53633423a0dfe909690393109709580a92fbac3"
+        },
+        "invariants": {
+          "advance_calls": 5228,
+          "advance_returned": 5228,
+          "executed_valid_question_slots": 23353,
+          "feature_checks": 23353,
+          "feature_max_sum_error": 2.2557185275218217e-07,
+          "forward_calls": 512,
+          "forward_returned": 512,
+          "incoming_checks": 23353,
+          "incoming_max_sum_error": 2.4866312742233276e-07,
+          "mass_above_one_count": 0,
+          "mass_checks": 23353,
+          "mass_max": 0.9998096823692322,
+          "mass_max_overshoot": 0.0,
+          "mass_min": 4.174999048700556e-06,
+          "real_question_updates": 23353,
+          "result_checks": 23353,
+          "result_max_sum_error": 2.50060111284256e-07,
+          "tolerance": 2e-06,
+          "valid_turns": 5228
+        },
+        "memory_device": "cpu",
+        "optimizer_created": false,
+        "restored_sha256": {
+          "encoder": "6eb608dfaf4afd506e2bf41aad9b0e81726b8c6baca88bf9be4d583ef03aa426",
+          "memory": "952131d9a65e8bc5b3e8db73d53633423a0dfe909690393109709580a92fbac3"
+        },
+        "scope": "Work from public full-dialogue forwards only; evaluator collection is separate.",
+        "synthetic_injection": false,
+        "temperature_applied": false,
+        "version": "dialogue-calibration-inference-v1"
+      }
+    },
+    {
+      "arm": "trainable_original",
+      "completed_sha256": "26446c25e4608dcf8f05904c41fb2a43626610a7f6c15e57708d46a94f953fb8",
+      "dialogue_seconds": 11.330792078999952,
+      "dialogues": 512,
+      "endpoint_rows": 13333,
+      "files": {
+        "dialogues.jsonl": {
+          "bytes": 502667,
+          "sha256": "d4860548eca9386051a984b92dfe5d9d14d95c89e28f60f3a5d75d19efedefb5"
+        },
+        "predictions.npz": {
+          "bytes": 747174,
+          "sha256": "9d0324615c34dfc4fef5d8f65868dc4f65f1090427755c8cd1445ebb5ac8a0bf"
+        }
+      },
+      "fit_id": "trainable_original-6901",
+      "loading_seconds": 0.30812645800000027,
+      "prediction_finalization_seconds": 0.0006433749999956717,
+      "seed": 6901,
+      "status": "completed",
+      "wall_seconds": 11.723717417000003,
+      "witness": {
+        "arm": "trainable_original",
+        "checkpoint_sha256": "06c64856b5b99510cd4c9721a24b2785ae4020b9b6a0dfb9f8709ce82a673394",
+        "chunk_tokens": 254,
+        "counts": {
+          "checkpoint_load_attempts": 1,
+          "checkpoint_load_returns": 1,
+          "encoder_forward_attempts": 867,
+          "encoder_forward_returns": 867,
+          "encoder_load_attempts": 1,
+          "encoder_load_returns": 1,
+          "encoding_attempts": 512,
+          "encoding_returns": 512,
+          "memory_forward_attempts": 512,
+          "memory_forward_returns": 512,
+          "public_forward_attempts": 512,
+          "public_forward_returns": 512
+        },
+        "dtype": "float32",
+        "encoder_attempted_work": {
+          "encoder_calls": 867,
+          "encoder_sequences": 19883,
+          "padded_attention_positions": 42839932,
+          "padded_token_positions": 896788,
+          "valid_token_positions": 550930
+        },
+        "encoder_batch": 32,
+        "encoder_device": "mps:0",
+        "encoder_returned_work": {
+          "encoder_calls": 867,
+          "encoder_sequences": 19883,
+          "padded_attention_positions": 42839932,
+          "padded_token_positions": 896788,
+          "valid_token_positions": 550930
+        },
+        "encoder_work": {
+          "content_tokens": 511164,
+          "encoder_calls": 867,
+          "encoder_sequences": 19883,
+          "input_texts": 19883,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 42839932,
+          "padded_token_positions": 896788,
+          "padding_token_positions": 345858,
+          "special_token_positions": 39766,
+          "truncated_tokens": 0,
+          "valid_token_positions": 550930
+        },
+        "final_sha256": {
+          "encoder": "1bfe8695df568d1dd86970b1d1f4e7daf38151068e2bdc0cffb4c74c918e580f",
+          "memory": "7de352f7f745e95d98396033cfaae54040743a5528a40f33e56ebe934aebd844"
+        },
+        "invariants": {
+          "advance_calls": 5228,
+          "advance_returned": 5228,
+          "executed_valid_question_slots": 23353,
+          "feature_checks": 23353,
+          "feature_max_sum_error": 2.672327354957815e-07,
+          "forward_calls": 512,
+          "forward_returned": 512,
+          "incoming_checks": 23353,
+          "incoming_max_sum_error": 2.672327354957815e-07,
+          "mass_above_one_count": 0,
+          "mass_checks": 23353,
+          "mass_max": 0.9994538426399231,
+          "mass_max_overshoot": 0.0,
+          "mass_min": 2.5768342766241403e-06,
+          "real_question_updates": 23353,
+          "result_checks": 23353,
+          "result_max_sum_error": 2.672327354957815e-07,
+          "tolerance": 2e-06,
+          "valid_turns": 5228
+        },
+        "memory_device": "cpu",
+        "optimizer_created": false,
+        "restored_sha256": {
+          "encoder": "1bfe8695df568d1dd86970b1d1f4e7daf38151068e2bdc0cffb4c74c918e580f",
+          "memory": "7de352f7f745e95d98396033cfaae54040743a5528a40f33e56ebe934aebd844"
+        },
+        "scope": "Work from public full-dialogue forwards only; evaluator collection is separate.",
+        "synthetic_injection": false,
+        "temperature_applied": false,
+        "version": "dialogue-calibration-inference-v1"
+      }
+    },
+    {
+      "arm": "trainable_numbers",
+      "completed_sha256": "2f63e070264c66e3cae9e700b2905992ea94d0a6805f5167fa9c309025a8fc89",
+      "dialogue_seconds": 11.398168133999967,
+      "dialogues": 512,
+      "endpoint_rows": 13333,
+      "files": {
+        "dialogues.jsonl": {
+          "bytes": 502807,
+          "sha256": "d3a9440129c813c70c285e32334e50483b9acd10cb47eba710111b4101b18eae"
+        },
+        "predictions.npz": {
+          "bytes": 747174,
+          "sha256": "4fa95a57a85a64bf00af3dfce00e8afb025ae19640b6078b78442cb4c21b71fb"
+        }
+      },
+      "fit_id": "trainable_numbers-6901",
+      "loading_seconds": 0.30280179100000026,
+      "prediction_finalization_seconds": 0.000680916999996839,
+      "seed": 6901,
+      "status": "completed",
+      "wall_seconds": 11.793157584,
+      "witness": {
+        "arm": "trainable_numbers",
+        "checkpoint_sha256": "9a6306eaa3b557213bbce0b3102879bc8a52c2003a3c48f2486fb48fc43527f6",
+        "chunk_tokens": 254,
+        "counts": {
+          "checkpoint_load_attempts": 1,
+          "checkpoint_load_returns": 1,
+          "encoder_forward_attempts": 867,
+          "encoder_forward_returns": 867,
+          "encoder_load_attempts": 1,
+          "encoder_load_returns": 1,
+          "encoding_attempts": 512,
+          "encoding_returns": 512,
+          "memory_forward_attempts": 512,
+          "memory_forward_returns": 512,
+          "public_forward_attempts": 512,
+          "public_forward_returns": 512
+        },
+        "dtype": "float32",
+        "encoder_attempted_work": {
+          "encoder_calls": 867,
+          "encoder_sequences": 19883,
+          "padded_attention_positions": 42839932,
+          "padded_token_positions": 896788,
+          "valid_token_positions": 550930
+        },
+        "encoder_batch": 32,
+        "encoder_device": "mps:0",
+        "encoder_returned_work": {
+          "encoder_calls": 867,
+          "encoder_sequences": 19883,
+          "padded_attention_positions": 42839932,
+          "padded_token_positions": 896788,
+          "valid_token_positions": 550930
+        },
+        "encoder_work": {
+          "content_tokens": 511164,
+          "encoder_calls": 867,
+          "encoder_sequences": 19883,
+          "input_texts": 19883,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 42839932,
+          "padded_token_positions": 896788,
+          "padding_token_positions": 345858,
+          "special_token_positions": 39766,
+          "truncated_tokens": 0,
+          "valid_token_positions": 550930
+        },
+        "final_sha256": {
+          "encoder": "0ed8375a3f22d6f678aa85d73c8ead3e9215230db3a7d8c54040cc6dcf2fed82",
+          "memory": "19db73d40e8d459cbd3f90eed287d5808e9d09afc4e22f6b80b27a6b5b1fff4a"
+        },
+        "invariants": {
+          "advance_calls": 5228,
+          "advance_returned": 5228,
+          "executed_valid_question_slots": 23353,
+          "feature_checks": 23353,
+          "feature_max_sum_error": 2.717360985116102e-07,
+          "forward_calls": 512,
+          "forward_returned": 512,
+          "incoming_checks": 23353,
+          "incoming_max_sum_error": 2.717360985116102e-07,
+          "mass_above_one_count": 0,
+          "mass_checks": 23353,
+          "mass_max": 0.9995489120483398,
+          "mass_max_overshoot": 0.0,
+          "mass_min": 4.24992822445347e-06,
+          "real_question_updates": 23353,
+          "result_checks": 23353,
+          "result_max_sum_error": 2.717360985116102e-07,
+          "tolerance": 2e-06,
+          "valid_turns": 5228
+        },
+        "memory_device": "cpu",
+        "optimizer_created": false,
+        "restored_sha256": {
+          "encoder": "0ed8375a3f22d6f678aa85d73c8ead3e9215230db3a7d8c54040cc6dcf2fed82",
+          "memory": "19db73d40e8d459cbd3f90eed287d5808e9d09afc4e22f6b80b27a6b5b1fff4a"
+        },
+        "scope": "Work from public full-dialogue forwards only; evaluator collection is separate.",
+        "synthetic_injection": false,
+        "temperature_applied": false,
+        "version": "dialogue-calibration-inference-v1"
+      }
+    },
+    {
+      "arm": "frozen_original",
+      "completed_sha256": "3765a48e45e66eb0e64edbf175b2239e3d4a3a12318da5cc8cacea6754be04b6",
+      "dialogue_seconds": 11.320295837000025,
+      "dialogues": 512,
+      "endpoint_rows": 13333,
+      "files": {
+        "dialogues.jsonl": {
+          "bytes": 502497,
+          "sha256": "025fdeb0aea8a3496c09b25ea2eefdc5ab3aee0ddd39416869747c4d38d6ae09"
+        },
+        "predictions.npz": {
+          "bytes": 747174,
+          "sha256": "8e1b472d19dc621359251a34fb0a47d15d809548620254bb3ca7889df6d41227"
+        }
+      },
+      "fit_id": "frozen_original-6902",
+      "loading_seconds": 0.30684325,
+      "prediction_finalization_seconds": 0.0006681670000006079,
+      "seed": 6902,
+      "status": "completed",
+      "wall_seconds": 11.701235999999994,
+      "witness": {
+        "arm": "frozen_original",
+        "checkpoint_sha256": "3f18f2f856a9acb801456a834b5c73d7a81b91806424af926fc8e228e2547042",
+        "chunk_tokens": 254,
+        "counts": {
+          "checkpoint_load_attempts": 1,
+          "checkpoint_load_returns": 1,
+          "encoder_forward_attempts": 867,
+          "encoder_forward_returns": 867,
+          "encoder_load_attempts": 1,
+          "encoder_load_returns": 1,
+          "encoding_attempts": 512,
+          "encoding_returns": 512,
+          "memory_forward_attempts": 512,
+          "memory_forward_returns": 512,
+          "public_forward_attempts": 512,
+          "public_forward_returns": 512
+        },
+        "dtype": "float32",
+        "encoder_attempted_work": {
+          "encoder_calls": 867,
+          "encoder_sequences": 19883,
+          "padded_attention_positions": 42839932,
+          "padded_token_positions": 896788,
+          "valid_token_positions": 550930
+        },
+        "encoder_batch": 32,
+        "encoder_device": "mps:0",
+        "encoder_returned_work": {
+          "encoder_calls": 867,
+          "encoder_sequences": 19883,
+          "padded_attention_positions": 42839932,
+          "padded_token_positions": 896788,
+          "valid_token_positions": 550930
+        },
+        "encoder_work": {
+          "content_tokens": 511164,
+          "encoder_calls": 867,
+          "encoder_sequences": 19883,
+          "input_texts": 19883,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 42839932,
+          "padded_token_positions": 896788,
+          "padding_token_positions": 345858,
+          "special_token_positions": 39766,
+          "truncated_tokens": 0,
+          "valid_token_positions": 550930
+        },
+        "final_sha256": {
+          "encoder": "6eb608dfaf4afd506e2bf41aad9b0e81726b8c6baca88bf9be4d583ef03aa426",
+          "memory": "397fb23dd8da7f12f6c4d8644109fd6ab85e75d930e5c68ffa377fbe18f4ec20"
+        },
+        "invariants": {
+          "advance_calls": 5228,
+          "advance_returned": 5228,
+          "executed_valid_question_slots": 23353,
+          "feature_checks": 23353,
+          "feature_max_sum_error": 2.5279950932599604e-07,
+          "forward_calls": 512,
+          "forward_returned": 512,
+          "incoming_checks": 23353,
+          "incoming_max_sum_error": 2.5279950932599604e-07,
+          "mass_above_one_count": 0,
+          "mass_checks": 23353,
+          "mass_max": 0.9997867345809937,
+          "mass_max_overshoot": 0.0,
+          "mass_min": 1.7272623153985478e-05,
+          "real_question_updates": 23353,
+          "result_checks": 23353,
+          "result_max_sum_error": 2.5279950932599604e-07,
+          "tolerance": 2e-06,
+          "valid_turns": 5228
+        },
+        "memory_device": "cpu",
+        "optimizer_created": false,
+        "restored_sha256": {
+          "encoder": "6eb608dfaf4afd506e2bf41aad9b0e81726b8c6baca88bf9be4d583ef03aa426",
+          "memory": "397fb23dd8da7f12f6c4d8644109fd6ab85e75d930e5c68ffa377fbe18f4ec20"
+        },
+        "scope": "Work from public full-dialogue forwards only; evaluator collection is separate.",
+        "synthetic_injection": false,
+        "temperature_applied": false,
+        "version": "dialogue-calibration-inference-v1"
+      }
+    },
+    {
+      "arm": "frozen_numbers",
+      "completed_sha256": "3b7068ea5ee081db2decc524558f81a36721702b20160f9c9bc54c819dc5200b",
+      "dialogue_seconds": 11.150013211000015,
+      "dialogues": 512,
+      "endpoint_rows": 13333,
+      "files": {
+        "dialogues.jsonl": {
+          "bytes": 502420,
+          "sha256": "c1146db3dacfe3624a53c55d3ab5da13ba6373c9abe407ca39bbbfe5afc2d20f"
+        },
+        "predictions.npz": {
+          "bytes": 747174,
+          "sha256": "968e20cf9dfc6001d8a4baed82bb054b66e92a4a3e5135fd7fd2f03fd388b5f2"
+        }
+      },
+      "fit_id": "frozen_numbers-6902",
+      "loading_seconds": 0.24394149999999826,
+      "prediction_finalization_seconds": 0.001077958000010426,
+      "seed": 6902,
+      "status": "completed",
+      "wall_seconds": 11.473873833999995,
+      "witness": {
+        "arm": "frozen_numbers",
+        "checkpoint_sha256": "9a2be063b5db7c125774e9beb94fbf547545ba57c0a9c937fceb8a662d56091d",
+        "chunk_tokens": 254,
+        "counts": {
+          "checkpoint_load_attempts": 1,
+          "checkpoint_load_returns": 1,
+          "encoder_forward_attempts": 867,
+          "encoder_forward_returns": 867,
+          "encoder_load_attempts": 1,
+          "encoder_load_returns": 1,
+          "encoding_attempts": 512,
+          "encoding_returns": 512,
+          "memory_forward_attempts": 512,
+          "memory_forward_returns": 512,
+          "public_forward_attempts": 512,
+          "public_forward_returns": 512
+        },
+        "dtype": "float32",
+        "encoder_attempted_work": {
+          "encoder_calls": 867,
+          "encoder_sequences": 19883,
+          "padded_attention_positions": 42839932,
+          "padded_token_positions": 896788,
+          "valid_token_positions": 550930
+        },
+        "encoder_batch": 32,
+        "encoder_device": "mps:0",
+        "encoder_returned_work": {
+          "encoder_calls": 867,
+          "encoder_sequences": 19883,
+          "padded_attention_positions": 42839932,
+          "padded_token_positions": 896788,
+          "valid_token_positions": 550930
+        },
+        "encoder_work": {
+          "content_tokens": 511164,
+          "encoder_calls": 867,
+          "encoder_sequences": 19883,
+          "input_texts": 19883,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 42839932,
+          "padded_token_positions": 896788,
+          "padding_token_positions": 345858,
+          "special_token_positions": 39766,
+          "truncated_tokens": 0,
+          "valid_token_positions": 550930
+        },
+        "final_sha256": {
+          "encoder": "6eb608dfaf4afd506e2bf41aad9b0e81726b8c6baca88bf9be4d583ef03aa426",
+          "memory": "2bf54aa4b4763e688255cb794e0fbfe5e57bcde7f4445387e1ad4723bb4b8c24"
+        },
+        "invariants": {
+          "advance_calls": 5228,
+          "advance_returned": 5228,
+          "executed_valid_question_slots": 23353,
+          "feature_checks": 23353,
+          "feature_max_sum_error": 2.622546162456274e-07,
+          "forward_calls": 512,
+          "forward_returned": 512,
+          "incoming_checks": 23353,
+          "incoming_max_sum_error": 2.622546162456274e-07,
+          "mass_above_one_count": 0,
+          "mass_checks": 23353,
+          "mass_max": 0.9997130036354065,
+          "mass_max_overshoot": 0.0,
+          "mass_min": 2.604787368909456e-05,
+          "real_question_updates": 23353,
+          "result_checks": 23353,
+          "result_max_sum_error": 2.622546162456274e-07,
+          "tolerance": 2e-06,
+          "valid_turns": 5228
+        },
+        "memory_device": "cpu",
+        "optimizer_created": false,
+        "restored_sha256": {
+          "encoder": "6eb608dfaf4afd506e2bf41aad9b0e81726b8c6baca88bf9be4d583ef03aa426",
+          "memory": "2bf54aa4b4763e688255cb794e0fbfe5e57bcde7f4445387e1ad4723bb4b8c24"
+        },
+        "scope": "Work from public full-dialogue forwards only; evaluator collection is separate.",
+        "synthetic_injection": false,
+        "temperature_applied": false,
+        "version": "dialogue-calibration-inference-v1"
+      }
+    },
+    {
+      "arm": "trainable_original",
+      "completed_sha256": "6c569324ef19fcb50e785009e6dfddc70f338540c21d7f6a2c977e12c085319b",
+      "dialogue_seconds": 11.327913536999887,
+      "dialogues": 512,
+      "endpoint_rows": 13333,
+      "files": {
+        "dialogues.jsonl": {
+          "bytes": 502653,
+          "sha256": "aeae74573ab5d92a8953ef10c0cf5be9cd917149da4f90f004d1555077f72b1a"
+        },
+        "predictions.npz": {
+          "bytes": 747174,
+          "sha256": "86557a1011b84f99a933d21f90b0a1687b6a83690daeeebbeba9cb63b66f868b"
+        }
+      },
+      "fit_id": "trainable_original-6902",
+      "loading_seconds": 0.3090576669999905,
+      "prediction_finalization_seconds": 0.0007713749999993524,
+      "seed": 6902,
+      "status": "completed",
+      "wall_seconds": 11.724642625000001,
+      "witness": {
+        "arm": "trainable_original",
+        "checkpoint_sha256": "a8cf5601bd99993dbb680ab1bee7b95a1c371428fbad5c7ed8ad7efb88d4ad84",
+        "chunk_tokens": 254,
+        "counts": {
+          "checkpoint_load_attempts": 1,
+          "checkpoint_load_returns": 1,
+          "encoder_forward_attempts": 867,
+          "encoder_forward_returns": 867,
+          "encoder_load_attempts": 1,
+          "encoder_load_returns": 1,
+          "encoding_attempts": 512,
+          "encoding_returns": 512,
+          "memory_forward_attempts": 512,
+          "memory_forward_returns": 512,
+          "public_forward_attempts": 512,
+          "public_forward_returns": 512
+        },
+        "dtype": "float32",
+        "encoder_attempted_work": {
+          "encoder_calls": 867,
+          "encoder_sequences": 19883,
+          "padded_attention_positions": 42839932,
+          "padded_token_positions": 896788,
+          "valid_token_positions": 550930
+        },
+        "encoder_batch": 32,
+        "encoder_device": "mps:0",
+        "encoder_returned_work": {
+          "encoder_calls": 867,
+          "encoder_sequences": 19883,
+          "padded_attention_positions": 42839932,
+          "padded_token_positions": 896788,
+          "valid_token_positions": 550930
+        },
+        "encoder_work": {
+          "content_tokens": 511164,
+          "encoder_calls": 867,
+          "encoder_sequences": 19883,
+          "input_texts": 19883,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 42839932,
+          "padded_token_positions": 896788,
+          "padding_token_positions": 345858,
+          "special_token_positions": 39766,
+          "truncated_tokens": 0,
+          "valid_token_positions": 550930
+        },
+        "final_sha256": {
+          "encoder": "0caa4becde115abdbe5ca16bef9652ec762ef33ad688d0d5855a058c15b1d14d",
+          "memory": "0a12da141b6fdf6c209fc009067bf9a586ef3ba7ae995ddfcff9742a226ef200"
+        },
+        "invariants": {
+          "advance_calls": 5228,
+          "advance_returned": 5228,
+          "executed_valid_question_slots": 23353,
+          "feature_checks": 23353,
+          "feature_max_sum_error": 2.449087332934141e-07,
+          "forward_calls": 512,
+          "forward_returned": 512,
+          "incoming_checks": 23353,
+          "incoming_max_sum_error": 2.449087332934141e-07,
+          "mass_above_one_count": 0,
+          "mass_checks": 23353,
+          "mass_max": 0.999201774597168,
+          "mass_max_overshoot": 0.0,
+          "mass_min": 4.656611054087989e-06,
+          "real_question_updates": 23353,
+          "result_checks": 23353,
+          "result_max_sum_error": 2.449087332934141e-07,
+          "tolerance": 2e-06,
+          "valid_turns": 5228
+        },
+        "memory_device": "cpu",
+        "optimizer_created": false,
+        "restored_sha256": {
+          "encoder": "0caa4becde115abdbe5ca16bef9652ec762ef33ad688d0d5855a058c15b1d14d",
+          "memory": "0a12da141b6fdf6c209fc009067bf9a586ef3ba7ae995ddfcff9742a226ef200"
+        },
+        "scope": "Work from public full-dialogue forwards only; evaluator collection is separate.",
+        "synthetic_injection": false,
+        "temperature_applied": false,
+        "version": "dialogue-calibration-inference-v1"
+      }
+    },
+    {
+      "arm": "trainable_numbers",
+      "completed_sha256": "3ebee4d895f6ab31f273706e8e5be12b588be394fd8478d22a0a1dad53fd3a07",
+      "dialogue_seconds": 11.099007173000075,
+      "dialogues": 512,
+      "endpoint_rows": 13333,
+      "files": {
+        "dialogues.jsonl": {
+          "bytes": 502762,
+          "sha256": "bc0c8b31b1fdd505bdfaff19ccc858aeb88b752701a99bd4f040b3e194fb0f92"
+        },
+        "predictions.npz": {
+          "bytes": 747174,
+          "sha256": "762f74f653c7125aa4ac88e241ab6959727f3e55c36d13ce784f6f43ada55c0a"
+        }
+      },
+      "fit_id": "trainable_numbers-6902",
+      "loading_seconds": 0.30674349999999606,
+      "prediction_finalization_seconds": 0.0007850840000003245,
+      "seed": 6902,
+      "status": "completed",
+      "wall_seconds": 11.480459875000008,
+      "witness": {
+        "arm": "trainable_numbers",
+        "checkpoint_sha256": "332f7a857273bca21050c08a0075c06e4121499eb7cf03a20ae3439dacd4ac7b",
+        "chunk_tokens": 254,
+        "counts": {
+          "checkpoint_load_attempts": 1,
+          "checkpoint_load_returns": 1,
+          "encoder_forward_attempts": 867,
+          "encoder_forward_returns": 867,
+          "encoder_load_attempts": 1,
+          "encoder_load_returns": 1,
+          "encoding_attempts": 512,
+          "encoding_returns": 512,
+          "memory_forward_attempts": 512,
+          "memory_forward_returns": 512,
+          "public_forward_attempts": 512,
+          "public_forward_returns": 512
+        },
+        "dtype": "float32",
+        "encoder_attempted_work": {
+          "encoder_calls": 867,
+          "encoder_sequences": 19883,
+          "padded_attention_positions": 42839932,
+          "padded_token_positions": 896788,
+          "valid_token_positions": 550930
+        },
+        "encoder_batch": 32,
+        "encoder_device": "mps:0",
+        "encoder_returned_work": {
+          "encoder_calls": 867,
+          "encoder_sequences": 19883,
+          "padded_attention_positions": 42839932,
+          "padded_token_positions": 896788,
+          "valid_token_positions": 550930
+        },
+        "encoder_work": {
+          "content_tokens": 511164,
+          "encoder_calls": 867,
+          "encoder_sequences": 19883,
+          "input_texts": 19883,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 42839932,
+          "padded_token_positions": 896788,
+          "padding_token_positions": 345858,
+          "special_token_positions": 39766,
+          "truncated_tokens": 0,
+          "valid_token_positions": 550930
+        },
+        "final_sha256": {
+          "encoder": "1a3a6fca6ecac2b70a304acb9256195d8e03149b9bdbeb34f7295afb6a867f2e",
+          "memory": "24a13ae42aa8ce78dac27b25d7b68cf659569353bb225241f7130d832e849787"
+        },
+        "invariants": {
+          "advance_calls": 5228,
+          "advance_returned": 5228,
+          "executed_valid_question_slots": 23353,
+          "feature_checks": 23353,
+          "feature_max_sum_error": 2.6312662271266163e-07,
+          "forward_calls": 512,
+          "forward_returned": 512,
+          "incoming_checks": 23353,
+          "incoming_max_sum_error": 2.6312662271266163e-07,
+          "mass_above_one_count": 0,
+          "mass_checks": 23353,
+          "mass_max": 0.9993955492973328,
+          "mass_max_overshoot": 0.0,
+          "mass_min": 5.4615661611023825e-06,
+          "real_question_updates": 23353,
+          "result_checks": 23353,
+          "result_max_sum_error": 2.6312662271266163e-07,
+          "tolerance": 2e-06,
+          "valid_turns": 5228
+        },
+        "memory_device": "cpu",
+        "optimizer_created": false,
+        "restored_sha256": {
+          "encoder": "1a3a6fca6ecac2b70a304acb9256195d8e03149b9bdbeb34f7295afb6a867f2e",
+          "memory": "24a13ae42aa8ce78dac27b25d7b68cf659569353bb225241f7130d832e849787"
+        },
+        "scope": "Work from public full-dialogue forwards only; evaluator collection is separate.",
+        "synthetic_injection": false,
+        "temperature_applied": false,
+        "version": "dialogue-calibration-inference-v1"
+      }
+    },
+    {
+      "arm": "frozen_original",
+      "completed_sha256": "280ea0fd446a27bd445560f219199d62835429b2fb24d6b18bb0791c88108744",
+      "dialogue_seconds": 11.339167094000146,
+      "dialogues": 512,
+      "endpoint_rows": 13333,
+      "files": {
+        "dialogues.jsonl": {
+          "bytes": 502387,
+          "sha256": "9dca57080b1b868ee75d1108ff681a97dc37d539f670de2c1ae30e1e706e9e8b"
+        },
+        "predictions.npz": {
+          "bytes": 747174,
+          "sha256": "753fe2b717ff0673c184689ae681fdbbf1d08cf5cde0218f507cb676dc4f4c39"
+        }
+      },
+      "fit_id": "frozen_original-6903",
+      "loading_seconds": 0.21953645800000743,
+      "prediction_finalization_seconds": 0.0010437920000043732,
+      "seed": 6903,
+      "status": "completed",
+      "wall_seconds": 11.643781290999996,
+      "witness": {
+        "arm": "frozen_original",
+        "checkpoint_sha256": "6d42f7021ccb035ca14ebd124007e587ea84ab2c93056e97cf84387c309f6689",
+        "chunk_tokens": 254,
+        "counts": {
+          "checkpoint_load_attempts": 1,
+          "checkpoint_load_returns": 1,
+          "encoder_forward_attempts": 867,
+          "encoder_forward_returns": 867,
+          "encoder_load_attempts": 1,
+          "encoder_load_returns": 1,
+          "encoding_attempts": 512,
+          "encoding_returns": 512,
+          "memory_forward_attempts": 512,
+          "memory_forward_returns": 512,
+          "public_forward_attempts": 512,
+          "public_forward_returns": 512
+        },
+        "dtype": "float32",
+        "encoder_attempted_work": {
+          "encoder_calls": 867,
+          "encoder_sequences": 19883,
+          "padded_attention_positions": 42839932,
+          "padded_token_positions": 896788,
+          "valid_token_positions": 550930
+        },
+        "encoder_batch": 32,
+        "encoder_device": "mps:0",
+        "encoder_returned_work": {
+          "encoder_calls": 867,
+          "encoder_sequences": 19883,
+          "padded_attention_positions": 42839932,
+          "padded_token_positions": 896788,
+          "valid_token_positions": 550930
+        },
+        "encoder_work": {
+          "content_tokens": 511164,
+          "encoder_calls": 867,
+          "encoder_sequences": 19883,
+          "input_texts": 19883,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 42839932,
+          "padded_token_positions": 896788,
+          "padding_token_positions": 345858,
+          "special_token_positions": 39766,
+          "truncated_tokens": 0,
+          "valid_token_positions": 550930
+        },
+        "final_sha256": {
+          "encoder": "6eb608dfaf4afd506e2bf41aad9b0e81726b8c6baca88bf9be4d583ef03aa426",
+          "memory": "7efaa8e86f384b955b7b7c29315d52218b59ea199c5e582ae22eaffddbde0689"
+        },
+        "invariants": {
+          "advance_calls": 5228,
+          "advance_returned": 5228,
+          "executed_valid_question_slots": 23353,
+          "feature_checks": 23353,
+          "feature_max_sum_error": 2.8040318511557416e-07,
+          "forward_calls": 512,
+          "forward_returned": 512,
+          "incoming_checks": 23353,
+          "incoming_max_sum_error": 2.8040318511557416e-07,
+          "mass_above_one_count": 0,
+          "mass_checks": 23353,
+          "mass_max": 0.9997749328613281,
+          "mass_max_overshoot": 0.0,
+          "mass_min": 1.8349597667111084e-05,
+          "real_question_updates": 23353,
+          "result_checks": 23353,
+          "result_max_sum_error": 2.867891453206539e-07,
+          "tolerance": 2e-06,
+          "valid_turns": 5228
+        },
+        "memory_device": "cpu",
+        "optimizer_created": false,
+        "restored_sha256": {
+          "encoder": "6eb608dfaf4afd506e2bf41aad9b0e81726b8c6baca88bf9be4d583ef03aa426",
+          "memory": "7efaa8e86f384b955b7b7c29315d52218b59ea199c5e582ae22eaffddbde0689"
+        },
+        "scope": "Work from public full-dialogue forwards only; evaluator collection is separate.",
+        "synthetic_injection": false,
+        "temperature_applied": false,
+        "version": "dialogue-calibration-inference-v1"
+      }
+    },
+    {
+      "arm": "frozen_numbers",
+      "completed_sha256": "b43f3d52e6fe37a4e062be0da2b98d4340def4ca2d3b383b12b0480ac566e9ed",
+      "dialogue_seconds": 11.638887579000041,
+      "dialogues": 512,
+      "endpoint_rows": 13333,
+      "files": {
+        "dialogues.jsonl": {
+          "bytes": 502384,
+          "sha256": "07902589c055585e43b99e67195eb63514d63167b6f25cd71bda635c8a975a76"
+        },
+        "predictions.npz": {
+          "bytes": 747174,
+          "sha256": "f33eb0839db7335f1215316fb999e47b8d36bab6a93b35939fe77459a0d40137"
+        }
+      },
+      "fit_id": "frozen_numbers-6903",
+      "loading_seconds": 0.2851283339999924,
+      "prediction_finalization_seconds": 0.0009809160000031625,
+      "seed": 6903,
+      "status": "completed",
+      "wall_seconds": 12.000196125000002,
+      "witness": {
+        "arm": "frozen_numbers",
+        "checkpoint_sha256": "30d4bee7d4df3781aa93c348fe845374080aca4a8d3aa4dc320742146dff2c4a",
+        "chunk_tokens": 254,
+        "counts": {
+          "checkpoint_load_attempts": 1,
+          "checkpoint_load_returns": 1,
+          "encoder_forward_attempts": 867,
+          "encoder_forward_returns": 867,
+          "encoder_load_attempts": 1,
+          "encoder_load_returns": 1,
+          "encoding_attempts": 512,
+          "encoding_returns": 512,
+          "memory_forward_attempts": 512,
+          "memory_forward_returns": 512,
+          "public_forward_attempts": 512,
+          "public_forward_returns": 512
+        },
+        "dtype": "float32",
+        "encoder_attempted_work": {
+          "encoder_calls": 867,
+          "encoder_sequences": 19883,
+          "padded_attention_positions": 42839932,
+          "padded_token_positions": 896788,
+          "valid_token_positions": 550930
+        },
+        "encoder_batch": 32,
+        "encoder_device": "mps:0",
+        "encoder_returned_work": {
+          "encoder_calls": 867,
+          "encoder_sequences": 19883,
+          "padded_attention_positions": 42839932,
+          "padded_token_positions": 896788,
+          "valid_token_positions": 550930
+        },
+        "encoder_work": {
+          "content_tokens": 511164,
+          "encoder_calls": 867,
+          "encoder_sequences": 19883,
+          "input_texts": 19883,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 42839932,
+          "padded_token_positions": 896788,
+          "padding_token_positions": 345858,
+          "special_token_positions": 39766,
+          "truncated_tokens": 0,
+          "valid_token_positions": 550930
+        },
+        "final_sha256": {
+          "encoder": "6eb608dfaf4afd506e2bf41aad9b0e81726b8c6baca88bf9be4d583ef03aa426",
+          "memory": "bc9cfdf4db2436d552faa9c043709f8b1ff02c8eb11e05f9722f0c9db2fc9475"
+        },
+        "invariants": {
+          "advance_calls": 5228,
+          "advance_returned": 5228,
+          "executed_valid_question_slots": 23353,
+          "feature_checks": 23353,
+          "feature_max_sum_error": 2.422748366370797e-07,
+          "forward_calls": 512,
+          "forward_returned": 512,
+          "incoming_checks": 23353,
+          "incoming_max_sum_error": 2.422748366370797e-07,
+          "mass_above_one_count": 0,
+          "mass_checks": 23353,
+          "mass_max": 0.9997830390930176,
+          "mass_max_overshoot": 0.0,
+          "mass_min": 7.98929795564618e-06,
+          "real_question_updates": 23353,
+          "result_checks": 23353,
+          "result_max_sum_error": 2.422748366370797e-07,
+          "tolerance": 2e-06,
+          "valid_turns": 5228
+        },
+        "memory_device": "cpu",
+        "optimizer_created": false,
+        "restored_sha256": {
+          "encoder": "6eb608dfaf4afd506e2bf41aad9b0e81726b8c6baca88bf9be4d583ef03aa426",
+          "memory": "bc9cfdf4db2436d552faa9c043709f8b1ff02c8eb11e05f9722f0c9db2fc9475"
+        },
+        "scope": "Work from public full-dialogue forwards only; evaluator collection is separate.",
+        "synthetic_injection": false,
+        "temperature_applied": false,
+        "version": "dialogue-calibration-inference-v1"
+      }
+    },
+    {
+      "arm": "trainable_original",
+      "completed_sha256": "9c4997a4888da577d302fa99ed9569ea545a856e70ce8f11a5f97fff13fe8469",
+      "dialogue_seconds": 11.621182285000103,
+      "dialogues": 512,
+      "endpoint_rows": 13333,
+      "files": {
+        "dialogues.jsonl": {
+          "bytes": 502567,
+          "sha256": "0f5a94cabbaf035db110c3ccd3721e4f0cf907b62005a9a289802b328ef34a31"
+        },
+        "predictions.npz": {
+          "bytes": 747174,
+          "sha256": "5609fe36af1a720a400f992f32bd1646a1412dcb93921a88dc18cf5f64291a3b"
+        }
+      },
+      "fit_id": "trainable_original-6903",
+      "loading_seconds": 0.32251083399999914,
+      "prediction_finalization_seconds": 0.0010117500000035307,
+      "seed": 6903,
+      "status": "completed",
+      "wall_seconds": 12.030035459000004,
+      "witness": {
+        "arm": "trainable_original",
+        "checkpoint_sha256": "477e12e2e949ac17da97810bac3c45045b5c4d2a1c83248bbb0127b2de6f9f63",
+        "chunk_tokens": 254,
+        "counts": {
+          "checkpoint_load_attempts": 1,
+          "checkpoint_load_returns": 1,
+          "encoder_forward_attempts": 867,
+          "encoder_forward_returns": 867,
+          "encoder_load_attempts": 1,
+          "encoder_load_returns": 1,
+          "encoding_attempts": 512,
+          "encoding_returns": 512,
+          "memory_forward_attempts": 512,
+          "memory_forward_returns": 512,
+          "public_forward_attempts": 512,
+          "public_forward_returns": 512
+        },
+        "dtype": "float32",
+        "encoder_attempted_work": {
+          "encoder_calls": 867,
+          "encoder_sequences": 19883,
+          "padded_attention_positions": 42839932,
+          "padded_token_positions": 896788,
+          "valid_token_positions": 550930
+        },
+        "encoder_batch": 32,
+        "encoder_device": "mps:0",
+        "encoder_returned_work": {
+          "encoder_calls": 867,
+          "encoder_sequences": 19883,
+          "padded_attention_positions": 42839932,
+          "padded_token_positions": 896788,
+          "valid_token_positions": 550930
+        },
+        "encoder_work": {
+          "content_tokens": 511164,
+          "encoder_calls": 867,
+          "encoder_sequences": 19883,
+          "input_texts": 19883,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 42839932,
+          "padded_token_positions": 896788,
+          "padding_token_positions": 345858,
+          "special_token_positions": 39766,
+          "truncated_tokens": 0,
+          "valid_token_positions": 550930
+        },
+        "final_sha256": {
+          "encoder": "c69daa5cb39b280ebfd20b6c5c1250ac8bd9af65c0d3146e375d5428b4c716bf",
+          "memory": "39d99fc86d927aa144c430bce01fa2449d9b5e9c32e6d7089bc3b1280ca56481"
+        },
+        "invariants": {
+          "advance_calls": 5228,
+          "advance_returned": 5228,
+          "executed_valid_question_slots": 23353,
+          "feature_checks": 23353,
+          "feature_max_sum_error": 2.46336846032591e-07,
+          "forward_calls": 512,
+          "forward_returned": 512,
+          "incoming_checks": 23353,
+          "incoming_max_sum_error": 2.46336846032591e-07,
+          "mass_above_one_count": 0,
+          "mass_checks": 23353,
+          "mass_max": 0.9994610548019409,
+          "mass_max_overshoot": 0.0,
+          "mass_min": 4.9510404096508864e-06,
+          "real_question_updates": 23353,
+          "result_checks": 23353,
+          "result_max_sum_error": 2.46336846032591e-07,
+          "tolerance": 2e-06,
+          "valid_turns": 5228
+        },
+        "memory_device": "cpu",
+        "optimizer_created": false,
+        "restored_sha256": {
+          "encoder": "c69daa5cb39b280ebfd20b6c5c1250ac8bd9af65c0d3146e375d5428b4c716bf",
+          "memory": "39d99fc86d927aa144c430bce01fa2449d9b5e9c32e6d7089bc3b1280ca56481"
+        },
+        "scope": "Work from public full-dialogue forwards only; evaluator collection is separate.",
+        "synthetic_injection": false,
+        "temperature_applied": false,
+        "version": "dialogue-calibration-inference-v1"
+      }
+    },
+    {
+      "arm": "trainable_numbers",
+      "completed_sha256": "22f820734e851b54573ba6516bb897f52da93252953a2d32ec061a5a61fd1e50",
+      "dialogue_seconds": 12.14308353500033,
+      "dialogues": 512,
+      "endpoint_rows": 13333,
+      "files": {
+        "dialogues.jsonl": {
+          "bytes": 502704,
+          "sha256": "8bc0fa6046ae549b5c9437dd50fef3bc28ee3fd00f48fce31ea06587c44a803b"
+        },
+        "predictions.npz": {
+          "bytes": 747174,
+          "sha256": "641a0ea5489460636275ecbb99cae94c619cb139bde6eeea02d40e6d3065bb03"
+        }
+      },
+      "fit_id": "trainable_numbers-6903",
+      "loading_seconds": 0.3642566670000065,
+      "prediction_finalization_seconds": 0.0012256250000177715,
+      "seed": 6903,
+      "status": "completed",
+      "wall_seconds": 12.597582291999998,
+      "witness": {
+        "arm": "trainable_numbers",
+        "checkpoint_sha256": "28caabb194995f8e77ad038202c90babaf60beb5dd2aa0820812727b8969bac0",
+        "chunk_tokens": 254,
+        "counts": {
+          "checkpoint_load_attempts": 1,
+          "checkpoint_load_returns": 1,
+          "encoder_forward_attempts": 867,
+          "encoder_forward_returns": 867,
+          "encoder_load_attempts": 1,
+          "encoder_load_returns": 1,
+          "encoding_attempts": 512,
+          "encoding_returns": 512,
+          "memory_forward_attempts": 512,
+          "memory_forward_returns": 512,
+          "public_forward_attempts": 512,
+          "public_forward_returns": 512
+        },
+        "dtype": "float32",
+        "encoder_attempted_work": {
+          "encoder_calls": 867,
+          "encoder_sequences": 19883,
+          "padded_attention_positions": 42839932,
+          "padded_token_positions": 896788,
+          "valid_token_positions": 550930
+        },
+        "encoder_batch": 32,
+        "encoder_device": "mps:0",
+        "encoder_returned_work": {
+          "encoder_calls": 867,
+          "encoder_sequences": 19883,
+          "padded_attention_positions": 42839932,
+          "padded_token_positions": 896788,
+          "valid_token_positions": 550930
+        },
+        "encoder_work": {
+          "content_tokens": 511164,
+          "encoder_calls": 867,
+          "encoder_sequences": 19883,
+          "input_texts": 19883,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 42839932,
+          "padded_token_positions": 896788,
+          "padding_token_positions": 345858,
+          "special_token_positions": 39766,
+          "truncated_tokens": 0,
+          "valid_token_positions": 550930
+        },
+        "final_sha256": {
+          "encoder": "5b4ab45a30e687a3167c3b5445865f7680fb024b33823562a6fb4e2680aa4a04",
+          "memory": "6655a3733d84d3f8b27c54260918fe6b2c42f02281c670a30fdce0e2790cd2c3"
+        },
+        "invariants": {
+          "advance_calls": 5228,
+          "advance_returned": 5228,
+          "executed_valid_question_slots": 23353,
+          "feature_checks": 23353,
+          "feature_max_sum_error": 2.456827132846229e-07,
+          "forward_calls": 512,
+          "forward_returned": 512,
+          "incoming_checks": 23353,
+          "incoming_max_sum_error": 2.4380085505981697e-07,
+          "mass_above_one_count": 0,
+          "mass_checks": 23353,
+          "mass_max": 0.9992150664329529,
+          "mass_max_overshoot": 0.0,
+          "mass_min": 6.754458354407689e-06,
+          "real_question_updates": 23353,
+          "result_checks": 23353,
+          "result_max_sum_error": 2.4380085505981697e-07,
+          "tolerance": 2e-06,
+          "valid_turns": 5228
+        },
+        "memory_device": "cpu",
+        "optimizer_created": false,
+        "restored_sha256": {
+          "encoder": "5b4ab45a30e687a3167c3b5445865f7680fb024b33823562a6fb4e2680aa4a04",
+          "memory": "6655a3733d84d3f8b27c54260918fe6b2c42f02281c670a30fdce0e2790cd2c3"
+        },
+        "scope": "Work from public full-dialogue forwards only; evaluator collection is separate.",
+        "synthetic_injection": false,
+        "temperature_applied": false,
+        "version": "dialogue-calibration-inference-v1"
+      }
+    }
+  ],
+  "inputs": {
+    "output/dialogue-calibration-control-v1/plan.json": "e706e40cd4a0d95fb1536ce105074c071b57a6bc4652ec57b9243672542a413c",
+    "output/dialogue-calibration-control-v1/preparation-process-01.terminal.json": "9a3f54de5ee09259fdfafa9e569556fc51ff78c3bf7ea8b29842e9944aa05bd3",
+    "output/dialogue-calibration-control-v1/qualification-process-01.terminal.json": "b9ef0d20799f1e8a1fda7b565d57378a9bac7d7b3c53de5a48425d9bb6cf644b",
+    "runs/dialogue-calibration-control-v1/preparation-01/completed.json": "896099f38f7316f23e549d1271d81f90a2884028e6c0281dcf3c035b6ee286e9",
+    "runs/dialogue-calibration-control-v1/qualification-01/completed.json": "ca06666f1849a49c3e230f8a1fa6f485f5214dbdbe36c9f7fccde1a2cf2e2a94",
+    "scripts/supervise_dialogue_observation_v2.py": "610a2fcd2d4d55eb35bce92e61942d5169491dee9d05e2f47f65e211fdf94144",
+    "src/openjev/research/suspend_clock.py": "cac9077db3c66f5ef43d9412b732f5b869c1004c4bac98589816780c120f6124"
+  },
+  "legacy_v1_admission_revised": false,
+  "limits": {
+    "mps_driver_bytes": 8589934592,
+    "output_bytes": 536870912,
+    "rss_bytes": 8589934592,
+    "wall_seconds": 3600
+  },
+  "model_weight_updates": 0,
+  "official_dev_inference": false,
+  "official_test_opened": false,
+  "optimizer_created": false,
+  "peak_rss_bytes": 1142800384,
+  "phase": "infer",
+  "pilot_sha256": "dff50b9e1fd59b6d00af5200bbfd08b5150ed1f89d8ec4c5f4a26309b136bbb9",
+  "pilot_terminal": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/dialogue-calibration-runtime-v2/pilot-process-01.terminal.json",
+  "pilot_terminal_sha256": "6245deec4355528e287c429e4a66b0228f3d8a0e397ab6f8a1609799bd369114",
+  "plan_sha256": "34a2e7923f770c2c0cdb7fa5c1cb04ee3ff578ee83d22bcae4ca8ce9d64488d9",
+  "prepared_sha256": "896099f38f7316f23e549d1271d81f90a2884028e6c0281dcf3c035b6ee286e9",
+  "prepared_terminal_sha256": "9a3f54de5ee09259fdfafa9e569556fc51ff78c3bf7ea8b29842e9944aa05bd3",
+  "request": {
+    "command": "infer",
+    "out": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/runs/dialogue-calibration-runtime-v2/inference-01",
+    "pilot_sha256": "dff50b9e1fd59b6d00af5200bbfd08b5150ed1f89d8ec4c5f4a26309b136bbb9",
+    "pilot_terminal": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/dialogue-calibration-runtime-v2/pilot-process-01.terminal.json",
+    "pilot_terminal_sha256": "6245deec4355528e287c429e4a66b0228f3d8a0e397ab6f8a1609799bd369114",
+    "plan": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/dialogue-calibration-runtime-v2/plan.json",
+    "plan_sha256": "34a2e7923f770c2c0cdb7fa5c1cb04ee3ff578ee83d22bcae4ca8ce9d64488d9",
+    "supervision": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/dialogue-calibration-runtime-v2/inference-process-01.launch.json"
+  },
+  "sampled_mps_current_max_bytes": 91165184,
+  "sampled_mps_driver_max_bytes": 1109065728,
+  "scientific_conditions_changed": false,
+  "scope": "Same 512 prepared TRAIN dialogues and twelve final checkpoints; complete raw inference only. No task scoring or temperature fitting. Original inference code and scientific criteria remain unchanged.",
+  "source_split": "train",
+  "sources": {
+    "research/dialogue-calibration-runtime-v2-protocol.md": "84d9044a49714f784a8c58fd66f821bc58bb5151854542cdad345c30a6ae673e",
+    "scripts/dialogue_runtime_common.py": "7181367407d5197af85fe0fa75cb46f272d9acb1cd416ea76fdfd1a9554212d8",
+    "scripts/dialogue_runtime_geometry.py": "fdd506fcf1385fe4e721643d1b4c84be74a672c2422bb616bc4d26e884ed13d1",
+    "scripts/infer_dialogue_runtime.py": "bc60373d561e4d632b9c0aad2636cf317a7cf3dedd8fb5c442fb09c48a0723b5",
+    "scripts/pilot_dialogue_runtime.py": "3e92718d19bd89e99d8d867aa3488699505d5c69fa57cc683d563fdf6f5878df",
+    "src/openjev/research/dialogue_runtime_projection.py": "26b4208143e4a2e875438d6fcd7c86e25fc1c04a3dca37b9b60d89e1eba004b0",
+    "tests/test_dialogue_runtime_common.py": "0198c12a886c5921775188587a7b76c66cbb292891b6a208d73cb682ed14ce07",
+    "tests/test_dialogue_runtime_geometry.py": "6563e0d5474028a22d7b9a9854f07e6721b829590a5090f323fcdb3fabd5915b",
+    "tests/test_dialogue_runtime_projection.py": "345f83635a2e5dc3ad5a52223eba936a99e19f573b8cf4d97849fc1d6d523d4b",
+    "tests/test_infer_dialogue_runtime.py": "31549085f76f0addbe8589991f2cbe36c4f78969153d0bb8a8ed38be7b7693a7",
+    "tests/test_pilot_dialogue_runtime.py": "4047cd02ff73ad65b7ee87666fad5441d2371ddd2149ab62d2a7b100ae91eee3"
+  },
+  "status": "completed",
+  "supervision": {
+    "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/dialogue-calibration-runtime-v2/inference-process-01.launch.json",
+    "sha256": "a708d7af934bb55c3536a275d60a27aaa6d6cf26f3162574f9c58704e71a8790"
+  },
+  "task_metrics_computed": false,
+  "temperature_applied": false,
+  "temperature_fits": 0,
+  "timing": {
+    "clock_backend": "mach_continuous_time",
+    "deadline_ns": 1373565962081833,
+    "elapsed_ns": 148672580292,
+    "finished_ns": 1370114634662125,
+    "parent_started_ns": 1369965962081833,
+    "started_ns": 1369965962081833,
+    "wall_seconds": 148.672580292,
+    "worker_started_ns": 1369966030267958
+  },
+  "timing_scope": "Parent start through pre-receipt reading; publication rechecked before return. Parent terminal must independently witness exit and final elapsed cost.",
+  "total_endpoint_rows": 159996,
+  "version": "dialogue-calibration-runtime-v2",
+  "wall_seconds": 148.672580292
+}
