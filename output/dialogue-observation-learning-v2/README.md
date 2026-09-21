@@ -1,6 +1,7 @@
 # Observation learning with corrected elapsed-time accounting
 
 This directory is a separate version of the matched twelve-fit comparison.
+The [fresh twelve-fit execution is now running](../../research/dialogue-observation-learning-v2-status.md).
 The [first attempt remains failed](../../research/dialogue-observation-learning-timing-failure.md).
 Its five completed fits and partial sixth are not scored, resumed or used to
 initialize this version.

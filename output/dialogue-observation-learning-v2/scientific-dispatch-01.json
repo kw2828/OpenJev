@@ -1,0 +1,41 @@
+{
+  "cap_seconds": 28800,
+  "command": [
+    "/usr/bin/caffeinate",
+    "-i",
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/python",
+    "scripts/supervise_dialogue_observation_v2.py",
+    "--prefix",
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/dialogue-observation-learning-v2/scientific-process-01",
+    "--cap-seconds",
+    "28800",
+    "--",
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/python",
+    "-u",
+    "scripts/study_dialogue_observation_v2.py",
+    "train",
+    "--plan",
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/dialogue-observation-learning-v2/scientific-freeze-01/plan.json",
+    "--plan-sha256",
+    "295b4f6857b4f9d625ed1133e0cf0785db40b53f4537c235cdb609f168c98885",
+    "--supervision",
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/dialogue-observation-learning-v2/scientific-process-01.launch.json",
+    "--out",
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/dialogue-observation-learning-v2/scientific-run-01"
+  ],
+  "compute_prelaunch_sha256": "4ee0a9a23d01bb9214f18d658da0ef949333caf7aec5440aad0ad8efb938fcc5",
+  "created_unix": 1789963179.887102,
+  "frozen_source_count": 64,
+  "plan_sha256": "295b4f6857b4f9d625ed1133e0cf0785db40b53f4537c235cdb609f168c98885",
+  "published_freeze_commit": "faf345d",
+  "scope": "One fresh complete twelve-fit attempt. Original pretrained assets only; no old fitted weights or predictions reused. No resume, replacement seed or cap extension.",
+  "thread_environment": {
+    "MKL_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "VECLIB_MAXIMUM_THREADS": "1"
+  },
+  "version": "dialogue-observation-v2-scientific-dispatch-v1"
+}

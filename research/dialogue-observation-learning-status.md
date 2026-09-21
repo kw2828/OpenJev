@@ -6,6 +6,10 @@ the worker exited 1 and its process group is absent. All partial evidence and
 53 frozen sources are preserved. No partial quality comparison will be scored.
 [Timing failure and prospective repair](dialogue-observation-learning-timing-failure.md).
 
+A separately qualified [corrected twelve-fit version](dialogue-observation-learning-v2-status.md)
+is now training from fresh initialization. This page preserves the first
+attempt's history and failure; none of its five completed models was reused.
+
 The corrected preparation completed for **4,380 dialogues and 114,070 scored
 endpoints**. Independent saved-input auditing passed. The subsequent
 [full-batch cost pilot](dialogue-observation-learning-cost-results.md) also passed

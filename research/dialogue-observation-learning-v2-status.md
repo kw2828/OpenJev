@@ -1,6 +1,6 @@
 # Observation learning: clock-corrected comparison
 
-**The corrected experiment is frozen and ready for a fresh execution.** It asks
+**The corrected twelve-fit experiment is now training from fresh initialization.** It asks
 whether learning the text encoder helps autonomous state tracking beyond a
 simple number-word correction. The four variants and three paired seeds are
 unchanged. There is no accuracy result or new-architecture claim.
@@ -37,6 +37,24 @@ local; manifests bind the complete 69-payload closure.
   `88f041f05286aba5591961d9f3f0c39221a34f9ead7ddb5d98e9bf9b32dc64af`.
 - [Actual freeze process check](../output/dialogue-observation-learning-v2/freeze-terminal-review-01.json):
   `c937dc33943161f6dd7fdb6efa9a347e841b8cf3eaab2b7a5d51e8e26e983516`.
+
+## Live execution
+
+The source and corrected plan were published in `6a93965` and `faf345d` before
+launch. Session **61998**, worker process group **41434**, is running. The first
+fit is `frozen_original-6901`; its training journal contains completed optimizer
+updates. All 64 source hashes still match. The worker has authenticated and
+inherited the parent's absolute native-clock deadline.
+
+- [Actual supervisor launch](../output/dialogue-observation-learning-v2/scientific-process-01.launch.json):
+  `eefba879336be7ebb3f211174091014f1405741872a80f9934fb461c81c4ada9`.
+- [Worker start](../output/dialogue-observation-learning-v2/scientific-run-01/started.json):
+  `7caf0c297f1966d08bc90b8e2b0891155c9f1fa35159a7ba4c008e4729f5ebdf`.
+- [First live snapshot](../output/dialogue-observation-learning-v2/scientific-progress-01.json)
+  distinguishes observed execution from completed fits or scientific validity.
+- [Compute context](../output/dialogue-observation-learning-v2/compute-prelaunch-01.json)
+  records released prior worker groups and background demo services. These are
+  not isolated hardware latency measurements.
 
 The full execution has an eight-hour suspend-inclusive deadline. A temporary
 idle-sleep assertion accompanies the process; manual/lid sleep can still cause

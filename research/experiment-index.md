@@ -4,6 +4,8 @@ Studies and frozen work awaiting execution, including failures and controls. A p
 
 ## Complete experiment list
 
+- [Clock-corrected observation-learning comparison](dialogue-observation-learning-v2-status.md): **twelve fresh fits are training** with the unchanged scientific recipe and a suspend-inclusive eight-hour deadline. Qualification covers 154 test cases; source and metadata-freeze audits passed. No new task-quality result yet.
+
 - [Observation learning with fixed autonomous memory](dialogue-observation-learning-status.md): the **first twelve-fit attempt failed technically after five fits**. System sleep exposed inconsistent clock semantics under its eight-hour allocation. The old attempt remains stopped and unscored; all 53 frozen sources and partial outputs are preserved. [Timing failure and prospective repair](dialogue-observation-learning-timing-failure.md).
 
   [Conditional follow-up review](dialogue-observation-followup-candidates.md): earlier predicted-state conditioning has relevant prior art, but no new recurrent or connectome experiment is admitted by this source review. Its matched controls and error-reinforcement risk depend on the completed observation-learning result.
