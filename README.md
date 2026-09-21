@@ -72,7 +72,11 @@ Open **http://127.0.0.1:8000**. Local text scoring uses Qwen3-4B; the free brows
 
 The GIF shows the preselected first baseline case, with illustrative timing. [All-controller chart](output/otto-action-head-v1/figure-01/action-head.png) · [Shifted replay](output/otto-action-head-v1/figure-01/first-case-shift.gif) · [Results, weights and audit](research/otto-action-head-results.md).
 
-The earlier [fixed-memory comparison](research/otto-spectral-control-results.md) completed **1,152 searches**: both compact memories found every source with **80.79% less evolving array state**, but used **31-39% more controller computation**. Its compact and utility-compute rules also failed. [Original pretrained policy integration](research/otto-released-native-qualification-results.md) now passes 446 fixed transitions and eight exact decision comparisons; autonomous effectiveness remains unmeasured.
+The [original pretrained policy comparison](research/otto-released-reference-results.md) now completes **576 fresh searches**. It uses **7.29% fewer moves** in the baseline, but **94.88% more under a sensing shift**, with one failed search and much greater CPU cost. Competence **4/6**, teacher **6/12** and utility-compute **6/16** checks pass; all overall rules fail. [Baseline GIF](output/otto-released-reference-v1/figure-01/replay-base-case0.gif) · [Shifted GIF](output/otto-released-reference-v1/figure-01/replay-shift-case0.gif).
+
+[![Released policy versus both analytic controls, both regimes and all paired blocks](output/otto-released-reference-v1/figure-01/reference-comparison.png)](research/otto-released-reference-results.md)
+
+The earlier [fixed-memory comparison](research/otto-spectral-control-results.md) completed **1,152 searches**: both compact memories found every source with **80.79% less evolving array state**, but used **31-39% more controller computation**. Its compact and utility-compute rules also failed.
 
 The [original 768-search comparison](research/otto-large-memory-results.md) still fails its continuation rule: full history improves mean search time **41.13%**, but only **5/8 blocks** improve. A [saved-history diagnostic](research/otto-memory-evidence-results.md) traces 98% of the net gain to three cases. [Earlier 19x19 pilot](research/otto-memory-results.md).
 
