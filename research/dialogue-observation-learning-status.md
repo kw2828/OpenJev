@@ -1,4 +1,10 @@
-# Observation learning: twelve-fit scientific comparison running
+# Observation learning: first scientific attempt failed technically
+
+**The twelve-fit attempt stopped after five completed fits.** System sleep
+exposed inconsistent timer semantics. The sixth fit stopped after 1,032 updates;
+the worker exited 1 and its process group is absent. All partial evidence and
+53 frozen sources are preserved. No partial quality comparison will be scored.
+[Timing failure and prospective repair](dialogue-observation-learning-timing-failure.md).
 
 The corrected preparation completed for **4,380 dialogues and 114,070 scored
 endpoints**. Independent saved-input auditing passed. The subsequent
@@ -97,18 +103,17 @@ hard stop, not a promise of completion. A failure preserves the partial attempt;
 it does not permit a replacement seed, resume or cap extension.
 
 The scientific worker started on September 20, 2026 after the frozen plan was
-published in `b5d57a9`. Session **90741**, process group **14919**, is running
-with one CPU thread and MPS. **Four of twelve fits have completed**, covering
-all four variants for seed 6901. The fifth fit, `frozen_original-6902`, is
-running. Each completed fit recorded
+published in `b5d57a9`. Session **90741** exited **1**; process group **14919**
+is absent. **Five of twelve fits completed**, covering all four variants for
+seed 6901 and `frozen_original-6902`. Each completed fit recorded
 all **1,280 optimizer updates, 40,340 training dialogue visits and 62,329 final
 development predictions**. Their recorded operation totals match the frozen
-plan, and all four share the same initial encoder and memory hashes. Both frozen
-encoders remained unchanged; both trainable encoder digests changed. The first
+plan, and the four seed-6901 fits share the same initial encoder and memory
+hashes. All completed frozen encoders remained unchanged; both trainable encoder digests changed. The first
 trainable fit's initial update recorded nonzero embedding and attention
 gradients. All recorded state checks stayed within tolerance. This establishes
-execution only. No fit has been selected or scored for task quality; the
-twelve-fit study remains incomplete.
+execution only. No fit has been selected or scored for task quality. The
+attempt is terminal, incomplete and technically failed.
 
 | Completed fit | Total recorded seconds | Final DEV predictions |
 | --- | ---: | ---: |
@@ -116,6 +121,7 @@ twelve-fit study remains incomplete.
 | frozen_numbers-6901 | 924.56 | 62,329 |
 | trainable_original-6901 | 2,005.16 | 62,329 |
 | trainable_numbers-6901 | 1,956.08 | 62,329 |
+| frozen_original-6902 | 1,089.67 | 62,329 |
 
 [First-fit completion](../output/dialogue-observation-learning-v1/scientific-run-01/frozen_original-6901/completed.json)
 has SHA-256 `737309a4092aed7f5a2f4d43d17f106103dbca849eac22bcd36d001bf66f2e61`.
@@ -125,8 +131,10 @@ The [third-fit completion](../output/dialogue-observation-learning-v1/scientific
 has SHA-256 `34c745bf3e464f647a3c2bffb18acd974fcc3f5c958e264e64f32b004754cec1`.
 The [fourth-fit completion](../output/dialogue-observation-learning-v1/scientific-run-01/trainable_numbers-6901/completed.json)
 has SHA-256 `3a8ddc92730a6a6fc2148690169d4a4cf9a42444fbacb329e20f3eb61dc7c8b2`.
-The [current progress snapshot](../output/dialogue-observation-learning-v1/scientific-progress-04.json)
-records the live process, matched work and initial states, encoder-change witnesses and all 53
+The [fifth-fit completion](../output/dialogue-observation-learning-v1/scientific-run-01/frozen_original-6902/completed.json)
+has SHA-256 `2c0e83a7538145e23ad3ab2fda4e3ce86e90f5354a2d5621442c4329066c2998`.
+The [last published live snapshot](../output/dialogue-observation-learning-v1/scientific-progress-04.json)
+recorded the then-live process, matched work and initial states, encoder-change witnesses and all 53
 unchanged source pins separately from final scientific validity. The
 [first snapshot](../output/dialogue-observation-learning-v1/scientific-progress-01.json),
 [initial gradient witnesses](../output/dialogue-observation-learning-v1/scientific-progress-02.json)
@@ -148,8 +156,13 @@ The BLACKOUT worker subsequently [released its CPU slot](../output/dialogue-obse
 the owner reported exit 0 after 1,553.723 seconds, and its process group was
 independently confirmed absent while OpenJev remained live. Its quality audit
 was still pending; the release supplies execution provenance only.
-All training journals, partial outputs and terminal evidence will be preserved.
-Scoring waits for the entire twelve-fit attempt and its actual terminal state.
+All training journals, partial outputs and terminal evidence are preserved in
+the [failure manifest](../output/dialogue-observation-learning-v1/failed-scientific-publication-01/manifest.json).
+The [actual terminal](../output/dialogue-observation-learning-v1/scientific-process-01.terminal.json)
+records 8,176.152 monotonic seconds versus 39,211.373 civil seconds since launch.
+The root stopped the worker through its existing timeout handler after the
+frozen acceptance bound could no longer pass. This attempt will not be resumed
+or scored; a separate correction requires fresh initialization of all twelve fits.
 
 An [independent saved-results checker](../output/dialogue-observation-learning-v1/result-audit-01/README.md)
 is ready, with nine synthetic tests passed. It independently recomputes the

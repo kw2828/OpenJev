@@ -50,3 +50,11 @@ be published as the fixed schedule advances. These are execution metadata;
 quality scoring and scientific conclusions require all twelve fits and the
 successful final report/audit. Completion manifests continue to bind local
 checkpoints, journals and predictions that are not included in Git.
+
+The first scientific attempt is now terminal and technically failed. Five fits
+completed; the sixth stopped after 1,032 updates. `failed-scientific-publication-01`
+hashes every partial run file and the process receipts without decoding quality
+predictions. The worker failure, parent terminal, root stop request and signal
+acknowledgment are published. The old source closure remains unchanged. No
+partial scientific report, resume, replacement seed or cap extension is allowed.
+See the [timing incident](../../research/dialogue-observation-learning-timing-failure.md).
