@@ -64,7 +64,7 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 [Complete results and all nine checkpoints](research/otto-return-value-results.md) · [Raw data download](https://github.com/kw2828/OpenJev/releases/tag/otto-return-value-v1) · [Earlier symmetry comparison](research/otto-symmetry-head-results.md).
 
-Lower validation error on remaining cost did not translate into better actions. This does not establish a recurrent-memory or biological-wiring advantage.
+Lower validation error on remaining cost did not translate into better actions. A [saved-output diagnostic](research/otto-return-consistency-results.md) finds larger next-action value inconsistencies for the structured model on 16 selected states. It motivates testing the training objective, but does not establish the cause of failure or a recurrent-memory or biological-wiring advantage.
 
 Earlier dialogue, RockSample, compact-memory and pretrained-policy comparisons are collected in the [experiment archive](research/experiment-index.md), including failed attempts, frozen criteria and independent audits. The separate [shared-prefix scoring experiment](research/shared-prefix-results.md) measured **2.08x** speedup on four-question synthetic workloads; single-question caching was slower. This does not reproduce a proprietary RLCD system.
 
