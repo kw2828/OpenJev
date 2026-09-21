@@ -41,13 +41,13 @@ local; manifests bind the complete 69-payload closure.
 ## Live execution
 
 The source and corrected plan were published in `6a93965` and `faf345d` before
-launch. Session **61998**, worker process group **41434**, is running. **Five
+launch. Session **61998**, worker process group **41434**, is running. **Six
 of twelve fits have completed** all 1,280 updates and their final DEV pass:
-all four variants for seed 6901 and `frozen_original-6902`. Their work counts,
-state checks and payload hashes match the frozen plan. All three frozen
-encoders are unchanged; both
-trainable encoders' fingerprints have changed. This confirms execution, not
-useful learning. The sixth fit, `frozen_numbers-6902`, is training.
+all four variants for seed 6901 and both frozen-encoder variants for seed 6902.
+Their work counts, state checks and payload hashes match the frozen plan.
+All four frozen encoders are unchanged; both trainable encoders' fingerprints
+have changed. This confirms execution, not
+useful learning. The seventh fit, `trainable_original-6902`, is training.
 All 64 source hashes still match.
 The worker has authenticated and
 inherited the parent's absolute native-clock deadline. This is execution
@@ -78,6 +78,12 @@ progress only; predictions have not been decoded for task-quality scoring.
   Independent metadata review passed all 15 execution checks, including the
   unchanged frozen encoder and all live and frozen source hashes. The snapshot
   records the sixth fit's start without opening task-quality metrics.
+- [Sixth completed-fit snapshot](../output/dialogue-observation-learning-v2/scientific-progress-07.json)
+  binds all six completed fits and the [second-seed frozen-numbers receipt](../output/dialogue-observation-learning-v2/scientific-run-01/frozen_numbers-6902/completed.json).
+  Independent metadata review passed all 15 execution checks, including work
+  counts, state checks, unchanged encoder and payload hashes. The seventh fit
+  has started; this is halfway through the
+  required fit count, not a completed scientific comparison.
 - [Compute context](../output/dialogue-observation-learning-v2/compute-prelaunch-01.json)
   records released prior worker groups and background demo services. These are
   not isolated hardware latency measurements.
