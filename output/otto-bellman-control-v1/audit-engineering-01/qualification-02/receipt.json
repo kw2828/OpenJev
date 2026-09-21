@@ -1,0 +1,41 @@
+{
+  "status": "completed",
+  "scope": "One affected fabricated amortization assertion plus lint; no scientific dataset/model/native calls.",
+  "delta": "Test-only literal floating-point equality corrected; production unchanged.",
+  "prior_receipt_sha256": "9bea7e427a5274eb9fb4e23362af510a7ad0653395e48d3a73d9ded944dbc6f6",
+  "sources": {
+    "scripts/audit_otto_bellman_control.py": "37490345ad60d0c4a18228d65040d704179d77ab6e3586c77bf144cc96dee49d",
+    "tests/test_audit_otto_bellman_control.py": "abf7085a9cc89a2feab8f8d5ade7526ec52e432e6cad92ef3784f547d9fa7b96"
+  },
+  "results": [
+    {
+      "name": "pytest",
+      "command": [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_audit_otto_bellman_control.py",
+        "-k",
+        "amortization_no_reference"
+      ],
+      "actual_exit_code": 0,
+      "elapsed_seconds": 0.30678474996238947,
+      "timed_out": false
+    },
+    {
+      "name": "ruff",
+      "command": [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/ruff",
+        "check",
+        "scripts/audit_otto_bellman_control.py",
+        "tests/test_audit_otto_bellman_control.py"
+      ],
+      "actual_exit_code": 0,
+      "elapsed_seconds": 0.08045441680587828,
+      "timed_out": false
+    }
+  ],
+  "cpu_threads": 1,
+  "per_child_seconds": 60
+}

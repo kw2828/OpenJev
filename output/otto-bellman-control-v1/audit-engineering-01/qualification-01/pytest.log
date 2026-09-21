@@ -1,0 +1,25 @@
+............F.........                                                   [100%]
+=================================== FAILURES ===================================
+____ test_amortization_no_reference_retraining_or_double_deployment_charge _____
+
+    def test_amortization_no_reference_retraining_or_double_deployment_charge():
+        result = M.aggregate(rows(), mixtures())
+        setup = {a: {'seconds': 9.} for a in M.ARMS[:-1]}
+        fits = {a: 60. for a in setup if not a.startswith('reference')}
+        for panel in result['regimes'].values():
+            for arm, value in panel['means'].items():
+                value['controller_seconds'] = 2.
+                value['setup_allocation_seconds'] = 1. if arm != 'analytic_inbounds' else 0.
+        table = M.amortization(result, setup, fits, 120., 18.)['lambda3']
+>       assert table['backup@10101']['seconds_per_search'] == {'1': 92., '100': 1.91, '10000': 1.0091}
+E       AssertionError: assert {'1': 92.0, '...0000': 1.0091} == {'1': 92.0, '...0000': 1.0091}
+E         
+E         Omitting 2 identical items, use -vv to show
+E         Differing items:
+E         {'100': 1.9100000000000001} != {'100': 1.91}
+E         Use -v to get more diff
+
+tests/test_audit_otto_bellman_control.py:143: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_audit_otto_bellman_control.py::test_amortization_no_reference_retraining_or_double_deployment_charge
+1 failed, 21 passed in 0.22s
