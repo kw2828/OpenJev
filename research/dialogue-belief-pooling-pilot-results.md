@@ -65,8 +65,11 @@ It should first verify that initial predictions and changed-state competence
 are preserved, then compare the same state-feedback placements. Any adaptation
 budget and continuation criteria need a separate prospective protocol.
 
-That follow-up has not run. It would test an integration hypothesis; ordinary
-state conditioning has substantial prior art. This result supports no recurrent
+That [warm-start follow-up is now complete](dialogue-warm-pooling-results.md): all
+twelve adapted fits and three untouched references were evaluated, after exact
+initial replay qualification. It also failed, with 13/32 conditions passed and
+no belief-guided advantage over the competent controls. Ordinary state
+conditioning has substantial prior art. Neither result supports a recurrent
 world-model, biological-learning, RL or ICLR novelty claim. The public Qwen RLCD
 diagram concerns a separate [inference optimization](qwen-parallel-source-review.md).
 

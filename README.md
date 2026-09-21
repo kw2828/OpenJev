@@ -66,13 +66,14 @@ Open **http://127.0.0.1:8000**. Local text scoring uses Qwen3-4B; the free brows
 
 ## Research results
 
-**Stronger baseline: better confidence, but the full calibration control fails (9/11 checks passed).** On unseen services, held-out temperature fitting cuts the trained model's log loss **26.4% (0.827 to 0.609)** and Brier score **7.6%**, while preserving **79.34% macro accuracy** and every selected answer. All three seeds improve. The same procedure worsens the frozen reference, failing two safeguards.
+**Belief-guided attention did not improve the trained memory.** All twelve adapted fits completed. Unseen macro accuracy is **79.31%**, versus **79.42%** for ordinary continued training and **79.57%** for schema attention. Probability scores also worsen; the fixed rule fails **13/32**, with independent agreement.
 
-[![All three seeds: unchanged answers, improved trained-model probabilities, and the frozen-reference regression](output/dialogue-calibration-runtime-v2/figure-01/render-01/calibration-control.png)](research/dialogue-calibration-runtime-v2-results.md)
+[![All twelve warm-start fits and three untouched references, with every paired seed](output/dialogue-warm-pooling-v1/figure-01/render-01/warm-pooling.png)](research/dialogue-warm-pooling-results.md)
 
-All twelve checkpoints completed **6,144 calibration forwards**. A separate, verified runtime pilot admitted this run; the earlier cost failure and original raw **6/7** result remain unchanged. This strengthens an ordinary baseline, without establishing an architecture advantage. [Complete calibration results](research/dialogue-calibration-runtime-v2-results.md) · [Original observation-learning results](research/dialogue-observation-learning-v2-results.md).
+All fifteen initial replays reproduced the original probabilities exactly, so this tests the new attention mechanism from a competent starting point. [Complete results](research/dialogue-warm-pooling-results.md). No new architecture advantage is established.
 
-- [New belief-guided attention pilot and chart](research/dialogue-belief-pooling-pilot-results.md): no accuracy gain over attention controls; all eight small fresh-training fits scored 0% on changed decisions. No architecture advantage established.
+- [Calibration control](research/dialogue-calibration-runtime-v2-results.md): trained-model log loss improves 26.4% with every answer unchanged, but the frozen reference worsens; the full rule fails 9/11.
+- [Earlier attention pilot](research/dialogue-belief-pooling-pilot-results.md): all eight small fresh-training fits scored 0% on changed decisions.
 - [Earlier text learning experiments](research/dialogue-objective-results.md): matched training objectives and recurrent variants have not established an architecture advantage.
 - [Qwen lexical ablation](research/dialogue-qwen-lexical-ablation-results.md): better changed-value accuracy, worse retention; 5/16 conditions passed.
 - [Text inference speed](research/shared-prefix-results.md): shared-context scoring is **2.08x faster** for four-question synthetic workloads; single-question caching is slower.
