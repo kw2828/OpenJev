@@ -1,0 +1,5590 @@
+{
+  "calibration_forward_calls": 0,
+  "calibration_work": {
+    "dialogue_count": 512,
+    "encoder_calls": 867,
+    "padded_attention_positions": 42839932,
+    "real_question_updates": 23353
+  },
+  "completed_forwards": 1560,
+  "disjoint_measured_seconds": 44.263337291999996,
+  "environment": {
+    "numpy": "2.5.3",
+    "platform": "macOS-26.6.1-arm64-arm-64bit",
+    "python": "3.12.13",
+    "tokenizers": "0.23.2",
+    "torch": "2.14.0",
+    "transformers": "5.17.0"
+  },
+  "files": {
+    "frozen_numbers-6901/completed.json": {
+      "bytes": 10300,
+      "sha256": "b5f7e433b615c740ffa636794bf35e6d7fd7e0644cdf1582849d610a692ab4fb"
+    },
+    "frozen_numbers-6901/dialogues.jsonl": {
+      "bytes": 185763,
+      "sha256": "1f092473d4e33f401a1e66cbecd5da1f97d393052c790346ee0b56711bfaa74a"
+    },
+    "frozen_numbers-6901/forecast.json": {
+      "bytes": 1213,
+      "sha256": "0d723ad4b36644adb841ba46213340f44eba70476814376a6f37d8773e2c5c4c"
+    },
+    "frozen_numbers-6901/predictions.npz": {
+      "bytes": 190366,
+      "sha256": "680e717ceb48ee7a6325a9be854cc0fbc757c3bb56de0937736474e90cef8570"
+    },
+    "frozen_numbers-6902/completed.json": {
+      "bytes": 10306,
+      "sha256": "2ce639be8f29165dc91c7df7b25442fe89931b672513868ea9ea453c105f60b7"
+    },
+    "frozen_numbers-6902/dialogues.jsonl": {
+      "bytes": 185777,
+      "sha256": "52b74ce14eae056cb9247db0267f45d127080fe9696c3bf45c1a7dcb952d9655"
+    },
+    "frozen_numbers-6902/forecast.json": {
+      "bytes": 1215,
+      "sha256": "b5256053fe3ffcdd6f66345ae3fe04c32c4d747fa1d994101a63ef466b38e33b"
+    },
+    "frozen_numbers-6902/predictions.npz": {
+      "bytes": 190366,
+      "sha256": "9b2478eb9397c73004836bd3e1ff80e462661d16c4a2482a447bad7588ed8637"
+    },
+    "frozen_numbers-6903/completed.json": {
+      "bytes": 10310,
+      "sha256": "747e036313cbcdb52e2a7f2bacfdcb85e5266b948c2139293bf68dbf32217089"
+    },
+    "frozen_numbers-6903/dialogues.jsonl": {
+      "bytes": 185717,
+      "sha256": "d0d5410d455733f31642779d025bcb670e0312e13a16710afb73db88b6319bea"
+    },
+    "frozen_numbers-6903/forecast.json": {
+      "bytes": 1214,
+      "sha256": "927ffe688a0424814c193c52be768d9f3960e780030c8caf830181eac161ff35"
+    },
+    "frozen_numbers-6903/predictions.npz": {
+      "bytes": 190366,
+      "sha256": "3ed3f7c8de4a60d6f114400f7e3e714b9cd0d3a61dbfadd953e8f8a2c801c4fe"
+    },
+    "frozen_original-6901/completed.json": {
+      "bytes": 10277,
+      "sha256": "cb7933871e9b8eff4b10b5487b4bdfbd770201e29618ecc26b3dac2aa5534603"
+    },
+    "frozen_original-6901/dialogues.jsonl": {
+      "bytes": 185729,
+      "sha256": "298b4ff6855edbb845f082c7256d03ef863f361d219417f27e0b39df6301ec14"
+    },
+    "frozen_original-6901/forecast.json": {
+      "bytes": 1201,
+      "sha256": "df8f2821c2ee323013280db18f246766e138e5b9af312a899e5b93c161bbb66d"
+    },
+    "frozen_original-6901/predictions.npz": {
+      "bytes": 190366,
+      "sha256": "8ac80042f24d6774a8a0a03b9d4470e07ea011cf59b96d77f51e43303069ed38"
+    },
+    "frozen_original-6902/completed.json": {
+      "bytes": 10307,
+      "sha256": "a5aebf18f568d15f4aec9908746f0709915bf2d5ad19794ccf61ae5703ca75f5"
+    },
+    "frozen_original-6902/dialogues.jsonl": {
+      "bytes": 185770,
+      "sha256": "f62eea54aac536b08f357a96c83f77b7a002ef0a03a65ff961f21143290658ca"
+    },
+    "frozen_original-6902/forecast.json": {
+      "bytes": 1215,
+      "sha256": "7c95f88cb1722fe8d7d9a86a5320918144b7b751e2b58f2b0fbe967e58dd7268"
+    },
+    "frozen_original-6902/predictions.npz": {
+      "bytes": 190366,
+      "sha256": "4d406f340c2bff5612d651f5228d80e8cc3eb2324920dcb8fc18e7e03208a0d7"
+    },
+    "frozen_original-6903/completed.json": {
+      "bytes": 10313,
+      "sha256": "d4aff7b1b9fe83d52134f4af57c41d7b0281cd98d3ff6f0718cf4353c25decf3"
+    },
+    "frozen_original-6903/dialogues.jsonl": {
+      "bytes": 185746,
+      "sha256": "5e2471513afa68cf24a92508d8cf341a2c5308f489197bf0f6560fc7b157017c"
+    },
+    "frozen_original-6903/forecast.json": {
+      "bytes": 1217,
+      "sha256": "1e284ce0c2018b8e550ac71e66e92f34f4a4d5bdf38f735e752545f567339e11"
+    },
+    "frozen_original-6903/predictions.npz": {
+      "bytes": 190366,
+      "sha256": "c42d756cf4ea0f61d6afff71df7263d03687c71111eb06157a8199c05f2f17d2"
+    },
+    "projection.json": {
+      "bytes": 29083,
+      "sha256": "a4d467e7dee78a18403d52d6770988e4444f71016b678111e0d29b1bc0a9331c"
+    },
+    "sample.json": {
+      "bytes": 142268,
+      "sha256": "4b5daeb01ec4c8a616e4b4bf6abddc7f66657156d9a2e9dfb2165f419858d2ee"
+    },
+    "started.json": {
+      "bytes": 1007,
+      "sha256": "429e83f29e0cc28d765812194f631477f28a5f44c6ed797e9b8112a4968bcfa0"
+    },
+    "trainable_numbers-6901/completed.json": {
+      "bytes": 10319,
+      "sha256": "a251356d785bdfe517496719ce0fd137ae107aba6f9c3f0fd1d875649f38e3c9"
+    },
+    "trainable_numbers-6901/dialogues.jsonl": {
+      "bytes": 185884,
+      "sha256": "08130a935250e354d1d36cac31a81e6ed12265ceb4589b1f1aa844d6d47fc455"
+    },
+    "trainable_numbers-6901/forecast.json": {
+      "bytes": 1221,
+      "sha256": "002a4490e6983838caf293c5f9430d373b8ac88f68054cae92ad75242a377128"
+    },
+    "trainable_numbers-6901/predictions.npz": {
+      "bytes": 190366,
+      "sha256": "68b4a3121c3d10ef3357f49a2d1a8ae8ebda1e6ab4e6e58db67c1523cb3f21df"
+    },
+    "trainable_numbers-6902/completed.json": {
+      "bytes": 10319,
+      "sha256": "09c275181879194c415c7fc9605712fd274660a25b547bc1044ec4300f494e0c"
+    },
+    "trainable_numbers-6902/dialogues.jsonl": {
+      "bytes": 185887,
+      "sha256": "cd5cffe63c00838e5283f6cc7438a04bde748a1c9267c9f5d9ad3e31924ebd19"
+    },
+    "trainable_numbers-6902/forecast.json": {
+      "bytes": 1219,
+      "sha256": "8bb2d3038c9ae5c7d6664389e3c5d6e93fd1b10882f946b30e5586cb8e70019b"
+    },
+    "trainable_numbers-6902/predictions.npz": {
+      "bytes": 190366,
+      "sha256": "e27969ec048d3d2c63ac3eec62ab9fc6644359425252169a3da6ad062932e8c2"
+    },
+    "trainable_numbers-6903/completed.json": {
+      "bytes": 10322,
+      "sha256": "bc2b1054b8ecd66c0ad1a6e1060a79c4e144e47bf707f834e1d74204b1b8c54e"
+    },
+    "trainable_numbers-6903/dialogues.jsonl": {
+      "bytes": 185886,
+      "sha256": "51d9e5520aec0297e65ab7dd562ea94282c241f14a164c2b4bd22723ca17dc70"
+    },
+    "trainable_numbers-6903/forecast.json": {
+      "bytes": 1221,
+      "sha256": "2c1a55a6f30b81da6d3c53443de72c799cf33601926c85dd619405dd4e8bd901"
+    },
+    "trainable_numbers-6903/predictions.npz": {
+      "bytes": 190366,
+      "sha256": "a882bce03996103180f21ea4ab8269eaf8e7cfde14d39f87c8723d1b23aae1ef"
+    },
+    "trainable_original-6901/completed.json": {
+      "bytes": 10327,
+      "sha256": "64d9b3b02c4351b8e52159e44f8493e7d691c16effad76e9f729c0fa747b5d89"
+    },
+    "trainable_original-6901/dialogues.jsonl": {
+      "bytes": 185849,
+      "sha256": "8d7869c4988080496dfed7b97a80353730618f10f6da9ebde6ec76a2f54f3910"
+    },
+    "trainable_original-6901/forecast.json": {
+      "bytes": 1223,
+      "sha256": "3e208e5200d60ff3cacc7184220fce983d8ff6399fe0f89834cdb887a852f40a"
+    },
+    "trainable_original-6901/predictions.npz": {
+      "bytes": 190366,
+      "sha256": "4364e5590d927bf893c14bf0ebb6ff49a02dc0081330ce6320bcc303e001dab0"
+    },
+    "trainable_original-6902/completed.json": {
+      "bytes": 10319,
+      "sha256": "da52d6bb1420f0fba437d262396aace065540fd5fe0ff48c420bc4550d72a7f4"
+    },
+    "trainable_original-6902/dialogues.jsonl": {
+      "bytes": 185867,
+      "sha256": "23eccb4ba1f477dad00838f357b3471232a41d5be23fb4fd4525fd1e90411c11"
+    },
+    "trainable_original-6902/forecast.json": {
+      "bytes": 1223,
+      "sha256": "9bcad0cc4df16611c374bb9d7ca0d584df6ce7276d63a5d4eb558729ddf08b06"
+    },
+    "trainable_original-6902/predictions.npz": {
+      "bytes": 190366,
+      "sha256": "e4ae03fafc2ee8886ac68435eb368538499ee743aae9abaed1e2ea269f442e4d"
+    },
+    "trainable_original-6903/completed.json": {
+      "bytes": 10320,
+      "sha256": "e7ed3666c2f4ef737375f42495f600e64c40e845ae4d2955743f986a265d621c"
+    },
+    "trainable_original-6903/dialogues.jsonl": {
+      "bytes": 185841,
+      "sha256": "655342d08db93697e602f795303d193e257cca2cbf2c4cfdae3050d3b8e2a7d3"
+    },
+    "trainable_original-6903/forecast.json": {
+      "bytes": 1223,
+      "sha256": "649f81d446d44e8d10e58afe6987623b5b61ec4985c717a124dcd63fb6959079"
+    },
+    "trainable_original-6903/predictions.npz": {
+      "bytes": 190366,
+      "sha256": "551f2bc47fcb227f29b3de59dc62a3018344522e2016418d15247cc4bdbdda7f"
+    }
+  },
+  "fit_order": [
+    "frozen_original-6901",
+    "frozen_numbers-6901",
+    "trainable_original-6901",
+    "trainable_numbers-6901",
+    "frozen_original-6902",
+    "frozen_numbers-6902",
+    "trainable_original-6902",
+    "trainable_numbers-6902",
+    "frozen_original-6903",
+    "frozen_numbers-6903",
+    "trainable_original-6903",
+    "trainable_numbers-6903"
+  ],
+  "fits": [
+    {
+      "arm": "frozen_original",
+      "completed_sha256": "cb7933871e9b8eff4b10b5487b4bdfbd770201e29618ecc26b3dac2aa5534603",
+      "endpoint_rows": 3390,
+      "estimator": {
+        "block": "estimator",
+        "dialogue_ids": [
+          "16_00110",
+          "19_00068",
+          "11_00011",
+          "1_00091",
+          "2_00061",
+          "6_00084",
+          "8_00075",
+          "14_00031",
+          "18_00058",
+          "10_00001",
+          "12_00113",
+          "8_00107",
+          "17_00063",
+          "14_00100",
+          "19_00126",
+          "2_00035",
+          "6_00114",
+          "12_00122",
+          "2_00052",
+          "10_00056",
+          "14_00028",
+          "19_00082",
+          "1_00099",
+          "20_00037",
+          "20_00003",
+          "14_00081",
+          "10_00043",
+          "4_00088",
+          "20_00054",
+          "3_00054",
+          "10_00110",
+          "15_00105",
+          "14_00056",
+          "19_00001",
+          "15_00123",
+          "5_00021",
+          "19_00061",
+          "5_00055",
+          "5_00062",
+          "2_00054",
+          "9_00034",
+          "4_00036",
+          "13_00037",
+          "8_00027",
+          "19_00029",
+          "4_00040",
+          "12_00102",
+          "6_00115",
+          "3_00032",
+          "15_00019",
+          "17_00077",
+          "9_00078",
+          "10_00039",
+          "14_00072",
+          "8_00102",
+          "13_00012",
+          "13_00094",
+          "1_00037",
+          "1_00010",
+          "16_00091",
+          "7_00033",
+          "4_00026",
+          "19_00076",
+          "16_00079"
+        ],
+        "encoder_work": {
+          "content_tokens": 71353,
+          "encoder_calls": 119,
+          "encoder_sequences": 2763,
+          "input_texts": 2763,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 5706362,
+          "padded_token_positions": 121844,
+          "padding_token_positions": 44965,
+          "special_token_positions": 5526,
+          "truncated_tokens": 0,
+          "valid_token_positions": 76879
+        },
+        "endpoint_rows": 1750,
+        "finished_elapsed_seconds": 7.668599167,
+        "parity_maxima": {
+          "maximum_probability_error": 0,
+          "maximum_raw_mass_error": 1.9441292176125557e-07,
+          "maximum_supported_log_error": 0
+        },
+        "seconds": 2.555205375,
+        "started_elapsed_seconds": 5.113393792,
+        "work": {
+          "dialogue_count": 64,
+          "encoder_calls": 119,
+          "padded_attention_positions": 5706362,
+          "real_question_updates": 3276
+        }
+      },
+      "files": {
+        "dialogues.jsonl": {
+          "bytes": 185729,
+          "sha256": "298b4ff6855edbb845f082c7256d03ef863f361d219417f27e0b39df6301ec14"
+        },
+        "forecast.json": {
+          "bytes": 1201,
+          "sha256": "df8f2821c2ee323013280db18f246766e138e5b9af312a899e5b93c161bbb66d"
+        },
+        "predictions.npz": {
+          "bytes": 190366,
+          "sha256": "8ac80042f24d6774a8a0a03b9d4470e07ea011cf59b96d77f51e43303069ed38"
+        }
+      },
+      "fit_id": "frozen_original-6901",
+      "forecast_published_elapsed_seconds": 7.668987792,
+      "forecast_sha256": "df8f2821c2ee323013280db18f246766e138e5b9af312a899e5b93c161bbb66d",
+      "loading_seconds": 2.691655666,
+      "prediction_finalization_seconds": 0.0004722919999995412,
+      "seed": 6901,
+      "status": "completed",
+      "verification": {
+        "block": "verification",
+        "dialogue_ids": [
+          "12_00060",
+          "16_00107",
+          "16_00068",
+          "13_00078",
+          "5_00125",
+          "3_00064",
+          "6_00020",
+          "8_00120",
+          "10_00086",
+          "9_00058",
+          "7_00029",
+          "18_00053",
+          "18_00094",
+          "9_00092",
+          "11_00003",
+          "10_00025",
+          "7_00000",
+          "16_00089",
+          "10_00073",
+          "4_00059",
+          "2_00036",
+          "13_00010",
+          "19_00102",
+          "13_00066",
+          "12_00074",
+          "9_00010",
+          "13_00019",
+          "19_00092",
+          "15_00108",
+          "3_00050",
+          "19_00125",
+          "1_00045",
+          "15_00006",
+          "8_00068",
+          "6_00107",
+          "12_00087",
+          "10_00076",
+          "16_00103",
+          "10_00123",
+          "9_00091",
+          "1_00062",
+          "2_00043",
+          "9_00084",
+          "1_00070",
+          "12_00065",
+          "2_00107",
+          "3_00049",
+          "10_00004",
+          "6_00032",
+          "3_00126",
+          "1_00119",
+          "15_00003",
+          "2_00001",
+          "17_00127",
+          "19_00118",
+          "14_00115",
+          "17_00120",
+          "6_00092",
+          "2_00113",
+          "11_00026",
+          "3_00037",
+          "19_00030",
+          "18_00007",
+          "12_00093"
+        ],
+        "encoder_work": {
+          "content_tokens": 65205,
+          "encoder_calls": 109,
+          "encoder_sequences": 2500,
+          "input_texts": 2500,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 4930415,
+          "padded_token_positions": 107743,
+          "padding_token_positions": 37538,
+          "special_token_positions": 5000,
+          "truncated_tokens": 0,
+          "valid_token_positions": 70205
+        },
+        "endpoint_rows": 1594,
+        "finished_elapsed_seconds": 9.150404625,
+        "parity_maxima": {
+          "maximum_probability_error": 0,
+          "maximum_raw_mass_error": 1.9906428694316247e-07,
+          "maximum_supported_log_error": 0
+        },
+        "seconds": 1.4814119579999998,
+        "started_elapsed_seconds": 7.668992667,
+        "work": {
+          "dialogue_count": 64,
+          "encoder_calls": 109,
+          "padded_attention_positions": 4930415,
+          "real_question_updates": 2903
+        }
+      },
+      "verification_result": {
+        "actual_over_prediction": 0.2898811916439398,
+        "actual_seconds": 1.4814119579999998,
+        "passed": true,
+        "prediction": {
+          "estimation_data": "Entire first 64-dialogue estimator block only; no dropped first-fit or timing outliers",
+          "estimator_seconds": 2.555205375,
+          "estimator_work": {
+            "dialogue_count": 64,
+            "encoder_calls": 119,
+            "padded_attention_positions": 5706362,
+            "real_question_updates": 3276
+          },
+          "fit_id": "frozen_original-6901",
+          "freeze_required": "Publish and bind this record before timing any verification dialogue",
+          "maximum_work_ratio": 1.0,
+          "predicted_seconds": 5.11041075,
+          "safety_factor": 2.0,
+          "verification_work": {
+            "dialogue_count": 64,
+            "encoder_calls": 109,
+            "padded_attention_positions": 4930415,
+            "real_question_updates": 2903
+          },
+          "version": "dialogue-calibration-runtime-v2",
+          "work_ratios": {
+            "dialogue_count": 1.0,
+            "encoder_calls": 0.9159663865546218,
+            "padded_attention_positions": 0.8640207193304595,
+            "real_question_updates": 0.8861416361416361
+          }
+        },
+        "scope": "Verification only; equality passes without epsilon and verification does not refit the estimator",
+        "version": "dialogue-calibration-runtime-v2"
+      },
+      "wall_seconds": 7.2660477089999995,
+      "warmup": {
+        "block": "warmup",
+        "dialogue_ids": [
+          "10_00000",
+          "1_00096"
+        ],
+        "encoder_work": {
+          "content_tokens": 1835,
+          "encoder_calls": 3,
+          "encoder_sequences": 64,
+          "input_texts": 64,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 399952,
+          "padded_token_positions": 4624,
+          "padding_token_positions": 2661,
+          "special_token_positions": 128,
+          "truncated_tokens": 0,
+          "valid_token_positions": 1963
+        },
+        "endpoint_rows": 46,
+        "finished_elapsed_seconds": 5.11337875,
+        "parity_maxima": {
+          "maximum_probability_error": 0,
+          "maximum_raw_mass_error": 1.2700966900425215e-07,
+          "maximum_supported_log_error": 0
+        },
+        "seconds": 0.4632931659999997,
+        "started_elapsed_seconds": 4.650085584,
+        "work": {
+          "dialogue_count": 2,
+          "encoder_calls": 3,
+          "padded_attention_positions": 399952,
+          "real_question_updates": 51
+        }
+      },
+      "witness": {
+        "arm": "frozen_original",
+        "checkpoint_sha256": "a5a2e259dd788ffbb9a0d0c2a1c26f5ccd5d694b7036c20d22c8a038bc58785b",
+        "chunk_tokens": 254,
+        "counts": {
+          "checkpoint_load_attempts": 1,
+          "checkpoint_load_returns": 1,
+          "encoder_forward_attempts": 231,
+          "encoder_forward_returns": 231,
+          "encoder_load_attempts": 1,
+          "encoder_load_returns": 1,
+          "encoding_attempts": 130,
+          "encoding_returns": 130,
+          "memory_forward_attempts": 130,
+          "memory_forward_returns": 130,
+          "public_forward_attempts": 130,
+          "public_forward_returns": 130
+        },
+        "dtype": "float32",
+        "encoder_attempted_work": {
+          "encoder_calls": 231,
+          "encoder_sequences": 5327,
+          "padded_attention_positions": 11036729,
+          "padded_token_positions": 234211,
+          "valid_token_positions": 149047
+        },
+        "encoder_batch": 32,
+        "encoder_device": "mps:0",
+        "encoder_returned_work": {
+          "encoder_calls": 231,
+          "encoder_sequences": 5327,
+          "padded_attention_positions": 11036729,
+          "padded_token_positions": 234211,
+          "valid_token_positions": 149047
+        },
+        "encoder_work": {
+          "content_tokens": 138393,
+          "encoder_calls": 231,
+          "encoder_sequences": 5327,
+          "input_texts": 5327,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 11036729,
+          "padded_token_positions": 234211,
+          "padding_token_positions": 85164,
+          "special_token_positions": 10654,
+          "truncated_tokens": 0,
+          "valid_token_positions": 149047
+        },
+        "final_sha256": {
+          "encoder": "6eb608dfaf4afd506e2bf41aad9b0e81726b8c6baca88bf9be4d583ef03aa426",
+          "memory": "67fa74fbe7a56a4e347a864aaab882dcfd78ac0fdd2294f53fdd2d1978903034"
+        },
+        "invariants": {
+          "advance_calls": 1288,
+          "advance_returned": 1288,
+          "executed_valid_question_slots": 6230,
+          "feature_checks": 6230,
+          "feature_max_sum_error": 2.2265584220804158e-07,
+          "forward_calls": 130,
+          "forward_returned": 130,
+          "incoming_checks": 6230,
+          "incoming_max_sum_error": 2.2265584220804158e-07,
+          "mass_above_one_count": 0,
+          "mass_checks": 6230,
+          "mass_max": 0.9998161792755127,
+          "mass_max_overshoot": 0.0,
+          "mass_min": 6.885182301630266e-06,
+          "real_question_updates": 6230,
+          "result_checks": 6230,
+          "result_max_sum_error": 2.2265584220804158e-07,
+          "tolerance": 2e-06,
+          "valid_turns": 1288
+        },
+        "memory_device": "cpu",
+        "optimizer_created": false,
+        "restored_sha256": {
+          "encoder": "6eb608dfaf4afd506e2bf41aad9b0e81726b8c6baca88bf9be4d583ef03aa426",
+          "memory": "67fa74fbe7a56a4e347a864aaab882dcfd78ac0fdd2294f53fdd2d1978903034"
+        },
+        "scope": "Work from public full-dialogue forwards only; evaluator collection is separate.",
+        "synthetic_injection": false,
+        "temperature_applied": false,
+        "version": "dialogue-calibration-inference-v1"
+      }
+    },
+    {
+      "arm": "frozen_numbers",
+      "completed_sha256": "b5f7e433b615c740ffa636794bf35e6d7fd7e0644cdf1582849d610a692ab4fb",
+      "endpoint_rows": 3390,
+      "estimator": {
+        "block": "estimator",
+        "dialogue_ids": [
+          "16_00110",
+          "19_00068",
+          "11_00011",
+          "1_00091",
+          "2_00061",
+          "6_00084",
+          "8_00075",
+          "14_00031",
+          "18_00058",
+          "10_00001",
+          "12_00113",
+          "8_00107",
+          "17_00063",
+          "14_00100",
+          "19_00126",
+          "2_00035",
+          "6_00114",
+          "12_00122",
+          "2_00052",
+          "10_00056",
+          "14_00028",
+          "19_00082",
+          "1_00099",
+          "20_00037",
+          "20_00003",
+          "14_00081",
+          "10_00043",
+          "4_00088",
+          "20_00054",
+          "3_00054",
+          "10_00110",
+          "15_00105",
+          "14_00056",
+          "19_00001",
+          "15_00123",
+          "5_00021",
+          "19_00061",
+          "5_00055",
+          "5_00062",
+          "2_00054",
+          "9_00034",
+          "4_00036",
+          "13_00037",
+          "8_00027",
+          "19_00029",
+          "4_00040",
+          "12_00102",
+          "6_00115",
+          "3_00032",
+          "15_00019",
+          "17_00077",
+          "9_00078",
+          "10_00039",
+          "14_00072",
+          "8_00102",
+          "13_00012",
+          "13_00094",
+          "1_00037",
+          "1_00010",
+          "16_00091",
+          "7_00033",
+          "4_00026",
+          "19_00076",
+          "16_00079"
+        ],
+        "encoder_work": {
+          "content_tokens": 71353,
+          "encoder_calls": 119,
+          "encoder_sequences": 2763,
+          "input_texts": 2763,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 5706362,
+          "padded_token_positions": 121844,
+          "padding_token_positions": 44965,
+          "special_token_positions": 5526,
+          "truncated_tokens": 0,
+          "valid_token_positions": 76879
+        },
+        "endpoint_rows": 1750,
+        "finished_elapsed_seconds": 11.220594042,
+        "parity_maxima": {
+          "maximum_probability_error": 0,
+          "maximum_raw_mass_error": 1.78372138948113e-07,
+          "maximum_supported_log_error": 0
+        },
+        "seconds": 1.589480333000001,
+        "started_elapsed_seconds": 9.631113709,
+        "work": {
+          "dialogue_count": 64,
+          "encoder_calls": 119,
+          "padded_attention_positions": 5706362,
+          "real_question_updates": 3276
+        }
+      },
+      "files": {
+        "dialogues.jsonl": {
+          "bytes": 185763,
+          "sha256": "1f092473d4e33f401a1e66cbecd5da1f97d393052c790346ee0b56711bfaa74a"
+        },
+        "forecast.json": {
+          "bytes": 1213,
+          "sha256": "0d723ad4b36644adb841ba46213340f44eba70476814376a6f37d8773e2c5c4c"
+        },
+        "predictions.npz": {
+          "bytes": 190366,
+          "sha256": "680e717ceb48ee7a6325a9be854cc0fbc757c3bb56de0937736474e90cef8570"
+        }
+      },
+      "fit_id": "frozen_numbers-6901",
+      "forecast_published_elapsed_seconds": 11.221030875,
+      "forecast_sha256": "0d723ad4b36644adb841ba46213340f44eba70476814376a6f37d8773e2c5c4c",
+      "loading_seconds": 0.21386908299999874,
+      "prediction_finalization_seconds": 0.00045995800000042664,
+      "seed": 6901,
+      "status": "completed",
+      "verification": {
+        "block": "verification",
+        "dialogue_ids": [
+          "12_00060",
+          "16_00107",
+          "16_00068",
+          "13_00078",
+          "5_00125",
+          "3_00064",
+          "6_00020",
+          "8_00120",
+          "10_00086",
+          "9_00058",
+          "7_00029",
+          "18_00053",
+          "18_00094",
+          "9_00092",
+          "11_00003",
+          "10_00025",
+          "7_00000",
+          "16_00089",
+          "10_00073",
+          "4_00059",
+          "2_00036",
+          "13_00010",
+          "19_00102",
+          "13_00066",
+          "12_00074",
+          "9_00010",
+          "13_00019",
+          "19_00092",
+          "15_00108",
+          "3_00050",
+          "19_00125",
+          "1_00045",
+          "15_00006",
+          "8_00068",
+          "6_00107",
+          "12_00087",
+          "10_00076",
+          "16_00103",
+          "10_00123",
+          "9_00091",
+          "1_00062",
+          "2_00043",
+          "9_00084",
+          "1_00070",
+          "12_00065",
+          "2_00107",
+          "3_00049",
+          "10_00004",
+          "6_00032",
+          "3_00126",
+          "1_00119",
+          "15_00003",
+          "2_00001",
+          "17_00127",
+          "19_00118",
+          "14_00115",
+          "17_00120",
+          "6_00092",
+          "2_00113",
+          "11_00026",
+          "3_00037",
+          "19_00030",
+          "18_00007",
+          "12_00093"
+        ],
+        "encoder_work": {
+          "content_tokens": 65205,
+          "encoder_calls": 109,
+          "encoder_sequences": 2500,
+          "input_texts": 2500,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 4930415,
+          "padded_token_positions": 107743,
+          "padding_token_positions": 37538,
+          "special_token_positions": 5000,
+          "truncated_tokens": 0,
+          "valid_token_positions": 70205
+        },
+        "endpoint_rows": 1594,
+        "finished_elapsed_seconds": 12.661583,
+        "parity_maxima": {
+          "maximum_probability_error": 0,
+          "maximum_raw_mass_error": 1.9993337962986857e-07,
+          "maximum_supported_log_error": 0
+        },
+        "seconds": 1.4405473329999996,
+        "started_elapsed_seconds": 11.221035667,
+        "work": {
+          "dialogue_count": 64,
+          "encoder_calls": 109,
+          "padded_attention_positions": 4930415,
+          "real_question_updates": 2903
+        }
+      },
+      "verification_result": {
+        "actual_over_prediction": 0.45315041120423816,
+        "actual_seconds": 1.4405473329999996,
+        "passed": true,
+        "prediction": {
+          "estimation_data": "Entire first 64-dialogue estimator block only; no dropped first-fit or timing outliers",
+          "estimator_seconds": 1.589480333000001,
+          "estimator_work": {
+            "dialogue_count": 64,
+            "encoder_calls": 119,
+            "padded_attention_positions": 5706362,
+            "real_question_updates": 3276
+          },
+          "fit_id": "frozen_numbers-6901",
+          "freeze_required": "Publish and bind this record before timing any verification dialogue",
+          "maximum_work_ratio": 1.0,
+          "predicted_seconds": 3.178960666000002,
+          "safety_factor": 2.0,
+          "verification_work": {
+            "dialogue_count": 64,
+            "encoder_calls": 109,
+            "padded_attention_positions": 4930415,
+            "real_question_updates": 2903
+          },
+          "version": "dialogue-calibration-runtime-v2",
+          "work_ratios": {
+            "dialogue_count": 1.0,
+            "encoder_calls": 0.9159663865546218,
+            "padded_attention_positions": 0.8640207193304595,
+            "real_question_updates": 0.8861416361416361
+          }
+        },
+        "scope": "Verification only; equality passes without epsilon and verification does not refit the estimator",
+        "version": "dialogue-calibration-runtime-v2"
+      },
+      "wall_seconds": 3.3951336660000013,
+      "warmup": {
+        "block": "warmup",
+        "dialogue_ids": [
+          "10_00000",
+          "1_00096"
+        ],
+        "encoder_work": {
+          "content_tokens": 1835,
+          "encoder_calls": 3,
+          "encoder_sequences": 64,
+          "input_texts": 64,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 399952,
+          "padded_token_positions": 4624,
+          "padding_token_positions": 2661,
+          "special_token_positions": 128,
+          "truncated_tokens": 0,
+          "valid_token_positions": 1963
+        },
+        "endpoint_rows": 46,
+        "finished_elapsed_seconds": 9.631101417,
+        "parity_maxima": {
+          "maximum_probability_error": 0,
+          "maximum_raw_mass_error": 1.712613466597901e-07,
+          "maximum_supported_log_error": 0
+        },
+        "seconds": 0.05660312500000053,
+        "started_elapsed_seconds": 9.574498292,
+        "work": {
+          "dialogue_count": 2,
+          "encoder_calls": 3,
+          "padded_attention_positions": 399952,
+          "real_question_updates": 51
+        }
+      },
+      "witness": {
+        "arm": "frozen_numbers",
+        "checkpoint_sha256": "fc74fe4e5f0e225251929c2d79350e074b42e07972e1290cffaefdd1a4640ade",
+        "chunk_tokens": 254,
+        "counts": {
+          "checkpoint_load_attempts": 1,
+          "checkpoint_load_returns": 1,
+          "encoder_forward_attempts": 231,
+          "encoder_forward_returns": 231,
+          "encoder_load_attempts": 1,
+          "encoder_load_returns": 1,
+          "encoding_attempts": 130,
+          "encoding_returns": 130,
+          "memory_forward_attempts": 130,
+          "memory_forward_returns": 130,
+          "public_forward_attempts": 130,
+          "public_forward_returns": 130
+        },
+        "dtype": "float32",
+        "encoder_attempted_work": {
+          "encoder_calls": 231,
+          "encoder_sequences": 5327,
+          "padded_attention_positions": 11036729,
+          "padded_token_positions": 234211,
+          "valid_token_positions": 149047
+        },
+        "encoder_batch": 32,
+        "encoder_device": "mps:0",
+        "encoder_returned_work": {
+          "encoder_calls": 231,
+          "encoder_sequences": 5327,
+          "padded_attention_positions": 11036729,
+          "padded_token_positions": 234211,
+          "valid_token_positions": 149047
+        },
+        "encoder_work": {
+          "content_tokens": 138393,
+          "encoder_calls": 231,
+          "encoder_sequences": 5327,
+          "input_texts": 5327,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 11036729,
+          "padded_token_positions": 234211,
+          "padding_token_positions": 85164,
+          "special_token_positions": 10654,
+          "truncated_tokens": 0,
+          "valid_token_positions": 149047
+        },
+        "final_sha256": {
+          "encoder": "6eb608dfaf4afd506e2bf41aad9b0e81726b8c6baca88bf9be4d583ef03aa426",
+          "memory": "952131d9a65e8bc5b3e8db73d53633423a0dfe909690393109709580a92fbac3"
+        },
+        "invariants": {
+          "advance_calls": 1288,
+          "advance_returned": 1288,
+          "executed_valid_question_slots": 6230,
+          "feature_checks": 6230,
+          "feature_max_sum_error": 2.041342668235302e-07,
+          "forward_calls": 130,
+          "forward_returned": 130,
+          "incoming_checks": 6230,
+          "incoming_max_sum_error": 2.041342668235302e-07,
+          "mass_above_one_count": 0,
+          "mass_checks": 6230,
+          "mass_max": 0.9998023509979248,
+          "mass_max_overshoot": 0.0,
+          "mass_min": 1.0518803719605785e-05,
+          "real_question_updates": 6230,
+          "result_checks": 6230,
+          "result_max_sum_error": 2.041342668235302e-07,
+          "tolerance": 2e-06,
+          "valid_turns": 1288
+        },
+        "memory_device": "cpu",
+        "optimizer_created": false,
+        "restored_sha256": {
+          "encoder": "6eb608dfaf4afd506e2bf41aad9b0e81726b8c6baca88bf9be4d583ef03aa426",
+          "memory": "952131d9a65e8bc5b3e8db73d53633423a0dfe909690393109709580a92fbac3"
+        },
+        "scope": "Work from public full-dialogue forwards only; evaluator collection is separate.",
+        "synthetic_injection": false,
+        "temperature_applied": false,
+        "version": "dialogue-calibration-inference-v1"
+      }
+    },
+    {
+      "arm": "trainable_original",
+      "completed_sha256": "64d9b3b02c4351b8e52159e44f8493e7d691c16effad76e9f729c0fa747b5d89",
+      "endpoint_rows": 3390,
+      "estimator": {
+        "block": "estimator",
+        "dialogue_ids": [
+          "16_00110",
+          "19_00068",
+          "11_00011",
+          "1_00091",
+          "2_00061",
+          "6_00084",
+          "8_00075",
+          "14_00031",
+          "18_00058",
+          "10_00001",
+          "12_00113",
+          "8_00107",
+          "17_00063",
+          "14_00100",
+          "19_00126",
+          "2_00035",
+          "6_00114",
+          "12_00122",
+          "2_00052",
+          "10_00056",
+          "14_00028",
+          "19_00082",
+          "1_00099",
+          "20_00037",
+          "20_00003",
+          "14_00081",
+          "10_00043",
+          "4_00088",
+          "20_00054",
+          "3_00054",
+          "10_00110",
+          "15_00105",
+          "14_00056",
+          "19_00001",
+          "15_00123",
+          "5_00021",
+          "19_00061",
+          "5_00055",
+          "5_00062",
+          "2_00054",
+          "9_00034",
+          "4_00036",
+          "13_00037",
+          "8_00027",
+          "19_00029",
+          "4_00040",
+          "12_00102",
+          "6_00115",
+          "3_00032",
+          "15_00019",
+          "17_00077",
+          "9_00078",
+          "10_00039",
+          "14_00072",
+          "8_00102",
+          "13_00012",
+          "13_00094",
+          "1_00037",
+          "1_00010",
+          "16_00091",
+          "7_00033",
+          "4_00026",
+          "19_00076",
+          "16_00079"
+        ],
+        "encoder_work": {
+          "content_tokens": 71353,
+          "encoder_calls": 119,
+          "encoder_sequences": 2763,
+          "input_texts": 2763,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 5706362,
+          "padded_token_positions": 121844,
+          "padding_token_positions": 44965,
+          "special_token_positions": 5526,
+          "truncated_tokens": 0,
+          "valid_token_positions": 76879
+        },
+        "endpoint_rows": 1750,
+        "finished_elapsed_seconds": 14.724274,
+        "parity_maxima": {
+          "maximum_probability_error": 0,
+          "maximum_raw_mass_error": 2.0047023663316565e-07,
+          "maximum_supported_log_error": 0
+        },
+        "seconds": 1.5190167079999988,
+        "started_elapsed_seconds": 13.205257292,
+        "work": {
+          "dialogue_count": 64,
+          "encoder_calls": 119,
+          "padded_attention_positions": 5706362,
+          "real_question_updates": 3276
+        }
+      },
+      "files": {
+        "dialogues.jsonl": {
+          "bytes": 185849,
+          "sha256": "8d7869c4988080496dfed7b97a80353730618f10f6da9ebde6ec76a2f54f3910"
+        },
+        "forecast.json": {
+          "bytes": 1223,
+          "sha256": "3e208e5200d60ff3cacc7184220fce983d8ff6399fe0f89834cdb887a852f40a"
+        },
+        "predictions.npz": {
+          "bytes": 190366,
+          "sha256": "4364e5590d927bf893c14bf0ebb6ff49a02dc0081330ce6320bcc303e001dab0"
+        }
+      },
+      "fit_id": "trainable_original-6901",
+      "forecast_published_elapsed_seconds": 14.724722292,
+      "forecast_sha256": "3e208e5200d60ff3cacc7184220fce983d8ff6399fe0f89834cdb887a852f40a",
+      "loading_seconds": 0.30868045899999963,
+      "prediction_finalization_seconds": 0.0007262079999996729,
+      "seed": 6901,
+      "status": "completed",
+      "verification": {
+        "block": "verification",
+        "dialogue_ids": [
+          "12_00060",
+          "16_00107",
+          "16_00068",
+          "13_00078",
+          "5_00125",
+          "3_00064",
+          "6_00020",
+          "8_00120",
+          "10_00086",
+          "9_00058",
+          "7_00029",
+          "18_00053",
+          "18_00094",
+          "9_00092",
+          "11_00003",
+          "10_00025",
+          "7_00000",
+          "16_00089",
+          "10_00073",
+          "4_00059",
+          "2_00036",
+          "13_00010",
+          "19_00102",
+          "13_00066",
+          "12_00074",
+          "9_00010",
+          "13_00019",
+          "19_00092",
+          "15_00108",
+          "3_00050",
+          "19_00125",
+          "1_00045",
+          "15_00006",
+          "8_00068",
+          "6_00107",
+          "12_00087",
+          "10_00076",
+          "16_00103",
+          "10_00123",
+          "9_00091",
+          "1_00062",
+          "2_00043",
+          "9_00084",
+          "1_00070",
+          "12_00065",
+          "2_00107",
+          "3_00049",
+          "10_00004",
+          "6_00032",
+          "3_00126",
+          "1_00119",
+          "15_00003",
+          "2_00001",
+          "17_00127",
+          "19_00118",
+          "14_00115",
+          "17_00120",
+          "6_00092",
+          "2_00113",
+          "11_00026",
+          "3_00037",
+          "19_00030",
+          "18_00007",
+          "12_00093"
+        ],
+        "encoder_work": {
+          "content_tokens": 65205,
+          "encoder_calls": 109,
+          "encoder_sequences": 2500,
+          "input_texts": 2500,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 4930415,
+          "padded_token_positions": 107743,
+          "padding_token_positions": 37538,
+          "special_token_positions": 5000,
+          "truncated_tokens": 0,
+          "valid_token_positions": 70205
+        },
+        "endpoint_rows": 1594,
+        "finished_elapsed_seconds": 16.039558417,
+        "parity_maxima": {
+          "maximum_probability_error": 0,
+          "maximum_raw_mass_error": 1.8904782528306185e-07,
+          "maximum_supported_log_error": 0
+        },
+        "seconds": 1.3148314579999987,
+        "started_elapsed_seconds": 14.724726959,
+        "work": {
+          "dialogue_count": 64,
+          "encoder_calls": 109,
+          "padded_attention_positions": 4930415,
+          "real_question_updates": 2903
+        }
+      },
+      "verification_result": {
+        "actual_over_prediction": 0.43279032122403743,
+        "actual_seconds": 1.3148314579999987,
+        "passed": true,
+        "prediction": {
+          "estimation_data": "Entire first 64-dialogue estimator block only; no dropped first-fit or timing outliers",
+          "estimator_seconds": 1.5190167079999988,
+          "estimator_work": {
+            "dialogue_count": 64,
+            "encoder_calls": 119,
+            "padded_attention_positions": 5706362,
+            "real_question_updates": 3276
+          },
+          "fit_id": "trainable_original-6901",
+          "freeze_required": "Publish and bind this record before timing any verification dialogue",
+          "maximum_work_ratio": 1.0,
+          "predicted_seconds": 3.0380334159999975,
+          "safety_factor": 2.0,
+          "verification_work": {
+            "dialogue_count": 64,
+            "encoder_calls": 109,
+            "padded_attention_positions": 4930415,
+            "real_question_updates": 2903
+          },
+          "version": "dialogue-calibration-runtime-v2",
+          "work_ratios": {
+            "dialogue_count": 1.0,
+            "encoder_calls": 0.9159663865546218,
+            "padded_attention_positions": 0.8640207193304595,
+            "real_question_updates": 0.8861416361416361
+          }
+        },
+        "scope": "Verification only; equality passes without epsilon and verification does not refit the estimator",
+        "version": "dialogue-calibration-runtime-v2"
+      },
+      "wall_seconds": 3.2777342079999983,
+      "warmup": {
+        "block": "warmup",
+        "dialogue_ids": [
+          "10_00000",
+          "1_00096"
+        ],
+        "encoder_work": {
+          "content_tokens": 1835,
+          "encoder_calls": 3,
+          "encoder_sequences": 64,
+          "input_texts": 64,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 399952,
+          "padded_token_positions": 4624,
+          "padding_token_positions": 2661,
+          "special_token_positions": 128,
+          "truncated_tokens": 0,
+          "valid_token_positions": 1963
+        },
+        "endpoint_rows": 46,
+        "finished_elapsed_seconds": 13.205245042,
+        "parity_maxima": {
+          "maximum_probability_error": 0,
+          "maximum_raw_mass_error": 1.1546887646041171e-07,
+          "maximum_supported_log_error": 0
+        },
+        "seconds": 0.05911166699999981,
+        "started_elapsed_seconds": 13.146133375,
+        "work": {
+          "dialogue_count": 2,
+          "encoder_calls": 3,
+          "padded_attention_positions": 399952,
+          "real_question_updates": 51
+        }
+      },
+      "witness": {
+        "arm": "trainable_original",
+        "checkpoint_sha256": "06c64856b5b99510cd4c9721a24b2785ae4020b9b6a0dfb9f8709ce82a673394",
+        "chunk_tokens": 254,
+        "counts": {
+          "checkpoint_load_attempts": 1,
+          "checkpoint_load_returns": 1,
+          "encoder_forward_attempts": 231,
+          "encoder_forward_returns": 231,
+          "encoder_load_attempts": 1,
+          "encoder_load_returns": 1,
+          "encoding_attempts": 130,
+          "encoding_returns": 130,
+          "memory_forward_attempts": 130,
+          "memory_forward_returns": 130,
+          "public_forward_attempts": 130,
+          "public_forward_returns": 130
+        },
+        "dtype": "float32",
+        "encoder_attempted_work": {
+          "encoder_calls": 231,
+          "encoder_sequences": 5327,
+          "padded_attention_positions": 11036729,
+          "padded_token_positions": 234211,
+          "valid_token_positions": 149047
+        },
+        "encoder_batch": 32,
+        "encoder_device": "mps:0",
+        "encoder_returned_work": {
+          "encoder_calls": 231,
+          "encoder_sequences": 5327,
+          "padded_attention_positions": 11036729,
+          "padded_token_positions": 234211,
+          "valid_token_positions": 149047
+        },
+        "encoder_work": {
+          "content_tokens": 138393,
+          "encoder_calls": 231,
+          "encoder_sequences": 5327,
+          "input_texts": 5327,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 11036729,
+          "padded_token_positions": 234211,
+          "padding_token_positions": 85164,
+          "special_token_positions": 10654,
+          "truncated_tokens": 0,
+          "valid_token_positions": 149047
+        },
+        "final_sha256": {
+          "encoder": "1bfe8695df568d1dd86970b1d1f4e7daf38151068e2bdc0cffb4c74c918e580f",
+          "memory": "7de352f7f745e95d98396033cfaae54040743a5528a40f33e56ebe934aebd844"
+        },
+        "invariants": {
+          "advance_calls": 1288,
+          "advance_returned": 1288,
+          "executed_valid_question_slots": 6230,
+          "feature_checks": 6230,
+          "feature_max_sum_error": 2.2757831175113097e-07,
+          "forward_calls": 130,
+          "forward_returned": 130,
+          "incoming_checks": 6230,
+          "incoming_max_sum_error": 2.0049295557100777e-07,
+          "mass_above_one_count": 0,
+          "mass_checks": 6230,
+          "mass_max": 0.9994342923164368,
+          "mass_max_overshoot": 0.0,
+          "mass_min": 2.7344717636879068e-06,
+          "real_question_updates": 6230,
+          "result_checks": 6230,
+          "result_max_sum_error": 2.0049295557100777e-07,
+          "tolerance": 2e-06,
+          "valid_turns": 1288
+        },
+        "memory_device": "cpu",
+        "optimizer_created": false,
+        "restored_sha256": {
+          "encoder": "1bfe8695df568d1dd86970b1d1f4e7daf38151068e2bdc0cffb4c74c918e580f",
+          "memory": "7de352f7f745e95d98396033cfaae54040743a5528a40f33e56ebe934aebd844"
+        },
+        "scope": "Work from public full-dialogue forwards only; evaluator collection is separate.",
+        "synthetic_injection": false,
+        "temperature_applied": false,
+        "version": "dialogue-calibration-inference-v1"
+      }
+    },
+    {
+      "arm": "trainable_numbers",
+      "completed_sha256": "a251356d785bdfe517496719ce0fd137ae107aba6f9c3f0fd1d875649f38e3c9",
+      "endpoint_rows": 3390,
+      "estimator": {
+        "block": "estimator",
+        "dialogue_ids": [
+          "16_00110",
+          "19_00068",
+          "11_00011",
+          "1_00091",
+          "2_00061",
+          "6_00084",
+          "8_00075",
+          "14_00031",
+          "18_00058",
+          "10_00001",
+          "12_00113",
+          "8_00107",
+          "17_00063",
+          "14_00100",
+          "19_00126",
+          "2_00035",
+          "6_00114",
+          "12_00122",
+          "2_00052",
+          "10_00056",
+          "14_00028",
+          "19_00082",
+          "1_00099",
+          "20_00037",
+          "20_00003",
+          "14_00081",
+          "10_00043",
+          "4_00088",
+          "20_00054",
+          "3_00054",
+          "10_00110",
+          "15_00105",
+          "14_00056",
+          "19_00001",
+          "15_00123",
+          "5_00021",
+          "19_00061",
+          "5_00055",
+          "5_00062",
+          "2_00054",
+          "9_00034",
+          "4_00036",
+          "13_00037",
+          "8_00027",
+          "19_00029",
+          "4_00040",
+          "12_00102",
+          "6_00115",
+          "3_00032",
+          "15_00019",
+          "17_00077",
+          "9_00078",
+          "10_00039",
+          "14_00072",
+          "8_00102",
+          "13_00012",
+          "13_00094",
+          "1_00037",
+          "1_00010",
+          "16_00091",
+          "7_00033",
+          "4_00026",
+          "19_00076",
+          "16_00079"
+        ],
+        "encoder_work": {
+          "content_tokens": 71353,
+          "encoder_calls": 119,
+          "encoder_sequences": 2763,
+          "input_texts": 2763,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 5706362,
+          "padded_token_positions": 121844,
+          "padding_token_positions": 44965,
+          "special_token_positions": 5526,
+          "truncated_tokens": 0,
+          "valid_token_positions": 76879
+        },
+        "endpoint_rows": 1750,
+        "finished_elapsed_seconds": 18.127658084,
+        "parity_maxima": {
+          "maximum_probability_error": 0,
+          "maximum_raw_mass_error": 1.9282419461141842e-07,
+          "maximum_supported_log_error": 0
+        },
+        "seconds": 1.5314052919999988,
+        "started_elapsed_seconds": 16.596252792,
+        "work": {
+          "dialogue_count": 64,
+          "encoder_calls": 119,
+          "padded_attention_positions": 5706362,
+          "real_question_updates": 3276
+        }
+      },
+      "files": {
+        "dialogues.jsonl": {
+          "bytes": 185884,
+          "sha256": "08130a935250e354d1d36cac31a81e6ed12265ceb4589b1f1aa844d6d47fc455"
+        },
+        "forecast.json": {
+          "bytes": 1221,
+          "sha256": "002a4490e6983838caf293c5f9430d373b8ac88f68054cae92ad75242a377128"
+        },
+        "predictions.npz": {
+          "bytes": 190366,
+          "sha256": "68b4a3121c3d10ef3357f49a2d1a8ae8ebda1e6ab4e6e58db67c1523cb3f21df"
+        }
+      },
+      "fit_id": "trainable_numbers-6901",
+      "forecast_published_elapsed_seconds": 18.128172584,
+      "forecast_sha256": "002a4490e6983838caf293c5f9430d373b8ac88f68054cae92ad75242a377128",
+      "loading_seconds": 0.3173365419999996,
+      "prediction_finalization_seconds": 0.0007133340000002875,
+      "seed": 6901,
+      "status": "completed",
+      "verification": {
+        "block": "verification",
+        "dialogue_ids": [
+          "12_00060",
+          "16_00107",
+          "16_00068",
+          "13_00078",
+          "5_00125",
+          "3_00064",
+          "6_00020",
+          "8_00120",
+          "10_00086",
+          "9_00058",
+          "7_00029",
+          "18_00053",
+          "18_00094",
+          "9_00092",
+          "11_00003",
+          "10_00025",
+          "7_00000",
+          "16_00089",
+          "10_00073",
+          "4_00059",
+          "2_00036",
+          "13_00010",
+          "19_00102",
+          "13_00066",
+          "12_00074",
+          "9_00010",
+          "13_00019",
+          "19_00092",
+          "15_00108",
+          "3_00050",
+          "19_00125",
+          "1_00045",
+          "15_00006",
+          "8_00068",
+          "6_00107",
+          "12_00087",
+          "10_00076",
+          "16_00103",
+          "10_00123",
+          "9_00091",
+          "1_00062",
+          "2_00043",
+          "9_00084",
+          "1_00070",
+          "12_00065",
+          "2_00107",
+          "3_00049",
+          "10_00004",
+          "6_00032",
+          "3_00126",
+          "1_00119",
+          "15_00003",
+          "2_00001",
+          "17_00127",
+          "19_00118",
+          "14_00115",
+          "17_00120",
+          "6_00092",
+          "2_00113",
+          "11_00026",
+          "3_00037",
+          "19_00030",
+          "18_00007",
+          "12_00093"
+        ],
+        "encoder_work": {
+          "content_tokens": 65205,
+          "encoder_calls": 109,
+          "encoder_sequences": 2500,
+          "input_texts": 2500,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 4930415,
+          "padded_token_positions": 107743,
+          "padding_token_positions": 37538,
+          "special_token_positions": 5000,
+          "truncated_tokens": 0,
+          "valid_token_positions": 70205
+        },
+        "endpoint_rows": 1594,
+        "finished_elapsed_seconds": 19.499171375,
+        "parity_maxima": {
+          "maximum_probability_error": 0,
+          "maximum_raw_mass_error": 2.115686287273988e-07,
+          "maximum_supported_log_error": 0
+        },
+        "seconds": 1.3709935830000006,
+        "started_elapsed_seconds": 18.128177792,
+        "work": {
+          "dialogue_count": 64,
+          "encoder_calls": 109,
+          "padded_attention_positions": 4930415,
+          "real_question_updates": 2903
+        }
+      },
+      "verification_result": {
+        "actual_over_prediction": 0.44762597797004405,
+        "actual_seconds": 1.3709935830000006,
+        "passed": true,
+        "prediction": {
+          "estimation_data": "Entire first 64-dialogue estimator block only; no dropped first-fit or timing outliers",
+          "estimator_seconds": 1.5314052919999988,
+          "estimator_work": {
+            "dialogue_count": 64,
+            "encoder_calls": 119,
+            "padded_attention_positions": 5706362,
+            "real_question_updates": 3276
+          },
+          "fit_id": "trainable_numbers-6901",
+          "freeze_required": "Publish and bind this record before timing any verification dialogue",
+          "maximum_work_ratio": 1.0,
+          "predicted_seconds": 3.0628105839999975,
+          "safety_factor": 2.0,
+          "verification_work": {
+            "dialogue_count": 64,
+            "encoder_calls": 109,
+            "padded_attention_positions": 4930415,
+            "real_question_updates": 2903
+          },
+          "version": "dialogue-calibration-runtime-v2",
+          "work_ratios": {
+            "dialogue_count": 1.0,
+            "encoder_calls": 0.9159663865546218,
+            "padded_attention_positions": 0.8640207193304595,
+            "real_question_updates": 0.8861416361416361
+          }
+        },
+        "scope": "Verification only; equality passes without epsilon and verification does not refit the estimator",
+        "version": "dialogue-calibration-runtime-v2"
+      },
+      "wall_seconds": 3.371500207999997,
+      "warmup": {
+        "block": "warmup",
+        "dialogue_ids": [
+          "10_00000",
+          "1_00096"
+        ],
+        "encoder_work": {
+          "content_tokens": 1835,
+          "encoder_calls": 3,
+          "encoder_sequences": 64,
+          "input_texts": 64,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 399952,
+          "padded_token_positions": 4624,
+          "padding_token_positions": 2661,
+          "special_token_positions": 128,
+          "truncated_tokens": 0,
+          "valid_token_positions": 1963
+        },
+        "endpoint_rows": 46,
+        "finished_elapsed_seconds": 16.59623975,
+        "parity_maxima": {
+          "maximum_probability_error": 0,
+          "maximum_raw_mass_error": 1.3991560865456165e-07,
+          "maximum_supported_log_error": 0
+        },
+        "seconds": 0.059670249999999925,
+        "started_elapsed_seconds": 16.5365695,
+        "work": {
+          "dialogue_count": 2,
+          "encoder_calls": 3,
+          "padded_attention_positions": 399952,
+          "real_question_updates": 51
+        }
+      },
+      "witness": {
+        "arm": "trainable_numbers",
+        "checkpoint_sha256": "9a6306eaa3b557213bbce0b3102879bc8a52c2003a3c48f2486fb48fc43527f6",
+        "chunk_tokens": 254,
+        "counts": {
+          "checkpoint_load_attempts": 1,
+          "checkpoint_load_returns": 1,
+          "encoder_forward_attempts": 231,
+          "encoder_forward_returns": 231,
+          "encoder_load_attempts": 1,
+          "encoder_load_returns": 1,
+          "encoding_attempts": 130,
+          "encoding_returns": 130,
+          "memory_forward_attempts": 130,
+          "memory_forward_returns": 130,
+          "public_forward_attempts": 130,
+          "public_forward_returns": 130
+        },
+        "dtype": "float32",
+        "encoder_attempted_work": {
+          "encoder_calls": 231,
+          "encoder_sequences": 5327,
+          "padded_attention_positions": 11036729,
+          "padded_token_positions": 234211,
+          "valid_token_positions": 149047
+        },
+        "encoder_batch": 32,
+        "encoder_device": "mps:0",
+        "encoder_returned_work": {
+          "encoder_calls": 231,
+          "encoder_sequences": 5327,
+          "padded_attention_positions": 11036729,
+          "padded_token_positions": 234211,
+          "valid_token_positions": 149047
+        },
+        "encoder_work": {
+          "content_tokens": 138393,
+          "encoder_calls": 231,
+          "encoder_sequences": 5327,
+          "input_texts": 5327,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 11036729,
+          "padded_token_positions": 234211,
+          "padding_token_positions": 85164,
+          "special_token_positions": 10654,
+          "truncated_tokens": 0,
+          "valid_token_positions": 149047
+        },
+        "final_sha256": {
+          "encoder": "0ed8375a3f22d6f678aa85d73c8ead3e9215230db3a7d8c54040cc6dcf2fed82",
+          "memory": "19db73d40e8d459cbd3f90eed287d5808e9d09afc4e22f6b80b27a6b5b1fff4a"
+        },
+        "invariants": {
+          "advance_calls": 1288,
+          "advance_returned": 1288,
+          "executed_valid_question_slots": 6230,
+          "feature_checks": 6230,
+          "feature_max_sum_error": 2.2025301404937636e-07,
+          "forward_calls": 130,
+          "forward_returned": 130,
+          "incoming_checks": 6230,
+          "incoming_max_sum_error": 2.2025301404937636e-07,
+          "mass_above_one_count": 0,
+          "mass_checks": 6230,
+          "mass_max": 0.999549150466919,
+          "mass_max_overshoot": 0.0,
+          "mass_min": 9.942196811607573e-06,
+          "real_question_updates": 6230,
+          "result_checks": 6230,
+          "result_max_sum_error": 2.2025301404937636e-07,
+          "tolerance": 2e-06,
+          "valid_turns": 1288
+        },
+        "memory_device": "cpu",
+        "optimizer_created": false,
+        "restored_sha256": {
+          "encoder": "0ed8375a3f22d6f678aa85d73c8ead3e9215230db3a7d8c54040cc6dcf2fed82",
+          "memory": "19db73d40e8d459cbd3f90eed287d5808e9d09afc4e22f6b80b27a6b5b1fff4a"
+        },
+        "scope": "Work from public full-dialogue forwards only; evaluator collection is separate.",
+        "synthetic_injection": false,
+        "temperature_applied": false,
+        "version": "dialogue-calibration-inference-v1"
+      }
+    },
+    {
+      "arm": "frozen_original",
+      "completed_sha256": "a5aebf18f568d15f4aec9908746f0709915bf2d5ad19794ccf61ae5703ca75f5",
+      "endpoint_rows": 3390,
+      "estimator": {
+        "block": "estimator",
+        "dialogue_ids": [
+          "16_00110",
+          "19_00068",
+          "11_00011",
+          "1_00091",
+          "2_00061",
+          "6_00084",
+          "8_00075",
+          "14_00031",
+          "18_00058",
+          "10_00001",
+          "12_00113",
+          "8_00107",
+          "17_00063",
+          "14_00100",
+          "19_00126",
+          "2_00035",
+          "6_00114",
+          "12_00122",
+          "2_00052",
+          "10_00056",
+          "14_00028",
+          "19_00082",
+          "1_00099",
+          "20_00037",
+          "20_00003",
+          "14_00081",
+          "10_00043",
+          "4_00088",
+          "20_00054",
+          "3_00054",
+          "10_00110",
+          "15_00105",
+          "14_00056",
+          "19_00001",
+          "15_00123",
+          "5_00021",
+          "19_00061",
+          "5_00055",
+          "5_00062",
+          "2_00054",
+          "9_00034",
+          "4_00036",
+          "13_00037",
+          "8_00027",
+          "19_00029",
+          "4_00040",
+          "12_00102",
+          "6_00115",
+          "3_00032",
+          "15_00019",
+          "17_00077",
+          "9_00078",
+          "10_00039",
+          "14_00072",
+          "8_00102",
+          "13_00012",
+          "13_00094",
+          "1_00037",
+          "1_00010",
+          "16_00091",
+          "7_00033",
+          "4_00026",
+          "19_00076",
+          "16_00079"
+        ],
+        "encoder_work": {
+          "content_tokens": 71353,
+          "encoder_calls": 119,
+          "encoder_sequences": 2763,
+          "input_texts": 2763,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 5706362,
+          "padded_token_positions": 121844,
+          "padding_token_positions": 44965,
+          "special_token_positions": 5526,
+          "truncated_tokens": 0,
+          "valid_token_positions": 76879
+        },
+        "endpoint_rows": 1750,
+        "finished_elapsed_seconds": 21.511938875,
+        "parity_maxima": {
+          "maximum_probability_error": 0,
+          "maximum_raw_mass_error": 1.829216528248523e-07,
+          "maximum_supported_log_error": 0
+        },
+        "seconds": 1.573816124999997,
+        "started_elapsed_seconds": 19.93812275,
+        "work": {
+          "dialogue_count": 64,
+          "encoder_calls": 119,
+          "padded_attention_positions": 5706362,
+          "real_question_updates": 3276
+        }
+      },
+      "files": {
+        "dialogues.jsonl": {
+          "bytes": 185770,
+          "sha256": "f62eea54aac536b08f357a96c83f77b7a002ef0a03a65ff961f21143290658ca"
+        },
+        "forecast.json": {
+          "bytes": 1215,
+          "sha256": "7c95f88cb1722fe8d7d9a86a5320918144b7b751e2b58f2b0fbe967e58dd7268"
+        },
+        "predictions.npz": {
+          "bytes": 190366,
+          "sha256": "4d406f340c2bff5612d651f5228d80e8cc3eb2324920dcb8fc18e7e03208a0d7"
+        }
+      },
+      "fit_id": "frozen_original-6902",
+      "forecast_published_elapsed_seconds": 21.512512542,
+      "forecast_sha256": "7c95f88cb1722fe8d7d9a86a5320918144b7b751e2b58f2b0fbe967e58dd7268",
+      "loading_seconds": 0.20260208399999868,
+      "prediction_finalization_seconds": 0.0005818749999981776,
+      "seed": 6902,
+      "status": "completed",
+      "verification": {
+        "block": "verification",
+        "dialogue_ids": [
+          "12_00060",
+          "16_00107",
+          "16_00068",
+          "13_00078",
+          "5_00125",
+          "3_00064",
+          "6_00020",
+          "8_00120",
+          "10_00086",
+          "9_00058",
+          "7_00029",
+          "18_00053",
+          "18_00094",
+          "9_00092",
+          "11_00003",
+          "10_00025",
+          "7_00000",
+          "16_00089",
+          "10_00073",
+          "4_00059",
+          "2_00036",
+          "13_00010",
+          "19_00102",
+          "13_00066",
+          "12_00074",
+          "9_00010",
+          "13_00019",
+          "19_00092",
+          "15_00108",
+          "3_00050",
+          "19_00125",
+          "1_00045",
+          "15_00006",
+          "8_00068",
+          "6_00107",
+          "12_00087",
+          "10_00076",
+          "16_00103",
+          "10_00123",
+          "9_00091",
+          "1_00062",
+          "2_00043",
+          "9_00084",
+          "1_00070",
+          "12_00065",
+          "2_00107",
+          "3_00049",
+          "10_00004",
+          "6_00032",
+          "3_00126",
+          "1_00119",
+          "15_00003",
+          "2_00001",
+          "17_00127",
+          "19_00118",
+          "14_00115",
+          "17_00120",
+          "6_00092",
+          "2_00113",
+          "11_00026",
+          "3_00037",
+          "19_00030",
+          "18_00007",
+          "12_00093"
+        ],
+        "encoder_work": {
+          "content_tokens": 65205,
+          "encoder_calls": 109,
+          "encoder_sequences": 2500,
+          "input_texts": 2500,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 4930415,
+          "padded_token_positions": 107743,
+          "padding_token_positions": 37538,
+          "special_token_positions": 5000,
+          "truncated_tokens": 0,
+          "valid_token_positions": 70205
+        },
+        "endpoint_rows": 1594,
+        "finished_elapsed_seconds": 23.00628075,
+        "parity_maxima": {
+          "maximum_probability_error": 0,
+          "maximum_raw_mass_error": 1.959170181642378e-07,
+          "maximum_supported_log_error": 0
+        },
+        "seconds": 1.493763290999997,
+        "started_elapsed_seconds": 21.512517459,
+        "work": {
+          "dialogue_count": 64,
+          "encoder_calls": 109,
+          "padded_attention_positions": 4930415,
+          "real_question_updates": 2903
+        }
+      },
+      "verification_result": {
+        "actual_over_prediction": 0.474567284980639,
+        "actual_seconds": 1.493763290999997,
+        "passed": true,
+        "prediction": {
+          "estimation_data": "Entire first 64-dialogue estimator block only; no dropped first-fit or timing outliers",
+          "estimator_seconds": 1.573816124999997,
+          "estimator_work": {
+            "dialogue_count": 64,
+            "encoder_calls": 119,
+            "padded_attention_positions": 5706362,
+            "real_question_updates": 3276
+          },
+          "fit_id": "frozen_original-6902",
+          "freeze_required": "Publish and bind this record before timing any verification dialogue",
+          "maximum_work_ratio": 1.0,
+          "predicted_seconds": 3.147632249999994,
+          "safety_factor": 2.0,
+          "verification_work": {
+            "dialogue_count": 64,
+            "encoder_calls": 109,
+            "padded_attention_positions": 4930415,
+            "real_question_updates": 2903
+          },
+          "version": "dialogue-calibration-runtime-v2",
+          "work_ratios": {
+            "dialogue_count": 1.0,
+            "encoder_calls": 0.9159663865546218,
+            "padded_attention_positions": 0.8640207193304595,
+            "real_question_updates": 0.8861416361416361
+          }
+        },
+        "scope": "Verification only; equality passes without epsilon and verification does not refit the estimator",
+        "version": "dialogue-calibration-runtime-v2"
+      },
+      "wall_seconds": 3.4074093750000003,
+      "warmup": {
+        "block": "warmup",
+        "dialogue_ids": [
+          "10_00000",
+          "1_00096"
+        ],
+        "encoder_work": {
+          "content_tokens": 1835,
+          "encoder_calls": 3,
+          "encoder_sequences": 64,
+          "input_texts": 64,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 399952,
+          "padded_token_positions": 4624,
+          "padding_token_positions": 2661,
+          "special_token_positions": 128,
+          "truncated_tokens": 0,
+          "valid_token_positions": 1963
+        },
+        "endpoint_rows": 46,
+        "finished_elapsed_seconds": 19.938109209,
+        "parity_maxima": {
+          "maximum_probability_error": 0,
+          "maximum_raw_mass_error": 1.4198109787866287e-07,
+          "maximum_supported_log_error": 0
+        },
+        "seconds": 0.06156762499999857,
+        "started_elapsed_seconds": 19.876541584,
+        "work": {
+          "dialogue_count": 2,
+          "encoder_calls": 3,
+          "padded_attention_positions": 399952,
+          "real_question_updates": 51
+        }
+      },
+      "witness": {
+        "arm": "frozen_original",
+        "checkpoint_sha256": "3f18f2f856a9acb801456a834b5c73d7a81b91806424af926fc8e228e2547042",
+        "chunk_tokens": 254,
+        "counts": {
+          "checkpoint_load_attempts": 1,
+          "checkpoint_load_returns": 1,
+          "encoder_forward_attempts": 231,
+          "encoder_forward_returns": 231,
+          "encoder_load_attempts": 1,
+          "encoder_load_returns": 1,
+          "encoding_attempts": 130,
+          "encoding_returns": 130,
+          "memory_forward_attempts": 130,
+          "memory_forward_returns": 130,
+          "public_forward_attempts": 130,
+          "public_forward_returns": 130
+        },
+        "dtype": "float32",
+        "encoder_attempted_work": {
+          "encoder_calls": 231,
+          "encoder_sequences": 5327,
+          "padded_attention_positions": 11036729,
+          "padded_token_positions": 234211,
+          "valid_token_positions": 149047
+        },
+        "encoder_batch": 32,
+        "encoder_device": "mps:0",
+        "encoder_returned_work": {
+          "encoder_calls": 231,
+          "encoder_sequences": 5327,
+          "padded_attention_positions": 11036729,
+          "padded_token_positions": 234211,
+          "valid_token_positions": 149047
+        },
+        "encoder_work": {
+          "content_tokens": 138393,
+          "encoder_calls": 231,
+          "encoder_sequences": 5327,
+          "input_texts": 5327,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 11036729,
+          "padded_token_positions": 234211,
+          "padding_token_positions": 85164,
+          "special_token_positions": 10654,
+          "truncated_tokens": 0,
+          "valid_token_positions": 149047
+        },
+        "final_sha256": {
+          "encoder": "6eb608dfaf4afd506e2bf41aad9b0e81726b8c6baca88bf9be4d583ef03aa426",
+          "memory": "397fb23dd8da7f12f6c4d8644109fd6ab85e75d930e5c68ffa377fbe18f4ec20"
+        },
+        "invariants": {
+          "advance_calls": 1288,
+          "advance_returned": 1288,
+          "executed_valid_question_slots": 6230,
+          "feature_checks": 6230,
+          "feature_max_sum_error": 2.3061875253915787e-07,
+          "forward_calls": 130,
+          "forward_returned": 130,
+          "incoming_checks": 6230,
+          "incoming_max_sum_error": 2.2421590983867645e-07,
+          "mass_above_one_count": 0,
+          "mass_checks": 6230,
+          "mass_max": 0.9997258186340332,
+          "mass_max_overshoot": 0.0,
+          "mass_min": 4.2998672142857686e-05,
+          "real_question_updates": 6230,
+          "result_checks": 6230,
+          "result_max_sum_error": 2.2421590983867645e-07,
+          "tolerance": 2e-06,
+          "valid_turns": 1288
+        },
+        "memory_device": "cpu",
+        "optimizer_created": false,
+        "restored_sha256": {
+          "encoder": "6eb608dfaf4afd506e2bf41aad9b0e81726b8c6baca88bf9be4d583ef03aa426",
+          "memory": "397fb23dd8da7f12f6c4d8644109fd6ab85e75d930e5c68ffa377fbe18f4ec20"
+        },
+        "scope": "Work from public full-dialogue forwards only; evaluator collection is separate.",
+        "synthetic_injection": false,
+        "temperature_applied": false,
+        "version": "dialogue-calibration-inference-v1"
+      }
+    },
+    {
+      "arm": "frozen_numbers",
+      "completed_sha256": "2ce639be8f29165dc91c7df7b25442fe89931b672513868ea9ea453c105f60b7",
+      "endpoint_rows": 3390,
+      "estimator": {
+        "block": "estimator",
+        "dialogue_ids": [
+          "16_00110",
+          "19_00068",
+          "11_00011",
+          "1_00091",
+          "2_00061",
+          "6_00084",
+          "8_00075",
+          "14_00031",
+          "18_00058",
+          "10_00001",
+          "12_00113",
+          "8_00107",
+          "17_00063",
+          "14_00100",
+          "19_00126",
+          "2_00035",
+          "6_00114",
+          "12_00122",
+          "2_00052",
+          "10_00056",
+          "14_00028",
+          "19_00082",
+          "1_00099",
+          "20_00037",
+          "20_00003",
+          "14_00081",
+          "10_00043",
+          "4_00088",
+          "20_00054",
+          "3_00054",
+          "10_00110",
+          "15_00105",
+          "14_00056",
+          "19_00001",
+          "15_00123",
+          "5_00021",
+          "19_00061",
+          "5_00055",
+          "5_00062",
+          "2_00054",
+          "9_00034",
+          "4_00036",
+          "13_00037",
+          "8_00027",
+          "19_00029",
+          "4_00040",
+          "12_00102",
+          "6_00115",
+          "3_00032",
+          "15_00019",
+          "17_00077",
+          "9_00078",
+          "10_00039",
+          "14_00072",
+          "8_00102",
+          "13_00012",
+          "13_00094",
+          "1_00037",
+          "1_00010",
+          "16_00091",
+          "7_00033",
+          "4_00026",
+          "19_00076",
+          "16_00079"
+        ],
+        "encoder_work": {
+          "content_tokens": 71353,
+          "encoder_calls": 119,
+          "encoder_sequences": 2763,
+          "input_texts": 2763,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 5706362,
+          "padded_token_positions": 121844,
+          "padding_token_positions": 44965,
+          "special_token_positions": 5526,
+          "truncated_tokens": 0,
+          "valid_token_positions": 76879
+        },
+        "endpoint_rows": 1750,
+        "finished_elapsed_seconds": 25.017156667,
+        "parity_maxima": {
+          "maximum_probability_error": 0,
+          "maximum_raw_mass_error": 1.7813149777445858e-07,
+          "maximum_supported_log_error": 0
+        },
+        "seconds": 1.5477207919999998,
+        "started_elapsed_seconds": 23.469435875,
+        "work": {
+          "dialogue_count": 64,
+          "encoder_calls": 119,
+          "padded_attention_positions": 5706362,
+          "real_question_updates": 3276
+        }
+      },
+      "files": {
+        "dialogues.jsonl": {
+          "bytes": 185777,
+          "sha256": "52b74ce14eae056cb9247db0267f45d127080fe9696c3bf45c1a7dcb952d9655"
+        },
+        "forecast.json": {
+          "bytes": 1215,
+          "sha256": "b5256053fe3ffcdd6f66345ae3fe04c32c4d747fa1d994101a63ef466b38e33b"
+        },
+        "predictions.npz": {
+          "bytes": 190366,
+          "sha256": "9b2478eb9397c73004836bd3e1ff80e462661d16c4a2482a447bad7588ed8637"
+        }
+      },
+      "fit_id": "frozen_numbers-6902",
+      "forecast_published_elapsed_seconds": 25.017796667,
+      "forecast_sha256": "b5256053fe3ffcdd6f66345ae3fe04c32c4d747fa1d994101a63ef466b38e33b",
+      "loading_seconds": 0.2077607499999985,
+      "prediction_finalization_seconds": 0.000888291999999069,
+      "seed": 6902,
+      "status": "completed",
+      "verification": {
+        "block": "verification",
+        "dialogue_ids": [
+          "12_00060",
+          "16_00107",
+          "16_00068",
+          "13_00078",
+          "5_00125",
+          "3_00064",
+          "6_00020",
+          "8_00120",
+          "10_00086",
+          "9_00058",
+          "7_00029",
+          "18_00053",
+          "18_00094",
+          "9_00092",
+          "11_00003",
+          "10_00025",
+          "7_00000",
+          "16_00089",
+          "10_00073",
+          "4_00059",
+          "2_00036",
+          "13_00010",
+          "19_00102",
+          "13_00066",
+          "12_00074",
+          "9_00010",
+          "13_00019",
+          "19_00092",
+          "15_00108",
+          "3_00050",
+          "19_00125",
+          "1_00045",
+          "15_00006",
+          "8_00068",
+          "6_00107",
+          "12_00087",
+          "10_00076",
+          "16_00103",
+          "10_00123",
+          "9_00091",
+          "1_00062",
+          "2_00043",
+          "9_00084",
+          "1_00070",
+          "12_00065",
+          "2_00107",
+          "3_00049",
+          "10_00004",
+          "6_00032",
+          "3_00126",
+          "1_00119",
+          "15_00003",
+          "2_00001",
+          "17_00127",
+          "19_00118",
+          "14_00115",
+          "17_00120",
+          "6_00092",
+          "2_00113",
+          "11_00026",
+          "3_00037",
+          "19_00030",
+          "18_00007",
+          "12_00093"
+        ],
+        "encoder_work": {
+          "content_tokens": 65205,
+          "encoder_calls": 109,
+          "encoder_sequences": 2500,
+          "input_texts": 2500,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 4930415,
+          "padded_token_positions": 107743,
+          "padding_token_positions": 37538,
+          "special_token_positions": 5000,
+          "truncated_tokens": 0,
+          "valid_token_positions": 70205
+        },
+        "endpoint_rows": 1594,
+        "finished_elapsed_seconds": 26.399437959,
+        "parity_maxima": {
+          "maximum_probability_error": 0,
+          "maximum_raw_mass_error": 1.947653742728761e-07,
+          "maximum_supported_log_error": 0
+        },
+        "seconds": 1.3816360840000002,
+        "started_elapsed_seconds": 25.017801875,
+        "work": {
+          "dialogue_count": 64,
+          "encoder_calls": 109,
+          "padded_attention_positions": 4930415,
+          "real_question_updates": 2903
+        }
+      },
+      "verification_result": {
+        "actual_over_prediction": 0.446345390958604,
+        "actual_seconds": 1.3816360840000002,
+        "passed": true,
+        "prediction": {
+          "estimation_data": "Entire first 64-dialogue estimator block only; no dropped first-fit or timing outliers",
+          "estimator_seconds": 1.5477207919999998,
+          "estimator_work": {
+            "dialogue_count": 64,
+            "encoder_calls": 119,
+            "padded_attention_positions": 5706362,
+            "real_question_updates": 3276
+          },
+          "fit_id": "frozen_numbers-6902",
+          "freeze_required": "Publish and bind this record before timing any verification dialogue",
+          "maximum_work_ratio": 1.0,
+          "predicted_seconds": 3.0954415839999996,
+          "safety_factor": 2.0,
+          "verification_work": {
+            "dialogue_count": 64,
+            "encoder_calls": 109,
+            "padded_attention_positions": 4930415,
+            "real_question_updates": 2903
+          },
+          "version": "dialogue-calibration-runtime-v2",
+          "work_ratios": {
+            "dialogue_count": 1.0,
+            "encoder_calls": 0.9159663865546218,
+            "padded_attention_positions": 0.8640207193304595,
+            "real_question_updates": 0.8861416361416361
+          }
+        },
+        "scope": "Verification only; equality passes without epsilon and verification does not refit the estimator",
+        "version": "dialogue-calibration-runtime-v2"
+      },
+      "wall_seconds": 3.303114875000002,
+      "warmup": {
+        "block": "warmup",
+        "dialogue_ids": [
+          "10_00000",
+          "1_00096"
+        ],
+        "encoder_work": {
+          "content_tokens": 1835,
+          "encoder_calls": 3,
+          "encoder_sequences": 64,
+          "input_texts": 64,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 399952,
+          "padded_token_positions": 4624,
+          "padding_token_positions": 2661,
+          "special_token_positions": 128,
+          "truncated_tokens": 0,
+          "valid_token_positions": 1963
+        },
+        "endpoint_rows": 46,
+        "finished_elapsed_seconds": 23.469422125,
+        "parity_maxima": {
+          "maximum_probability_error": 0,
+          "maximum_raw_mass_error": 1.3005727050874327e-07,
+          "maximum_supported_log_error": 0
+        },
+        "seconds": 0.06590616600000132,
+        "started_elapsed_seconds": 23.403515959,
+        "work": {
+          "dialogue_count": 2,
+          "encoder_calls": 3,
+          "padded_attention_positions": 399952,
+          "real_question_updates": 51
+        }
+      },
+      "witness": {
+        "arm": "frozen_numbers",
+        "checkpoint_sha256": "9a2be063b5db7c125774e9beb94fbf547545ba57c0a9c937fceb8a662d56091d",
+        "chunk_tokens": 254,
+        "counts": {
+          "checkpoint_load_attempts": 1,
+          "checkpoint_load_returns": 1,
+          "encoder_forward_attempts": 231,
+          "encoder_forward_returns": 231,
+          "encoder_load_attempts": 1,
+          "encoder_load_returns": 1,
+          "encoding_attempts": 130,
+          "encoding_returns": 130,
+          "memory_forward_attempts": 130,
+          "memory_forward_returns": 130,
+          "public_forward_attempts": 130,
+          "public_forward_returns": 130
+        },
+        "dtype": "float32",
+        "encoder_attempted_work": {
+          "encoder_calls": 231,
+          "encoder_sequences": 5327,
+          "padded_attention_positions": 11036729,
+          "padded_token_positions": 234211,
+          "valid_token_positions": 149047
+        },
+        "encoder_batch": 32,
+        "encoder_device": "mps:0",
+        "encoder_returned_work": {
+          "encoder_calls": 231,
+          "encoder_sequences": 5327,
+          "padded_attention_positions": 11036729,
+          "padded_token_positions": 234211,
+          "valid_token_positions": 149047
+        },
+        "encoder_work": {
+          "content_tokens": 138393,
+          "encoder_calls": 231,
+          "encoder_sequences": 5327,
+          "input_texts": 5327,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 11036729,
+          "padded_token_positions": 234211,
+          "padding_token_positions": 85164,
+          "special_token_positions": 10654,
+          "truncated_tokens": 0,
+          "valid_token_positions": 149047
+        },
+        "final_sha256": {
+          "encoder": "6eb608dfaf4afd506e2bf41aad9b0e81726b8c6baca88bf9be4d583ef03aa426",
+          "memory": "2bf54aa4b4763e688255cb794e0fbfe5e57bcde7f4445387e1ad4723bb4b8c24"
+        },
+        "invariants": {
+          "advance_calls": 1288,
+          "advance_returned": 1288,
+          "executed_valid_question_slots": 6230,
+          "feature_checks": 6230,
+          "feature_max_sum_error": 2.0973675418645144e-07,
+          "forward_calls": 130,
+          "forward_returned": 130,
+          "incoming_checks": 6230,
+          "incoming_max_sum_error": 2.599626895971596e-07,
+          "mass_above_one_count": 0,
+          "mass_checks": 6230,
+          "mass_max": 0.9997218251228333,
+          "mass_max_overshoot": 0.0,
+          "mass_min": 0.00010783557081595063,
+          "real_question_updates": 6230,
+          "result_checks": 6230,
+          "result_max_sum_error": 2.599626895971596e-07,
+          "tolerance": 2e-06,
+          "valid_turns": 1288
+        },
+        "memory_device": "cpu",
+        "optimizer_created": false,
+        "restored_sha256": {
+          "encoder": "6eb608dfaf4afd506e2bf41aad9b0e81726b8c6baca88bf9be4d583ef03aa426",
+          "memory": "2bf54aa4b4763e688255cb794e0fbfe5e57bcde7f4445387e1ad4723bb4b8c24"
+        },
+        "scope": "Work from public full-dialogue forwards only; evaluator collection is separate.",
+        "synthetic_injection": false,
+        "temperature_applied": false,
+        "version": "dialogue-calibration-inference-v1"
+      }
+    },
+    {
+      "arm": "trainable_original",
+      "completed_sha256": "da52d6bb1420f0fba437d262396aace065540fd5fe0ff48c420bc4550d72a7f4",
+      "endpoint_rows": 3390,
+      "estimator": {
+        "block": "estimator",
+        "dialogue_ids": [
+          "16_00110",
+          "19_00068",
+          "11_00011",
+          "1_00091",
+          "2_00061",
+          "6_00084",
+          "8_00075",
+          "14_00031",
+          "18_00058",
+          "10_00001",
+          "12_00113",
+          "8_00107",
+          "17_00063",
+          "14_00100",
+          "19_00126",
+          "2_00035",
+          "6_00114",
+          "12_00122",
+          "2_00052",
+          "10_00056",
+          "14_00028",
+          "19_00082",
+          "1_00099",
+          "20_00037",
+          "20_00003",
+          "14_00081",
+          "10_00043",
+          "4_00088",
+          "20_00054",
+          "3_00054",
+          "10_00110",
+          "15_00105",
+          "14_00056",
+          "19_00001",
+          "15_00123",
+          "5_00021",
+          "19_00061",
+          "5_00055",
+          "5_00062",
+          "2_00054",
+          "9_00034",
+          "4_00036",
+          "13_00037",
+          "8_00027",
+          "19_00029",
+          "4_00040",
+          "12_00102",
+          "6_00115",
+          "3_00032",
+          "15_00019",
+          "17_00077",
+          "9_00078",
+          "10_00039",
+          "14_00072",
+          "8_00102",
+          "13_00012",
+          "13_00094",
+          "1_00037",
+          "1_00010",
+          "16_00091",
+          "7_00033",
+          "4_00026",
+          "19_00076",
+          "16_00079"
+        ],
+        "encoder_work": {
+          "content_tokens": 71353,
+          "encoder_calls": 119,
+          "encoder_sequences": 2763,
+          "input_texts": 2763,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 5706362,
+          "padded_token_positions": 121844,
+          "padding_token_positions": 44965,
+          "special_token_positions": 5526,
+          "truncated_tokens": 0,
+          "valid_token_positions": 76879
+        },
+        "endpoint_rows": 1750,
+        "finished_elapsed_seconds": 28.524974875,
+        "parity_maxima": {
+          "maximum_probability_error": 0,
+          "maximum_raw_mass_error": 2.1018196427746716e-07,
+          "maximum_supported_log_error": 0
+        },
+        "seconds": 1.5860933750000008,
+        "started_elapsed_seconds": 26.9388815,
+        "work": {
+          "dialogue_count": 64,
+          "encoder_calls": 119,
+          "padded_attention_positions": 5706362,
+          "real_question_updates": 3276
+        }
+      },
+      "files": {
+        "dialogues.jsonl": {
+          "bytes": 185867,
+          "sha256": "23eccb4ba1f477dad00838f357b3471232a41d5be23fb4fd4525fd1e90411c11"
+        },
+        "forecast.json": {
+          "bytes": 1223,
+          "sha256": "9bcad0cc4df16611c374bb9d7ca0d584df6ce7276d63a5d4eb558729ddf08b06"
+        },
+        "predictions.npz": {
+          "bytes": 190366,
+          "sha256": "e4ae03fafc2ee8886ac68435eb368538499ee743aae9abaed1e2ea269f442e4d"
+        }
+      },
+      "fit_id": "trainable_original-6902",
+      "forecast_published_elapsed_seconds": 28.525782834,
+      "forecast_sha256": "9bcad0cc4df16611c374bb9d7ca0d584df6ce7276d63a5d4eb558729ddf08b06",
+      "loading_seconds": 0.31632387499999837,
+      "prediction_finalization_seconds": 0.0008732090000016512,
+      "seed": 6902,
+      "status": "completed",
+      "verification": {
+        "block": "verification",
+        "dialogue_ids": [
+          "12_00060",
+          "16_00107",
+          "16_00068",
+          "13_00078",
+          "5_00125",
+          "3_00064",
+          "6_00020",
+          "8_00120",
+          "10_00086",
+          "9_00058",
+          "7_00029",
+          "18_00053",
+          "18_00094",
+          "9_00092",
+          "11_00003",
+          "10_00025",
+          "7_00000",
+          "16_00089",
+          "10_00073",
+          "4_00059",
+          "2_00036",
+          "13_00010",
+          "19_00102",
+          "13_00066",
+          "12_00074",
+          "9_00010",
+          "13_00019",
+          "19_00092",
+          "15_00108",
+          "3_00050",
+          "19_00125",
+          "1_00045",
+          "15_00006",
+          "8_00068",
+          "6_00107",
+          "12_00087",
+          "10_00076",
+          "16_00103",
+          "10_00123",
+          "9_00091",
+          "1_00062",
+          "2_00043",
+          "9_00084",
+          "1_00070",
+          "12_00065",
+          "2_00107",
+          "3_00049",
+          "10_00004",
+          "6_00032",
+          "3_00126",
+          "1_00119",
+          "15_00003",
+          "2_00001",
+          "17_00127",
+          "19_00118",
+          "14_00115",
+          "17_00120",
+          "6_00092",
+          "2_00113",
+          "11_00026",
+          "3_00037",
+          "19_00030",
+          "18_00007",
+          "12_00093"
+        ],
+        "encoder_work": {
+          "content_tokens": 65205,
+          "encoder_calls": 109,
+          "encoder_sequences": 2500,
+          "input_texts": 2500,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 4930415,
+          "padded_token_positions": 107743,
+          "padding_token_positions": 37538,
+          "special_token_positions": 5000,
+          "truncated_tokens": 0,
+          "valid_token_positions": 70205
+        },
+        "endpoint_rows": 1594,
+        "finished_elapsed_seconds": 29.941137709,
+        "parity_maxima": {
+          "maximum_probability_error": 0,
+          "maximum_raw_mass_error": 1.9655958771735982e-07,
+          "maximum_supported_log_error": 0
+        },
+        "seconds": 1.415344042000001,
+        "started_elapsed_seconds": 28.525793667,
+        "work": {
+          "dialogue_count": 64,
+          "encoder_calls": 109,
+          "padded_attention_positions": 4930415,
+          "real_question_updates": 2903
+        }
+      },
+      "verification_result": {
+        "actual_over_prediction": 0.4461729883967267,
+        "actual_seconds": 1.415344042000001,
+        "passed": true,
+        "prediction": {
+          "estimation_data": "Entire first 64-dialogue estimator block only; no dropped first-fit or timing outliers",
+          "estimator_seconds": 1.5860933750000008,
+          "estimator_work": {
+            "dialogue_count": 64,
+            "encoder_calls": 119,
+            "padded_attention_positions": 5706362,
+            "real_question_updates": 3276
+          },
+          "fit_id": "trainable_original-6902",
+          "freeze_required": "Publish and bind this record before timing any verification dialogue",
+          "maximum_work_ratio": 1.0,
+          "predicted_seconds": 3.1721867500000016,
+          "safety_factor": 2.0,
+          "verification_work": {
+            "dialogue_count": 64,
+            "encoder_calls": 109,
+            "padded_attention_positions": 4930415,
+            "real_question_updates": 2903
+          },
+          "version": "dialogue-calibration-runtime-v2",
+          "work_ratios": {
+            "dialogue_count": 1.0,
+            "encoder_calls": 0.9159663865546218,
+            "padded_attention_positions": 0.8640207193304595,
+            "real_question_updates": 0.8861416361416361
+          }
+        },
+        "scope": "Verification only; equality passes without epsilon and verification does not refit the estimator",
+        "version": "dialogue-calibration-runtime-v2"
+      },
+      "wall_seconds": 3.448445665999998,
+      "warmup": {
+        "block": "warmup",
+        "dialogue_ids": [
+          "10_00000",
+          "1_00096"
+        ],
+        "encoder_work": {
+          "content_tokens": 1835,
+          "encoder_calls": 3,
+          "encoder_sequences": 64,
+          "input_texts": 64,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 399952,
+          "padded_token_positions": 4624,
+          "padding_token_positions": 2661,
+          "special_token_positions": 128,
+          "truncated_tokens": 0,
+          "valid_token_positions": 1963
+        },
+        "endpoint_rows": 46,
+        "finished_elapsed_seconds": 26.938869292,
+        "parity_maxima": {
+          "maximum_probability_error": 0,
+          "maximum_raw_mass_error": 1.534141060854921e-07,
+          "maximum_supported_log_error": 0
+        },
+        "seconds": 0.05852729200000084,
+        "started_elapsed_seconds": 26.880342,
+        "work": {
+          "dialogue_count": 2,
+          "encoder_calls": 3,
+          "padded_attention_positions": 399952,
+          "real_question_updates": 51
+        }
+      },
+      "witness": {
+        "arm": "trainable_original",
+        "checkpoint_sha256": "a8cf5601bd99993dbb680ab1bee7b95a1c371428fbad5c7ed8ad7efb88d4ad84",
+        "chunk_tokens": 254,
+        "counts": {
+          "checkpoint_load_attempts": 1,
+          "checkpoint_load_returns": 1,
+          "encoder_forward_attempts": 231,
+          "encoder_forward_returns": 231,
+          "encoder_load_attempts": 1,
+          "encoder_load_returns": 1,
+          "encoding_attempts": 130,
+          "encoding_returns": 130,
+          "memory_forward_attempts": 130,
+          "memory_forward_returns": 130,
+          "public_forward_attempts": 130,
+          "public_forward_returns": 130
+        },
+        "dtype": "float32",
+        "encoder_attempted_work": {
+          "encoder_calls": 231,
+          "encoder_sequences": 5327,
+          "padded_attention_positions": 11036729,
+          "padded_token_positions": 234211,
+          "valid_token_positions": 149047
+        },
+        "encoder_batch": 32,
+        "encoder_device": "mps:0",
+        "encoder_returned_work": {
+          "encoder_calls": 231,
+          "encoder_sequences": 5327,
+          "padded_attention_positions": 11036729,
+          "padded_token_positions": 234211,
+          "valid_token_positions": 149047
+        },
+        "encoder_work": {
+          "content_tokens": 138393,
+          "encoder_calls": 231,
+          "encoder_sequences": 5327,
+          "input_texts": 5327,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 11036729,
+          "padded_token_positions": 234211,
+          "padding_token_positions": 85164,
+          "special_token_positions": 10654,
+          "truncated_tokens": 0,
+          "valid_token_positions": 149047
+        },
+        "final_sha256": {
+          "encoder": "0caa4becde115abdbe5ca16bef9652ec762ef33ad688d0d5855a058c15b1d14d",
+          "memory": "0a12da141b6fdf6c209fc009067bf9a586ef3ba7ae995ddfcff9742a226ef200"
+        },
+        "invariants": {
+          "advance_calls": 1288,
+          "advance_returned": 1288,
+          "executed_valid_question_slots": 6230,
+          "feature_checks": 6230,
+          "feature_max_sum_error": 2.3287134354177397e-07,
+          "forward_calls": 130,
+          "forward_returned": 130,
+          "incoming_checks": 6230,
+          "incoming_max_sum_error": 2.3287134354177397e-07,
+          "mass_above_one_count": 0,
+          "mass_checks": 6230,
+          "mass_max": 0.9991952776908875,
+          "mass_max_overshoot": 0.0,
+          "mass_min": 4.829716999665834e-06,
+          "real_question_updates": 6230,
+          "result_checks": 6230,
+          "result_max_sum_error": 2.3287134354177397e-07,
+          "tolerance": 2e-06,
+          "valid_turns": 1288
+        },
+        "memory_device": "cpu",
+        "optimizer_created": false,
+        "restored_sha256": {
+          "encoder": "0caa4becde115abdbe5ca16bef9652ec762ef33ad688d0d5855a058c15b1d14d",
+          "memory": "0a12da141b6fdf6c209fc009067bf9a586ef3ba7ae995ddfcff9742a226ef200"
+        },
+        "scope": "Work from public full-dialogue forwards only; evaluator collection is separate.",
+        "synthetic_injection": false,
+        "temperature_applied": false,
+        "version": "dialogue-calibration-inference-v1"
+      }
+    },
+    {
+      "arm": "trainable_numbers",
+      "completed_sha256": "09c275181879194c415c7fc9605712fd274660a25b547bc1044ec4300f494e0c",
+      "endpoint_rows": 3390,
+      "estimator": {
+        "block": "estimator",
+        "dialogue_ids": [
+          "16_00110",
+          "19_00068",
+          "11_00011",
+          "1_00091",
+          "2_00061",
+          "6_00084",
+          "8_00075",
+          "14_00031",
+          "18_00058",
+          "10_00001",
+          "12_00113",
+          "8_00107",
+          "17_00063",
+          "14_00100",
+          "19_00126",
+          "2_00035",
+          "6_00114",
+          "12_00122",
+          "2_00052",
+          "10_00056",
+          "14_00028",
+          "19_00082",
+          "1_00099",
+          "20_00037",
+          "20_00003",
+          "14_00081",
+          "10_00043",
+          "4_00088",
+          "20_00054",
+          "3_00054",
+          "10_00110",
+          "15_00105",
+          "14_00056",
+          "19_00001",
+          "15_00123",
+          "5_00021",
+          "19_00061",
+          "5_00055",
+          "5_00062",
+          "2_00054",
+          "9_00034",
+          "4_00036",
+          "13_00037",
+          "8_00027",
+          "19_00029",
+          "4_00040",
+          "12_00102",
+          "6_00115",
+          "3_00032",
+          "15_00019",
+          "17_00077",
+          "9_00078",
+          "10_00039",
+          "14_00072",
+          "8_00102",
+          "13_00012",
+          "13_00094",
+          "1_00037",
+          "1_00010",
+          "16_00091",
+          "7_00033",
+          "4_00026",
+          "19_00076",
+          "16_00079"
+        ],
+        "encoder_work": {
+          "content_tokens": 71353,
+          "encoder_calls": 119,
+          "encoder_sequences": 2763,
+          "input_texts": 2763,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 5706362,
+          "padded_token_positions": 121844,
+          "padding_token_positions": 44965,
+          "special_token_positions": 5526,
+          "truncated_tokens": 0,
+          "valid_token_positions": 76879
+        },
+        "endpoint_rows": 1750,
+        "finished_elapsed_seconds": 31.911944042,
+        "parity_maxima": {
+          "maximum_probability_error": 0,
+          "maximum_raw_mass_error": 2.009780346590162e-07,
+          "maximum_supported_log_error": 0
+        },
+        "seconds": 1.461789207999999,
+        "started_elapsed_seconds": 30.450154834,
+        "work": {
+          "dialogue_count": 64,
+          "encoder_calls": 119,
+          "padded_attention_positions": 5706362,
+          "real_question_updates": 3276
+        }
+      },
+      "files": {
+        "dialogues.jsonl": {
+          "bytes": 185887,
+          "sha256": "cd5cffe63c00838e5283f6cc7438a04bde748a1c9267c9f5d9ad3e31924ebd19"
+        },
+        "forecast.json": {
+          "bytes": 1219,
+          "sha256": "8bb2d3038c9ae5c7d6664389e3c5d6e93fd1b10882f946b30e5586cb8e70019b"
+        },
+        "predictions.npz": {
+          "bytes": 190366,
+          "sha256": "e27969ec048d3d2c63ac3eec62ab9fc6644359425252169a3da6ad062932e8c2"
+        }
+      },
+      "fit_id": "trainable_numbers-6902",
+      "forecast_published_elapsed_seconds": 31.912622334,
+      "forecast_sha256": "8bb2d3038c9ae5c7d6664389e3c5d6e93fd1b10882f946b30e5586cb8e70019b",
+      "loading_seconds": 0.28928241599999893,
+      "prediction_finalization_seconds": 0.0007235409999992726,
+      "seed": 6902,
+      "status": "completed",
+      "verification": {
+        "block": "verification",
+        "dialogue_ids": [
+          "12_00060",
+          "16_00107",
+          "16_00068",
+          "13_00078",
+          "5_00125",
+          "3_00064",
+          "6_00020",
+          "8_00120",
+          "10_00086",
+          "9_00058",
+          "7_00029",
+          "18_00053",
+          "18_00094",
+          "9_00092",
+          "11_00003",
+          "10_00025",
+          "7_00000",
+          "16_00089",
+          "10_00073",
+          "4_00059",
+          "2_00036",
+          "13_00010",
+          "19_00102",
+          "13_00066",
+          "12_00074",
+          "9_00010",
+          "13_00019",
+          "19_00092",
+          "15_00108",
+          "3_00050",
+          "19_00125",
+          "1_00045",
+          "15_00006",
+          "8_00068",
+          "6_00107",
+          "12_00087",
+          "10_00076",
+          "16_00103",
+          "10_00123",
+          "9_00091",
+          "1_00062",
+          "2_00043",
+          "9_00084",
+          "1_00070",
+          "12_00065",
+          "2_00107",
+          "3_00049",
+          "10_00004",
+          "6_00032",
+          "3_00126",
+          "1_00119",
+          "15_00003",
+          "2_00001",
+          "17_00127",
+          "19_00118",
+          "14_00115",
+          "17_00120",
+          "6_00092",
+          "2_00113",
+          "11_00026",
+          "3_00037",
+          "19_00030",
+          "18_00007",
+          "12_00093"
+        ],
+        "encoder_work": {
+          "content_tokens": 65205,
+          "encoder_calls": 109,
+          "encoder_sequences": 2500,
+          "input_texts": 2500,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 4930415,
+          "padded_token_positions": 107743,
+          "padding_token_positions": 37538,
+          "special_token_positions": 5000,
+          "truncated_tokens": 0,
+          "valid_token_positions": 70205
+        },
+        "endpoint_rows": 1594,
+        "finished_elapsed_seconds": 33.265702959,
+        "parity_maxima": {
+          "maximum_probability_error": 0,
+          "maximum_raw_mass_error": 1.947834668003523e-07,
+          "maximum_supported_log_error": 0
+        },
+        "seconds": 1.3530760840000013,
+        "started_elapsed_seconds": 31.912626875,
+        "work": {
+          "dialogue_count": 64,
+          "encoder_calls": 109,
+          "padded_attention_positions": 4930415,
+          "real_question_updates": 2903
+        }
+      },
+      "verification_result": {
+        "actual_over_prediction": 0.46281504768093834,
+        "actual_seconds": 1.3530760840000013,
+        "passed": true,
+        "prediction": {
+          "estimation_data": "Entire first 64-dialogue estimator block only; no dropped first-fit or timing outliers",
+          "estimator_seconds": 1.461789207999999,
+          "estimator_work": {
+            "dialogue_count": 64,
+            "encoder_calls": 119,
+            "padded_attention_positions": 5706362,
+            "real_question_updates": 3276
+          },
+          "fit_id": "trainable_numbers-6902",
+          "freeze_required": "Publish and bind this record before timing any verification dialogue",
+          "maximum_work_ratio": 1.0,
+          "predicted_seconds": 2.923578415999998,
+          "safety_factor": 2.0,
+          "verification_work": {
+            "dialogue_count": 64,
+            "encoder_calls": 109,
+            "padded_attention_positions": 4930415,
+            "real_question_updates": 2903
+          },
+          "version": "dialogue-calibration-runtime-v2",
+          "work_ratios": {
+            "dialogue_count": 1.0,
+            "encoder_calls": 0.9159663865546218,
+            "padded_attention_positions": 0.8640207193304595,
+            "real_question_updates": 0.8861416361416361
+          }
+        },
+        "scope": "Verification only; equality passes without epsilon and verification does not refit the estimator",
+        "version": "dialogue-calibration-runtime-v2"
+      },
+      "wall_seconds": 3.236755624999997,
+      "warmup": {
+        "block": "warmup",
+        "dialogue_ids": [
+          "10_00000",
+          "1_00096"
+        ],
+        "encoder_work": {
+          "content_tokens": 1835,
+          "encoder_calls": 3,
+          "encoder_sequences": 64,
+          "input_texts": 64,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 399952,
+          "padded_token_positions": 4624,
+          "padding_token_positions": 2661,
+          "special_token_positions": 128,
+          "truncated_tokens": 0,
+          "valid_token_positions": 1963
+        },
+        "endpoint_rows": 46,
+        "finished_elapsed_seconds": 30.450141792,
+        "parity_maxima": {
+          "maximum_probability_error": 0,
+          "maximum_raw_mass_error": 1.8671177848261777e-07,
+          "maximum_supported_log_error": 0
+        },
+        "seconds": 0.06073541700000007,
+        "started_elapsed_seconds": 30.389406375,
+        "work": {
+          "dialogue_count": 2,
+          "encoder_calls": 3,
+          "padded_attention_positions": 399952,
+          "real_question_updates": 51
+        }
+      },
+      "witness": {
+        "arm": "trainable_numbers",
+        "checkpoint_sha256": "332f7a857273bca21050c08a0075c06e4121499eb7cf03a20ae3439dacd4ac7b",
+        "chunk_tokens": 254,
+        "counts": {
+          "checkpoint_load_attempts": 1,
+          "checkpoint_load_returns": 1,
+          "encoder_forward_attempts": 231,
+          "encoder_forward_returns": 231,
+          "encoder_load_attempts": 1,
+          "encoder_load_returns": 1,
+          "encoding_attempts": 130,
+          "encoding_returns": 130,
+          "memory_forward_attempts": 130,
+          "memory_forward_returns": 130,
+          "public_forward_attempts": 130,
+          "public_forward_returns": 130
+        },
+        "dtype": "float32",
+        "encoder_attempted_work": {
+          "encoder_calls": 231,
+          "encoder_sequences": 5327,
+          "padded_attention_positions": 11036729,
+          "padded_token_positions": 234211,
+          "valid_token_positions": 149047
+        },
+        "encoder_batch": 32,
+        "encoder_device": "mps:0",
+        "encoder_returned_work": {
+          "encoder_calls": 231,
+          "encoder_sequences": 5327,
+          "padded_attention_positions": 11036729,
+          "padded_token_positions": 234211,
+          "valid_token_positions": 149047
+        },
+        "encoder_work": {
+          "content_tokens": 138393,
+          "encoder_calls": 231,
+          "encoder_sequences": 5327,
+          "input_texts": 5327,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 11036729,
+          "padded_token_positions": 234211,
+          "padding_token_positions": 85164,
+          "special_token_positions": 10654,
+          "truncated_tokens": 0,
+          "valid_token_positions": 149047
+        },
+        "final_sha256": {
+          "encoder": "1a3a6fca6ecac2b70a304acb9256195d8e03149b9bdbeb34f7295afb6a867f2e",
+          "memory": "24a13ae42aa8ce78dac27b25d7b68cf659569353bb225241f7130d832e849787"
+        },
+        "invariants": {
+          "advance_calls": 1288,
+          "advance_returned": 1288,
+          "executed_valid_question_slots": 6230,
+          "feature_checks": 6230,
+          "feature_max_sum_error": 2.1910762804111528e-07,
+          "forward_calls": 130,
+          "forward_returned": 130,
+          "incoming_checks": 6230,
+          "incoming_max_sum_error": 2.1910762804111528e-07,
+          "mass_above_one_count": 0,
+          "mass_checks": 6230,
+          "mass_max": 0.9993927478790283,
+          "mass_max_overshoot": 0.0,
+          "mass_min": 8.100690138235223e-06,
+          "real_question_updates": 6230,
+          "result_checks": 6230,
+          "result_max_sum_error": 2.1910762804111528e-07,
+          "tolerance": 2e-06,
+          "valid_turns": 1288
+        },
+        "memory_device": "cpu",
+        "optimizer_created": false,
+        "restored_sha256": {
+          "encoder": "1a3a6fca6ecac2b70a304acb9256195d8e03149b9bdbeb34f7295afb6a867f2e",
+          "memory": "24a13ae42aa8ce78dac27b25d7b68cf659569353bb225241f7130d832e849787"
+        },
+        "scope": "Work from public full-dialogue forwards only; evaluator collection is separate.",
+        "synthetic_injection": false,
+        "temperature_applied": false,
+        "version": "dialogue-calibration-inference-v1"
+      }
+    },
+    {
+      "arm": "frozen_original",
+      "completed_sha256": "d4aff7b1b9fe83d52134f4af57c41d7b0281cd98d3ff6f0718cf4353c25decf3",
+      "endpoint_rows": 3390,
+      "estimator": {
+        "block": "estimator",
+        "dialogue_ids": [
+          "16_00110",
+          "19_00068",
+          "11_00011",
+          "1_00091",
+          "2_00061",
+          "6_00084",
+          "8_00075",
+          "14_00031",
+          "18_00058",
+          "10_00001",
+          "12_00113",
+          "8_00107",
+          "17_00063",
+          "14_00100",
+          "19_00126",
+          "2_00035",
+          "6_00114",
+          "12_00122",
+          "2_00052",
+          "10_00056",
+          "14_00028",
+          "19_00082",
+          "1_00099",
+          "20_00037",
+          "20_00003",
+          "14_00081",
+          "10_00043",
+          "4_00088",
+          "20_00054",
+          "3_00054",
+          "10_00110",
+          "15_00105",
+          "14_00056",
+          "19_00001",
+          "15_00123",
+          "5_00021",
+          "19_00061",
+          "5_00055",
+          "5_00062",
+          "2_00054",
+          "9_00034",
+          "4_00036",
+          "13_00037",
+          "8_00027",
+          "19_00029",
+          "4_00040",
+          "12_00102",
+          "6_00115",
+          "3_00032",
+          "15_00019",
+          "17_00077",
+          "9_00078",
+          "10_00039",
+          "14_00072",
+          "8_00102",
+          "13_00012",
+          "13_00094",
+          "1_00037",
+          "1_00010",
+          "16_00091",
+          "7_00033",
+          "4_00026",
+          "19_00076",
+          "16_00079"
+        ],
+        "encoder_work": {
+          "content_tokens": 71353,
+          "encoder_calls": 119,
+          "encoder_sequences": 2763,
+          "input_texts": 2763,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 5706362,
+          "padded_token_positions": 121844,
+          "padding_token_positions": 44965,
+          "special_token_positions": 5526,
+          "truncated_tokens": 0,
+          "valid_token_positions": 76879
+        },
+        "endpoint_rows": 1750,
+        "finished_elapsed_seconds": 35.230629334,
+        "parity_maxima": {
+          "maximum_probability_error": 0,
+          "maximum_raw_mass_error": 1.6613187492353632e-07,
+          "maximum_supported_log_error": 0
+        },
+        "seconds": 1.5348986670000002,
+        "started_elapsed_seconds": 33.695730667,
+        "work": {
+          "dialogue_count": 64,
+          "encoder_calls": 119,
+          "padded_attention_positions": 5706362,
+          "real_question_updates": 3276
+        }
+      },
+      "files": {
+        "dialogues.jsonl": {
+          "bytes": 185746,
+          "sha256": "5e2471513afa68cf24a92508d8cf341a2c5308f489197bf0f6560fc7b157017c"
+        },
+        "forecast.json": {
+          "bytes": 1217,
+          "sha256": "1e284ce0c2018b8e550ac71e66e92f34f4a4d5bdf38f735e752545f567339e11"
+        },
+        "predictions.npz": {
+          "bytes": 190366,
+          "sha256": "c42d756cf4ea0f61d6afff71df7263d03687c71111eb06157a8199c05f2f17d2"
+        }
+      },
+      "fit_id": "frozen_original-6903",
+      "forecast_published_elapsed_seconds": 35.231393792,
+      "forecast_sha256": "1e284ce0c2018b8e550ac71e66e92f34f4a4d5bdf38f735e752545f567339e11",
+      "loading_seconds": 0.20025795900000531,
+      "prediction_finalization_seconds": 0.0009139579999981606,
+      "seed": 6903,
+      "status": "completed",
+      "verification": {
+        "block": "verification",
+        "dialogue_ids": [
+          "12_00060",
+          "16_00107",
+          "16_00068",
+          "13_00078",
+          "5_00125",
+          "3_00064",
+          "6_00020",
+          "8_00120",
+          "10_00086",
+          "9_00058",
+          "7_00029",
+          "18_00053",
+          "18_00094",
+          "9_00092",
+          "11_00003",
+          "10_00025",
+          "7_00000",
+          "16_00089",
+          "10_00073",
+          "4_00059",
+          "2_00036",
+          "13_00010",
+          "19_00102",
+          "13_00066",
+          "12_00074",
+          "9_00010",
+          "13_00019",
+          "19_00092",
+          "15_00108",
+          "3_00050",
+          "19_00125",
+          "1_00045",
+          "15_00006",
+          "8_00068",
+          "6_00107",
+          "12_00087",
+          "10_00076",
+          "16_00103",
+          "10_00123",
+          "9_00091",
+          "1_00062",
+          "2_00043",
+          "9_00084",
+          "1_00070",
+          "12_00065",
+          "2_00107",
+          "3_00049",
+          "10_00004",
+          "6_00032",
+          "3_00126",
+          "1_00119",
+          "15_00003",
+          "2_00001",
+          "17_00127",
+          "19_00118",
+          "14_00115",
+          "17_00120",
+          "6_00092",
+          "2_00113",
+          "11_00026",
+          "3_00037",
+          "19_00030",
+          "18_00007",
+          "12_00093"
+        ],
+        "encoder_work": {
+          "content_tokens": 65205,
+          "encoder_calls": 109,
+          "encoder_sequences": 2500,
+          "input_texts": 2500,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 4930415,
+          "padded_token_positions": 107743,
+          "padding_token_positions": 37538,
+          "special_token_positions": 5000,
+          "truncated_tokens": 0,
+          "valid_token_positions": 70205
+        },
+        "endpoint_rows": 1594,
+        "finished_elapsed_seconds": 36.627063875,
+        "parity_maxima": {
+          "maximum_probability_error": 0,
+          "maximum_raw_mass_error": 2.0691756885682366e-07,
+          "maximum_supported_log_error": 0
+        },
+        "seconds": 1.395665000000001,
+        "started_elapsed_seconds": 35.231398875,
+        "work": {
+          "dialogue_count": 64,
+          "encoder_calls": 109,
+          "padded_attention_positions": 4930415,
+          "real_question_updates": 2903
+        }
+      },
+      "verification_result": {
+        "actual_over_prediction": 0.45464401983222286,
+        "actual_seconds": 1.395665000000001,
+        "passed": true,
+        "prediction": {
+          "estimation_data": "Entire first 64-dialogue estimator block only; no dropped first-fit or timing outliers",
+          "estimator_seconds": 1.5348986670000002,
+          "estimator_work": {
+            "dialogue_count": 64,
+            "encoder_calls": 119,
+            "padded_attention_positions": 5706362,
+            "real_question_updates": 3276
+          },
+          "fit_id": "frozen_original-6903",
+          "freeze_required": "Publish and bind this record before timing any verification dialogue",
+          "maximum_work_ratio": 1.0,
+          "predicted_seconds": 3.0697973340000004,
+          "safety_factor": 2.0,
+          "verification_work": {
+            "dialogue_count": 64,
+            "encoder_calls": 109,
+            "padded_attention_positions": 4930415,
+            "real_question_updates": 2903
+          },
+          "version": "dialogue-calibration-runtime-v2",
+          "work_ratios": {
+            "dialogue_count": 1.0,
+            "encoder_calls": 0.9159663865546218,
+            "padded_attention_positions": 0.8640207193304595,
+            "real_question_updates": 0.8861416361416361
+          }
+        },
+        "scope": "Verification only; equality passes without epsilon and verification does not refit the estimator",
+        "version": "dialogue-calibration-runtime-v2"
+      },
+      "wall_seconds": 3.261779582999999,
+      "warmup": {
+        "block": "warmup",
+        "dialogue_ids": [
+          "10_00000",
+          "1_00096"
+        ],
+        "encoder_work": {
+          "content_tokens": 1835,
+          "encoder_calls": 3,
+          "encoder_sequences": 64,
+          "input_texts": 64,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 399952,
+          "padded_token_positions": 4624,
+          "padding_token_positions": 2661,
+          "special_token_positions": 128,
+          "truncated_tokens": 0,
+          "valid_token_positions": 1963
+        },
+        "endpoint_rows": 46,
+        "finished_elapsed_seconds": 33.695718292,
+        "parity_maxima": {
+          "maximum_probability_error": 0,
+          "maximum_raw_mass_error": 1.2324831155652305e-07,
+          "maximum_supported_log_error": 0
+        },
+        "seconds": 0.05523525000000262,
+        "started_elapsed_seconds": 33.640483042,
+        "work": {
+          "dialogue_count": 2,
+          "encoder_calls": 3,
+          "padded_attention_positions": 399952,
+          "real_question_updates": 51
+        }
+      },
+      "witness": {
+        "arm": "frozen_original",
+        "checkpoint_sha256": "6d42f7021ccb035ca14ebd124007e587ea84ab2c93056e97cf84387c309f6689",
+        "chunk_tokens": 254,
+        "counts": {
+          "checkpoint_load_attempts": 1,
+          "checkpoint_load_returns": 1,
+          "encoder_forward_attempts": 231,
+          "encoder_forward_returns": 231,
+          "encoder_load_attempts": 1,
+          "encoder_load_returns": 1,
+          "encoding_attempts": 130,
+          "encoding_returns": 130,
+          "memory_forward_attempts": 130,
+          "memory_forward_returns": 130,
+          "public_forward_attempts": 130,
+          "public_forward_returns": 130
+        },
+        "dtype": "float32",
+        "encoder_attempted_work": {
+          "encoder_calls": 231,
+          "encoder_sequences": 5327,
+          "padded_attention_positions": 11036729,
+          "padded_token_positions": 234211,
+          "valid_token_positions": 149047
+        },
+        "encoder_batch": 32,
+        "encoder_device": "mps:0",
+        "encoder_returned_work": {
+          "encoder_calls": 231,
+          "encoder_sequences": 5327,
+          "padded_attention_positions": 11036729,
+          "padded_token_positions": 234211,
+          "valid_token_positions": 149047
+        },
+        "encoder_work": {
+          "content_tokens": 138393,
+          "encoder_calls": 231,
+          "encoder_sequences": 5327,
+          "input_texts": 5327,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 11036729,
+          "padded_token_positions": 234211,
+          "padding_token_positions": 85164,
+          "special_token_positions": 10654,
+          "truncated_tokens": 0,
+          "valid_token_positions": 149047
+        },
+        "final_sha256": {
+          "encoder": "6eb608dfaf4afd506e2bf41aad9b0e81726b8c6baca88bf9be4d583ef03aa426",
+          "memory": "7efaa8e86f384b955b7b7c29315d52218b59ea199c5e582ae22eaffddbde0689"
+        },
+        "invariants": {
+          "advance_calls": 1288,
+          "advance_returned": 1288,
+          "executed_valid_question_slots": 6230,
+          "feature_checks": 6230,
+          "feature_max_sum_error": 2.0459992811083794e-07,
+          "forward_calls": 130,
+          "forward_returned": 130,
+          "incoming_checks": 6230,
+          "incoming_max_sum_error": 2.0459992811083794e-07,
+          "mass_above_one_count": 0,
+          "mass_checks": 6230,
+          "mass_max": 0.9997716546058655,
+          "mass_max_overshoot": 0.0,
+          "mass_min": 3.677625863929279e-05,
+          "real_question_updates": 6230,
+          "result_checks": 6230,
+          "result_max_sum_error": 2.582964953035116e-07,
+          "tolerance": 2e-06,
+          "valid_turns": 1288
+        },
+        "memory_device": "cpu",
+        "optimizer_created": false,
+        "restored_sha256": {
+          "encoder": "6eb608dfaf4afd506e2bf41aad9b0e81726b8c6baca88bf9be4d583ef03aa426",
+          "memory": "7efaa8e86f384b955b7b7c29315d52218b59ea199c5e582ae22eaffddbde0689"
+        },
+        "scope": "Work from public full-dialogue forwards only; evaluator collection is separate.",
+        "synthetic_injection": false,
+        "temperature_applied": false,
+        "version": "dialogue-calibration-inference-v1"
+      }
+    },
+    {
+      "arm": "frozen_numbers",
+      "completed_sha256": "747e036313cbcdb52e2a7f2bacfdcb85e5266b948c2139293bf68dbf32217089",
+      "endpoint_rows": 3390,
+      "estimator": {
+        "block": "estimator",
+        "dialogue_ids": [
+          "16_00110",
+          "19_00068",
+          "11_00011",
+          "1_00091",
+          "2_00061",
+          "6_00084",
+          "8_00075",
+          "14_00031",
+          "18_00058",
+          "10_00001",
+          "12_00113",
+          "8_00107",
+          "17_00063",
+          "14_00100",
+          "19_00126",
+          "2_00035",
+          "6_00114",
+          "12_00122",
+          "2_00052",
+          "10_00056",
+          "14_00028",
+          "19_00082",
+          "1_00099",
+          "20_00037",
+          "20_00003",
+          "14_00081",
+          "10_00043",
+          "4_00088",
+          "20_00054",
+          "3_00054",
+          "10_00110",
+          "15_00105",
+          "14_00056",
+          "19_00001",
+          "15_00123",
+          "5_00021",
+          "19_00061",
+          "5_00055",
+          "5_00062",
+          "2_00054",
+          "9_00034",
+          "4_00036",
+          "13_00037",
+          "8_00027",
+          "19_00029",
+          "4_00040",
+          "12_00102",
+          "6_00115",
+          "3_00032",
+          "15_00019",
+          "17_00077",
+          "9_00078",
+          "10_00039",
+          "14_00072",
+          "8_00102",
+          "13_00012",
+          "13_00094",
+          "1_00037",
+          "1_00010",
+          "16_00091",
+          "7_00033",
+          "4_00026",
+          "19_00076",
+          "16_00079"
+        ],
+        "encoder_work": {
+          "content_tokens": 71353,
+          "encoder_calls": 119,
+          "encoder_sequences": 2763,
+          "input_texts": 2763,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 5706362,
+          "padded_token_positions": 121844,
+          "padding_token_positions": 44965,
+          "special_token_positions": 5526,
+          "truncated_tokens": 0,
+          "valid_token_positions": 76879
+        },
+        "endpoint_rows": 1750,
+        "finished_elapsed_seconds": 38.716658542,
+        "parity_maxima": {
+          "maximum_probability_error": 0,
+          "maximum_raw_mass_error": 2.0397025513041456e-07,
+          "maximum_supported_log_error": 0
+        },
+        "seconds": 1.6101734579999984,
+        "started_elapsed_seconds": 37.106485084,
+        "work": {
+          "dialogue_count": 64,
+          "encoder_calls": 119,
+          "padded_attention_positions": 5706362,
+          "real_question_updates": 3276
+        }
+      },
+      "files": {
+        "dialogues.jsonl": {
+          "bytes": 185717,
+          "sha256": "d0d5410d455733f31642779d025bcb670e0312e13a16710afb73db88b6319bea"
+        },
+        "forecast.json": {
+          "bytes": 1214,
+          "sha256": "927ffe688a0424814c193c52be768d9f3960e780030c8caf830181eac161ff35"
+        },
+        "predictions.npz": {
+          "bytes": 190366,
+          "sha256": "3ed3f7c8de4a60d6f114400f7e3e714b9cd0d3a61dbfadd953e8f8a2c801c4fe"
+        }
+      },
+      "fit_id": "frozen_numbers-6903",
+      "forecast_published_elapsed_seconds": 38.717612042,
+      "forecast_sha256": "927ffe688a0424814c193c52be768d9f3960e780030c8caf830181eac161ff35",
+      "loading_seconds": 0.24626087500000438,
+      "prediction_finalization_seconds": 0.0010071250000009968,
+      "seed": 6903,
+      "status": "completed",
+      "verification": {
+        "block": "verification",
+        "dialogue_ids": [
+          "12_00060",
+          "16_00107",
+          "16_00068",
+          "13_00078",
+          "5_00125",
+          "3_00064",
+          "6_00020",
+          "8_00120",
+          "10_00086",
+          "9_00058",
+          "7_00029",
+          "18_00053",
+          "18_00094",
+          "9_00092",
+          "11_00003",
+          "10_00025",
+          "7_00000",
+          "16_00089",
+          "10_00073",
+          "4_00059",
+          "2_00036",
+          "13_00010",
+          "19_00102",
+          "13_00066",
+          "12_00074",
+          "9_00010",
+          "13_00019",
+          "19_00092",
+          "15_00108",
+          "3_00050",
+          "19_00125",
+          "1_00045",
+          "15_00006",
+          "8_00068",
+          "6_00107",
+          "12_00087",
+          "10_00076",
+          "16_00103",
+          "10_00123",
+          "9_00091",
+          "1_00062",
+          "2_00043",
+          "9_00084",
+          "1_00070",
+          "12_00065",
+          "2_00107",
+          "3_00049",
+          "10_00004",
+          "6_00032",
+          "3_00126",
+          "1_00119",
+          "15_00003",
+          "2_00001",
+          "17_00127",
+          "19_00118",
+          "14_00115",
+          "17_00120",
+          "6_00092",
+          "2_00113",
+          "11_00026",
+          "3_00037",
+          "19_00030",
+          "18_00007",
+          "12_00093"
+        ],
+        "encoder_work": {
+          "content_tokens": 65205,
+          "encoder_calls": 109,
+          "encoder_sequences": 2500,
+          "input_texts": 2500,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 4930415,
+          "padded_token_positions": 107743,
+          "padding_token_positions": 37538,
+          "special_token_positions": 5000,
+          "truncated_tokens": 0,
+          "valid_token_positions": 70205
+        },
+        "endpoint_rows": 1594,
+        "finished_elapsed_seconds": 40.417142625,
+        "parity_maxima": {
+          "maximum_probability_error": 0,
+          "maximum_raw_mass_error": 1.7640898541948502e-07,
+          "maximum_supported_log_error": 0
+        },
+        "seconds": 1.6995227909999997,
+        "started_elapsed_seconds": 38.717619834,
+        "work": {
+          "dialogue_count": 64,
+          "encoder_calls": 109,
+          "padded_attention_positions": 4930415,
+          "real_question_updates": 2903
+        }
+      },
+      "verification_result": {
+        "actual_over_prediction": 0.5277452508473783,
+        "actual_seconds": 1.6995227909999997,
+        "passed": true,
+        "prediction": {
+          "estimation_data": "Entire first 64-dialogue estimator block only; no dropped first-fit or timing outliers",
+          "estimator_seconds": 1.6101734579999984,
+          "estimator_work": {
+            "dialogue_count": 64,
+            "encoder_calls": 119,
+            "padded_attention_positions": 5706362,
+            "real_question_updates": 3276
+          },
+          "fit_id": "frozen_numbers-6903",
+          "freeze_required": "Publish and bind this record before timing any verification dialogue",
+          "maximum_work_ratio": 1.0,
+          "predicted_seconds": 3.220346915999997,
+          "safety_factor": 2.0,
+          "verification_work": {
+            "dialogue_count": 64,
+            "encoder_calls": 109,
+            "padded_attention_positions": 4930415,
+            "real_question_updates": 2903
+          },
+          "version": "dialogue-calibration-runtime-v2",
+          "work_ratios": {
+            "dialogue_count": 1.0,
+            "encoder_calls": 0.9159663865546218,
+            "padded_attention_positions": 0.8640207193304595,
+            "real_question_updates": 0.8861416361416361
+          }
+        },
+        "scope": "Verification only; equality passes without epsilon and verification does not refit the estimator",
+        "version": "dialogue-calibration-runtime-v2"
+      },
+      "wall_seconds": 3.699866541000006,
+      "warmup": {
+        "block": "warmup",
+        "dialogue_ids": [
+          "10_00000",
+          "1_00096"
+        ],
+        "encoder_work": {
+          "content_tokens": 1835,
+          "encoder_calls": 3,
+          "encoder_sequences": 64,
+          "input_texts": 64,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 399952,
+          "padded_token_positions": 4624,
+          "padding_token_positions": 2661,
+          "special_token_positions": 128,
+          "truncated_tokens": 0,
+          "valid_token_positions": 1963
+        },
+        "endpoint_rows": 46,
+        "finished_elapsed_seconds": 37.106472417,
+        "parity_maxima": {
+          "maximum_probability_error": 0,
+          "maximum_raw_mass_error": 1.0598838673381294e-07,
+          "maximum_supported_log_error": 0
+        },
+        "seconds": 0.05705816700000099,
+        "started_elapsed_seconds": 37.04941425,
+        "work": {
+          "dialogue_count": 2,
+          "encoder_calls": 3,
+          "padded_attention_positions": 399952,
+          "real_question_updates": 51
+        }
+      },
+      "witness": {
+        "arm": "frozen_numbers",
+        "checkpoint_sha256": "30d4bee7d4df3781aa93c348fe845374080aca4a8d3aa4dc320742146dff2c4a",
+        "chunk_tokens": 254,
+        "counts": {
+          "checkpoint_load_attempts": 1,
+          "checkpoint_load_returns": 1,
+          "encoder_forward_attempts": 231,
+          "encoder_forward_returns": 231,
+          "encoder_load_attempts": 1,
+          "encoder_load_returns": 1,
+          "encoding_attempts": 130,
+          "encoding_returns": 130,
+          "memory_forward_attempts": 130,
+          "memory_forward_returns": 130,
+          "public_forward_attempts": 130,
+          "public_forward_returns": 130
+        },
+        "dtype": "float32",
+        "encoder_attempted_work": {
+          "encoder_calls": 231,
+          "encoder_sequences": 5327,
+          "padded_attention_positions": 11036729,
+          "padded_token_positions": 234211,
+          "valid_token_positions": 149047
+        },
+        "encoder_batch": 32,
+        "encoder_device": "mps:0",
+        "encoder_returned_work": {
+          "encoder_calls": 231,
+          "encoder_sequences": 5327,
+          "padded_attention_positions": 11036729,
+          "padded_token_positions": 234211,
+          "valid_token_positions": 149047
+        },
+        "encoder_work": {
+          "content_tokens": 138393,
+          "encoder_calls": 231,
+          "encoder_sequences": 5327,
+          "input_texts": 5327,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 11036729,
+          "padded_token_positions": 234211,
+          "padding_token_positions": 85164,
+          "special_token_positions": 10654,
+          "truncated_tokens": 0,
+          "valid_token_positions": 149047
+        },
+        "final_sha256": {
+          "encoder": "6eb608dfaf4afd506e2bf41aad9b0e81726b8c6baca88bf9be4d583ef03aa426",
+          "memory": "bc9cfdf4db2436d552faa9c043709f8b1ff02c8eb11e05f9722f0c9db2fc9475"
+        },
+        "invariants": {
+          "advance_calls": 1288,
+          "advance_returned": 1288,
+          "executed_valid_question_slots": 6230,
+          "feature_checks": 6230,
+          "feature_max_sum_error": 1.9679282559081912e-07,
+          "forward_calls": 130,
+          "forward_returned": 130,
+          "incoming_checks": 6230,
+          "incoming_max_sum_error": 2.2351741790771484e-07,
+          "mass_above_one_count": 0,
+          "mass_checks": 6230,
+          "mass_max": 0.9998038411140442,
+          "mass_max_overshoot": 0.0,
+          "mass_min": 1.3743332601734437e-05,
+          "real_question_updates": 6230,
+          "result_checks": 6230,
+          "result_max_sum_error": 2.2351741790771484e-07,
+          "tolerance": 2e-06,
+          "valid_turns": 1288
+        },
+        "memory_device": "cpu",
+        "optimizer_created": false,
+        "restored_sha256": {
+          "encoder": "6eb608dfaf4afd506e2bf41aad9b0e81726b8c6baca88bf9be4d583ef03aa426",
+          "memory": "bc9cfdf4db2436d552faa9c043709f8b1ff02c8eb11e05f9722f0c9db2fc9475"
+        },
+        "scope": "Work from public full-dialogue forwards only; evaluator collection is separate.",
+        "synthetic_injection": false,
+        "temperature_applied": false,
+        "version": "dialogue-calibration-inference-v1"
+      }
+    },
+    {
+      "arm": "trainable_original",
+      "completed_sha256": "e7ed3666c2f4ef737375f42495f600e64c40e845ae4d2955743f986a265d621c",
+      "endpoint_rows": 3390,
+      "estimator": {
+        "block": "estimator",
+        "dialogue_ids": [
+          "16_00110",
+          "19_00068",
+          "11_00011",
+          "1_00091",
+          "2_00061",
+          "6_00084",
+          "8_00075",
+          "14_00031",
+          "18_00058",
+          "10_00001",
+          "12_00113",
+          "8_00107",
+          "17_00063",
+          "14_00100",
+          "19_00126",
+          "2_00035",
+          "6_00114",
+          "12_00122",
+          "2_00052",
+          "10_00056",
+          "14_00028",
+          "19_00082",
+          "1_00099",
+          "20_00037",
+          "20_00003",
+          "14_00081",
+          "10_00043",
+          "4_00088",
+          "20_00054",
+          "3_00054",
+          "10_00110",
+          "15_00105",
+          "14_00056",
+          "19_00001",
+          "15_00123",
+          "5_00021",
+          "19_00061",
+          "5_00055",
+          "5_00062",
+          "2_00054",
+          "9_00034",
+          "4_00036",
+          "13_00037",
+          "8_00027",
+          "19_00029",
+          "4_00040",
+          "12_00102",
+          "6_00115",
+          "3_00032",
+          "15_00019",
+          "17_00077",
+          "9_00078",
+          "10_00039",
+          "14_00072",
+          "8_00102",
+          "13_00012",
+          "13_00094",
+          "1_00037",
+          "1_00010",
+          "16_00091",
+          "7_00033",
+          "4_00026",
+          "19_00076",
+          "16_00079"
+        ],
+        "encoder_work": {
+          "content_tokens": 71353,
+          "encoder_calls": 119,
+          "encoder_sequences": 2763,
+          "input_texts": 2763,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 5706362,
+          "padded_token_positions": 121844,
+          "padding_token_positions": 44965,
+          "special_token_positions": 5526,
+          "truncated_tokens": 0,
+          "valid_token_positions": 76879
+        },
+        "endpoint_rows": 1750,
+        "finished_elapsed_seconds": 42.906361292,
+        "parity_maxima": {
+          "maximum_probability_error": 0,
+          "maximum_raw_mass_error": 1.8715752680975584e-07,
+          "maximum_supported_log_error": 0
+        },
+        "seconds": 1.8602464579999989,
+        "started_elapsed_seconds": 41.046114834,
+        "work": {
+          "dialogue_count": 64,
+          "encoder_calls": 119,
+          "padded_attention_positions": 5706362,
+          "real_question_updates": 3276
+        }
+      },
+      "files": {
+        "dialogues.jsonl": {
+          "bytes": 185841,
+          "sha256": "655342d08db93697e602f795303d193e257cca2cbf2c4cfdae3050d3b8e2a7d3"
+        },
+        "forecast.json": {
+          "bytes": 1223,
+          "sha256": "649f81d446d44e8d10e58afe6987623b5b61ec4985c717a124dcd63fb6959079"
+        },
+        "predictions.npz": {
+          "bytes": 190366,
+          "sha256": "551f2bc47fcb227f29b3de59dc62a3018344522e2016418d15247cc4bdbdda7f"
+        }
+      },
+      "fit_id": "trainable_original-6903",
+      "forecast_published_elapsed_seconds": 42.907240917,
+      "forecast_sha256": "649f81d446d44e8d10e58afe6987623b5b61ec4985c717a124dcd63fb6959079",
+      "loading_seconds": 0.3705842080000039,
+      "prediction_finalization_seconds": 0.0008924159999992298,
+      "seed": 6903,
+      "status": "completed",
+      "verification": {
+        "block": "verification",
+        "dialogue_ids": [
+          "12_00060",
+          "16_00107",
+          "16_00068",
+          "13_00078",
+          "5_00125",
+          "3_00064",
+          "6_00020",
+          "8_00120",
+          "10_00086",
+          "9_00058",
+          "7_00029",
+          "18_00053",
+          "18_00094",
+          "9_00092",
+          "11_00003",
+          "10_00025",
+          "7_00000",
+          "16_00089",
+          "10_00073",
+          "4_00059",
+          "2_00036",
+          "13_00010",
+          "19_00102",
+          "13_00066",
+          "12_00074",
+          "9_00010",
+          "13_00019",
+          "19_00092",
+          "15_00108",
+          "3_00050",
+          "19_00125",
+          "1_00045",
+          "15_00006",
+          "8_00068",
+          "6_00107",
+          "12_00087",
+          "10_00076",
+          "16_00103",
+          "10_00123",
+          "9_00091",
+          "1_00062",
+          "2_00043",
+          "9_00084",
+          "1_00070",
+          "12_00065",
+          "2_00107",
+          "3_00049",
+          "10_00004",
+          "6_00032",
+          "3_00126",
+          "1_00119",
+          "15_00003",
+          "2_00001",
+          "17_00127",
+          "19_00118",
+          "14_00115",
+          "17_00120",
+          "6_00092",
+          "2_00113",
+          "11_00026",
+          "3_00037",
+          "19_00030",
+          "18_00007",
+          "12_00093"
+        ],
+        "encoder_work": {
+          "content_tokens": 65205,
+          "encoder_calls": 109,
+          "encoder_sequences": 2500,
+          "input_texts": 2500,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 4930415,
+          "padded_token_positions": 107743,
+          "padding_token_positions": 37538,
+          "special_token_positions": 5000,
+          "truncated_tokens": 0,
+          "valid_token_positions": 70205
+        },
+        "endpoint_rows": 1594,
+        "finished_elapsed_seconds": 44.543202584,
+        "parity_maxima": {
+          "maximum_probability_error": 0,
+          "maximum_raw_mass_error": 2.0591319205287562e-07,
+          "maximum_supported_log_error": 0
+        },
+        "seconds": 1.6359565839999988,
+        "started_elapsed_seconds": 42.907246,
+        "work": {
+          "dialogue_count": 64,
+          "encoder_calls": 109,
+          "padded_attention_positions": 4930415,
+          "real_question_updates": 2903
+        }
+      },
+      "verification_result": {
+        "actual_over_prediction": 0.4397150111385939,
+        "actual_seconds": 1.6359565839999988,
+        "passed": true,
+        "prediction": {
+          "estimation_data": "Entire first 64-dialogue estimator block only; no dropped first-fit or timing outliers",
+          "estimator_seconds": 1.8602464579999989,
+          "estimator_work": {
+            "dialogue_count": 64,
+            "encoder_calls": 119,
+            "padded_attention_positions": 5706362,
+            "real_question_updates": 3276
+          },
+          "fit_id": "trainable_original-6903",
+          "freeze_required": "Publish and bind this record before timing any verification dialogue",
+          "maximum_work_ratio": 1.0,
+          "predicted_seconds": 3.7204929159999978,
+          "safety_factor": 2.0,
+          "verification_work": {
+            "dialogue_count": 64,
+            "encoder_calls": 109,
+            "padded_attention_positions": 4930415,
+            "real_question_updates": 2903
+          },
+          "version": "dialogue-calibration-runtime-v2",
+          "work_ratios": {
+            "dialogue_count": 1.0,
+            "encoder_calls": 0.9159663865546218,
+            "padded_attention_positions": 0.8640207193304595,
+            "real_question_updates": 0.8861416361416361
+          }
+        },
+        "scope": "Verification only; equality passes without epsilon and verification does not refit the estimator",
+        "version": "dialogue-calibration-runtime-v2"
+      },
+      "wall_seconds": 4.031363999999996,
+      "warmup": {
+        "block": "warmup",
+        "dialogue_ids": [
+          "10_00000",
+          "1_00096"
+        ],
+        "encoder_work": {
+          "content_tokens": 1835,
+          "encoder_calls": 3,
+          "encoder_sequences": 64,
+          "input_texts": 64,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 399952,
+          "padded_token_positions": 4624,
+          "padding_token_positions": 2661,
+          "special_token_positions": 128,
+          "truncated_tokens": 0,
+          "valid_token_positions": 1963
+        },
+        "endpoint_rows": 46,
+        "finished_elapsed_seconds": 41.046099125,
+        "parity_maxima": {
+          "maximum_probability_error": 0,
+          "maximum_raw_mass_error": 1.260396647051465e-07,
+          "maximum_supported_log_error": 0
+        },
+        "seconds": 0.07171462499999848,
+        "started_elapsed_seconds": 40.9743845,
+        "work": {
+          "dialogue_count": 2,
+          "encoder_calls": 3,
+          "padded_attention_positions": 399952,
+          "real_question_updates": 51
+        }
+      },
+      "witness": {
+        "arm": "trainable_original",
+        "checkpoint_sha256": "477e12e2e949ac17da97810bac3c45045b5c4d2a1c83248bbb0127b2de6f9f63",
+        "chunk_tokens": 254,
+        "counts": {
+          "checkpoint_load_attempts": 1,
+          "checkpoint_load_returns": 1,
+          "encoder_forward_attempts": 231,
+          "encoder_forward_returns": 231,
+          "encoder_load_attempts": 1,
+          "encoder_load_returns": 1,
+          "encoding_attempts": 130,
+          "encoding_returns": 130,
+          "memory_forward_attempts": 130,
+          "memory_forward_returns": 130,
+          "public_forward_attempts": 130,
+          "public_forward_returns": 130
+        },
+        "dtype": "float32",
+        "encoder_attempted_work": {
+          "encoder_calls": 231,
+          "encoder_sequences": 5327,
+          "padded_attention_positions": 11036729,
+          "padded_token_positions": 234211,
+          "valid_token_positions": 149047
+        },
+        "encoder_batch": 32,
+        "encoder_device": "mps:0",
+        "encoder_returned_work": {
+          "encoder_calls": 231,
+          "encoder_sequences": 5327,
+          "padded_attention_positions": 11036729,
+          "padded_token_positions": 234211,
+          "valid_token_positions": 149047
+        },
+        "encoder_work": {
+          "content_tokens": 138393,
+          "encoder_calls": 231,
+          "encoder_sequences": 5327,
+          "input_texts": 5327,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 11036729,
+          "padded_token_positions": 234211,
+          "padding_token_positions": 85164,
+          "special_token_positions": 10654,
+          "truncated_tokens": 0,
+          "valid_token_positions": 149047
+        },
+        "final_sha256": {
+          "encoder": "c69daa5cb39b280ebfd20b6c5c1250ac8bd9af65c0d3146e375d5428b4c716bf",
+          "memory": "39d99fc86d927aa144c430bce01fa2449d9b5e9c32e6d7089bc3b1280ca56481"
+        },
+        "invariants": {
+          "advance_calls": 1288,
+          "advance_returned": 1288,
+          "executed_valid_question_slots": 6230,
+          "feature_checks": 6230,
+          "feature_max_sum_error": 2.3283770955728755e-07,
+          "forward_calls": 130,
+          "forward_returned": 130,
+          "incoming_checks": 6230,
+          "incoming_max_sum_error": 2.3283770955728755e-07,
+          "mass_above_one_count": 0,
+          "mass_checks": 6230,
+          "mass_max": 0.9994451999664307,
+          "mass_max_overshoot": 0.0,
+          "mass_min": 4.749813342641573e-06,
+          "real_question_updates": 6230,
+          "result_checks": 6230,
+          "result_max_sum_error": 2.3283770955728755e-07,
+          "tolerance": 2e-06,
+          "valid_turns": 1288
+        },
+        "memory_device": "cpu",
+        "optimizer_created": false,
+        "restored_sha256": {
+          "encoder": "c69daa5cb39b280ebfd20b6c5c1250ac8bd9af65c0d3146e375d5428b4c716bf",
+          "memory": "39d99fc86d927aa144c430bce01fa2449d9b5e9c32e6d7089bc3b1280ca56481"
+        },
+        "scope": "Work from public full-dialogue forwards only; evaluator collection is separate.",
+        "synthetic_injection": false,
+        "temperature_applied": false,
+        "version": "dialogue-calibration-inference-v1"
+      }
+    },
+    {
+      "arm": "trainable_numbers",
+      "completed_sha256": "bc2b1054b8ecd66c0ad1a6e1060a79c4e144e47bf707f834e1d74204b1b8c54e",
+      "endpoint_rows": 3390,
+      "estimator": {
+        "block": "estimator",
+        "dialogue_ids": [
+          "16_00110",
+          "19_00068",
+          "11_00011",
+          "1_00091",
+          "2_00061",
+          "6_00084",
+          "8_00075",
+          "14_00031",
+          "18_00058",
+          "10_00001",
+          "12_00113",
+          "8_00107",
+          "17_00063",
+          "14_00100",
+          "19_00126",
+          "2_00035",
+          "6_00114",
+          "12_00122",
+          "2_00052",
+          "10_00056",
+          "14_00028",
+          "19_00082",
+          "1_00099",
+          "20_00037",
+          "20_00003",
+          "14_00081",
+          "10_00043",
+          "4_00088",
+          "20_00054",
+          "3_00054",
+          "10_00110",
+          "15_00105",
+          "14_00056",
+          "19_00001",
+          "15_00123",
+          "5_00021",
+          "19_00061",
+          "5_00055",
+          "5_00062",
+          "2_00054",
+          "9_00034",
+          "4_00036",
+          "13_00037",
+          "8_00027",
+          "19_00029",
+          "4_00040",
+          "12_00102",
+          "6_00115",
+          "3_00032",
+          "15_00019",
+          "17_00077",
+          "9_00078",
+          "10_00039",
+          "14_00072",
+          "8_00102",
+          "13_00012",
+          "13_00094",
+          "1_00037",
+          "1_00010",
+          "16_00091",
+          "7_00033",
+          "4_00026",
+          "19_00076",
+          "16_00079"
+        ],
+        "encoder_work": {
+          "content_tokens": 71353,
+          "encoder_calls": 119,
+          "encoder_sequences": 2763,
+          "input_texts": 2763,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 5706362,
+          "padded_token_positions": 121844,
+          "padding_token_positions": 44965,
+          "special_token_positions": 5526,
+          "truncated_tokens": 0,
+          "valid_token_positions": 76879
+        },
+        "endpoint_rows": 1750,
+        "finished_elapsed_seconds": 46.800923625,
+        "parity_maxima": {
+          "maximum_probability_error": 0,
+          "maximum_raw_mass_error": 2.467258564120556e-07,
+          "maximum_supported_log_error": 0
+        },
+        "seconds": 1.6896912080000064,
+        "started_elapsed_seconds": 45.111232417,
+        "work": {
+          "dialogue_count": 64,
+          "encoder_calls": 119,
+          "padded_attention_positions": 5706362,
+          "real_question_updates": 3276
+        }
+      },
+      "files": {
+        "dialogues.jsonl": {
+          "bytes": 185886,
+          "sha256": "51d9e5520aec0297e65ab7dd562ea94282c241f14a164c2b4bd22723ca17dc70"
+        },
+        "forecast.json": {
+          "bytes": 1221,
+          "sha256": "2c1a55a6f30b81da6d3c53443de72c799cf33601926c85dd619405dd4e8bd901"
+        },
+        "predictions.npz": {
+          "bytes": 190366,
+          "sha256": "a882bce03996103180f21ea4ab8269eaf8e7cfde14d39f87c8723d1b23aae1ef"
+        }
+      },
+      "fit_id": "trainable_numbers-6903",
+      "forecast_published_elapsed_seconds": 46.801929834,
+      "forecast_sha256": "2c1a55a6f30b81da6d3c53443de72c799cf33601926c85dd619405dd4e8bd901",
+      "loading_seconds": 0.3171167499999967,
+      "prediction_finalization_seconds": 0.0009486249999994811,
+      "seed": 6903,
+      "status": "completed",
+      "verification": {
+        "block": "verification",
+        "dialogue_ids": [
+          "12_00060",
+          "16_00107",
+          "16_00068",
+          "13_00078",
+          "5_00125",
+          "3_00064",
+          "6_00020",
+          "8_00120",
+          "10_00086",
+          "9_00058",
+          "7_00029",
+          "18_00053",
+          "18_00094",
+          "9_00092",
+          "11_00003",
+          "10_00025",
+          "7_00000",
+          "16_00089",
+          "10_00073",
+          "4_00059",
+          "2_00036",
+          "13_00010",
+          "19_00102",
+          "13_00066",
+          "12_00074",
+          "9_00010",
+          "13_00019",
+          "19_00092",
+          "15_00108",
+          "3_00050",
+          "19_00125",
+          "1_00045",
+          "15_00006",
+          "8_00068",
+          "6_00107",
+          "12_00087",
+          "10_00076",
+          "16_00103",
+          "10_00123",
+          "9_00091",
+          "1_00062",
+          "2_00043",
+          "9_00084",
+          "1_00070",
+          "12_00065",
+          "2_00107",
+          "3_00049",
+          "10_00004",
+          "6_00032",
+          "3_00126",
+          "1_00119",
+          "15_00003",
+          "2_00001",
+          "17_00127",
+          "19_00118",
+          "14_00115",
+          "17_00120",
+          "6_00092",
+          "2_00113",
+          "11_00026",
+          "3_00037",
+          "19_00030",
+          "18_00007",
+          "12_00093"
+        ],
+        "encoder_work": {
+          "content_tokens": 65205,
+          "encoder_calls": 109,
+          "encoder_sequences": 2500,
+          "input_texts": 2500,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 4930415,
+          "padded_token_positions": 107743,
+          "padding_token_positions": 37538,
+          "special_token_positions": 5000,
+          "truncated_tokens": 0,
+          "valid_token_positions": 70205
+        },
+        "endpoint_rows": 1594,
+        "finished_elapsed_seconds": 48.202438209,
+        "parity_maxima": {
+          "maximum_probability_error": 0,
+          "maximum_raw_mass_error": 1.9255208116852884e-07,
+          "maximum_supported_log_error": 0
+        },
+        "seconds": 1.4005013339999977,
+        "started_elapsed_seconds": 46.801936875,
+        "work": {
+          "dialogue_count": 64,
+          "encoder_calls": 109,
+          "padded_attention_positions": 4930415,
+          "real_question_updates": 2903
+        }
+      },
+      "verification_result": {
+        "actual_over_prediction": 0.41442522970149476,
+        "actual_seconds": 1.4005013339999977,
+        "passed": true,
+        "prediction": {
+          "estimation_data": "Entire first 64-dialogue estimator block only; no dropped first-fit or timing outliers",
+          "estimator_seconds": 1.6896912080000064,
+          "estimator_work": {
+            "dialogue_count": 64,
+            "encoder_calls": 119,
+            "padded_attention_positions": 5706362,
+            "real_question_updates": 3276
+          },
+          "fit_id": "trainable_numbers-6903",
+          "freeze_required": "Publish and bind this record before timing any verification dialogue",
+          "maximum_work_ratio": 1.0,
+          "predicted_seconds": 3.3793824160000128,
+          "safety_factor": 2.0,
+          "verification_work": {
+            "dialogue_count": 64,
+            "encoder_calls": 109,
+            "padded_attention_positions": 4930415,
+            "real_question_updates": 2903
+          },
+          "version": "dialogue-calibration-runtime-v2",
+          "work_ratios": {
+            "dialogue_count": 1.0,
+            "encoder_calls": 0.9159663865546218,
+            "padded_attention_positions": 0.8640207193304595,
+            "real_question_updates": 0.8861416361416361
+          }
+        },
+        "scope": "Verification only; equality passes without epsilon and verification does not refit the estimator",
+        "version": "dialogue-calibration-runtime-v2"
+      },
+      "wall_seconds": 3.556050208000002,
+      "warmup": {
+        "block": "warmup",
+        "dialogue_ids": [
+          "10_00000",
+          "1_00096"
+        ],
+        "encoder_work": {
+          "content_tokens": 1835,
+          "encoder_calls": 3,
+          "encoder_sequences": 64,
+          "input_texts": 64,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 399952,
+          "padded_token_positions": 4624,
+          "padding_token_positions": 2661,
+          "special_token_positions": 128,
+          "truncated_tokens": 0,
+          "valid_token_positions": 1963
+        },
+        "endpoint_rows": 46,
+        "finished_elapsed_seconds": 45.111219709,
+        "parity_maxima": {
+          "maximum_probability_error": 0,
+          "maximum_raw_mass_error": 1.7667323248815592e-07,
+          "maximum_supported_log_error": 0
+        },
+        "seconds": 0.06939733399999426,
+        "started_elapsed_seconds": 45.041822375,
+        "work": {
+          "dialogue_count": 2,
+          "encoder_calls": 3,
+          "padded_attention_positions": 399952,
+          "real_question_updates": 51
+        }
+      },
+      "witness": {
+        "arm": "trainable_numbers",
+        "checkpoint_sha256": "28caabb194995f8e77ad038202c90babaf60beb5dd2aa0820812727b8969bac0",
+        "chunk_tokens": 254,
+        "counts": {
+          "checkpoint_load_attempts": 1,
+          "checkpoint_load_returns": 1,
+          "encoder_forward_attempts": 231,
+          "encoder_forward_returns": 231,
+          "encoder_load_attempts": 1,
+          "encoder_load_returns": 1,
+          "encoding_attempts": 130,
+          "encoding_returns": 130,
+          "memory_forward_attempts": 130,
+          "memory_forward_returns": 130,
+          "public_forward_attempts": 130,
+          "public_forward_returns": 130
+        },
+        "dtype": "float32",
+        "encoder_attempted_work": {
+          "encoder_calls": 231,
+          "encoder_sequences": 5327,
+          "padded_attention_positions": 11036729,
+          "padded_token_positions": 234211,
+          "valid_token_positions": 149047
+        },
+        "encoder_batch": 32,
+        "encoder_device": "mps:0",
+        "encoder_returned_work": {
+          "encoder_calls": 231,
+          "encoder_sequences": 5327,
+          "padded_attention_positions": 11036729,
+          "padded_token_positions": 234211,
+          "valid_token_positions": 149047
+        },
+        "encoder_work": {
+          "content_tokens": 138393,
+          "encoder_calls": 231,
+          "encoder_sequences": 5327,
+          "input_texts": 5327,
+          "overlength_texts_chunked": 0,
+          "padded_attention_positions": 11036729,
+          "padded_token_positions": 234211,
+          "padding_token_positions": 85164,
+          "special_token_positions": 10654,
+          "truncated_tokens": 0,
+          "valid_token_positions": 149047
+        },
+        "final_sha256": {
+          "encoder": "5b4ab45a30e687a3167c3b5445865f7680fb024b33823562a6fb4e2680aa4a04",
+          "memory": "6655a3733d84d3f8b27c54260918fe6b2c42f02281c670a30fdce0e2790cd2c3"
+        },
+        "invariants": {
+          "advance_calls": 1288,
+          "advance_returned": 1288,
+          "executed_valid_question_slots": 6230,
+          "feature_checks": 6230,
+          "feature_max_sum_error": 2.4565803613540993e-07,
+          "forward_calls": 130,
+          "forward_returned": 130,
+          "incoming_checks": 6230,
+          "incoming_max_sum_error": 2.4565803613540993e-07,
+          "mass_above_one_count": 0,
+          "mass_checks": 6230,
+          "mass_max": 0.9991840720176697,
+          "mass_max_overshoot": 0.0,
+          "mass_min": 7.571296009700745e-06,
+          "real_question_updates": 6230,
+          "result_checks": 6230,
+          "result_max_sum_error": 2.4565803613540993e-07,
+          "tolerance": 2e-06,
+          "valid_turns": 1288
+        },
+        "memory_device": "cpu",
+        "optimizer_created": false,
+        "restored_sha256": {
+          "encoder": "5b4ab45a30e687a3167c3b5445865f7680fb024b33823562a6fb4e2680aa4a04",
+          "memory": "6655a3733d84d3f8b27c54260918fe6b2c42f02281c670a30fdce0e2790cd2c3"
+        },
+        "scope": "Work from public full-dialogue forwards only; evaluator collection is separate.",
+        "synthetic_injection": false,
+        "temperature_applied": false,
+        "version": "dialogue-calibration-inference-v1"
+      }
+    }
+  ],
+  "inputs": {
+    "output/dialogue-calibration-control-v1/plan.json": "e706e40cd4a0d95fb1536ce105074c071b57a6bc4652ec57b9243672542a413c",
+    "output/dialogue-calibration-control-v1/preparation-process-01.terminal.json": "9a3f54de5ee09259fdfafa9e569556fc51ff78c3bf7ea8b29842e9944aa05bd3",
+    "output/dialogue-calibration-control-v1/qualification-process-01.terminal.json": "b9ef0d20799f1e8a1fda7b565d57378a9bac7d7b3c53de5a48425d9bb6cf644b",
+    "runs/dialogue-calibration-control-v1/preparation-01/completed.json": "896099f38f7316f23e549d1271d81f90a2884028e6c0281dcf3c035b6ee286e9",
+    "runs/dialogue-calibration-control-v1/qualification-01/completed.json": "ca06666f1849a49c3e230f8a1fa6f485f5214dbdbe36c9f7fccde1a2cf2e2a94",
+    "scripts/supervise_dialogue_observation_v2.py": "610a2fcd2d4d55eb35bce92e61942d5169491dee9d05e2f47f65e211fdf94144",
+    "src/openjev/research/suspend_clock.py": "cac9077db3c66f5ef43d9412b732f5b869c1004c4bac98589816780c120f6124"
+  },
+  "legacy_v1_admission_revised": false,
+  "limits": {
+    "mps_driver_bytes": 8589934592,
+    "output_bytes": 536870912,
+    "rss_bytes": 8589934592,
+    "wall_seconds": 600
+  },
+  "model_weight_updates": 0,
+  "official_test_opened": false,
+  "optimizer_created": false,
+  "parity_passed": true,
+  "peak_rss_bytes": 962265088,
+  "phase": "pilot",
+  "pilot_nonblock_overhead_seconds": 4.884130958000007,
+  "plan_sha256": "34a2e7923f770c2c0cdb7fa5c1cb04ee3ff578ee83d22bcae4ca8ce9d64488d9",
+  "projection": {
+    "admitted": true,
+    "all_verifications_passed": true,
+    "components": {
+      "loading_seconds": 5.681730667000003,
+      "pilot_nonblock_overhead_seconds": 4.884130958000007,
+      "preparation_parent_wall_seconds": 8.376861417,
+      "projected_calibration_forward_seconds": 320.952591984,
+      "warmup_seconds": 1.1388200839999971
+    },
+    "fit_order": [
+      "frozen_original-6901",
+      "frozen_numbers-6901",
+      "trainable_original-6901",
+      "trainable_numbers-6901",
+      "frozen_original-6902",
+      "frozen_numbers-6902",
+      "trainable_original-6902",
+      "trainable_numbers-6902",
+      "frozen_original-6903",
+      "frozen_numbers-6903",
+      "trainable_original-6903",
+      "trainable_numbers-6903"
+    ],
+    "fits": {
+      "frozen_numbers-6901": {
+        "calibration_work": {
+          "dialogue_count": 512,
+          "encoder_calls": 867,
+          "padded_attention_positions": 42839932,
+          "real_question_updates": 23353
+        },
+        "estimator_seconds": 1.589480333000001,
+        "estimator_work": {
+          "dialogue_count": 64,
+          "encoder_calls": 119,
+          "padded_attention_positions": 5706362,
+          "real_question_updates": 3276
+        },
+        "maximum_work_ratio": 8.0,
+        "projected_seconds": 25.431685328000015,
+        "safety_factor": 2.0,
+        "work_ratios": {
+          "dialogue_count": 8.0,
+          "encoder_calls": 7.285714285714286,
+          "padded_attention_positions": 7.507398233760845,
+          "real_question_updates": 7.128510378510379
+        }
+      },
+      "frozen_numbers-6902": {
+        "calibration_work": {
+          "dialogue_count": 512,
+          "encoder_calls": 867,
+          "padded_attention_positions": 42839932,
+          "real_question_updates": 23353
+        },
+        "estimator_seconds": 1.5477207919999998,
+        "estimator_work": {
+          "dialogue_count": 64,
+          "encoder_calls": 119,
+          "padded_attention_positions": 5706362,
+          "real_question_updates": 3276
+        },
+        "maximum_work_ratio": 8.0,
+        "projected_seconds": 24.763532671999997,
+        "safety_factor": 2.0,
+        "work_ratios": {
+          "dialogue_count": 8.0,
+          "encoder_calls": 7.285714285714286,
+          "padded_attention_positions": 7.507398233760845,
+          "real_question_updates": 7.128510378510379
+        }
+      },
+      "frozen_numbers-6903": {
+        "calibration_work": {
+          "dialogue_count": 512,
+          "encoder_calls": 867,
+          "padded_attention_positions": 42839932,
+          "real_question_updates": 23353
+        },
+        "estimator_seconds": 1.6101734579999984,
+        "estimator_work": {
+          "dialogue_count": 64,
+          "encoder_calls": 119,
+          "padded_attention_positions": 5706362,
+          "real_question_updates": 3276
+        },
+        "maximum_work_ratio": 8.0,
+        "projected_seconds": 25.762775327999975,
+        "safety_factor": 2.0,
+        "work_ratios": {
+          "dialogue_count": 8.0,
+          "encoder_calls": 7.285714285714286,
+          "padded_attention_positions": 7.507398233760845,
+          "real_question_updates": 7.128510378510379
+        }
+      },
+      "frozen_original-6901": {
+        "calibration_work": {
+          "dialogue_count": 512,
+          "encoder_calls": 867,
+          "padded_attention_positions": 42839932,
+          "real_question_updates": 23353
+        },
+        "estimator_seconds": 2.555205375,
+        "estimator_work": {
+          "dialogue_count": 64,
+          "encoder_calls": 119,
+          "padded_attention_positions": 5706362,
+          "real_question_updates": 3276
+        },
+        "maximum_work_ratio": 8.0,
+        "projected_seconds": 40.883286,
+        "safety_factor": 2.0,
+        "work_ratios": {
+          "dialogue_count": 8.0,
+          "encoder_calls": 7.285714285714286,
+          "padded_attention_positions": 7.507398233760845,
+          "real_question_updates": 7.128510378510379
+        }
+      },
+      "frozen_original-6902": {
+        "calibration_work": {
+          "dialogue_count": 512,
+          "encoder_calls": 867,
+          "padded_attention_positions": 42839932,
+          "real_question_updates": 23353
+        },
+        "estimator_seconds": 1.573816124999997,
+        "estimator_work": {
+          "dialogue_count": 64,
+          "encoder_calls": 119,
+          "padded_attention_positions": 5706362,
+          "real_question_updates": 3276
+        },
+        "maximum_work_ratio": 8.0,
+        "projected_seconds": 25.18105799999995,
+        "safety_factor": 2.0,
+        "work_ratios": {
+          "dialogue_count": 8.0,
+          "encoder_calls": 7.285714285714286,
+          "padded_attention_positions": 7.507398233760845,
+          "real_question_updates": 7.128510378510379
+        }
+      },
+      "frozen_original-6903": {
+        "calibration_work": {
+          "dialogue_count": 512,
+          "encoder_calls": 867,
+          "padded_attention_positions": 42839932,
+          "real_question_updates": 23353
+        },
+        "estimator_seconds": 1.5348986670000002,
+        "estimator_work": {
+          "dialogue_count": 64,
+          "encoder_calls": 119,
+          "padded_attention_positions": 5706362,
+          "real_question_updates": 3276
+        },
+        "maximum_work_ratio": 8.0,
+        "projected_seconds": 24.558378672000003,
+        "safety_factor": 2.0,
+        "work_ratios": {
+          "dialogue_count": 8.0,
+          "encoder_calls": 7.285714285714286,
+          "padded_attention_positions": 7.507398233760845,
+          "real_question_updates": 7.128510378510379
+        }
+      },
+      "trainable_numbers-6901": {
+        "calibration_work": {
+          "dialogue_count": 512,
+          "encoder_calls": 867,
+          "padded_attention_positions": 42839932,
+          "real_question_updates": 23353
+        },
+        "estimator_seconds": 1.5314052919999988,
+        "estimator_work": {
+          "dialogue_count": 64,
+          "encoder_calls": 119,
+          "padded_attention_positions": 5706362,
+          "real_question_updates": 3276
+        },
+        "maximum_work_ratio": 8.0,
+        "projected_seconds": 24.50248467199998,
+        "safety_factor": 2.0,
+        "work_ratios": {
+          "dialogue_count": 8.0,
+          "encoder_calls": 7.285714285714286,
+          "padded_attention_positions": 7.507398233760845,
+          "real_question_updates": 7.128510378510379
+        }
+      },
+      "trainable_numbers-6902": {
+        "calibration_work": {
+          "dialogue_count": 512,
+          "encoder_calls": 867,
+          "padded_attention_positions": 42839932,
+          "real_question_updates": 23353
+        },
+        "estimator_seconds": 1.461789207999999,
+        "estimator_work": {
+          "dialogue_count": 64,
+          "encoder_calls": 119,
+          "padded_attention_positions": 5706362,
+          "real_question_updates": 3276
+        },
+        "maximum_work_ratio": 8.0,
+        "projected_seconds": 23.388627327999984,
+        "safety_factor": 2.0,
+        "work_ratios": {
+          "dialogue_count": 8.0,
+          "encoder_calls": 7.285714285714286,
+          "padded_attention_positions": 7.507398233760845,
+          "real_question_updates": 7.128510378510379
+        }
+      },
+      "trainable_numbers-6903": {
+        "calibration_work": {
+          "dialogue_count": 512,
+          "encoder_calls": 867,
+          "padded_attention_positions": 42839932,
+          "real_question_updates": 23353
+        },
+        "estimator_seconds": 1.6896912080000064,
+        "estimator_work": {
+          "dialogue_count": 64,
+          "encoder_calls": 119,
+          "padded_attention_positions": 5706362,
+          "real_question_updates": 3276
+        },
+        "maximum_work_ratio": 8.0,
+        "projected_seconds": 27.035059328000102,
+        "safety_factor": 2.0,
+        "work_ratios": {
+          "dialogue_count": 8.0,
+          "encoder_calls": 7.285714285714286,
+          "padded_attention_positions": 7.507398233760845,
+          "real_question_updates": 7.128510378510379
+        }
+      },
+      "trainable_original-6901": {
+        "calibration_work": {
+          "dialogue_count": 512,
+          "encoder_calls": 867,
+          "padded_attention_positions": 42839932,
+          "real_question_updates": 23353
+        },
+        "estimator_seconds": 1.5190167079999988,
+        "estimator_work": {
+          "dialogue_count": 64,
+          "encoder_calls": 119,
+          "padded_attention_positions": 5706362,
+          "real_question_updates": 3276
+        },
+        "maximum_work_ratio": 8.0,
+        "projected_seconds": 24.30426732799998,
+        "safety_factor": 2.0,
+        "work_ratios": {
+          "dialogue_count": 8.0,
+          "encoder_calls": 7.285714285714286,
+          "padded_attention_positions": 7.507398233760845,
+          "real_question_updates": 7.128510378510379
+        }
+      },
+      "trainable_original-6902": {
+        "calibration_work": {
+          "dialogue_count": 512,
+          "encoder_calls": 867,
+          "padded_attention_positions": 42839932,
+          "real_question_updates": 23353
+        },
+        "estimator_seconds": 1.5860933750000008,
+        "estimator_work": {
+          "dialogue_count": 64,
+          "encoder_calls": 119,
+          "padded_attention_positions": 5706362,
+          "real_question_updates": 3276
+        },
+        "maximum_work_ratio": 8.0,
+        "projected_seconds": 25.377494000000013,
+        "safety_factor": 2.0,
+        "work_ratios": {
+          "dialogue_count": 8.0,
+          "encoder_calls": 7.285714285714286,
+          "padded_attention_positions": 7.507398233760845,
+          "real_question_updates": 7.128510378510379
+        }
+      },
+      "trainable_original-6903": {
+        "calibration_work": {
+          "dialogue_count": 512,
+          "encoder_calls": 867,
+          "padded_attention_positions": 42839932,
+          "real_question_updates": 23353
+        },
+        "estimator_seconds": 1.8602464579999989,
+        "estimator_work": {
+          "dialogue_count": 64,
+          "encoder_calls": 119,
+          "padded_attention_positions": 5706362,
+          "real_question_updates": 3276
+        },
+        "maximum_work_ratio": 8.0,
+        "projected_seconds": 29.763943327999982,
+        "safety_factor": 2.0,
+        "work_ratios": {
+          "dialogue_count": 8.0,
+          "encoder_calls": 7.285714285714286,
+          "padded_attention_positions": 7.507398233760845,
+          "real_question_updates": 7.128510378510379
+        }
+      }
+    },
+    "legacy_v1_admission_revised": false,
+    "loading_seconds_by_fit": {
+      "frozen_numbers-6901": 0.21386908299999874,
+      "frozen_numbers-6902": 0.2077607499999985,
+      "frozen_numbers-6903": 0.24626087500000438,
+      "frozen_original-6901": 2.691655666,
+      "frozen_original-6902": 0.20260208399999868,
+      "frozen_original-6903": 0.20025795900000531,
+      "trainable_numbers-6901": 0.3173365419999996,
+      "trainable_numbers-6902": 0.28928241599999893,
+      "trainable_numbers-6903": 0.3171167499999967,
+      "trainable_original-6901": 0.30868045899999963,
+      "trainable_original-6902": 0.31632387499999837,
+      "trainable_original-6903": 0.3705842080000039
+    },
+    "projected_dialogue_forwards": 6144,
+    "projection_within_threshold": true,
+    "scientific_conditions_changed": false,
+    "scope": "Fixed 2x estimator-only screening; all twelve verification blocks must pass. The prior failed cost method is preserved; this is not a runtime guarantee or scientific result.",
+    "threshold_seconds": 1800,
+    "total_seconds": 341.03413510999997,
+    "verification": {
+      "frozen_numbers-6901": {
+        "actual_over_prediction": 0.45315041120423816,
+        "actual_seconds": 1.4405473329999996,
+        "passed": true,
+        "prediction": {
+          "estimation_data": "Entire first 64-dialogue estimator block only; no dropped first-fit or timing outliers",
+          "estimator_seconds": 1.589480333000001,
+          "estimator_work": {
+            "dialogue_count": 64,
+            "encoder_calls": 119,
+            "padded_attention_positions": 5706362,
+            "real_question_updates": 3276
+          },
+          "fit_id": "frozen_numbers-6901",
+          "freeze_required": "Publish and bind this record before timing any verification dialogue",
+          "maximum_work_ratio": 1.0,
+          "predicted_seconds": 3.178960666000002,
+          "safety_factor": 2.0,
+          "verification_work": {
+            "dialogue_count": 64,
+            "encoder_calls": 109,
+            "padded_attention_positions": 4930415,
+            "real_question_updates": 2903
+          },
+          "version": "dialogue-calibration-runtime-v2",
+          "work_ratios": {
+            "dialogue_count": 1.0,
+            "encoder_calls": 0.9159663865546218,
+            "padded_attention_positions": 0.8640207193304595,
+            "real_question_updates": 0.8861416361416361
+          }
+        },
+        "scope": "Verification only; equality passes without epsilon and verification does not refit the estimator",
+        "version": "dialogue-calibration-runtime-v2"
+      },
+      "frozen_numbers-6902": {
+        "actual_over_prediction": 0.446345390958604,
+        "actual_seconds": 1.3816360840000002,
+        "passed": true,
+        "prediction": {
+          "estimation_data": "Entire first 64-dialogue estimator block only; no dropped first-fit or timing outliers",
+          "estimator_seconds": 1.5477207919999998,
+          "estimator_work": {
+            "dialogue_count": 64,
+            "encoder_calls": 119,
+            "padded_attention_positions": 5706362,
+            "real_question_updates": 3276
+          },
+          "fit_id": "frozen_numbers-6902",
+          "freeze_required": "Publish and bind this record before timing any verification dialogue",
+          "maximum_work_ratio": 1.0,
+          "predicted_seconds": 3.0954415839999996,
+          "safety_factor": 2.0,
+          "verification_work": {
+            "dialogue_count": 64,
+            "encoder_calls": 109,
+            "padded_attention_positions": 4930415,
+            "real_question_updates": 2903
+          },
+          "version": "dialogue-calibration-runtime-v2",
+          "work_ratios": {
+            "dialogue_count": 1.0,
+            "encoder_calls": 0.9159663865546218,
+            "padded_attention_positions": 0.8640207193304595,
+            "real_question_updates": 0.8861416361416361
+          }
+        },
+        "scope": "Verification only; equality passes without epsilon and verification does not refit the estimator",
+        "version": "dialogue-calibration-runtime-v2"
+      },
+      "frozen_numbers-6903": {
+        "actual_over_prediction": 0.5277452508473783,
+        "actual_seconds": 1.6995227909999997,
+        "passed": true,
+        "prediction": {
+          "estimation_data": "Entire first 64-dialogue estimator block only; no dropped first-fit or timing outliers",
+          "estimator_seconds": 1.6101734579999984,
+          "estimator_work": {
+            "dialogue_count": 64,
+            "encoder_calls": 119,
+            "padded_attention_positions": 5706362,
+            "real_question_updates": 3276
+          },
+          "fit_id": "frozen_numbers-6903",
+          "freeze_required": "Publish and bind this record before timing any verification dialogue",
+          "maximum_work_ratio": 1.0,
+          "predicted_seconds": 3.220346915999997,
+          "safety_factor": 2.0,
+          "verification_work": {
+            "dialogue_count": 64,
+            "encoder_calls": 109,
+            "padded_attention_positions": 4930415,
+            "real_question_updates": 2903
+          },
+          "version": "dialogue-calibration-runtime-v2",
+          "work_ratios": {
+            "dialogue_count": 1.0,
+            "encoder_calls": 0.9159663865546218,
+            "padded_attention_positions": 0.8640207193304595,
+            "real_question_updates": 0.8861416361416361
+          }
+        },
+        "scope": "Verification only; equality passes without epsilon and verification does not refit the estimator",
+        "version": "dialogue-calibration-runtime-v2"
+      },
+      "frozen_original-6901": {
+        "actual_over_prediction": 0.2898811916439398,
+        "actual_seconds": 1.4814119579999998,
+        "passed": true,
+        "prediction": {
+          "estimation_data": "Entire first 64-dialogue estimator block only; no dropped first-fit or timing outliers",
+          "estimator_seconds": 2.555205375,
+          "estimator_work": {
+            "dialogue_count": 64,
+            "encoder_calls": 119,
+            "padded_attention_positions": 5706362,
+            "real_question_updates": 3276
+          },
+          "fit_id": "frozen_original-6901",
+          "freeze_required": "Publish and bind this record before timing any verification dialogue",
+          "maximum_work_ratio": 1.0,
+          "predicted_seconds": 5.11041075,
+          "safety_factor": 2.0,
+          "verification_work": {
+            "dialogue_count": 64,
+            "encoder_calls": 109,
+            "padded_attention_positions": 4930415,
+            "real_question_updates": 2903
+          },
+          "version": "dialogue-calibration-runtime-v2",
+          "work_ratios": {
+            "dialogue_count": 1.0,
+            "encoder_calls": 0.9159663865546218,
+            "padded_attention_positions": 0.8640207193304595,
+            "real_question_updates": 0.8861416361416361
+          }
+        },
+        "scope": "Verification only; equality passes without epsilon and verification does not refit the estimator",
+        "version": "dialogue-calibration-runtime-v2"
+      },
+      "frozen_original-6902": {
+        "actual_over_prediction": 0.474567284980639,
+        "actual_seconds": 1.493763290999997,
+        "passed": true,
+        "prediction": {
+          "estimation_data": "Entire first 64-dialogue estimator block only; no dropped first-fit or timing outliers",
+          "estimator_seconds": 1.573816124999997,
+          "estimator_work": {
+            "dialogue_count": 64,
+            "encoder_calls": 119,
+            "padded_attention_positions": 5706362,
+            "real_question_updates": 3276
+          },
+          "fit_id": "frozen_original-6902",
+          "freeze_required": "Publish and bind this record before timing any verification dialogue",
+          "maximum_work_ratio": 1.0,
+          "predicted_seconds": 3.147632249999994,
+          "safety_factor": 2.0,
+          "verification_work": {
+            "dialogue_count": 64,
+            "encoder_calls": 109,
+            "padded_attention_positions": 4930415,
+            "real_question_updates": 2903
+          },
+          "version": "dialogue-calibration-runtime-v2",
+          "work_ratios": {
+            "dialogue_count": 1.0,
+            "encoder_calls": 0.9159663865546218,
+            "padded_attention_positions": 0.8640207193304595,
+            "real_question_updates": 0.8861416361416361
+          }
+        },
+        "scope": "Verification only; equality passes without epsilon and verification does not refit the estimator",
+        "version": "dialogue-calibration-runtime-v2"
+      },
+      "frozen_original-6903": {
+        "actual_over_prediction": 0.45464401983222286,
+        "actual_seconds": 1.395665000000001,
+        "passed": true,
+        "prediction": {
+          "estimation_data": "Entire first 64-dialogue estimator block only; no dropped first-fit or timing outliers",
+          "estimator_seconds": 1.5348986670000002,
+          "estimator_work": {
+            "dialogue_count": 64,
+            "encoder_calls": 119,
+            "padded_attention_positions": 5706362,
+            "real_question_updates": 3276
+          },
+          "fit_id": "frozen_original-6903",
+          "freeze_required": "Publish and bind this record before timing any verification dialogue",
+          "maximum_work_ratio": 1.0,
+          "predicted_seconds": 3.0697973340000004,
+          "safety_factor": 2.0,
+          "verification_work": {
+            "dialogue_count": 64,
+            "encoder_calls": 109,
+            "padded_attention_positions": 4930415,
+            "real_question_updates": 2903
+          },
+          "version": "dialogue-calibration-runtime-v2",
+          "work_ratios": {
+            "dialogue_count": 1.0,
+            "encoder_calls": 0.9159663865546218,
+            "padded_attention_positions": 0.8640207193304595,
+            "real_question_updates": 0.8861416361416361
+          }
+        },
+        "scope": "Verification only; equality passes without epsilon and verification does not refit the estimator",
+        "version": "dialogue-calibration-runtime-v2"
+      },
+      "trainable_numbers-6901": {
+        "actual_over_prediction": 0.44762597797004405,
+        "actual_seconds": 1.3709935830000006,
+        "passed": true,
+        "prediction": {
+          "estimation_data": "Entire first 64-dialogue estimator block only; no dropped first-fit or timing outliers",
+          "estimator_seconds": 1.5314052919999988,
+          "estimator_work": {
+            "dialogue_count": 64,
+            "encoder_calls": 119,
+            "padded_attention_positions": 5706362,
+            "real_question_updates": 3276
+          },
+          "fit_id": "trainable_numbers-6901",
+          "freeze_required": "Publish and bind this record before timing any verification dialogue",
+          "maximum_work_ratio": 1.0,
+          "predicted_seconds": 3.0628105839999975,
+          "safety_factor": 2.0,
+          "verification_work": {
+            "dialogue_count": 64,
+            "encoder_calls": 109,
+            "padded_attention_positions": 4930415,
+            "real_question_updates": 2903
+          },
+          "version": "dialogue-calibration-runtime-v2",
+          "work_ratios": {
+            "dialogue_count": 1.0,
+            "encoder_calls": 0.9159663865546218,
+            "padded_attention_positions": 0.8640207193304595,
+            "real_question_updates": 0.8861416361416361
+          }
+        },
+        "scope": "Verification only; equality passes without epsilon and verification does not refit the estimator",
+        "version": "dialogue-calibration-runtime-v2"
+      },
+      "trainable_numbers-6902": {
+        "actual_over_prediction": 0.46281504768093834,
+        "actual_seconds": 1.3530760840000013,
+        "passed": true,
+        "prediction": {
+          "estimation_data": "Entire first 64-dialogue estimator block only; no dropped first-fit or timing outliers",
+          "estimator_seconds": 1.461789207999999,
+          "estimator_work": {
+            "dialogue_count": 64,
+            "encoder_calls": 119,
+            "padded_attention_positions": 5706362,
+            "real_question_updates": 3276
+          },
+          "fit_id": "trainable_numbers-6902",
+          "freeze_required": "Publish and bind this record before timing any verification dialogue",
+          "maximum_work_ratio": 1.0,
+          "predicted_seconds": 2.923578415999998,
+          "safety_factor": 2.0,
+          "verification_work": {
+            "dialogue_count": 64,
+            "encoder_calls": 109,
+            "padded_attention_positions": 4930415,
+            "real_question_updates": 2903
+          },
+          "version": "dialogue-calibration-runtime-v2",
+          "work_ratios": {
+            "dialogue_count": 1.0,
+            "encoder_calls": 0.9159663865546218,
+            "padded_attention_positions": 0.8640207193304595,
+            "real_question_updates": 0.8861416361416361
+          }
+        },
+        "scope": "Verification only; equality passes without epsilon and verification does not refit the estimator",
+        "version": "dialogue-calibration-runtime-v2"
+      },
+      "trainable_numbers-6903": {
+        "actual_over_prediction": 0.41442522970149476,
+        "actual_seconds": 1.4005013339999977,
+        "passed": true,
+        "prediction": {
+          "estimation_data": "Entire first 64-dialogue estimator block only; no dropped first-fit or timing outliers",
+          "estimator_seconds": 1.6896912080000064,
+          "estimator_work": {
+            "dialogue_count": 64,
+            "encoder_calls": 119,
+            "padded_attention_positions": 5706362,
+            "real_question_updates": 3276
+          },
+          "fit_id": "trainable_numbers-6903",
+          "freeze_required": "Publish and bind this record before timing any verification dialogue",
+          "maximum_work_ratio": 1.0,
+          "predicted_seconds": 3.3793824160000128,
+          "safety_factor": 2.0,
+          "verification_work": {
+            "dialogue_count": 64,
+            "encoder_calls": 109,
+            "padded_attention_positions": 4930415,
+            "real_question_updates": 2903
+          },
+          "version": "dialogue-calibration-runtime-v2",
+          "work_ratios": {
+            "dialogue_count": 1.0,
+            "encoder_calls": 0.9159663865546218,
+            "padded_attention_positions": 0.8640207193304595,
+            "real_question_updates": 0.8861416361416361
+          }
+        },
+        "scope": "Verification only; equality passes without epsilon and verification does not refit the estimator",
+        "version": "dialogue-calibration-runtime-v2"
+      },
+      "trainable_original-6901": {
+        "actual_over_prediction": 0.43279032122403743,
+        "actual_seconds": 1.3148314579999987,
+        "passed": true,
+        "prediction": {
+          "estimation_data": "Entire first 64-dialogue estimator block only; no dropped first-fit or timing outliers",
+          "estimator_seconds": 1.5190167079999988,
+          "estimator_work": {
+            "dialogue_count": 64,
+            "encoder_calls": 119,
+            "padded_attention_positions": 5706362,
+            "real_question_updates": 3276
+          },
+          "fit_id": "trainable_original-6901",
+          "freeze_required": "Publish and bind this record before timing any verification dialogue",
+          "maximum_work_ratio": 1.0,
+          "predicted_seconds": 3.0380334159999975,
+          "safety_factor": 2.0,
+          "verification_work": {
+            "dialogue_count": 64,
+            "encoder_calls": 109,
+            "padded_attention_positions": 4930415,
+            "real_question_updates": 2903
+          },
+          "version": "dialogue-calibration-runtime-v2",
+          "work_ratios": {
+            "dialogue_count": 1.0,
+            "encoder_calls": 0.9159663865546218,
+            "padded_attention_positions": 0.8640207193304595,
+            "real_question_updates": 0.8861416361416361
+          }
+        },
+        "scope": "Verification only; equality passes without epsilon and verification does not refit the estimator",
+        "version": "dialogue-calibration-runtime-v2"
+      },
+      "trainable_original-6902": {
+        "actual_over_prediction": 0.4461729883967267,
+        "actual_seconds": 1.415344042000001,
+        "passed": true,
+        "prediction": {
+          "estimation_data": "Entire first 64-dialogue estimator block only; no dropped first-fit or timing outliers",
+          "estimator_seconds": 1.5860933750000008,
+          "estimator_work": {
+            "dialogue_count": 64,
+            "encoder_calls": 119,
+            "padded_attention_positions": 5706362,
+            "real_question_updates": 3276
+          },
+          "fit_id": "trainable_original-6902",
+          "freeze_required": "Publish and bind this record before timing any verification dialogue",
+          "maximum_work_ratio": 1.0,
+          "predicted_seconds": 3.1721867500000016,
+          "safety_factor": 2.0,
+          "verification_work": {
+            "dialogue_count": 64,
+            "encoder_calls": 109,
+            "padded_attention_positions": 4930415,
+            "real_question_updates": 2903
+          },
+          "version": "dialogue-calibration-runtime-v2",
+          "work_ratios": {
+            "dialogue_count": 1.0,
+            "encoder_calls": 0.9159663865546218,
+            "padded_attention_positions": 0.8640207193304595,
+            "real_question_updates": 0.8861416361416361
+          }
+        },
+        "scope": "Verification only; equality passes without epsilon and verification does not refit the estimator",
+        "version": "dialogue-calibration-runtime-v2"
+      },
+      "trainable_original-6903": {
+        "actual_over_prediction": 0.4397150111385939,
+        "actual_seconds": 1.6359565839999988,
+        "passed": true,
+        "prediction": {
+          "estimation_data": "Entire first 64-dialogue estimator block only; no dropped first-fit or timing outliers",
+          "estimator_seconds": 1.8602464579999989,
+          "estimator_work": {
+            "dialogue_count": 64,
+            "encoder_calls": 119,
+            "padded_attention_positions": 5706362,
+            "real_question_updates": 3276
+          },
+          "fit_id": "trainable_original-6903",
+          "freeze_required": "Publish and bind this record before timing any verification dialogue",
+          "maximum_work_ratio": 1.0,
+          "predicted_seconds": 3.7204929159999978,
+          "safety_factor": 2.0,
+          "verification_work": {
+            "dialogue_count": 64,
+            "encoder_calls": 109,
+            "padded_attention_positions": 4930415,
+            "real_question_updates": 2903
+          },
+          "version": "dialogue-calibration-runtime-v2",
+          "work_ratios": {
+            "dialogue_count": 1.0,
+            "encoder_calls": 0.9159663865546218,
+            "padded_attention_positions": 0.8640207193304595,
+            "real_question_updates": 0.8861416361416361
+          }
+        },
+        "scope": "Verification only; equality passes without epsilon and verification does not refit the estimator",
+        "version": "dialogue-calibration-runtime-v2"
+      }
+    },
+    "verifications_passed": 12,
+    "verifications_total": 12,
+    "version": "dialogue-calibration-runtime-v2",
+    "warmup_seconds_by_fit": {
+      "frozen_numbers-6901": 0.05660312500000053,
+      "frozen_numbers-6902": 0.06590616600000132,
+      "frozen_numbers-6903": 0.05705816700000099,
+      "frozen_original-6901": 0.4632931659999997,
+      "frozen_original-6902": 0.06156762499999857,
+      "frozen_original-6903": 0.05523525000000262,
+      "trainable_numbers-6901": 0.059670249999999925,
+      "trainable_numbers-6902": 0.06073541700000007,
+      "trainable_numbers-6903": 0.06939733399999426,
+      "trainable_original-6901": 0.05911166699999981,
+      "trainable_original-6902": 0.05852729200000084,
+      "trainable_original-6903": 0.07171462499999848
+    }
+  },
+  "projection_elapsed_seconds": 49.14746825,
+  "projection_publication_scope": "All cost through projection computation, including final input reauthentication. Projection/terminal publication tail is separately exposed by the actual parent terminal; no unseen residual is claimed measured.",
+  "request": {
+    "command": "pilot",
+    "out": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/runs/dialogue-calibration-runtime-v2/pilot-01",
+    "plan": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/dialogue-calibration-runtime-v2/plan.json",
+    "plan_sha256": "34a2e7923f770c2c0cdb7fa5c1cb04ee3ff578ee83d22bcae4ca8ce9d64488d9",
+    "supervision": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/dialogue-calibration-runtime-v2/pilot-process-01.launch.json"
+  },
+  "sample_sha256": "4b5daeb01ec4c8a616e4b4bf6abddc7f66657156d9a2e9dfb2165f419858d2ee",
+  "sampled_mps_current_max_bytes": 91165184,
+  "sampled_mps_driver_max_bytes": 1109065728,
+  "scientific_conditions_changed": false,
+  "scope": "New fixed runtime estimator qualification only. Complete DEV streams and endpoint numerical parity, no task efficacy scores or calibration TRAIN model calls; internal old trajectories were not saved for comparison.",
+  "sources": {
+    "research/dialogue-calibration-runtime-v2-protocol.md": "84d9044a49714f784a8c58fd66f821bc58bb5151854542cdad345c30a6ae673e",
+    "scripts/dialogue_runtime_common.py": "7181367407d5197af85fe0fa75cb46f272d9acb1cd416ea76fdfd1a9554212d8",
+    "scripts/dialogue_runtime_geometry.py": "fdd506fcf1385fe4e721643d1b4c84be74a672c2422bb616bc4d26e884ed13d1",
+    "scripts/infer_dialogue_runtime.py": "bc60373d561e4d632b9c0aad2636cf317a7cf3dedd8fb5c442fb09c48a0723b5",
+    "scripts/pilot_dialogue_runtime.py": "3e92718d19bd89e99d8d867aa3488699505d5c69fa57cc683d563fdf6f5878df",
+    "src/openjev/research/dialogue_runtime_projection.py": "26b4208143e4a2e875438d6fcd7c86e25fc1c04a3dca37b9b60d89e1eba004b0",
+    "tests/test_dialogue_runtime_common.py": "0198c12a886c5921775188587a7b76c66cbb292891b6a208d73cb682ed14ce07",
+    "tests/test_dialogue_runtime_geometry.py": "6563e0d5474028a22d7b9a9854f07e6721b829590a5090f323fcdb3fabd5915b",
+    "tests/test_dialogue_runtime_projection.py": "345f83635a2e5dc3ad5a52223eba936a99e19f573b8cf4d97849fc1d6d523d4b",
+    "tests/test_infer_dialogue_runtime.py": "31549085f76f0addbe8589991f2cbe36c4f78969153d0bb8a8ed38be7b7693a7",
+    "tests/test_pilot_dialogue_runtime.py": "4047cd02ff73ad65b7ee87666fad5441d2371ddd2149ab62d2a7b100ae91eee3"
+  },
+  "status": "completed",
+  "supervision": {
+    "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/dialogue-calibration-runtime-v2/pilot-process-01.launch.json",
+    "sha256": "58682a587a70d6758e3f39c60535bbc72e12a0d78f830d1257bb2f77679f79f6"
+  },
+  "task_metrics_computed": false,
+  "temperature_applied": false,
+  "temperature_fits": 0,
+  "timed_forwards": 1536,
+  "timing": {
+    "clock_backend": "mach_continuous_time",
+    "deadline_ns": 1370292556991166,
+    "elapsed_ns": 49153005709,
+    "finished_ns": 1369741709996875,
+    "parent_started_ns": 1369692556991166,
+    "started_ns": 1369692556991166,
+    "wall_seconds": 49.153005709,
+    "worker_started_ns": 1369692639082875
+  },
+  "timing_scope": "Parent start through pre-receipt reading; publication rechecked before return. Parent terminal must independently witness exit and final elapsed cost.",
+  "version": "dialogue-calibration-runtime-v2",
+  "wall_seconds": 49.153005709,
+  "warmup_forwards": 24
+}

@@ -1,0 +1,16 @@
+ISC004 Unparenthesized implicit string concatenation in collection
+   --> scripts/report_dialogue_runtime_calibration.py:339:14
+    |
+337 |   …     (f"Technical coverage: 12/12. Calibration control: {'PASS' if gate['passed'] else 'FAIL'} "
+338 |   …      f"({gate['checks_passed']}/11). Original raw result remains FAIL (6/7)."), "", SCOPE, "",
+339 | / …     "V1 cost admission remains failed. The separate V2 pilot passed all twelve runtime verification blocks; "
+340 | | …     "its success does not change any scientific condition.", "",
+    | |_____________________________________________________________^
+341 |   …     "| Fit | Beta | Fit location | Raw unseen NLL | Normalized unseen NLL | Calibrated unseen NLL | Calibrated unseen Brier |",
+342 |   …     "|---|---:|---|---:|---:|---:|---:|"]
+    |
+help: Did you forget a comma?
+help: Wrap implicitly concatenated strings in parentheses
+
+Found 1 error.
+No fixes available (1 hidden fix can be enabled with the `--unsafe-fixes` option).
