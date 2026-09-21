@@ -1,0 +1,7 @@
+Six small models completed matched teacher and pooled student-state training, followed by 720 autonomous searches across three sensing settings. The shared symmetry candidate achieved 27.40%, 24.09% and 33.51% mixture-weighted success versus 100% for analytic control, with higher complete controller computation. Only 2 of 54 conditions pass. No architecture advantage is established.
+
+The independent saved-output audit agrees on 12,108,280 checks, including all 602,282 saved checkpoint decisions. A separate post hoc diagnostic finds spatial oscillation throughout the final 256 decisions in 164 of 213 learned-policy failures, with no exactly-zero posterior-mass packets or exact repeated position/posterior-hash states. This is descriptive evidence, not a causal diagnosis.
+
+The archive preserves all 42 original run files plus five provenance files, including every checkpoint, training array, trajectory and work record. Its 47 members were read back and verified byte for byte, including the complete gzip stream. The archive SHA-256 is `34c18bf08d50ed875a72168d498d5010f4947e1d0162370886b7a30248c01158` (244,249,285 bytes).
+
+[Complete report, figures and fixed replays](https://github.com/kw2828/OpenJev/blob/main/research/otto-symmetry-head-results.md) · [Restoration instructions](https://github.com/kw2828/OpenJev/blob/main/output/otto-symmetry-head-v1/release-01/RESTORE.md) · [Frozen protocol](https://github.com/kw2828/OpenJev/blob/main/research/otto-symmetry-head-protocol.md)

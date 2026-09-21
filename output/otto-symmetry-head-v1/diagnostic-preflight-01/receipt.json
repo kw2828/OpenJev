@@ -1,0 +1,38 @@
+{
+  "checks": 20,
+  "coverage": [
+    "empty/short/last256 lag2 window",
+    "positive/zero exact state repeats",
+    "first zero packet versus pre-action decision counts",
+    "full2188-step final-zero censor",
+    "unequal three-stratum weights and nullable coverage",
+    "all30 groups and incomplete cohort rejection"
+  ],
+  "evidence_kind": "agent_execution_witness; raw tool output retained in task transcript, not copied log",
+  "execution": {
+    "chunk_id": "553fb8",
+    "commands": [
+      ".venv/bin/python synthetic standard-library fixtures from task transcript",
+      ".venv/bin/ruff check scripts/diagnose_otto_symmetry_head.py"
+    ],
+    "exit_code": 0,
+    "stdout": "20 synthetic hand-checks passed; no scientific artifacts or model imports.\nAll checks passed!\n"
+  },
+  "frozen_sources_modified": false,
+  "model_calls": 0,
+  "prior_attempt": {
+    "corrected_once": true,
+    "kind": "orchestrator JavaScript syntax error",
+    "message": "missing ) after argument list",
+    "shell_or_python_invoked": false
+  },
+  "scientific_artifact_reads": 0,
+  "simulator_calls": 0,
+  "source": {
+    "path": "scripts/diagnose_otto_symmetry_head.py",
+    "sha256": "c0a44e59d8ac48c4d47f7af1aa8d60cbbde8938afc65a34b9fa5ea5a1aa43b64"
+  },
+  "status": "passed",
+  "training_calls": 0,
+  "version": "otto-symmetry-diagnostic-preflight-v1"
+}

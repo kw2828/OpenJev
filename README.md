@@ -66,13 +66,19 @@ Open **http://127.0.0.1:8000**. Local text scoring uses Qwen3-4B; the free brows
 
 ## Research results
 
+[Symmetry and student-state training](research/otto-symmetry-head-results.md): **720 searches, six trained models and three sensing settings**. The shared model finds **27.40% / 24.09% / 33.51%** of sources after mixture weighting, versus **100%** for analytic control, while using more computation. Only **2/54** conditions pass. Saved trajectories show two-position oscillation in the final 256 decisions of **164/213 failed learned searches**; this is a diagnostic clue, not a demonstrated cause.
+
+[![All ten policies, three sensing settings and every fitting seed](output/otto-symmetry-head-v1/figure-01/symmetry-comparison.png)](research/otto-symmetry-head-results.md)
+
+[Fixed-case GIF](output/otto-symmetry-head-v1/figure-01/replay-lambda3-case0.gif) · [Results, all weights and audit](research/otto-symmetry-head-results.md). The next step is a stronger value readout before compact recurrent memory.
+
 [Learned odor-search pilot](research/otto-action-head-results.md): **1,536 autonomous searches, twelve trained policies and four analytic planners**. The full-belief learned head achieved **24.59% / 23.08%** mixture-weighted success across the two regimes, versus **100% / 100%** for the full-belief planner. Only **6/40** candidate checks passed, and the full-head competence requirement failed. This training recipe does not establish a compact-memory or learned-architecture advantage.
 
 [![First scheduled baseline case, all twelve learned policies and four planners, including capped failures](output/otto-action-head-v1/figure-01/first-case-base.gif)](research/otto-action-head-results.md)
 
 The GIF shows the preselected first baseline case, with illustrative timing. [All-controller chart](output/otto-action-head-v1/figure-01/action-head.png) · [Shifted replay](output/otto-action-head-v1/figure-01/first-case-shift.gif) · [Results, weights and audit](research/otto-action-head-results.md).
 
-The latest [768-search boundary control](research/otto-boundary-control-results.md) finds **9.67% / 13.24% fewer moves** for the existing pretrained model than analytic control, but roughly **92x / 85x** the CPU computation. All searches succeed. Restricting boundary choices changes **none of the 192 paired neural paths**, so no intervention benefit is demonstrated. Competence passes **6/6**; teacher consistency fails **8/12** and utility-compute fails **12/16**. This is not a new model result. [Baseline GIF](output/otto-boundary-control-v1/figure-01/replay-base-case0.gif) · [Shifted GIF](output/otto-boundary-control-v1/figure-01/replay-shift-case0.gif).
+The preceding [768-search boundary control](research/otto-boundary-control-results.md) finds **9.67% / 13.24% fewer moves** for the existing pretrained model than analytic control, but roughly **92x / 85x** the CPU computation. All searches succeed. Restricting boundary choices changes **none of the 192 paired neural paths**, so no intervention benefit is demonstrated. Competence passes **6/6**; teacher consistency fails **8/12** and utility-compute fails **12/16**. This is not a new model result. [Baseline GIF](output/otto-boundary-control-v1/figure-01/replay-base-case0.gif) · [Shifted GIF](output/otto-boundary-control-v1/figure-01/replay-shift-case0.gif).
 
 [![All four boundary-control policies, both regimes and every paired block](output/otto-boundary-control-v1/figure-01/boundary-comparison.png)](research/otto-boundary-control-results.md)
 
