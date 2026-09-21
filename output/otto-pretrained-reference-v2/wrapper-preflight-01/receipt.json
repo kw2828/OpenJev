@@ -1,0 +1,57 @@
+{
+  "actual_model_calls": 0,
+  "actual_weight_loads": 0,
+  "attempts": [
+    {
+      "command": ".venv/bin/python -m pytest -q tests/test_qualify_otto_pretrained_runtime_v2.py",
+      "exit_code": 0,
+      "log": "pytest.log",
+      "passed_tests": 19,
+      "reported_test_seconds": 0.09,
+      "tool_chunk": "d73598"
+    },
+    {
+      "command": ".venv/bin/ruff check scripts/qualify_otto_pretrained_runtime_v2.py tests/test_qualify_otto_pretrained_runtime_v2.py",
+      "exit_code": 0,
+      "log": "ruff.log",
+      "tool_chunk": "9351a0"
+    }
+  ],
+  "changes": {
+    "REQUIRED_SOURCES_added": [
+      "scripts/qualify_otto_pretrained_runtime_v2.py",
+      "tests/test_qualify_otto_pretrained_runtime_v2.py",
+      "research/otto-pretrained-reference-runtime-v2-protocol.md"
+    ],
+    "VERSION": [
+      "otto-pretrained-qualification-v1",
+      "otto-pretrained-qualification-runtime-v2"
+    ],
+    "VERSIONS.numpy": [
+      "2.2.6",
+      "2.5.3"
+    ]
+  },
+  "evidence_kind": "agent execution witness with log text transcribed from actual tool returns",
+  "files": {
+    "pytest.log": {
+      "bytes": 46,
+      "sha256": "2d346da9dd7754ad20fc01cb957b1a5bfac052579b82288cb0fac507d380b984"
+    },
+    "ruff.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    }
+  },
+  "qualification_run_performed": false,
+  "scope": "Tests establish source/configuration/guard/delegation behavior only. No numerical framework, TensorFlow construction, official weights, inference, corpus, or simulator used. Root owns v2 runtime install, prospective protocol/plan, and actual qualification.",
+  "simulator_calls": 0,
+  "sources": {
+    "scripts/qualify_otto_pretrained.py": "7c6514831ea204938905bf36575d50bc9abb5365be19bcc4c396fdad672c035a",
+    "scripts/qualify_otto_pretrained_runtime_v2.py": "09151fcaf9a9530ec2cbf7e358df08b34a9c30bc1cd6aac3f40a7dedde626378",
+    "src/openjev/research/otto_pretrained_value.py": "20e2f83389bc6bfbc890636904ca4aaba028937673446845866e6156a41493c1",
+    "tests/test_qualify_otto_pretrained_runtime_v2.py": "992ec4921edcf474ef14f65cd0eefedaaf14f6f514f68425d3797a7bb6ff6e70"
+  },
+  "status": "completed",
+  "version": "otto-pretrained-runtime-v2-wrapper-preflight-v1"
+}

@@ -1,0 +1,57 @@
+{
+  "status": "completed",
+  "reason": "Separate runtime correction after exact synthetic matmuls reproduced spurious warnings under NumPy2.2.6. Change only NumPy to2.5.3; preserve original environment.",
+  "requirements_sha256": "e68fd43f4f07f261190deb52455c38e42359074327faee21b7be9754d333d70a",
+  "commands": [
+    {
+      "argv": [
+        "uv",
+        "--no-config",
+        "venv",
+        "--no-project",
+        "--python",
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv-otto-reference/bin/python",
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv-otto-reference-v2"
+      ],
+      "exit_code": 0,
+      "log": "command-0.log"
+    },
+    {
+      "argv": [
+        "uv",
+        "--no-config",
+        "pip",
+        "sync",
+        "--python",
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv-otto-reference-v2/bin/python",
+        "--only-binary",
+        ":all:",
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-pretrained-reference-v2/runtime-setup-01/requirements.txt"
+      ],
+      "exit_code": 0,
+      "log": "command-1.log"
+    },
+    {
+      "argv": [
+        "uv",
+        "--no-config",
+        "pip",
+        "check",
+        "--python",
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv-otto-reference-v2/bin/python"
+      ],
+      "exit_code": 0,
+      "log": "command-2.log"
+    }
+  ],
+  "model_calls": 0,
+  "simulator_calls": 0,
+  "exact_package_match": true,
+  "changed_packages": {
+    "numpy": [
+      "2.2.6",
+      "2.5.3"
+    ]
+  },
+  "wall_seconds": 0.8021666251588613
+}
