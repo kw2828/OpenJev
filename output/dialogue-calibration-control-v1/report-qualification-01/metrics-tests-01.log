@@ -1,0 +1,70 @@
+.................................FF.F........                            [100%]
+=================================== FAILURES ===================================
+_ test_own_raw_guards_use_all_three_means_with_no_epsilon[trainable_numbers-nll-True] _
+
+arm = 'trainable_numbers', metric = 'nll', strict = True
+
+    @pytest.mark.parametrize("arm,metric,strict", [("trainable_numbers", "nll", True), ("trainable_numbers", "brier", False),
+                                                 ("frozen_numbers", "nll", False), ("frozen_numbers", "brier", False)])
+    def test_own_raw_guards_use_all_three_means_with_no_epsilon(arm, metric, strict):
+        routes = gate_fixture()
+        name = f"{arm}_unseen_micro_{metric}_" + ("improves_own_raw" if strict else "nonworse_own_raw")
+        before = routes["raw"][f"{arm}-6901"]["panels"]["unseen"]["micro"][metric]
+        for seed in original.SEEDS:
+            routes["calibrated"][f"{arm}-{seed}"]["panels"]["unseen"]["micro"][metric] = before
+        equal = check(gate(routes), name)
+        assert equal["passed"] is not strict and equal["mean"] == 0
+        for seed in original.SEEDS:
+            routes["calibrated"][f"{arm}-{seed}"]["panels"]["unseen"]["micro"][metric] = math.nextafter(before, math.inf)
+        worse = check(gate(routes), name)
+>       assert worse["passed"] is False and worse["mean"] > 0
+E       assert (False is False and 0.0 > 0)
+
+tests/test_dialogue_calibration_metrics.py:279: AssertionError
+_ test_own_raw_guards_use_all_three_means_with_no_epsilon[trainable_numbers-brier-False] _
+
+arm = 'trainable_numbers', metric = 'brier', strict = False
+
+    @pytest.mark.parametrize("arm,metric,strict", [("trainable_numbers", "nll", True), ("trainable_numbers", "brier", False),
+                                                 ("frozen_numbers", "nll", False), ("frozen_numbers", "brier", False)])
+    def test_own_raw_guards_use_all_three_means_with_no_epsilon(arm, metric, strict):
+        routes = gate_fixture()
+        name = f"{arm}_unseen_micro_{metric}_" + ("improves_own_raw" if strict else "nonworse_own_raw")
+        before = routes["raw"][f"{arm}-6901"]["panels"]["unseen"]["micro"][metric]
+        for seed in original.SEEDS:
+            routes["calibrated"][f"{arm}-{seed}"]["panels"]["unseen"]["micro"][metric] = before
+        equal = check(gate(routes), name)
+        assert equal["passed"] is not strict and equal["mean"] == 0
+        for seed in original.SEEDS:
+            routes["calibrated"][f"{arm}-{seed}"]["panels"]["unseen"]["micro"][metric] = math.nextafter(before, math.inf)
+        worse = check(gate(routes), name)
+>       assert worse["passed"] is False and worse["mean"] > 0
+E       assert (True is False)
+
+tests/test_dialogue_calibration_metrics.py:279: AssertionError
+_ test_own_raw_guards_use_all_three_means_with_no_epsilon[frozen_numbers-brier-False] _
+
+arm = 'frozen_numbers', metric = 'brier', strict = False
+
+    @pytest.mark.parametrize("arm,metric,strict", [("trainable_numbers", "nll", True), ("trainable_numbers", "brier", False),
+                                                 ("frozen_numbers", "nll", False), ("frozen_numbers", "brier", False)])
+    def test_own_raw_guards_use_all_three_means_with_no_epsilon(arm, metric, strict):
+        routes = gate_fixture()
+        name = f"{arm}_unseen_micro_{metric}_" + ("improves_own_raw" if strict else "nonworse_own_raw")
+        before = routes["raw"][f"{arm}-6901"]["panels"]["unseen"]["micro"][metric]
+        for seed in original.SEEDS:
+            routes["calibrated"][f"{arm}-{seed}"]["panels"]["unseen"]["micro"][metric] = before
+        equal = check(gate(routes), name)
+        assert equal["passed"] is not strict and equal["mean"] == 0
+        for seed in original.SEEDS:
+            routes["calibrated"][f"{arm}-{seed}"]["panels"]["unseen"]["micro"][metric] = math.nextafter(before, math.inf)
+        worse = check(gate(routes), name)
+>       assert worse["passed"] is False and worse["mean"] > 0
+E       assert (True is False)
+
+tests/test_dialogue_calibration_metrics.py:279: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_dialogue_calibration_metrics.py::test_own_raw_guards_use_all_three_means_with_no_epsilon[trainable_numbers-nll-True]
+FAILED tests/test_dialogue_calibration_metrics.py::test_own_raw_guards_use_all_three_means_with_no_epsilon[trainable_numbers-brier-False]
+FAILED tests/test_dialogue_calibration_metrics.py::test_own_raw_guards_use_all_three_means_with_no_epsilon[frozen_numbers-brier-False]
+3 failed, 42 passed in 0.32s
