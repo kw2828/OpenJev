@@ -1,0 +1,12 @@
+S102 Use of `exec` detected
+   --> scripts/qualify_otto_reference_control.py:136:5
+    |
+134 |     require(len(methods) == 2, "exact original pure method inventory")
+135 |     namespace = {"np": np, "EPSILON": 1e-10}
+136 |     exec(compile(ast.Module(body=methods, type_ignores=[]), str(source), "exec"), namespace)
+    |     ^^^^
+137 |
+138 |     class OriginalPublicView:
+    |
+
+Found 1 error.

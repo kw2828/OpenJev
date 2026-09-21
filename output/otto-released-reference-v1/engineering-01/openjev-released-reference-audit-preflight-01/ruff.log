@@ -1,0 +1,78 @@
+F401 [*] `os` imported but unused
+  --> scripts/audit_otto_released_reference.py:14:8
+   |
+12 | import json
+13 | import math
+14 | import os
+   |        ^^
+15 | import resource
+16 | import signal
+   |
+help: Remove unused import: `os`
+   |
+13 | import math
+   - import os
+14 | import resource
+   |
+
+PLC0206 Extracting value from dictionary without calling `.items()`
+   --> scripts/audit_otto_released_reference.py:236:9
+    |
+234 |     require([{k: r[k] for k in ('cohort', 'seed', 'block', 'initial_hit', 'arm')} for r in rows] == list(identities()), 'all576 order…
+235 |     cohorts, paired = {}, []
+236 |     for regime in REGIMES:
+    |         ^^^^^^^^^^^^^^^^^
+237 |         w = weights[regime]
+238 |         require(set(w) == {1, 2, 3} and all(0 < x < 1 and math.isfinite(x) for x in w.values())
+    |
+   ::: scripts/audit_otto_released_reference.py:275:70
+    |
+273 | …                            'total_steps': sum(r['steps'] for r in selected if r['arm'] == a)} for a in ARMS}}
+274 | …     for case in range(96):
+275 | …         records = {r['arm']: r for r in selected if r['seed'] == REGIMES[regime] + case}
+    |                                                                    ---------------
+276 | …         paired.append({'cohort': regime, 'case': case, 'seed': REGIMES[regime] + case,
+    |                                                                  ---------------
+277 | …                        'initial_hit': 1 + (case % 12) // 4, 'block': case // 12,
+278 | …                        'arms': {a: {'found': records[a]['found'], 'moves': records[a]['steps'], 'controller_seconds': records[a]['c…
+    |
+help: Use `for regime, value in REGIMES.items()` instead
+
+B023 Function definition does not bind loop variable `w`
+   --> scripts/audit_otto_released_reference.py:247:45
+    |
+245 |                 strata = {h: [r for r in records if r['arm'] == arm and r['initial_hit'] == h] for h in (1, 2, 3)}
+246 |                 require(all(strata.values()), 'complete conditional support')
+247 |                 result[arm] = {m: math.fsum(w[h] * math.fsum(float(r[m]) for r in strata[h]) / len(strata[h])
+    |                                             ^
+248 |                                           for h in (1, 2, 3)) for m in METRICS}
+249 |             return result
+    |
+
+PLC0206 Extracting value from dictionary without calling `.items()`
+   --> scripts/audit_otto_released_reference.py:356:13
+    |
+354 | …                           'model_forward_seconds': model['seconds'] if neural else 0., 'model_forward_calls': int(neural)}.items():
+355 | …         c.close(record[key], expected, 'transition recorded work cost')
+356 | …     for key in costs:
+    |           ^^^^^^^^^^^^
+357 | …         costs[key].append(record[key])
+    |           ----------
+358 | …     raw['choose_seconds'].append(choose['instrumented_seconds'])
+359 | …     raw['update_seconds'].append(update['instrumented_seconds'])
+    |
+help: Use `for key, value in costs.items()` instead
+
+BLE001 Do not catch blind exception: `BaseException`
+   --> scripts/audit_otto_released_reference.py:599:20
+    |
+597 |                     (self.out / 'receipt.json').rename(self.out / 'invalid-completed-receipt.json')
+598 |                 write(self.out / 'failed.json', self.receipt)
+599 |             except BaseException as secondary:
+    |                    ^^^^^^^^^^^^^
+600 |                 error.add_note(f'Failure preservation: {secondary!r}')
+601 |             raise
+    |
+
+Found 5 errors.
+[*] 1 fixable with the `--fix` option.

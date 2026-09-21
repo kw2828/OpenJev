@@ -1,0 +1,38 @@
+{
+  "synthetic_only": true,
+  "model_calls": 0,
+  "native_calls": 0,
+  "thread_limit": 1,
+  "per_command_timeout_seconds": 60,
+  "source_sha256": {
+    "scripts/audit_otto_released_reference.py": "d4262491970e0bb58633145d02936ef4082d29ed4957594fa7b7f6ba8c687145",
+    "tests/test_audit_otto_released_reference.py": "3419569038ee668005c361591adfd8c70f3da3435e7961f63dc00a259ea98a73"
+  },
+  "commands": [
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_audit_otto_released_reference.py"
+      ],
+      "started_unix": 1790009955.359587,
+      "finished_unix": 1790009955.695376,
+      "wall_seconds": 0.3357889652252197,
+      "exit_code": 1
+    },
+    {
+      "command": [
+        ".venv/bin/ruff",
+        "check",
+        "scripts/audit_otto_released_reference.py",
+        "tests/test_audit_otto_released_reference.py"
+      ],
+      "started_unix": 1790009955.695384,
+      "finished_unix": 1790009955.7381399,
+      "wall_seconds": 0.042755842208862305,
+      "exit_code": 1
+    }
+  ]
+}

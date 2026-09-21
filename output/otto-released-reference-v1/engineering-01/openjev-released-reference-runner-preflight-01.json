@@ -1,0 +1,42 @@
+{
+  "kind": "agent_execution_witness",
+  "scope": "Actual tool results transcribed from this agent session. Raw tool output files were not separately persisted. No OTTO, TensorFlow, native simulator, checkpoint or real model execution occurred.",
+  "source_sha256": {
+    "scripts/study_otto_released_reference.py": "da2a7e418dd29819bddf190f46d1707f1163a22b01a048b33d3dedab875ad87e",
+    "tests/test_otto_released_reference.py": "e7d7f5191134a9dfef0b84648a3b3cb6bf82628797c9455007898de1569050dc"
+  },
+  "checks": [
+    {
+      "command": ".venv/bin/python -m pytest -q tests/test_otto_released_reference.py",
+      "tool_chunk": "a43a16",
+      "exit_code": 0,
+      "result": "33 passed in 0.18s",
+      "tool_wall_seconds": 0.23310625
+    },
+    {
+      "command": ".venv/bin/ruff check scripts/study_otto_released_reference.py tests/test_otto_released_reference.py",
+      "tool_chunk": "9bd251",
+      "exit_code": 0,
+      "result": "All checks passed!"
+    },
+    {
+      "command": "git diff --check -- scripts/study_otto_released_reference.py tests/test_otto_released_reference.py",
+      "tool_chunk": "d80009",
+      "exit_code": 0,
+      "result": "No whitespace errors; same tool output recorded both final file SHA256 values."
+    }
+  ],
+  "preserved_prior_failure": {
+    "tool_chunk": "437680",
+    "exit_code": 1,
+    "command": ".venv/bin/ruff check scripts/study_otto_released_reference.py",
+    "result": "Two BLE001 warnings for secondary BaseException failure-preservation handlers; explicit explanatory suppressions added before the held qualification. No tests or scientific run failed."
+  },
+  "independent_source_review": {
+    "agent": "/root/architecture_bottleneck",
+    "status": "clear",
+    "scope": "Public actor interfaces and dtype/action contracts, boundary null convention, cached setup/storage, exact posterior parity, real forward counting, found and censored final updates. Does not claim an independent review of every aggregate condition."
+  },
+  "scientific_execution": "not invoked",
+  "frozen_old_source_edits": 0
+}

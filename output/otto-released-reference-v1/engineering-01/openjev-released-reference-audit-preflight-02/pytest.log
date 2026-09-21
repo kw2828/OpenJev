@@ -1,0 +1,109 @@
+.......................F                                                 [100%]
+=================================== FAILURES ===================================
+____________ test_complete_artificial_saved_compute_all576_episodes ____________
+
+m = <module 'synthetic_reference_audit' from '/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/audit_otto_released_reference.py'>
+tmp_path = PosixPath('/private/var/folders/57/43njbt192fgcplwy_cxy07ch0000gn/T/pytest-of-kevinwu/pytest-1520/test_complete_artificial_saved0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x109f5da90>
+
+    def test_complete_artificial_saved_compute_all576_episodes(m, tmp_path, monkeypatch):
+        producer = module('synthetic_producer_for_saved_join', 'scripts/study_otto_released_reference.py')
+        run = tmp_path / 'run'
+        run.mkdir()
+        paths, recordings = {}, {n: [] for n in ('work', 'transitions', 'forwards', 'episodes', 'weights')}
+        count = {ch: {'attempted': 0, 'returned': 0, 'seconds': 0., 'instrumented_seconds': 0., 'excluded_io_seconds': 0.} for ch in m.CHANNELS}
+        sequence, stack = 0, []
+    
+        def emit_events(events):
+            nonlocal sequence
+            for item in events:
+                ch = item['channel']
+                if item['event'] == 'attempt':
+                    sequence += 1
+                    count[ch]['attempted'] += 1
+                    identity = {'call_id': sequence, 'channel': ch, 'ordinal': count[ch]['attempted'],
+                                'parent_call_id': stack[-1]['call_id'] if stack else None, 'context': item['context']}
+                    stack.append(identity)
+                    recordings['work'].append({'event': 'attempt', **identity})
+                else:
+                    identity = stack.pop()
+                    count[ch]['returned'] += 1
+                    durations = {k: item[k] for k in ('seconds', 'instrumented_seconds', 'excluded_io_seconds')}
+                    for k, v in durations.items():
+                        count[ch][k] += v
+                    recordings['work'].append({'event': 'return', **identity, **durations})
+        for ch in ('tensorflow_construction', 'tensorflow_build', 'tensorflow_load'):
+            emit_events([{'event': 'attempt', 'channel': ch, 'context': {'phase': 'model_setup'}},
+                         {'event': 'return', 'channel': ch, 'seconds': .25, 'instrumented_seconds': .25, 'excluded_io_seconds': 0.}])
+        setup = {'model_setup_seconds': 192., 'model_setup_instrumented_seconds': 192., 'model_setup_excluded_io_seconds': 0.,
+                 'allocated_over_released_episodes': 192, 'model_parameters': 13390849, 'model_tensor_bytes': 53563396}
+        for identity in m.identities():
+            _, row, trans, forwards, events, _ = episode_fixture(m)
+            neural = identity['arm'] == 'released_tf'
+            row.update(identity)
+            for record in trans:
+                record.update(identity)
+            for event in events:
+                event['context'].update(identity)
+            forwards[0]['context'].update(identity)
+            if not neural:
+                events = [event for event in events if event['channel'] != 'tensorflow_value']
+                for event in events:
+                    if event['channel'] == 'actor_choose' and event['event'] == 'return':
+                        event.update(instrumented_seconds=.25, excluded_io_seconds=0.)
+                row.update(model_setup_allocation_seconds=0., controller_seconds=.75, controller_instrumented_seconds=.75,
+                           controller_excluded_io_seconds=0., model_forward_seconds=0., model_forward_calls=0)
+                row['instrumented_component_seconds'].update(choose_seconds=.25, model_setup_allocation_seconds=0.)
+                row['storage']['immutable_array_bytes'] += 107*107*8
+                trans[-1].update(choose_instrumented_seconds=.25, choose_excluded_io_seconds=0., model_forward_seconds=0., model_forward_calls=0)
+            emit_events(events)
+            if neural:
+                forwards[0]['ordinal'] = count['tensorflow_value']['returned']
+                recordings['forwards'].extend(forwards)
+            recordings['transitions'].extend(trans)
+            recordings['episodes'].append(row)
+        for regime, w in weights().items():
+            paths[regime + '_kernel'] = tmp_path / (regime + '.npz')
+            np.savez(paths[regime + '_kernel'], likelihood=kernel(), initial_hit_weights=np.array([0, w[1], w[2], w[3]]))
+        metadata = {'datasets': {f'{kind}_{i}': {'shape': [1], 'sha256_c_order': str(i)*64} for i in range(4) for kind in ('kernel', 'bias')}}
+        paths['tensor_metadata'] = tmp_path / 'metadata.json'
+        paths['tensor_metadata'].write_text(json.dumps(metadata))
+        recordings['weights'] = [{'id': k, 'shape': v['shape'], 'sha256': v['sha256_c_order'], 'exact': True} for k, v in metadata['datasets'].items()]
+        for name, records in recordings.items():
+            (run / (name + '.jsonl')).write_text(''.join(json.dumps(r) + '\n' for r in records))
+        (run / 'setup.json').write_text(json.dumps(setup))
+        summary = producer.summarize(recordings['episodes'], weights())
+        summary.update(setup=setup, paired_source_cases=192, paired_uniform_checks=192, all_public_beliefs_exact=True,
+                       actual_work={ch: d['returned'] for ch, d in count.items()}, artifact_io_seconds=48.)
+        for field, key in (('sum_controller_seconds', 'controller_seconds'), ('sum_controller_instrumented_seconds', 'controller_instrumented_seconds'), ('sum_excluded_controller_io_seconds', 'controller_excluded_io_seconds')):
+            summary[field] = math.fsum(r[key] for r in recordings['episodes'])
+        (run / 'summary.json').write_text(json.dumps(summary))
+        worker = {'wall_seconds': 1000., 'work': {'calls': count, 'pending': [], 'sequence': sequence,
+                  'context': recordings['work'][-1]['context'], 'artifact_io_seconds': 48.},
+                  **{k: summary[k] for k in ('competent_reference', 'stronger_value_teacher', 'utility_compute_advantage')}}
+        a = m.Audit(SimpleNamespace(run=run, output=tmp_path / 'out'))
+        monkeypatch.setattr(a, 'check', lambda: None)
+>       result = a.compute(paths, worker)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_audit_otto_released_reference.py:359: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+scripts/audit_otto_released_reference.py:518: in compute
+    max_cost_error = max(max_cost_error, verify_episode(row, identity, transitions, forwards, journal,
+scripts/audit_otto_released_reference.py:301: in verify_episode
+    c.equal(row['initial_public'], current, 'paired public reset')
+scripts/audit_otto_released_reference.py:182: in equal
+    require(actual == expected, name)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ok = False, message = 'paired public reset'
+
+    def require(ok, message):
+        if not ok:
+>           raise ValueError(message)
+E           ValueError: paired public reset
+
+scripts/audit_otto_released_reference.py:47: ValueError
+=========================== short test summary info ============================
+FAILED tests/test_audit_otto_released_reference.py::test_complete_artificial_saved_compute_all576_episodes
+1 failed, 23 passed in 0.24s

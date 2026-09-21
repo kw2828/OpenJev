@@ -1,0 +1,63 @@
+...F................F.                                                   [100%]
+=================================== FAILURES ===================================
+____ test_complete_576_cohort_independent_aggregate_matches_producer_schema ____
+
+m = <module 'synthetic_reference_audit' from '/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/audit_otto_released_reference.py'>
+
+    def test_complete_576_cohort_independent_aggregate_matches_producer_schema(m):
+        # Producer use is test-only and does not supply auditor arithmetic.
+        producer = module('synthetic_reference_producer', 'scripts/study_otto_released_reference.py')
+        rows = synthetic_rows(m)
+>       expected = json.loads(json.dumps(producer.summarize(rows, weights())))
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_audit_otto_released_reference.py:89: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+scripts/study_otto_released_reference.py:216: in summarize
+    require(all(type(row[k]) is int and 0 <= row[k] <= row['steps'] for k in ('stuck_steps', 'blocked_steps')), 'integer movement counts')
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ok = False, message = 'integer movement counts'
+
+    def require(ok, message):
+        if not ok:
+>           raise ValueError(message)
+E           ValueError: integer movement counts
+
+scripts/study_otto_released_reference.py:65: ValueError
+_______ test_auth_rejects_bad_plan_before_producer_import_or_array_reads _______
+
+m = <module 'synthetic_reference_audit' from '/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/audit_otto_released_reference.py'>
+tmp_path = PosixPath('/private/var/folders/57/43njbt192fgcplwy_cxy07ch0000gn/T/pytest-of-kevinwu/pytest-1519/test_auth_rejects_bad_plan_bef0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x109259400>
+
+    def test_auth_rejects_bad_plan_before_producer_import_or_array_reads(m, tmp_path, monkeypatch):
+        plan = tmp_path / 'plan.json'
+        plan.write_text('{}')
+        out = tmp_path / 'out'
+        out.mkdir()
+        args = SimpleNamespace(plan=plan, plan_sha256='bad', run=tmp_path / 'run', terminal=tmp_path / 'terminal', output=out)
+        a = m.Audit(args)
+        monkeypatch.setattr(a, 'check', lambda: None)
+        monkeypatch.setattr(m, 'load', lambda *args: pytest.fail('untrusted code imported'))
+        with pytest.raises(ValueError, match='external'):
+>           a.authenticate()
+
+tests/test_audit_otto_released_reference.py:253: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <synthetic_reference_audit.Audit object at 0x1092584a0>
+
+    def authenticate(self):
+        a, c = self.args, self.c
+        for path in (a.plan, a.run, a.terminal, a.output):
+            require(path.is_absolute() and not any(p.is_symlink() for p in (path, *path.parents)), 'absolute nonsymlink paths')
+>       for path, pin in ((a.plan, a.plan_sha256), (a.run / 'receipt.json', a.receipt_sha256), (a.terminal, a.terminal_sha256)):
+                                                                            ^^^^^^^^^^^^^^^^
+E       AttributeError: 'types.SimpleNamespace' object has no attribute 'receipt_sha256'
+
+scripts/audit_otto_released_reference.py:413: AttributeError
+=========================== short test summary info ============================
+FAILED tests/test_audit_otto_released_reference.py::test_complete_576_cohort_independent_aggregate_matches_producer_schema
+FAILED tests/test_audit_otto_released_reference.py::test_auth_rejects_bad_plan_before_producer_import_or_array_reads
+2 failed, 20 passed in 0.16s

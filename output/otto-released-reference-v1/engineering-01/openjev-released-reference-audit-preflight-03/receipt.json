@@ -1,0 +1,43 @@
+{
+  "synthetic_only": true,
+  "model_calls": 0,
+  "native_calls": 0,
+  "thread_limit": 1,
+  "per_command_timeout_seconds": 60,
+  "source_sha256": {
+    "scripts/audit_otto_released_reference.py": "6f63cbc79107fc3046d28645fa4336fe04bfb91ee53368c78ba3971ced1942e1",
+    "tests/test_audit_otto_released_reference.py": "1fd498ebdf385746c8b5ea9b40982c14198ff1eb0390027ddeacc4a4385e2685"
+  },
+  "commands": [
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_audit_otto_released_reference.py::test_complete_artificial_saved_compute_all576_episodes"
+      ],
+      "started_unix": 1790010073.666898,
+      "finished_unix": 1790010074.048674,
+      "wall_seconds": 0.3817760944366455,
+      "exit_code": 0
+    },
+    {
+      "command": [
+        ".venv/bin/ruff",
+        "check",
+        "scripts/audit_otto_released_reference.py",
+        "tests/test_audit_otto_released_reference.py"
+      ],
+      "started_unix": 1790010074.048683,
+      "finished_unix": 1790010074.064338,
+      "wall_seconds": 0.015655040740966797,
+      "exit_code": 0
+    }
+  ],
+  "prior_attempts": [
+    "/tmp/openjev-released-reference-audit-preflight-01/receipt.json",
+    "/tmp/openjev-released-reference-audit-preflight-02/receipt.json"
+  ],
+  "correction": "Fixture-only initial hit bound to each artificial case; production unchanged after preflight02."
+}
