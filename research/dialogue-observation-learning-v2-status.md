@@ -1,9 +1,11 @@
 # Observation learning: clock-corrected comparison
 
-**The corrected twelve-fit experiment is now training from fresh initialization.** It asks
-whether learning the text encoder helps autonomous state tracking beyond a
-simple number-word correction. The four variants and three paired seeds are
-unchanged. There is no accuracy result or new-architecture claim.
+**All twelve fresh fits completed. The scientific continuation rule failed 6/7.**
+Training the text encoder improves unseen-service macro accuracy from 76.46%
+to 79.34% beyond a simple number-word correction, but log loss worsens from
+0.705 to 0.827. The independent arithmetic audit agrees. The four variants,
+three paired seeds and ordinary scalar memory are unchanged.
+[Complete results and figures](dialogue-observation-learning-v2-results.md).
 
 The [first attempt](dialogue-observation-learning-timing-failure.md) remains
 failed and unscored. Its five fitted models are not reused. The
@@ -38,21 +40,48 @@ local; manifests bind the complete 69-payload closure.
 - [Actual freeze process check](../output/dialogue-observation-learning-v2/freeze-terminal-review-01.json):
   `c937dc33943161f6dd7fdb6efa9a347e841b8cf3eaab2b7a5d51e8e26e983516`.
 
-## Live execution
+## Completed execution and audits
 
 The source and corrected plan were published in `6a93965` and `faf345d` before
-launch. Session **61998**, worker process group **41434**, is running. **Eleven
-of twelve fits have completed** all 1,280 updates and their final DEV pass:
-all four variants for seeds 6901 and 6902, plus both frozen-encoder variants
-and the trainable-original variant for seed 6903.
-Their work counts, state checks and payload hashes match the frozen plan.
-All six frozen encoders are unchanged; all five completed trainable encoders'
-fingerprints have changed. This confirms execution, not useful learning.
-The final fit, `trainable_numbers-6903`, is training.
-All 64 source hashes still match.
-The worker has authenticated and
-inherited the parent's absolute native-clock deadline. This is execution
-progress only; predictions have not been decoded for task-quality scoring.
+launch. Session **61998** exited 0 after **17,063.176 seconds** of
+suspend-inclusive parent elapsed time, within its 28,800-second cap. All twelve
+fits completed 1,280 updates and a final DEV pass each. Aggregate work is
+15,360 optimizer updates and 747,948 evaluated endpoints across the twelve fits.
+All 64 live and frozen sources match. The worker, supervisor, process group
+and temporary idle-sleep helper are absent.
+
+All six frozen encoders are unchanged; all six trainable encoder fingerprints
+changed. Independent metadata checks passed for every fit. These establish
+execution; the separate saved-result audits establish the reported arithmetic.
+
+- [Whole-study completion](../output/dialogue-observation-learning-v2/scientific-run-01/completed.json):
+  `454ba05d600d8d8a69726e2e58ee8d337040c2be64c0aa31f4f6854b87eb28f5`.
+- [Supervisor terminal](../output/dialogue-observation-learning-v2/scientific-process-01.terminal.json):
+  `7fe9b5e9fae7a83bdd04dceea559a849d78dcd346b97247b4b38d72be5d2b9ef`.
+- [Actual exit and process/helper release](../output/dialogue-observation-learning-v2/scientific-terminal-review-01.json):
+  `d1ab331064edd8f63e2772755ddef67875d9f91c773a6f574ddcfee632e43b40`.
+- [Complete scorer](../output/dialogue-observation-learning-v2/report-01/receipt.json):
+  `4983c8a96db377ebb70f92323c63ef600758eb22a59d84ddd808d08d0b314765`;
+  9.458 seconds, zero model calls, scientific FAIL 6/7.
+- [Independent saved-result audit](../output/dialogue-observation-learning-v2/result-audit-01/result-02/receipt.json):
+  `9af7f9e2a2bd689aa497e78b2ba5c4f2ca3baec2e6500f73ef2942854d3142a2`;
+  1.312 seconds, 144 fit cells, 24 literal-reference cells and 1,608 scalar
+  comparisons, with agreement on all seven scientific conditions.
+- [Actual report, audit and figure exits](../output/dialogue-observation-learning-v2/saved-result-terminal-review-01.json)
+  record exit 0 and verify their complete saved-file membership and hashes.
+
+The [first audit launcher failed](../output/dialogue-observation-learning-v2/result-audit-01/result-01/failed.json)
+before entering the auditor body: resolving the virtual-environment interpreter
+selected base Python, which lacks NumPy. No saved input was decoded.
+The [exact invocation](../output/dialogue-observation-learning-v2/result-audit-01/result-01/invocation.json)
+and [prospective correction](../output/dialogue-observation-learning-v2/result-audit-01/launcher-correction-01.json)
+are preserved. Direct invocation through `.venv/bin/python` then completed in a
+new directory with unchanged source, input hashes and limits. No training was
+repeated, and this correction does not change the scientific failure.
+
+## Execution history
+
+The following immutable snapshots record progress before complete-study scoring.
 
 - [Actual supervisor launch](../output/dialogue-observation-learning-v2/scientific-process-01.launch.json):
   `eefba879336be7ebb3f211174091014f1405741872a80f9934fb461c81c4ada9`.
@@ -115,19 +144,18 @@ progress only; predictions have not been decoded for task-quality scoring.
   records released prior worker groups and background demo services. These are
   not isolated hardware latency measurements.
 
-The full execution has an eight-hour suspend-inclusive deadline. A temporary
-idle-sleep assertion accompanies the process; manual/lid sleep can still cause
-a timeout. All twelve fits must complete and pass both saved-result audits
-before quality is reported. Partial completion is not a scientific comparison.
-Official DEV remains exposed development evidence; official TEST is untouched.
+The complete execution met its eight-hour suspend-inclusive deadline. All twelve
+fits and both saved-result audits are complete. Official DEV remains exposed
+development evidence; official TEST is untouched. This is an observation-learning
+comparison, with no established connectome, recurrent-architecture or world-model
+advantage.
 
-The [V2 figure generator](../output/dialogue-observation-learning-v2/figure-01/README.md)
-is ready, with seven input/lifecycle rejection checks and a visually checked
-synthetic render. It requires both completed audits, shows every fit and all
-seven conditions, and preserves scientific failures. Invented fixture plots
-remain local and are not benchmark results.
+The qualified [V2 figure generator](../output/dialogue-observation-learning-v2/figure-01/README.md)
+produced [actual result figures](../output/dialogue-observation-learning-v2/figure-01/render-01/receipt.json)
+after authenticating both completed audits. They show every fit and all seven
+conditions, preserving the scientific failure. The actual PNGs passed
+[visual inspection](../output/dialogue-observation-learning-v2/figure-01/render-01-visual-qa.json).
+Invented qualification plots remain local and are not benchmark results.
 
-macOS also [confirmed the active idle-sleep assertion](../output/dialogue-observation-learning-v2/runtime-idle-assertion-01.json).
-The helper is a child of the supervisor on this host; its release will be
-checked after the actual supervisor exit. This observation does not guarantee
-against manual or lid sleep.
+macOS [confirmed the active idle-sleep assertion during training](../output/dialogue-observation-learning-v2/runtime-idle-assertion-01.json).
+Its release was verified after the actual supervisor exit, as recorded above.

@@ -66,25 +66,14 @@ Open **http://127.0.0.1:8000**. Local text scoring uses Qwen3-4B; the free brows
 
 ## Research results
 
-**Latest: removing lexical flags did not fix retention.** The complete 15,638-decision comparison finished in 41.3 minutes. Changed-value accuracy improved, but only **5/16** continuation checks passed. Both context settings failed, with independent arithmetic agreement.
+**Latest: better decisions, worse log loss.** All twelve observation-learning fits completed. With the same autonomous memory and number-word correction, training the text encoder raised unseen-service macro accuracy from **76.46% to 79.34%** and reduced assigned-retention error by **6.05 percentage points**. Log loss worsened from **0.705 to 0.827** in the three-seed mean and worsened in every seed, so the original continuation rule **failed: 6/7**.
 
-| Model | Changed-value accuracy ↑ | Retained-value error ↓ | Overall accuracy ↑ |
-| --- | ---: | ---: | ---: |
-| Earlier small model, three-seed mean | 58.59% | 2.46% | 94.66% |
-| Qwen, current exchange, original inputs | 83.74% | 17.40% | 82.68% |
-| Qwen, current exchange, no lexical flags | 85.64% | 19.85% | 80.56% |
-| Qwen, four exchanges, original inputs | 82.35% | 21.67% | 78.63% |
-| Qwen, four exchanges, no lexical flags | 84.60% | 21.68% | 78.78% |
+[![All twelve observation-learning fits: accuracy gains and the log-loss regression](output/dialogue-observation-learning-v2/figure-01/render-01/observation.png)](research/dialogue-observation-learning-v2-results.md)
 
-Removing flags also removes some full-history information and shortens prompts. Overall log loss worsened in both context settings. Every model receives the correct previous value on exposed development data; this is not an autonomous-memory or new-architecture result. [Complete paired results](research/dialogue-qwen-lexical-ablation-results.md) · [Earlier baseline and every training seed](research/dialogue-qwen-observation-results.md).
-
-[![All sixteen lexical-ablation checks: improved revision accuracy, unresolved retention and failed probability-score conditions](output/dialogue-qwen-lexical-ablation-v1/figure-01/comparison.png)](research/dialogue-qwen-lexical-ablation-results.md)
-
-The [complete history audit](research/dialogue-history-support-results.md) found that apparent delayed references mostly came from matching digits while missing number words. We are prioritizing better text interpretation with autonomous scalar state before another recurrent architecture comparison. The earlier [retention diagnosis and blinded Astra6 review](research/dialogue-qwen-retention-results.md) remain diagnostic.
-
-The [full-batch training pilot](research/dialogue-observation-learning-cost-results.md) passed **40 cases and 52 updates in 75.3 seconds**, including real encoder gradients and checkpoint writing. It uses synthetic targets. The first twelve-fit comparison stopped after five fits because system sleep exposed inconsistent timers. That [failed attempt](research/dialogue-observation-learning-timing-failure.md) remains unscored. A [fresh twelve-fit comparison](research/dialogue-observation-learning-v2-status.md) is now training with corrected timers, the same scientific recipe and an eight-hour deadline that includes sleep. No new accuracy result yet.
+The independent scoring audit agrees. These are exposed development results from ordinary scalar memory, with no new architecture or calibration advantage established. Next we need to understand probability reliability before adding more memory complexity. [Results, retention figure and all seven conditions](research/dialogue-observation-learning-v2-results.md) · [Execution and audit history](research/dialogue-observation-learning-v2-status.md).
 
 - [Earlier text learning experiments](research/dialogue-objective-results.md): matched training objectives and recurrent variants have not established an architecture advantage.
+- [Qwen lexical ablation](research/dialogue-qwen-lexical-ablation-results.md): better changed-value accuracy, worse retention; 5/16 conditions passed.
 - [Text inference speed](research/shared-prefix-results.md): shared-context scoring is **2.08x faster** for four-question synthetic workloads; single-question caching is slower.
 - [All experiments, failures and visualizations](research/experiment-index.md): complete results, protocols, receipts and paper sources.
 

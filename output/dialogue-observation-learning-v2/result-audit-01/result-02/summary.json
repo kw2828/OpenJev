@@ -1,0 +1,2508 @@
+{
+  "agreement": true,
+  "continuation": {
+    "checks": [
+      {
+        "arithmetic": "exact",
+        "comparison": "ge",
+        "mean": 0.028770437947475788,
+        "name": "unseen_macro_gain_1pp",
+        "paired_seed_values": [
+          0.034673616850855044,
+          0.022331584292392802,
+          0.02930611269917952
+        ],
+        "passed": true,
+        "threshold": 0.01
+      },
+      {
+        "arithmetic": "exact",
+        "name": "unseen_macro_strict_paired_wins",
+        "passed": true,
+        "required": 2,
+        "wins": 3
+      },
+      {
+        "arithmetic": "float64 arm means, no epsilon",
+        "comparison": "le",
+        "control_mean": 0.7052647113598592,
+        "mean": 0.12194180981812408,
+        "name": "unseen_micro_nll_nonworse",
+        "paired_seed_values": [
+          0.13061853156231096,
+          0.1560693500543101,
+          0.07913754783775118
+        ],
+        "passed": false,
+        "primary_mean": 0.8272065211779833,
+        "threshold": 0.0
+      },
+      {
+        "arithmetic": "float64 arm means, no epsilon",
+        "comparison": "le",
+        "control_mean": 0.3652484528666937,
+        "mean": -0.026502337594131842,
+        "name": "unseen_micro_brier_nonworse",
+        "paired_seed_values": [
+          -0.03298959504159271,
+          -0.021576839996539088,
+          -0.024940577744263837
+        ],
+        "passed": true,
+        "primary_mean": 0.3387461152725619,
+        "threshold": 0.0
+      },
+      {
+        "arithmetic": "exact",
+        "comparison": "ge",
+        "mean": 0.03985648989637886,
+        "name": "seen_macro_deficit_at_most_1pp",
+        "paired_seed_values": [
+          0.032114725564333174,
+          0.04280140827426784,
+          0.04465333585053558
+        ],
+        "passed": true,
+        "threshold": -0.01
+      },
+      {
+        "arithmetic": "exact",
+        "comparison": "le",
+        "mean": -0.0071403185680591905,
+        "name": "seen_assigned_retention_error_increase_at_most_half_pp",
+        "paired_seed_values": [
+          -0.0007754192110109528,
+          -0.008141901715615005,
+          -0.012503634777551615
+        ],
+        "passed": true,
+        "threshold": 0.005
+      },
+      {
+        "arithmetic": "exact",
+        "comparison": "le",
+        "mean": -0.06049899677222367,
+        "name": "unseen_assigned_retention_error_increase_at_most_half_pp",
+        "paired_seed_values": [
+          -0.06699816801884323,
+          -0.05482857890604554,
+          -0.05967024339178226
+        ],
+        "passed": true,
+        "threshold": 0.005
+      }
+    ],
+    "checks_passed": 6,
+    "checks_total": 7,
+    "passed": false
+  },
+  "execution_completed_sha256": "454ba05d600d8d8a69726e2e58ee8d337040c2be64c0aa31f4f6854b87eb28f5",
+  "families": {
+    "frozen_numbers": {
+      "panels": {
+        "all": {
+          "macro_three": {
+            "accuracy": 0.8099724442579173,
+            "brier": 0.28807140271192183,
+            "nll": 0.5764344444690926
+          },
+          "micro": {
+            "accuracy": 0.8102809286207062,
+            "brier": 0.28851699711581413,
+            "error": 0.18971907137929375,
+            "nll": 0.5603323812649253
+          },
+          "strata": {
+            "assigned_retention": {
+              "accuracy": 0.8011396328674575,
+              "brier": 0.30937437369651916,
+              "error": 0.19886036713254263,
+              "nll": 0.6552757543016865
+            },
+            "changed": {
+              "accuracy": 0.8149380985750992,
+              "brier": 0.27384524315938447,
+              "error": 0.18506190142490073,
+              "nll": 0.5573585768957589
+            },
+            "unmentioned_retention": {
+              "accuracy": 0.8138396013311952,
+              "brier": 0.280994591279862,
+              "error": 0.18616039866880485,
+              "nll": 0.5166690022098327
+            }
+          }
+        },
+        "seen": {
+          "macro_three": {
+            "accuracy": 0.8544317235136045,
+            "brier": 0.21432223946304862,
+            "nll": 0.4319779504053031
+          },
+          "micro": {
+            "accuracy": 0.8663063802617778,
+            "brier": 0.20166263724565892,
+            "error": 0.13369361973822227,
+            "nll": 0.39627965175912266
+          },
+          "strata": {
+            "assigned_retention": {
+              "accuracy": 0.8600368324125229,
+              "brier": 0.208718662071982,
+              "error": 0.13996316758747698,
+              "nll": 0.4294189791640863
+            },
+            "changed": {
+              "accuracy": 0.8244339125855714,
+              "brier": 0.24614230306641946,
+              "error": 0.17556608741442867,
+              "nll": 0.5159868935984262
+            },
+            "unmentioned_retention": {
+              "accuracy": 0.8788244255427192,
+              "brier": 0.1881057532507444,
+              "error": 0.12117557445728068,
+              "nll": 0.3505279784533968
+            }
+          }
+        },
+        "unseen": {
+          "macro_three": {
+            "accuracy": 0.7646316121008008,
+            "brier": 0.36615419744191224,
+            "nll": 0.7333220523512386
+          },
+          "micro": {
+            "accuracy": 0.7607852617371247,
+            "brier": 0.3652484528666937,
+            "error": 0.23921473826287531,
+            "nll": 0.7052647113598592
+          },
+          "strata": {
+            "assigned_retention": {
+              "accuracy": 0.721626101369624,
+              "brier": 0.4452635358046518,
+              "error": 0.278373898630376,
+              "nll": 0.9601912671379363
+            },
+            "changed": {
+              "accuracy": 0.8031196749246297,
+              "brier": 0.30832412848940177,
+              "error": 0.19688032507537026,
+              "nll": 0.6088494843421047
+            },
+            "unmentioned_retention": {
+              "accuracy": 0.7691490600081486,
+              "brier": 0.3448749280316831,
+              "error": 0.23085093999185147,
+              "nll": 0.6309254055736747
+            }
+          }
+        }
+      }
+    },
+    "frozen_original": {
+      "panels": {
+        "all": {
+          "macro_three": {
+            "accuracy": 0.7644841165426878,
+            "brier": 0.3453012105568925,
+            "nll": 0.7366203818300948
+          },
+          "micro": {
+            "accuracy": 0.7960820805724462,
+            "brier": 0.3011853193637603,
+            "error": 0.20391791942755377,
+            "nll": 0.6151967624515766
+          },
+          "strata": {
+            "assigned_retention": {
+              "accuracy": 0.7618464279748315,
+              "brier": 0.36141658580826014,
+              "error": 0.23815357202516843,
+              "nll": 0.800508921671308
+            },
+            "changed": {
+              "accuracy": 0.7063770147161877,
+              "brier": 0.4186174322097321,
+              "error": 0.2936229852838122,
+              "nll": 0.926142999172785
+            },
+            "unmentioned_retention": {
+              "accuracy": 0.8252289069370441,
+              "brier": 0.2558696136526854,
+              "error": 0.17477109306295588,
+              "nll": 0.48320922464619115
+            }
+          }
+        },
+        "seen": {
+          "macro_three": {
+            "accuracy": 0.8001295777290238,
+            "brier": 0.2855303749636615,
+            "nll": 0.5889237316163878
+          },
+          "micro": {
+            "accuracy": 0.8389428558398322,
+            "brier": 0.2382551336533233,
+            "error": 0.16105714416016784,
+            "nll": 0.48315833125420204
+          },
+          "strata": {
+            "assigned_retention": {
+              "accuracy": 0.8226551646150367,
+              "brier": 0.26218443903754757,
+              "error": 0.17734483538496335,
+              "nll": 0.5497793992024396
+            },
+            "changed": {
+              "accuracy": 0.7002632964718273,
+              "brier": 0.4054025497654193,
+              "error": 0.2997367035281728,
+              "nll": 0.8514533193774095
+            },
+            "unmentioned_retention": {
+              "accuracy": 0.8774702721002073,
+              "brier": 0.18900413608801758,
+              "error": 0.12252972789979265,
+              "nll": 0.3655384762693144
+            }
+          }
+        },
+        "unseen": {
+          "macro_three": {
+            "accuracy": 0.7276801626959655,
+            "brier": 0.4107673186639336,
+            "nll": 0.9074123783316647
+          },
+          "micro": {
+            "accuracy": 0.758216742714975,
+            "brier": 0.3567809712971099,
+            "error": 0.24178325728502503,
+            "nll": 0.7318460712022624
+          },
+          "strata": {
+            "assigned_retention": {
+              "accuracy": 0.679752246357847,
+              "brier": 0.4953838794792155,
+              "error": 0.320247753642153,
+              "nll": 1.139003619827722
+            },
+            "changed": {
+              "accuracy": 0.7139861056494953,
+              "brier": 0.4350645824009433,
+              "error": 0.28601389435050467,
+              "nll": 1.0191012518477216
+            },
+            "unmentioned_retention": {
+              "accuracy": 0.7893021360805541,
+              "brier": 0.301853494111642,
+              "error": 0.2106978639194459,
+              "nll": 0.5641322633195505
+            }
+          }
+        }
+      }
+    },
+    "trainable_numbers": {
+      "panels": {
+        "all": {
+          "macro_three": {
+            "accuracy": 0.8429643398563669,
+            "brier": 0.25637188193233107,
+            "nll": 0.7196641729287964
+          },
+          "micro": {
+            "accuracy": 0.8463850428104628,
+            "brier": 0.25164262535295895,
+            "error": 0.15361495718953724,
+            "nll": 0.6304800582374768
+          },
+          "strata": {
+            "assigned_retention": {
+              "accuracy": 0.8309853926536369,
+              "brier": 0.27822143979933217,
+              "error": 0.169014607346363,
+              "nll": 0.8336265903138638
+            },
+            "changed": {
+              "accuracy": 0.8440200887643075,
+              "brier": 0.25159001741861986,
+              "error": 0.15597991123569258,
+              "nll": 0.8167508014859428
+            },
+            "unmentioned_retention": {
+              "accuracy": 0.8538875381511563,
+              "brier": 0.23930418857904123,
+              "error": 0.14611246184884383,
+              "nll": 0.5086151269865825
+            }
+          }
+        },
+        "seen": {
+          "macro_three": {
+            "accuracy": 0.8942882134099834,
+            "brier": 0.17245496931415816,
+            "nll": 0.4975872984980449
+          },
+          "micro": {
+            "accuracy": 0.9064167464769461,
+            "brier": 0.15304788626726268,
+            "error": 0.09358325352305376,
+            "nll": 0.4078001828068371
+          },
+          "strata": {
+            "assigned_retention": {
+              "accuracy": 0.8671771509805822,
+              "brier": 0.21948854886663482,
+              "error": 0.1328228490194178,
+              "nll": 0.6374296501542046
+            },
+            "changed": {
+              "accuracy": 0.8778304370721433,
+              "brier": 0.1972118132201253,
+              "error": 0.12216956292785676,
+              "nll": 0.6457081379923344
+            },
+            "unmentioned_retention": {
+              "accuracy": 0.9378570521772248,
+              "brier": 0.10066454585571433,
+              "error": 0.062142947822775164,
+              "nll": 0.2096241073475957
+            }
+          }
+        },
+        "unseen": {
+          "macro_three": {
+            "accuracy": 0.7934020500482766,
+            "brier": 0.33714319599935944,
+            "nll": 0.9474543046461532
+          },
+          "micro": {
+            "accuracy": 0.7933500538885364,
+            "brier": 0.3387461152725619,
+            "error": 0.20664994611146367,
+            "nll": 0.8272065211779833
+          },
+          "strata": {
+            "assigned_retention": {
+              "accuracy": 0.7821250981418477,
+              "brier": 0.357513148220248,
+              "error": 0.2178749018581523,
+              "nll": 1.0985001615814907
+            },
+            "changed": {
+              "accuracy": 0.8019399659195177,
+              "brier": 0.3192687497380203,
+              "error": 0.19806003408048237,
+              "nll": 1.0296293032387036
+            },
+            "unmentioned_retention": {
+              "accuracy": 0.7961410860834643,
+              "brier": 0.33464769003981004,
+              "error": 0.20385891391653574,
+              "nll": 0.7142334491182657
+            }
+          }
+        }
+      }
+    },
+    "trainable_original": {
+      "panels": {
+        "all": {
+          "macro_three": {
+            "accuracy": 0.8457160945433647,
+            "brier": 0.25307785612713674,
+            "nll": 0.7186109578435874
+          },
+          "micro": {
+            "accuracy": 0.840940814067288,
+            "brier": 0.2600020683426864,
+            "error": 0.15905918593271193,
+            "nll": 0.6459211704646033
+          },
+          "strata": {
+            "assigned_retention": {
+              "accuracy": 0.8437366594279562,
+              "brier": 0.2564170028795285,
+              "error": 0.15626334057204375,
+              "nll": 0.794948641940994
+            },
+            "changed": {
+              "accuracy": 0.8559915907498249,
+              "brier": 0.23788365880973183,
+              "error": 0.1440084092501752,
+              "nll": 0.8081376521349055
+            },
+            "unmentioned_retention": {
+              "accuracy": 0.8374200334523132,
+              "brier": 0.2649329066921499,
+              "error": 0.1625799665476868,
+              "nll": 0.5527465794548628
+            }
+          }
+        },
+        "seen": {
+          "macro_three": {
+            "accuracy": 0.9050174497477478,
+            "brier": 0.15534919337101846,
+            "nll": 0.44545961559429476
+          },
+          "micro": {
+            "accuracy": 0.9142609568112373,
+            "brier": 0.1387710899464549,
+            "error": 0.0857390431887627,
+            "nll": 0.36631335267444065
+          },
+          "strata": {
+            "assigned_retention": {
+              "accuracy": 0.8816839520532455,
+              "brier": 0.19395143397697656,
+              "error": 0.11831604794675454,
+              "nll": 0.5719731999011647
+            },
+            "changed": {
+              "accuracy": 0.8936282253817799,
+              "brier": 0.17717753951018322,
+              "error": 0.10637177461822012,
+              "nll": 0.574625219283897
+            },
+            "unmentioned_retention": {
+              "accuracy": 0.939740171808218,
+              "brier": 0.09491860662589556,
+              "error": 0.060259828191781974,
+              "nll": 0.18978042759782268
+            }
+          }
+        },
+        "unseen": {
+          "macro_three": {
+            "accuracy": 0.7895697818534343,
+            "brier": 0.34534634457025487,
+            "nll": 0.9990336346176232
+          },
+          "micro": {
+            "accuracy": 0.776166157999174,
+            "brier": 0.3671035364595759,
+            "error": 0.22383384200082598,
+            "nll": 0.8929406054180132
+          },
+          "strata": {
+            "assigned_retention": {
+              "accuracy": 0.7925063246968508,
+              "brier": 0.3407479730925131,
+              "error": 0.20749367530314924,
+              "nll": 1.0959742419835115
+            },
+            "changed": {
+              "accuracy": 0.8091492987285358,
+              "brier": 0.3134380699709868,
+              "error": 0.1908507012714641,
+              "nll": 1.0987655915660663
+            },
+            "unmentioned_retention": {
+              "accuracy": 0.7670537221349165,
+              "brier": 0.38185299064726475,
+              "error": 0.2329462778650835,
+              "nll": 0.8023610703032918
+            }
+          }
+        }
+      }
+    }
+  },
+  "fit_cells": 144,
+  "fits": {
+    "frozen_numbers-6901": {
+      "panels": {
+        "all": {
+          "macro_three": {
+            "accuracy": 0.8060668384552603,
+            "brier": 0.29359561014192287,
+            "nll": 0.5884782396693103
+          },
+          "micro": {
+            "accuracy": 0.8217523143320123,
+            "brier": 0.27251358952287247,
+            "correct": 51219,
+            "count": 62329,
+            "error": 0.17824768566798763,
+            "incorrect": 11110,
+            "nll": 0.5295335276778725
+          },
+          "strata": {
+            "assigned_retention": {
+              "accuracy": 0.7856228075059859,
+              "brier": 0.3291814767998731,
+              "correct": 14109,
+              "count": 17959,
+              "error": 0.21437719249401416,
+              "incorrect": 3850,
+              "nll": 0.696911734238205
+            },
+            "changed": {
+              "accuracy": 0.7892431674842326,
+              "brier": 0.3111135765722576,
+              "correct": 4505,
+              "count": 5708,
+              "error": 0.21075683251576735,
+              "incorrect": 1203,
+              "nll": 0.6318437284007088
+            },
+            "unmentioned_retention": {
+              "accuracy": 0.8433345403755625,
+              "brier": 0.240491777053638,
+              "correct": 32605,
+              "count": 38662,
+              "error": 0.15666545962443743,
+              "incorrect": 6057,
+              "nll": 0.4366792563690173
+            }
+          }
+        },
+        "seen": {
+          "macro_three": {
+            "accuracy": 0.8540137554144925,
+            "brier": 0.21409249809368183,
+            "nll": 0.4321813211947374
+          },
+          "micro": {
+            "accuracy": 0.8755643726912026,
+            "brier": 0.18674780006929012,
+            "correct": 25598,
+            "count": 29236,
+            "error": 0.12443562730879737,
+            "incorrect": 3638,
+            "nll": 0.3705982644620139
+          },
+          "strata": {
+            "assigned_retention": {
+              "accuracy": 0.846370068818455,
+              "brier": 0.22564098325503218,
+              "correct": 8732,
+              "count": 10317,
+              "error": 0.15362993118154503,
+              "incorrect": 1585,
+              "nll": 0.45786322421052866
+            },
+            "changed": {
+              "accuracy": 0.8072669826224329,
+              "brier": 0.272608700938932,
+              "correct": 2555,
+              "count": 3165,
+              "error": 0.19273301737756715,
+              "incorrect": 610,
+              "nll": 0.5641067910446896
+            },
+            "unmentioned_retention": {
+              "accuracy": 0.9084042148025898,
+              "brier": 0.14402781008708135,
+              "correct": 14311,
+              "count": 15754,
+              "error": 0.09159578519741018,
+              "incorrect": 1443,
+              "nll": 0.27457394832899396
+            }
+          }
+        },
+        "unseen": {
+          "macro_three": {
+            "accuracy": 0.7563360400843937,
+            "brier": 0.3782774797570254,
+            "nll": 0.7613151739700644
+          },
+          "micro": {
+            "accuracy": 0.774212069017617,
+            "brier": 0.3482833480961337,
+            "correct": 25621,
+            "count": 33093,
+            "error": 0.22578793098238298,
+            "incorrect": 7472,
+            "nll": 0.6699448338567878
+          },
+          "strata": {
+            "assigned_retention": {
+              "accuracy": 0.7036116199947657,
+              "brier": 0.4689652077475469,
+              "correct": 5377,
+              "count": 7642,
+              "error": 0.2963883800052342,
+              "incorrect": 2265,
+              "nll": 1.0196366070405523
+            },
+            "changed": {
+              "accuracy": 0.766810853322847,
+              "brier": 0.35903647526650667,
+              "correct": 1950,
+              "count": 2543,
+              "error": 0.23318914667715296,
+              "incorrect": 593,
+              "nll": 0.7161486465020852
+            },
+            "unmentioned_retention": {
+              "accuracy": 0.7985856469355683,
+              "brier": 0.30683075625702255,
+              "correct": 18294,
+              "count": 22908,
+              "error": 0.20141435306443164,
+              "incorrect": 4614,
+              "nll": 0.548160268367556
+            }
+          }
+        }
+      },
+      "validation": {
+        "exact_top1_tie_rows": 0,
+        "float64_exponent_underflow_positions": 0,
+        "maximum_mass_error": 2.711774608199491e-07,
+        "rows": 62329,
+        "supported_candidate_positions": 357443,
+        "tolerance": 2e-06
+      }
+    },
+    "frozen_numbers-6902": {
+      "panels": {
+        "all": {
+          "macro_three": {
+            "accuracy": 0.8135408451816568,
+            "brier": 0.2821189740388255,
+            "nll": 0.5624919408325637
+          },
+          "micro": {
+            "accuracy": 0.803253702129025,
+            "brier": 0.2981984815879105,
+            "correct": 50066,
+            "count": 62329,
+            "error": 0.196746297870975,
+            "incorrect": 12263,
+            "nll": 0.5778457091926198
+          },
+          "strata": {
+            "assigned_retention": {
+              "accuracy": 0.8087309983852108,
+              "brier": 0.29866698777896006,
+              "correct": 14524,
+              "count": 17959,
+              "error": 0.19126900161478924,
+              "incorrect": 3435,
+              "nll": 0.6299079957426336
+            },
+            "changed": {
+              "accuracy": 0.8360196215837421,
+              "brier": 0.2413101752742164,
+              "correct": 4772,
+              "count": 5708,
+              "error": 0.16398037841625787,
+              "incorrect": 936,
+              "nll": 0.4910984950318382
+            },
+            "unmentioned_retention": {
+              "accuracy": 0.7958719155760178,
+              "brier": 0.30637975906330006,
+              "correct": 30770,
+              "count": 38662,
+              "error": 0.2041280844239822,
+              "incorrect": 7892,
+              "nll": 0.5664693317232193
+            }
+          }
+        },
+        "seen": {
+          "macro_three": {
+            "accuracy": 0.8562364026966445,
+            "brier": 0.2130129835380661,
+            "nll": 0.42980833242846667
+          },
+          "micro": {
+            "accuracy": 0.8604460254480777,
+            "brier": 0.21272412224755205,
+            "correct": 25156,
+            "count": 29236,
+            "error": 0.13955397455192228,
+            "incorrect": 4080,
+            "nll": 0.41795468252979695
+          },
+          "strata": {
+            "assigned_retention": {
+              "accuracy": 0.8694387903460308,
+              "brier": 0.19555114727153974,
+              "correct": 8970,
+              "count": 10317,
+              "error": 0.13056120965396917,
+              "incorrect": 1347,
+              "nll": 0.40679806917937383
+            },
+            "changed": {
+              "accuracy": 0.8407582938388626,
+              "brier": 0.22122532387253055,
+              "correct": 2661,
+              "count": 3165,
+              "error": 0.15924170616113745,
+              "incorrect": 504,
+              "nll": 0.4672743829267447
+            },
+            "unmentioned_retention": {
+              "accuracy": 0.85851212390504,
+              "brier": 0.22226247947012803,
+              "correct": 13525,
+              "count": 15754,
+              "error": 0.14148787609496,
+              "incorrect": 2229,
+              "nll": 0.4153525451792813
+            }
+          }
+        },
+        "unseen": {
+          "macro_three": {
+            "accuracy": 0.7698962610476642,
+            "brier": 0.3561376305986834,
+            "nll": 0.7074194766934424
+          },
+          "micro": {
+            "accuracy": 0.752727162844106,
+            "brier": 0.3737107763231936,
+            "correct": 24910,
+            "count": 33093,
+            "error": 0.247272837155894,
+            "incorrect": 8183,
+            "nll": 0.7191013842753952
+          },
+          "strata": {
+            "assigned_retention": {
+              "accuracy": 0.726773096048155,
+              "brier": 0.43787742045562267,
+              "correct": 5554,
+              "count": 7642,
+              "error": 0.27322690395184507,
+              "incorrect": 2088,
+              "nll": 0.931115155171206
+            },
+            "changed": {
+              "accuracy": 0.8301219032638616,
+              "brier": 0.26630764074269286,
+              "correct": 2111,
+              "count": 2543,
+              "error": 0.1698780967361384,
+              "incorrect": 432,
+              "nll": 0.5207498181984213
+            },
+            "unmentioned_retention": {
+              "accuracy": 0.7527937838309761,
+              "brier": 0.3642278305977348,
+              "correct": 17245,
+              "count": 22908,
+              "error": 0.2472062161690239,
+              "incorrect": 5663,
+              "nll": 0.6703934567106998
+            }
+          }
+        }
+      },
+      "validation": {
+        "exact_top1_tie_rows": 0,
+        "float64_exponent_underflow_positions": 0,
+        "maximum_mass_error": 2.606243132419195e-07,
+        "rows": 62329,
+        "supported_candidate_positions": 357443,
+        "tolerance": 2e-06
+      }
+    },
+    "frozen_numbers-6903": {
+      "panels": {
+        "all": {
+          "macro_three": {
+            "accuracy": 0.8103096491368346,
+            "brier": 0.2884996239550172,
+            "nll": 0.578333152905404
+          },
+          "micro": {
+            "accuracy": 0.8058367694010814,
+            "brier": 0.29483892023665936,
+            "correct": 50227,
+            "count": 62329,
+            "error": 0.19416323059891863,
+            "incorrect": 12102,
+            "nll": 0.5736179069242838
+          },
+          "strata": {
+            "assigned_retention": {
+              "accuracy": 0.8090650927111754,
+              "brier": 0.30027465651072427,
+              "correct": 14530,
+              "count": 17959,
+              "error": 0.19093490728882453,
+              "incorrect": 3429,
+              "nll": 0.639007532924221
+            },
+            "changed": {
+              "accuracy": 0.819551506657323,
+              "brier": 0.2691119776316793,
+              "correct": 4678,
+              "count": 5708,
+              "error": 0.18044849334267696,
+              "incorrect": 1030,
+              "nll": 0.5491335072547295
+            },
+            "unmentioned_retention": {
+              "accuracy": 0.802312348042005,
+              "brier": 0.296112237722648,
+              "correct": 31019,
+              "count": 38662,
+              "error": 0.19768765195799493,
+              "incorrect": 7643,
+              "nll": 0.5468584185372615
+            }
+          }
+        },
+        "seen": {
+          "macro_three": {
+            "accuracy": 0.8530450124296767,
+            "brier": 0.2158612367573979,
+            "nll": 0.4339441975927052
+          },
+          "micro": {
+            "accuracy": 0.8629087426460528,
+            "brier": 0.20551598942013452,
+            "correct": 25228,
+            "count": 29236,
+            "error": 0.1370912573539472,
+            "incorrect": 4008,
+            "nll": 0.4002860082855571
+          },
+          "strata": {
+            "assigned_retention": {
+              "accuracy": 0.8643016380730832,
+              "brier": 0.2049638556893741,
+              "correct": 8917,
+              "count": 10317,
+              "error": 0.13569836192691673,
+              "incorrect": 1400,
+              "nll": 0.42359564410235634
+            },
+            "changed": {
+              "accuracy": 0.8252764612954187,
+              "brier": 0.24459288438779575,
+              "correct": 2612,
+              "count": 3165,
+              "error": 0.17472353870458135,
+              "incorrect": 553,
+              "nll": 0.5165795068238441
+            },
+            "unmentioned_retention": {
+              "accuracy": 0.8695569379205281,
+              "brier": 0.1980269701950239,
+              "correct": 13699,
+              "count": 15754,
+              "error": 0.13044306207947187,
+              "incorrect": 2055,
+              "nll": 0.3616574418519151
+            }
+          }
+        },
+        "unseen": {
+          "macro_three": {
+            "accuracy": 0.7676625351703444,
+            "brier": 0.3640474819700279,
+            "nll": 0.7312315063902091
+          },
+          "micro": {
+            "accuracy": 0.755416553349651,
+            "brier": 0.3737512341807538,
+            "correct": 24999,
+            "count": 33093,
+            "error": 0.244583446650349,
+            "incorrect": 8094,
+            "nll": 0.7267479159473947
+          },
+          "strata": {
+            "assigned_retention": {
+              "accuracy": 0.7344935880659513,
+              "brier": 0.42894797921078576,
+              "correct": 5613,
+              "count": 7642,
+              "error": 0.26550641193404867,
+              "incorrect": 2029,
+              "nll": 0.9298220392020511
+            },
+            "changed": {
+              "accuracy": 0.8124262681871804,
+              "brier": 0.29962826945900584,
+              "correct": 2066,
+              "count": 2543,
+              "error": 0.1875737318128195,
+              "incorrect": 477,
+              "nll": 0.5896499883258078
+            },
+            "unmentioned_retention": {
+              "accuracy": 0.7560677492579012,
+              "brier": 0.36356619724029204,
+              "correct": 17320,
+              "count": 22908,
+              "error": 0.24393225074209884,
+              "incorrect": 5588,
+              "nll": 0.6742224916427682
+            }
+          }
+        }
+      },
+      "validation": {
+        "exact_top1_tie_rows": 0,
+        "float64_exponent_underflow_positions": 0,
+        "maximum_mass_error": 2.5047906948572063e-07,
+        "rows": 62329,
+        "supported_candidate_positions": 357443,
+        "tolerance": 2e-06
+      }
+    },
+    "frozen_original-6901": {
+      "panels": {
+        "all": {
+          "macro_three": {
+            "accuracy": 0.7557233034856826,
+            "brier": 0.3536997554655433,
+            "nll": 0.74642806057693
+          },
+          "micro": {
+            "accuracy": 0.786744533042404,
+            "brier": 0.3137985673233744,
+            "correct": 49037,
+            "count": 62329,
+            "error": 0.21325546695759598,
+            "incorrect": 13292,
+            "nll": 0.633728622709504
+          },
+          "strata": {
+            "assigned_retention": {
+              "accuracy": 0.7612339217105629,
+              "brier": 0.3563513123703676,
+              "correct": 13671,
+              "count": 17959,
+              "error": 0.23876607828943705,
+              "incorrect": 4288,
+              "nll": 0.7767898848335325
+            },
+            "changed": {
+              "accuracy": 0.6935879467414156,
+              "brier": 0.42750281345888747,
+              "correct": 3959,
+              "count": 5708,
+              "error": 0.30641205325858445,
+              "incorrect": 1749,
+              "nll": 0.9405126152669331
+            },
+            "unmentioned_retention": {
+              "accuracy": 0.8123480420050696,
+              "brier": 0.2772451405673748,
+              "correct": 31407,
+              "count": 38662,
+              "error": 0.18765195799493042,
+              "incorrect": 7255,
+              "nll": 0.5219816816303245
+            }
+          }
+        },
+        "seen": {
+          "macro_three": {
+            "accuracy": 0.7997924457751552,
+            "brier": 0.2848712636392773,
+            "nll": 0.5918679808131836
+          },
+          "micro": {
+            "accuracy": 0.8449856341496785,
+            "brier": 0.22990818094516638,
+            "correct": 24704,
+            "count": 29236,
+            "error": 0.15501436585032152,
+            "incorrect": 4532,
+            "nll": 0.4737982627023098
+          },
+          "strata": {
+            "assigned_retention": {
+              "accuracy": 0.8123485509353494,
+              "brier": 0.2730610648658659,
+              "correct": 8381,
+              "count": 10317,
+              "error": 0.1876514490646506,
+              "incorrect": 1936,
+              "nll": 0.5675069874561444
+            },
+            "changed": {
+              "accuracy": 0.6894154818325434,
+              "brier": 0.4176151461061979,
+              "correct": 2182,
+              "count": 3165,
+              "error": 0.3105845181674566,
+              "incorrect": 983,
+              "nll": 0.8765877361211295
+            },
+            "unmentioned_retention": {
+              "accuracy": 0.8976133045575727,
+              "brier": 0.16393757994576807,
+              "correct": 14141,
+              "count": 15754,
+              "error": 0.10238669544242732,
+              "incorrect": 1613,
+              "nll": 0.331509218862277
+            }
+          }
+        },
+        "unseen": {
+          "macro_three": {
+            "accuracy": 0.714906209058446,
+            "brier": 0.4212576447294117,
+            "nll": 0.9107913596420806
+          },
+          "micro": {
+            "accuracy": 0.7352914513643368,
+            "brier": 0.3879115016645732,
+            "correct": 24333,
+            "count": 33093,
+            "error": 0.2647085486356631,
+            "incorrect": 8760,
+            "nll": 0.7750190468224682
+          },
+          "strata": {
+            "assigned_retention": {
+              "accuracy": 0.6922271656634389,
+              "brier": 0.46879641620495854,
+              "correct": 5290,
+              "count": 7642,
+              "error": 0.3077728343365611,
+              "incorrect": 2352,
+              "nll": 1.0593300120571014
+            },
+            "changed": {
+              "accuracy": 0.6987809673613842,
+              "brier": 0.4398089350362617,
+              "correct": 1777,
+              "count": 2543,
+              "error": 0.3012190326386158,
+              "incorrect": 766,
+              "nll": 1.0200730724027838
+            },
+            "unmentioned_retention": {
+              "accuracy": 0.753710494150515,
+              "brier": 0.3551675829470148,
+              "correct": 17266,
+              "count": 22908,
+              "error": 0.2462895058494849,
+              "incorrect": 5642,
+              "nll": 0.6529709944663565
+            }
+          }
+        }
+      },
+      "validation": {
+        "exact_top1_tie_rows": 0,
+        "float64_exponent_underflow_positions": 0,
+        "maximum_mass_error": 2.535936143299722e-07,
+        "rows": 62329,
+        "supported_candidate_positions": 357443,
+        "tolerance": 2e-06
+      }
+    },
+    "frozen_original-6902": {
+      "panels": {
+        "all": {
+          "macro_three": {
+            "accuracy": 0.7730922109979296,
+            "brier": 0.33767224550601577,
+            "nll": 0.7235636079111631
+          },
+          "micro": {
+            "accuracy": 0.8119494938150781,
+            "brier": 0.28086731248400504,
+            "correct": 50608,
+            "count": 62329,
+            "error": 0.18805050618492195,
+            "incorrect": 11721,
+            "nll": 0.579572583748804
+          },
+          "strata": {
+            "assigned_retention": {
+              "accuracy": 0.7564452363717357,
+              "brier": 0.37379691132776444,
+              "correct": 13585,
+              "count": 17959,
+              "error": 0.2435547636282644,
+              "incorrect": 4374,
+              "nll": 0.8273560938737524
+            },
+            "changed": {
+              "accuracy": 0.7100560616678346,
+              "brier": 0.4224178215763334,
+              "correct": 4053,
+              "count": 5708,
+              "error": 0.28994393833216536,
+              "incorrect": 1655,
+              "nll": 0.9307008509812665
+            },
+            "unmentioned_retention": {
+              "accuracy": 0.8527753349542186,
+              "brier": 0.21680200361394958,
+              "correct": 32970,
+              "count": 38662,
+              "error": 0.14722466504578138,
+              "incorrect": 5692,
+              "nll": 0.4126338788784703
+            }
+          }
+        },
+        "seen": {
+          "macro_three": {
+            "accuracy": 0.8040759957552797,
+            "brier": 0.2822498351997773,
+            "nll": 0.5789046817612374
+          },
+          "micro": {
+            "accuracy": 0.8426597345738132,
+            "brier": 0.23372335973174427,
+            "correct": 24636,
+            "count": 29236,
+            "error": 0.1573402654261869,
+            "incorrect": 4600,
+            "nll": 0.4708672594558052
+          },
+          "strata": {
+            "assigned_retention": {
+              "accuracy": 0.8284384995638266,
+              "brier": 0.2583537537534699,
+              "correct": 8547,
+              "count": 10317,
+              "error": 0.1715615004361733,
+              "incorrect": 1770,
+              "nll": 0.5420254979657375
+            },
+            "changed": {
+              "accuracy": 0.7039494470774091,
+              "brier": 0.4052654068581289,
+              "correct": 2228,
+              "count": 3165,
+              "error": 0.29605055292259086,
+              "incorrect": 937,
+              "nll": 0.8457324044411766
+            },
+            "unmentioned_retention": {
+              "accuracy": 0.8798400406246033,
+              "brier": 0.18313034498773315,
+              "correct": 13861,
+              "count": 15754,
+              "error": 0.12015995937539672,
+              "incorrect": 1893,
+              "nll": 0.34895614287679844
+            }
+          }
+        },
+        "unseen": {
+          "macro_three": {
+            "accuracy": 0.7370235180643321,
+            "brier": 0.40445785120860983,
+            "nll": 0.9018137034428945
+          },
+          "micro": {
+            "accuracy": 0.7848185416855529,
+            "brier": 0.32251662208618964,
+            "correct": 25972,
+            "count": 33093,
+            "error": 0.21518145831444715,
+            "incorrect": 7121,
+            "nll": 0.6756082668549025
+          },
+          "strata": {
+            "assigned_retention": {
+              "accuracy": 0.6592515048416645,
+              "brier": 0.5296497059749768,
+              "correct": 5038,
+              "count": 7642,
+              "error": 0.3407484951583355,
+              "incorrect": 2604,
+              "nll": 1.212563599498326
+            },
+            "changed": {
+              "accuracy": 0.7176563114431773,
+              "brier": 0.44376559687445255,
+              "correct": 1825,
+              "count": 2543,
+              "error": 0.2823436885568226,
+              "incorrect": 718,
+              "nll": 1.0364519847993494
+            },
+            "unmentioned_retention": {
+              "accuracy": 0.8341627379081543,
+              "brier": 0.23995825077639993,
+              "correct": 19109,
+              "count": 22908,
+              "error": 0.16583726209184566,
+              "incorrect": 3799,
+              "nll": 0.4564255260310083
+            }
+          }
+        }
+      },
+      "validation": {
+        "exact_top1_tie_rows": 0,
+        "float64_exponent_underflow_positions": 0,
+        "maximum_mass_error": 2.617271409599553e-07,
+        "rows": 62329,
+        "supported_candidate_positions": 357443,
+        "tolerance": 2e-06
+      }
+    },
+    "frozen_original-6903": {
+      "panels": {
+        "all": {
+          "macro_three": {
+            "accuracy": 0.7646368351444511,
+            "brier": 0.3445316306991186,
+            "nll": 0.7398694770021911
+          },
+          "micro": {
+            "accuracy": 0.7895522148598566,
+            "brier": 0.3088900782839015,
+            "correct": 49212,
+            "count": 62329,
+            "error": 0.21044778514014342,
+            "incorrect": 13117,
+            "nll": 0.6322890808964219
+          },
+          "strata": {
+            "assigned_retention": {
+              "accuracy": 0.7678601258421961,
+              "brier": 0.3541015337266483,
+              "correct": 13790,
+              "count": 17959,
+              "error": 0.23213987415780388,
+              "incorrect": 4169,
+              "nll": 0.7973807863066392
+            },
+            "changed": {
+              "accuracy": 0.7154870357393133,
+              "brier": 0.40593166159397553,
+              "correct": 4084,
+              "count": 5708,
+              "error": 0.28451296426068673,
+              "incorrect": 1624,
+              "nll": 0.9072155312701554
+            },
+            "unmentioned_retention": {
+              "accuracy": 0.8105633438518441,
+              "brier": 0.27356169677673187,
+              "correct": 31338,
+              "count": 38662,
+              "error": 0.1894366561481558,
+              "incorrect": 7324,
+              "nll": 0.5150121134297785
+            }
+          }
+        },
+        "seen": {
+          "macro_three": {
+            "accuracy": 0.7965202916566364,
+            "brier": 0.2894700260519299,
+            "nll": 0.5959985322747423
+          },
+          "micro": {
+            "accuracy": 0.8291831987960049,
+            "brier": 0.25113386028305923,
+            "correct": 24242,
+            "count": 29236,
+            "error": 0.17081680120399506,
+            "incorrect": 4994,
+            "nll": 0.5048094716044911
+          },
+          "strata": {
+            "assigned_retention": {
+              "accuracy": 0.8271784433459339,
+              "brier": 0.25513849849330694,
+              "correct": 8534,
+              "count": 10317,
+              "error": 0.1728215566540661,
+              "incorrect": 1783,
+              "nll": 0.5398057121854368
+            },
+            "changed": {
+              "accuracy": 0.7074249605055293,
+              "brier": 0.3933270963319312,
+              "correct": 2239,
+              "count": 3165,
+              "error": 0.2925750394944708,
+              "incorrect": 926,
+              "nll": 0.8320398175699223
+            },
+            "unmentioned_retention": {
+              "accuracy": 0.8549574711184461,
+              "brier": 0.21994448333055155,
+              "correct": 13469,
+              "count": 15754,
+              "error": 0.1450425288815539,
+              "incorrect": 2285,
+              "nll": 0.41615006706886787
+            }
+          }
+        },
+        "unseen": {
+          "macro_three": {
+            "accuracy": 0.7311107609651183,
+            "brier": 0.40658646005377935,
+            "nll": 0.9096320719100189
+          },
+          "micro": {
+            "accuracy": 0.7545402350950352,
+            "brier": 0.3599147901405668,
+            "correct": 24970,
+            "count": 33093,
+            "error": 0.2454597649049648,
+            "incorrect": 8123,
+            "nll": 0.7449108999294164
+          },
+          "strata": {
+            "assigned_retention": {
+              "accuracy": 0.6877780685684376,
+              "brier": 0.48770551625771114,
+              "correct": 5256,
+              "count": 7642,
+              "error": 0.3122219314315624,
+              "incorrect": 2386,
+              "nll": 1.145117247927739
+            },
+            "changed": {
+              "accuracy": 0.7255210381439245,
+              "brier": 0.42161921529211566,
+              "correct": 1845,
+              "count": 2543,
+              "error": 0.2744789618560755,
+              "incorrect": 698,
+              "nll": 1.0007786983410314
+            },
+            "unmentioned_retention": {
+              "accuracy": 0.7800331761829928,
+              "brier": 0.3104346486115112,
+              "correct": 17869,
+              "count": 22908,
+              "error": 0.21996682381700716,
+              "incorrect": 5039,
+              "nll": 0.5830002694612866
+            }
+          }
+        }
+      },
+      "validation": {
+        "exact_top1_tie_rows": 0,
+        "float64_exponent_underflow_positions": 0,
+        "maximum_mass_error": 2.4150168620451495e-07,
+        "rows": 62329,
+        "supported_candidate_positions": 357443,
+        "tolerance": 2e-06
+      }
+    },
+    "trainable_numbers-6901": {
+      "panels": {
+        "all": {
+          "macro_three": {
+            "accuracy": 0.8380950141833705,
+            "brier": 0.2714887726329011,
+            "nll": 0.7910202089969328
+          },
+          "micro": {
+            "accuracy": 0.8563589982191275,
+            "brier": 0.24037409275363675,
+            "correct": 53376,
+            "count": 62329,
+            "error": 0.14364100178087247,
+            "incorrect": 8953,
+            "nll": 0.6290356563901094
+          },
+          "strata": {
+            "assigned_retention": {
+              "accuracy": 0.814577649089593,
+              "brier": 0.3149168359704527,
+              "correct": 14629,
+              "count": 17959,
+              "error": 0.18542235091040704,
+              "incorrect": 3330,
+              "nll": 0.960795901378712
+            },
+            "changed": {
+              "accuracy": 0.8183251576734408,
+              "brier": 0.3030556745846318,
+              "correct": 4671,
+              "count": 5708,
+              "error": 0.18167484232655923,
+              "incorrect": 1037,
+              "nll": 0.9907370573325136
+            },
+            "unmentioned_retention": {
+              "accuracy": 0.8813822357870778,
+              "brier": 0.19649380734361874,
+              "correct": 34076,
+              "count": 38662,
+              "error": 0.11861776421292225,
+              "incorrect": 4586,
+              "nll": 0.4215276682795731
+            }
+          }
+        },
+        "seen": {
+          "macro_three": {
+            "accuracy": 0.8861284809788258,
+            "brier": 0.191336778207609,
+            "nll": 0.5731027908890123
+          },
+          "micro": {
+            "accuracy": 0.9066561773156383,
+            "brier": 0.1555705519704303,
+            "correct": 26507,
+            "count": 29236,
+            "error": 0.09334382268436174,
+            "incorrect": 2729,
+            "nll": 0.4348789155604357
+          },
+          "strata": {
+            "assigned_retention": {
+              "accuracy": 0.8471454880294659,
+              "brier": 0.25668113003841114,
+              "correct": 8740,
+              "count": 10317,
+              "error": 0.15285451197053407,
+              "incorrect": 1577,
+              "nll": 0.7603437103739418
+            },
+            "changed": {
+              "accuracy": 0.8552922590837283,
+              "brier": 0.24617704743996158,
+              "correct": 2707,
+              "count": 3165,
+              "error": 0.14470774091627173,
+              "incorrect": 458,
+              "nll": 0.8132397628380713
+            },
+            "unmentioned_retention": {
+              "accuracy": 0.955947695823283,
+              "brier": 0.07115215714445433,
+              "correct": 15060,
+              "count": 15754,
+              "error": 0.04405230417671702,
+              "incorrect": 694,
+              "nll": 0.1457248994550237
+            }
+          }
+        },
+        "unseen": {
+          "macro_three": {
+            "accuracy": 0.7910096569352488,
+            "brier": 0.3500253075045178,
+            "nll": 1.018087478616516
+          },
+          "micro": {
+            "accuracy": 0.8119239718369443,
+            "brier": 0.315293753054541,
+            "correct": 26869,
+            "count": 33093,
+            "error": 0.18807602816305563,
+            "incorrect": 6224,
+            "nll": 0.8005633654190988
+          },
+          "strata": {
+            "assigned_retention": {
+              "accuracy": 0.770609788013609,
+              "brier": 0.3935373251226214,
+              "correct": 5889,
+              "count": 7642,
+              "error": 0.229390211986391,
+              "incorrect": 1753,
+              "nll": 1.2314142283345106
+            },
+            "changed": {
+              "accuracy": 0.7723161620133701,
+              "brier": 0.37384641580086503,
+              "correct": 1964,
+              "count": 2543,
+              "error": 0.22768383798662997,
+              "incorrect": 579,
+              "nll": 1.2116489476490335
+            },
+            "unmentioned_retention": {
+              "accuracy": 0.8301030207787673,
+              "brier": 0.2826921815900669,
+              "correct": 19016,
+              "count": 22908,
+              "error": 0.16989697922123276,
+              "incorrect": 3892,
+              "nll": 0.6111992598660037
+            }
+          }
+        }
+      },
+      "validation": {
+        "exact_top1_tie_rows": 0,
+        "float64_exponent_underflow_positions": 0,
+        "maximum_mass_error": 2.594912583697706e-07,
+        "rows": 62329,
+        "supported_candidate_positions": 357443,
+        "tolerance": 2e-06
+      }
+    },
+    "trainable_numbers-6902": {
+      "panels": {
+        "all": {
+          "macro_three": {
+            "accuracy": 0.8446461870834002,
+            "brier": 0.24798070301332967,
+            "nll": 0.7216038862443727
+          },
+          "micro": {
+            "accuracy": 0.8411814725087841,
+            "brier": 0.2568303587959717,
+            "correct": 52430,
+            "count": 62329,
+            "error": 0.15881852749121597,
+            "incorrect": 9899,
+            "nll": 0.6511907306690674
+          },
+          "strata": {
+            "assigned_retention": {
+              "accuracy": 0.8367392393785845,
+              "brier": 0.26165750351323047,
+              "correct": 15027,
+              "count": 17959,
+              "error": 0.16326076062141545,
+              "incorrect": 2932,
+              "nll": 0.8315608658516885
+            },
+            "changed": {
+              "accuracy": 0.856166783461808,
+              "brier": 0.2226502121464928,
+              "correct": 4887,
+              "count": 5708,
+              "error": 0.143833216538192,
+              "incorrect": 821,
+              "nll": 0.7857036078272746
+            },
+            "unmentioned_retention": {
+              "accuracy": 0.8410325384098081,
+              "brier": 0.2596343933802658,
+              "correct": 32516,
+              "count": 38662,
+              "error": 0.15896746159019193,
+              "incorrect": 6146,
+              "nll": 0.5475471850541552
+            }
+          }
+        },
+        "seen": {
+          "macro_three": {
+            "accuracy": 0.8990378109709122,
+            "brier": 0.16038127981495276,
+            "nll": 0.47025887580280284
+          },
+          "micro": {
+            "accuracy": 0.9075796962648789,
+            "brier": 0.14895372412560348,
+            "correct": 26534,
+            "count": 29236,
+            "error": 0.09242030373512108,
+            "incorrect": 2702,
+            "nll": 0.3976618532186129
+          },
+          "strata": {
+            "assigned_retention": {
+              "accuracy": 0.8775806920616458,
+              "brier": 0.19853282306690911,
+              "correct": 9054,
+              "count": 10317,
+              "error": 0.12241930793835418,
+              "incorrect": 1263,
+              "nll": 0.5950162687347254
+            },
+            "changed": {
+              "accuracy": 0.8884676145339653,
+              "brier": 0.1704429270842298,
+              "correct": 2812,
+              "count": 3165,
+              "error": 0.11153238546603475,
+              "incorrect": 353,
+              "nll": 0.5849733572469616
+            },
+            "unmentioned_retention": {
+              "accuracy": 0.9310651263171258,
+              "brier": 0.11216808929371934,
+              "correct": 14668,
+              "count": 15754,
+              "error": 0.0689348736828742,
+              "incorrect": 1086,
+              "nll": 0.2307870014267217
+            }
+          }
+        },
+        "unseen": {
+          "macro_three": {
+            "accuracy": 0.7922278453400571,
+            "brier": 0.3318511295453234,
+            "nll": 0.9839406408267336
+          },
+          "micro": {
+            "accuracy": 0.7825219835010425,
+            "brier": 0.3521339363266545,
+            "correct": 25896,
+            "count": 33093,
+            "error": 0.21747801649895748,
+            "incorrect": 7197,
+            "nll": 0.8751707343297053
+          },
+          "strata": {
+            "assigned_retention": {
+              "accuracy": 0.7816016749542005,
+              "brier": 0.3468783001848737,
+              "correct": 5973,
+              "count": 7642,
+              "error": 0.21839832504579954,
+              "incorrect": 1669,
+              "nll": 1.1509053579291173
+            },
+            "changed": {
+              "accuracy": 0.8159653952025168,
+              "brier": 0.2876270337045197,
+              "correct": 2075,
+              "count": 2543,
+              "error": 0.1840346047974833,
+              "incorrect": 468,
+              "nll": 1.0355310726667124
+            },
+            "unmentioned_retention": {
+              "accuracy": 0.7791164658634538,
+              "brier": 0.36104805474657675,
+              "correct": 17848,
+              "count": 22908,
+              "error": 0.22088353413654618,
+              "incorrect": 5060,
+              "nll": 0.7653854918843713
+            }
+          }
+        }
+      },
+      "validation": {
+        "exact_top1_tie_rows": 0,
+        "float64_exponent_underflow_positions": 0,
+        "maximum_mass_error": 2.6448599732553646e-07,
+        "rows": 62329,
+        "supported_candidate_positions": 357443,
+        "tolerance": 2e-06
+      }
+    },
+    "trainable_numbers-6903": {
+      "panels": {
+        "all": {
+          "macro_three": {
+            "accuracy": 0.8461518183023299,
+            "brier": 0.2496461701507625,
+            "nll": 0.6463684235450834
+          },
+          "micro": {
+            "accuracy": 0.8416146577034768,
+            "brier": 0.25772342450926844,
+            "correct": 52457,
+            "count": 62329,
+            "error": 0.1583853422965233,
+            "incorrect": 9872,
+            "nll": 0.6112137876532535
+          },
+          "strata": {
+            "assigned_retention": {
+              "accuracy": 0.8416392894927335,
+              "brier": 0.2580899799143133,
+              "correct": 15115,
+              "count": 17959,
+              "error": 0.15836071050726655,
+              "incorrect": 2844,
+              "nll": 0.7085230037111909
+            },
+            "changed": {
+              "accuracy": 0.8575683251576735,
+              "brier": 0.22906416552473502,
+              "correct": 4895,
+              "count": 5708,
+              "error": 0.14243167484232655,
+              "incorrect": 813,
+              "nll": 0.6738117392980402
+            },
+            "unmentioned_retention": {
+              "accuracy": 0.8392478402565827,
+              "brier": 0.26178436501323915,
+              "correct": 32447,
+              "count": 38662,
+              "error": 0.1607521597434173,
+              "incorrect": 6215,
+              "nll": 0.5567705276260191
+            }
+          }
+        },
+        "seen": {
+          "macro_three": {
+            "accuracy": 0.8976983482802122,
+            "brier": 0.16564684991991266,
+            "nll": 0.4494002288023196
+          },
+          "micro": {
+            "accuracy": 0.9050143658503215,
+            "brier": 0.15461938270575426,
+            "correct": 26459,
+            "count": 29236,
+            "error": 0.09498563414967848,
+            "incorrect": 2777,
+            "nll": 0.39085977964146273
+          },
+          "strata": {
+            "assigned_retention": {
+              "accuracy": 0.8768052728506349,
+              "brier": 0.2032516934945842,
+              "correct": 9046,
+              "count": 10317,
+              "error": 0.12319472714936512,
+              "incorrect": 1271,
+              "nll": 0.5569289713539468
+            },
+            "changed": {
+              "accuracy": 0.8897314375987362,
+              "brier": 0.17501546513618454,
+              "correct": 2816,
+              "count": 3165,
+              "error": 0.11026856240126383,
+              "incorrect": 349,
+              "nll": 0.5389112938919703
+            },
+            "unmentioned_retention": {
+              "accuracy": 0.9265583343912657,
+              "brier": 0.1186733911289693,
+              "correct": 14597,
+              "count": 15754,
+              "error": 0.07344166560873429,
+              "incorrect": 1157,
+              "nll": 0.2523604211610417
+            }
+          }
+        },
+        "unseen": {
+          "macro_three": {
+            "accuracy": 0.7969686478695239,
+            "brier": 0.3295531509482371,
+            "nll": 0.84033479449521
+          },
+          "micro": {
+            "accuracy": 0.7856042063276222,
+            "brier": 0.34881065643648995,
+            "correct": 25998,
+            "count": 33093,
+            "error": 0.21439579367237785,
+            "incorrect": 7095,
+            "nll": 0.8058854637851459
+          },
+          "strata": {
+            "assigned_retention": {
+              "accuracy": 0.7941638314577336,
+              "brier": 0.3321238193532488,
+              "correct": 6069,
+              "count": 7642,
+              "error": 0.2058361685422664,
+              "incorrect": 1573,
+              "nll": 0.9131808984808436
+            },
+            "changed": {
+              "accuracy": 0.8175383405426662,
+              "brier": 0.2963327997086762,
+              "correct": 2079,
+              "count": 2543,
+              "error": 0.18246165945733386,
+              "incorrect": 464,
+              "nll": 0.8417078894003646
+            },
+            "unmentioned_retention": {
+              "accuracy": 0.7792037716081718,
+              "brier": 0.36020283378278634,
+              "correct": 17850,
+              "count": 22908,
+              "error": 0.2207962283918282,
+              "incorrect": 5058,
+              "nll": 0.7661155956044219
+            }
+          }
+        }
+      },
+      "validation": {
+        "exact_top1_tie_rows": 0,
+        "float64_exponent_underflow_positions": 0,
+        "maximum_mass_error": 2.475194965656513e-07,
+        "rows": 62329,
+        "supported_candidate_positions": 357443,
+        "tolerance": 2e-06
+      }
+    },
+    "trainable_original-6901": {
+      "panels": {
+        "all": {
+          "macro_three": {
+            "accuracy": 0.8508713120646999,
+            "brier": 0.242645796553022,
+            "nll": 0.6905713716330971
+          },
+          "micro": {
+            "accuracy": 0.8585088802964912,
+            "brier": 0.22883481647273043,
+            "correct": 53510,
+            "count": 62329,
+            "error": 0.1414911197035088,
+            "incorrect": 8819,
+            "nll": 0.5744292553533199
+          },
+          "strata": {
+            "assigned_retention": {
+              "accuracy": 0.8375744751934963,
+              "brier": 0.2652988649357997,
+              "correct": 15042,
+              "count": 17959,
+              "error": 0.1624255248065037,
+              "incorrect": 2917,
+              "nll": 0.8040741190326939
+            },
+            "changed": {
+              "accuracy": 0.8447792571829011,
+              "brier": 0.2545362530285893,
+              "correct": 4822,
+              "count": 5708,
+              "error": 0.1552207428170988,
+              "incorrect": 886,
+              "nll": 0.8389349871634848
+            },
+            "unmentioned_retention": {
+              "accuracy": 0.8702602038177021,
+              "brier": 0.20810227169467696,
+              "correct": 33646,
+              "count": 38662,
+              "error": 0.12973979618229786,
+              "incorrect": 5016,
+              "nll": 0.42870500870311296
+            }
+          }
+        },
+        "seen": {
+          "macro_three": {
+            "accuracy": 0.9000012796660051,
+            "brier": 0.16347241267651005,
+            "nll": 0.4557936898168811
+          },
+          "micro": {
+            "accuracy": 0.9140101245040361,
+            "brier": 0.1392798718448507,
+            "correct": 26722,
+            "count": 29236,
+            "error": 0.08598987549596387,
+            "incorrect": 2514,
+            "nll": 0.36351322364394695
+          },
+          "strata": {
+            "assigned_retention": {
+              "accuracy": 0.8718619753804401,
+              "brier": 0.20981659703860717,
+              "correct": 8995,
+              "count": 10317,
+              "error": 0.12813802461955995,
+              "incorrect": 1322,
+              "nll": 0.5898809494644779
+            },
+            "changed": {
+              "accuracy": 0.8796208530805687,
+              "brier": 0.19964047951086317,
+              "correct": 2784,
+              "count": 3165,
+              "error": 0.12037914691943127,
+              "incorrect": 381,
+              "nll": 0.6121904868879685
+            },
+            "unmentioned_retention": {
+              "accuracy": 0.9485210105370064,
+              "brier": 0.08096016148005984,
+              "correct": 14943,
+              "count": 15754,
+              "error": 0.05147898946299353,
+              "incorrect": 811,
+              "nll": 0.16530963309819693
+            }
+          }
+        },
+        "unseen": {
+          "macro_three": {
+            "accuracy": 0.8030467754874028,
+            "brier": 0.3195333628930132,
+            "nll": 0.9414089521076935
+          },
+          "micro": {
+            "accuracy": 0.8094763242981899,
+            "brier": 0.3079521029423975,
+            "correct": 26788,
+            "count": 33093,
+            "error": 0.19052367570181006,
+            "incorrect": 6305,
+            "nll": 0.760762954415213
+          },
+          "strata": {
+            "assigned_retention": {
+              "accuracy": 0.7912850039256739,
+              "brier": 0.34020210464992356,
+              "correct": 6047,
+              "count": 7642,
+              "error": 0.2087149960743261,
+              "incorrect": 1595,
+              "nll": 1.0932433064751546
+            },
+            "changed": {
+              "accuracy": 0.8014156508061345,
+              "brier": 0.32285914849992364,
+              "correct": 2038,
+              "count": 2543,
+              "error": 0.1985843491938655,
+              "incorrect": 505,
+              "nll": 1.1211396050840547
+            },
+            "unmentioned_retention": {
+              "accuracy": 0.8164396717303999,
+              "brier": 0.29553883552919236,
+              "correct": 18703,
+              "count": 22908,
+              "error": 0.18356032826960014,
+              "incorrect": 4205,
+              "nll": 0.6098439447638712
+            }
+          }
+        }
+      },
+      "validation": {
+        "exact_top1_tie_rows": 0,
+        "float64_exponent_underflow_positions": 0,
+        "maximum_mass_error": 2.3250147429543233e-07,
+        "rows": 62329,
+        "supported_candidate_positions": 357443,
+        "tolerance": 2e-06
+      }
+    },
+    "trainable_original-6902": {
+      "panels": {
+        "all": {
+          "macro_three": {
+            "accuracy": 0.8389325981644471,
+            "brier": 0.2623521047665139,
+            "nll": 0.769041143396545
+          },
+          "micro": {
+            "accuracy": 0.824736479006562,
+            "brier": 0.2861084081277267,
+            "correct": 51405,
+            "count": 62329,
+            "error": 0.17526352099343806,
+            "incorrect": 10924,
+            "nll": 0.721705742855894
+          },
+          "strata": {
+            "assigned_retention": {
+              "accuracy": 0.8444790912634333,
+              "brier": 0.2496661858980476,
+              "correct": 15166,
+              "count": 17959,
+              "error": 0.15552090873656663,
+              "incorrect": 2793,
+              "nll": 0.8077464682675105
+            },
+            "changed": {
+              "accuracy": 0.8622985283812193,
+              "brier": 0.22538936719695704,
+              "correct": 4922,
+              "count": 5708,
+              "error": 0.13770147161878066,
+              "incorrect": 786,
+              "nll": 0.8342548303387864
+            },
+            "unmentioned_retention": {
+              "accuracy": 0.8100201748486886,
+              "brier": 0.31200076120453707,
+              "correct": 31317,
+              "count": 38662,
+              "error": 0.18997982515131137,
+              "incorrect": 7345,
+              "nll": 0.6651221315833378
+            }
+          }
+        },
+        "seen": {
+          "macro_three": {
+            "accuracy": 0.9040230036881907,
+            "brier": 0.155521098280053,
+            "nll": 0.4486058555706877
+          },
+          "micro": {
+            "accuracy": 0.9084348064030647,
+            "brier": 0.14659989319587438,
+            "correct": 26559,
+            "count": 29236,
+            "error": 0.09156519359693528,
+            "incorrect": 2677,
+            "nll": 0.38185122708392677
+          },
+          "strata": {
+            "assigned_retention": {
+              "accuracy": 0.883396336144228,
+              "brier": 0.1879051985079427,
+              "correct": 9114,
+              "count": 10317,
+              "error": 0.11660366385577203,
+              "incorrect": 1203,
+              "nll": 0.5622831023714256
+            },
+            "changed": {
+              "accuracy": 0.9026856240126382,
+              "brier": 0.16225300700211276,
+              "correct": 2857,
+              "count": 3165,
+              "error": 0.09731437598736177,
+              "incorrect": 308,
+              "nll": 0.554537631532506
+            },
+            "unmentioned_retention": {
+              "accuracy": 0.9259870509077059,
+              "brier": 0.11640508933010357,
+              "correct": 14588,
+              "count": 15754,
+              "error": 0.07401294909229401,
+              "incorrect": 1166,
+              "nll": 0.22899683280813143
+            }
+          }
+        },
+        "unseen": {
+          "macro_three": {
+            "accuracy": 0.7780804054853693,
+            "brier": 0.36117590839329977,
+            "nll": 1.0955230839840033
+          },
+          "micro": {
+            "accuracy": 0.7507932191097815,
+            "brier": 0.40935715990446603,
+            "correct": 24846,
+            "count": 33093,
+            "error": 0.24920678089021847,
+            "incorrect": 8247,
+            "nll": 1.021950103388612
+          },
+          "strata": {
+            "assigned_retention": {
+              "accuracy": 0.791939282910233,
+              "brier": 0.33304594340965604,
+              "correct": 6052,
+              "count": 7642,
+              "error": 0.2080607170897671,
+              "incorrect": 1590,
+              "nll": 1.1391316483185319
+            },
+            "changed": {
+              "accuracy": 0.8120330318521432,
+              "brier": 0.3039684391657663,
+              "correct": 2065,
+              "count": 2543,
+              "error": 0.18796696814785685,
+              "incorrect": 478,
+              "nll": 1.1823888980626862
+            },
+            "unmentioned_retention": {
+              "accuracy": 0.7302689016937315,
+              "brier": 0.446513342604477,
+              "correct": 16729,
+              "count": 22908,
+              "error": 0.26973109830626857,
+              "incorrect": 6179,
+              "nll": 0.9650487055707919
+            }
+          }
+        }
+      },
+      "validation": {
+        "exact_top1_tie_rows": 0,
+        "float64_exponent_underflow_positions": 0,
+        "maximum_mass_error": 2.6900725180745155e-07,
+        "rows": 62329,
+        "supported_candidate_positions": 357443,
+        "tolerance": 2e-06
+      }
+    },
+    "trainable_original-6903": {
+      "panels": {
+        "all": {
+          "macro_three": {
+            "accuracy": 0.8473443734009473,
+            "brier": 0.25423566706187434,
+            "nll": 0.6962203585011202
+          },
+          "micro": {
+            "accuracy": 0.8395770828988112,
+            "brier": 0.2650629804276021,
+            "correct": 52330,
+            "count": 62329,
+            "error": 0.16042291710118886,
+            "incorrect": 9999,
+            "nll": 0.641628513184596
+          },
+          "strata": {
+            "assigned_retention": {
+              "accuracy": 0.8491564118269391,
+              "brier": 0.2542859578047382,
+              "correct": 15250,
+              "count": 17959,
+              "error": 0.15084358817306087,
+              "incorrect": 2709,
+              "nll": 0.7730253385227777
+            },
+            "changed": {
+              "accuracy": 0.8608969866853539,
+              "brier": 0.23372535620364918,
+              "correct": 4914,
+              "count": 5708,
+              "error": 0.1391030133146461,
+              "incorrect": 794,
+              "nll": 0.7512231389024452
+            },
+            "unmentioned_retention": {
+              "accuracy": 0.8319797216905489,
+              "brier": 0.2746956871772357,
+              "correct": 32166,
+              "count": 38662,
+              "error": 0.16802027830945115,
+              "incorrect": 6496,
+              "nll": 0.5644125980781378
+            }
+          }
+        },
+        "seen": {
+          "macro_three": {
+            "accuracy": 0.9110280658890475,
+            "brier": 0.1470540691564923,
+            "nll": 0.4319793013953155
+          },
+          "micro": {
+            "accuracy": 0.920337939526611,
+            "brier": 0.13043350479863966,
+            "correct": 26907,
+            "count": 29236,
+            "error": 0.07966206047338897,
+            "incorrect": 2329,
+            "nll": 0.35357560729544835
+          },
+          "strata": {
+            "assigned_retention": {
+              "accuracy": 0.8897935446350683,
+              "brier": 0.18413250638437986,
+              "correct": 9180,
+              "count": 10317,
+              "error": 0.11020645536493166,
+              "incorrect": 1137,
+              "nll": 0.5637555478675903
+            },
+            "changed": {
+              "accuracy": 0.8985781990521327,
+              "brier": 0.16963913201757375,
+              "correct": 2844,
+              "count": 3165,
+              "error": 0.1014218009478673,
+              "incorrect": 321,
+              "nll": 0.5571475394312164
+            },
+            "unmentioned_retention": {
+              "accuracy": 0.9447124539799416,
+              "brier": 0.08739056906752327,
+              "correct": 14883,
+              "count": 15754,
+              "error": 0.0552875460200584,
+              "incorrect": 871,
+              "nll": 0.17503481688713965
+            }
+          }
+        },
+        "unseen": {
+          "macro_three": {
+            "accuracy": 0.7875821645875312,
+            "brier": 0.35532976242445163,
+            "nll": 0.9601688677611729
+          },
+          "micro": {
+            "accuracy": 0.7682289305895507,
+            "brier": 0.38400134653186413,
+            "correct": 25423,
+            "count": 33093,
+            "error": 0.23177106941044934,
+            "incorrect": 7670,
+            "nll": 0.8961087584502148
+          },
+          "strata": {
+            "assigned_retention": {
+              "accuracy": 0.7942946872546454,
+              "brier": 0.34899587121795955,
+              "correct": 6070,
+              "count": 7642,
+              "error": 0.2057053127453546,
+              "incorrect": 1572,
+              "nll": 1.0555477711568482
+            },
+            "changed": {
+              "accuracy": 0.81399921352733,
+              "brier": 0.31348662224727036,
+              "correct": 2070,
+              "count": 2543,
+              "error": 0.18600078647267007,
+              "incorrect": 473,
+              "nll": 0.992768271551458
+            },
+            "unmentioned_retention": {
+              "accuracy": 0.7544525929806182,
+              "brier": 0.40350679380812493,
+              "correct": 17283,
+              "count": 22908,
+              "error": 0.24554740701938188,
+              "incorrect": 5625,
+              "nll": 0.8321905605752125
+            }
+          }
+        }
+      },
+      "validation": {
+        "exact_top1_tie_rows": 0,
+        "float64_exponent_underflow_positions": 0,
+        "maximum_mass_error": 2.447935130156509e-07,
+        "rows": 62329,
+        "supported_candidate_positions": 357443,
+        "tolerance": 2e-06
+      }
+    }
+  },
+  "literal_cells": 24,
+  "plan_sha256": "295b4f6857b4f9d625ed1133e0cf0785db40b53f4537c235cdb609f168c98885",
+  "references": {
+    "numbers": {
+      "panels": {
+        "all": {
+          "macro_three": {
+            "accuracy": 0.6422755590996277
+          },
+          "micro": {
+            "accuracy": 0.6957275104686422,
+            "correct": 43364,
+            "count": 62329,
+            "error": 0.30427248953135777,
+            "incorrect": 18965
+          },
+          "strata": {
+            "assigned_retention": {
+              "accuracy": 0.5798207027117322,
+              "correct": 10413,
+              "count": 17959,
+              "error": 0.4201792972882677,
+              "incorrect": 7546
+            },
+            "changed": {
+              "accuracy": 0.5804134548002803,
+              "correct": 3313,
+              "count": 5708,
+              "error": 0.4195865451997197,
+              "incorrect": 2395
+            },
+            "unmentioned_retention": {
+              "accuracy": 0.7665925197868708,
+              "correct": 29638,
+              "count": 38662,
+              "error": 0.23340748021312918,
+              "incorrect": 9024
+            }
+          }
+        },
+        "seen": {
+          "macro_three": {
+            "accuracy": 0.6460053089430691
+          },
+          "micro": {
+            "accuracy": 0.7028663291831988,
+            "correct": 20549,
+            "count": 29236,
+            "error": 0.2971336708168012,
+            "incorrect": 8687
+          },
+          "strata": {
+            "assigned_retention": {
+              "accuracy": 0.5411456818842687,
+              "correct": 5583,
+              "count": 10317,
+              "error": 0.4588543181157313,
+              "incorrect": 4734
+            },
+            "changed": {
+              "accuracy": 0.5592417061611374,
+              "correct": 1770,
+              "count": 3165,
+              "error": 0.44075829383886256,
+              "incorrect": 1395
+            },
+            "unmentioned_retention": {
+              "accuracy": 0.837628538783801,
+              "correct": 13196,
+              "count": 15754,
+              "error": 0.16237146121619905,
+              "incorrect": 2558
+            }
+          }
+        },
+        "unseen": {
+          "macro_three": {
+            "accuracy": 0.6521792304577834
+          },
+          "micro": {
+            "accuracy": 0.6894207234158282,
+            "correct": 22815,
+            "count": 33093,
+            "error": 0.3105792765841719,
+            "incorrect": 10278
+          },
+          "strata": {
+            "assigned_retention": {
+              "accuracy": 0.6320334990840094,
+              "correct": 4830,
+              "count": 7642,
+              "error": 0.3679665009159906,
+              "incorrect": 2812
+            },
+            "changed": {
+              "accuracy": 0.6067636649626426,
+              "correct": 1543,
+              "count": 2543,
+              "error": 0.39323633503735744,
+              "incorrect": 1000
+            },
+            "unmentioned_retention": {
+              "accuracy": 0.7177405273266981,
+              "correct": 16442,
+              "count": 22908,
+              "error": 0.2822594726733019,
+              "incorrect": 6466
+            }
+          }
+        }
+      }
+    },
+    "original": {
+      "panels": {
+        "all": {
+          "macro_three": {
+            "accuracy": 0.592873645407905
+          },
+          "micro": {
+            "accuracy": 0.7266440982528197,
+            "correct": 45291,
+            "count": 62329,
+            "error": 0.2733559017471803,
+            "incorrect": 17038
+          },
+          "strata": {
+            "assigned_retention": {
+              "accuracy": 0.4534216827217551,
+              "correct": 8143,
+              "count": 17959,
+              "error": 0.5465783172782449,
+              "incorrect": 9816
+            },
+            "changed": {
+              "accuracy": 0.42747021723896284,
+              "correct": 2440,
+              "count": 5708,
+              "error": 0.5725297827610372,
+              "incorrect": 3268
+            },
+            "unmentioned_retention": {
+              "accuracy": 0.8977290362629973,
+              "correct": 34708,
+              "count": 38662,
+              "error": 0.10227096373700274,
+              "incorrect": 3954
+            }
+          }
+        },
+        "seen": {
+          "macro_three": {
+            "accuracy": 0.5474530669001233
+          },
+          "micro": {
+            "accuracy": 0.6665070461075386,
+            "correct": 19486,
+            "count": 29236,
+            "error": 0.33349295389246136,
+            "incorrect": 9750
+          },
+          "strata": {
+            "assigned_retention": {
+              "accuracy": 0.3679364156246971,
+              "correct": 3796,
+              "count": 10317,
+              "error": 0.6320635843753029,
+              "incorrect": 6521
+            },
+            "changed": {
+              "accuracy": 0.34849921011058455,
+              "correct": 1103,
+              "count": 3165,
+              "error": 0.6515007898894155,
+              "incorrect": 2062
+            },
+            "unmentioned_retention": {
+              "accuracy": 0.9259235749650883,
+              "correct": 14587,
+              "count": 15754,
+              "error": 0.07407642503491177,
+              "incorrect": 1167
+            }
+          }
+        },
+        "unseen": {
+          "macro_three": {
+            "accuracy": 0.6576421912853396
+          },
+          "micro": {
+            "accuracy": 0.7797721572537999,
+            "correct": 25805,
+            "count": 33093,
+            "error": 0.2202278427462001,
+            "incorrect": 7288
+          },
+          "strata": {
+            "assigned_retention": {
+              "accuracy": 0.5688301491756085,
+              "correct": 4347,
+              "count": 7642,
+              "error": 0.4311698508243915,
+              "incorrect": 3295
+            },
+            "changed": {
+              "accuracy": 0.525756979944947,
+              "correct": 1337,
+              "count": 2543,
+              "error": 0.4742430200550531,
+              "incorrect": 1206
+            },
+            "unmentioned_retention": {
+              "accuracy": 0.8783394447354635,
+              "correct": 20121,
+              "count": 22908,
+              "error": 0.12166055526453641,
+              "incorrect": 2787
+            }
+          }
+        }
+      }
+    }
+  },
+  "rows_per_fit": 62329,
+  "scalar_checks": 1608,
+  "scope": "Independent saved probability validation, canonical identity and 144 fit plus24 literal panel/stratum cells, equal-seed arm means and all seven conditions. Complete execution/freeze/source/report/supervisor bytes authenticated. Detailed prepared joins, per-update encoder/state/gradient witnesses, initializer truth and lexical-register semantics inherit the successful production report; no model replay, checkpoint decoding, service/type tables, paired descriptive contrasts or factorial interaction independently recomputed. No efficacy beyond exposed DEV.",
+  "status": "completed",
+  "version": "dialogue-observation-independent-audit-v2"
+}

@@ -1,0 +1,28 @@
+{
+  "audit_source_sha256": "eb3c0839faf50741cd8175d40ee9631626402aed04cc0405d0151d8706b5dbef",
+  "cause": "Path.resolve removed the virtual-environment interpreter entry point before execve; base Python lacks NumPy. Failure preceded the auditor body and input authentication.",
+  "decision": "Preserve the failed launch. Invoke the frozen auditor once through the unmodified .venv/bin/python entry point into a new exclusive result-02 directory. This is an explicitly reviewed launcher correction, not an automatic retry or scientific rerun. No training, checkpoint, seed, score, cohort or source is changed. Any subsequent audit failure is preserved for separate review.",
+  "limits_unchanged": {
+    "output_bytes": 268435456,
+    "rss_bytes": 4294967296,
+    "wall_seconds": 300
+  },
+  "next_input_evaluation_attempt": 1,
+  "next_launch_attempt": 2,
+  "out": "output/dialogue-observation-learning-v2/result-audit-01/result-02",
+  "prior_failure_sha256": "243d381dcccb386c44bc9961ebf200daa8f1f2f48b27b9965f43c06311097130",
+  "prior_input_evaluation_attempts": 0,
+  "prior_invocation_sha256": "aaddf98c935a4601ded33114c77e896521b807226f9736c060b9d73342ea4474",
+  "prior_launch_attempt": 1,
+  "prior_result_qualified": false,
+  "producer_receipt_sha256": "4983c8a96db377ebb70f92323c63ef600758eb22a59d84ddd808d08d0b314765",
+  "producer_summary_sha256": "49427cd10638eb23f15e19e29fd34af6a84c7a8e7e91187cb5c0104b2e83ac4f",
+  "recorded_unix": 1789980528.697492,
+  "requested_interpreter": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/python",
+  "resolve_interpreter_symlink": false,
+  "root_completed_sha256": "454ba05d600d8d8a69726e2e58ee8d337040c2be64c0aa31f4f6854b87eb28f5",
+  "status": "prospective_correction",
+  "study_or_source_changes": false,
+  "training_restarted": false,
+  "version": "dialogue-observation-audit-launcher-correction-v1"
+}

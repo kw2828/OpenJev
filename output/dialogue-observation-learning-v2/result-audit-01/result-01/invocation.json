@@ -1,0 +1,16 @@
+{
+  "actual_exit_code": 1,
+  "auditor_input_decode_occurred": false,
+  "auditor_receipt_exists": false,
+  "auditor_started_json_exists": false,
+  "auditor_summary_exists": false,
+  "cwd": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev",
+  "failure_record_sha256": "243d381dcccb386c44bc9961ebf200daa8f1f2f48b27b9965f43c06311097130",
+  "followup_execution_count": 0,
+  "input_decode_basis": "Top-level NumPy import failed before execute() or authenticate() could be defined/called.",
+  "launcher_shell_command": "python3 - <<'PY'\nimport hashlib, os\nfrom pathlib import Path\nscript = Path('output/dialogue-observation-learning-v2/result-audit-01/audit.py')\nexpected = 'eb3c0839faf50741cd8175d40ee9631626402aed04cc0405d0151d8706b5dbef'\nactual = hashlib.sha256(script.read_bytes()).hexdigest()\nif actual != expected:\n    raise RuntimeError(f'Frozen audit source mismatch: {actual}')\nprint('Verified frozen auditor SHA256 ' + actual, flush=True)\nargs = [str(Path('.venv/bin/python').resolve()), str(script),\n '--run', 'output/dialogue-observation-learning-v2/scientific-run-01',\n '--completed-sha256', '454ba05d600d8d8a69726e2e58ee8d337040c2be64c0aa31f4f6854b87eb28f5',\n '--plan', 'output/dialogue-observation-learning-v2/scientific-freeze-01/plan.json',\n '--plan-sha256', '295b4f6857b4f9d625ed1133e0cf0785db40b53f4537c235cdb609f168c98885',\n '--launch', 'output/dialogue-observation-learning-v2/scientific-process-01.launch.json',\n '--launch-sha256', 'eefba879336be7ebb3f211174091014f1405741872a80f9934fb461c81c4ada9',\n '--terminal', 'output/dialogue-observation-learning-v2/scientific-process-01.terminal.json',\n '--terminal-sha256', '7fe9b5e9fae7a83bdd04dceea559a849d78dcd346b97247b4b38d72be5d2b9ef',\n '--report', 'output/dialogue-observation-learning-v2/report-01',\n '--report-receipt-sha256', '4983c8a96db377ebb70f92323c63ef600758eb22a59d84ddd808d08d0b314765',\n '--report-summary-sha256', '49427cd10638eb23f15e19e29fd34af6a84c7a8e7e91187cb5c0104b2e83ac4f',\n '--out', 'output/dialogue-observation-learning-v2/result-audit-01/result-01']\nenv = dict(os.environ, PYTHONPATH='src:scripts', OMP_NUM_THREADS='1', MKL_NUM_THREADS='1', OPENBLAS_NUM_THREADS='1', VECLIB_MAXIMUM_THREADS='1', NUMEXPR_NUM_THREADS='1')\nos.execve(args[0], args, env)\nPY",
+  "login": false,
+  "shell": "zsh",
+  "source_changes": false,
+  "study_changes": false
+}

@@ -4,7 +4,7 @@ Studies and frozen work awaiting execution, including failures and controls. A p
 
 ## Complete experiment list
 
-- [Clock-corrected observation-learning comparison](dialogue-observation-learning-v2-status.md): **twelve fresh fits are training** with the unchanged scientific recipe and a suspend-inclusive eight-hour deadline. Qualification covers 154 test cases; source and metadata-freeze audits passed. No new task-quality result yet.
+- [Clock-corrected observation-learning comparison](dialogue-observation-learning-v2-results.md): **all twelve fits completed; continuation failed 6/7**. Training the encoder with number-word correction improves unseen macro accuracy **76.46% → 79.34%** and assigned-retention error by **6.05 pp**, but log loss worsens **0.705 → 0.827**, in all three paired seeds. The independent audit agrees. Ordinary scalar memory and exposed DEV do not establish an architecture advantage. [Figures and complete results](dialogue-observation-learning-v2-results.md) · [Execution and audit-launch correction](dialogue-observation-learning-v2-status.md).
 
 - [Observation learning with fixed autonomous memory](dialogue-observation-learning-status.md): the **first twelve-fit attempt failed technically after five fits**. System sleep exposed inconsistent clock semantics under its eight-hour allocation. The old attempt remains stopped and unscored; all 53 frozen sources and partial outputs are preserved. [Timing failure and prospective repair](dialogue-observation-learning-timing-failure.md).
 

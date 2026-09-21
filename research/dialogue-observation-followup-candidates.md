@@ -6,15 +6,26 @@ primary papers. No active scientific predictions, new dialogue examples,
 models, tests or timing experiments were accessed. It is a contingent design,
 not a protocol, allocation or efficacy claim.
 
-**Do not select another recurrent operator yet.** The running
-[clock-corrected observation-learning comparison](dialogue-observation-learning-protocol-v2.md)
-is the appropriate next evidence. Its scalar head already receives its own
+**Do not select another recurrent operator yet.** The completed
+[clock-corrected observation-learning comparison](dialogue-observation-learning-v2-results.md)
+failed its continuation rule at 6/7: encoder learning improved accuracy and
+retention, but worsened unseen log loss in all three paired seeds. Its scalar
+head already receives its own
 candidate belief and entropy. The remaining structural question is whether
 that state should influence observation processing earlier, not whether to
 add state feedback for the first time.
 
 ## What the completed evidence supports
 
+- [Observation learning V2](dialogue-observation-learning-v2-results.md) improves
+  primary unseen macro accuracy from 76.46% to 79.34%, while changed-state
+  accuracy is 80.31% versus 80.19%. The macro gain comes from retention.
+  Log loss worsens across all three unseen strata. These aggregates motivate
+  a matched probability-reliability diagnostic, but do not establish rare-error
+  overconfidence or a state-dependent interpretation deficit. A future
+  output-only calibration control must keep recurrent state unchanged and use
+  calibration dialogues excluded from weight fitting. It cannot reverse this
+  study's original scientific failure.
 - [Copy V2](dialogue-copy-v2-results.md) found scalar unseen macro accuracy
   72.58%, versus 65.77% for readout and 72.89% for selective memory. Selective
   failed its rule; unseen assigned TRUE accuracy was only 6.62% and DONTCARE

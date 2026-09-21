@@ -1,9 +1,12 @@
 # Observation learning with corrected elapsed-time accounting
 
 This directory is a separate version of the matched twelve-fit comparison.
-The [fresh twelve-fit execution is now running](../../research/dialogue-observation-learning-v2-status.md).
-The [first eleven fits have completed and the final fit is training](scientific-progress-12.json).
-Execution counts and payload hashes match; task quality remains unscored.
+The [fresh twelve-fit execution completed](../../research/dialogue-observation-learning-v2-status.md)
+and passed technical validation. **Scientific continuation failed 6/7:** unseen
+macro accuracy improves, but log loss worsens in every paired seed.
+[Results and figures](../../research/dialogue-observation-learning-v2-results.md)
+include every arm and seed. The [complete report](report-01/report.md) and
+[independent scoring audit](result-audit-01/result-02/receipt.json) agree.
 The [first attempt remains failed](../../research/dialogue-observation-learning-timing-failure.md).
 Its five completed fits and partial sixth are not scored, resumed or used to
 initialize this version.
@@ -33,12 +36,19 @@ and verifies unchanged ASTs for 21 scientific and scoring functions. The
 separate metadata freeze and its independent audit passed before training;
 actual execution receipts are linked in the status page.
 
-The [saved-result figure generator](figure-01/README.md) has passed its synthetic
-qualification and independent source/visual review. It requires both complete
-V2 report and audit receipts and retains failed scientific conditions. Source,
+The [actual result figures](figure-01/render-01/receipt.json) require both complete
+V2 report and audit receipts and retain the failed scientific condition. Source,
 qualification logs, render receipts and rejection receipts are published;
 invented report/audit fixtures and synthetic images stay local. Their hashes
-remain in the preserved receipts. No actual study quality has been opened.
+remain in the preserved receipts.
+
+The [first audit launch](result-audit-01/result-01/failed.json) selected base Python
+by resolving the virtual-environment interpreter symlink and failed on NumPy
+import before reading any saved inputs. Its exact invocation is preserved.
+The [prospective launcher correction](result-audit-01/launcher-correction-01.json)
+used the unchanged auditor, inputs and limits through `.venv/bin/python` in a
+new output directory. That first actual audit evaluation completed successfully;
+it did not repeat training or change the scientific rule.
 
 Publish plans, allocations, receipts, aggregate reports and original source
 files. Keep duplicate frozen source snapshots, reversible actor tokens, target

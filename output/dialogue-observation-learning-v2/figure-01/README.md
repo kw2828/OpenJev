@@ -1,5 +1,11 @@
 # Audited V2 report figures
 
+The [actual twelve-fit render](render-01/receipt.json) is complete and
+[visually checked](render-01-visual-qa.json). Both PNG/SVG pairs and all plotted
+values are published. The study fails its continuation rule at 6/7; that result
+is shown in the titles and condition table. The earlier synthetic render remains
+qualification evidence only.
+
 This presentation directory is outside the 64 frozen scientific sources. It
 reuses the qualified V1 two-figure layout and all twelve fits, four arms, three
 seeds and seven original conditions. No analysis rule changes.
