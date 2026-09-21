@@ -143,6 +143,7 @@ def present(summary, args):
     text(30, 64, f'{status}: {passed}/42 conditions passed | 1,440 episodes | all three fit seeds retained', 17)
     metrics = (('found', 'Weighted success (%)', 100), ('steps', 'Capped moves (lower is better)', 1),
                ('controller_seconds', 'Paid controller seconds / search', 1))
+    maxima = {key: 100 if key == 'found' else max(r[key] for r in rows) * 1.07 or 1 for key, _, _ in metrics}
     for ri, regime in enumerate(REGIMES):
         y0 = 110 + ri * 340
         text(30, y0, f'{regime}: ' + ('unseen supplied kernel' if ri == 2 else 'training-supported setting'), 18)
@@ -150,13 +151,17 @@ def present(summary, args):
         for mi, (key, title, scale) in enumerate(metrics):
             x0 = 30 + mi * 410
             text(x0, y0 + 27, title)
-            maximum = 100 if key == 'found' else max(r[key] for r in group) * 1.07 or 1
+            maximum = maxima[key]
             for ai, r in enumerate(group):
                 family, _, seed = r['arm'].partition('@')
                 y, value = y0 + 51 + ai * 25, r[key] * scale
                 text(x0, y, LABELS[family] + (' ' + seed if seed else ''), 12)
                 svg.append(f'<rect x="{x0+125}" y="{y-11}" width="{190*value/maximum:.3f}" height="13" fill="{COLORS[family]}"/>')
                 text(x0 + 322, y, f'{value:.3g}', 12)
+            svg.append(f'<line x1="{x0+125}" x2="{x0+315}" y1="{y0+292}" y2="{y0+292}" stroke="#87939f"/>')
+            text(x0 + 125, y0 + 309, '0', 11)
+            text(x0 + 315, y0 + 309, f'{maximum:.3g}', 11)
+    text(30, 1128, 'Each metric uses the same zero-based scale across all three settings.', 13)
     text(30, 1150, 'Initial-hit mixture weighted within each setting; no confidence intervals. Controller cost includes deployment allocation.', 13)
     svg.append('</g></svg>')
     rel = lambda p: '../' + str(p.relative_to(ROOT))

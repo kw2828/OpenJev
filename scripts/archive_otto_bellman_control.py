@@ -13,7 +13,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 REPORT = ROOT / 'scripts/report_otto_bellman_control.py'
-REPORT_PIN = '1b599487bdeecbf9f8234f87fc09d3180d19cb7618ec874a030986d5c1d47f32'
+REPORT_PIN = '8fe5f1db28250e41c41291198ddb064dae93a8f1dc8a6f3c4cdd1537a2c0aa6c'
 if hashlib.sha256(REPORT.read_bytes()).hexdigest() != REPORT_PIN:
     raise ValueError('qualified report source before import')
 _spec = importlib.util.spec_from_file_location('_bellman_archive_report', REPORT)

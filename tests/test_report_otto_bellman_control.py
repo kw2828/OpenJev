@@ -63,6 +63,20 @@ def test_passing_gate_is_not_an_architecture_claim(tmp_path):
     assert 'does not establish an architecture' in markdown
 
 
+def test_equal_values_have_equal_widths_across_different_regime_maxima(tmp_path):
+    result = summary()
+    for i, regime in enumerate(M.REGIMES):
+        result['regimes'][regime]['means'][M.ARMS[0]].update(found=.9, steps=17., controller_seconds=.25)
+        result['regimes'][regime]['means']['analytic_inbounds'].update(steps=100. * (i + 1), controller_seconds=2. * (i + 1))
+    _, svg, _ = M.present(result, args(tmp_path))
+    tree = ElementTree.fromstring(svg)
+    bars = tree.findall('.//{http://www.w3.org/2000/svg}rect')[1:]
+    for metric in range(3):
+        assert len({bars[regime * 30 + metric * 10].attrib['width'] for regime in range(3)}) == 1
+    assert len(tree.findall('.//{http://www.w3.org/2000/svg}line')) == 9
+    assert 'same zero-based scale' in svg
+
+
 @pytest.mark.parametrize('corrupt', ['missing', 'duplicate', 'boolean', 'overall'])
 def test_rules_reject_missing_or_inconsistent_conditions(corrupt):
     result = summary()
