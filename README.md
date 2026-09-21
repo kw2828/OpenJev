@@ -66,7 +66,11 @@ Open **http://127.0.0.1:8000**. Local text scoring uses Qwen3-4B; the free brows
 
 ## Research results
 
-[RockSample control comparison](research/rocksample-policy-value-results.md): all **192 episodes** complete, but only **3/10 conditions pass**. Full history averages **10.31 reward**, versus **10.00** for immediate exit and **12.19** for a simpler quality-only control. This does not admit a learned memory pilot. [All-map visualization](output/rocksample-policy-value-v1/figure-01/policy-value.png) · [Earlier prediction diagnostic](research/rocksample-public-memory-results.md).
+[RockSample state representation comparison](research/rocksample-representation-results.md): **256 episodes**, with **42.81 reward** for full history versus **38.44** for recent history and **40.63** for quality-only. The broader representation beats fixed particles on every map, but misses the stronger controls' required margins and sometimes violates occupancy bounds. **8/13 conditions pass; no learned memory pilot is admitted.**
+
+[![All eight RockSample controllers, map-level rewards, measured costs and paired differences](output/rocksample-representations-v1/figure-01/representations.png)](research/rocksample-representation-results.md)
+
+[Earlier control screen](research/rocksample-policy-value-results.md) · [Prediction diagnostic](research/rocksample-public-memory-results.md) · [Olfactory search source review](research/olfactory-search-opportunity.md).
 
 **Belief-guided attention did not improve the trained memory.** All twelve adapted fits completed. Unseen macro accuracy is **79.31%**, versus **79.42%** for ordinary continued training and **79.57%** for schema attention. Probability scores also worsen; the fixed rule fails **13/32**, with independent agreement.
 
