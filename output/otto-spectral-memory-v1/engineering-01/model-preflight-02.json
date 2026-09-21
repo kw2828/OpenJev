@@ -1,0 +1,50 @@
+{
+  "scope": "Synthetic toy kernels only; corrected integer dtype in test oracle, production unchanged",
+  "prior_receipt": "/tmp/openjev-otto-spectral-preflight-01.json",
+  "prior_sha256": "00db1eb5a7ea8e2115ca6172fe50049bda557e022130806341973f3fd43afb22",
+  "sources": {
+    "src/openjev/research/otto_spectral_memory.py": "440c7527a6040fb9b41985dc8f48e5f62e18be880242de09f70b46b540579943",
+    "tests/test_otto_spectral_memory.py": "396de87573d59c10dba6add3de053f142c6ddc1731c6e4c8a8f57eb2464a2a03"
+  },
+  "attempts": [
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_otto_spectral_memory.py",
+        "-k",
+        "transform_matches_explicit"
+      ],
+      "returncode": 0,
+      "stdout": "..                                                                       [100%]\n2 passed, 40 deselected in 0.18s\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        ".venv/bin/ruff",
+        "check",
+        "src/openjev/research/otto_spectral_memory.py",
+        "tests/test_otto_spectral_memory.py"
+      ],
+      "returncode": 0,
+      "stdout": "All checks passed!\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check",
+        "--",
+        "src/openjev/research/otto_spectral_memory.py",
+        "tests/test_otto_spectral_memory.py"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "elapsed_seconds": 0.39213670906610787
+}

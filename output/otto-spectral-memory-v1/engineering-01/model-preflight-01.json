@@ -1,0 +1,33 @@
+{
+  "scope": "Synthetic toy kernels only; no saved data, simulator, pretrained model or native OTTO execution",
+  "sources": {
+    "src/openjev/research/otto_spectral_memory.py": "440c7527a6040fb9b41985dc8f48e5f62e18be880242de09f70b46b540579943",
+    "tests/test_otto_spectral_memory.py": "5263d3f8b3971854367b121ee851961cd8a595f590d78b76a36680dc721b2ede"
+  },
+  "attempts": [
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_otto_spectral_memory.py"
+      ],
+      "returncode": 1,
+      "stdout": "............F.............................                               [100%]\n=================================== FAILURES ===================================\n_ test_transform_matches_explicit_orthonormal_cosine_basis_and_truncation[neutral] _\n\nfill = 'neutral'\n\n    @pytest.mark.parametrize(\"fill\", [\"neutral\", \"nearest\"])\n    def test_transform_matches_explicit_orthonormal_cosine_basis_and_truncation(fill):\n        model = M.SpectralModel(kernel())\n        position, hit = (1, 2), 3\n        probability = model.likelihood(position, hit)\n        increment = np.full((5, 5), 0 if fill == \"neutral\" else np.log(model.kernel[hit, 6, 5]))\n        increment[probability > 0] = np.log(probability[probability > 0])\n        ks, xs = np.arange(5)[:, None], np.arange(5)[None, :]\n        basis = np.cos(np.pi * ks * (xs + .5) / 5) * np.sqrt(2 / 5)\n        basis[0] /= np.sqrt(2)\n        explicit = basis @ increment @ basis.T\n        full = model.start(initial(model), 5, extension=fill)\n        small = model.start(initial(model), 2, extension=fill)\n        for actor in (full, small):\n            actor.update(packet(5, position, hit, 1))\n>       np.testing.assert_allclose(full.coefficients, explicit, atol=2e-14, rtol=1e-14)\nE       AssertionError: \nE       Not equal to tolerance rtol=1e-14, atol=2e-14\nE       \nE       Mismatched elements: 15 / 25 (60%)\nE       First 5 mismatches are at indices:\nE        [0, 0]: -20.97799171934452 (ACTUAL), -18.6 (DESIRED)\nE        [0, 2]: -3.4620956139841406 (ACTUAL), -3.87726558342336 (DESIRED)\nE        [0, 4]: 0.41966532847917576 (ACTUAL), 0.08253239122130737 (DESIRED)\nE        [1, 0]: 4.554776279797049 (ACTUAL), 4.621501203751225 (DESIRED)\nE        [1, 2]: -1.1617432792851246 (ACTUAL), -1.2310734148701015 (DESIRED)\nE       Max absolute difference among violations: 2.37799172\nE       Max relative difference among violations: 10.52078302\nE        ACTUAL: array([[-2.097799e+01,  7.216450e-16, -3.462096e+00,  0.000000e+00,\nE                4.196653e-01],\nE              [ 4.554776e+00, -3.330669e-16, -1.161743e+00, -2.220446e-16,...\nE        DESIRED: array([[-1.860000e+01,  2.769000e-16, -3.877266e+00, -1.575605e-15,\nE                8.253239e-02],\nE              [ 4.621501e+00,  1.984476e-16, -1.231073e+00,  3.121167e-16,...\n\ntests/test_otto_spectral_memory.py:140: AssertionError\n=========================== short test summary info ============================\nFAILED tests/test_otto_spectral_memory.py::test_transform_matches_explicit_orthonormal_cosine_basis_and_truncation[neutral]\n1 failed, 41 passed in 0.32s\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        ".venv/bin/ruff",
+        "check",
+        "src/openjev/research/otto_spectral_memory.py",
+        "tests/test_otto_spectral_memory.py"
+      ],
+      "returncode": 0,
+      "stdout": "All checks passed!\n",
+      "stderr": ""
+    }
+  ],
+  "elapsed_seconds": 0.5579787499736995
+}

@@ -1,0 +1,82 @@
+{
+  "version": "otto-spectral-memory-v1",
+  "status": "frozen_before_saved_study",
+  "created_at": "2026-09-21T14:27:50.663243+00:00",
+  "scope": "Fixed nonlearned additive spectral compression on all 96 original full-policy paths. Every proposed action is teacher-forced, never executed. Both fill conventions and all three ranks are retained. Full-rank checks qualify arithmetic only. Original 9/10 continuation failure remains unchanged; no new quality gate or learned admission.",
+  "configuration": {
+    "ranks": [
+      4,
+      8,
+      16
+    ],
+    "extensions": [
+      "neutral",
+      "nearest"
+    ],
+    "qualification_rank": 53,
+    "arms": [
+      "full_bayes",
+      "exact_log",
+      "dct4_neutral",
+      "dct4_nearest",
+      "dct8_neutral",
+      "dct8_nearest",
+      "dct16_neutral",
+      "dct16_nearest",
+      "dct53_neutral",
+      "dct53_nearest",
+      "recent32",
+      "recent32_hard"
+    ],
+    "cases": 96,
+    "decisions": 2164,
+    "eligible_prefixes": 538,
+    "eligibility": "completed_steps > 32",
+    "score_tolerance": 1e-08,
+    "qualification_tv_tolerance": 1e-10,
+    "rotation": "(case_index + completed_steps) modulo12"
+  },
+  "limits": {
+    "native_seconds": 300,
+    "rss_bytes": 2147483648,
+    "output_bytes": 67108864
+  },
+  "inputs": {
+    "run": "output/otto-large-memory-v1/run-01",
+    "receipt_sha256": "3414409b692053c40929604daa7f4f03d2d42ba63ab4d38d4a65f71bac242249",
+    "summary_sha256": "9289b4f7fc4e4b17afd5ea7d9ac4eb0778a62a6a4e4a945e8c7cd7094d4c198c",
+    "plan": "output/otto-large-memory-v1/plan-01.json",
+    "plan_sha256": "0719638892f11224fe63cb88bf52f254fbb2ab413091aa7160246142a378cd61",
+    "terminal": "output/otto-large-memory-v1/run-process-01.terminal.json",
+    "terminal_sha256": "c5e44b400c4dda28f5aa6311d49cf425138b8ddcd305b17d2bf613c1a8c2c870",
+    "audit": "output/otto-large-memory-v1/audit-01",
+    "audit_receipt_sha256": "2aef765b595c8042bf3b24a5d8ef48c015976a8b56b2579663322e717eae4c55",
+    "audit_summary_sha256": "13942864439ff2864408d4152fc2a02afd06ccc3b4b31ff6c55afde8ce309587"
+  },
+  "sources": {
+    "research/otto-spectral-memory-protocol.md": "877c4f16b79c8ca4e62c689f146f9d43b06bd1f1eae9a8e416521323ed5a26d2",
+    "scripts/audit_otto_large_memory.py": "1ad5a080f58177751dadf0eaab0cd9e2c7b37d7e9d84b50cc32f4046a66155ec",
+    "scripts/study_otto_spectral_memory.py": "9bae9a6095061fc7f6c203ec34bdf19d174e7d13822e348231b98c8884447f88",
+    "src/openjev/research/otto_spectral_memory.py": "440c7527a6040fb9b41985dc8f48e5f62e18be880242de09f70b46b540579943",
+    "src/openjev/research/suspend_clock.py": "cac9077db3c66f5ef43d9412b732f5b869c1004c4bac98589816780c120f6124",
+    "tests/test_otto_spectral_memory.py": "396de87573d59c10dba6add3de053f142c6ddc1731c6e4c8a8f57eb2464a2a03",
+    "tests/test_otto_spectral_study.py": "b707f6a5984d60c34276e1bbb91239780ccd12519c783821e52b3a2760a4e3cf"
+  },
+  "python_executable": "tmp/otto-runtime-01/bin/python",
+  "python_version": "3.12.13",
+  "runtime_versions": {
+    "numpy": "2.5.3",
+    "scipy": "1.18.1"
+  },
+  "engineering": {
+    "directory": "output/otto-spectral-memory-v1/engineering-01",
+    "model_cases": 42,
+    "runner_cases": 32,
+    "description": "Synthetic-only model and runner qualification. First model attempt had one test-oracle dtype failure; corrected affected cases both passed. No real study inputs or simulator calls.",
+    "files": {
+      "output/otto-spectral-memory-v1/engineering-01/model-preflight-01.json": "00db1eb5a7ea8e2115ca6172fe50049bda557e022130806341973f3fd43afb22",
+      "output/otto-spectral-memory-v1/engineering-01/model-preflight-02.json": "50f0a82e67044782d25f4b09e8ae2e8acf7fb2e9d4a449d6d21ad53d18087145",
+      "output/otto-spectral-memory-v1/engineering-01/runner-preflight.json": "a37a4976e6da4e8e32731b5222b7f69a47443c86061e78b34ff571c15dd22a2a"
+    }
+  }
+}

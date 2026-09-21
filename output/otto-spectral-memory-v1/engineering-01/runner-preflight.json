@@ -1,0 +1,38 @@
+{
+  "status": "completed",
+  "evidence_kind": "agent execution witness",
+  "scope": "Synthetic runner qualification only; no real saved study, simulator, or model calls.",
+  "raw_output_scope": "Tool outputs were observed directly in this agent conversation. No separate raw log files were saved. This witness records those actual outputs without rerunning commands.",
+  "source_sha256": {
+    "scripts/study_otto_spectral_memory.py": "9bae9a6095061fc7f6c203ec34bdf19d174e7d13822e348231b98c8884447f88",
+    "tests/test_otto_spectral_study.py": "b707f6a5984d60c34276e1bbb91239780ccd12519c783821e52b3a2760a4e3cf"
+  },
+  "checks": [
+    {
+      "command": ".venv/bin/python -m pytest tests/test_otto_spectral_study.py -q",
+      "tool_chunk": "b74211",
+      "exit_code": 0,
+      "tests_passed": 32,
+      "pytest_reported_seconds": 0.13,
+      "tool_wall_time_seconds": 0.174287083,
+      "reported_output": "32 passed in 0.13s"
+    },
+    {
+      "command": ".venv/bin/python -m ruff check scripts/study_otto_spectral_memory.py tests/test_otto_spectral_study.py",
+      "tool_chunk": "1a6414",
+      "exit_code": 0,
+      "reported_output": "All checks passed!"
+    },
+    {
+      "command": "shasum -a 256 scripts/study_otto_spectral_memory.py tests/test_otto_spectral_study.py; git diff --check -- scripts/study_otto_spectral_memory.py tests/test_otto_spectral_study.py; git status --short -- scripts/study_otto_spectral_memory.py tests/test_otto_spectral_study.py",
+      "tool_chunk": "36d02a",
+      "exit_code": 0,
+      "reported_output": "The two SHA256 hashes above matched; diff check emitted no errors; both new files were untracked.",
+      "diff_scope": "Both files were new and untracked, so git diff --check alone does not qualify their whitespace. The successful Ruff check covers the authored sources."
+    }
+  ],
+  "environment_calls": 0,
+  "model_calls": 0,
+  "real_study_scoring_calls": 0,
+  "rerun_performed_to_write_witness": false
+}
