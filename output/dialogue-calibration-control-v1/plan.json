@@ -1,0 +1,96 @@
+{
+  "config": {
+    "arms": [
+      "frozen_original",
+      "frozen_numbers",
+      "trainable_original",
+      "trainable_numbers"
+    ],
+    "beta_bounds": [
+      0.125,
+      8.0
+    ],
+    "bisection_steps": 64,
+    "dialogues": 512,
+    "mass_tolerance": 2e-06,
+    "model_weight_updates": 0,
+    "official_test_opened": false,
+    "probability_tolerance": 1e-06,
+    "projection_admission_seconds": 1800,
+    "replay_dialogues_per_fit": 2,
+    "seeds": [
+      6901,
+      6902,
+      6903
+    ],
+    "selection_salt": "openjev-calibration-v1:",
+    "supported_log_tolerance": 1e-05
+  },
+  "created_utc": "2026-09-21T09:56:29.440873+00:00",
+  "environment": {
+    "numpy": "2.5.3",
+    "platform": "macOS-26.6.1-arm64-arm-64bit",
+    "python": "3.12.13",
+    "tokenizers": "0.23.2",
+    "torch": "2.14.0",
+    "transformers": "5.17.0"
+  },
+  "inputs": {
+    "output/dialogue-probability-diagnostic-v1/actual-exit-01.json": "42d0fe4e863c7a6b0f435b20e1e7f26822015aedf9cde21f7c640c2fbc8a5b00",
+    "output/dialogue-probability-diagnostic-v1/independent-audit-01/actual-exit.json": "182043e60ea9bbdfe94a30e77683ccfc06650c51c0c476ce6c794fefc9685df5",
+    "output/dialogue-probability-diagnostic-v1/independent-audit-01/result-01/receipt.json": "3c2f26224726ab362334de70b082f2855ce134825236cc1aa4a6dc937788948f",
+    "output/dialogue-probability-diagnostic-v1/independent-audit-01/result-01/summary.json": "721b2b70675061e21f0981a33e595588fd24ecec171196c48546739497e0f5ed",
+    "output/dialogue-probability-diagnostic-v1/plan.json": "b251d8d63713f2908f79fc327b90aa3e52c1e5108c8fc44c07f32b90bff04d36",
+    "output/dialogue-probability-diagnostic-v1/run-01/receipt.json": "a1d2e52a2c00a67e477378dee5e4e50b0279136b474841fcc5d4102f70d0b321",
+    "output/dialogue-probability-diagnostic-v1/run-01/summary.json": "7cdd2533910826e95760e3d0144b2163060a85c05702b4413cafda857c13260c",
+    "runs/sgd-state-v1/data/completed.json": "677d37ea581b3165b0adc96a0a0daab74271e0434df2ad23ace9568537e2cd12",
+    "scripts/diagnose_dialogue_probabilities.py": "a99c68b2101f299d1118bb9c69f568578d46519ec6f0387b18576263a7f8d78f",
+    "scripts/supervise_dialogue_observation_v2.py": "610a2fcd2d4d55eb35bce92e61942d5169491dee9d05e2f47f65e211fdf94144",
+    "src/openjev/research/suspend_clock.py": "cac9077db3c66f5ef43d9412b732f5b869c1004c4bac98589816780c120f6124"
+  },
+  "limits": {
+    "infer": {
+      "mps_driver_bytes": 8589934592,
+      "output_bytes": 536870912,
+      "rss_bytes": 8589934592,
+      "wall_seconds": 3600
+    },
+    "prepare": {
+      "output_bytes": 536870912,
+      "rss_bytes": 8589934592,
+      "wall_seconds": 300
+    },
+    "qualify": {
+      "mps_driver_bytes": 8589934592,
+      "output_bytes": 268435456,
+      "rss_bytes": 8589934592,
+      "wall_seconds": 600
+    }
+  },
+  "outputs": {
+    "infer": "runs/dialogue-calibration-control-v1/inference-01",
+    "prepare": "runs/dialogue-calibration-control-v1/preparation-01",
+    "qualify": "runs/dialogue-calibration-control-v1/qualification-01"
+  },
+  "scope": "Prospective held-out TRAIN-complement temperature control after exposed-DEV diagnosis. No new predictions observed; original raw continuation remains FAIL6of7. All12 final fits; no model-weight updates or TEST.",
+  "sources": {
+    "research/dialogue-calibration-control-protocol.md": "86eed7ca47c37ae73914629e2197a1efcff004b726c74757d956ea86a24f21e0",
+    "scripts/dialogue_calibration_common.py": "452016fcdb611199fa4fafcbb54eeb4ab92cdc6f54b94a17d2802eb2223b90dd",
+    "scripts/prepare_dialogue_calibration.py": "7d0b1391645b39a396aa59c28b438e61e128dfc1d4a7e711d66bc9377e4f1a00",
+    "scripts/replay_dialogue_calibration.py": "a4bfa186274865f20f96c0dc26098dd37f84b46159ffa70bcfdffc738e02c170",
+    "src/openjev/research/dialogue_calibration_data.py": "cfa3e5a040d8808ac9c3f057481f6708e21e2bc5cfd34fada498a77cbb6e5d6c",
+    "src/openjev/research/dialogue_calibration_inference.py": "82f6fad4bf78d2dd8b9ff720c2d26ec2337cd0f6f6d69272a695f0c5ff725b89",
+    "src/openjev/research/dialogue_temperature.py": "22cf720ed0a8ed47d26d6a043035096f96307914caa233c93d8c57bb809bb49e",
+    "tests/test_dialogue_calibration_common.py": "b57690e18de5fe58be021462a8752be9f471c305205181871ca7a144a60bed1c",
+    "tests/test_dialogue_calibration_data.py": "0860500ec26d958e60777c00eb5d881b7a94a806c75f5d4fbea0886e43503668",
+    "tests/test_dialogue_calibration_inference.py": "dd73209594b17639c661e0d5a6a709859a7c20dad69e6132b658c1fb4f93a542",
+    "tests/test_dialogue_temperature.py": "d89d26030ffde35651d2149b5c59259ebec1cd60f59d33223068754cc61daed2",
+    "tests/test_prepare_dialogue_calibration.py": "d540ffca1adf77ce7250c2ba537de1cdb3dc0de1494515b81aa615ae197b50c5",
+    "tests/test_replay_dialogue_calibration.py": "a3677cfa7f8121d55f16b0687cbf3a83e60a7af99e8ab9bc41735b717f2c0561"
+  },
+  "synthetic_qualification": {
+    "path": "output/dialogue-calibration-control-v1/synthetic-qualification-01/receipt.json",
+    "sha256": "1f77424c268e9f0c1ef427a4264872b60b068bb20cfd525045eea3efd39d7b57"
+  },
+  "version": "dialogue-calibration-control-v1"
+}

@@ -1,0 +1,46 @@
+FURB122 [*] Use of `stream.write` in a for loop
+  --> scripts/dialogue_calibration_common.py:93:9
+   |
+91 |   def write_lines(path, rows):
+92 |       with Path(path).open("x") as stream:
+93 | /         for row in rows:
+94 | |             stream.write(json.dumps(row, sort_keys=True, allow_nan=False) + "\n")
+   | |_________________________________________________________________________________^
+help: Replace with `stream.writelines`
+   |
+92 |     with Path(path).open("x") as stream:
+   -         for row in rows:
+   -             stream.write(json.dumps(row, sort_keys=True, allow_nan=False) + "\n")
+93 +         stream.writelines(json.dumps(row, sort_keys=True, allow_nan=False) + "\n" for row in rows)
+94 |
+   |
+
+BLE001 Do not catch blind exception: `BaseException`
+   --> scripts/dialogue_calibration_common.py:373:16
+    |
+371 |                   "progress": None if budget is None else budget.progress,
+372 |                   "scope": "Failed attempt preserved; no automatic retry or scientific result."})
+373 |         except BaseException as secondary:
+    |                ^^^^^^^^^^^^^
+374 |             error.add_note("Failure receipt error: " + repr(secondary))
+375 |         raise
+    |
+
+F401 [*] `json` imported but unused
+  --> src/openjev/research/dialogue_calibration_data.py:10:8
+   |
+ 9 | import hashlib
+10 | import json
+   |        ^^^^
+11 | from collections import defaultdict
+12 | from collections.abc import Mapping, Sequence
+   |
+help: Remove unused import: `json`
+   |
+9  | import hashlib
+   - import json
+10 | from collections import defaultdict
+   |
+
+Found 3 errors.
+[*] 2 fixable with the `--fix` option.

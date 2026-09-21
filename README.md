@@ -70,7 +70,7 @@ Open **http://127.0.0.1:8000**. Local text scoring uses Qwen3-4B; the free brows
 
 [![All twelve observation-learning fits: accuracy gains and the log-loss regression](output/dialogue-observation-learning-v2/figure-01/render-01/observation.png)](research/dialogue-observation-learning-v2-results.md)
 
-The regression concentrates in **7.30-7.79% of unseen endpoints** where either model gives the correct answer below 1% probability; log loss improves on the remainder. Next is a separate calibration test. No architecture advantage is established. [Diagnostic and temperature curves](research/dialogue-probability-diagnostic-results.md) · [Original results](research/dialogue-observation-learning-v2-results.md).
+The regression concentrates in **7.30-7.79% of unseen endpoints** where either model gives the correct answer below 1% probability; log loss improves on the remainder. The next [calibration control](research/dialogue-calibration-control-protocol.md) uses 512 separate training dialogues and all twelve final checkpoints; its protocol is frozen, with no new result yet. No architecture advantage is established. [Diagnostic and temperature curves](research/dialogue-probability-diagnostic-results.md) · [Original results](research/dialogue-observation-learning-v2-results.md).
 
 - [Earlier text learning experiments](research/dialogue-objective-results.md): matched training objectives and recurrent variants have not established an architecture advantage.
 - [Qwen lexical ablation](research/dialogue-qwen-lexical-ablation-results.md): better changed-value accuracy, worse retention; 5/16 conditions passed.
