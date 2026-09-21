@@ -66,6 +66,8 @@ Open **http://127.0.0.1:8000**. Local text scoring uses Qwen3-4B; the free brows
 
 ## Research results
 
+[RockSample memory diagnostic](research/rocksample-public-memory-results.md): full history lowers prediction loss **3.1%** versus a 128-step window across eight maps. The fixed 10% requirement is missed; **4/6 conditions pass**. This is a public-filter baseline, with no new trained model or gameplay result.
+
 **Belief-guided attention did not improve the trained memory.** All twelve adapted fits completed. Unseen macro accuracy is **79.31%**, versus **79.42%** for ordinary continued training and **79.57%** for schema attention. Probability scores also worsen; the fixed rule fails **13/32**, with independent agreement.
 
 [![All twelve warm-start fits and three untouched references, with every paired seed](output/dialogue-warm-pooling-v1/figure-01/render-01/warm-pooling.png)](research/dialogue-warm-pooling-results.md)
