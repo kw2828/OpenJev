@@ -1,5 +1,9 @@
 # Larger olfactory search: substantial mean memory benefit, inconsistent across blocks
 
+Follow-up: the [saved-history evidence diagnostic](otto-memory-evidence-results.md)
+traces the concentrated gains and distinguishes old detections from old zeros.
+It adds no episodes or training and leaves the result below unchanged.
+
 21 September 2026. All **768 searches succeeded** in the released 53x53 OTTO
 setting. Space-aware infotaxis using full odor history averaged **36.1795 moves**,
 versus **61.4544** with the most recent 32 observations: **41.13% fewer moves**.

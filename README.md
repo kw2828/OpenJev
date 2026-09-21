@@ -70,6 +70,8 @@ Open **http://127.0.0.1:8000**. Local text scoring uses Qwen3-4B; the free brows
 
 [![All eight controllers in the 53x53 olfactory task, search times, computation costs and all paired blocks](output/otto-large-memory-v1/figure-01/otto-large-memory.png)](research/otto-large-memory-results.md)
 
+The [saved-history diagnostic](research/otto-memory-evidence-results.md) finds that three cases explain **98% of the net gain**. Restoring old zero-odor readings recovers the full-history action in 11/17 divergent cases; restoring old detections does so in six. Selective retention has mixed later results; no new gameplay or training was performed.
+
 The [earlier 19x19 pilot](research/otto-memory-results.md) found only **1.14%** improvement over recent-32; continuation failed, with **7/10 conditions passed**. Both sampled-source settings and their public filtering interfaces passed qualification.
 
 [RockSample state representation comparison](research/rocksample-representation-results.md): **256 episodes**, with **42.81 reward** for full history versus **38.44** for recent history and **40.63** for quality-only. The broader representation beats fixed particles on every map, but misses the stronger controls' required margins and sometimes violates occupancy bounds. **8/13 conditions pass; no learned memory pilot is admitted.**
