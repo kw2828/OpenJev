@@ -41,13 +41,13 @@ local; manifests bind the complete 69-payload closure.
 ## Live execution
 
 The source and corrected plan were published in `6a93965` and `faf345d` before
-launch. Session **61998**, worker process group **41434**, is running. **Eight
+launch. Session **61998**, worker process group **41434**, is running. **Nine
 of twelve fits have completed** all 1,280 updates and their final DEV pass:
-all four variants for seeds 6901 and 6902.
+all four variants for seeds 6901 and 6902, plus `frozen_original-6903`.
 Their work counts, state checks and payload hashes match the frozen plan.
-All four frozen encoders are unchanged; all four trainable encoders'
+All five frozen encoders are unchanged; all four trainable encoders'
 fingerprints have changed. This confirms execution, not useful learning.
-The ninth fit, `frozen_original-6903`, has started the third seed.
+The tenth fit, `frozen_numbers-6903`, is training.
 All 64 source hashes still match.
 The worker has authenticated and
 inherited the parent's absolute native-clock deadline. This is execution
@@ -94,6 +94,11 @@ progress only; predictions have not been decoded for task-quality scoring.
   Independent metadata review passed all 15 execution checks. Both first seeds
   now have all four variants; the third seed's first fit is training. These
   completion checks establish execution only, with task quality still unscored.
+- [Ninth completed-fit snapshot](../output/dialogue-observation-learning-v2/scientific-progress-10.json)
+  binds all nine completed fits and the [third-seed frozen-original receipt](../output/dialogue-observation-learning-v2/scientific-run-01/frozen_original-6903/completed.json).
+  Independent metadata review passed all 15 execution checks, including the
+  unchanged frozen encoder and all live and frozen source hashes. The tenth
+  fit is training; task quality remains unscored.
 - [Compute context](../output/dialogue-observation-learning-v2/compute-prelaunch-01.json)
   records released prior worker groups and background demo services. These are
   not isolated hardware latency measurements.
