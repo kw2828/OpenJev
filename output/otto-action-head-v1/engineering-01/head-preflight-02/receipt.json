@@ -1,0 +1,36 @@
+{
+  "scope": "Affected synthetic float32 rounding fixture only plus lint; production source unchanged",
+  "prior_receipt_sha256": "f1ab2c331f93ae6c45c265f6db70b400e96c82bdce0dcebad37fcf3df5f09cf6",
+  "started_at": "2026-09-21T15:06:43.434646+00:00",
+  "source_sha256": {
+    "src/openjev/research/otto_action_head.py": "a05aa49657a928a598a75c8373402a8afb6e860c1ecf64bcb4e7c7801229e660",
+    "tests/test_otto_action_head.py": "1f11853120a0bf52f1bcae7fdbae443f47bbbd55fbb4fbb4595d88577d7cb9ae"
+  },
+  "commands": [
+    {
+      "command": [
+        ".venv/bin/python",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_otto_action_head.py::test_sensing_context_required_public_and_fixed_scale"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 1.1015025831293315,
+      "timeout_seconds": 60
+    },
+    {
+      "command": [
+        ".venv/bin/ruff",
+        "check",
+        "src/openjev/research/otto_action_head.py",
+        "tests/test_otto_action_head.py"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.08488833298906684,
+      "timeout_seconds": 60
+    }
+  ],
+  "finished_at": "2026-09-21T15:06:44.621564+00:00"
+}

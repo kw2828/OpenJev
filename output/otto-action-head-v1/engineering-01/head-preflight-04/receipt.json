@@ -1,0 +1,38 @@
+{
+  "scope": "Immutable validated-once runtime plus affected strict inference fixtures; synthetic CPU1 only",
+  "prior_receipt_sha256": "1e87cb2399eeb60caa11a7f8eca66d68d6934efcb5e27f18a9ca191b8f2b38f2",
+  "started_at": "2026-09-21T15:13:23.987627+00:00",
+  "source_sha256": {
+    "src/openjev/research/otto_action_head.py": "5d35c7c22b44ce4a711252afeb74022242a3c6a79664e402d2ef82e77dc8040b",
+    "tests/test_otto_action_head.py": "642f766ead5bb26cc762be0ec77c6c0d24a7b2972f6c23172fba8739b48c87e5"
+  },
+  "commands": [
+    {
+      "command": [
+        ".venv/bin/python",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_otto_action_head.py",
+        "-k",
+        "frozen_head or exported_numpy or closed_form_outputs or inference_rejects"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.9654378751292825,
+      "timeout_seconds": 60
+    },
+    {
+      "command": [
+        ".venv/bin/ruff",
+        "check",
+        "src/openjev/research/otto_action_head.py",
+        "tests/test_otto_action_head.py"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.04190441593527794,
+      "timeout_seconds": 60
+    }
+  ],
+  "finished_at": "2026-09-21T15:13:24.995374+00:00"
+}

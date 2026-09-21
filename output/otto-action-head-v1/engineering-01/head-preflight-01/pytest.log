@@ -1,0 +1,25 @@
+............F.........................................                   [100%]
+=================================== FAILURES ===================================
+_____________ test_sensing_context_required_public_and_fixed_scale _____________
+
+    def test_sensing_context_required_public_and_fixed_scale():
+        actor = PublicActor("dct16_neutral")
+        with pytest.raises(TypeError, match="sensing_length"):
+            M.features("dct16_neutral", actor, packet(), 2)
+        base = M.features("dct16_neutral", actor, packet(), 2, sensing_length=3)
+        shift = M.features("dct16_neutral", actor, packet(), 2, sensing_length=4)
+        np.testing.assert_array_equal(base[:-1], shift[:-1])
+        assert base[-1] == .75 and shift[-1] == 1
+        full = PublicActor("full_bayes")
+        transformed = M.features("full_bayes", full, packet(), 2, sensing_length=3)
+>       assert np.mean(transformed[:2809].astype(np.float64)**2) == pytest.approx(1, abs=1e-7)
+E       assert np.float64(1.0000001036832675) == 1 ± 1.0e-07
+E         
+E         comparison failed
+E         Obtained: 1.0000001036832675
+E         Expected: 1 ± 1.0e-07
+
+tests/test_otto_action_head.py:113: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_otto_action_head.py::test_sensing_context_required_public_and_fixed_scale
+1 failed, 53 passed in 0.79s
