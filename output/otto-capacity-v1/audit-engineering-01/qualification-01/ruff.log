@@ -1,0 +1,47 @@
+RUF007 Prefer `itertools.pairwise()` over `zip()` when iterating over successive pairs
+   --> scripts/audit_otto_capacity.py:210:39
+    |
+208 |             and np.isfinite(archive['c0']) and float(archive['c0']) == c0, 'same finite TRAIN-only float32 baseline')
+209 |     layers = []
+210 |     for i, (left, right) in enumerate(zip(dims[:-1], dims[1:], strict=True)):
+    |                                       ^^^
+211 |         weight, bias = archive[f'weight_{i}'], archive[f'bias_{i}']
+212 |         require(weight.shape == (right, left) and bias.shape == (right,)
+    |
+help: Replace `zip()` with `itertools.pairwise()`
+
+RUF007 Prefer `itertools.pairwise()` over `zip()` when iterating over successive pairs
+  --> tests/test_audit_otto_capacity.py:74:91
+   |
+72 |     x = rng.normal(size=(5, A.DIMENSION)).astype(np.float64)
+73 |     widths = (A.DIMENSION, 3, 4, 2, 1)
+74 |     layers = [(rng.normal(size=(right, left)), rng.normal(size=right)) for left, right in zip(widths[:-1], widths[1:], strict=True)]
+   |                                                                                           ^^^
+75 |     together = A.dense_predict(x, layers, .125, np)
+76 |     singles = np.concatenate([A.dense_predict(row[None], layers, .125, np) for row in x])
+   |
+help: Replace `zip()` with `itertools.pairwise()`
+
+RUF007 Prefer `itertools.pairwise()` over `zip()` when iterating over successive pairs
+  --> tests/test_audit_otto_capacity.py:78:80
+   |
+76 |     singles = np.concatenate([A.dense_predict(row[None], layers, .125, np) for row in x])
+77 |     np.testing.assert_allclose(together, singles, atol=1e-10, rtol=1e-10)
+78 |     assert A.count_parameters(layers) == sum(right*(left+1) for left, right in zip(widths[:-1], widths[1:], strict=True))
+   |                                                                                ^^^
+help: Replace `zip()` with `itertools.pairwise()`
+
+RUF007 Prefer `itertools.pairwise()` over `zip()` when iterating over successive pairs
+   --> tests/test_audit_otto_capacity.py:102:39
+    |
+100 |               'input_dim': np.asarray(A.DIMENSION), 'c0': np.asarray(.5, np.float32)}
+101 |     dims = A.WIDTHS[kind]
+102 |     for i, (left, right) in enumerate(zip(dims[:-1], dims[1:], strict=True)):
+    |                                       ^^^
+103 |         result[f'weight_{i}'] = np.zeros((right, left), np.float32)
+104 |         result[f'bias_{i}'] = np.zeros(right, np.float32)
+    |
+help: Replace `zip()` with `itertools.pairwise()`
+
+Found 4 errors.
+No fixes available (4 hidden fixes can be enabled with the `--unsafe-fixes` option).

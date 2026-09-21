@@ -1,0 +1,34 @@
+I001 [*] Import block is un-sorted or un-formatted
+  --> scripts/audit_otto_capacity.py:6:1
+   |
+ 4 |   requires prospectively bound sources and completed external worker/parent pins.
+ 5 |   """
+ 6 | / from __future__ import annotations
+ 7 | |
+ 8 | | import argparse
+ 9 | | import hashlib
+10 | | import importlib.util
+11 | | from itertools import pairwise
+12 | | import json
+13 | | import math
+14 | | import resource
+15 | | import signal
+16 | | import sys
+17 | | from pathlib import Path
+   | |________________________^
+18 |
+19 |   DIMENSION = 11028
+   |
+help: Organize imports
+   |
+10 | import importlib.util
+   - from itertools import pairwise
+11 | import json
+--------------------------------------------------------------------------------
+15 | import sys
+16 + from itertools import pairwise
+17 | from pathlib import Path
+   |
+
+Found 1 error.
+[*] 1 fixable with the `--fix` option.

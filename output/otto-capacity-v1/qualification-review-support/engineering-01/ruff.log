@@ -1,0 +1,32 @@
+I001 [*] Import block is un-sorted or un-formatted
+  --> output/otto-capacity-v1/qualification-review-support/review.py:7:1
+   |
+ 5 |   initial RNG, optimizer execution and physical timing remain producer evidence.
+ 6 |   """
+ 7 | / import argparse
+ 8 | | import hashlib
+ 9 | | import importlib.util
+10 | | import json
+11 | | import math
+12 | | import os
+13 | | from pathlib import Path
+14 | | import resource
+15 | | import signal
+16 | | import sys
+   | |__________^
+17 |
+18 |   ROOT = Path(__file__).resolve().parents[3]
+   |
+help: Organize imports
+   |
+12 | import os
+   - from pathlib import Path
+13 | import resource
+14 | import signal
+15 | import sys
+16 + from pathlib import Path
+17 |
+   |
+
+Found 1 error.
+[*] 1 fixable with the `--fix` option.

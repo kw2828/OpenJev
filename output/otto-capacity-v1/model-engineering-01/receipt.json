@@ -1,0 +1,54 @@
+{
+  "scope": "Pure synthetic CPU modules only; no real datasets, checkpoints, training study, or native simulator calls.",
+  "started_utc": "2026-09-21T22:25:48.822192+00:00",
+  "source_before": {
+    "src/openjev/research/otto_capacity_value.py": "39fdda3d2d08dec753f36e771e139dfca9450a4c8a3d5758e3094f01986b3bb0",
+    "tests/test_otto_capacity_value.py": "7cd18756614fa905b6e7d11c82cd1a6b3c0db29d0c9d0e5a8757fc7ace72c4db"
+  },
+  "threads": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1"
+  },
+  "commands": [
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_otto_capacity_value.py"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 1.1678283750079572,
+      "log": "command-01.log",
+      "log_sha256": "bdafcdb415d9de48ef0a099414c39da74553dd4175a6d1cee673216145c501b7"
+    },
+    {
+      "argv": [
+        ".venv/bin/ruff",
+        "check",
+        "src/openjev/research/otto_capacity_value.py",
+        "tests/test_otto_capacity_value.py",
+        "--select",
+        "E,F,I,UP,B,ISC,BLE",
+        "--ignore",
+        "E501"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.01685200002975762,
+      "log": "command-02.log",
+      "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    }
+  ],
+  "cap_seconds": 60,
+  "ended_utc": "2026-09-21T22:25:50.007754+00:00",
+  "wall_seconds": 1.184886374976486,
+  "source_after": {
+    "src/openjev/research/otto_capacity_value.py": "39fdda3d2d08dec753f36e771e139dfca9450a4c8a3d5758e3094f01986b3bb0",
+    "tests/test_otto_capacity_value.py": "7cd18756614fa905b6e7d11c82cd1a6b3c0db29d0c9d0e5a8757fc7ace72c4db"
+  },
+  "status": "passed"
+}

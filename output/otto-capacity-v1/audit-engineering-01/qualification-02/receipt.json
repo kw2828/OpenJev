@@ -1,0 +1,58 @@
+{
+  "status": "failed",
+  "sources": {
+    "scripts/audit_otto_capacity.py": "fd26ab95d57362f801c3e9e6638e7128338d7baca9b627ae3dc86c0b733dbb20",
+    "tests/test_audit_otto_capacity.py": "3a7a7005f284415ea7d1762a1338d1a6fb5a8716cf6ff16d2a5f0a53cda661de"
+  },
+  "delta": "Only itertools.pairwise replaces adjacent zip slices; same tensor iteration and arithmetic.",
+  "commands": [
+    {
+      "command": [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_audit_otto_capacity.py",
+        "-k",
+        "checkpoint or three_hidden_layers"
+      ],
+      "actual_returncode": 0,
+      "wall_seconds": 0.29976045805960894,
+      "timed_out": false
+    },
+    {
+      "command": [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/python",
+        "-m",
+        "ruff",
+        "check",
+        "scripts/audit_otto_capacity.py",
+        "tests/test_audit_otto_capacity.py"
+      ],
+      "actual_returncode": 1,
+      "wall_seconds": 0.06204312504269183,
+      "timed_out": false
+    }
+  ],
+  "scientific_inputs_read": false,
+  "training_calls": 0,
+  "simulator_calls": 0,
+  "files": {
+    "ruff-exit.json": {
+      "bytes": 303,
+      "sha256": "06a8873d695b7f168231017144c2fe80dc62005293a7c9a5e5ba55c49dabf39c"
+    },
+    "tests-exit.json": {
+      "bytes": 315,
+      "sha256": "728e552de2fed9d4613f7ca213b4da0a0494ca23af3615f5f1702cacbae3bbde"
+    },
+    "ruff.log": {
+      "bytes": 886,
+      "sha256": "a2a8ef3068b14f4b60cc9fab1de9b8c3ac7ff28667dad1c308a0e92992c18c8a"
+    },
+    "tests.log": {
+      "bytes": 114,
+      "sha256": "caeda582dee31b63c262f354329850cd765143fafc4befe5a78525197f9bcf4a"
+    }
+  }
+}
