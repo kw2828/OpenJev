@@ -1,0 +1,60 @@
+{
+  "delta": "Hoist identical frozen Recipe default into module constant; remove redundant noqa comment; assert callable default recipe equals fixed production recipe. No arithmetic or training-loop change.",
+  "phases": [
+    {
+      "command": [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_otto_bellman_learning.py",
+        "-k",
+        "production_recipe_exact_and_restore_preserves_every_float32_byte"
+      ],
+      "elapsed_perf_counter_seconds": 0.8271269157994539,
+      "log": {
+        "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-bellman-control-v1/engineering-01/learning-qualification-02/pytest.log",
+        "sha256": "5a21d226eb5303349e8fe5a40617ef086a0dfd2fc1717c7d09e89c071f881943"
+      },
+      "phase": "pytest",
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "command": [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/python",
+        "-m",
+        "ruff",
+        "check",
+        "src/openjev/research/otto_bellman_learning.py",
+        "tests/test_otto_bellman_learning.py"
+      ],
+      "elapsed_perf_counter_seconds": 0.04653004207648337,
+      "log": {
+        "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-bellman-control-v1/engineering-01/learning-qualification-02/ruff.log",
+        "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+      },
+      "phase": "ruff",
+      "returncode": 0,
+      "timed_out": false
+    }
+  ],
+  "prior_receipt": {
+    "path": "output/otto-bellman-control-v1/engineering-01/learning-qualification-01/receipt.json",
+    "sha256": "7013b69538fdf91419d0abfb81dbe442e9cc053f6da3aa88223a0f493aea9cf9"
+  },
+  "python_executable": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/python",
+  "python_version": "3.12.13",
+  "runtime": {
+    "numpy": "2.5.3",
+    "pytest": "9.1.1",
+    "ruff": "0.16.8",
+    "torch": "2.14.0"
+  },
+  "scope": "One affected synthetic recipe/restore fixture plus lint; initial29synthetic tests remain preserved. No scientific data/checkpoints, scientific fitting, simulator or API calls",
+  "sources": {
+    "src/openjev/research/otto_bellman_learning.py": "85e0686fe3b232776d38b93b6a555ab21a0fa9b25903ad4ff941eeb6de6c5c84",
+    "tests/test_otto_bellman_learning.py": "44dc8e61983c00bbfdc7d114dc5c08da855b19566f1297f6f0b70af43865d207"
+  },
+  "status": "passed"
+}

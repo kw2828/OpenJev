@@ -1,0 +1,29 @@
+B008 Do not perform function call `Recipe` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+   --> src/openjev/research/otto_bellman_learning.py:125:83
+    |
+125 | def continue_learning(initial_export, features, mc_targets, *, seed, mode, recipe=Recipe(),
+    |                                                                                   ^^^^^^^^
+126 |                       target_builder=None, hook=None):
+127 |     """Continue one fixed final-checkpoint arm; no validation or early stopping.
+    |
+
+RUF100 [*] Unused `noqa` directive (unused: `BLE001`)
+   --> src/openjev/research/otto_bellman_learning.py:277:37
+    |
+275 |                        "progress": current_progress()})
+276 |         return LearningResult(final, initial_id, final_id, tuple(epochs), tuple(refreshes), current_progress(), steps)
+277 |     except BaseException as error:  # noqa: BLE001 - Preserve interrupted and partial attempts without retry.
+    |                                     ^^^^^^^^^^^^^^
+278 |         failure = LearningFailure(error, current_progress())
+279 |         try:
+    |
+help: Remove unused `noqa` directive
+    |
+276 |         return LearningResult(final, initial_id, final_id, tuple(epochs), tuple(refreshes), current_progress(), steps)
+    -     except BaseException as error:  # noqa: BLE001 - Preserve interrupted and partial attempts without retry.
+277 +     except BaseException as error:
+278 |         failure = LearningFailure(error, current_progress())
+    |
+
+Found 2 errors.
+[*] 1 fixable with the `--fix` option.
