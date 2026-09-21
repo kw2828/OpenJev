@@ -1,0 +1,164 @@
+{
+  "conclusion": "No upstream revision change or material correction to the existing static source reviews. Seven inspected implementation files are byte-identical between the model repository and linked Space. No benchmark was rerun.",
+  "execution_witness": {
+    "label": "Agent execution witness from actual tool outputs; raw tool records remain in the conversation.",
+    "remote_http_source_chunk": "870e7e",
+    "remote_metadata_web_refs": [
+      "turn937view0",
+      "turn937view1"
+    ],
+    "remote_schema_and_preset_chunk": "25fb34",
+    "saved_receipt_read_chunk": "837eb4",
+    "saved_summary_metadata_chunks": [
+      "50ae80",
+      "1686b6"
+    ]
+  },
+  "findings": [
+    "Published code loads existing Qwen2.5-1.5B-Instruct weights; the RLCD name and model-card metadata do not establish new trained weights.",
+    "Shared-prefix prefill and replicated KV-cache batched suffixes are implemented; full vocabulary logits precede candidate slicing, and fields do not condition on other selected answers.",
+    "Candidate compilation uses first remainder tokens. MLX collision handling is heuristic and floors winner confidence at 0.75; PyTorch does not implement that collision branch.",
+    "No fitted calibrator or held-out calibration evidence was found in the inspected source/listed artifacts. Restricted softmax is not empirical calibration.",
+    "The benchmark runs one timed comparison per preset after warmup; prompts differ. README token-throughput arithmetic and reported field counts are inconsistent with its examples/current presets.",
+    "The live Space uses A10G/PyTorch; it is not a reproduction of reported M4 Max/MLX latency. Proprietary TypeSafe Jev architecture remains unconfirmed."
+  ],
+  "inspected_files": {
+    "app.py": {
+      "identical": true,
+      "model_sha256": "c47526ac5933bfd47b771b966afa3a9c4c842774c4780be71b89fcf9a3e1d1bd",
+      "model_source_url": "https://huggingface.co/harshatheg/Qwen-2.5-1B-RLCD/blob/2af86848be75847ccb3553b0941cc51d6ef7e4e9/app.py",
+      "space_sha256": "c47526ac5933bfd47b771b966afa3a9c4c842774c4780be71b89fcf9a3e1d1bd",
+      "space_source_url": "https://huggingface.co/spaces/drinkmoonshine/parallel-constrained-decoding/blob/2cb1107ab79b2120a1c35984cf57993af5356b63/app.py"
+    },
+    "core/benchmark.py": {
+      "identical": true,
+      "model_sha256": "93c779f04abe8d8db3cc618f6c5d9d8d6f3d69cf6fdb6eeffb8e19c738a4ab84",
+      "model_source_url": "https://huggingface.co/harshatheg/Qwen-2.5-1B-RLCD/blob/2af86848be75847ccb3553b0941cc51d6ef7e4e9/core/benchmark.py",
+      "space_sha256": "93c779f04abe8d8db3cc618f6c5d9d8d6f3d69cf6fdb6eeffb8e19c738a4ab84",
+      "space_source_url": "https://huggingface.co/spaces/drinkmoonshine/parallel-constrained-decoding/blob/2cb1107ab79b2120a1c35984cf57993af5356b63/core/benchmark.py"
+    },
+    "core/engine.py": {
+      "identical": true,
+      "model_sha256": "147e4a53890657adee6f6389ccdd816140bcccbc32beaa8ddd3e30493246dfe1",
+      "model_source_url": "https://huggingface.co/harshatheg/Qwen-2.5-1B-RLCD/blob/2af86848be75847ccb3553b0941cc51d6ef7e4e9/core/engine.py",
+      "space_sha256": "147e4a53890657adee6f6389ccdd816140bcccbc32beaa8ddd3e30493246dfe1",
+      "space_source_url": "https://huggingface.co/spaces/drinkmoonshine/parallel-constrained-decoding/blob/2cb1107ab79b2120a1c35984cf57993af5356b63/core/engine.py"
+    },
+    "core/engine_mlx.py": {
+      "identical": true,
+      "model_sha256": "9429d1f3df66133c5b6675c8295680a6302c366f364a2f2e9e6365157df993b2",
+      "model_source_url": "https://huggingface.co/harshatheg/Qwen-2.5-1B-RLCD/blob/2af86848be75847ccb3553b0941cc51d6ef7e4e9/core/engine_mlx.py",
+      "space_sha256": "9429d1f3df66133c5b6675c8295680a6302c366f364a2f2e9e6365157df993b2",
+      "space_source_url": "https://huggingface.co/spaces/drinkmoonshine/parallel-constrained-decoding/blob/2cb1107ab79b2120a1c35984cf57993af5356b63/core/engine_mlx.py"
+    },
+    "core/engine_torch.py": {
+      "identical": true,
+      "model_sha256": "eff09b903672fd0a80a259d27681814577dbc71d3cc84927af09b3c30da12c2f",
+      "model_source_url": "https://huggingface.co/harshatheg/Qwen-2.5-1B-RLCD/blob/2af86848be75847ccb3553b0941cc51d6ef7e4e9/core/engine_torch.py",
+      "space_sha256": "eff09b903672fd0a80a259d27681814577dbc71d3cc84927af09b3c30da12c2f",
+      "space_source_url": "https://huggingface.co/spaces/drinkmoonshine/parallel-constrained-decoding/blob/2cb1107ab79b2120a1c35984cf57993af5356b63/core/engine_torch.py"
+    },
+    "core/prompt_builder.py": {
+      "identical": true,
+      "model_sha256": "84d8d7dc88d64212df22dfe7a269b0d28b1fa4d1aa36ca740ef18a70419e6aac",
+      "model_source_url": "https://huggingface.co/harshatheg/Qwen-2.5-1B-RLCD/blob/2af86848be75847ccb3553b0941cc51d6ef7e4e9/core/prompt_builder.py",
+      "space_sha256": "84d8d7dc88d64212df22dfe7a269b0d28b1fa4d1aa36ca740ef18a70419e6aac",
+      "space_source_url": "https://huggingface.co/spaces/drinkmoonshine/parallel-constrained-decoding/blob/2cb1107ab79b2120a1c35984cf57993af5356b63/core/prompt_builder.py"
+    },
+    "core/schema.py": {
+      "identical": true,
+      "model_sha256": "5fdfa2ffe4fd83c64e98331802d4a0f0858aa85197380cfc1ff6a39100f73232",
+      "model_source_url": "https://huggingface.co/harshatheg/Qwen-2.5-1B-RLCD/blob/2af86848be75847ccb3553b0941cc51d6ef7e4e9/core/schema.py",
+      "space_sha256": "5fdfa2ffe4fd83c64e98331802d4a0f0858aa85197380cfc1ff6a39100f73232",
+      "space_source_url": "https://huggingface.co/spaces/drinkmoonshine/parallel-constrained-decoding/blob/2cb1107ab79b2120a1c35984cf57993af5356b63/core/schema.py"
+    }
+  },
+  "receipt_written_utc": "2026-09-21T23:02:15.305723+00:00",
+  "repositories": {
+    "model": {
+      "api": "https://huggingface.co/api/models/harshatheg/Qwen-2.5-1B-RLCD",
+      "commit": "2af86848be75847ccb3553b0941cc51d6ef7e4e9",
+      "contains_model_weights_in_listed_files": false,
+      "url": "https://huggingface.co/harshatheg/Qwen-2.5-1B-RLCD"
+    },
+    "space": {
+      "api": "https://huggingface.co/api/spaces/drinkmoonshine/parallel-constrained-decoding",
+      "commit": "2cb1107ab79b2120a1c35984cf57993af5356b63",
+      "hardware_at_review": "zero-a10g",
+      "url": "https://huggingface.co/spaces/drinkmoonshine/parallel-constrained-decoding"
+    }
+  },
+  "review_date": "2026-09-21",
+  "reviewed_existing_documents": {
+    "research/parallel-constrained-decoding-reference.md": {
+      "bytes": 5580,
+      "sha256": "971b872a91e0801a645fb596c958dcd95862cd27efa102d003e7ad49c2dcf638"
+    },
+    "research/qwen-parallel-source-review.md": {
+      "bytes": 7863,
+      "sha256": "de2465d469f363c1cd10bf774bb048b81ef6fd0207aef6c7d59e230aaf45060d"
+    },
+    "research/shared-prefix-results.md": {
+      "bytes": 7591,
+      "sha256": "1a2392614973e0fbf26b1edda46f40a55e6fe6378c8283b92f2cae4571748f38"
+    }
+  },
+  "scope": {
+    "historical_files_modified": false,
+    "installations": 0,
+    "model_inference_calls": 0,
+    "native_simulator_calls": 0,
+    "new_benchmark_runs": 0,
+    "remote_code_executed": false,
+    "remote_files_preserved": "SHA-256 descriptors only in this refresh receipt; prior pinned snapshots remain in existing evidence.",
+    "weights_downloaded_or_opened": false
+  },
+  "shared_prefix_saved_report_check": {
+    "additional_published_scope": "Easy, high-margin synthetic questions; no difficult-input accuracy, calibration, general near-tie equivalence or production rollout. This refresh verified those limitations are present in the report; it did not reconstruct raw logits or probability margins.",
+    "all_parity_passed": true,
+    "check_scope": "Verified the existing summary against its receipt and recomputed the median of its 18 already-saved request ratios only; no raw timing record decoding or independent benchmark rerun.",
+    "four_question_requests": 18,
+    "four_question_shared_batch_median_paired_speed_ratio": 2.08469852181084,
+    "manifest_payloads_verified": {
+      "started.json": {
+        "bytes": 320,
+        "sha256": "a19b34ee44dabf4ee2d3d181b9828b609c4b8d999e728409ea1b0e2d3ff5e046"
+      },
+      "summary.json": {
+        "bytes": 227230,
+        "sha256": "66e864d3d03b5fb1d5e74eb7d33a2e56beab430449409a29bf117ae885aa618e"
+      },
+      "warm-latency.png": {
+        "bytes": 264267,
+        "sha256": "e35a094966e8c90bd5971e8f0376fe1ded6b0f41172e71cb1d0579b4413171a1"
+      }
+    },
+    "published_rounded_speedup": "2.08x",
+    "ratio_definition": "Per request: median of five serial times / median of five method times",
+    "receipt_path": "output/shared-prefix-v1/report-01/receipt.json",
+    "receipt_sha256": "56c85513d1904d2bbd3fd91049b35f0920971256e7f4c147426cac0b3caa7611",
+    "receipt_summary_identity_and_count_agreement": true,
+    "records": 1296,
+    "single_question_shared_batch_speed_distribution": {
+      "count": 18,
+      "max": 0.9341379095941003,
+      "median": 0.88868308171363,
+      "min": 0.7929914225547854,
+      "p95": 0.9297577406897898
+    },
+    "summary_limits": [
+      "Synthetic serving workload, not labeled accuracy, calibration or training evidence.",
+      "All four methods and all 54 requests retained, including every mismatch.",
+      "Cold means allocator-cold with resident weights; no independent process-cold trials.",
+      "Memory is MLX allocator memory, not process RSS. Timings exclude filesystem recording.",
+      "Candidate softmax and choices independently reconstructed from saved label logits.",
+      "Full-vocabulary mass is range-checked and compared; full logits were not retained.",
+      "Tokenizer/transformer execution is source-bound, not independently rerun.",
+      "Model-file identities are retained from the bound protocol; weights are not reopened by this reporter."
+    ],
+    "summary_path": "output/shared-prefix-v1/report-01/summary.json",
+    "summary_sha256": "66e864d3d03b5fb1d5e74eb7d33a2e56beab430449409a29bf117ae885aa618e"
+  },
+  "status": "completed",
+  "version": "qwen-parallel-source-refresh-20260921"
+}

@@ -1,0 +1,54 @@
+{
+  "scope": "Synthetic metadata and keys only; no scientific input/model/simulator calls.",
+  "before": {
+    "src/openjev/research/otto_coverage_selection.py": "0d3e25e904814019ae681da205f10bd3598144f2f51fcec26f57a87fa1d29943",
+    "tests/test_otto_coverage_selection.py": "094fcb9b082e38a135dbae4e2424dfc51e5d8ed658a9e4168d8359e8a12913ef"
+  },
+  "started_utc": "2026-09-21T22:54:04.947471+00:00",
+  "cap_seconds": 60,
+  "threads": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1"
+  },
+  "commands": [
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_otto_coverage_selection.py"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.288228833116591,
+      "log": "command-01.log",
+      "log_sha256": "5154a82a6c67ca69b9ceb6cad580c9b030f16611a9f83921353e5d69c98176b7"
+    },
+    {
+      "argv": [
+        ".venv/bin/ruff",
+        "check",
+        "src/openjev/research/otto_coverage_selection.py",
+        "tests/test_otto_coverage_selection.py",
+        "--select",
+        "E,F,I,UP,B,ISC,BLE",
+        "--ignore",
+        "E501"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.04145691683515906,
+      "log": "command-02.log",
+      "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    }
+  ],
+  "after": {
+    "src/openjev/research/otto_coverage_selection.py": "0d3e25e904814019ae681da205f10bd3598144f2f51fcec26f57a87fa1d29943",
+    "tests/test_otto_coverage_selection.py": "094fcb9b082e38a135dbae4e2424dfc51e5d8ed658a9e4168d8359e8a12913ef"
+  },
+  "ended_utc": "2026-09-21T22:54:05.277629+00:00",
+  "wall_seconds": 0.3299163330812007,
+  "status": "passed"
+}

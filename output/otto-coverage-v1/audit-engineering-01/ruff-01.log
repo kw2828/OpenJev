@@ -1,0 +1,38 @@
+I001 [*] Import block is un-sorted or un-formatted
+   --> tests/test_audit_otto_coverage_collection.py:168:5
+    |
+167 |   def selected_fixture(helper, tmp_path):
+168 | /     import argparse
+169 | |     import hashlib
+170 | |     import numpy as np
+    | |______________________^
+171 |       audit = A.Audit(argparse.Namespace(output=tmp_path/'unused'))
+172 |       audit.np, audit.E = np, helper
+    |
+help: Organize imports
+    |
+169 |     import hashlib
+170 +
+171 |     import numpy as np
+    |
+
+I001 [*] Import block is un-sorted or un-formatted
+   --> tests/test_audit_otto_coverage_collection.py:216:5
+    |
+215 |   def episode_fixture(helper, tmp_path):
+216 | /     import argparse
+217 | |     from collections import defaultdict
+218 | |     import numpy as np
+    | |______________________^
+219 |       audit = A.Audit(argparse.Namespace(output=tmp_path/'unused'))
+220 |       audit.np, audit.E, audit.check = np, helper, lambda: None
+    |
+help: Organize imports
+    |
+217 |     from collections import defaultdict
+218 +
+219 |     import numpy as np
+    |
+
+Found 2 errors.
+[*] 2 fixable with the `--fix` option.
