@@ -25,7 +25,11 @@ add state feedback for the first time.
   overconfidence or a state-dependent interpretation deficit. A future
   output-only calibration control must keep recurrent state unchanged and use
   calibration dialogues excluded from weight fitting. It cannot reverse this
-  study's original scientific failure.
+  study's original scientific failure. The subsequent
+  [saved-probability diagnostic](dialogue-probability-diagnostic-results.md)
+  localizes the regression to a shared low-true-label-probability subset and
+  reports the complete output-only temperature grid. It supports testing that
+  calibration control before changing the recurrent architecture.
 - [Copy V2](dialogue-copy-v2-results.md) found scalar unseen macro accuracy
   72.58%, versus 65.77% for readout and 72.89% for selective memory. Selective
   failed its rule; unseen assigned TRUE accuracy was only 6.62% and DONTCARE

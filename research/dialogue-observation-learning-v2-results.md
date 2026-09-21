@@ -55,13 +55,15 @@ a missing recurrent mechanism.
 
 ## Next question
 
-First investigate probability reliability under a matched, separately specified
-comparison. NLL worsens in every unseen stratum despite better macro accuracy
-and Brier. Mis-scaled confidence or severe mistakes are plausible explanations;
-the aggregates do not establish either. Any calibration fitting should use
-dialogues excluded from weight fitting, treat frozen and trainable models
-equally, preserve all seeds and leave recurrent state unchanged. It cannot
-retroactively rescue this failed study.
+The subsequently specified [saved-probability diagnostic](dialogue-probability-diagnostic-results.md)
+now locates the NLL regression in the common subset where either model assigns
+the correct answer below 1% probability. Its complement improves in every
+paired seed. The full fixed temperature grid shows output sensitivity without
+fitting or selecting a temperature. This justifies a separate calibration
+control, not a causal attribution or a reversal of this study's failure.
+Calibration fitting should use dialogues excluded from weight fitting, treat
+frozen and trainable models equally, preserve all seeds and leave recurrent
+state unchanged.
 
 [Earlier belief-conditioned encoding](dialogue-observation-followup-candidates.md)
 remains conditional on demonstrating a reproducible state-dependent residual.
