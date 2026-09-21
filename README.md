@@ -72,7 +72,7 @@ Open **http://127.0.0.1:8000**. Local text scoring uses Qwen3-4B; the free brows
 
 The GIF shows the preselected first baseline case, with illustrative timing. [All-controller chart](output/otto-action-head-v1/figure-01/action-head.png) · [Shifted replay](output/otto-action-head-v1/figure-01/first-case-shift.gif) · [Results, weights and audit](research/otto-action-head-results.md).
 
-The earlier [fixed-memory comparison](research/otto-spectral-control-results.md) completed **1,152 searches**: both compact memories found every source with **80.79% less evolving array state**, but used **31-39% more controller computation**. Its compact and utility-compute rules also failed. [Stronger pretrained reference: qualification status](research/otto-pretrained-reference-results.md).
+The earlier [fixed-memory comparison](research/otto-spectral-control-results.md) completed **1,152 searches**: both compact memories found every source with **80.79% less evolving array state**, but used **31-39% more controller computation**. Its compact and utility-compute rules also failed. [Stronger pretrained reference: qualification status](research/otto-pretrained-reference-runtime-v2-results.md).
 
 The [original 768-search comparison](research/otto-large-memory-results.md) still fails its continuation rule: full history improves mean search time **41.13%**, but only **5/8 blocks** improve. A [saved-history diagnostic](research/otto-memory-evidence-results.md) traces 98% of the net gain to three cases. [Earlier 19x19 pilot](research/otto-memory-results.md).
 

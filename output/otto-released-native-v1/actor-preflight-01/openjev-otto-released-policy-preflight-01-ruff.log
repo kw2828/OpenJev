@@ -1,0 +1,49 @@
+TRY004 Prefer `TypeError` exception for invalid type
+  --> src/openjev/research/otto_released_policy.py:66:9
+   |
+64 |     moves = public["valid_actions"]
+65 |     if not isinstance(moves, (list, tuple)):
+66 |         raise ValueError("valid_actions must be an ordered public sequence")
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+67 |     moves = tuple(_integer(x, "valid action", 0, 3) for x in moves)
+68 |     expected = () if done else tuple(a for a in range(4) if _move(a, position)[1])
+   |
+
+RUF023 [*] `PublicBeliefView.__slots__` is not sorted
+  --> src/openjev/research/otto_released_policy.py:82:17
+   |
+80 |     """
+81 |
+82 |     __slots__ = ("_kernel", "_probability", "_agent")
+   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+83 |     N, Ndim, Nhits, Nactions = 53, 2, 4, 4
+84 |     NN_input_shape = (105, 105)
+   |
+help: Apply a natural sort to `PublicBeliefView.__slots__`
+   |
+81 |
+   -     __slots__ = ("_kernel", "_probability", "_agent")
+82 +     __slots__ = ("_agent", "_kernel", "_probability")
+83 |     N, Ndim, Nhits, Nactions = 53, 2, 4, 4
+   |
+
+RUF023 [*] `ReleasedPolicyActor.__slots__` is not sorted
+   --> src/openjev/research/otto_released_policy.py:172:17
+    |
+170 |     """
+171 |
+172 |     __slots__ = ("_view", "_policy", "_public", "_pending_action")
+    |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+173 |
+174 |     def __init__(self, initial_public, kernel, model, policy_class, *, sym_avg=True):
+    |
+help: Apply a natural sort to `ReleasedPolicyActor.__slots__`
+    |
+171 |
+    -     __slots__ = ("_view", "_policy", "_public", "_pending_action")
+172 +     __slots__ = ("_pending_action", "_policy", "_public", "_view")
+173 |
+    |
+
+Found 3 errors.
+[*] 2 fixable with the `--fix` option.

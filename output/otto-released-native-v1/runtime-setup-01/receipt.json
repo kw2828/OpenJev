@@ -1,0 +1,54 @@
+{
+  "status": "completed",
+  "reason": "Separate native integration runtime; exact corrected reference distributions plus SciPy1.18.1 required by native SourceTracking. Prior runtimes remain unchanged.",
+  "requirements_sha256": "edee083daa08ca7c7a82959ebcb57d08813af1344157dc2eec81acefd6eb0dc3",
+  "commands": [
+    {
+      "argv": [
+        "uv",
+        "--no-config",
+        "venv",
+        "--no-project",
+        "--python",
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv-otto-reference-v2/bin/python",
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv-otto-released-native"
+      ],
+      "exit_code": 0,
+      "log": "command-0.log"
+    },
+    {
+      "argv": [
+        "uv",
+        "--no-config",
+        "pip",
+        "sync",
+        "--python",
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv-otto-released-native/bin/python",
+        "--only-binary",
+        ":all:",
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-released-native-v1/runtime-setup-01/requirements.txt"
+      ],
+      "exit_code": 0,
+      "log": "command-1.log"
+    },
+    {
+      "argv": [
+        "uv",
+        "--no-config",
+        "pip",
+        "check",
+        "--python",
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv-otto-released-native/bin/python"
+      ],
+      "exit_code": 0,
+      "log": "command-2.log"
+    }
+  ],
+  "model_calls": 0,
+  "simulator_calls": 0,
+  "exact_package_match": true,
+  "added_packages": {
+    "scipy": "1.18.1"
+  },
+  "wall_seconds": 1.040611834032461
+}

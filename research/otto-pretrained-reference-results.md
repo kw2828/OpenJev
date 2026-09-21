@@ -1,5 +1,7 @@
 # Released OTTO model: compatibility check stopped
 
+**Later result:** the [separate corrected-runtime comparison](otto-pretrained-reference-runtime-v2-results.md) completed all work. Values and costs pass tolerance, but five action disagreements keep the NumPy policy unqualified. The original stopped attempt below remains unchanged.
+
 21 September 2026. **The first numerical qualification failed and remains unqualified.** All eight tensors loaded through the original TensorFlow model match the extracted NumPy tensors byte-for-byte. The first NumPy forward raised `FloatingPointError: overflow encountered in matmul`, before any value or action comparison completed. This establishes weight identity only, not policy equivalence or search performance.
 
 The [protocol](otto-pretrained-reference-protocol.md) and [plan](../output/otto-pretrained-reference-v1/qualification-plan-01.json) were frozen and published at `674e3ec` before execution. The run used the authenticated official 13,390,849-parameter checkpoint, unchanged original inference source and isolated CPU TensorFlow 2.20.0 / legacy Keras 2.20.1 / NumPy 2.2.6 runtime. It started only after the [action-head experiment](otto-action-head-results.md) had terminated, preserving that experiment's timing conditions.

@@ -1,0 +1,55 @@
+{
+  "scope": "One new invalid sequence regression plus four affected constructor/ownership cases after TypeError and slots-order lint fixes; no actual model/native calls",
+  "previous": "/tmp/openjev-otto-released-policy-preflight-01.json",
+  "sources": {
+    "src/openjev/research/otto_released_policy.py": "8abac34fef2a6517d43209d5ca27514633363248f66a249e2f4d6615aa0a0d45",
+    "tests/test_otto_released_policy.py": "cc2e7e543a8e8b7139dbcb974680e8af0213e81cbd089b475b14710dc8f8b6b7"
+  },
+  "checks": [
+    {
+      "name": "pytest",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_otto_released_policy.py",
+        "-k",
+        "valid_actions_rejects or input_and_output_ownership or initial_hit_prior"
+      ],
+      "exit_code": 0,
+      "seconds": 0.26029679202474654,
+      "log": "/tmp/openjev-otto-released-policy-preflight-02-pytest.log",
+      "log_sha256": "4d5b1aefb970dfbde629ce8cfadfb63c8a010d4636a78ccc8891f40470965e6f"
+    },
+    {
+      "name": "ruff",
+      "command": [
+        ".venv/bin/ruff",
+        "check",
+        "src/openjev/research/otto_released_policy.py",
+        "tests/test_otto_released_policy.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.04266004194505513,
+      "log": "/tmp/openjev-otto-released-policy-preflight-02-ruff.log",
+      "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    {
+      "name": "diff",
+      "command": [
+        "git",
+        "diff",
+        "--check",
+        "--",
+        "src/openjev/research/otto_released_policy.py",
+        "tests/test_otto_released_policy.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.0190996250603348,
+      "log": "/tmp/openjev-otto-released-policy-preflight-02-diff.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "status": "passed"
+}
