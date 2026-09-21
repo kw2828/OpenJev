@@ -56,15 +56,13 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Latest completed research
 
-[Bellman versus Monte Carlo training](research/otto-bellman-control-results.md) completed **six fits and 1,440 odor searches** using the same small MLP. Bellman training improves average success over further Monte Carlo training in all three settings, but reaches only **64.30% / 39.78% / 38.62%**, versus **100%** for analytic control. It also loses to the unchanged model on the shifted setting. The independently audited continuation rule **fails: 19/42 checks, including 0/18 competence checks**.
+[Nine fresh fits test ordinary network capacity](research/otto-capacity-results.md) on the same odor-search data. A width-128 MLP lowers mean validation error **7.93%** versus width eight, but misses the required 10% improvement in every seed. A deeper model cuts training error above the empirical input-alias floor by **68.21%**, while mean validation error worsens **1.37%**. The independently checked screen **fails: 6/12 conditions**. This experiment tests scalar fitting; it runs no autonomous policy.
 
-[![Every fitting seed and all three sensing settings, on common axes](docs/assets/otto-bellman-control.png)](research/otto-bellman-control-results.md)
+[![All three seeds: training error above the empirical floor, validation error and fitting cost](docs/assets/otto-capacity.png)](research/otto-capacity-results.md)
 
-[Results and costs](research/otto-bellman-control-results.md) · [Paper](output/pdf/openjev-otto-bellman-control.pdf) · [LaTeX](paper/otto-bellman-control.tex) · [Raw evidence](https://github.com/kw2828/OpenJev/releases/tag/otto-bellman-control-v1).
+[All models and criteria](research/otto-capacity-results.md) · [Protocol](research/otto-capacity-protocol.md) · [Raw evidence](https://github.com/kw2828/OpenJev/releases/tag/otto-capacity-v1).
 
-[![First scheduled replay from the earlier scalar-value study](output/otto-return-value-v1/figure-01/replay-lambda3-case0.gif)](research/otto-return-value-results.md)
-
-This GIF belongs to the [earlier scalar-value study](research/otto-return-value-results.md), whose **0/54** result remains unchanged. A [training-state coverage follow-up](research/otto-coverage-followup-design.md) is proposed, not run. Neither study establishes a novel architecture or recurrent-world-model advantage.
+The earlier [Bellman training comparison](research/otto-bellman-control-results.md) completed six fits and 1,440 searches, passing only **19/42** checks and failing every competence check. Its [paper](output/pdf/openjev-otto-bellman-control.pdf), [LaTeX](paper/otto-bellman-control.tex) and [recorded scalar-policy replay](research/otto-return-value-results.md) remain available. Further data-coverage work is proposed, not run.
 
 Earlier dialogue, RockSample, compact-memory and pretrained-policy comparisons are collected in the [experiment archive](research/experiment-index.md), including failed attempts, frozen criteria and independent audits. The separate [shared-prefix scoring experiment](research/shared-prefix-results.md) measured **2.08x** speedup on four-question synthetic workloads; single-question caching was slower. This does not reproduce a proprietary RLCD system.
 
