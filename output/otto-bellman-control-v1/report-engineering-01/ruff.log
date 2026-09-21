@@ -1,0 +1,198 @@
+SIM905 [*] Consider using a list literal instead of `str.split`
+  --> scripts/report_otto_bellman_control.py:36:17
+   |
+35 | def payload_names():
+36 |     names = set(('started runtime preparation target-audit training-costs native-setup inference-setup summary').split())
+   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+37 |     names = {n + '.json' for n in names} | {n + '.jsonl' for n in (
+38 |         'work-contexts work initializations updates epoch-orders fit-curves fits target-checkpoints '
+   |
+help: Replace with list literal
+   |
+35 | def payload_names():
+   -     names = set(('started runtime preparation target-audit training-costs native-setup inference-setup summary').split())
+36 +     names = set(['started', 'runtime', 'preparation', 'target-audit', 'training-costs', 'native-setup', 'inference-setup', 'summary'])
+37 |     names = {n + '.json' for n in names} | {n + '.jsonl' for n in (
+   |
+
+SIM905 [*] Consider using a list literal instead of `str.split`
+  --> scripts/report_otto_bellman_control.py:37:67
+   |
+35 |   def payload_names():
+36 |       names = set(('started runtime preparation target-audit training-costs native-setup inference-setup summary').split())
+37 |       names = {n + '.json' for n in names} | {n + '.jsonl' for n in (
+   |  ___________________________________________________________________^
+38 | |         'work-contexts work initializations updates epoch-orders fit-curves fits target-checkpoints '
+39 | |         'target-refreshes parity prediction-diagnostics eval-transitions eval-episodes evaluation').split()}
+   | |___________________________________________________________________________________________________________^
+40 |       for seed in SEEDS:
+41 |           names.add(f'mc-targets-{seed}.npz')
+   |
+help: Replace with list literal
+   |
+36 |     names = set(('started runtime preparation target-audit training-costs native-setup inference-setup summary').split())
+   -     names = {n + '.json' for n in names} | {n + '.jsonl' for n in (
+   -         'work-contexts work initializations updates epoch-orders fit-curves fits target-checkpoints '
+   -         'target-refreshes parity prediction-diagnostics eval-transitions eval-episodes evaluation').split()}
+37 +     names = {n + '.json' for n in names} | {n + '.jsonl' for n in ['work-contexts', 'work', 'initializations', 'updates', 'epoch-orders', 'fit-curves', 'fits', 'target-checkpoints', 'target-refreshes', 'parity', 'prediction-diagnostics', 'eval-transitions', 'eval-episodes', 'evaluation']}
+38 |     for seed in SEEDS:
+   |
+
+RUF100 [*] Unused `noqa` directive (non-enabled: `E731`)
+   --> scripts/report_otto_bellman_control.py:162:55
+    |
+160 |     text(30, 1150, 'Initial-hit mixture weighted within each setting; no confidence intervals. Controller cost includes deployment al…
+161 |     svg.append('</g></svg>')
+162 |     rel = lambda p: '../' + str(p.relative_to(ROOT))  # noqa: E731 - Local Markdown locator, not scientific computation.
+    |                                                       ^^^^^^^^^^^^
+163 |     lines = ['# Bellman versus Monte Carlo continuation', '', f'**{status}: {passed}/42 frozen conditions passed.** '
+164 |              f'Competence: {sum(c["passes"] for c in summary["competence_checks"])}/18; paired improvement: '
+    |
+help: Remove unused `noqa` directive
+    |
+161 |     svg.append('</g></svg>')
+    -     rel = lambda p: '../' + str(p.relative_to(ROOT))  # noqa: E731 - Local Markdown locator, not scientific computation.
+162 +     rel = lambda p: '../' + str(p.relative_to(ROOT))
+163 |     lines = ['# Bellman versus Monte Carlo continuation', '', f'**{status}: {passed}/42 frozen conditions passed.** '
+    |
+
+ISC004 Unparenthesized implicit string concatenation in collection
+   --> scripts/report_otto_bellman_control.py:163:63
+    |
+161 |       svg.append('</g></svg>')
+162 |       rel = lambda p: '../' + str(p.relative_to(ROOT))  # noqa: E731 - Local Markdown locator, not scientific computation.
+163 |       lines = ['# Bellman versus Monte Carlo continuation', '', f'**{status}: {passed}/42 frozen conditions passed.** '
+    |  _______________________________________________________________^
+164 | |              f'Competence: {sum(c["passes"] for c in summary["competence_checks"])}/18; paired improvement: '
+165 | |              f'{sum(c["passes"] for c in summary["improvement_checks"])}/24.', '',
+    | |_____________________________________________________________________________^
+166 |                'This compares training targets in the same MLP architecture. It does not establish an architecture, '
+167 |                'connectome or recurrent-model advantage. The original scalar study remains a 0/54 failure.', '',
+    |
+help: Did you forget a comma?
+help: Wrap implicitly concatenated strings in parentheses
+
+ISC004 Unparenthesized implicit string concatenation in collection
+   --> scripts/report_otto_bellman_control.py:166:14
+    |
+164 |                f'Competence: {sum(c["passes"] for c in summary["competence_checks"])}/18; paired improvement: '
+165 |                f'{sum(c["passes"] for c in summary["improvement_checks"])}/24.', '',
+166 | /              'This compares training targets in the same MLP architecture. It does not establish an architecture, '
+167 | |              'connectome or recurrent-model advantage. The original scalar study remains a 0/54 failure.', '',
+    | |_________________________________________________________________________________________________________^
+168 |                '![All arms and settings](../docs/assets/otto-bellman-control.svg)', '',
+169 |                'Six continuations restore three fixed MLP checkpoints: Monte Carlo returns versus delayed Bellman backups. '
+    |
+help: Did you forget a comma?
+help: Wrap implicitly concatenated strings in parentheses
+
+ISC004 Unparenthesized implicit string concatenation in collection
+   --> scripts/report_otto_bellman_control.py:169:14
+    |
+167 |                'connectome or recurrent-model advantage. The original scalar study remains a 0/54 failure.', '',
+168 |                '![All arms and settings](../docs/assets/otto-bellman-control.svg)', '',
+169 | /              'Six continuations restore three fixed MLP checkpoints: Monte Carlo returns versus delayed Bellman backups. '
+170 | |              'Three unchanged checkpoints and an analytic controller complete the ten arms. All use the public full posterior. '
+171 | |              'Each arm has 48 paired searches per setting, capped at 2,188 moves. Lambda 3 and 4 are training-supported; '
+172 | |              'lambda 5 supplies an unseen kernel. These are fresh local evaluation cases.', '',
+    | |__________________________________________________________________________________________^
+173 |                'Each table uses the setting-specific initial-hit mixture, not pooled episode means. A failed search contributes '
+174 |                '2,188 moves. Controller seconds include feature/branch construction, readout, selection, public updates, '
+    |
+help: Did you forget a comma?
+help: Wrap implicitly concatenated strings in parentheses
+
+ISC004 Unparenthesized implicit string concatenation in collection
+   --> scripts/report_otto_bellman_control.py:173:14
+    |
+171 |                'Each arm has 48 paired searches per setting, capped at 2,188 moves. Lambda 3 and 4 are training-supported; '
+172 |                'lambda 5 supplies an unseen kernel. These are fresh local evaluation cases.', '',
+173 | /              'Each table uses the setting-specific initial-hit mixture, not pooled episode means. A failed search contributes '
+174 | |              '2,188 moves. Controller seconds include feature/branch construction, readout, selection, public updates, '
+175 | |              'initialization and allocated deployment setup; recorded artifact I/O is excluded. All fit seeds are shown.', '']
+    | |_________________________________________________________________________________________________________________________^
+176 |       for regime in REGIMES:
+177 |           lines += [f'## {regime}', '', '| Arm | Success | Moves | Controller s | H=1 s | H=100 s | H=10,000 s |',
+    |
+help: Did you forget a comma?
+help: Wrap implicitly concatenated strings in parentheses
+
+ISC004 Unparenthesized implicit string concatenation in collection
+   --> scripts/report_otto_bellman_control.py:189:49
+    |
+187 |           lines.append('')
+188 |       training = summary['costs']['training']
+189 |       lines += ['## Cost and interpretation', '', f'Preparation: {training["preparation_seconds"]:.3f} s. '
+    |  _________________________________________________^
+190 | |               f'Full worker duration: {summary["costs"]["worker_seconds"]:.3f} s.', '', '| Continuation | Paid fit seconds |', '|--…
+    | |__________________________________________________________________________________^
+191 |       lines += [f'| {arm} | {seconds:.3f} |' for arm, seconds in training['fits'].items()]
+192 |       lines += ['', 'The two arms receive equal optimizer updates, not equal total compute. Backup target construction is paid in fit…
+    |
+help: Did you forget a comma?
+help: Wrap implicitly concatenated strings in parentheses
+
+ISC004 Unparenthesized implicit string concatenation in collection
+   --> scripts/report_otto_bellman_control.py:192:19
+    |
+190 |                 f'Full worker duration: {summary["costs"]["worker_seconds"]:.3f} s.', '', '| Continuation | Paid fit seconds |', '|--…
+191 |       lines += [f'| {arm} | {seconds:.3f} |' for arm, seconds in training['fits'].items()]
+192 |       lines += ['', 'The two arms receive equal optimizer updates, not equal total compute. Backup target construction is paid in fit…
+    |  ___________________^
+193 | |               'Separate parity, scalar diagnostics and independent target auditing are excluded from fit time. H columns are accoun…
+194 | |               'U + (L + P/6 + D)/H, not additional searches: U excludes deployment setup, L is continuation time, P is preparation,…
+195 | |               'and D is head loading plus shared module setup. Unchanged references have L=P=0; original training is a common prior…
+196 | |               'Analytic initialization is paid anew per search. These single-run timings are hardware-specific.', '',
+    | |________________________________________________________________________________________________________________^
+197 |                 'Monte Carlo returns estimate the analytic teacher policy, not optimal costs. Bellman targets are generated by each a…
+198 |                 'own delayed checkpoint on the same teacher-visited TRAIN states, with no exploratory collection. The comparison ther…
+    |
+help: Did you forget a comma?
+help: Wrap implicitly concatenated strings in parentheses
+
+ISC004 Unparenthesized implicit string concatenation in collection
+   --> scripts/report_otto_bellman_control.py:197:15
+    |
+195 |                 'and D is head loading plus shared module setup. Unchanged references have L=P=0; original training is a common prior investment. '
+196 |                 'Analytic initialization is paid anew per search. These single-run timings are hardware-specific.', '',
+197 | /               'Monte Carlo returns estimate the analytic teacher policy, not optimal costs. Bellman targets are generated by each arm\'s '
+198 | |               'own delayed checkpoint on the same teacher-visited TRAIN states, with no exploratory collection. The comparison therefore retains '
+199 | |               'target noise, coverage limits and undiscounted bootstrapping risk. A gate pass would remain a pilot result, not a novelty claim.', '',
+    | |________________________________________________________________________________________________________________________________________________^
+200 |                 f'Independent audit: {summary["comparisons"]:,} comparisons. Saved targets, choices and aggregates were checked; '
+201 |                 'optimizer trajectories, actual Torch execution, RNG and timing truth remain source-bound evidence.', '',
+    |
+help: Did you forget a comma?
+help: Wrap implicitly concatenated strings in parentheses
+
+ISC004 Unparenthesized implicit string concatenation in collection
+   --> scripts/report_otto_bellman_control.py:200:15
+    |
+198 |   …     'own delayed checkpoint on the same teacher-visited TRAIN states, with no exploratory collection. The comparison therefore re…
+199 |   …     'target noise, coverage limits and undiscounted bootstrapping risk. A gate pass would remain a pilot result, not a novelty cl…
+200 | / …     f'Independent audit: {summary["comparisons"]:,} comparisons. Saved targets, choices and aggregates were checked; '
+201 | | …     'optimizer trajectories, actual Torch execution, RNG and timing truth remain source-bound evidence.', '',
+    | |__________________________________________________________________________________________________________^
+202 |   …     f'[Protocol](otto-bellman-control-protocol.md) | [Worker summary]({rel(args.run / "summary.json")}) | '
+203 |   …     f'[Independent audit]({rel(args.audit / "summary.json")}) | [Worker receipt]({rel(args.run / "receipt.json")}) | '
+    |
+help: Did you forget a comma?
+help: Wrap implicitly concatenated strings in parentheses
+
+ISC004 Unparenthesized implicit string concatenation in collection
+   --> scripts/report_otto_bellman_control.py:202:15
+    |
+200 |                 f'Independent audit: {summary["comparisons"]:,} comparisons. Saved targets, choices and aggregates were checked; '
+201 |                 'optimizer trajectories, actual Torch execution, RNG and timing truth remain source-bound evidence.', '',
+202 | /               f'[Protocol](otto-bellman-control-protocol.md) | [Worker summary]({rel(args.run / "summary.json")}) | '
+203 | |               f'[Independent audit]({rel(args.audit / "summary.json")}) | [Worker receipt]({rel(args.run / "receipt.json")}) | '
+204 | |               f'[Audit receipt]({rel(args.audit / "receipt.json")})', '']
+    | |____________________________________________________________________^
+205 |       return '\n'.join(lines), '\n'.join(svg), {'rows': rows, 'gate_passed': passed, 'gate_total': 42,
+206 |           'pilot_continuation': summary['pilot_continuation'], 'weights': {r: summary['regimes'][r]['weights'] for r in REGIMES},
+    |
+help: Did you forget a comma?
+help: Wrap implicitly concatenated strings in parentheses
+
+Found 12 errors.
+[*] 3 fixable with the `--fix` option (9 hidden fixes can be enabled with the `--unsafe-fixes` option).

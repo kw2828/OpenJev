@@ -1,0 +1,22 @@
+F..............                                                          [100%]
+=================================== FAILURES ===================================
+________________ test_all_30_rows_90_bars_and_failed_gate_kept _________________
+
+tmp_path = PosixPath('/private/var/folders/57/43njbt192fgcplwy_cxy07ch0000gn/T/pytest-of-kevinwu/pytest-1538/test_all_30_rows_90_bars_and_f0')
+
+    def test_all_30_rows_90_bars_and_failed_gate_kept(tmp_path):
+        result = summary()
+        markdown, svg, values = M.present(result, args(tmp_path))
+        assert '**FAIL: 0/42' in markdown and 'Competence: 0/18; paired improvement: 0/24' in markdown
+        assert len(values['rows']) == 30 and values['gate_total'] == 42
+        tree = ElementTree.fromstring(svg)
+>       assert len(tree.findall('{http://www.w3.org/2000/svg}rect')) == 91
+E       AssertionError: assert 1 == 91
+E        +  where 1 = len([<Element '{http://www.w3.org/2000/svg}rect' at 0x10708e200>])
+E        +    where [<Element '{http://www.w3.org/2000/svg}rect' at 0x10708e200>] = <built-in method findall of xml.etree.ElementTree.Element object at 0x10708e020>('{http://www.w3.org/2000/svg}rect')
+E        +      where <built-in method findall of xml.etree.ElementTree.Element object at 0x10708e020> = <Element '{http://www.w3.org/2000/svg}svg' at 0x10708e020>.findall
+
+tests/test_report_otto_bellman_control.py:49: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_report_otto_bellman_control.py::test_all_30_rows_90_bars_and_failed_gate_kept
+1 failed, 14 passed in 0.21s
