@@ -2,6 +2,8 @@
 
 21 September 2026. **All numerical work completed, but the NumPy policy still fails equivalence.** All eight weight tensors, policy inputs and branch masses match exactly. Every value and action cost passes the unchanged numerical tolerance. Selected actions agree in **31 of 36** fixed policy fixtures. Five disagreements at TensorFlow ties keep the overall qualification false.
 
+The subsequent [original TensorFlow policy integration](otto-released-native-qualification-results.md) passes its separate native/public checks. The NumPy port remains unqualified.
+
 This is an engineering compatibility result, not search accuracy or model effectiveness. Use the **original TensorFlow model and original RLPolicy** for the next native-adapter check. Do not substitute the NumPy policy, broaden its tie tolerance or discard the disagreeing fixtures.
 
 ## What changed
@@ -47,4 +49,4 @@ An independent saved-output reader confirmed complete coverage, all call counts,
 - [Independent audit receipt](../output/otto-pretrained-reference-v2/audit-01/receipt.json) and [recomputed results](../output/otto-pretrained-reference-v2/audit-01/summary.json).
 - [Losslessly compressed policy arrays](../output/otto-pretrained-reference-v2/array-delivery-01/policy-arrays.npz.gz) and [hashes/restoration instructions](../output/otto-pretrained-reference-v2/array-delivery-01/manifest.json). Decompression restores the original 53,142,662-byte NPZ. The original HDF5 remains available from its authenticated upstream source rather than duplicated in Git.
 
-Native/public-adapter qualification and autonomous control performance remain separate outstanding requirements. The [native integration protocol](otto-released-native-qualification-protocol.md) preserves all four actions, the original filtering threshold and evaluator-only access to hidden state. Passing that future check would establish integration, not a novel learned architecture advantage.
+The separate [native integration protocol](otto-released-native-qualification-protocol.md) preserves all four actions, the original filtering threshold and evaluator-only access to hidden state. Its [completed original-TensorFlow check](otto-released-native-qualification-results.md) establishes fixed-fixture integration. Autonomous control performance remains outstanding; no novel learned architecture advantage is established.
