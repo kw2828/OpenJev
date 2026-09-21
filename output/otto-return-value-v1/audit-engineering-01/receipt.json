@@ -1,0 +1,63 @@
+{
+  "version": "otto-return-value-audit-engineering-v1",
+  "status": "completed",
+  "scope": "Synthetic fixtures only; no actual dataset, model training, simulator or evaluation outputs opened. NumPy fake checkpoint arithmetic is exercised.",
+  "threads": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1"
+  },
+  "started_utc": "2026-09-21T19:19:58.351955+00:00",
+  "ended_utc": "2026-09-21T19:19:58.795772+00:00",
+  "wall_seconds": 0.44370016595348716,
+  "sources": {
+    "scripts/audit_otto_return_value.py": "ad3d8e92c0bae3b9dd573af40e1cbb49d1dc771ff23f30500667a46f94980de8",
+    "tests/test_audit_otto_return_value.py": "557a8f9ec8547f831c646ea1ef26e05896b7137b10747451c742f74c1c283d9d"
+  },
+  "commands": [
+    {
+      "command": [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_audit_otto_return_value.py"
+      ],
+      "returncode": 0,
+      "started_utc": "2026-09-21T19:19:58.352119+00:00",
+      "ended_utc": "2026-09-21T19:19:58.752358+00:00",
+      "wall_seconds": 0.4002595830243081,
+      "timeout_seconds": 60
+    },
+    {
+      "command": [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/ruff",
+        "check",
+        "scripts/audit_otto_return_value.py",
+        "tests/test_audit_otto_return_value.py"
+      ],
+      "returncode": 0,
+      "started_utc": "2026-09-21T19:19:58.752386+00:00",
+      "ended_utc": "2026-09-21T19:19:58.795747+00:00",
+      "wall_seconds": 0.043375583132728934,
+      "timeout_seconds": 60
+    }
+  ],
+  "files": {
+    "command-2.log": {
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "bytes": 19
+    },
+    "command-1.log": {
+      "sha256": "462ddca50f5f659fdf03bdba83686ab11583be917c830d9076748bd65d719dd2",
+      "bytes": 99
+    }
+  },
+  "earlier_source_only_lint": {
+    "tool_chunk": "c4671b",
+    "returncode": 1,
+    "finding": "F841 unused np local in compute; removed before this invocation; no numerical change."
+  }
+}

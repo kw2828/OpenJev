@@ -1,0 +1,49 @@
+{
+  "status": "completed",
+  "sources": {
+    "scripts/study_otto_return_value.py": "3afdf21506dc60db9a91a18200dfe005133ab1b9398f3baa12614498253abc11",
+    "tests/test_otto_return_value_study.py": "b828dc50193af263652b27994ae26b06882dc6e949b2897e96346d2417c006ff"
+  },
+  "unchanged": true,
+  "checks": [
+    {
+      "name": "tests",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_otto_return_value_study.py"
+      ],
+      "returncode": 0,
+      "wall_seconds": 0.32477641594596207
+    },
+    {
+      "name": "ruff",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "ruff",
+        "check",
+        "scripts/study_otto_return_value.py",
+        "tests/test_otto_return_value_study.py"
+      ],
+      "returncode": 0,
+      "wall_seconds": 0.03745137504301965
+    },
+    {
+      "name": "diff",
+      "command": [
+        "git",
+        "diff",
+        "--check",
+        "--",
+        "scripts/study_otto_return_value.py",
+        "tests/test_otto_return_value_study.py"
+      ],
+      "returncode": 0,
+      "wall_seconds": 0.01797437504865229
+    }
+  ],
+  "scope": "Synthetic local tests and source checks only; no corpus/model/native study execution. Prior Ruff attempt a85bde had two B023 closure bindings, fixed before this captured phase."
+}
