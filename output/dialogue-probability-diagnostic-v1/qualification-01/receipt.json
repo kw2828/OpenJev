@@ -1,0 +1,40 @@
+{
+  "checks": [
+    {
+      "exit_code": 0,
+      "file": "check-01.json",
+      "sha256": "4f696394a3764702507819355b77e23d60d6b3c87216d531bf2d774489b07753"
+    },
+    {
+      "exit_code": 0,
+      "file": "check-02.json",
+      "sha256": "f57b8ec7006c34159de02882ba931ac3c58359ffe438053ba33e99c225838c0b"
+    }
+  ],
+  "environment": {
+    "numpy": "2.5.3",
+    "python": "3.12.13"
+  },
+  "model_calls": 0,
+  "prefreeze_history": [
+    {
+      "cause": "Extraneous parentheses around generator expression",
+      "location": "scripts/diagnose_dialogue_probabilities.py:103",
+      "repair": "Removed parentheses only; pre-freeze source cleanup.",
+      "rule": "UP034",
+      "status": "lint_failed"
+    },
+    {
+      "cause": "Mandatory independent audit and actual exit pins not required",
+      "repair": "Exact three-source and nine-input closure required before reading; independent reviewer confirmed blocker closed.",
+      "status": "source_review_repaired"
+    }
+  ],
+  "scope": "Synthetic tests and lint only; no real predictions, labels, corpus or model calls.",
+  "source_sha256": {
+    "research/dialogue-probability-diagnostic-protocol.md": "17293056031a69bd2cf893590e819b9843ca7428a1e6cfdfeb3ff5ba0671dede",
+    "scripts/diagnose_dialogue_probabilities.py": "a99c68b2101f299d1118bb9c69f568578d46519ec6f0387b18576263a7f8d78f",
+    "tests/test_diagnose_dialogue_probabilities.py": "cac7f21934861ebccce05f4510b100d1c15bc2d2bad9660609e6c055e5b456eb"
+  },
+  "status": "passed"
+}
