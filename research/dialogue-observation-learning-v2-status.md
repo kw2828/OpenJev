@@ -41,13 +41,13 @@ local; manifests bind the complete 69-payload closure.
 ## Live execution
 
 The source and corrected plan were published in `6a93965` and `faf345d` before
-launch. Session **61998**, worker process group **41434**, is running. **Three
+launch. Session **61998**, worker process group **41434**, is running. **Four
 of twelve fits have completed** all 1,280 updates and their final DEV pass:
-`frozen_original-6901`, `frozen_numbers-6901` and `trainable_original-6901`.
-Their work counts, state checks and payload hashes match the frozen plan.
-Both frozen encoders are unchanged; the trainable encoder's fingerprint has
-changed. This confirms execution, not useful learning. The fourth fit,
-`trainable_numbers-6901`, has started. All 64 source hashes still match.
+all four variants for seed 6901. Their work counts, state checks and payload
+hashes match the frozen plan. Both frozen encoders are unchanged; both
+trainable encoders' fingerprints have changed. This confirms execution, not
+useful learning. The fifth fit, `frozen_original-6902`, has started the second
+seed. All 64 source hashes still match.
 The worker has authenticated and
 inherited the parent's absolute native-clock deadline. This is execution
 progress only; predictions have not been decoded for task-quality scoring.
@@ -68,6 +68,10 @@ progress only; predictions have not been decoded for task-quality scoring.
   binds all three completed fits and the [first trainable-encoder receipt](../output/dialogue-observation-learning-v2/scientific-run-01/trainable_original-6901/completed.json).
   The independent metadata review also verified its counts, state checks, raw
   payload hashes and encoder change without decoding predictions or weights.
+- [First complete-seed snapshot](../output/dialogue-observation-learning-v2/scientific-progress-05.json)
+  binds all four completed variants, including the [number-corrected trainable-encoder receipt](../output/dialogue-observation-learning-v2/scientific-run-01/trainable_numbers-6901/completed.json),
+  and records the second seed's start. One completed seed is not the required
+  three-seed scientific comparison; its quality has not been scored.
 - [Compute context](../output/dialogue-observation-learning-v2/compute-prelaunch-01.json)
   records released prior worker groups and background demo services. These are
   not isolated hardware latency measurements.
