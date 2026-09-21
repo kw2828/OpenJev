@@ -1,0 +1,194 @@
+{
+  "arrays_decoded": 0,
+  "engineering": {
+    "audit-engineering-01": {
+      "receipt": {
+        "actual_tool": {
+          "chunk_id": "e6c7d4",
+          "exit_code": 0,
+          "session_id": null
+        },
+        "files": {
+          "ruff-01-exit.json": {
+            "bytes": 612,
+            "sha256": "f1595361db3d32e48a3f94721ccc0a0d4bbb1d11cc9e034e8d9ebd4edc58cb21"
+          },
+          "ruff-01.log": {
+            "bytes": 19,
+            "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+          },
+          "tests-01-exit.json": {
+            "bytes": 593,
+            "sha256": "abd66841fd09b393b92200fec58b6136c09c54d9d61a10ac84b1b603e1988e84"
+          },
+          "tests-01.log": {
+            "bytes": 99,
+            "sha256": "7498538cf234cebe1fdb33936798bec2d8b46702caebc30ab779fdd363603912"
+          }
+        },
+        "first_attempt_passed": true,
+        "initial_failures": [],
+        "peer_review": {
+          "reviewed_sources": {
+            "scripts/audit_otto_conditioning.py": "28259542e97940c3dd9482dae4089a878dd946ca22c8adf352ed70aff6a1e51f",
+            "tests/test_audit_otto_conditioning.py": "3335b0b3bd238c28331465af361ee6b7d1479b0243914d532563b7e3294a3f6f"
+          },
+          "reviewer": "/root/residual_results_review",
+          "scope": "Source-only schema, mathematical and lifecycle review; no execution or scientific evidence reads.",
+          "status": "clear"
+        },
+        "pytest_reported_seconds": 0.13,
+        "scope": "Synthetic engineering qualification only. No scientific arrays, model fitting, simulator calls or completed-study audit. Actual audit remains unexecuted pending frozen completed-run pins.",
+        "sources": {
+          "scripts/audit_otto_conditioning.py": "28259542e97940c3dd9482dae4089a878dd946ca22c8adf352ed70aff6a1e51f",
+          "tests/test_audit_otto_conditioning.py": "3335b0b3bd238c28331465af361ee6b7d1479b0243914d532563b7e3294a3f6f"
+        },
+        "status": "completed",
+        "synthetic_tests": 43,
+        "version": "otto-conditioning-audit-engineering-v1"
+      },
+      "sha256": "8fd5cfd20cdc43673b18ec4892e13344e0983ac6eb282c849aa84fc2e3f7bfa6"
+    },
+    "model-engineering-01": {
+      "receipt": {
+        "after": {
+          "src/openjev/research/otto_conditioned_value.py": "dd6abb1d756bf304ac5ac54a25955ec58dd5a97fbba21fbac169e9a4b6270050",
+          "tests/test_otto_conditioned_value.py": "f71ab6b1ec6d3fd43b563bb6c028a64e1a64d3853b5933819b84b3b0c83f5a19"
+        },
+        "before": {
+          "src/openjev/research/otto_conditioned_value.py": "dd6abb1d756bf304ac5ac54a25955ec58dd5a97fbba21fbac169e9a4b6270050",
+          "tests/test_otto_conditioned_value.py": "f71ab6b1ec6d3fd43b563bb6c028a64e1a64d3853b5933819b84b3b0c83f5a19"
+        },
+        "cpu_threads": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1",
+          "VECLIB_MAXIMUM_THREADS": "1"
+        },
+        "end_utc": "2026-09-21T23:16:36.634818+00:00",
+        "per_command_timeout_seconds": 60,
+        "results": [
+          {
+            "command": [
+              "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/python",
+              "-m",
+              "pytest",
+              "-q",
+              "tests/test_otto_conditioned_value.py"
+            ],
+            "exit_code": 0,
+            "seconds": 1.639208999928087
+          },
+          {
+            "command": [
+              "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/ruff",
+              "check",
+              "src/openjev/research/otto_conditioned_value.py",
+              "tests/test_otto_conditioned_value.py",
+              "--output-format",
+              "concise"
+            ],
+            "exit_code": 1,
+            "seconds": 0.0802198750898242
+          }
+        ],
+        "scope": "Synthetic module fixtures only; no scientific input, native simulator or trained checkpoint reads.",
+        "start_utc": "2026-09-21T23:16:34.914449+00:00",
+        "status": "failed",
+        "wall_seconds": 1.7203874171245843
+      },
+      "sha256": "a5e8a66594ccf0523dd1777b9258ddb01865b53733d31c69f4fd869494679f36"
+    },
+    "model-engineering-02": {
+      "receipt": {
+        "after": {
+          "src/openjev/research/otto_conditioned_value.py": "dd6abb1d756bf304ac5ac54a25955ec58dd5a97fbba21fbac169e9a4b6270050",
+          "tests/test_otto_conditioned_value.py": "7ff57cb5e57da76aec1143532a826cc097744dbc9909c8a8d916a0cef89d2259"
+        },
+        "before": {
+          "src/openjev/research/otto_conditioned_value.py": "dd6abb1d756bf304ac5ac54a25955ec58dd5a97fbba21fbac169e9a4b6270050",
+          "tests/test_otto_conditioned_value.py": "7ff57cb5e57da76aec1143532a826cc097744dbc9909c8a8d916a0cef89d2259"
+        },
+        "cpu_threads": {
+          "MKL_NUM_THREADS": "1",
+          "NUMEXPR_NUM_THREADS": "1",
+          "OMP_NUM_THREADS": "1",
+          "OPENBLAS_NUM_THREADS": "1",
+          "VECLIB_MAXIMUM_THREADS": "1"
+        },
+        "end_utc": "2026-09-21T23:17:05.123872+00:00",
+        "per_command_timeout_seconds": 60,
+        "results": [
+          {
+            "command": [
+              "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/python",
+              "-m",
+              "pytest",
+              "-q",
+              "tests/test_otto_conditioned_value.py::test_same_adam_and_clip_change_effective_spatial_update"
+            ],
+            "exit_code": 0,
+            "seconds": 1.5388082079589367
+          },
+          {
+            "command": [
+              "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/ruff",
+              "check",
+              "src/openjev/research/otto_conditioned_value.py",
+              "tests/test_otto_conditioned_value.py",
+              "--output-format",
+              "concise"
+            ],
+            "exit_code": 0,
+            "seconds": 0.04587495909072459
+          }
+        ],
+        "scope": "Only the affected synthetic optimizer fixture and Ruff after a test-only set-comprehension lint correction. Production source unchanged; first failure preserved in model-engineering-01.",
+        "start_utc": "2026-09-21T23:17:03.538351+00:00",
+        "status": "completed",
+        "wall_seconds": 1.5855330829508603
+      },
+      "sha256": "1d181964fa262814a066c47a11eff354027815079410a2d260200abbd15ad14a"
+    },
+    "runner-engineering-01": {
+      "receipt": {
+        "commands": [
+          {
+            "command": [
+              ".venv/bin/python",
+              "-m",
+              "pytest",
+              "-q",
+              "tests/test_otto_conditioning.py"
+            ],
+            "exit_code": 0,
+            "seconds": 0.2907329590525478
+          },
+          {
+            "command": [
+              ".venv/bin/ruff",
+              "check",
+              "scripts/study_otto_conditioning.py",
+              "scripts/freeze_otto_conditioning.py",
+              "tests/test_otto_conditioning.py"
+            ],
+            "exit_code": 0,
+            "seconds": 0.040942042134702206
+          }
+        ],
+        "previous_lint": "Unused json import (F401) reported by Ruff in tool937734, corrected before this run; its enclosing shell returned0 after an independent metadata read.",
+        "scope": "Synthetic orchestration fixtures and lint only; no study arrays/models/native calls",
+        "sources": {
+          "scripts/freeze_otto_conditioning.py": "fef5440881eb7a12959744b075ac1d2208818fa3a66b95092b250fa827cf4f33",
+          "scripts/study_otto_conditioning.py": "9c999001f2e71b535df42e9781cc15def102a7fae2bb5a0af62ab0a6544dcc1d",
+          "tests/test_otto_conditioning.py": "88d6d4ad48fbd49826475fbe8b5393d0110c15e98312802970fdf49552e5fea6"
+        }
+      },
+      "sha256": "3987ba573b3a48f112e115ccf388d57c266d898a83d3a466cd93776aeab777f6"
+    }
+  },
+  "plan_sha256": "ba0e0868ee7f6c9345a722fa044b6ebaf622e3e34da90a3d4ada5f336facdd10",
+  "source_count": 203,
+  "status": "verified"
+}

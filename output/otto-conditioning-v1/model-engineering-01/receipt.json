@@ -1,0 +1,48 @@
+{
+  "status": "failed",
+  "start_utc": "2026-09-21T23:16:34.914449+00:00",
+  "end_utc": "2026-09-21T23:16:36.634818+00:00",
+  "wall_seconds": 1.7203874171245843,
+  "cpu_threads": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1"
+  },
+  "per_command_timeout_seconds": 60,
+  "before": {
+    "src/openjev/research/otto_conditioned_value.py": "dd6abb1d756bf304ac5ac54a25955ec58dd5a97fbba21fbac169e9a4b6270050",
+    "tests/test_otto_conditioned_value.py": "f71ab6b1ec6d3fd43b563bb6c028a64e1a64d3853b5933819b84b3b0c83f5a19"
+  },
+  "after": {
+    "src/openjev/research/otto_conditioned_value.py": "dd6abb1d756bf304ac5ac54a25955ec58dd5a97fbba21fbac169e9a4b6270050",
+    "tests/test_otto_conditioned_value.py": "f71ab6b1ec6d3fd43b563bb6c028a64e1a64d3853b5933819b84b3b0c83f5a19"
+  },
+  "results": [
+    {
+      "command": [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_otto_conditioned_value.py"
+      ],
+      "exit_code": 0,
+      "seconds": 1.639208999928087
+    },
+    {
+      "command": [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/ruff",
+        "check",
+        "src/openjev/research/otto_conditioned_value.py",
+        "tests/test_otto_conditioned_value.py",
+        "--output-format",
+        "concise"
+      ],
+      "exit_code": 1,
+      "seconds": 0.0802198750898242
+    }
+  ],
+  "scope": "Synthetic module fixtures only; no scientific input, native simulator or trained checkpoint reads."
+}

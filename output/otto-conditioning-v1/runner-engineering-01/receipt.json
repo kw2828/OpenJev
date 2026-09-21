@@ -1,0 +1,33 @@
+{
+  "scope": "Synthetic orchestration fixtures and lint only; no study arrays/models/native calls",
+  "commands": [
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_otto_conditioning.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.2907329590525478
+    },
+    {
+      "command": [
+        ".venv/bin/ruff",
+        "check",
+        "scripts/study_otto_conditioning.py",
+        "scripts/freeze_otto_conditioning.py",
+        "tests/test_otto_conditioning.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.040942042134702206
+    }
+  ],
+  "sources": {
+    "scripts/study_otto_conditioning.py": "9c999001f2e71b535df42e9781cc15def102a7fae2bb5a0af62ab0a6544dcc1d",
+    "scripts/freeze_otto_conditioning.py": "fef5440881eb7a12959744b075ac1d2208818fa3a66b95092b250fa827cf4f33",
+    "tests/test_otto_conditioning.py": "88d6d4ad48fbd49826475fbe8b5393d0110c15e98312802970fdf49552e5fea6"
+  },
+  "previous_lint": "Unused json import (F401) reported by Ruff in tool937734, corrected before this run; its enclosing shell returned0 after an independent metadata read."
+}

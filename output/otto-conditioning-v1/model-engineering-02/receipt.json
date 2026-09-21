@@ -1,0 +1,48 @@
+{
+  "status": "completed",
+  "start_utc": "2026-09-21T23:17:03.538351+00:00",
+  "end_utc": "2026-09-21T23:17:05.123872+00:00",
+  "wall_seconds": 1.5855330829508603,
+  "cpu_threads": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1"
+  },
+  "per_command_timeout_seconds": 60,
+  "before": {
+    "src/openjev/research/otto_conditioned_value.py": "dd6abb1d756bf304ac5ac54a25955ec58dd5a97fbba21fbac169e9a4b6270050",
+    "tests/test_otto_conditioned_value.py": "7ff57cb5e57da76aec1143532a826cc097744dbc9909c8a8d916a0cef89d2259"
+  },
+  "after": {
+    "src/openjev/research/otto_conditioned_value.py": "dd6abb1d756bf304ac5ac54a25955ec58dd5a97fbba21fbac169e9a4b6270050",
+    "tests/test_otto_conditioned_value.py": "7ff57cb5e57da76aec1143532a826cc097744dbc9909c8a8d916a0cef89d2259"
+  },
+  "results": [
+    {
+      "command": [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_otto_conditioned_value.py::test_same_adam_and_clip_change_effective_spatial_update"
+      ],
+      "exit_code": 0,
+      "seconds": 1.5388082079589367
+    },
+    {
+      "command": [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/ruff",
+        "check",
+        "src/openjev/research/otto_conditioned_value.py",
+        "tests/test_otto_conditioned_value.py",
+        "--output-format",
+        "concise"
+      ],
+      "exit_code": 0,
+      "seconds": 0.04587495909072459
+    }
+  ],
+  "scope": "Only the affected synthetic optimizer fixture and Ruff after a test-only set-comprehension lint correction. Production source unchanged; first failure preserved in model-engineering-01."
+}
