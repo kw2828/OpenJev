@@ -1,0 +1,60 @@
+{
+  "commands": [
+    {
+      "command": [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_otto_value_branches.py",
+        "-k",
+        "scalar or invalid_action_metadata"
+      ],
+      "exit_code": 0,
+      "name": "pytest-affected",
+      "timed_out": false,
+      "wall_seconds": 0.5367316249758005
+    },
+    {
+      "command": [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/python",
+        "-m",
+        "ruff",
+        "check",
+        "src/openjev/research/otto_value_branches.py",
+        "tests/test_otto_value_branches.py"
+      ],
+      "exit_code": 0,
+      "name": "ruff-final",
+      "timed_out": false,
+      "wall_seconds": 0.07590433419682086
+    }
+  ],
+  "correction_sha256": "43a216ef77c768aa3c7628a1d2ba9ba5841f605d1fcd788a4f33fe34920c5aa7",
+  "files": {
+    "correction-01.json": {
+      "bytes": 1205,
+      "sha256": "43a216ef77c768aa3c7628a1d2ba9ba5841f605d1fcd788a4f33fe34920c5aa7"
+    },
+    "pytest-affected.log": {
+      "bytes": 114,
+      "sha256": "6745973e43bf977eb306987e98d36cc4f002a126da54c3fd4bc647032ff2f721"
+    },
+    "ruff-final.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    }
+  },
+  "final_source_validation": "Affected tests only; unchanged numerical implementation retains initial passing evidence",
+  "initial_source_tests_passed": 57,
+  "peak_child_rss_bytes": 73728000,
+  "prior_receipt_sha256": "f9d332f794030965c2abf1311575e15206dae071f35726cea88370747475284e",
+  "scope": "Affected synthetic tests and lint after mechanical corrections only; no simulator, model, training, checkpoint, evaluation or API calls.",
+  "sources": {
+    "src/openjev/research/otto_value_branches.py": "6dfbad19836da8cdc88ab506b08247ea43ba6becc0f6fce5b527ebba51765af6",
+    "tests/test_otto_value_branches.py": "962be36ea41da7bd2cb5a266ca1a724558b1f7b4affc86cfcc72210cd28fd7dd"
+  },
+  "sources_unchanged": true,
+  "status": "completed",
+  "wall_seconds": 0.6130249160341918
+}

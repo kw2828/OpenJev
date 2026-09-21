@@ -1,0 +1,59 @@
+TRY004 Prefer `TypeError` exception for invalid type
+  --> src/openjev/research/otto_value_branches.py:47:9
+   |
+45 | def _eligible(actions):
+46 |     if not isinstance(actions, (tuple, list, np.ndarray)):
+47 |         raise ValueError("eligible_actions must be an explicit sequence")
+   |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+48 |     if not len(actions) or any(
+49 |         isinstance(a, (bool, np.bool_)) or not isinstance(a, (int, np.integer)) or not 0 <= a < 4
+   |
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> tests/test_otto_value_branches.py:3:1
+   |
+ 1 |   """Synthetic branch arithmetic only: no weights, simulator or fitted model."""
+ 2 |
+ 3 | / from dataclasses import FrozenInstanceError
+ 4 | | import math
+ 5 | |
+ 6 | | import numpy as np
+ 7 | | import pytest
+ 8 | |
+ 9 | | from openjev.research.otto_value_branches import (
+10 | |     EPSILON,
+11 | |     explicit_scores,
+12 | |     min_linear_scores,
+13 | |     rl_branches,
+14 | |     select_action,
+15 | | )
+   | |_^
+help: Organize imports
+  |
+2 |
+3 + import math
+4 | from dataclasses import FrozenInstanceError
+  - import math
+5 |
+  |
+
+FURB136 [*] Replace `mass if mass > 1e-10 else 1e-10` with `max(1e-10, mass)`
+  --> tests/test_otto_value_branches.py:57:22
+   |
+55 |             mass = math.fsum(cells)
+56 |             masses[action, hit] = mass
+57 |             weight = mass if mass > 1e-10 else 1e-10
+   |                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+58 |             weights[action, hit] = weight
+59 |             normalized[action * 4 + hit] = raw[action * 4 + hit] / weight
+   |
+help: Replace with `max(1e-10, mass)`
+   |
+56 |             masses[action, hit] = mass
+   -             weight = mass if mass > 1e-10 else 1e-10
+57 +             weight = max(1e-10, mass)
+58 |             weights[action, hit] = weight
+   |
+
+Found 3 errors.
+[*] 2 fixable with the `--fix` option.
