@@ -1,0 +1,33 @@
+{
+  "actual_model_calls": 0,
+  "actual_weight_loads": 0,
+  "attempts": [
+    {
+      "command": ".venv/bin/python -m pytest -q tests/test_qualify_otto_pretrained.py",
+      "exit_code": 0,
+      "output": ".............................. [100%]\n30 passed in 0.14s\n",
+      "tool_chunk": "1122e8"
+    },
+    {
+      "command": ".venv/bin/ruff check scripts/qualify_otto_pretrained.py tests/test_qualify_otto_pretrained.py",
+      "exit_code": 0,
+      "output": "All checks passed!\n",
+      "tool_chunk": "5069a5"
+    }
+  ],
+  "change": "Reject existing non-float32 floatx, non-channels_last image layout, or non-float32 global mixed-precision policy before model construction. Record all three settings. No silent config repair.",
+  "current_bytes_qualified": true,
+  "evidence_kind": "agent execution witness transcribed from actual tool returns; raw output remains in conversation",
+  "prior_preflight": {
+    "path": "output/otto-pretrained-reference-v1/qualifier-preflight-01/receipt.json",
+    "sha256": "ee8ec7b99b73a18ba6f8dff92183fcddba8e5d0dff52be4e290c22fc059aab22"
+  },
+  "scope": "Pure synthetic helper/fixture/receipt checks only. New TensorFlow configuration checks were source-reviewed, not executed against a real TensorFlow import. No official tensors, inference, simulator, or scientific outcomes read.",
+  "simulator_calls": 0,
+  "sources": {
+    "scripts/qualify_otto_pretrained.py": "7c6514831ea204938905bf36575d50bc9abb5365be19bcc4c396fdad672c035a",
+    "tests/test_qualify_otto_pretrained.py": "6bc0bedec9d13c078df2f95dd65646f01b9ba46434d2153f984b9b5861ec9410"
+  },
+  "status": "completed",
+  "version": "otto-pretrained-qualifier-preflight-v1"
+}

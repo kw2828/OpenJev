@@ -1,0 +1,55 @@
+{
+  "scope": "Two type-error fixes after63 synthetic passes; only8 affected cases rerun",
+  "previous_receipt": "/tmp/openjev-otto-pretrained-value-preflight-01.json",
+  "sources": {
+    "src/openjev/research/otto_pretrained_value.py": "20e2f83389bc6bfbc890636904ca4aaba028937673446845866e6156a41493c1",
+    "tests/test_otto_pretrained_value.py": "d2fd4c4d082abefb4988e5d975b74a942d974fd1699a7ab45ef53b4b7f2825fd"
+  },
+  "checks": [
+    {
+      "name": "pytest",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_otto_pretrained_value.py",
+        "-k",
+        "batch_bound_is_explicit or symmetry_flag_is_strict"
+      ],
+      "exit_code": 0,
+      "seconds": 0.272126458119601,
+      "log": "/tmp/openjev-otto-pretrained-value-preflight-02-pytest.log",
+      "log_sha256": "f8582fdb856a9b7208349f965c9615e2bc41be6aaa04825c0e2fe2de857ca753"
+    },
+    {
+      "name": "ruff",
+      "command": [
+        ".venv/bin/ruff",
+        "check",
+        "src/openjev/research/otto_pretrained_value.py",
+        "tests/test_otto_pretrained_value.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.042373500065878034,
+      "log": "/tmp/openjev-otto-pretrained-value-preflight-02-ruff.log",
+      "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    {
+      "name": "diff",
+      "command": [
+        "git",
+        "diff",
+        "--check",
+        "--",
+        "src/openjev/research/otto_pretrained_value.py",
+        "tests/test_otto_pretrained_value.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.01739625004120171,
+      "log": "/tmp/openjev-otto-pretrained-value-preflight-02-diff.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "status": "passed"
+}

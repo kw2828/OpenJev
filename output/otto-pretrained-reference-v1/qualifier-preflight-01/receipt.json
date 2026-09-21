@@ -1,0 +1,71 @@
+{
+  "actual_model_calls": 0,
+  "actual_weight_loads": 0,
+  "attempts": [
+    {
+      "command": ".venv/bin/python -m pytest -q tests/test_qualify_otto_pretrained.py",
+      "exit_code": 0,
+      "output": "............................ [100%]\n28 passed in 0.13s\n",
+      "scope": "before the additional interrupted-call ledger tests",
+      "tool_chunk": "6ab0f8"
+    },
+    {
+      "command": ".venv/bin/ruff check scripts/qualify_otto_pretrained.py tests/test_qualify_otto_pretrained.py",
+      "exit_code": 1,
+      "output": "F401 math imported but unused at scripts/qualify_otto_pretrained.py:15; 1 error",
+      "resolution": "removed the unused import",
+      "tool_chunk": "8d7526"
+    },
+    {
+      "command": ".venv/bin/python -m pytest -q tests/test_qualify_otto_pretrained.py",
+      "exit_code": 0,
+      "output": ".............................. [100%]\n30 passed in 0.15s\n",
+      "scope": "includes durable ledger and failure receipt tests",
+      "tool_chunk": "5021d4"
+    },
+    {
+      "command": ".venv/bin/ruff check scripts/qualify_otto_pretrained.py tests/test_qualify_otto_pretrained.py",
+      "exit_code": 1,
+      "output": "B023 unbound loop variables inputs and sym_avg in both immediately invoked forward lambdas at lines 411 and 412; 4 errors",
+      "resolution": "bound inputs and sym_avg as lambda defaults without changing synchronous execution",
+      "tool_chunk": "3047e5"
+    },
+    {
+      "command": ".venv/bin/ruff check scripts/qualify_otto_pretrained.py tests/test_qualify_otto_pretrained.py",
+      "exit_code": 0,
+      "output": "All checks passed!\n",
+      "source_hashes": {
+        "scripts/qualify_otto_pretrained.py": "fe4dd924e948c14e8f0dad328f8e653a51764a0c4af0440e46528084bae5790b",
+        "tests/test_qualify_otto_pretrained.py": "6bc0bedec9d13c078df2f95dd65646f01b9ba46434d2153f984b9b5861ec9410"
+      },
+      "tool_chunk": "81846b"
+    },
+    {
+      "command": "git diff --check -- scripts/qualify_otto_pretrained.py tests/test_qualify_otto_pretrained.py",
+      "exit_code": 0,
+      "limitation": "these new files are untracked, so this diff command does not establish their complete whitespace qualification; Ruff inspected both actual files",
+      "output": "",
+      "tool_chunk": "707fa4"
+    },
+    {
+      "command": ".venv/bin/python -m pytest -q tests/test_qualify_otto_pretrained.py",
+      "exit_code": 0,
+      "output": ".............................. [100%]\n30 passed in 0.15s\n",
+      "source_hashes": {
+        "scripts/qualify_otto_pretrained.py": "fe4dd924e948c14e8f0dad328f8e653a51764a0c4af0440e46528084bae5790b",
+        "tests/test_qualify_otto_pretrained.py": "6bc0bedec9d13c078df2f95dd65646f01b9ba46434d2153f984b9b5861ec9410"
+      },
+      "tool_chunk": "cca2d8"
+    }
+  ],
+  "current_bytes_qualified": true,
+  "evidence_kind": "agent execution witness transcribed from actual tool returns; raw tool output is retained in the conversation, not a separate log",
+  "scope": "Pure synthetic helper/fixture/receipt checks only. No TensorFlow import or construction, official tensor read, inference, environment import, or scientific outcome access. Actual parity still requires a prospectively frozen supervised execution.",
+  "simulator_calls": 0,
+  "sources": {
+    "scripts/qualify_otto_pretrained.py": "fe4dd924e948c14e8f0dad328f8e653a51764a0c4af0440e46528084bae5790b",
+    "tests/test_qualify_otto_pretrained.py": "6bc0bedec9d13c078df2f95dd65646f01b9ba46434d2153f984b9b5861ec9410"
+  },
+  "status": "completed",
+  "version": "otto-pretrained-qualifier-preflight-v1"
+}

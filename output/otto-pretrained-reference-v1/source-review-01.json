@@ -1,0 +1,35 @@
+{
+  "status": "source_review_clear",
+  "scope": "Source, synthetic tests, extraction metadata and prospective protocol only; actual checkpoint forward and native integration remain unqualified",
+  "source_sha256": {
+    "src/openjev/research/otto_pretrained_value.py": "20e2f83389bc6bfbc890636904ca4aaba028937673446845866e6156a41493c1",
+    "tests/test_otto_pretrained_value.py": "d2fd4c4d082abefb4988e5d975b74a942d974fd1699a7ab45ef53b4b7f2825fd",
+    "scripts/extract_otto_pretrained.py": "5e82c1116fc12da906c906deeb22c2b20748931ba0954b7d3abd0e33a1ce5dda",
+    "tests/test_extract_otto_pretrained.py": "3de90f868c4658dbf4d5c73507c6a7822fdbe9fb85ab8ddfa207ea7cd4179e4b",
+    "research/otto-pretrained-reference-protocol.md": "1a9346b6913699ab24a9cefb522be8f28c8160752d6b13797db13cd732fef399",
+    "research/otto-learned-reference-and-symmetry.md": "4c8790337836d1857fc0298944e300cc41dc6e73be9ace2c80913a351d72e98c"
+  },
+  "reviews": [
+    {
+      "reviewer": "next_evidence_review",
+      "scope": "Original versus benchmark source and NumPy model/policy semantics",
+      "decision": "clear"
+    },
+    {
+      "reviewer": "residual_results_review",
+      "scope": "Independent port semantics and immutable weights",
+      "decision": "clear"
+    },
+    {
+      "reviewer": "architecture_bottleneck",
+      "scope": "Extractor source and protocol/document claim precision",
+      "decision": "clear"
+    }
+  ],
+  "synthetic_model_cases_passed": 63,
+  "affected_cases_rerun_after_exception_style_correction": 8,
+  "synthetic_extractor_cases_passed": 26,
+  "actual_reference_forward_calls": 0,
+  "simulator_steps": 0,
+  "published_weight_archive": "No weights mirrored in this update; reproduce tensor extraction from the pinned official asset and preserved retrieval receipt."
+}

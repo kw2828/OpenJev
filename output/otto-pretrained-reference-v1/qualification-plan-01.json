@@ -1,0 +1,152 @@
+{
+  "configuration": {
+    "atol": 0.0001,
+    "belief_patterns": [
+      "uniform",
+      "adjacent_point",
+      "asymmetric_pair",
+      "seeded_dense"
+    ],
+    "dense_seed_base": 830001,
+    "exact_action_agreement": true,
+    "mechanical_floor_masses": [
+      0.0,
+      5e-11,
+      1e-10,
+      2e-10
+    ],
+    "model_configuration": {
+      "FC_layers": 3,
+      "FC_units": 1024,
+      "Ndim": 2,
+      "loss_function": "mean_squared_error",
+      "regularization_factor": 0.0
+    },
+    "physical_policy_fixtures": 32,
+    "policy_symmetry_average": true,
+    "policy_tie_epsilon": 1e-10,
+    "positions": [
+      [
+        26,
+        26
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        26
+      ],
+      [
+        52,
+        52
+      ]
+    ],
+    "raw_batch_sizes": [
+      1,
+      3,
+      16
+    ],
+    "raw_symmetry_settings": [
+      false,
+      true
+    ],
+    "raw_value_inputs": 16,
+    "regimes": [
+      "base",
+      "shift"
+    ],
+    "rtol": 1e-05
+  },
+  "created_at": "2026-09-21T15:59:54.748214+00:00",
+  "execution_order": {
+    "current_supervision_receipt": "output/otto-action-head-v1/run-process-01.launch.json",
+    "current_supervision_sha256": "8ef8e957a66eb7d39936d3941343908df1117beb12c1df430353d2726d0c9164",
+    "current_supervisor_pid": 43079,
+    "current_worker_pid": 43080,
+    "reason": "Avoid concurrent heavy numerical work during the current descriptive controller timing run; terminal state does not require a scientific pass.",
+    "require_current_action_head_run_terminal": true
+  },
+  "inputs": {
+    "base_kernel": {
+      "bytes": 87802,
+      "path": "output/otto-spectral-control-v1/run-01/public-kernel-base.npz",
+      "sha256": "3c8b578558db93040ff56b4f1c7cdd8f0f5b599225b6b80123aa431db6e04ff9"
+    },
+    "extraction_receipt": {
+      "bytes": 2825,
+      "path": "output/otto-pretrained-reference-v1/extraction-01/receipt.json",
+      "sha256": "d61214763ada4ecd5fce800ef7f09c369cdb040a6becf15ac05fe4341e6851b1"
+    },
+    "kernel_receipt": {
+      "bytes": 5159,
+      "path": "output/otto-spectral-control-v1/run-01/receipt.json",
+      "sha256": "ee288d7867013cfaf2333389e308fe41121e52c619f2363345cf25657db8db89"
+    },
+    "original_config": {
+      "bytes": 147,
+      "path": "tmp/otto-pretrained-reference-01/zoo_model_2_3_2.config",
+      "sha256": "ca12567f2e0333192a7a0b0c177d519bdae60749ddb8005a1456608fd6782b4c"
+    },
+    "original_weights": {
+      "bytes": 53581916,
+      "path": "tmp/otto-pretrained-reference-01/zoo_model_2_3_2",
+      "sha256": "1efb73aa38e0fd8b08d6d03059c0db4664da3afb8eaff1d7ab9b363f8e7ad37d"
+    },
+    "shift_kernel": {
+      "bytes": 92487,
+      "path": "output/otto-spectral-control-v1/run-01/public-kernel-shift.npz",
+      "sha256": "175eaef6995ff180ef49ac10358dd687f97e428ce3d312aa525fe1ad4591f53c"
+    },
+    "tensor_metadata": {
+      "bytes": 3426,
+      "path": "output/otto-pretrained-reference-v1/extraction-01/tensor-metadata.json",
+      "sha256": "5ca9e7f623965c737a1e82e8fe642593582cd375e697ed70d2fb58a8ad84125f"
+    },
+    "tensors": {
+      "bytes": 53565386,
+      "path": "output/otto-pretrained-reference-v1/extraction-01/tensors.npz",
+      "sha256": "610dd348ebcff65dd655c3ac67f0cfe895225b0156771e6a4a2cd235272aaf26"
+    }
+  },
+  "interpretation": "Compatibility with published 2D inference under the specified modern runtime only; native integration and autonomous quality remain unqualified.",
+  "limits": {
+    "native_seconds": 600,
+    "output_bytes": 268435456,
+    "rss_bytes": 4294967296,
+    "simulator_calls": 0
+  },
+  "runtime": {
+    "python_executable": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv-otto-reference/bin/python",
+    "python_version": "3.12.13",
+    "versions": {
+      "h5py": "3.14.0",
+      "numpy": "2.2.6",
+      "tensorflow": "2.20.0",
+      "tf-keras": "2.20.1"
+    }
+  },
+  "sources": {
+    "output/otto-pretrained-reference-v1/qualifier-preflight-02/receipt.json": "c4748ecf43b67e1c0165ece48eb780a694a8e6eb137c2aa526e1b010b37b78bd",
+    "output/otto-pretrained-reference-v1/runtime-preflight-01/receipt.json": "170ae5e4701d781f2a91b0b846c369fc3d4cb3017ea3c33299a5dfdf23ef7cb3",
+    "output/otto-pretrained-reference-v1/runtime-setup-03/command-1.log": "5833d6bb95a4ab628d7e9fa1e63bd679cae8e5095cfa68783f3c2e8755e4d3d7",
+    "research/otto-pretrained-reference-protocol.md": "1a9346b6913699ab24a9cefb522be8f28c8160752d6b13797db13cd732fef399",
+    "scripts/extract_otto_pretrained.py": "5e82c1116fc12da906c906deeb22c2b20748931ba0954b7d3abd0e33a1ce5dda",
+    "scripts/qualify_otto_pretrained.py": "7c6514831ea204938905bf36575d50bc9abb5365be19bcc4c396fdad672c035a",
+    "scripts/supervise_dialogue_observation_v2.py": "610a2fcd2d4d55eb35bce92e61942d5169491dee9d05e2f47f65e211fdf94144",
+    "src/openjev/research/otto_pretrained_value.py": "20e2f83389bc6bfbc890636904ca4aaba028937673446845866e6156a41493c1",
+    "src/openjev/research/suspend_clock.py": "cac9077db3c66f5ef43d9412b732f5b869c1004c4bac98589816780c120f6124",
+    "tests/test_extract_otto_pretrained.py": "3de90f868c4658dbf4d5c73507c6a7822fdbe9fb85ab8ddfa207ea7cd4179e4b",
+    "tests/test_otto_pretrained_value.py": "d2fd4c4d082abefb4988e5d975b74a942d974fd1699a7ab45ef53b4b7f2825fd",
+    "tests/test_qualify_otto_pretrained.py": "6bc0bedec9d13c078df2f95dd65646f01b9ba46434d2153f984b9b5861ec9410",
+    "third_party/otto/LICENSE": "84009d54953e8b853b5dfb71dabf39d744bed8172e081488a376e0b0a979b376",
+    "third_party/otto/LICENSE-zoo": "30ff797df90469bde6bea2381e7291443c9f8aa3184df86ca54ed75cc1de7ec1",
+    "tmp/otto-source-review-01/isotropic/classes/policy.py": "8fc915c86972a8be0ccd0a98d9522be4cd9c751d862a351d60221f8c7902976d",
+    "tmp/otto-source-review-01/isotropic/classes/rlpolicy.py": "d32b98f903f90bfeed40111c9120a524442e31c0d28eb7cdac0d6db80c2af5fb",
+    "tmp/otto-source-review-01/isotropic/classes/sourcetracking.py": "1057f129fa8a3249a7297a9ef2c15059d37430b12e42a2f1d43dfcdffe3e76f1",
+    "tmp/otto-source-review-01/isotropic/classes/valuemodel.py": "151eae8b84c42a92691d6dd817fe5384f2feb806ae405088a5c57da03d067eb8"
+  },
+  "status": "frozen_before_run",
+  "version": "otto-pretrained-qualification-v1"
+}

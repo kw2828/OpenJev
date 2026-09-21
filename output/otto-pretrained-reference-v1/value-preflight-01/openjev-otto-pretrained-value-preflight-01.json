@@ -1,0 +1,37 @@
+{
+  "scope": "Invented NumPy arrays only; no released tensors, TensorFlow, OTTO or simulator calls",
+  "sources": {
+    "src/openjev/research/otto_pretrained_value.py": "6e4dff96c685fbf3f8e71db7152bc704c360fb4e02c3c53896f1912b667800fd",
+    "tests/test_otto_pretrained_value.py": "db465eeceeeeb6a7b447f546301e4b016e678bcd3c2c858e22285a744cd77da7"
+  },
+  "checks": [
+    {
+      "name": "pytest",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_otto_pretrained_value.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.4384235409088433,
+      "log": "/tmp/openjev-otto-pretrained-value-preflight-01-pytest.log",
+      "log_sha256": "ca05d0100ee1c4b786d1eb43f4ce155ed1436b6fc42473ca4d4202c8e275b747"
+    },
+    {
+      "name": "ruff",
+      "command": [
+        ".venv/bin/ruff",
+        "check",
+        "src/openjev/research/otto_pretrained_value.py",
+        "tests/test_otto_pretrained_value.py"
+      ],
+      "exit_code": 1,
+      "seconds": 0.04274841700680554,
+      "log": "/tmp/openjev-otto-pretrained-value-preflight-01-ruff.log",
+      "log_sha256": "e743b140516859a17eae08dbd6e2f19eac3b08ccf2190f6d239346c1029871c9"
+    }
+  ],
+  "status": "failed"
+}
