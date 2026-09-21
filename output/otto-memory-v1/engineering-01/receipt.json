@@ -1,0 +1,61 @@
+{
+  "status": "completed",
+  "created_at": "2026-09-21T13:33:48.985801+00:00",
+  "scope": "181 synthetic tests; no native OTTO, training or external model calls",
+  "sources": {
+    "src/openjev/research/otto_public.py": "438631a18005493e0cafa0777315e2158cac97cc7d0e71ad9fd6402284615b3d",
+    "src/openjev/research/otto_memory.py": "3bf5596e5ccc472226b83222c15a82457d37c497e03f572e0c81fb381867b777",
+    "scripts/study_otto_memory.py": "b5d59a033c773fc48ae75e41a6387af6c75e74ff9e153d86008b3deaf6e69d60",
+    "tests/test_otto_public.py": "f229aee3202313f227f8e494c8883816b7733d096340755be1d2fda9787a8579",
+    "tests/test_otto_memory.py": "3279b208638680969a301efecacd47768bf633beda26c6bd1d9ad23d502dfff9",
+    "tests/test_otto_memory_study.py": "ae48086954f2ee35a5b5b2987818fe0cad5e69f580c6eaa3b1e23b546fa43870",
+    "research/otto-memory-protocol.md": "443b349dd8883fb50491d4ac251e0ee10eb59a7e49e1476cc23fa3c86453b35b",
+    "research/otto-runtime-requirements.txt": "01985337c6bd931fc7ce8bb0dde38d1a70c20220a4f51ae7780f24c993b4bb51",
+    "scripts/supervise_dialogue_observation_v2.py": "610a2fcd2d4d55eb35bce92e61942d5169491dee9d05e2f47f65e211fdf94144",
+    "src/openjev/research/suspend_clock.py": "cac9077db3c66f5ef43d9412b732f5b869c1004c4bac98589816780c120f6124"
+  },
+  "checks": [
+    {
+      "command": [
+        ".venv/bin/ruff",
+        "check",
+        "src/openjev/research/otto_public.py",
+        "src/openjev/research/otto_memory.py",
+        "scripts/study_otto_memory.py",
+        "tests/test_otto_public.py",
+        "tests/test_otto_memory.py",
+        "tests/test_otto_memory_study.py"
+      ],
+      "returncode": 0,
+      "wall_seconds": 0.013122832868248224,
+      "log": "check-00.log",
+      "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_otto_public.py",
+        "tests/test_otto_memory.py",
+        "tests/test_otto_memory_study.py"
+      ],
+      "returncode": 0,
+      "wall_seconds": 0.4396446670871228,
+      "log": "check-01.log",
+      "log_sha256": "b36a8993128cf74140e969e85627624da7bc0c23153be9b15ae54e5ce2f28332"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "returncode": 0,
+      "wall_seconds": 0.016972292214632034,
+      "log": "check-02.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}
