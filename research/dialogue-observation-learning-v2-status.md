@@ -1,0 +1,45 @@
+# Observation learning: clock-corrected comparison
+
+**The corrected experiment is frozen and ready for a fresh execution.** It asks
+whether learning the text encoder helps autonomous state tracking beyond a
+simple number-word correction. The four variants and three paired seeds are
+unchanged. There is no accuracy result or new-architecture claim.
+
+The [first attempt](dialogue-observation-learning-timing-failure.md) remains
+failed and unscored. Its five fitted models are not reused. The
+[prospective correction](dialogue-observation-learning-protocol-v2.md) replaces
+the timing and supervision machinery while preserving the complete scientific
+recipe, data, scoring functions and seven continuation conditions.
+
+## Qualification and freeze
+
+The clock, supervisor, worker, reporter and independent auditor have passing
+evidence for **154 test cases**. Initial lint and synthetic-fixture failures
+remain in their receipts with the targeted corrections. A real no-op process
+also passed under the temporary idle-sleep assertion. No real sleep was induced.
+[Qualification records](../output/dialogue-observation-learning-v2/README.md).
+
+Source review binds **64 files**, including all unchanged 53 original sources.
+Twenty-one training, data and scoring functions have identical ASTs to V1.
+Metadata freeze completed in **1.881 seconds**, making zero model calls; the
+supervisor recorded **2.001 seconds**, exit 0 and no surviving process group.
+Independent byte/metadata auditing passed all source, payload, timing and
+scientific-lineage checks. Reversible data and duplicate source snapshots remain
+local; manifests bind the complete 69-payload closure.
+
+- [Allocation](../output/dialogue-observation-learning-v2/scientific-allocation-01.json):
+  `4a5cd6c226069b8e31aeb47a03363e331f7a09a8fa1d07663d398975d48eaa9a`.
+- [Frozen plan](../output/dialogue-observation-learning-v2/scientific-freeze-01/plan.json):
+  `295b4f6857b4f9d625ed1133e0cf0785db40b53f4537c235cdb609f168c98885`.
+- [Freeze completion](../output/dialogue-observation-learning-v2/scientific-freeze-01/completed.json):
+  `a3fab5f79dd8724ae31fa9400794e4a5ff305f4d0e6795e7bda1129b149e63c6`.
+- [Independent freeze audit](../output/dialogue-observation-learning-v2/scientific-freeze-review-01/result-01/receipt.json):
+  `88f041f05286aba5591961d9f3f0c39221a34f9ead7ddb5d98e9bf9b32dc64af`.
+- [Actual freeze process check](../output/dialogue-observation-learning-v2/freeze-terminal-review-01.json):
+  `c937dc33943161f6dd7fdb6efa9a347e841b8cf3eaab2b7a5d51e8e26e983516`.
+
+The full execution has an eight-hour suspend-inclusive deadline. A temporary
+idle-sleep assertion accompanies the process; manual/lid sleep can still cause
+a timeout. All twelve fits must complete and pass both saved-result audits
+before quality is reported. Partial completion is not a scientific comparison.
+Official DEV remains exposed development evidence; official TEST is untouched.

@@ -1,0 +1,33 @@
+{
+  "command": [
+    "/usr/bin/caffeinate",
+    "-i",
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/python",
+    "scripts/supervise_dialogue_observation_v2.py",
+    "--prefix",
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/dialogue-observation-learning-v2/freeze-process-01",
+    "--cap-seconds",
+    "300",
+    "--",
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/python",
+    "-c",
+    "import runpy,sys; sys.path.insert(0,'scripts'); i=sys.argv.index('--supervision'); del sys.argv[i:i+2]; sys.argv=sys.argv[1:]; runpy.run_path(sys.argv[0],run_name='__main__')",
+    "scripts/study_dialogue_observation_v2.py",
+    "freeze",
+    "--allocation",
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/dialogue-observation-learning-v2/scientific-allocation-01.json",
+    "--allocation-sha256",
+    "4a5cd6c226069b8e31aeb47a03363e331f7a09a8fa1d07663d398975d48eaa9a",
+    "--prepared",
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/dialogue-observation-learning-v1/preparation-02",
+    "--out",
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/dialogue-observation-learning-v2/scientific-freeze-01",
+    "--supervision",
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/dialogue-observation-learning-v2/freeze-process-01.launch.json"
+  ],
+  "created_unix": 1789963039.282897,
+  "parent_native_cap_seconds": 300,
+  "scope": "Metadata-only freeze through the already qualified supervisor. The literal bootstrap removes the generic supervisor argument before invoking the freeze CLI; scientific training uses its direct authenticated CLI. No model calls.",
+  "source_commit": "6a93965",
+  "version": "dialogue-observation-v2-freeze-dispatch-v1"
+}
