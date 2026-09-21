@@ -1,0 +1,33 @@
+{
+  "sources": {
+    "src/openjev/research/otto_symmetry_head.py": "a18dc9914e4e36d9c8023456dd47919bc7cdbe130cc4fc628c2f3db0044d9b9a",
+    "tests/test_otto_symmetry_head.py": "c7cbeb00af27ed05d0c94c808a32c9032addcbbbf5f64bd90c3c8adc71a2bdd6"
+  },
+  "scope": "Synthetic inputs and random fresh tiny heads only. No simulator, checkpoint, corpus, training fit or real outcome reads.",
+  "cpu_threads": 1,
+  "commands": [
+    {
+      "name": "pytest",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_otto_symmetry_head.py"
+      ],
+      "returncode": 0,
+      "seconds": 1.536733000073582
+    },
+    {
+      "name": "ruff",
+      "command": [
+        ".venv/bin/ruff",
+        "check",
+        "src/openjev/research/otto_symmetry_head.py",
+        "tests/test_otto_symmetry_head.py"
+      ],
+      "returncode": 0,
+      "seconds": 0.04428704106248915
+    }
+  ]
+}

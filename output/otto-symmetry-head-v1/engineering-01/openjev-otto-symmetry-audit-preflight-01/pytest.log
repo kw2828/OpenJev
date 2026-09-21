@@ -1,0 +1,34 @@
+............F.................                                           [100%]
+=================================== FAILURES ===================================
+______ test_independent_aggregate_matches_qualified_schema_and_all_strata ______
+
+audit = <module 'synthetic_symmetry_audit' from '/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/audit_otto_symmetry_head.py'>
+
+    def test_independent_aggregate_matches_qualified_schema_and_all_strata(audit):
+        producer=load('synthetic_symmetry_run','scripts/study_otto_symmetry_head.py')
+        rows=complete_rows(audit)
+        weights={r:{1:.7,2:.2,3:.1} for r in audit.REGIMES}
+>       expected=producer.summary(rows,weights)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_audit_otto_symmetry_head.py:163: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+rows = [{'regime': 'lambda3', 'seed': 970001, 'initial_hit': 1, 'arm': 'shared@9101', ...}, {'regime': 'lambda3', 'seed': 970...': 'dense@9102', ...}, {'regime': 'lambda3', 'seed': 970001, 'initial_hit': 1, 'arm': 'dense_ensemble@9102', ...}, ...]
+mixtures = {'lambda3': {1: 0.7, 2: 0.2, 3: 0.1}, 'lambda4': {1: 0.7, 2: 0.2, 3: 0.1}, 'lambda5': {1: 0.7, 2: 0.2, 3: 0.1}}
+
+    def summary(rows, mixtures):
+        expected = list(evaluation_order())
+        require(len(rows) == EPISODES and [(r['regime'], r['seed'], r['block'], r['initial_hit'], r['arm']) for r in rows] == expected,
+                'exact complete720 episode cohort')
+        for row in rows:
+            require(type(row['steps']) is int and 1 <= row['steps'] <= HORIZON and type(row['found']) is bool
+>                   and (row['found'] or row['steps'] == HORIZON) and row['updates'] == row['steps']
+                                                                      ^^^^^^^^^^^^^^
+                    and row['blocked_steps'] == 0, 'complete final updates and censored outcomes')
+E           KeyError: 'updates'
+
+scripts/study_otto_symmetry_head.py:209: KeyError
+=========================== short test summary info ============================
+FAILED tests/test_audit_otto_symmetry_head.py::test_independent_aggregate_matches_qualified_schema_and_all_strata
+1 failed, 29 passed in 0.27s
