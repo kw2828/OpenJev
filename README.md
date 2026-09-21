@@ -66,17 +66,17 @@ Open **http://127.0.0.1:8000**. Local text scoring uses Qwen3-4B; the free brows
 
 ## Research results
 
-**Latest: better decisions, worse log loss.** All twelve observation-learning fits completed. With the same autonomous memory and number-word correction, training the text encoder raised unseen-service macro accuracy from **76.46% to 79.34%** and reduced assigned-retention error by **6.05 percentage points**. Log loss worsened from **0.705 to 0.827** in the three-seed mean and worsened in every seed, so the original continuation rule **failed: 6/7**.
+**Latest: better confidence, but the full calibration control fails (9/11 checks passed).** On unseen services, held-out temperature fitting cuts the trained model's log loss **26.4% (0.827 to 0.609)** and Brier score **7.6%**, while preserving **79.34% macro accuracy** and every selected answer. All three seeds improve. The same procedure worsens the frozen reference, failing two safeguards.
 
-[![All twelve observation-learning fits: accuracy gains and the log-loss regression](output/dialogue-observation-learning-v2/figure-01/render-01/observation.png)](research/dialogue-observation-learning-v2-results.md)
+[![All three seeds: unchanged answers, improved trained-model probabilities, and the frozen-reference regression](output/dialogue-calibration-runtime-v2/figure-01/render-01/calibration-control.png)](research/dialogue-calibration-runtime-v2-results.md)
 
-The regression concentrates in **7.30-7.79% of unseen endpoints** where either model gives the correct answer below 1% probability; log loss improves on the remainder. The [calibration control](research/dialogue-calibration-control-results.md) reproduced all 24 checkpoint replays exactly, but failed its cost-admission rule: 84.69 minutes projected versus a 30-minute limit. Full calibration was not launched. No architecture advantage is established. [Diagnostic and temperature curves](research/dialogue-probability-diagnostic-results.md) · [Original results](research/dialogue-observation-learning-v2-results.md).
+All twelve checkpoints completed **6,144 calibration forwards**. A separate, verified runtime pilot admitted this run; the earlier cost failure and original raw **6/7** result remain unchanged. This strengthens an ordinary baseline, without establishing an architecture advantage. [Complete calibration results](research/dialogue-calibration-runtime-v2-results.md) · [Original observation-learning results](research/dialogue-observation-learning-v2-results.md).
 
 - [Earlier text learning experiments](research/dialogue-objective-results.md): matched training objectives and recurrent variants have not established an architecture advantage.
 - [Qwen lexical ablation](research/dialogue-qwen-lexical-ablation-results.md): better changed-value accuracy, worse retention; 5/16 conditions passed.
 - [Text inference speed](research/shared-prefix-results.md): shared-context scoring is **2.08x faster** for four-question synthetic workloads; single-question caching is slower.
 - [All experiments, failures and visualizations](research/experiment-index.md): complete results, protocols, receipts and paper sources.
 
-Candidate scores are uncalibrated and relative to the supplied choices. These experiments use different models and protocols. The root MIT license applies except where component notices specify other terms, including GPL-3.0-only chess research files. Third-party data and model licenses apply separately.
+Demo candidate scores are uncalibrated and relative to the supplied choices. These experiments use different models and protocols. The root MIT license applies except where component notices specify other terms, including GPL-3.0-only chess research files. Third-party data and model licenses apply separately.
 
 Independent of [TypeSafe Jev](https://typesafe.ai/blog/introducing-system-one-models-and-jev), [zhihz/openjev](https://github.com/zhihz/openjev) and [openjev.com](https://openjev.com/). No proprietary RLCD reproduction or established new RL algorithm is claimed.
