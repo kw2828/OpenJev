@@ -66,13 +66,11 @@ Open **http://127.0.0.1:8000**. Local text scoring uses Qwen3-4B; the free brows
 
 ## Research results
 
-[Larger olfactory search](research/otto-large-memory-results.md): **768/768 searches succeed**. Full odor history reduces mean search time **41.13%** versus keeping 32 observations, but improves only **5/8 blocks**, below the required six. **9/10 conditions pass; continuation fails.** This is a classical memory comparison, with no trained-model or biological-wiring advantage.
+[Compact odor memory](research/otto-spectral-memory-results.md): **256 coefficients plus a support mask** reproduce **88.63-89.47%** of full-history decisions after 32 observations, versus recent-32's **60.93%**, across 538 saved prefixes. Evolving state is **80.79% smaller** than full Bayes, but computation is about **35% slower**. Averaging within all 96 cases favors recent-32; this is a classical compression tradeoff, with no new gameplay or trained-model advantage.
 
-[![All eight controllers in the 53x53 olfactory task, search times, computation costs and all paired blocks](output/otto-large-memory-v1/figure-01/otto-large-memory.png)](research/otto-large-memory-results.md)
+[![All twelve fixed-memory variants, both weighting views, belief error, retained state and complete computation](output/otto-spectral-memory-v1/figure-04/spectral-memory.png)](research/otto-spectral-memory-results.md)
 
-The [saved-history diagnostic](research/otto-memory-evidence-results.md) finds that three cases explain **98% of the net gain**. Restoring old zero-odor readings recovers the full-history action in 11/17 divergent cases; restoring old detections does so in six. Selective retention has mixed later results; no new gameplay or training was performed.
-
-The [earlier 19x19 pilot](research/otto-memory-results.md) found only **1.14%** improvement over recent-32; continuation failed, with **7/10 conditions passed**. Both sampled-source settings and their public filtering interfaces passed qualification.
+The [original 768-search comparison](research/otto-large-memory-results.md) still fails its continuation rule: full history improves mean search time **41.13%**, but only **5/8 blocks** improve. A [saved-history diagnostic](research/otto-memory-evidence-results.md) traces 98% of the net gain to three cases. [Earlier 19x19 pilot](research/otto-memory-results.md).
 
 [RockSample state representation comparison](research/rocksample-representation-results.md): **256 episodes**, with **42.81 reward** for full history versus **38.44** for recent history and **40.63** for quality-only. The broader representation beats fixed particles on every map, but misses the stronger controls' required margins and sometimes violates occupancy bounds. **8/13 conditions pass; no learned memory pilot is admitted.**
 
