@@ -2,53 +2,17 @@
 
 **Context → questions and candidate answers → probabilities → your application's next step.**
 
-Score choices with stable IDs. Try text decisions in your browser, run local Doom policies, or train a small chess model.
+OpenJev is a local decision interface and a collection of controlled learning experiments. Score choices with stable IDs, try text decisions in your browser, or explore recorded chess, Doom and robot policies.
 
-[**Text demo**](https://kw2828.github.io/OpenJev/) · [**Chess replay**](https://kw2828.github.io/OpenJev/chess-candidate-replay.html) · [API](docs/decision-api.md) · [Benchmarks](docs/benchmarks.md) · [Setup](docs/project-reference.md)
+[**Text demo**](https://kw2828.github.io/OpenJev/) · [**Chess replay**](https://kw2828.github.io/OpenJev/chess-candidate-replay.html) · [API](docs/decision-api.md) · [Setup](docs/project-reference.md) · [Experiment archive](research/experiment-index.md)
 
-## Chess
+## Decision interface
 
-[![Our locally trained candidate policy playing the first scheduled game, a draw](docs/assets/chess-candidate-game-001.gif)](https://kw2828.github.io/OpenJev/chess-candidate-replay.html)
+Supply English context, your questions, and candidate IDs with descriptions. OpenJev returns each chosen ID and the relative probability of every supplied answer. Your application decides what to do next; the API itself executes no external action.
 
-Our candidate experiment compares **four small chess policies across twelve fits and 288 games**. Each scores every legal move. Two variants use exact next-board states from native chess rules. The GIF shows the first scheduled game, drawn by repetition.
+The local scorer uses a pinned Qwen model, maps candidates to single-token labels, and scores those labels without generating an explanation. Questions are independent. Stable IDs constrain the response format, not whether the choice is correct.
 
-![All twelve candidate-policy fits, move quality, games and computation cost](docs/assets/chess-candidate-results.png)
-
-Exact-delta matched Stockfish on **33.15%** of ordinary positions versus **31.75%** for direct scoring, and **27.10% versus 26.81%** on shifted positions. It costs more compute and **fails the engine-loss and game-score continuation criteria**. These development results establish neither a learned world model nor an Elo rating.
-
-On a separate **4,096-position ChessBench transfer panel**, the four model families average **26.03-26.79%** move agreement. The gains remain small. [Transfer results](docs/chessbench-transfer.md).
-
-The completed [connectome study](docs/chess-connectome.md) compared biological wiring with three rewired controls, dense recurrence and node-local recurrence across three seeds. It **did not establish a biological-wiring advantage**: only **5 of 30** required checks passed. All 21 models are shown below; there is no gameplay or Elo result for this study.
-
-<a href="docs/chess-connectome.md"><img src="evidence/chess-connectome-v1/figure/connectome-chess.png" width="640" alt="Completed connectome chess comparison: all 21 models, paired seeds, failed continuation criterion and full CPU decision cost"></a>
-
-The [30-fit mapping follow-up](research/chess-connectome-mapping-study.md) reduced biological-model loss by 8.6% on ordinary positions, with no improvement under shift. It also failed its continuation rule.
-
-[Results and all twelve weights](docs/chess-candidate.md) · [Connectome controls](research/chess-connectome-followup.md) · [Earlier capacity study](docs/chess-capacity.md)
-
-[Earlier predictive models and paper](docs/chess-spatial.md) · [Astra, ChessFly and ChessLFM comparison](docs/chess.md)
-
-The latest [24-fit graph comparison](docs/chess-pin-quality.md) found **36.43% / 31.40%** ordinary/shifted move agreement for joint pin factors, below the WLDN baseline's **37.16% / 31.92%**, while taking **13.1% more decision time**. Only 2/16 quality checks passed. The proposed mechanism did not earn continuation.
-
-<a href="docs/chess-pin-quality.md"><img src="evidence/chess-pin-quality-v3/figures/joint-comparisons.png" width="720" alt="All sixteen joint pin comparisons: two backbone comparisons pass; all trained-comparator checks fail"></a>
-
-## Doom
-
-[![Locally trained Doom policy](docs/assets/jepa-policy-181000-preview.gif)](docs/assets/jepa-policy-181000.gif)
-
-**13 kills in 19.26 game seconds**, first fit and first evaluation seed. JEPA scored training clips; a small policy plays the recording. [Results and limits](docs/jepa-rl-study.md) · [Recording receipt](docs/assets/jepa-policy-181000.json).
-
-## Robot reaching
-
-[![First robot case: persistent memory and three trained reset controls](evidence/reacher-geometry-memory-v1/report/fixed-case-replay.gif)](research/reacher-geometry-memory.md)
-
-**The stronger memory comparison failed its continuation rule: 24/25 checks.** Persistent GRU lowered control cost by **4.44%/2.94%** versus a separately trained model using two observations and intervening actions. The rule required at least 3% on both sensing-gap panels. All three paired fits improved, but the ten-step mean missed the required margin.
-
-![All nine models and five references in the completed two-observation comparison](evidence/reacher-two-observation-study-v1/report/native-costs.png)
-
-Supplied-physics controllers still perform better. Equal search budgets do not match total compute. The GIF replays the preselected first case from the earlier study; the chart shows all 42 rows of the new comparison. [New results and audit](research/reacher-two-observation-control.md).
-
-The [earlier comparison](research/reacher-geometry-memory.md) passed all 25 checks against the weaker one-observation control, with 31.9%/26.0% lower cost. Neither study establishes a new architecture or biological-wiring advantage. [Earlier paper](output/pdf/openjev-reacher-geometry-memory-study.pdf) · [LaTeX](paper/reacher-geometry-memory-study.tex).
+Use `POST /api/decide` with the `X-OpenJev: 1` header, or `openjev decide request.json`. The [complete example](examples/support.json) and [API reference](docs/decision-api.md) cover request limits, errors, model metadata and execution boundaries.
 
 ## Run locally
 
@@ -62,51 +26,54 @@ uv run --extra language openjev setup
 uv run --extra language openjev serve
 ```
 
-Open **http://127.0.0.1:8000**. Local text scoring uses Qwen3-4B; the free browser demo uses Qwen3-0.6B through WebGPU. [Linux, Docker and hosting](docs/hosting.md).
+Open **http://127.0.0.1:8000**. Setup downloads the pinned Qwen3-4B weights; inference then uses the local cache. No paid API key is needed.
 
-## Research results
+The free [browser demo](https://kw2828.github.io/OpenJev/) runs Qwen3-0.6B through WebGPU. Its scores are not interchangeable with the local 4B model. [Browser requirements](docs/browser-model.md) · [Linux, Docker and hosting](docs/hosting.md).
 
-[Symmetry and student-state training](research/otto-symmetry-head-results.md): **720 searches, six trained models and three sensing settings**. The shared model finds **27.40% / 24.09% / 33.51%** of sources after mixture weighting, versus **100%** for analytic control, while using more computation. Only **2/54** conditions pass. Saved trajectories show two-position oscillation in the final 256 decisions of **164/213 failed learned searches**; this is a diagnostic clue, not a demonstrated cause.
+## Chess
 
-[![All ten policies, three sensing settings and every fitting seed](output/otto-symmetry-head-v1/figure-01/symmetry-comparison.png)](research/otto-symmetry-head-results.md)
+[![First scheduled candidate-policy game, drawn by repetition](docs/assets/chess-candidate-game-001.gif)](https://kw2828.github.io/OpenJev/chess-candidate-replay.html)
 
-[Fixed-case GIF](output/otto-symmetry-head-v1/figure-01/replay-lambda3-case0.gif) · [Results, all weights and audit](research/otto-symmetry-head-results.md). The next step is a stronger value readout before compact recurrent memory.
+Four small policies score legal moves across **twelve fits and 288 games**. Exact next-board differences raise ordinary move agreement from **31.75% to 33.15%**, but cost more computation and fail the engine-loss and game-score criteria. The GIF is the first scheduled game, not a selected win. No learned world model or Elo rating is established.
 
-[Learned odor-search pilot](research/otto-action-head-results.md): **1,536 autonomous searches, twelve trained policies and four analytic planners**. The full-belief learned head achieved **24.59% / 23.08%** mixture-weighted success across the two regimes, versus **100% / 100%** for the full-belief planner. Only **6/40** candidate checks passed, and the full-head competence requirement failed. This training recipe does not establish a compact-memory or learned-architecture advantage.
+[Results, all checkpoints and controls](docs/chess-candidate.md) · [ChessBench transfer](docs/chessbench-transfer.md) · [Connectome comparison](docs/chess-connectome.md) · [Graph-quality comparison](docs/chess-pin-quality.md).
 
-[![First scheduled baseline case, all twelve learned policies and four planners, including capped failures](output/otto-action-head-v1/figure-01/first-case-base.gif)](research/otto-action-head-results.md)
+## Doom
 
-The GIF shows the preselected first baseline case, with illustrative timing. [All-controller chart](output/otto-action-head-v1/figure-01/action-head.png) · [Shifted replay](output/otto-action-head-v1/figure-01/first-case-shift.gif) · [Results, weights and audit](research/otto-action-head-results.md).
+[![First JEPA-trained policy and first evaluation seed](docs/assets/jepa-policy-181000-preview.gif)](docs/assets/jepa-policy-181000.gif)
 
-The preceding [768-search boundary control](research/otto-boundary-control-results.md) finds **9.67% / 13.24% fewer moves** for the existing pretrained model than analytic control, but roughly **92x / 85x** the CPU computation. All searches succeed. Restricting boundary choices changes **none of the 192 paired neural paths**, so no intervention benefit is demonstrated. Competence passes **6/6**; teacher consistency fails **8/12** and utility-compute fails **12/16**. This is not a new model result. [Baseline GIF](output/otto-boundary-control-v1/figure-01/replay-base-case0.gif) · [Shifted GIF](output/otto-boundary-control-v1/figure-01/replay-shift-case0.gif).
+**13 kills in 19.26 game seconds**, from the first fit and first evaluation seed. JEPA supplies training rewards; a small policy plays this recording. The full nine-method comparison did **not** establish a reliable JEPA advantage. This is one illustrative episode, not an inference-speed benchmark.
 
-[![All four boundary-control policies, both regimes and every paired block](output/otto-boundary-control-v1/figure-01/boundary-comparison.png)](research/otto-boundary-control-results.md)
+[Results and limits](docs/jepa-rl-study.md) · [Recording receipt](docs/assets/jepa-policy-181000.json) · [Other Doom controllers](docs/project-reference.md).
 
-The [earlier 576-search comparison](research/otto-released-reference-results.md) remains a failed result: one prolonged boundary stall caused a **94.88%** shifted move regression. The fresh cohort above never triggers that behavior and does not establish a rescue.
+## Robot reaching
 
-The earlier [fixed-memory comparison](research/otto-spectral-control-results.md) completed **1,152 searches**: both compact memories found every source with **80.79% less evolving array state**, but used **31-39% more controller computation**. Its compact and utility-compute rules also failed.
+[![Preselected first robot case with persistent memory and trained reset controls](evidence/reacher-geometry-memory-v1/report/fixed-case-replay.gif)](research/reacher-geometry-memory.md)
 
-The [original 768-search comparison](research/otto-large-memory-results.md) still fails its continuation rule: full history improves mean search time **41.13%**, but only **5/8 blocks** improve. A [saved-history diagnostic](research/otto-memory-evidence-results.md) traces 98% of the net gain to three cases. [Earlier 19x19 pilot](research/otto-memory-results.md).
+The stronger memory comparison **failed its rule: 24/25 checks passed**. Persistent GRU lowers control cost by **4.44% / 2.94%** versus a separately trained two-observation controller; the rule requires at least 3% on both sensing-gap panels. Supplied-physics controllers still perform better.
 
-[RockSample state representation comparison](research/rocksample-representation-results.md): **256 episodes**, with **42.81 reward** for full history versus **38.44** for recent history and **40.63** for quality-only. The broader representation beats fixed particles on every map, but misses the stronger controls' required margins and sometimes violates occupancy bounds. **8/13 conditions pass; no learned memory pilot is admitted.**
+The GIF is from the earlier, weaker-control study. The [stronger comparison](research/reacher-two-observation-control.md) retains all nine models, five references and complete costs. Neither establishes a new architecture or biological-wiring advantage.
 
-[![All eight RockSample controllers, map-level rewards, measured costs and paired differences](output/rocksample-representations-v1/figure-01/representations.png)](research/rocksample-representation-results.md)
+## Latest completed research
 
-[Earlier control screen](research/rocksample-policy-value-results.md) · [Prediction diagnostic](research/rocksample-public-memory-results.md) · [Olfactory search source review](research/olfactory-search-opportunity.md).
+[Matched scalar-value learning](research/otto-return-value-results.md) completed **nine fits and 720 odor searches**. The structured candidate finds **17.97% / 7.70% / 10.13%** of sources across three sensing settings after mixture weighting, versus **100%** for analytic control. It uses more total controller computation per search and passes **0/54 conditions**. The independent audit confirms the negative result.
 
-**Belief-guided attention did not improve the trained memory.** All twelve adapted fits completed. Unseen macro accuracy is **79.31%**, versus **79.42%** for ordinary continued training and **79.57%** for schema attention. Probability scores also worsen; the fixed rule fails **13/32**, with independent agreement.
+[![All ten policies, three sensing settings and every fitting seed](output/otto-return-value-v1/figure-01/return-value-comparison.png)](research/otto-return-value-results.md)
 
-[![All twelve warm-start fits and three untouched references, with every paired seed](output/dialogue-warm-pooling-v1/figure-01/render-01/warm-pooling.png)](research/dialogue-warm-pooling-results.md)
+[![First scheduled odor-search case with all ten policies](output/otto-return-value-v1/figure-01/replay-lambda3-case0.gif)](research/otto-return-value-results.md)
 
-All fifteen initial replays reproduced the original probabilities exactly, so this tests the new attention mechanism from a competent starting point. [Complete results](research/dialogue-warm-pooling-results.md). No new architecture advantage is established.
+[Complete results and all nine checkpoints](research/otto-return-value-results.md) · [Raw data download](https://github.com/kw2828/OpenJev/releases/tag/otto-return-value-v1) · [Earlier symmetry comparison](research/otto-symmetry-head-results.md).
 
-- [Calibration control](research/dialogue-calibration-runtime-v2-results.md): trained-model log loss improves 26.4% with every answer unchanged, but the frozen reference worsens; the full rule fails 9/11.
-- [Earlier attention pilot](research/dialogue-belief-pooling-pilot-results.md): all eight small fresh-training fits scored 0% on changed decisions.
-- [Earlier text learning experiments](research/dialogue-objective-results.md): matched training objectives and recurrent variants have not established an architecture advantage.
-- [Qwen lexical ablation](research/dialogue-qwen-lexical-ablation-results.md): better changed-value accuracy, worse retention; 5/16 conditions passed.
-- [Text inference speed](research/shared-prefix-results.md): shared-context scoring is **2.08x faster** for four-question synthetic workloads; single-question caching is slower.
-- [All experiments, failures and visualizations](research/experiment-index.md): complete results, protocols, receipts and paper sources.
+Lower validation error on remaining cost did not translate into better actions. This does not establish a recurrent-memory or biological-wiring advantage.
 
-Demo candidate scores are uncalibrated and relative to the supplied choices. These experiments use different models and protocols. The root MIT license applies except where component notices specify other terms, including GPL-3.0-only chess research files. Third-party data and model licenses apply separately.
+Earlier dialogue, RockSample, compact-memory and pretrained-policy comparisons are collected in the [experiment archive](research/experiment-index.md), including failed attempts, frozen criteria and independent audits. The separate [shared-prefix scoring experiment](research/shared-prefix-results.md) measured **2.08x** speedup on four-question synthetic workloads; single-question caching was slower. This does not reproduce a proprietary RLCD system.
 
-Independent of [TypeSafe Jev](https://typesafe.ai/blog/introducing-system-one-models-and-jev), [zhihz/openjev](https://github.com/zhihz/openjev) and [openjev.com](https://openjev.com/). No proprietary RLCD reproduction or established new RL algorithm is claimed.
+## Limits and provenance
+
+Candidate probabilities are **uncalibrated and relative to the supplied choices**. Rewording or changing the choices can change the scores.
+
+These demos use different models and protocols. Replays illustrate preserved episodes; they do not replace complete comparisons. The research has not established a novel architecture, a biological-wiring advantage or a new RL algorithm.
+
+OpenJev is independent of [TypeSafe Jev](https://typesafe.ai/blog/introducing-system-one-models-and-jev), [zhihz/openjev](https://github.com/zhihz/openjev) and [openjev.com](https://openjev.com/). It does not reproduce proprietary Jev architecture or weights.
+
+The root MIT license applies except where component notices specify other terms, including GPL-3.0-only chess research files. Third-party data and model licenses apply separately.
