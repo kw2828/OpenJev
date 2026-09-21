@@ -1,0 +1,93 @@
+{
+  "dtype": "float32",
+  "environment": {
+    "CUDA_VISIBLE_DEVICES": "-1",
+    "MKL_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "TF_NUM_INTEROP_THREADS": "1",
+    "TF_NUM_INTRAOP_THREADS": "1",
+    "TF_USE_LEGACY_KERAS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1"
+  },
+  "expected": "zero for zero-left, otherwise K/256, exactly representable",
+  "frozen_existing_files": {
+    ".venv-otto-reference/lib/python3.12/site-packages/numpy/__config__.py": "10ebb57451512886e14ca919d1d4333efedcf0310011ef63ebf9bc3a8a8ae94d",
+    ".venv/lib/python3.12/site-packages/numpy/__config__.py": "874b3830f0b8e70c4e3408fe5a75f2c066a2afb285004621be91d1bab5284ea3",
+    "output/otto-pretrained-reference-v1/qualification-01/receipt.json": "1b1ad2cec719f402b5e441f24674b48a32b920c4c6fdd8311c033d4bab338261",
+    "scripts/qualify_otto_pretrained.py": "7c6514831ea204938905bf36575d50bc9abb5365be19bcc4c396fdad672c035a",
+    "src/openjev/research/otto_pretrained_value.py": "20e2f83389bc6bfbc890636904ca4aaba028937673446845866e6156a41493c1"
+  },
+  "interpretation": "Report every warning, exception and output error. Exact finite results alongside warnings identify spurious warnings for these primitives only; do not establish actual-model parity or automatically authorize a changed error policy.",
+  "left_constants": [
+    0,
+    0.0625
+  ],
+  "limits": {
+    "array_bytes": 536870912,
+    "child_rss_bytes": 2147483648,
+    "child_seconds": 60,
+    "matmul_calls": 12
+  },
+  "phases": [
+    {
+      "matmuls": 4,
+      "numpy": "2.2.6",
+      "phase": "fresh_numpy",
+      "runtime": "isolated"
+    },
+    {
+      "matmuls": 4,
+      "numpy": "2.2.6",
+      "phase": "after_tensorflow_2.20.0_import_no_model",
+      "runtime": "isolated"
+    },
+    {
+      "matmuls": 4,
+      "numpy": "2.5.3",
+      "phase": "fresh_numpy",
+      "runtime": "main"
+    }
+  ],
+  "primary_issue_reports": [
+    {
+      "scope": "Analogous macOS/M4 matmul warning report, not proof of the cause here.",
+      "url": "https://github.com/numpy/numpy/issues/28687"
+    },
+    {
+      "scope": "Analogous macOS/M4 matmul warning report, not proof of the cause here.",
+      "url": "https://github.com/numpy/numpy/issues/29820"
+    }
+  ],
+  "right_constant": 0.0625,
+  "runtimes": {
+    "isolated": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv-otto-reference/bin/python",
+    "main": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/python"
+  },
+  "scope": "Twelve fixed synthetic primitive matmuls only. No checkpoint read, model forward, simulator, runtime mutation or qualification retry. Existing failed qualification remains unchanged.",
+  "shapes": [
+    [
+      [
+        1,
+        11025
+      ],
+      [
+        11025,
+        1024
+      ]
+    ],
+    [
+      [
+        1,
+        1024
+      ],
+      [
+        1024,
+        1024
+      ]
+    ]
+  ],
+  "source_sha256": "593a8fb60a51ce919c3634fa1e780c62b5935520028de21a52751d430112e48b",
+  "version": "otto-primitive-matmul-diagnostic-v1"
+}

@@ -1,0 +1,27 @@
+/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/src/openjev/research/otto_pretrained_value.py:137: RuntimeWarning: divide by zero encountered in matmul
+  value = value @ self._weights[2 * layer] + self._weights[2 * layer + 1]
+Traceback (most recent call last):
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/qualify_otto_pretrained.py", line 614, in <module>
+    main()
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/qualify_otto_pretrained.py", line 610, in main
+    return Run(parser.parse_args()).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/qualify_otto_pretrained.py", line 577, in execute
+    result = run_comparisons(self.out, self.paths, self.check, self.work)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/qualify_otto_pretrained.py", line 419, in run_comparisons
+    actual = work.call('numpy_value', lambda inputs=inputs, sym_avg=sym_avg:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/qualify_otto_pretrained.py", line 112, in call
+    result = operation()
+             ^^^^^^^^^^^
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/qualify_otto_pretrained.py", line 420, in <lambda>
+    numpy_model.predict_centered(inputs, sym_avg=sym_avg))
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/src/openjev/research/otto_pretrained_value.py", line 154, in predict_centered
+    result = self._forward(inputs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/src/openjev/research/otto_pretrained_value.py", line 137, in _forward
+    value = value @ self._weights[2 * layer] + self._weights[2 * layer + 1]
+            ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~
+FloatingPointError: overflow encountered in matmul
