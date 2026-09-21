@@ -61,3 +61,14 @@ idle-sleep assertion accompanies the process; manual/lid sleep can still cause
 a timeout. All twelve fits must complete and pass both saved-result audits
 before quality is reported. Partial completion is not a scientific comparison.
 Official DEV remains exposed development evidence; official TEST is untouched.
+
+The [V2 figure generator](../output/dialogue-observation-learning-v2/figure-01/README.md)
+is ready, with seven input/lifecycle rejection checks and a visually checked
+synthetic render. It requires both completed audits, shows every fit and all
+seven conditions, and preserves scientific failures. Invented fixture plots
+remain local and are not benchmark results.
+
+macOS also [confirmed the active idle-sleep assertion](../output/dialogue-observation-learning-v2/runtime-idle-assertion-01.json).
+The helper is a child of the supervisor on this host; its release will be
+checked after the actual supervisor exit. This observation does not guarantee
+against manual or lid sleep.

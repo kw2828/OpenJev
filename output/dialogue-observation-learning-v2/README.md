@@ -30,6 +30,13 @@ The [source review](scientific-source-review-01/receipt.json) binds all 64 files
 and verifies unchanged ASTs for 21 scientific and scoring functions. Training
 still requires a separate metadata freeze and actual execution receipts.
 
+The [saved-result figure generator](figure-01/README.md) has passed its synthetic
+qualification and independent source/visual review. It requires both complete
+V2 report and audit receipts and retains failed scientific conditions. Source,
+qualification logs, render receipts and rejection receipts are published;
+invented report/audit fixtures and synthetic images stay local. Their hashes
+remain in the preserved receipts. No actual study quality has been opened.
+
 Publish plans, allocations, receipts, aggregate reports and original source
 files. Keep duplicate frozen source snapshots, reversible actor tokens, target
 rows, lexical arrays, individual predictions and fitted weights local. Manifests
