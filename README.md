@@ -56,15 +56,15 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Latest completed research
 
-[Matched scalar-value learning](research/otto-return-value-results.md) completed **nine fits and 720 odor searches**. The structured candidate finds **17.97% / 7.70% / 10.13%** of sources across three sensing settings after mixture weighting, versus **100%** for analytic control. It uses more total controller computation per search and passes **0/54 conditions**. The independent audit confirms the negative result.
+[Bellman versus Monte Carlo training](research/otto-bellman-control-results.md) completed **six fits and 1,440 odor searches** using the same small MLP. Bellman training improves average success over further Monte Carlo training in all three settings, but reaches only **64.30% / 39.78% / 38.62%**, versus **100%** for analytic control. It also loses to the unchanged model on the shifted setting. The independently audited continuation rule **fails: 19/42 checks, including 0/18 competence checks**.
 
-[![All ten policies, three sensing settings and every fitting seed](output/otto-return-value-v1/figure-01/return-value-comparison.png)](research/otto-return-value-results.md)
+[![Every fitting seed and all three sensing settings, on common axes](docs/assets/otto-bellman-control.png)](research/otto-bellman-control-results.md)
 
-[![First scheduled odor-search case with all ten policies](output/otto-return-value-v1/figure-01/replay-lambda3-case0.gif)](research/otto-return-value-results.md)
+[Results and costs](research/otto-bellman-control-results.md) · [Paper](output/pdf/openjev-otto-bellman-control.pdf) · [LaTeX](paper/otto-bellman-control.tex) · [Raw evidence](https://github.com/kw2828/OpenJev/releases/tag/otto-bellman-control-v1).
 
-[Complete results and all nine checkpoints](research/otto-return-value-results.md) · [Raw data download](https://github.com/kw2828/OpenJev/releases/tag/otto-return-value-v1) · [Earlier symmetry comparison](research/otto-symmetry-head-results.md).
+[![First scheduled replay from the earlier scalar-value study](output/otto-return-value-v1/figure-01/replay-lambda3-case0.gif)](research/otto-return-value-results.md)
 
-Lower validation error on remaining cost did not translate into better actions. A [saved-output diagnostic](research/otto-return-consistency-results.md) finds larger next-action value inconsistencies for the structured model on 16 selected states. It motivates testing the training objective, but does not establish the cause of failure or a recurrent-memory or biological-wiring advantage.
+This GIF belongs to the [earlier scalar-value study](research/otto-return-value-results.md), whose **0/54** result remains unchanged. A [training-state coverage follow-up](research/otto-coverage-followup-design.md) is proposed, not run. Neither study establishes a novel architecture or recurrent-world-model advantage.
 
 Earlier dialogue, RockSample, compact-memory and pretrained-policy comparisons are collected in the [experiment archive](research/experiment-index.md), including failed attempts, frozen criteria and independent audits. The separate [shared-prefix scoring experiment](research/shared-prefix-results.md) measured **2.08x** speedup on four-question synthetic workloads; single-question caching was slower. This does not reproduce a proprietary RLCD system.
 

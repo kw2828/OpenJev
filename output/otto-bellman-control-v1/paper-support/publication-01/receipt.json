@@ -1,0 +1,262 @@
+{
+  "status": "completed",
+  "started_utc": "2026-09-21T22:12:06.753202+00:00",
+  "stage_receipt": {
+    "path": "output/otto-bellman-control-v1/paper-03/receipt.json",
+    "bytes": 3177,
+    "sha256": "389ace8ce7ac41588a47edbf6657b69a4371b6924a9390bfabb7459bb994b455"
+  },
+  "source": {
+    "path": "scripts/write_otto_bellman_paper.py",
+    "bytes": 19937,
+    "sha256": "2c44cd7f93fa26414fb61099afbcf0b91ff9ccbdb0908a42af987b7f7a1d4c08"
+  },
+  "transform": {
+    "kind": "exact literal figure path replacement only",
+    "before": "{comparison.pdf}",
+    "after": "{generated/otto-bellman-control-comparison.pdf}",
+    "replacements": 1,
+    "staged_tex": {
+      "path": "output/otto-bellman-control-v1/paper-03/paper.tex",
+      "bytes": 14217,
+      "sha256": "f47db80cede01662743f6c9648e37c7df3c8dc64235918e8769e460dfff3c9e0"
+    },
+    "public_tex": {
+      "path": "paper/otto-bellman-control.tex",
+      "bytes": 14248,
+      "sha256": "938dbe99747c0b23c7c214db488d9de630f6c93f4f6bd3ce189b5e43d8a08a19"
+    }
+  },
+  "published_sources": {
+    "paper/otto-bellman-control.tex": {
+      "path": "paper/otto-bellman-control.tex",
+      "bytes": 14248,
+      "sha256": "938dbe99747c0b23c7c214db488d9de630f6c93f4f6bd3ce189b5e43d8a08a19"
+    },
+    "paper/generated/otto-bellman-control-comparison.pdf": {
+      "path": "paper/generated/otto-bellman-control-comparison.pdf",
+      "bytes": 19309,
+      "sha256": "45705e629782843ed6b330f8782ac79e6716a9a9f7be813c1f85e6898a9b2653"
+    },
+    "paper/generated/otto-bellman-control-comparison.png": {
+      "path": "paper/generated/otto-bellman-control-comparison.png",
+      "bytes": 151722,
+      "sha256": "a5762f1c4e562857405e1685e98944af715cfc98c3a498b2bdb68ef85ce0ab01"
+    }
+  },
+  "visual_review_reference": {
+    "pages_viewed": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "pdf": {
+      "path": "output/otto-bellman-control-v1/paper-build-03/paper.pdf",
+      "bytes": 249464,
+      "sha256": "0484833f05fe69cdc1d60804d5dc27bcc6d131909fd743169d282d54cddde1d5"
+    },
+    "pages": {
+      "page-1.png": {
+        "path": "output/otto-bellman-control-v1/paper-build-03/page-1.png",
+        "bytes": 275786,
+        "sha256": "d4f0e6c2c145ee5bb48bd49ef5fc4678d07d9b53b0788ad70314dc1bf311efc9"
+      },
+      "page-3.png": {
+        "path": "output/otto-bellman-control-v1/paper-build-03/page-3.png",
+        "bytes": 227264,
+        "sha256": "230fafd9582be493675b6858e0c370c07162e9dd262f844701ad76c7444bedad"
+      },
+      "page-2.png": {
+        "path": "output/otto-bellman-control-v1/paper-build-03/page-2.png",
+        "bytes": 104004,
+        "sha256": "c50854ad61399dac1df2f925c7704613d45ea37b549c7bde861df15912e7ce97"
+      },
+      "page-5.png": {
+        "path": "output/otto-bellman-control-v1/paper-build-03/page-5.png",
+        "bytes": 267546,
+        "sha256": "9d5c03bde1c99df5babef315de47ea8d76f453090c5daa7818a6c679026e87d4"
+      },
+      "page-4.png": {
+        "path": "output/otto-bellman-control-v1/paper-build-03/page-4.png",
+        "bytes": 289432,
+        "sha256": "a02bfc118f20e0bec1611580ce5e39c323bb7af05c1979f4bde37889edfae241"
+      }
+    },
+    "issues_remaining": [],
+    "figure_and_values_unchanged_from_stage01": true
+  },
+  "prior_attempts_preserved": [
+    "paper-01",
+    "paper-build-01",
+    "paper-02",
+    "paper-build-02",
+    "paper-03",
+    "paper-build-03"
+  ],
+  "training_calls": 0,
+  "simulator_calls": 0,
+  "model_readout_calls": 0,
+  "compile_command": [
+    "/usr/local/bin/docker",
+    "run",
+    "--rm",
+    "--network",
+    "none",
+    "--cpus",
+    "1",
+    "--memory",
+    "2g",
+    "--user",
+    "501:20",
+    "-v",
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/paper:/source:ro",
+    "-v",
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-bellman-control-v1/paper-build-04:/output",
+    "-w",
+    "/source",
+    "sha256:4984977ccf5afe883cb382d0163f267de0d029d140bb7a9e8f4c19f0b781d57b",
+    "latexmk",
+    "-pdf",
+    "-outdir=/output",
+    "-jobname=openjev-otto-bellman-control",
+    "-interaction=nonstopmode",
+    "-halt-on-error",
+    "otto-bellman-control.tex"
+  ],
+  "reproduction_command": [
+    "/usr/local/bin/docker",
+    "run",
+    "--rm",
+    "--network",
+    "none",
+    "--cpus",
+    "1",
+    "--memory",
+    "2g",
+    "--user",
+    "501:20",
+    "-v",
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/paper:/source:ro",
+    "-v",
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/pdf:/output",
+    "-w",
+    "/source",
+    "sha256:4984977ccf5afe883cb382d0163f267de0d029d140bb7a9e8f4c19f0b781d57b",
+    "latexmk",
+    "-pdf",
+    "-outdir=/output",
+    "-jobname=openjev-otto-bellman-control",
+    "-interaction=nonstopmode",
+    "-halt-on-error",
+    "otto-bellman-control.tex"
+  ],
+  "compile_returncode": 0,
+  "compile_wall_seconds": 1.3917679160367697,
+  "compiled_pdf": {
+    "path": "output/otto-bellman-control-v1/paper-build-04/openjev-otto-bellman-control.pdf",
+    "bytes": 249493,
+    "sha256": "7077f488a3038b0d2e87a1643aae845ffbdfc4321c1102ac2556b908b204ff03"
+  },
+  "compile_log": {
+    "path": "output/otto-bellman-control-v1/paper-build-04/build.log",
+    "bytes": 13184,
+    "sha256": "418fd16d2f31925524c9012739a7f845b93e146a3203091844ad74ae5350b14e"
+  },
+  "compiled_and_visually_reviewed": true,
+  "completed_utc": "2026-09-21T22:12:52.919917+00:00",
+  "pages": 5,
+  "final_pdf": {
+    "path": "output/pdf/openjev-otto-bellman-control.pdf",
+    "bytes": 249493,
+    "sha256": "7077f488a3038b0d2e87a1643aae845ffbdfc4321c1102ac2556b908b204ff03"
+  },
+  "builder": {
+    "path": "scripts/write_otto_bellman_paper.py",
+    "bytes": 19937,
+    "sha256": "2c44cd7f93fa26414fb61099afbcf0b91ff9ccbdb0908a42af987b7f7a1d4c08"
+  },
+  "final_lint_returncode": 0,
+  "visual_qa": {
+    "path": "output/otto-bellman-control-v1/paper-support/publication-01/visual-qa.json",
+    "bytes": 966,
+    "sha256": "1c62e615281057e46d680710194b4ad107bf84e1260afc7c814198e87c59e463"
+  },
+  "actual_tool_events": {
+    "stage01": {
+      "session": 78643,
+      "launch_chunk": "ab64dc",
+      "completion_chunk": "9d9b7f",
+      "exit_code": 0
+    },
+    "build01": {
+      "session": 86997,
+      "launch_chunk": "457758",
+      "completion_chunk": "681b17",
+      "exit_code": 0,
+      "visual_status": "corrections_required"
+    },
+    "stage02": {
+      "session": 76800,
+      "launch_chunk": "f4c602",
+      "completion_chunk": "307ea8",
+      "exit_code": 0
+    },
+    "build02": {
+      "session": 66457,
+      "launch_chunk": "e32486",
+      "completion_chunk": "6c4efa",
+      "exit_code": 0,
+      "visual_status": "overflow_page_remained"
+    },
+    "stage03": {
+      "session": 68934,
+      "launch_chunk": "37b4f6",
+      "completion_chunk": "f2c8b9",
+      "exit_code": 0
+    },
+    "build03": {
+      "session": 60722,
+      "launch_chunk": "55c61c",
+      "completion_chunk": "dd6d8a",
+      "exit_code": 0,
+      "visual_status": "all5pages_clear"
+    },
+    "public_source_build04": {
+      "session": 40524,
+      "launch_chunk": "dd1b55",
+      "completion_chunk": "e14f3e",
+      "exit_code": 0
+    },
+    "final_raster": "8a980d",
+    "final_raster_equality": "b0a58d",
+    "artifact_marker": {
+      "chunk": "067837",
+      "exit_code": 0,
+      "runs": 1
+    }
+  },
+  "files": {
+    "compiled.json": {
+      "path": "output/otto-bellman-control-v1/paper-support/publication-01/compiled.json",
+      "bytes": 5324,
+      "sha256": "274c06cecce5e38a53c3552579e167988b8a267eee6a9d6452e5b6336681ff2d"
+    },
+    "started.json": {
+      "path": "output/otto-bellman-control-v1/paper-support/publication-01/started.json",
+      "bytes": 4801,
+      "sha256": "c7c110e17bdb804957f48049e7d50fd36a359522cc69021fcbd63d9fa3322a19"
+    },
+    "final-lint.log": {
+      "path": "output/otto-bellman-control-v1/paper-support/publication-01/final-lint.log",
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "visual-qa.json": {
+      "path": "output/otto-bellman-control-v1/paper-support/publication-01/visual-qa.json",
+      "bytes": 966,
+      "sha256": "1c62e615281057e46d680710194b4ad107bf84e1260afc7c814198e87c59e463"
+    }
+  }
+}

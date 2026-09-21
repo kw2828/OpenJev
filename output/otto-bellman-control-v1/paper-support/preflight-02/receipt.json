@@ -1,0 +1,48 @@
+{
+  "scope": "Affected fabricated prose cases only; no real inputs, rendering, compilation or scientific calls.",
+  "started_utc": "2026-09-21T21:59:43.363372+00:00",
+  "cpu_threads": 1,
+  "timeout_seconds_per_command": 60,
+  "sources_before": {
+    "scripts/write_otto_bellman_paper.py": "8bda86c4fd0cb2a8e53f5935c6467e89b00d6baf067ef997a942c6dbf5a8e729",
+    "output/otto-bellman-control-v1/paper-support/test_write_paper.py": "276c5759ecf624e75ce152bfe1e04b3e6ff6d3686f8b376dd10ffa735c5a022a"
+  },
+  "commands": [
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "output/otto-bellman-control-v1/paper-support/test_write_paper.py::test_complete_paper_preserves_failure_raw_counts_and_horizons",
+        "output/otto-bellman-control-v1/paper-support/test_write_paper.py::test_outcome_prose_uses_each_setting_and_guards_perfect_baseline"
+      ],
+      "returncode": 0,
+      "wall_seconds": 0.22380775003693998,
+      "log": "output/otto-bellman-control-v1/paper-support/preflight-02/command-1.log",
+      "sha256": "149e983c325e1215d8fe411fd58fb9c0fa38bc5dfa119c4a6a92d44ee61e3e10"
+    },
+    {
+      "argv": [
+        ".venv/bin/ruff",
+        "check",
+        "--select",
+        "E,F,I,UP,B,ISC,BLE",
+        "--ignore",
+        "E501",
+        "scripts/write_otto_bellman_paper.py",
+        "output/otto-bellman-control-v1/paper-support/test_write_paper.py"
+      ],
+      "returncode": 0,
+      "wall_seconds": 0.042215832974761724,
+      "log": "output/otto-bellman-control-v1/paper-support/preflight-02/command-2.log",
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    }
+  ],
+  "sources_after": {
+    "scripts/write_otto_bellman_paper.py": "8bda86c4fd0cb2a8e53f5935c6467e89b00d6baf067ef997a942c6dbf5a8e729",
+    "output/otto-bellman-control-v1/paper-support/test_write_paper.py": "276c5759ecf624e75ce152bfe1e04b3e6ff6d3686f8b376dd10ffa735c5a022a"
+  },
+  "ended_utc": "2026-09-21T21:59:43.630208+00:00",
+  "status": "passed"
+}

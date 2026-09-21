@@ -1,0 +1,36 @@
+{
+  "status": "started",
+  "started_utc": "2026-09-21T22:09:22.483197+00:00",
+  "command": [
+    "/usr/local/bin/docker",
+    "run",
+    "--rm",
+    "--network",
+    "none",
+    "--cpus",
+    "1",
+    "--memory",
+    "2g",
+    "--user",
+    "501:20",
+    "-v",
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-bellman-control-v1/paper-build-02:/work",
+    "-w",
+    "/work",
+    "sha256:4984977ccf5afe883cb382d0163f267de0d029d140bb7a9e8f4c19f0b781d57b",
+    "latexmk",
+    "-pdf",
+    "-interaction=nonstopmode",
+    "-halt-on-error",
+    "paper.tex"
+  ],
+  "timeout_seconds": 120,
+  "network": "none",
+  "stage_receipt_sha256": "78d960d20b78de46763c0aab6511942e142081c83c2104d6ab4037aa3ea2264f",
+  "values_and_png_unchanged_from_first_stage": true,
+  "source_files": {
+    "paper.tex": "c487e7af5de49d0e6212164f60ee7a54d74ad297e127457fa14bf978cfe4b577",
+    "comparison.pdf": "643968437af2e60517b20faf22196f8288ba3bd58e79876b07406ae3511f8ef9",
+    "comparison.png": "a5762f1c4e562857405e1685e98944af715cfc98c3a498b2bdb68ef85ce0ab01"
+  }
+}

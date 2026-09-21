@@ -4,7 +4,17 @@
 
 These PDFs are scoped development snapshots. The [experiment archive](../research/experiment-index.md) records later results and active studies; the PDFs have not been expanded to include every follow-up.
 
-This is a working development report, not a submitted or accepted ICLR paper. It reports the original pilots, the frozen 1,980-episode causal-memory follow-up, and three prospective engineering studies totaling 6,408 further episodes. Event memory improves command efficiency, but all three earlier broader continuation gates failed. The memory continuation gate failed against the capacity control, so the conditional downstream efficacy experiments were not launched. A subsequent PPO/DQN study trained nine fits for 294,912 interactions. History-PPO passed its separately frozen combat gate on fresh seeds; Line behavior matches always-fire. The report includes this distinction and the delayed-hit limitation of the earlier command metric. It does not claim proprietary RLCD reproduction or a new RL algorithm. Project-level authorship is used until the authors and affiliations are confirmed.
+## Bellman versus Monte Carlo continuation
+
+[Standalone PDF](../output/pdf/openjev-otto-bellman-control.pdf) · [LaTeX](otto-bellman-control.tex) · [Complete results](../research/otto-bellman-control-results.md) · [Raw evidence](https://github.com/kw2828/OpenJev/releases/tag/otto-bellman-control-v1)
+
+Six continuations and 1,440 odor searches compare training targets in the same small MLP. Bellman training improves over further Monte Carlo training, but the full rule fails: **19/42 checks passed, including 0/18 competence checks**. It also loses to the unchanged model after the sensing-kernel shift. All fitting seeds, training costs, deployment accounting and 42 conditions are included. The independent audit agrees on 64,603,745 comparisons. This is a development report, not an architecture advance or ICLR submission.
+
+From `paper/`, compile with `latexmk -pdf -interaction=nonstopmode -halt-on-error -outdir=build/bellman otto-bellman-control.tex`. The checked-in figure and LaTeX require no model or simulator calls. All five pages were visually checked after an offline build; [build and publication record](../output/otto-bellman-control-v1/paper-support/publication-01/receipt.json). Earlier Doom, chess and reaching reports remain separate snapshots.
+
+## Doom development report
+
+The original report is a working development draft, not a submitted or accepted ICLR paper. It reports the original pilots, the frozen 1,980-episode causal-memory follow-up, and three prospective engineering studies totaling 6,408 further episodes. Event memory improves command efficiency, but all three earlier broader continuation gates failed. The memory continuation gate failed against the capacity control, so the conditional downstream efficacy experiments were not launched. A subsequent PPO/DQN study trained nine fits for 294,912 interactions. History-PPO passed its separately frozen combat gate on fresh seeds; Line behavior matches always-fire. The report includes this distinction and the delayed-hit limitation of the earlier command metric. It does not claim proprietary RLCD reproduction or a new RL algorithm. Project-level authorship is used until the authors and affiliations are confirmed.
 
 ## Chess development report
 

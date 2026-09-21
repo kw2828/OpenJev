@@ -1,0 +1,38 @@
+{
+  "scope": "Layout-only correction; original six-page build preserved. No scientific recomputation.",
+  "cpu_threads": 1,
+  "sources": {
+    "scripts/write_otto_bellman_paper.py": "97de421553427c751e3bb1b8fa1be7d48aadef6b711629ac9897373506846726",
+    "output/otto-bellman-control-v1/paper-support/test_write_paper.py": "276c5759ecf624e75ce152bfe1e04b3e6ff6d3686f8b376dd10ffa735c5a022a"
+  },
+  "commands": [
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "output/otto-bellman-control-v1/paper-support/test_write_paper.py::test_complete_paper_preserves_failure_raw_counts_and_horizons"
+      ],
+      "returncode": 0,
+      "wall_seconds": 0.20044108293950558,
+      "log_sha256": "35d86279d96ed65491ba8ff0748e1c8e7891711531404dc5d4b9cd6ae33de3ec"
+    },
+    {
+      "argv": [
+        ".venv/bin/ruff",
+        "check",
+        "--select",
+        "E,F,I,UP,B,ISC,BLE",
+        "--ignore",
+        "E501",
+        "scripts/write_otto_bellman_paper.py",
+        "output/otto-bellman-control-v1/paper-support/test_write_paper.py"
+      ],
+      "returncode": 0,
+      "wall_seconds": 0.04048475017771125,
+      "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    }
+  ],
+  "status": "passed"
+}

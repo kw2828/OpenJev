@@ -1,0 +1,154 @@
+\documentclass[10pt]{article}
+\usepackage[margin=0.72in]{geometry}
+\usepackage[T1]{fontenc}\usepackage{lmodern,booktabs,graphicx,longtable,pdflscape,hyperref,xurl}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=black}
+\setlength{\parindent}{0pt}\setlength{\parskip}{5pt}\setlength{\tabcolsep}{5pt}
+\begin{document}\begin{center}{\Large\bfseries Bellman versus Monte Carlo Continuation in Olfactory Search\par}
+\vspace{3pt}OpenJev development report\end{center}
+\begin{abstract}
+This paired target-control pilot is FAIL: 19/42 frozen conditions pass (0/18 competence; 19/24 paired improvement). Six continuations use the same MLP architecture and teacher-visited training states. All three fit seeds, three unchanged references, and the analytic controller are retained across 1,440 fresh policy episodes. This tests a learning procedure; it does not establish an architectural or biological-memory advantage.\par
+\end{abstract}
+\section{Question and fixed comparison}
+Can delayed Bellman targets improve autonomous control beyond matched Monte Carlo continuation and its unchanged starting checkpoint? The model is a width-eight biased ReLU scalar MLP on 11,028 features, including the full exact public posterior. It is not compact learned memory. Each continuation restores one of three prior checkpoints and receives 40 epochs, batch size 128, fresh Adam at 0.001, and gradient clipping at 5. The six fits receive 10,560 optimizer updates in total.\par
+All 5,589 TRAIN prefixes from 192 teacher episodes are used with uniform row loss. The 1,109 VALID prefixes from 48 episodes are descriptive only. Monte Carlo targets are remaining teacher steps divided by 64. Bellman targets refresh before epochs 1, 6, ..., 36 from each fit's delayed checkpoint: 24 refreshes and 134,136 state backups, each enumerating 16 action-hit branches. The baseline and final checkpoint rule are fixed; no checkpoint selection or new trajectory collection occurs during continuation.\par
+Evaluation has 48 paired searches per setting, eight blocks and 16 cases per initial-hit stratum. Lambda 3 and 4 are training-supported; lambda 5 supplies an unseen known kernel. Failures contribute the 2,188-move horizon. Means use the setting-specific initial-hit mixture, then equal fit-seed weighting. These are bounded local cases, not a population significance test.\par
+\subsection*{Complete family means}
+{\small\centering\par
+\begin{tabular}{llrrr}
+\toprule
+Setting & Family & Success (\%) & Moves & Controller s \\ \midrule
+lambda3 & Bellman & 64.30 & 807.330 & 0.3772 \\
+lambda3 & Monte Carlo & 50.32 & 1111.012 & 0.5209 \\
+lambda3 & Unchanged & 58.99 & 923.933 & 0.4312 \\
+lambda3 & Analytic & 100.00 & 36.755 & 0.0120 \\
+lambda4 & Bellman & 39.78 & 1338.913 & 0.6699 \\
+lambda4 & Monte Carlo & 14.72 & 1870.979 & 0.9383 \\
+lambda4 & Unchanged & 27.78 & 1597.850 & 0.8096 \\
+lambda4 & Analytic & 100.00 & 57.666 & 0.0204 \\
+lambda5 & Bellman & 38.62 & 1374.683 & 0.6535 \\
+lambda5 & Monte Carlo & 27.26 & 1602.824 & 0.7617 \\
+lambda5 & Unchanged & 42.99 & 1262.428 & 0.6049 \\
+lambda5 & Analytic & 100.00 & 42.871 & 0.0149 \\
+\bottomrule
+\end{tabular}
+\par}
+\subsection*{Observed outcome}
+Bellman versus Monte Carlo family results were lambda3: 807.330 versus 1111.012 moves and 64.30\% versus 50.32\% success; lambda4: 1338.913 versus 1870.979 moves and 39.78\% versus 14.72\% success; lambda5: 1374.683 versus 1602.824 moves and 38.62\% versus 27.26\% success. Under lambda5, Bellman capped moves were higher than the unchanged reference (1374.683 versus 1262.428); weighted success was 38.62\% versus 42.99\%. The analytic controller achieved 100\% weighted success in all three settings.\par
+\clearpage\begin{landscape}\section{All arms on common axes}
+\begin{center}\includegraphics[width=\linewidth,height=0.82\textheight,keepaspectratio]{comparison.pdf}\end{center}
+All 30 arm-setting cells are displayed. Each metric has one zero-based scale across settings. Raw found counts and accounting horizons are provided on the next page. Error bars are omitted because the protocol does not estimate sampling uncertainty.\par
+\end{landscape}
+\begin{landscape}\section{All fits and cost horizons}
+{\small\centering\par
+\begin{tabular}{llrrrrrrr}
+\toprule
+Setting & Arm & Raw found & Success (\%) & Moves & Controller s & H=1 s & H=100 s & H=10000 s \\ \midrule
+lambda3 & Bellman 10101 & 37/48 & 56.03 & 978.972 & 0.4566 & 24.0126 & 0.6922 & 0.4589 \\
+lambda3 & Bellman 10102 & 41/48 & 68.03 & 727.063 & 0.3415 & 24.2152 & 0.5803 & 0.3439 \\
+lambda3 & Bellman 10103 & 42/48 & 68.84 & 715.956 & 0.3334 & 24.4940 & 0.5750 & 0.3358 \\
+lambda3 & Monte Carlo 10101 & 35/48 & 46.20 & 1187.152 & 0.5563 & 4.3143 & 0.5939 & 0.5567 \\
+lambda3 & Monte Carlo 10102 & 35/48 & 54.98 & 1018.625 & 0.4779 & 4.3183 & 0.5163 & 0.4783 \\
+lambda3 & Monte Carlo 10103 & 34/48 & 49.78 & 1127.260 & 0.5284 & 4.4225 & 0.5673 & 0.5287 \\
+lambda3 & Unchanged 10101 & 35/48 & 61.03 & 888.254 & 0.4137 & 0.4155 & 0.4137 & 0.4136 \\
+lambda3 & Unchanged 10102 & 38/48 & 61.23 & 873.214 & 0.4068 & 0.4087 & 0.4068 & 0.4068 \\
+lambda3 & Unchanged 10103 & 34/48 & 54.73 & 1010.332 & 0.4730 & 0.4749 & 0.4730 & 0.4730 \\
+lambda3 & Analytic & 48/48 & 100.00 & 36.755 & 0.0120 & 0.0120 & 0.0120 & 0.0120 \\
+lambda4 & Bellman 10101 & 28/48 & 31.70 & 1504.305 & 0.7611 & 24.3171 & 0.9966 & 0.7634 \\
+lambda4 & Bellman 10102 & 38/48 & 51.74 & 1084.420 & 0.5356 & 24.4093 & 0.7743 & 0.5379 \\
+lambda4 & Bellman 10103 & 35/48 & 35.91 & 1428.016 & 0.7131 & 24.8737 & 0.9547 & 0.7155 \\
+lambda4 & Monte Carlo 10101 & 24/48 & 10.05 & 1970.707 & 0.9915 & 4.7494 & 1.0290 & 0.9918 \\
+lambda4 & Monte Carlo 10102 & 26/48 & 17.16 & 1818.984 & 0.9074 & 4.7478 & 0.9458 & 0.9078 \\
+lambda4 & Monte Carlo 10103 & 25/48 & 16.94 & 1823.246 & 0.9159 & 4.8101 & 0.9549 & 0.9163 \\
+lambda4 & Unchanged 10101 & 24/48 & 26.85 & 1614.853 & 0.8166 & 0.8184 & 0.8166 & 0.8165 \\
+lambda4 & Unchanged 10102 & 23/48 & 25.55 & 1657.290 & 0.8405 & 0.8424 & 0.8405 & 0.8405 \\
+lambda4 & Unchanged 10103 & 27/48 & 30.94 & 1521.408 & 0.7717 & 0.7735 & 0.7717 & 0.7717 \\
+lambda4 & Analytic & 48/48 & 100.00 & 57.666 & 0.0204 & 0.0204 & 0.0204 & 0.0204 \\
+lambda5 & Bellman 10101 & 28/48 & 36.40 & 1424.449 & 0.6790 & 24.2351 & 0.9146 & 0.6814 \\
+lambda5 & Bellman 10102 & 33/48 & 48.18 & 1172.284 & 0.5524 & 24.4261 & 0.7911 & 0.5548 \\
+lambda5 & Bellman 10103 & 28/48 & 31.26 & 1527.315 & 0.7291 & 24.8897 & 0.9707 & 0.7315 \\
+lambda5 & Monte Carlo 10101 & 18/48 & 22.08 & 1715.438 & 0.8167 & 4.5746 & 0.8542 & 0.8170 \\
+lambda5 & Monte Carlo 10102 & 21/48 & 26.75 & 1610.417 & 0.7632 & 4.6036 & 0.8016 & 0.7635 \\
+lambda5 & Monte Carlo 10103 & 21/48 & 32.94 & 1482.616 & 0.7052 & 4.5994 & 0.7442 & 0.7056 \\
+lambda5 & Unchanged 10101 & 26/48 & 44.72 & 1227.590 & 0.5885 & 0.5904 & 0.5886 & 0.5885 \\
+lambda5 & Unchanged 10102 & 27/48 & 45.44 & 1206.120 & 0.5791 & 0.5810 & 0.5791 & 0.5791 \\
+lambda5 & Unchanged 10103 & 22/48 & 38.80 & 1353.574 & 0.6471 & 0.6489 & 0.6471 & 0.6470 \\
+lambda5 & Analytic & 48/48 & 100.00 & 42.871 & 0.0149 & 0.0149 & 0.0149 & 0.0149 \\
+\bottomrule
+\end{tabular}
+\par}
+Raw found is an unweighted count out of 48; success is mixture weighted. Controller cost includes initialization, public updates, branch/features, scalar prediction, choice and allocated deployment setup. Recorded journal I/O is excluded. H columns are accounting scenarios, not further searches.\par
+\end{landscape}\section{Training, accounting and evidence limits}
+Preparation took 0.713 s; the original worker interval was 3331.920 s. Paid fit time includes target generation. Separate parity, final scalar diagnostics and independent target auditing are excluded from fit time and retained in the complete execution ledger. The design matches optimizer updates, not total training compute.\par
+{\small\centering\par
+\begin{tabular}{lrrrrr}
+\toprule
+Fit & Fit s & TRAIN MSE & TRAIN MAE & VALID MSE & VALID MAE \\ \midrule
+Bellman 10101 & 23.435 & 0.11492 & 14.1 & 0.070626 & 11.996 \\
+Bellman 10102 & 23.753 & 0.11057 & 13.945 & 0.068333 & 11.952 \\
+Bellman 10103 & 24.040 & 0.11284 & 14.005 & 0.069163 & 11.927 \\
+Monte Carlo 10101 & 3.637 & 0.099308 & 14.085 & 0.082887 & 13.743 \\
+Monte Carlo 10102 & 3.720 & 0.099295 & 13.93 & 0.082527 & 13.526 \\
+Monte Carlo 10103 & 3.774 & 0.09907 & 13.816 & 0.081657 & 13.353 \\
+\bottomrule
+\end{tabular}
+\par}
+Final diagnostic MSE uses normalized remaining-return labels; MAE is in physical moves. Both continuation families are evaluated against the same original Monte Carlo labels here. These scalar errors are not policy competence, and optimization losses on different training targets are not interchangeable.\par
+The horizon accounting is $U+(L+P/6+D)/H$: $U$ is per-search controller work without deployment allocation, $L$ is continuation time, $P$ preparation, and $D$ head loading plus one ninth of shared module setup. Unchanged references have $L=P=0$; original training is a common prior investment. Analytic initialization is paid per search. These timings describe one local execution. Audit, presentation, and historical model-development costs are not hidden inside fit time or treated as deployment savings.\par
+Monte Carlo returns estimate the analytic teacher policy, not optimal costs. Backups use only teacher-visited states and signed values, without new exploration or output clipping. Coverage error, target noise and undiscounted bootstrapping remain possible. A passing pilot would justify further evaluation, not a novelty claim. Earlier unsuccessful studies and their gates remain unchanged.\par
+The saved-output audit made 64,603,745 comparisons and 1,281,880 local checkpoint-readout calls. It independently reconstructs public filtering, targets, scalar predictions, action choices, costs and aggregates without retraining or simulator calls. Optimizer trajectories, actual Torch execution, native RNG and timing truth remain authenticated producer evidence. This paper builder only formats those closed results.\par
+\subsection*{Evidence and restoration}
+The repository protocol is \path{research/otto-bellman-control-protocol.md}. Machine-readable family/stratum/block results, all checkpoints, original work journals, and independent readback are retained under \path{output/otto-bellman-control-v1/}. The accompanying \path{paper-values.json} retains every plotted value and condition. \path{receipt.json} binds this source, the authenticated inputs, and all staged artifacts. Compilation and visual review require a separate build record.\par
+{\footnotesize\begin{description}\par
+\item[plan] SHA256 \path{f8e62494bc67d7859824900f4599ea4c1f890d0ec13d2a43ca1ae679e41aac38}
+\item[terminal] SHA256 \path{29e5ed1eff3ac5b13f97a78727c60433291083bde6a87ee4cc5d4b247816eafb}
+\item[worker] SHA256 \path{279c8833419206f2abdcdf79b4ecb0ea75ae288d24e694feacf3196126d4c9c1}
+\item[audit] SHA256 \path{017fd3c77dd7252448d7829864b7710420fb1aa2a80bacda3b65b8198ee68e12}
+\item[audit\_summary] SHA256 \path{1e36988e5cfc125019d5152821b1878263d9c901100eae1b03fa1c9f2ec96ed6}
+\item[worker\_summary] SHA256 \path{c273c6be3e7d8c69db2e7a9886702b901eaafad9339387d9e974d8ed369af057}
+\end{description}}\clearpage\appendix\section{All frozen conditions}
+Every Bellman fit must achieve at least 95\% weighted success and at most 105\% of analytic moves in each setting. Against both learned controls, the Bellman family must preserve success, reduce moves by at least 5\%, improve at least six of eight paired blocks, and not increase controller cost. All 42 checks are required.\par
+The decisions below are copied from the authenticated independent audit. Display rounding never changes a gate. Success and block conditions use inclusive lower bounds; moves and controller-cost conditions use inclusive upper bounds.\par
+{\small\begin{longtable}{p{0.58\linewidth}rrl}\toprule Condition & Value & Bound & Result \\ \midrule\endhead\par
+lambda3.10101.success & 0.5603288 & 0.95 & FAIL \\
+lambda3.10101.moves & 978.9722 & 38.59317 & FAIL \\
+lambda3.10102.success & 0.6803183 & 0.95 & FAIL \\
+lambda3.10102.moves & 727.0626 & 38.59317 & FAIL \\
+lambda3.10103.success & 0.6883757 & 0.95 & FAIL \\
+lambda3.10103.moves & 715.9565 & 38.59317 & FAIL \\
+lambda4.10101.success & 0.3169959 & 0.95 & FAIL \\
+lambda4.10101.moves & 1504.305 & 60.54928 & FAIL \\
+lambda4.10102.success & 0.5174199 & 0.95 & FAIL \\
+lambda4.10102.moves & 1084.42 & 60.54928 & FAIL \\
+lambda4.10103.success & 0.3590757 & 0.95 & FAIL \\
+lambda4.10103.moves & 1428.016 & 60.54928 & FAIL \\
+lambda5.10101.success & 0.364039 & 0.95 & FAIL \\
+lambda5.10101.moves & 1424.449 & 45.01413 & FAIL \\
+lambda5.10102.success & 0.4818474 & 0.95 & FAIL \\
+lambda5.10102.moves & 1172.284 & 45.01413 & FAIL \\
+lambda5.10103.success & 0.3126258 & 0.95 & FAIL \\
+lambda5.10103.moves & 1527.315 & 45.01413 & FAIL \\
+lambda3.mc.success & 0.6430076 & 0.5032003 & PASS \\
+lambda3.mc.moves & 807.3304 & 1055.462 & PASS \\
+lambda3.mc.positive\_blocks & 8 & 6 & PASS \\
+lambda3.mc.controller\_cost & 0.3771917 & 0.5208658 & PASS \\
+lambda3.reference.success & 0.6430076 & 0.5899432 & PASS \\
+lambda3.reference.moves & 807.3304 & 877.7365 & PASS \\
+lambda3.reference.positive\_blocks & 6 & 6 & PASS \\
+lambda3.reference.controller\_cost & 0.3771917 & 0.4311782 & PASS \\
+lambda4.mc.success & 0.3978305 & 0.1471581 & PASS \\
+lambda4.mc.moves & 1338.913 & 1777.43 & PASS \\
+lambda4.mc.positive\_blocks & 6 & 6 & PASS \\
+lambda4.mc.controller\_cost & 0.6699134 & 0.9382635 & PASS \\
+lambda4.reference.success & 0.3978305 & 0.277811 & PASS \\
+lambda4.reference.moves & 1338.913 & 1517.958 & PASS \\
+lambda4.reference.positive\_blocks & 6 & 6 & PASS \\
+lambda4.reference.controller\_cost & 0.6699134 & 0.8095756 & PASS \\
+lambda5.mc.success & 0.3861707 & 0.2725729 & PASS \\
+lambda5.mc.moves & 1374.683 & 1522.683 & PASS \\
+lambda5.mc.positive\_blocks & 5 & 6 & FAIL \\
+lambda5.mc.controller\_cost & 0.6535175 & 0.7616856 & PASS \\
+lambda5.reference.success & 0.3861707 & 0.4299008 & FAIL \\
+lambda5.reference.moves & 1374.683 & 1199.307 & FAIL \\
+lambda5.reference.positive\_blocks & 5 & 6 & FAIL \\
+lambda5.reference.controller\_cost & 0.6535175 & 0.6049067 & FAIL \\
+\bottomrule\end{longtable}}\end{document}
