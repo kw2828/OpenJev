@@ -1,5 +1,8 @@
 # Olfactory search: a candidate for compact recurrent belief models
 
+Follow-up: the [sampled-source qualification and memory pilot](otto-memory-results.md)
+is complete. The source review below records the state before that execution.
+
 21 September 2026. Source review only. No environment import, simulator run,
 dependency installation, weight download or training has occurred. This is a
 candidate for a later experiment, not an admitted learning study or a new result.
