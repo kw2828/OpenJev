@@ -1,0 +1,87 @@
+{
+  "config": {
+    "all_twelve_verifications_required": true,
+    "calibration_dialogues": 512,
+    "dev_dialogues": 2363,
+    "estimator_dialogues": 64,
+    "fit_order": [
+      "frozen_original-6901",
+      "frozen_numbers-6901",
+      "trainable_original-6901",
+      "trainable_numbers-6901",
+      "frozen_original-6902",
+      "frozen_numbers-6902",
+      "trainable_original-6902",
+      "trainable_numbers-6902",
+      "frozen_original-6903",
+      "frozen_numbers-6903",
+      "trainable_original-6903",
+      "trainable_numbers-6903"
+    ],
+    "geometry_report_is_diagnostic": true,
+    "model_weight_updates": 0,
+    "official_test_opened": false,
+    "projection_admission_seconds": 1800,
+    "safety_factor": 2,
+    "sample_dialogues": 128,
+    "scientific_criteria_unchanged": 11,
+    "selection_salt": "openjev-calibration-runtime-v2:",
+    "verification_dialogues": 64,
+    "warmup_dialogues": 2
+  },
+  "created_utc": "2026-09-21T10:32:29.325438+00:00",
+  "environment": {
+    "numpy": "2.5.3",
+    "platform": "macOS-26.6.1-arm64-arm-64bit",
+    "python": "3.12.13",
+    "tokenizers": "0.23.2",
+    "torch": "2.14.0",
+    "transformers": "5.17.0"
+  },
+  "inputs": {
+    "output/dialogue-calibration-control-v1/plan.json": "e706e40cd4a0d95fb1536ce105074c071b57a6bc4652ec57b9243672542a413c",
+    "output/dialogue-calibration-control-v1/preparation-process-01.terminal.json": "9a3f54de5ee09259fdfafa9e569556fc51ff78c3bf7ea8b29842e9944aa05bd3",
+    "output/dialogue-calibration-control-v1/qualification-process-01.terminal.json": "b9ef0d20799f1e8a1fda7b565d57378a9bac7d7b3c53de5a48425d9bb6cf644b",
+    "runs/dialogue-calibration-control-v1/preparation-01/completed.json": "896099f38f7316f23e549d1271d81f90a2884028e6c0281dcf3c035b6ee286e9",
+    "runs/dialogue-calibration-control-v1/qualification-01/completed.json": "ca06666f1849a49c3e230f8a1fa6f485f5214dbdbe36c9f7fccde1a2cf2e2a94",
+    "scripts/supervise_dialogue_observation_v2.py": "610a2fcd2d4d55eb35bce92e61942d5169491dee9d05e2f47f65e211fdf94144",
+    "src/openjev/research/suspend_clock.py": "cac9077db3c66f5ef43d9412b732f5b869c1004c4bac98589816780c120f6124"
+  },
+  "limits": {
+    "infer": {
+      "mps_driver_bytes": 8589934592,
+      "output_bytes": 536870912,
+      "rss_bytes": 8589934592,
+      "wall_seconds": 3600
+    },
+    "pilot": {
+      "mps_driver_bytes": 8589934592,
+      "output_bytes": 536870912,
+      "rss_bytes": 8589934592,
+      "wall_seconds": 600
+    }
+  },
+  "outputs": {
+    "infer": "runs/dialogue-calibration-runtime-v2/inference-01",
+    "pilot": "runs/dialogue-calibration-runtime-v2/pilot-01"
+  },
+  "scope": "New prospective resource study after preserved failed V1 admission. Same twelve final checkpoints and512calibration cohort; no scientific-condition changes.",
+  "sources": {
+    "research/dialogue-calibration-runtime-v2-protocol.md": "84d9044a49714f784a8c58fd66f821bc58bb5151854542cdad345c30a6ae673e",
+    "scripts/dialogue_runtime_common.py": "7181367407d5197af85fe0fa75cb46f272d9acb1cd416ea76fdfd1a9554212d8",
+    "scripts/dialogue_runtime_geometry.py": "fdd506fcf1385fe4e721643d1b4c84be74a672c2422bb616bc4d26e884ed13d1",
+    "scripts/infer_dialogue_runtime.py": "bc60373d561e4d632b9c0aad2636cf317a7cf3dedd8fb5c442fb09c48a0723b5",
+    "scripts/pilot_dialogue_runtime.py": "3e92718d19bd89e99d8d867aa3488699505d5c69fa57cc683d563fdf6f5878df",
+    "src/openjev/research/dialogue_runtime_projection.py": "26b4208143e4a2e875438d6fcd7c86e25fc1c04a3dca37b9b60d89e1eba004b0",
+    "tests/test_dialogue_runtime_common.py": "0198c12a886c5921775188587a7b76c66cbb292891b6a208d73cb682ed14ce07",
+    "tests/test_dialogue_runtime_geometry.py": "6563e0d5474028a22d7b9a9854f07e6721b829590a5090f323fcdb3fabd5915b",
+    "tests/test_dialogue_runtime_projection.py": "345f83635a2e5dc3ad5a52223eba936a99e19f573b8cf4d97849fc1d6d523d4b",
+    "tests/test_infer_dialogue_runtime.py": "31549085f76f0addbe8589991f2cbe36c4f78969153d0bb8a8ed38be7b7693a7",
+    "tests/test_pilot_dialogue_runtime.py": "4047cd02ff73ad65b7ee87666fad5441d2371ddd2149ab62d2a7b100ae91eee3"
+  },
+  "synthetic_qualification": {
+    "path": "output/dialogue-calibration-runtime-v2/synthetic-qualification-01/receipt.json",
+    "sha256": "08651440f0586b9cec5e66faab299a2cb23050174c6c45505e9a9f7e99f193e8"
+  },
+  "version": "dialogue-calibration-runtime-v2"
+}
