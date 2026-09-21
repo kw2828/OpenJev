@@ -1,0 +1,54 @@
+{
+  "delta": "Production comments explain intentional broad failure-preservation catches; test lambda returning emptydict replaced with dict. No production arithmetic/lifecycle change.",
+  "phases": [
+    {
+      "command": [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_otto_return_consistency.py",
+        "-k",
+        "failure_preservation_and_late_completion_demoted"
+      ],
+      "elapsed_perf_counter_seconds": 0.29817495797760785,
+      "log": {
+        "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-return-consistency-v1/engineering-01/qualification-02/pytest.log",
+        "sha256": "870377e1e64ea4dfd505d58d206a2375dcec1596fba30e312fa21a9760821c8c"
+      },
+      "phase": "pytest",
+      "returncode": 0,
+      "timed_out": false
+    },
+    {
+      "command": [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/python",
+        "-m",
+        "ruff",
+        "check",
+        "scripts/diagnose_otto_return_consistency.py",
+        "tests/test_otto_return_consistency.py"
+      ],
+      "elapsed_perf_counter_seconds": 0.0787288339342922,
+      "log": {
+        "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-return-consistency-v1/engineering-01/qualification-02/ruff.log",
+        "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+      },
+      "phase": "ruff",
+      "returncode": 0,
+      "timed_out": false
+    }
+  ],
+  "prior_receipt": {
+    "path": "output/otto-return-consistency-v1/engineering-01/qualification-01/receipt.json",
+    "sha256": "5b8625fd20e4b4b084aeb846e5a8939882f7da77b60572d2e88c376954811eae"
+  },
+  "python_executable": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/python",
+  "python_version": "3.12.13",
+  "scope": "Three affected synthetic lifecycle fixtures plus lint only; no real diagnostic, model or simulator calls",
+  "sources": {
+    "scripts/diagnose_otto_return_consistency.py": "5fe0e5d242862cb3edacfb9c12b63d4c2c5da515129be91e3151979dad8f12cc",
+    "tests/test_otto_return_consistency.py": "11980d186de88b90d313a3ebb678b68ce1959c07f0ffe67d6d9203ef33f48eb6"
+  },
+  "status": "passed"
+}

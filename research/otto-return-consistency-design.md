@@ -6,7 +6,7 @@ Status: proposed descriptive protocol, outside the frozen scalar-return study. R
 
 Include **all 144 existing parity rows**: `min8`, `mlp8` and `homogeneous8`, each with fitting seeds 10101, 10102 and 10103, on the first eight TRAIN and first eight VALID rows. Require that exact Cartesian product. Retain all sixteen action/observation branches, including blocked-action scores and zero-raw-mass branches. Do not select a subset by outcome or error.
 
-These are **16 mechanically selected parity prefixes**, not representative validation coverage. Only eight are VALID prefixes, versus 1,109 states in the complete validation set. Prefixes can share episodes and public states; neither 144 model-prefix rows nor 16 prefixes are independent evaluation episodes.
+These are **16 mechanically selected parity prefixes**, not representative validation coverage. All are steps 0 through 7 of exactly two length-three, initial-hit-one teacher episodes: TRAIN `train:lambda3:910001:teacher` (79 total steps) and VALID `valid:lambda3:930001:teacher` (14 total steps). No length-four/five settings, other initial-hit strata, or later prefixes occur. Only eight are VALID prefixes, versus 1,109 states in the complete validation set. Neither 144 model-prefix rows nor 16 prefixes are independent evaluation episodes.
 
 ## Input authentication and teacher-action join
 
@@ -22,7 +22,7 @@ For each saved row:
 
 - `C = 64 * scalar_numpy`: predicted current physical cost.
 - `Y = 64 * metadata.target`: realized teacher return.
-- `p[a,h] = raw_masses[a,h]`, `w[a,h] = weights[a,h]`, `v[a,h] = values_numpy[4*a+h]`.
+- `p[a,h] = raw_masses[a,h]`, `w[a,h] = weights[a,h]`, `v[a,h] = values_numpy[4*a+h]`, already in physical cost units.
 - `b[a,h] = w[a,h]*v[a,h]`; reconstructed `Q[a] = 1 + sum_h b[a,h]`.
 
 Validate finite quantities, declared shapes, nonnegative raw masses and `w=max(p,1e-10)`. Compare reconstructed float64 costs with saved `costs_numpy` at the existing `atol=rtol=1e-10` bound and retain the differences. No renormalization, clipping, zero-branch suppression or model recomputation.
@@ -43,7 +43,7 @@ Check the contributions sum to the switching advantage within the same arithmeti
 
 Publish every joined row, branch record and input identity. Summaries may show signed mean, mean absolute and RMS return error and residuals, mean switching advantage and teacher-disagreement count, separately for every fit/split with its eight-prefix denominator. Retain all three seeds; any family mean equally averages them. No confidence intervals, significance tests or best-seed selection.
 
-Targets are noisy **Monte Carlo returns under the analytic teacher**, not optimal values, counterfactual action returns or branch labels. Lower current-state scalar error does not establish correct action ranking. Teacher-action residual measures internal consistency, not observed action-value error. Even an exact teacher value can have a nonzero greedy residual if switching improves the policy. Teacher disagreement is not automatically policy error.
+Targets are noisy **Monte Carlo returns under the analytic teacher**, not optimal values, counterfactual action returns or branch labels. Lower current-state scalar error does not establish correct action ranking. Residuals measure consistency of the deployed floored backup, not exact physical Bellman errors: subfloor branch inputs can be subnormalized and biased zero-input values are retained. Teacher-action residual measures internal consistency, not observed action-value error. Even an exact teacher value can have a nonzero greedy residual if switching improves the policy. Teacher disagreement is not automatically policy error.
 
 A common inconsistency would motivate examining shared targets and branch coverage; a min8-specific pattern would motivate a matched representation-versus-coverage question. Neither identifies causation or an architecture limitation from sixteen selected prefixes. Full VALID branch analysis would require separately scoped checkpoint inference.
 

@@ -1,0 +1,53 @@
+BLE001 Do not catch blind exception: `BaseException`
+   --> scripts/diagnose_otto_return_consistency.py:457:16
+    |
+455 |             self.check()
+456 |             return 0
+457 |         except BaseException as error:
+    |                ^^^^^^^^^^^^^
+458 |             signal.setitimer(signal.ITIMER_REAL, 0)
+459 |             trace = traceback.format_exc()
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> scripts/diagnose_otto_return_consistency.py:464:20
+    |
+462 |                 if self.clock is not None and self.start is not None:
+463 |                     timing = (self.clock.now_ns() - self.start) / 1e9
+464 |             except Exception:
+    |                    ^^^^^^^^^
+465 |                 timing = None
+466 |             try:
+    |
+
+BLE001 Do not catch blind exception: `Exception`
+   --> scripts/diagnose_otto_return_consistency.py:473:20
+    |
+471 |                                     wall_seconds=timing, timing_available=timing is not None)
+472 |                 write(receipt, self.receipt)
+473 |             except Exception as preservation_error:
+    |                    ^^^^^^^^^
+474 |                 print(f'Failure preservation error: {preservation_error}', file=sys.stderr)
+475 |             print(trace, file=sys.stderr)
+    |
+
+PIE807 [*] Prefer `dict` over useless lambda
+   --> tests/test_otto_return_consistency.py:243:47
+    |
+241 |             return 100
+242 |     monkeypatch.setattr(d, 'load', lambda *_: SimpleNamespace(SuspendClock=FakeClock))
+243 |     monkeypatch.setattr(task, 'authenticate', lambda: {})
+    |                                               ^^^^^^^^^^
+244 |     def compute(_paths):
+245 |         if failure == 'arithmetic':
+    |
+help: Replace with `lambda` with `dict`
+    |
+242 |     monkeypatch.setattr(d, 'load', lambda *_: SimpleNamespace(SuspendClock=FakeClock))
+    -     monkeypatch.setattr(task, 'authenticate', lambda: {})
+243 +     monkeypatch.setattr(task, 'authenticate', dict)
+244 |     def compute(_paths):
+    |
+
+Found 4 errors.
+[*] 1 fixable with the `--fix` option.
