@@ -1,0 +1,58 @@
+{
+  "authenticated_audit_payloads": 2,
+  "authenticated_current_payloads": 44,
+  "authenticated_teacher_payloads": 41,
+  "error": "ValueError: sorted unique eligible actions",
+  "inputs": {
+    "audit_receipt": {
+      "bytes": 2139,
+      "path": "output/otto-return-value-v1/audit-01/receipt.json",
+      "sha256": "5900092b04a8707e446471544c01d3fa0fe4d27c37ca67212a13fa57cb883666"
+    },
+    "prior_receipt": {
+      "bytes": 26261,
+      "path": "output/otto-symmetry-head-v1/run-01/receipt.json",
+      "sha256": "afd3ed59c6fc907721ebebcff47c1342fc53e592ec14b190497c647cb8d26c62"
+    },
+    "study_plan": {
+      "bytes": 30050,
+      "path": "output/otto-return-value-v1/plan-01.json",
+      "sha256": "92df71d5e20ca48d8485bfa0a5f50bdf0e6e7a276c8e0c097bccd8e1c095aee2"
+    },
+    "terminal": {
+      "bytes": 1777,
+      "path": "output/otto-return-value-v1/run-process-01.terminal.json",
+      "sha256": "bbf0bdb8361134ad4d7ca87f690969a4c91a7d727754bf3adac92609e452b653"
+    },
+    "worker_receipt": {
+      "bytes": 32732,
+      "path": "output/otto-return-value-v1/run-01/receipt.json",
+      "sha256": "965cc3eee7c77ea64700137bda2961af1a259f1a98d15b54041f9530a7f66ac3"
+    }
+  },
+  "limits": {
+    "output_bytes": 67108864,
+    "rss_bytes": 2147483648,
+    "seconds": 180
+  },
+  "model_calls": 0,
+  "original_pilot_continuation": false,
+  "peak_rss_bytes": 38141952,
+  "plan_sha256": "7cbd760c5fffffbd566982716c13805c2abc86f9cc863308c3181dbd323b7231",
+  "policy_calls": 0,
+  "scope": "Descriptive saved arithmetic on 144 model-prefix rows from 16 mechanically selected prefixes in two lambda3/initial-hit1 teacher episodes, steps 0..7. No inference, posterior reconstruction, training, policy or simulator calls. Monte Carlo teacher returns are not optimal or counterfactual values. Floored-backup residuals measure internal consistency, not observed action-value error. Teacher disagreement is not automatically policy error. No efficacy gate or original decision change.",
+  "simulator_calls": 0,
+  "sources": {
+    "research/otto-return-consistency-design.md": "a0e836b444ef1ee04e0de069a18404ac573e6eea1e51f66a9e6366ba06986fda",
+    "scripts/diagnose_otto_return_consistency.py": "5fe0e5d242862cb3edacfb9c12b63d4c2c5da515129be91e3151979dad8f12cc",
+    "scripts/render_otto_return_value.py": "f390c890014fa97d269c13c7bd3621a982d23b3da987dbb32cb51dfaeabdf0f0",
+    "src/openjev/research/suspend_clock.py": "cac9077db3c66f5ef43d9412b732f5b869c1004c4bac98589816780c120f6124",
+    "tests/test_otto_return_consistency.py": "11980d186de88b90d313a3ebb678b68ce1959c07f0ffe67d6d9203ef33f48eb6"
+  },
+  "status": "failed",
+  "timing_available": true,
+  "traceback": "Traceback (most recent call last):\n  File \"/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/diagnose_otto_return_consistency.py\", line 447, in execute\n    self.compute(paths)\n  File \"/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/diagnose_otto_return_consistency.py\", line 416, in compute\n    teachers = teacher_join(transitions, metadata)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/diagnose_otto_return_consistency.py\", line 148, in teacher_join\n    after = packet(event['public'])\n            ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/diagnose_otto_return_consistency.py\", line 107, in packet\n    require(allowed(value['valid_actions']) == actions, 'public movement eligibility')\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/diagnose_otto_return_consistency.py\", line 75, in allowed\n    require(type(value) is list and value and all(type(a) is int and 0 <= a < 4 for a in value)\n  File \"/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/diagnose_otto_return_consistency.py\", line 45, in require\n    raise ValueError(message)\nValueError: sorted unique eligible actions\n",
+  "training_calls": 0,
+  "version": "otto-return-consistency-v1",
+  "wall_seconds": 1.516841667
+}
