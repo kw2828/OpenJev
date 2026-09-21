@@ -41,14 +41,14 @@ local; manifests bind the complete 69-payload closure.
 ## Live execution
 
 The source and corrected plan were published in `6a93965` and `faf345d` before
-launch. Session **61998**, worker process group **41434**, is running. **Ten
+launch. Session **61998**, worker process group **41434**, is running. **Eleven
 of twelve fits have completed** all 1,280 updates and their final DEV pass:
 all four variants for seeds 6901 and 6902, plus both frozen-encoder variants
-for seed 6903.
+and the trainable-original variant for seed 6903.
 Their work counts, state checks and payload hashes match the frozen plan.
-All six frozen encoders are unchanged; all four trainable encoders'
+All six frozen encoders are unchanged; all five completed trainable encoders'
 fingerprints have changed. This confirms execution, not useful learning.
-The eleventh fit, `trainable_original-6903`, is training.
+The final fit, `trainable_numbers-6903`, is training.
 All 64 source hashes still match.
 The worker has authenticated and
 inherited the parent's absolute native-clock deadline. This is execution
@@ -105,6 +105,12 @@ progress only; predictions have not been decoded for task-quality scoring.
   Independent metadata review passed all 15 execution checks. All six
   frozen-encoder fits are now complete. The third seed's first trainable-encoder
   fit is running; the full comparison still requires both remaining fits.
+- [Eleventh completed-fit snapshot](../output/dialogue-observation-learning-v2/scientific-progress-12.json)
+  binds all eleven completed fits and the [third-seed trainable-original receipt](../output/dialogue-observation-learning-v2/scientific-run-01/trainable_original-6903/completed.json).
+  Independent metadata review passed all 15 execution checks. Work counts,
+  state checks, encoder change and raw payload hashes match the frozen plan.
+  The final fit has started. Task quality remains unscored until all twelve
+  fits and the complete saved-result audits finish.
 - [Compute context](../output/dialogue-observation-learning-v2/compute-prelaunch-01.json)
   records released prior worker groups and background demo services. These are
   not isolated hardware latency measurements.
