@@ -1,0 +1,48 @@
+{
+  "scope": "New V2 reporter synthetic correctness only; no real arrays, labels, models or native timer calls. Historical lineage is synthetic in controller fixture; failure/source lineage separately tested.",
+  "environment": {
+    "PYTHONPATH": "src:scripts",
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1"
+  },
+  "cwd": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev",
+  "source_sha256_before": {
+    "scripts/report_dialogue_observation_v2.py": "8254df8f1973c02810d1fc34034a8546d02042d8067214f0de19e0e3ae21c4be",
+    "tests/test_report_dialogue_observation_v2.py": "fdbeb4e932c785d361f4128e5b13fadd5097f925513dd8a92295f44f91bf3daa"
+  },
+  "source_sha256_after": {
+    "scripts/report_dialogue_observation_v2.py": "8254df8f1973c02810d1fc34034a8546d02042d8067214f0de19e0e3ae21c4be",
+    "tests/test_report_dialogue_observation_v2.py": "fdbeb4e932c785d361f4128e5b13fadd5097f925513dd8a92295f44f91bf3daa"
+  },
+  "timeout_seconds_per_command": 60,
+  "attempts": [
+    {
+      "command": [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_report_dialogue_observation_v2.py"
+      ],
+      "exit_code": 1,
+      "stdout": "............................................F..                          [100%]\n=================================== FAILURES ===================================\n_______________ test_post_receipt_suspend_expiry_demotes_success _______________\n\nstudy = namespace(args=namespace(run=PosixPath('/private/var/folders/57/43njbt192fgcplwy_cxy07ch0000gn/T/pytest-of-kevinwu/pyt...e/var/folders/57/43njbt192fgcplwy_cxy07ch0000gn/T/pytest-of-kevinwu/pytest-1477/test_post_receipt_suspend_expi0/repo'))\nmonkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10746e390>\n\n    def test_post_receipt_suspend_expiry_demotes_success(study, monkeypatch):\n        from openjev.research.suspend_clock import SuspendClock\n        values = iter([0, 0, 0, 300_000_000_000])\n        monkeypatch.setattr(r, \"SuspendClock\", lambda: SuspendClock(lambda: next(values)))\n        with pytest.raises(ValueError, match=\"wall/RSS\"):\n            r.execute(study.args)\n        assert not (study.args.out / \"receipt.json\").exists()\n>       assert (study.args.out / \"invalid-receipt.json\").exists()\nE       AssertionError: assert False\nE        +  where False = exists()\nE        +    where exists = (PosixPath('/private/var/folders/57/43njbt192fgcplwy_cxy07ch0000gn/T/pytest-of-kevinwu/pytest-1477/test_post_receipt_suspend_expi0/repo/report') / 'invalid-receipt.json').exists\nE        +      where PosixPath('/private/var/folders/57/43njbt192fgcplwy_cxy07ch0000gn/T/pytest-of-kevinwu/pytest-1477/test_post_receipt_suspend_expi0/repo/report') = namespace(run=PosixPath('/private/var/folders/57/43njbt192fgcplwy_cxy07ch0000gn/T/pytest-of-kevinwu/pytest-1477/test_p...suspend_expi0/repo/terminal.json'), terminal_sha256='0b2a0c54dff73eedceecb22a02b5c7dac39089a2156ebcfac0c5c4e723abcf33').out\nE        +        where namespace(run=PosixPath('/private/var/folders/57/43njbt192fgcplwy_cxy07ch0000gn/T/pytest-of-kevinwu/pytest-1477/test_p...suspend_expi0/repo/terminal.json'), terminal_sha256='0b2a0c54dff73eedceecb22a02b5c7dac39089a2156ebcfac0c5c4e723abcf33') = namespace(args=namespace(run=PosixPath('/private/var/folders/57/43njbt192fgcplwy_cxy07ch0000gn/T/pytest-of-kevinwu/pyt...e/var/folders/57/43njbt192fgcplwy_cxy07ch0000gn/T/pytest-of-kevinwu/pytest-1477/test_post_receipt_suspend_expi0/repo')).args\n\ntests/test_report_dialogue_observation_v2.py:439: AssertionError\n=========================== short test summary info ============================\nFAILED tests/test_report_dialogue_observation_v2.py::test_post_receipt_suspend_expiry_demotes_success\n1 failed, 46 passed in 1.39s\n",
+      "stderr": "",
+      "wall_seconds": 1.764659791951999
+    },
+    {
+      "command": [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/ruff",
+        "check",
+        "scripts/report_dialogue_observation_v2.py",
+        "tests/test_report_dialogue_observation_v2.py"
+      ],
+      "exit_code": 0,
+      "stdout": "All checks passed!\n",
+      "stderr": "",
+      "wall_seconds": 0.04308766685426235
+    }
+  ]
+}

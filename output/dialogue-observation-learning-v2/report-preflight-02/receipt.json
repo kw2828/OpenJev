@@ -1,0 +1,49 @@
+{
+  "scope": "Only failed synthetic expiry fixture rerun after adding constructor-read tick; production source unchanged. No real artifacts or native clocks.",
+  "prior_receipt_sha256": "ce9e4ebfb49726d70f75a229be191ac52eed65fb9e5008e97e9ff96ac2975894",
+  "environment": {
+    "PYTHONPATH": "src:scripts",
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1"
+  },
+  "cwd": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev",
+  "source_sha256_before": {
+    "scripts/report_dialogue_observation_v2.py": "8254df8f1973c02810d1fc34034a8546d02042d8067214f0de19e0e3ae21c4be",
+    "tests/test_report_dialogue_observation_v2.py": "409afa9e97ade1bf948d1036b92d5a2e6a2f82d9c89fcb2f4048eec486785497"
+  },
+  "source_sha256_after": {
+    "scripts/report_dialogue_observation_v2.py": "8254df8f1973c02810d1fc34034a8546d02042d8067214f0de19e0e3ae21c4be",
+    "tests/test_report_dialogue_observation_v2.py": "409afa9e97ade1bf948d1036b92d5a2e6a2f82d9c89fcb2f4048eec486785497"
+  },
+  "timeout_seconds_per_command": 60,
+  "attempts": [
+    {
+      "command": [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_report_dialogue_observation_v2.py::test_post_receipt_suspend_expiry_demotes_success"
+      ],
+      "exit_code": 0,
+      "stdout": ".                                                                        [100%]\n1 passed in 0.22s\n",
+      "stderr": "",
+      "wall_seconds": 0.3938490420114249
+    },
+    {
+      "command": [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/ruff",
+        "check",
+        "scripts/report_dialogue_observation_v2.py",
+        "tests/test_report_dialogue_observation_v2.py"
+      ],
+      "exit_code": 0,
+      "stdout": "All checks passed!\n",
+      "stderr": "",
+      "wall_seconds": 0.01729808305390179
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "command": [
+    ".venv/bin/ruff",
+    "check",
+    "scripts/supervise_dialogue_observation_v2.py",
+    "tests/test_supervise_dialogue_observation_v2.py"
+  ],
+  "command_ended_utc": "2026-09-21T03:49:06.645174+00:00",
+  "command_started_utc": "2026-09-21T03:49:06.604337+00:00",
+  "command_wall_seconds": 0.04073858284391463,
+  "cwd": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev",
+  "exit_code": 0,
+  "files": {
+    "native-smoke/native.launch.json": {
+      "bytes": 1251,
+      "sha256": "53a99cd16fca76ccef7515826f5ca6ce3e65a80785ccd1ff5c67f34c08ae4902"
+    },
+    "native-smoke/native.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "native-smoke/native.terminal.json": {
+      "bytes": 1815,
+      "sha256": "c42007e6b71cbed98afce810efce7020495b748fc16ae856fa6a760e708d5f0b"
+    },
+    "ruff.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "started.json": {
+      "bytes": 2101,
+      "sha256": "10429702d1dc194795030d8dad96f01efb8db574ca2b60c370a5fa874a4d9a59"
+    }
+  },
+  "native_smoke_original": {
+    "native_smoke_command": [
+      "/usr/bin/caffeinate",
+      "-i",
+      "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/python",
+      "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/supervise_dialogue_observation_v2.py",
+      "--prefix",
+      "/private/var/folders/57/43njbt192fgcplwy_cxy07ch0000gn/T/pytest-of-kevinwu/pytest-1475/test_native_noop_process_smoke0/native",
+      "--cap-seconds",
+      "5",
+      "--",
+      "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/python",
+      "-c",
+      "\nimport json, os, pathlib, sys, time\np=pathlib.Path(sys.argv[sys.argv.index('--supervision')+1])\nend=time.monotonic()+5\nwhile not p.exists():\n    if time.monotonic()>=end: raise TimeoutError('launch not published')\n    time.sleep(.005)\nv=json.loads(p.read_text())\nassert v['pid']==v['pgid']==os.getpid()==os.getpgrp()\nassert v['parent_pid']==os.getppid()\nassert v['deadline_ns']==v['started_ns']+v['cap_seconds']*1_000_000_000\n",
+      "--supervision",
+      "/private/var/folders/57/43njbt192fgcplwy_cxy07ch0000gn/T/pytest-of-kevinwu/pytest-1475/test_native_noop_process_smoke0/native.launch.json"
+    ],
+    "wrapper_absent": true,
+    "wrapper_exit_code": 0,
+    "wrapper_pid": 40099
+  },
+  "prior_receipt_sha256": "435041890396ddea45ce6a5a7f2ff57a41dd21e2dbacd4beb68d649483eaddac",
+  "production_ast_unchanged": true,
+  "scope": "Lint-only follow-up, no repeated test/model/native smoke; original native smoke receipts copied for preservation.",
+  "source_after_sha256": "610a2fcd2d4d55eb35bce92e61942d5169491dee9d05e2f47f65e211fdf94144",
+  "source_before_sha256": "621925d3db2727ab645253d8f8cb2b545b1a165bea43db41a66848d33a6f3a27",
+  "sources_unchanged": true,
+  "started_utc": "2026-09-21T03:48:44.420326+00:00",
+  "status": "completed",
+  "test_delta": "One set(generator) assertion changed to set comprehension; no tested behavior or test cases changed.",
+  "tests_after_sha256": "6e20f01b391ae8e959d66dfcc324c77b3d9fef6331c6d413372275423e890007",
+  "tests_before_sha256": "9c8a9310390aac528f5db148206cdffa0d6659953e2d6d3e6100d2c9798b0b09",
+  "thread_environment": {
+    "MKL_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONPATH": "src",
+    "VECLIB_MAXIMUM_THREADS": "1"
+  },
+  "wall_cap_seconds": 60
+}

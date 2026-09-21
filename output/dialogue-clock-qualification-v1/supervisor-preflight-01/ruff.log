@@ -1,0 +1,71 @@
+RUF100 [*] Unused `noqa` directive (non-enabled: `E402`)
+  --> scripts/supervise_dialogue_observation_v2.py:22:45
+   |
+20 | ROOT = Path(__file__).resolve().parents[1]
+21 | sys.path.insert(0, str(ROOT / "src"))
+22 | from openjev.research import suspend_clock  # noqa: E402
+   |                                             ^^^^^^^^^^^^
+23 |
+24 | VERSION = "dialogue-observation-supervision-v2"
+   |
+help: Remove unused `noqa` directive
+   |
+21 | sys.path.insert(0, str(ROOT / "src"))
+   - from openjev.research import suspend_clock  # noqa: E402
+22 + from openjev.research import suspend_clock
+23 |
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> scripts/supervise_dialogue_observation_v2.py:74:16
+   |
+72 |         try:
+73 |             return group_exists(process.pid)
+74 |         except Exception as error:
+   |                ^^^^^^^^^
+75 |             record["errors"].append(f"group check: {error!r}")
+76 |             return True
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> scripts/supervise_dialogue_observation_v2.py:84:16
+   |
+82 |         except ProcessLookupError:
+83 |             pass
+84 |         except Exception as error:
+   |                ^^^^^^^^^
+85 |             record["errors"].append(f"signal {sig}: {error!r}")
+   |
+
+BLE001 Do not catch blind exception: `Exception`
+  --> scripts/supervise_dialogue_observation_v2.py:93:16
+   |
+91 |         except subprocess.TimeoutExpired:
+92 |             pass
+93 |         except Exception as error:
+   |                ^^^^^^^^^
+94 |             record["errors"].append(f"reap: {error!r}")
+   |
+
+BLE001 Do not catch blind exception: `BaseException`
+   --> scripts/supervise_dialogue_observation_v2.py:181:16
+    |
+179 |             timed_out = True
+180 |             error = repr(caught)
+181 |         except BaseException as caught:
+    |                ^^^^^^^^^^^^^
+182 |             error = repr(caught)
+183 |         finally:
+    |
+
+C401 Unnecessary generator (rewrite as a set comprehension)
+  --> tests/test_supervise_dialogue_observation_v2.py:91:12
+   |
+89 |     assert result["group_absent"] and result["cleanup"]["reaped"]
+90 |     assert fake.waits[0] <= 0.25
+91 |     assert set(p.name for p in tmp_path.iterdir()) == {"run.log", "run.launch.json", "run.terminal.json"}
+   |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+help: Rewrite as a set comprehension
+
+Found 6 errors.
+[*] 1 fixable with the `--fix` option (1 hidden fix can be enabled with the `--unsafe-fixes` option).

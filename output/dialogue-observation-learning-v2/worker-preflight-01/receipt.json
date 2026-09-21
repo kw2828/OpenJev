@@ -1,0 +1,56 @@
+{
+  "scope": "Injected-clock and tiny CPU synthetic routes only; no prepared data/model assets, MPS, scientific freeze or train",
+  "python": "3.12.13 (main, Jul 23 2026, 14:33:47) [Clang 22.1.3 ]",
+  "platform": "macOS-26.6.1-arm64-arm-64bit",
+  "source_before": {
+    "scripts/study_dialogue_observation_v2.py": "43fb575f0f295befcad0b443de9810b308e7c1c69e54d1d0b7bd4c9e5f85da6b",
+    "tests/test_study_dialogue_observation_v2.py": "4972851bd8b5d6f050d736bdd59aa4555ff3b37cf3e0ec983d5df8d3b6570533",
+    "scripts/study_dialogue_observation.py": "39fcc2eab126c146874ef9bd4045c2576c25a3ab77cc832c9244516659adbac0",
+    "tests/test_study_dialogue_observation.py": "360f94701895042f81a772a531c4e29c7b24bfcdcf61eeebd216da8722c7ee3e",
+    "src/openjev/research/suspend_clock.py": "cac9077db3c66f5ef43d9412b732f5b869c1004c4bac98589816780c120f6124"
+  },
+  "environment": {
+    "PYTHONPATH": "src:scripts:tests",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "TOKENIZERS_PARALLELISM": "false"
+  },
+  "commands": [
+    {
+      "argv": [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_study_dialogue_observation_v2.py"
+      ],
+      "exit_code": 0,
+      "stdout": "..........................................                               [100%]\n42 passed in 2.05s\n",
+      "stderr": "",
+      "wall_seconds": 2.480886915931478
+    },
+    {
+      "argv": [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/python",
+        "-m",
+        "ruff",
+        "check",
+        "scripts/study_dialogue_observation_v2.py",
+        "tests/test_study_dialogue_observation_v2.py"
+      ],
+      "exit_code": 1,
+      "stdout": "RUF100 [*] Unused `noqa` directive (unused: `BLE001`)\n   --> scripts/study_dialogue_observation_v2.py:662:41\n    |\n660 |             require(end >= started_ns, \"Terminal clock precedes worker start\")\n661 |             result.update(finished_ns=end, elapsed_ns=end - started_ns, wall_seconds=(end - started_ns) / 1e9)\n662 |         except BaseException as error:  # noqa: BLE001 - failed clock must not erase the original failure\n    |                                         ^^^^^^^^^^^^^^\n663 |             if not failure:\n664 |                 raise\n    |\nhelp: Remove unused `noqa` directive\n    |\n661 |             result.update(finished_ns=end, elapsed_ns=end - started_ns, wall_seconds=(end - started_ns) / 1e9)\n    -         except BaseException as error:  # noqa: BLE001 - failed clock must not erase the original failure\n662 +         except BaseException as error:\n663 |             if not failure:\n    |\n\nI001 [*] Import block is un-sorted or un-formatted\n  --> tests/test_study_dialogue_observation_v2.py:2:1\n   |\n 1 |   \"\"\"Artificial metadata and tiny CPU routes; no pretrained assets or real data.\"\"\"\n 2 | / from __future__ import annotations\n 3 | |\n 4 | | import copy\n 5 | | import ast\n 6 | | import json\n 7 | | from collections import Counter\n 8 | | from pathlib import Path\n 9 | | from types import SimpleNamespace\n10 | |\n11 | | import numpy as np\n12 | | import pytest\n13 | | import study_dialogue_observation_v2 as s\n14 | |\n15 | | from openjev.research.suspend_clock import ClockError, Deadline, SuspendClock\n   | |_____________________________________________________________________________^\nhelp: Organize imports\n  |\n3 |\n4 + import ast\n5 | import copy\n  - import ast\n6 | import json\n  |\n\nF401 [*] `openjev.research.suspend_clock.Deadline` imported but unused\n  --> tests/test_study_dialogue_observation_v2.py:15:56\n   |\n13 | import study_dialogue_observation_v2 as s\n14 |\n15 | from openjev.research.suspend_clock import ClockError, Deadline, SuspendClock\n   |                                                        ^^^^^^^^\nhelp: Remove unused import: `openjev.research.suspend_clock.Deadline`\n   |\n14 |\n   - from openjev.research.suspend_clock import ClockError, Deadline, SuspendClock\n15 + from openjev.research.suspend_clock import ClockError, SuspendClock\n16 |\n   |\n\nFound 3 errors.\n[*] 3 fixable with the `--fix` option.\n",
+      "stderr": "",
+      "wall_seconds": 0.0641108329873532
+    }
+  ],
+  "source_after": {
+    "scripts/study_dialogue_observation_v2.py": "43fb575f0f295befcad0b443de9810b308e7c1c69e54d1d0b7bd4c9e5f85da6b",
+    "tests/test_study_dialogue_observation_v2.py": "4972851bd8b5d6f050d736bdd59aa4555ff3b37cf3e0ec983d5df8d3b6570533",
+    "scripts/study_dialogue_observation.py": "39fcc2eab126c146874ef9bd4045c2576c25a3ab77cc832c9244516659adbac0",
+    "tests/test_study_dialogue_observation.py": "360f94701895042f81a772a531c4e29c7b24bfcdcf61eeebd216da8722c7ee3e",
+    "src/openjev/research/suspend_clock.py": "cac9077db3c66f5ef43d9412b732f5b869c1004c4bac98589816780c120f6124"
+  }
+}

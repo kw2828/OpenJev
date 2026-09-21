@@ -1,0 +1,21 @@
+{
+  "cap_seconds": 5,
+  "clock_backend": "mach_continuous_time",
+  "clock_source_sha256": "cac9077db3c66f5ef43d9412b732f5b869c1004c4bac98589816780c120f6124",
+  "command": [
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/python",
+    "-c",
+    "\nimport json, os, pathlib, sys, time\np=pathlib.Path(sys.argv[sys.argv.index('--supervision')+1])\nend=time.monotonic()+5\nwhile not p.exists():\n    if time.monotonic()>=end: raise TimeoutError('launch not published')\n    time.sleep(.005)\nv=json.loads(p.read_text())\nassert v['pid']==v['pgid']==os.getpid()==os.getpgrp()\nassert v['parent_pid']==os.getppid()\nassert v['deadline_ns']==v['started_ns']+v['cap_seconds']*1_000_000_000\n",
+    "--supervision",
+    "/private/var/folders/57/43njbt192fgcplwy_cxy07ch0000gn/T/pytest-of-kevinwu/pytest-1475/test_native_noop_process_smoke0/native.launch.json"
+  ],
+  "cwd": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev",
+  "deadline_ns": 1345389197054291,
+  "parent_pid": 40099,
+  "pgid": 40101,
+  "pid": 40101,
+  "started_ns": 1345384197054291,
+  "started_unix": 1789962478.532307,
+  "version": "dialogue-observation-supervision-v2",
+  "watchdog_sha256": "621925d3db2727ab645253d8f8cb2b545b1a165bea43db41a66848d33a6f3a27"
+}

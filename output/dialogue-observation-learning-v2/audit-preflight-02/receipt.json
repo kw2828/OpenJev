@@ -1,0 +1,53 @@
+{
+  "scope": "All tests using changed artificial complete-run fixture rerun after correcting root manifest to include nested fit completed.json. Production unchanged. No real artifacts or native clocks.",
+  "prior_receipt_sha256": "92d606babe01750ba2eff57cb02d24572a83afeeba0456db41dfad562850504e",
+  "environment": {
+    "PYTHONPATH": "src:scripts",
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1"
+  },
+  "cwd": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev",
+  "source_sha256_before": {
+    "output/dialogue-observation-learning-v2/result-audit-01/audit.py": "eb3c0839faf50741cd8175d40ee9631626402aed04cc0405d0151d8706b5dbef",
+    "output/dialogue-observation-learning-v2/result-audit-01/test_audit.py": "a782981c0b92f6796110c3eef31ff2b2c9656878f4cdefe7f6aa5b1c35cb5341"
+  },
+  "source_sha256_after": {
+    "output/dialogue-observation-learning-v2/result-audit-01/audit.py": "eb3c0839faf50741cd8175d40ee9631626402aed04cc0405d0151d8706b5dbef",
+    "output/dialogue-observation-learning-v2/result-audit-01/test_audit.py": "a782981c0b92f6796110c3eef31ff2b2c9656878f4cdefe7f6aa5b1c35cb5341"
+  },
+  "timeout_seconds_per_command": 60,
+  "attempts": [
+    {
+      "command": [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "output/dialogue-observation-learning-v2/result-audit-01/test_audit.py::test_full_synthetic_artifact_audit_matches_production_arithmetic",
+        "output/dialogue-observation-learning-v2/result-audit-01/test_audit.py::test_corruption_is_rejected_and_failure_preserved",
+        "output/dialogue-observation-learning-v2/result-audit-01/test_audit.py::test_new_envelope_failure_precedes_array_decode",
+        "output/dialogue-observation-learning-v2/result-audit-01/test_audit.py::test_clock_construction_failure_is_unavailable_not_zero",
+        "output/dialogue-observation-learning-v2/result-audit-01/test_audit.py::test_late_final_check_invalidates_success_receipt"
+      ],
+      "exit_code": 0,
+      "stdout": ".............                                                            [100%]\n13 passed in 1.33s\n",
+      "stderr": "",
+      "wall_seconds": 1.4677953328937292
+    },
+    {
+      "command": [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/ruff",
+        "check",
+        "output/dialogue-observation-learning-v2/result-audit-01/audit.py",
+        "output/dialogue-observation-learning-v2/result-audit-01/test_audit.py"
+      ],
+      "exit_code": 0,
+      "stdout": "All checks passed!\n",
+      "stderr": "",
+      "wall_seconds": 0.015257416991516948
+    }
+  ]
+}

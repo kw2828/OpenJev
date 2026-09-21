@@ -1,0 +1,36 @@
+PYI041 [*] Use `float` instead of `int | float`
+  --> src/openjev/research/suspend_clock.py:83:27
+   |
+83 | def _duration_ns(seconds: int | float) -> int:
+   |                           ^^^^^^^^^^^
+84 |     if type(seconds) is int:
+85 |         if seconds < 0:
+   |
+help: Remove redundant type
+   |
+82 |
+   - def _duration_ns(seconds: int | float) -> int:
+83 + def _duration_ns(seconds: float) -> int:
+84 |     if type(seconds) is int:
+   |
+
+PYI041 [*] Use `float` instead of `int | float`
+   --> src/openjev/research/suspend_clock.py:130:39
+    |
+128 |             return value
+129 |
+130 |     def deadline_after(self, seconds: int | float) -> Deadline:
+    |                                       ^^^^^^^^^^^
+131 |         duration = _duration_ns(seconds)
+132 |         start = self.now_ns()
+    |
+help: Remove redundant type
+    |
+129 |
+    -     def deadline_after(self, seconds: int | float) -> Deadline:
+130 +     def deadline_after(self, seconds: float) -> Deadline:
+131 |         duration = _duration_ns(seconds)
+    |
+
+Found 2 errors.
+[*] 2 fixable with the `--fix` option.
