@@ -1,0 +1,69 @@
+{
+  "scope": "synthetic qualification only; no native environments, inference, or training",
+  "created_at": "2026-09-21T12:50:20.413354+00:00",
+  "sources": {
+    "src/openjev/research/rocksample_particle_belief.py": "26d7006d760f9897e11cbf78482c9ec9b016477091bc2a39bda22ebcc30eb25f",
+    "src/openjev/research/rocksample_quality_belief.py": "484658ed0b7f3612fd6cf84920dfedb01d07df620fb50b5deba9f5217415fa4b",
+    "src/openjev/research/rocksample_memory_controls.py": "9c2deead4c9dc1c0cf640daa58e446590719cb242103e15e1ff0d60cf7203f0d",
+    "src/openjev/research/rocksample_route_planner.py": "e57098b2c197d656d4325f357d6af63eb618d2cc199ab672ea4dd24d392de9fa",
+    "scripts/study_rocksample_policy_value.py": "49821400fe38d027b6c40640c9f7d162b09a34f8833119aed8efd19b1c488dd8",
+    "tests/test_rocksample_particle_belief.py": "dd0bdafd576bd8c03b829fc230fb82fab6d14acf0fd3ecb9ea194a1f30596707",
+    "tests/test_rocksample_quality_belief.py": "31e073ac1af2784d9dfd52fb16ca7091e9454fbe1d5ab8adab4b7ee5cef770c9",
+    "tests/test_rocksample_memory_controls.py": "57fb041507a3c5a90bdd887e1a671f4d53cdb5a3a67e0ca4425a2870ac1eefb0",
+    "tests/test_rocksample_route_planner.py": "b219c90756e3e8153fb5de5c23755f7c55b0651fed041b8e8f930eb3e5e87f0c",
+    "tests/test_rocksample_policy_value.py": "34b10b5dddc56770b73c1463e14d7fc8d48d46361b62f9bdf82d9cc1252c3df8"
+  },
+  "commands": [
+    {
+      "command": [
+        ".venv/bin/ruff",
+        "check",
+        "src/openjev/research/rocksample_particle_belief.py",
+        "src/openjev/research/rocksample_quality_belief.py",
+        "src/openjev/research/rocksample_memory_controls.py",
+        "src/openjev/research/rocksample_route_planner.py",
+        "scripts/study_rocksample_policy_value.py",
+        "tests/test_rocksample_particle_belief.py",
+        "tests/test_rocksample_quality_belief.py",
+        "tests/test_rocksample_memory_controls.py",
+        "tests/test_rocksample_route_planner.py",
+        "tests/test_rocksample_policy_value.py"
+      ],
+      "returncode": 0,
+      "seconds": 0.032982375007122755,
+      "output": "qualification-00.log",
+      "output_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    {
+      "command": [
+        ".venv/bin/pytest",
+        "-q",
+        "tests/test_rocksample_particle_belief.py",
+        "tests/test_rocksample_quality_belief.py",
+        "tests/test_rocksample_memory_controls.py",
+        "tests/test_rocksample_route_planner.py",
+        "tests/test_rocksample_policy_value.py"
+      ],
+      "returncode": 0,
+      "seconds": 0.7330900421366096,
+      "output": "qualification-01.log",
+      "output_sha256": "fd9c0167939812600178eb667f257967da1a7ee2b894a56e35eaa104d605385a"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "returncode": 0,
+      "seconds": 0.015138708055019379,
+      "output": "qualification-02.log",
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "status": "completed",
+  "elapsed_seconds": 0.7817138340324163,
+  "native_environment_calls": 0,
+  "model_calls": 0,
+  "training_updates": 0
+}
