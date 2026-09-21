@@ -2,7 +2,7 @@
 
 This directory is a separate version of the matched twelve-fit comparison.
 The [fresh twelve-fit execution is now running](../../research/dialogue-observation-learning-v2-status.md).
-The [first nine fits have completed and the tenth is training](scientific-progress-10.json).
+The [first ten fits have completed and the eleventh is training](scientific-progress-11.json).
 Execution counts and payload hashes match; task quality remains unscored.
 The [first attempt remains failed](../../research/dialogue-observation-learning-timing-failure.md).
 Its five completed fits and partial sixth are not scored, resumed or used to

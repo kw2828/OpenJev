@@ -41,13 +41,14 @@ local; manifests bind the complete 69-payload closure.
 ## Live execution
 
 The source and corrected plan were published in `6a93965` and `faf345d` before
-launch. Session **61998**, worker process group **41434**, is running. **Nine
+launch. Session **61998**, worker process group **41434**, is running. **Ten
 of twelve fits have completed** all 1,280 updates and their final DEV pass:
-all four variants for seeds 6901 and 6902, plus `frozen_original-6903`.
+all four variants for seeds 6901 and 6902, plus both frozen-encoder variants
+for seed 6903.
 Their work counts, state checks and payload hashes match the frozen plan.
-All five frozen encoders are unchanged; all four trainable encoders'
+All six frozen encoders are unchanged; all four trainable encoders'
 fingerprints have changed. This confirms execution, not useful learning.
-The tenth fit, `frozen_numbers-6903`, is training.
+The eleventh fit, `trainable_original-6903`, is training.
 All 64 source hashes still match.
 The worker has authenticated and
 inherited the parent's absolute native-clock deadline. This is execution
@@ -99,6 +100,11 @@ progress only; predictions have not been decoded for task-quality scoring.
   Independent metadata review passed all 15 execution checks, including the
   unchanged frozen encoder and all live and frozen source hashes. The tenth
   fit is training; task quality remains unscored.
+- [Tenth completed-fit snapshot](../output/dialogue-observation-learning-v2/scientific-progress-11.json)
+  binds all ten completed fits and the [third-seed frozen-numbers receipt](../output/dialogue-observation-learning-v2/scientific-run-01/frozen_numbers-6903/completed.json).
+  Independent metadata review passed all 15 execution checks. All six
+  frozen-encoder fits are now complete. The third seed's first trainable-encoder
+  fit is running; the full comparison still requires both remaining fits.
 - [Compute context](../output/dialogue-observation-learning-v2/compute-prelaunch-01.json)
   records released prior worker groups and background demo services. These are
   not isolated hardware latency measurements.
