@@ -1,0 +1,43 @@
+{
+  "status": "completed",
+  "evidence_kind": "agent execution witness",
+  "scope": "Synthetic saved-output auditor checks only. No actual study outcomes, native environments or models were invoked.",
+  "raw_output_scope": "The actual tool outputs were observed in the agent conversation. No separate raw log files were saved. This witness records those outcomes without rerunning checks.",
+  "scientific_plan_membership": false,
+  "source_sha256": {
+    "scripts/audit_otto_spectral_control.py": "00a0f3ac73aab68892c7e8adaa10124ee40df4411a20bf970e6f6de7e0477aa7"
+  },
+  "checks": [
+    {
+      "kind": "pure synthetic self-check",
+      "interpreter": ".venv/bin/python",
+      "tool_chunk": "f53590",
+      "exit_code": 0,
+      "coverage": [
+        "Import guard forbids NumPy, SciPy, OTTO, Torch and JAX",
+        "Complete 1152-row synthetic cohort with independent unequal-stratum expectations of 17 and 23",
+        "All 40 compact-control and 16 utility conditions represented",
+        "Inclusive thresholds and strict nextafter failure boundaries",
+        "All 1536 paired candidate/control episode contrasts",
+        "Synthetic one-step source-found episode",
+        "Rejection of corrupted action, terminal update cost and found flag"
+      ],
+      "reported_output": "PASS: stdlib-only import; 1152-row unequal-stratum aggregation; 40+16 gate coverage and strict boundaries; 1536 paired contrasts; terminal/action/cost corruption checks.",
+      "test_count_scope": "This was an inline assertion-based check, not a pytest suite. No pytest test count or measured test runtime is claimed."
+    },
+    {
+      "kind": "lint and source hash",
+      "commands": [
+        ".venv/bin/python -m ruff check scripts/audit_otto_spectral_control.py",
+        "shasum -a 256 scripts/audit_otto_spectral_control.py"
+      ],
+      "tool_chunk": "b7753a",
+      "exit_code": 0,
+      "reported_output": "All checks passed! The recorded SHA256 matched the held source above."
+    }
+  ],
+  "environment_calls": 0,
+  "model_calls": 0,
+  "actual_study_audit_calls": 0,
+  "rerun_performed_to_write_witness": false
+}

@@ -66,9 +66,11 @@ Open **http://127.0.0.1:8000**. Local text scoring uses Qwen3-4B; the free brows
 
 ## Research results
 
-[Compact odor memory](research/otto-spectral-memory-results.md): **256 coefficients plus a support mask** reproduce **88.63-89.47%** of full-history decisions after 32 observations, versus recent-32's **60.93%**, across 538 saved prefixes. Evolving state is **80.79% smaller** than full Bayes, but computation is about **35% slower**. Averaging within all 96 cases favors recent-32; this is a classical compression tradeoff, with no new gameplay or trained-model advantage.
+[Autonomous compact odor memory](research/otto-spectral-control-results.md): **1,152 searches across two sensing regimes**. Both compact variants found every source, with mean search length within **2.83%** of full Bayes and **80.79% less evolving array state**. Controller computation rose **31-39%**. Both rules fail: **39/40 compact** and **8/16 utility-compute** checks passed. No trained architecture advantage is established.
 
-[![All twelve fixed-memory variants, both weighting views, belief error, retained state and complete computation](output/otto-spectral-memory-v1/figure-04/spectral-memory.png)](research/otto-spectral-memory-results.md)
+[![Preselected first case in each sensing regime, all six controllers](output/otto-spectral-control-v1/figure-01/first-cases.gif)](research/otto-spectral-control-results.md)
+
+The GIF replays two cases chosen before evaluation, with illustrative timing. [All-controller results](output/otto-spectral-control-v1/figure-01/spectral-control.png) · [Earlier saved-path comparison](research/otto-spectral-memory-results.md).
 
 The [original 768-search comparison](research/otto-large-memory-results.md) still fails its continuation rule: full history improves mean search time **41.13%**, but only **5/8 blocks** improve. A [saved-history diagnostic](research/otto-memory-evidence-results.md) traces 98% of the net gain to three cases. [Earlier 19x19 pilot](research/otto-memory-results.md).
 
