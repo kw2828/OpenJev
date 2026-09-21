@@ -62,7 +62,7 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 [All models and criteria](research/otto-capacity-results.md) · [Protocol](research/otto-capacity-protocol.md) · [Raw evidence](https://github.com/kw2828/OpenJev/releases/tag/otto-capacity-v1).
 
-The earlier [Bellman training comparison](research/otto-bellman-control-results.md) completed six fits and 1,440 searches, passing only **19/42** checks and failing every competence check. Its [paper](output/pdf/openjev-otto-bellman-control.pdf), [LaTeX](paper/otto-bellman-control.tex) and [recorded scalar-policy replay](research/otto-return-value-results.md) remain available. Further data-coverage work is proposed, not run.
+The earlier [Bellman training comparison](research/otto-bellman-control-results.md) completed six fits and 1,440 searches, passing only **19/42** checks and failing every competence check. Its [paper](output/pdf/openjev-otto-bellman-control.pdf), [LaTeX](paper/otto-bellman-control.tex) and [recorded scalar-policy replay](research/otto-return-value-results.md) remain available. The [coverage follow-up](research/otto-coverage-collection-results.md) collected all 72 training trajectories but stopped at an unmet sampling quota; no further training or evaluation ran.
 
 Earlier dialogue, RockSample, compact-memory and pretrained-policy comparisons are collected in the [experiment archive](research/experiment-index.md), including failed attempts, frozen criteria and independent audits. The separate [shared-prefix scoring experiment](research/shared-prefix-results.md) measured **2.08x** speedup on four-question synthetic workloads; single-question caching was slower. This does not reproduce a proprietary RLCD system.
 
