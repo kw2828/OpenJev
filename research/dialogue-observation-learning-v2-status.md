@@ -41,12 +41,14 @@ local; manifests bind the complete 69-payload closure.
 ## Live execution
 
 The source and corrected plan were published in `6a93965` and `faf345d` before
-launch. Session **61998**, worker process group **41434**, is running. The first
-two fits, `frozen_original-6901` and `frozen_numbers-6901`, have each completed
-all **1,280 updates** and their final DEV pass. Their work counts, state checks
-and payload hashes match the frozen plan; both frozen encoders are unchanged.
-The third fit, `trainable_original-6901`, has started. All 64 source hashes
-still match. The worker has authenticated and
+launch. Session **61998**, worker process group **41434**, is running. **Three
+of twelve fits have completed** all 1,280 updates and their final DEV pass:
+`frozen_original-6901`, `frozen_numbers-6901` and `trainable_original-6901`.
+Their work counts, state checks and payload hashes match the frozen plan.
+Both frozen encoders are unchanged; the trainable encoder's fingerprint has
+changed. This confirms execution, not useful learning. The fourth fit,
+`trainable_numbers-6901`, has started. All 64 source hashes still match.
+The worker has authenticated and
 inherited the parent's absolute native-clock deadline. This is execution
 progress only; predictions have not been decoded for task-quality scoring.
 
@@ -62,6 +64,10 @@ progress only; predictions have not been decoded for task-quality scoring.
 - [Second completed-fit snapshot](../output/dialogue-observation-learning-v2/scientific-progress-03.json)
   binds both completed fits, including the [number-corrected frozen-encoder receipt](../output/dialogue-observation-learning-v2/scientific-run-01/frozen_numbers-6901/completed.json),
   and records the start of training with a trainable encoder.
+- [Third completed-fit snapshot](../output/dialogue-observation-learning-v2/scientific-progress-04.json)
+  binds all three completed fits and the [first trainable-encoder receipt](../output/dialogue-observation-learning-v2/scientific-run-01/trainable_original-6901/completed.json).
+  The independent metadata review also verified its counts, state checks, raw
+  payload hashes and encoder change without decoding predictions or weights.
 - [Compute context](../output/dialogue-observation-learning-v2/compute-prelaunch-01.json)
   records released prior worker groups and background demo services. These are
   not isolated hardware latency measurements.
