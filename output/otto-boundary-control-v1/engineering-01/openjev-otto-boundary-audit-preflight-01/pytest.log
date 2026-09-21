@@ -1,0 +1,72 @@
+...............FF........                                                [100%]
+=================================== FAILURES ===================================
+______________ test_all_four_saved_episode_routes[analytic_all4] _______________
+
+m = <module 'boundary_audit_fake_test' from '/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/audit_otto_boundary_control.py'>
+old = <module 'reference_audit_test_fixtures' from '/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/tests/test_audit_otto_released_reference.py'>
+arm = 'analytic_all4'
+
+    @pytest.mark.parametrize('arm', ['released_tf', 'released_inbounds', 'analytic_all4', 'analytic_inbounds'])
+    def test_all_four_saved_episode_routes(m, old, arm):
+        identity = {**next(m.identities()), 'arm': arm}
+        row, trans, forwards, events, setup = episode(m, old, identity)
+        c, history = m.B.Comparisons(), []
+>       assert m.verify_episode(row, identity, iter(trans), iter(forwards), m.B.Journal(iter(events), c),
+                                old.kernel(), setup, np, c, {}, history) == 0.
+
+tests/test_audit_otto_boundary_control.py:177: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+scripts/audit_otto_boundary_control.py:95: in verify_episode
+    native, _ = journal.call('native_step', context)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts/audit_otto_released_reference.py:220: in call
+    self.c.equal(next(self.iterator), {'event': 'attempt', **identity}, 'durable ordered call attempt')
+scripts/audit_otto_released_reference.py:182: in equal
+    require(actual == expected, name)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ok = False, message = 'durable ordered call attempt'
+
+    def require(ok, message):
+        if not ok:
+>           raise ValueError(message)
+E           ValueError: durable ordered call attempt
+
+scripts/audit_otto_released_reference.py:47: ValueError
+____________ test_all_four_saved_episode_routes[analytic_inbounds] _____________
+
+m = <module 'boundary_audit_fake_test' from '/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/audit_otto_boundary_control.py'>
+old = <module 'reference_audit_test_fixtures' from '/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/tests/test_audit_otto_released_reference.py'>
+arm = 'analytic_inbounds'
+
+    @pytest.mark.parametrize('arm', ['released_tf', 'released_inbounds', 'analytic_all4', 'analytic_inbounds'])
+    def test_all_four_saved_episode_routes(m, old, arm):
+        identity = {**next(m.identities()), 'arm': arm}
+        row, trans, forwards, events, setup = episode(m, old, identity)
+        c, history = m.B.Comparisons(), []
+>       assert m.verify_episode(row, identity, iter(trans), iter(forwards), m.B.Journal(iter(events), c),
+                                old.kernel(), setup, np, c, {}, history) == 0.
+
+tests/test_audit_otto_boundary_control.py:177: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+scripts/audit_otto_boundary_control.py:95: in verify_episode
+    native, _ = journal.call('native_step', context)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+scripts/audit_otto_released_reference.py:220: in call
+    self.c.equal(next(self.iterator), {'event': 'attempt', **identity}, 'durable ordered call attempt')
+scripts/audit_otto_released_reference.py:182: in equal
+    require(actual == expected, name)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+ok = False, message = 'durable ordered call attempt'
+
+    def require(ok, message):
+        if not ok:
+>           raise ValueError(message)
+E           ValueError: durable ordered call attempt
+
+scripts/audit_otto_released_reference.py:47: ValueError
+=========================== short test summary info ============================
+FAILED tests/test_audit_otto_boundary_control.py::test_all_four_saved_episode_routes[analytic_all4]
+FAILED tests/test_audit_otto_boundary_control.py::test_all_four_saved_episode_routes[analytic_inbounds]
+2 failed, 23 passed in 0.41s
