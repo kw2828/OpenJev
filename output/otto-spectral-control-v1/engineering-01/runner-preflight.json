@@ -1,0 +1,33 @@
+{
+  "scope": "CPU1 fake/synthetic only; no OTTO imports or native episodes",
+  "sources": {
+    "scripts/study_otto_spectral_control.py": "4d1053769415c14c5a43eda52cd708485f5afe8681ba9d0e4bebc685f10e6fd2",
+    "tests/test_otto_spectral_control.py": "2af6de631cbfb01854353dda7ee8b161c15dffe998727d93a4a32df362b30192"
+  },
+  "attempts": [
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_otto_spectral_control.py"
+      ],
+      "returncode": 0,
+      "stdout": ".......................................                                  [100%]\n39 passed in 0.51s\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        ".venv/bin/ruff",
+        "check",
+        "scripts/study_otto_spectral_control.py",
+        "tests/test_otto_spectral_control.py"
+      ],
+      "returncode": 0,
+      "stdout": "All checks passed!\n",
+      "stderr": ""
+    }
+  ],
+  "elapsed_seconds": 0.7234271250199527
+}
