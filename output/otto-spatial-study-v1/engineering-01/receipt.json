@@ -1,0 +1,80 @@
+{
+  "scope": "Fabricated data and tiny synthetic training only; no scientific cache, simulator or empirical fitting",
+  "sources": {
+    "scripts/study_otto_spatial.py": "548c21ab961400313e8ff77697ea8a4ee78bffd0be29227506d0236c0cbbd212",
+    "scripts/freeze_otto_spatial.py": "9fb6ba27fc3e7263b65881a65e92ff5bf9d082765d28b7e0d8b879f92e34b36c",
+    "tests/test_otto_spatial_study.py": "9fdf8ce1a693893559dc9cf8d9762542d3b504f118f2dd701e9fb15949ba9333",
+    "src/openjev/research/otto_spatial_value.py": "1b57a7e46edd81ad3d8459af4d90bd2b8170f19a121ab7ef8a2b768ea706f857",
+    "research/otto-spatial-training-protocol.md": "e769ef142cce24aaf1ed66ea567f824b442cfd5305dd3a2d6ed2df42d4cee3bd"
+  },
+  "commands": [
+    [
+      ".venv/bin/python",
+      "-m",
+      "pytest",
+      "-q",
+      "tests/test_otto_spatial_study.py"
+    ],
+    [
+      ".venv/bin/python",
+      "-m",
+      "ruff",
+      "check",
+      "tests/test_otto_spatial_study.py",
+      "scripts/study_otto_spatial.py",
+      "scripts/freeze_otto_spatial.py"
+    ]
+  ],
+  "cpu_thread_environment": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1"
+  },
+  "timeout_per_command_seconds": 180,
+  "status": "failed",
+  "results": [
+    {
+      "name": "pytest",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_otto_spatial_study.py"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 2.074572917073965
+    },
+    {
+      "name": "ruff",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "ruff",
+        "check",
+        "tests/test_otto_spatial_study.py",
+        "scripts/study_otto_spatial.py",
+        "scripts/freeze_otto_spatial.py"
+      ],
+      "exit_code": 1,
+      "wall_seconds": 0.044412167044356465
+    }
+  ],
+  "sources_unchanged": true,
+  "files": {
+    "pytest.log": {
+      "bytes": 99,
+      "sha256": "a890dfc416668c571f15241e19209e093c4a7bee04cff939b257568fe3ddd003"
+    },
+    "ruff.log": {
+      "bytes": 1492,
+      "sha256": "309a607d10c0af24fbaca6fc9041d644a17b55478d3110d36d6e0de4350eaf8a"
+    },
+    "started.json": {
+      "bytes": 1261,
+      "sha256": "5448f003a716bb6572e069b727c1af8e1513c5f13a0ccbab9cf49fd124902ca9"
+    }
+  }
+}

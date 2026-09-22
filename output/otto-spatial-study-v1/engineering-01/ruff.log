@@ -1,0 +1,34 @@
+I001 [*] Import block is un-sorted or un-formatted
+   --> tests/test_otto_spatial_study.py:194:5
+    |
+192 |   def tiny_fit(tmp_path_factory):
+193 |       """Two epochs of fabricated rows exercise the actual five-family loop."""
+194 | /     import torch
+195 | |     from openjev.research import otto_spatial_value
+    | |___________________________________________________^
+196 |
+197 |       previous_threads = torch.get_num_threads()
+    |
+help: Organize imports
+    |
+194 |     import torch
+195 +
+196 |     from openjev.research import otto_spatial_value
+    |
+
+RUF024 Do not pass mutable objects as values to `dict.fromkeys`
+   --> tests/test_otto_spatial_study.py:326:23
+    |
+324 |               "independent_audit_limits": S.AUDIT_LIMITS,
+325 |               "sources": {**dict.fromkeys(S.NEW, "0"*64), S.BASE: S.BASE_PIN},
+326 |               "inputs": dict.fromkeys(("capacity_plan", "capacity_receipt", "capacity_terminal", "capacity_audit",
+    |  _______________________^
+327 | |                                       "train_data", "train_rows", "valid_data", "valid_rows", "qualification_weights"), {})}
+    | |___________________________________________________________________________________________________________________________^
+328 |       path = tmp_path/"plan.json"
+329 |       path.write_text(json.dumps(plan))
+    |
+help: Replace with comprehension
+
+Found 2 errors.
+[*] 1 fixable with the `--fix` option (1 hidden fix can be enabled with the `--unsafe-fixes` option).

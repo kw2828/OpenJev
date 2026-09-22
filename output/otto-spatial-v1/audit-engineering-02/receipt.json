@@ -1,0 +1,31 @@
+{
+  "agent_execution_witness": true,
+  "change": "Require all five audit thread environment variables equal1 before NumPy/model import; disclose threads in audit records.",
+  "created_utc": "2026-09-22T00:58:53.921649+00:00",
+  "prior_receipt": {
+    "path": "output/otto-spatial-v1/audit-engineering-01/receipt.json",
+    "sha256": "a153136b48f0ee1b8c92e273c2b662ec9ad748a2eceee73358bb467c454f0c21"
+  },
+  "pytest": {
+    "command": ".venv/bin/python -m pytest tests/test_audit_otto_spatial_study.py -q -k audit_rejects_unbounded_threads",
+    "exit_code": 0,
+    "stdout": ".                                                                        [100%]\n1 passed, 11 deselected in 0.09s\n",
+    "tests_deselected": 11,
+    "tests_passed": 1,
+    "tool_chunk": "34d4e0"
+  },
+  "qualified_cases_across_attempts": 12,
+  "ruff": {
+    "command": ".venv/bin/python -m ruff check scripts/audit_otto_spatial_study.py tests/test_audit_otto_spatial_study.py",
+    "exit_code": 0,
+    "stdout": "All checks passed!\n",
+    "tool_chunk": "b2f8fd"
+  },
+  "scope": "One new metadata-only CPU1 environment guard and its focused fixture. Previous eleven tests remain unchanged; no empirical arrays, model forwards, optimization or native environment calls.",
+  "source_sha256": {
+    "scripts/audit_otto_spatial_study.py": "55abea140c9273fba11f2a100021a0b4d0cf824c79e74bdffd4d00b248ebccf0",
+    "tests/test_audit_otto_spatial_study.py": "eef8581378b04657c057f74f8b49ca12d267b684773854ded4160a2b4819ee36"
+  },
+  "status": "completed",
+  "version": "otto-spatial-auditor-synthetic-witness-v2"
+}

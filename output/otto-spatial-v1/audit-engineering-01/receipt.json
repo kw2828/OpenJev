@@ -1,0 +1,34 @@
+{
+  "agent_execution_witness": true,
+  "created_utc": "2026-09-22T00:57:50.926826+00:00",
+  "preserved_prior_attempts": [
+    {
+      "exit_code": 1,
+      "finding": "PLC0206 in synthetic exported() fixture; use dictionary.items() instead of lookup inside key loop. Corrected before final test qualification.",
+      "kind": "draft Ruff",
+      "source_pin": "not recorded for this earlier draft",
+      "tool_chunk": "091862"
+    }
+  ],
+  "pytest": {
+    "command": "env OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 NUMEXPR_NUM_THREADS=1 .venv/bin/python -m pytest tests/test_audit_otto_spatial_study.py -q",
+    "exit_code": 0,
+    "reported_seconds": 0.09,
+    "stdout": "...........                                                              [100%]\n11 passed in 0.09s\n",
+    "tests_passed": 11,
+    "tool_chunk": "06f300"
+  },
+  "ruff": {
+    "command": ".venv/bin/python -m ruff check scripts/audit_otto_spatial_study.py tests/test_audit_otto_spatial_study.py",
+    "exit_code": 0,
+    "stdout": "All checks passed!\n",
+    "tool_chunk": "af5ac7"
+  },
+  "scope": "Synthetic saved-reader helper tests only; no empirical arrays, models, training or native environment execution. Tool stdout is transcribed as an agent execution witness, not a separately captured PTY log.",
+  "source_sha256": {
+    "scripts/audit_otto_spatial_study.py": "230a0f6c5f9875704d92b1e141e0140ddd58b4c35d6fc62e297733b724ab4c21",
+    "tests/test_audit_otto_spatial_study.py": "407403e34fbef3e91bd27fa3f1af7a526388a05bf4ca7ff414d448dc4f9a46c8"
+  },
+  "status": "completed",
+  "version": "otto-spatial-auditor-synthetic-witness-v1"
+}
