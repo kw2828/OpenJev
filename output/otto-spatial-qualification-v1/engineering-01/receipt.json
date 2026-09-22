@@ -1,0 +1,73 @@
+{
+  "scope": "Synthetic engineering only; no scientific caches, simulator, pretrained weights or real training data",
+  "sources": {
+    "src/openjev/research/otto_spatial_value.py": "1b57a7e46edd81ad3d8459af4d90bd2b8170f19a121ab7ef8a2b768ea706f857",
+    "tests/test_otto_spatial_value.py": "c860da7acce198e0abeecac9b859f4d1b374ad9b0f1c1fe6322ddb2369da12e1"
+  },
+  "commands": [
+    [
+      ".venv/bin/python",
+      "-m",
+      "pytest",
+      "-q",
+      "tests/test_otto_spatial_value.py"
+    ],
+    [
+      ".venv/bin/python",
+      "-m",
+      "ruff",
+      "check",
+      "tests/test_otto_spatial_value.py"
+    ]
+  ],
+  "cpu_thread_environment": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1"
+  },
+  "timeout_per_command_seconds": 180,
+  "status": "failed",
+  "results": [
+    {
+      "name": "pytest",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_otto_spatial_value.py"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 2.110776624875143
+    },
+    {
+      "name": "ruff",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "ruff",
+        "check",
+        "tests/test_otto_spatial_value.py"
+      ],
+      "exit_code": 1,
+      "wall_seconds": 0.08221695898100734
+    }
+  ],
+  "sources_unchanged": true,
+  "files": {
+    "pytest.log": {
+      "bytes": 99,
+      "sha256": "99d155a3cf6e0b7a0616d9fe7972f782b534a6999ea5c757be5d4b7efd58058e"
+    },
+    "started.json": {
+      "bytes": 853,
+      "sha256": "8992637f50c0ad7a09d5a507c56a82735c1850ec4e634d3ca97b87341b9a8ecf"
+    },
+    "ruff.log": {
+      "bytes": 1298,
+      "sha256": "c8e2cdd32a9ba2861eaaa53d17a8df3c5784b202ec2e213913e86206ecea9fc9"
+    }
+  }
+}

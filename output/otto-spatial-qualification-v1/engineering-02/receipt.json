@@ -1,0 +1,78 @@
+{
+  "scope": "Affected synthetic fixtures after two test-only style changes; no production numerical changes or scientific data",
+  "prior_attempt": "output/otto-spatial-qualification-v1/engineering-01",
+  "sources": {
+    "src/openjev/research/otto_spatial_value.py": "1b57a7e46edd81ad3d8459af4d90bd2b8170f19a121ab7ef8a2b768ea706f857",
+    "tests/test_otto_spatial_value.py": "4c0606b5322f131ac014b68c218c9080bf943e0c1aa416615658b22011ce30f7"
+  },
+  "commands": [
+    [
+      ".venv/bin/python",
+      "-m",
+      "pytest",
+      "-q",
+      "tests/test_otto_spatial_value.py",
+      "-k",
+      "local_rng_parameter_counts or spatial_shared_cell_head"
+    ],
+    [
+      ".venv/bin/python",
+      "-m",
+      "ruff",
+      "check",
+      "tests/test_otto_spatial_value.py"
+    ]
+  ],
+  "cpu_thread_environment": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1"
+  },
+  "timeout_per_command_seconds": 180,
+  "status": "passed",
+  "results": [
+    {
+      "name": "pytest",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_otto_spatial_value.py",
+        "-k",
+        "local_rng_parameter_counts or spatial_shared_cell_head"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 1.2171022498514503
+    },
+    {
+      "name": "ruff",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "ruff",
+        "check",
+        "tests/test_otto_spatial_value.py"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.04481375007890165
+    }
+  ],
+  "sources_unchanged": true,
+  "files": {
+    "pytest.log": {
+      "bytes": 113,
+      "sha256": "bf26926779d7f8d970d3db3d0c02da4ce5a73a46167a1c359f37fd7fe1beaebe"
+    },
+    "started.json": {
+      "bytes": 1015,
+      "sha256": "e461d003cb1c1f194dff75f29f2f9b6a9380687137a16d27c6489822d38de0b6"
+    },
+    "ruff.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    }
+  }
+}

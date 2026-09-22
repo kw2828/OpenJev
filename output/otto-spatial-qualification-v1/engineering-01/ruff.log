@@ -1,0 +1,35 @@
+PLC0206 Extracting value from dictionary without calling `.items()`
+   --> tests/test_otto_spatial_value.py:173:9
+    |
+171 |     exports = {}
+172 |     predictions = []
+173 |     for kind in COUNTS:
+    |         ^^^^^^^^^^^^^^
+174 |         head = m.make_head(kind, 419, .375)
+175 |         assert m.parameter_count(kind) == COUNTS[kind] == sum(p.numel() for p in head.parameters())
+    |                                           ------------
+176 |         assert all(p.dtype == torch.float32 and p.device.type == "cpu" for p in head.parameters())
+177 |         assert not head.c0.requires_grad
+    |
+help: Use `for kind, value in COUNTS.items()` instead
+
+PLR0402 [*] Use `from torch.nn import functional` in lieu of alias
+   --> tests/test_otto_spatial_value.py:254:12
+    |
+252 | def test_spatial_shared_cell_head_equals_ordinary_one_by_one_convolutions():
+253 |     import torch
+254 |     import torch.nn.functional as functional
+    |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+255 |
+256 |     centered, physical, pos, sensing = examples()
+    |
+help: Replace with `from torch.nn import functional`
+    |
+253 |     import torch
+    -     import torch.nn.functional as functional
+254 +     from torch.nn import functional
+255 |
+    |
+
+Found 2 errors.
+[*] 1 fixable with the `--fix` option.

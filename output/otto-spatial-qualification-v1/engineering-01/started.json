@@ -1,0 +1,31 @@
+{
+  "scope": "Synthetic engineering only; no scientific caches, simulator, pretrained weights or real training data",
+  "sources": {
+    "src/openjev/research/otto_spatial_value.py": "1b57a7e46edd81ad3d8459af4d90bd2b8170f19a121ab7ef8a2b768ea706f857",
+    "tests/test_otto_spatial_value.py": "c860da7acce198e0abeecac9b859f4d1b374ad9b0f1c1fe6322ddb2369da12e1"
+  },
+  "commands": [
+    [
+      ".venv/bin/python",
+      "-m",
+      "pytest",
+      "-q",
+      "tests/test_otto_spatial_value.py"
+    ],
+    [
+      ".venv/bin/python",
+      "-m",
+      "ruff",
+      "check",
+      "tests/test_otto_spatial_value.py"
+    ]
+  ],
+  "cpu_thread_environment": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1"
+  },
+  "timeout_per_command_seconds": 180
+}
