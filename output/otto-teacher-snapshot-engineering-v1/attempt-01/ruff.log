@@ -1,0 +1,27 @@
+I001 [*] Import block is un-sorted or un-formatted
+  --> src/openjev/research/otto_teacher_snapshot.py:7:1
+   |
+ 5 |   random stream, seed, model or hidden trajectory state is accepted or retained.
+ 6 |   """
+ 7 | / from __future__ import annotations
+ 8 | |
+ 9 | | from collections.abc import Mapping
+10 | |
+11 | | import numpy as np
+12 | |
+13 | | from openjev.research.otto_reference_control import SpaceAwareActor, _SpaceAwarePolicy
+14 | | from openjev.research.otto_released_policy import EPSILON, N, PUBLIC_FIELDS, PublicBeliefView, _packet
+   | |______________________________________________________________________________________________________^
+15 |
+16 |   VERSION = "otto-public-teacher-snapshot-v1"
+   |
+help: Organize imports
+   |
+13 | from openjev.research.otto_reference_control import SpaceAwareActor, _SpaceAwarePolicy
+   - from openjev.research.otto_released_policy import EPSILON, N, PUBLIC_FIELDS, PublicBeliefView, _packet
+14 + from openjev.research.otto_released_policy import EPSILON, PUBLIC_FIELDS, N, PublicBeliefView, _packet
+15 |
+   |
+
+Found 1 error.
+[*] 1 fixable with the `--fix` option.
