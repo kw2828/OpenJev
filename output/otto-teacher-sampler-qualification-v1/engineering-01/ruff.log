@@ -1,0 +1,23 @@
+BLE001 Do not catch blind exception: `BaseException`
+   --> scripts/qualify_otto_teacher_sampler.py:542:20
+    |
+540 |             try:
+541 |                 self.receipt["failure_elapsed_seconds"] = (self.clock.now_ns()-self.start)/1e9 if self.clock else None
+542 |             except BaseException as secondary:
+    |                    ^^^^^^^^^^^^^
+543 |                 self.receipt["failure_clock_error"] = repr(secondary)
+544 |             try:
+    |
+
+BLE001 Do not catch blind exception: `BaseException`
+   --> scripts/qualify_otto_teacher_sampler.py:550:20
+    |
+548 |                 self.receipt["files"] = {p.name: digest(p) for p in self.out.iterdir() if p.is_file()}
+549 |                 write(receipt_path, self.receipt)
+550 |             except BaseException as secondary:
+    |                    ^^^^^^^^^^^^^
+551 |                 error.add_note(f"Failure receipt publication failed: {secondary!r}")
+552 |             raise
+    |
+
+Found 2 errors.

@@ -17,4 +17,4 @@ The first captured attempt passed all 31 tests but failed Ruff's import-order ch
 
 All 219 frozen spatial-study source hashes remained unchanged before and after both attempts. No empirical inputs, native simulator calls, learned-model calls, training or label collection were used. Synthetic analytic choices are included in the test runtime. The later [completed spatial-control audit](otto-spatial-control-results.md) is separate evidence; these component tests do not replace it or admit another empirical study.
 
-The subsequent [paired rollout component](otto-teacher-rollouts-component.md) passes 54 fabricated tests for continuation and random-stream mechanics. Its native observation-generator qualification remains pending.
+The subsequent [paired rollout component](otto-teacher-rollouts-component.md) passes 54 fabricated tests for continuation and random-stream mechanics. Its [native generator comparison](otto-teacher-sampler-qualification-results.md) passed all 461 fixed cases, including 408 simulator steps.

@@ -1,6 +1,6 @@
 # Paired teacher continuations
 
-The [sampler](../src/openjev/research/otto_teacher_rollouts.py) passes **54 fabricated tests** and Ruff. It starts each candidate action from the same public belief and estimates the capped search cost of following that action with the fixed analytic teacher. Native observation-generator parity remains pending. No training labels, fitted models or improved task results are established by these checks.
+The [sampler](../src/openjev/research/otto_teacher_rollouts.py) passes **54 fabricated tests** and Ruff. It starts each candidate action from the same public belief and estimates the capped search cost of following that action with the fixed analytic teacher. A subsequent [native comparison](otto-teacher-sampler-qualification-results.md) passed all 461 fixed cases, including 408 simulator steps. No training labels, fitted models or improved task results are established by these checks.
 
 For each declared replicate, the sampler draws one hidden source from the supplied public posterior. All eligible first actions share that source and the same sequence of observation uniforms. Each action uses its own position-dependent probabilities, so shared uniforms can produce different observed hits. A separate source channel prevents observation draws from changing the sampled source. Seed, anchor and replicate identities are fixed-width uint32 values in an explicit PCG64 namespace.
 
@@ -20,4 +20,4 @@ The [tests](../tests/test_otto_teacher_rollouts.py) cover categorical boundaries
 
 All 219 frozen spatial-study source hashes remained unchanged before and after the run. There were zero native-simulator calls, learned-model calls, empirical-record reads, training calls or training-label collection calls. Analytic choices on synthetic states are included in the test runtime.
 
-The next requirement is a separately frozen comparison with the original observation generator. Even a passing mechanical qualification would leave the [learning comparison](otto-action-cost-followup.md) to be specified and evaluated separately.
+The separately frozen comparison with the original observation generator passed its fixed checklist. The [learning comparison](otto-action-cost-followup.md) remains to be specified and evaluated separately.
