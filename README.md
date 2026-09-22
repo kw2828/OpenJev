@@ -60,7 +60,7 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 [![Every 80-epoch and 320-epoch fit versus analytic control: success, capped moves and complete controller time](docs/assets/otto-training-budget.png)](research/otto-training-budget-results.md)
 
-On identical labels, final training error falls **11.4%** and the chosen-action cost gap against those labels falls **14.8%**. The independent saved-record audit agrees. These training gains do not establish an architecture advantage. [Next proposed diagnostic](research/otto-training-budget-next-decisions.md): measure conflicting labels at identical encoded inputs before allocating more training.
+On identical labels, final training error falls **11.4%** and the chosen-action cost gap against those labels falls **14.8%**. A [completed follow-up](research/otto-target-conflicts-results.md) finds that conflicting labels at identical inputs account for **67.4%** of the longer-trained models' remaining training loss. Both saved-data audits agree. These findings do not establish an architecture advantage.
 
 [Results and limits](research/otto-training-budget-results.md) · [Protocol](research/otto-training-budget-protocol.md) · [Evidence and checkpoints](https://github.com/kw2828/OpenJev/releases/tag/otto-training-budget-v1) · [Previous comparison](research/otto-target-precision-results.md).
 
