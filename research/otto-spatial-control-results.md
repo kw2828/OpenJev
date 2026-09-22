@@ -89,6 +89,7 @@ This result meets the condition in the earlier [action-cost follow-up proposal](
 | Numerical deployment prerequisite | [Qualification results](otto-spatial-control-qualification.md) |
 | Frozen producer and saved-output audit | [Runner](../scripts/study_otto_spatial_control.py), [auditor](../scripts/audit_otto_spatial_control.py) |
 | Lossless evidence and restore dependencies | [GitHub release](https://github.com/kw2828/OpenJev/releases/tag/otto-spatial-control-v1) |
+| Published release and all nine uploaded asset digests | [Live verification](../output/otto-spatial-control-v1/release-verification-01.json) |
 
 The verified archive retains **329 files, 3,867,523,040 original bytes**, in a **1,078,311,885-byte** gzip stream split into two ordered parts. The packer checked every restored member and the complete compressed stream. [Restore instructions](../output/otto-spatial-control-v1/archive-01/RESTORE.md) identify the separately preserved historical training-cache dependencies; [manifest](../output/otto-spatial-control-v1/archive-01/manifest.json), [archive receipt](../output/otto-spatial-control-v1/archive-01/receipt.json) and [original publication execution witness](../output/otto-spatial-control-v1/publication-execution-witness-01.json) preserve the packaging scope and tool completions. Packaging performed no model or simulator calls.
 
