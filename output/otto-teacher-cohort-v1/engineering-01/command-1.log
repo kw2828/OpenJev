@@ -1,0 +1,20 @@
+I001 [*] Import block is un-sorted or un-formatted
+   --> scripts/prepare_otto_teacher_cohort.py:172:9
+    |
+170 |           write(args.output / "started.json", {"started_ns": budget.start, "launch": launch,
+171 |                 "request": {k: str(v) for k, v in vars(args).items()}})
+172 | /         import numpy as np
+173 | |         from openjev.research import otto_teacher_cohort as helper
+    | |__________________________________________________________________^
+174 |           kernels = {}
+175 |           for regime in ("lambda3", "lambda4"):
+    |
+help: Organize imports
+    |
+172 |         import numpy as np
+173 +
+174 |         from openjev.research import otto_teacher_cohort as helper
+    |
+
+Found 1 error.
+[*] 1 fixable with the `--fix` option.

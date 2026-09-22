@@ -6,6 +6,8 @@ Outcome update: the [completed, audited comparison](otto-spatial-control-results
 
 Feasibility update: the separately frozen [six-state label pilot](otto-teacher-label-pilot-results.md) completed all 368 continuations in 6.67 seconds and passed independent saved-output review. It supports practical generation at those states, while near-tied costs and unresolved range-only bounds argue against hard winning-action labels. It admits no new fitting or architecture claim; a larger matched learning allocation still needs its own fixed cohort and complete cost budget.
 
+Cohort update: the [larger fixed selection](otto-teacher-cohort-results.md) qualifies all **558 states from 144 learner-TRAIN episodes**, including initial and late retained states, with independent audit agreement. No state was repaired or removed. The [common regression component](otto-cost-regression-component.md) also passes twelve fabricated tests. It gives both target families the same loss and preserves small continuation gaps through one global TRAIN scale. Larger label generation, fitting and fresh evaluation have not run.
+
 If every learned head fails competence while analytic control remains competent, the next useful question is whether better action labels improve the same ordinary policy. That outcome would reject the tested recipes, not prove that representation, state coverage or the learning target caused the failures. If an ordinary head is competent, retain it as the positive control for any later architecture comparison. If the original run does not complete and pass its independent audit, report the interruption before drawing either conclusion.
 
 Several nearby ideas have already been tried here:
