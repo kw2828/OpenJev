@@ -1,0 +1,44 @@
+{
+  "scope": "Synthetic seed-metadata parsing only; no scientific ledgers, arrays, models or environments",
+  "sources": {
+    "scripts/review_otto_spatial_seeds.py": "26a76692b38e3905bd31c9d0df25201416661cb6905919e2c89a25cd905e0cd4",
+    "tests/test_review_otto_spatial_seeds.py": "f92cae0e5db212f5ae6254559bcdff2f3a8dcb0efec7428145e139dd5efebdb2"
+  },
+  "results": [
+    {
+      "name": "pytest",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_review_otto_spatial_seeds.py"
+      ],
+      "exit_code": 1,
+      "wall_seconds": 0.3065734999254346
+    },
+    {
+      "name": "ruff",
+      "command": [
+        ".venv/bin/ruff",
+        "check",
+        "scripts/review_otto_spatial_seeds.py",
+        "tests/test_review_otto_spatial_seeds.py"
+      ],
+      "exit_code": 1,
+      "wall_seconds": 0.073264499893412
+    }
+  ],
+  "status": "failed",
+  "sources_unchanged": true,
+  "files": {
+    "pytest.log": {
+      "sha256": "8b51205761805da6972deb66e50166b73d45471cb72246c4206c6b239a47e7a5",
+      "bytes": 1893
+    },
+    "ruff.log": {
+      "sha256": "6b14e4139551de7dd93986cc283d36aa90dc2a9e8ea3a3aa395954979090b140",
+      "bytes": 988
+    }
+  }
+}

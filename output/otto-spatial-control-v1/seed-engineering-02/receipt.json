@@ -1,0 +1,47 @@
+{
+  "scope": "Affected inventory-path fixture after restricting filename wildcards, plus corrected import order",
+  "prior_attempt": "output/otto-spatial-control-v1/seed-engineering-01",
+  "sources": {
+    "scripts/review_otto_spatial_seeds.py": "7d5252c8cbc4c7a40f177b1563f0ae3c1b63bf7e087e213d3bcef32841b66a8f",
+    "tests/test_review_otto_spatial_seeds.py": "f92cae0e5db212f5ae6254559bcdff2f3a8dcb0efec7428145e139dd5efebdb2"
+  },
+  "results": [
+    {
+      "name": "pytest",
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_review_otto_spatial_seeds.py",
+        "-k",
+        "ledger_inventory"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.24749241583049297
+    },
+    {
+      "name": "ruff",
+      "command": [
+        ".venv/bin/ruff",
+        "check",
+        "scripts/review_otto_spatial_seeds.py",
+        "tests/test_review_otto_spatial_seeds.py"
+      ],
+      "exit_code": 0,
+      "wall_seconds": 0.044540958013385534
+    }
+  ],
+  "status": "passed",
+  "sources_unchanged": true,
+  "files": {
+    "pytest.log": {
+      "sha256": "d8519d206a8c1c01a454f59cca83934eecfeb4e36c3bff2000633c00c618f25f",
+      "bytes": 112
+    },
+    "ruff.log": {
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "bytes": 19
+    }
+  }
+}

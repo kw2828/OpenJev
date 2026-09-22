@@ -1,0 +1,18 @@
+....F.                                                                   [100%]
+=================================== FAILURES ===================================
+_____ test_ledger_inventory_includes_stopped_collection_and_allocated_rows _____
+
+    def test_ledger_inventory_includes_stopped_collection_and_allocated_rows():
+        m = module()
+        assert m.LEDGER.fullmatch('output/otto-coverage-v1/collection-01/collection-episodes.jsonl')
+        assert m.LEDGER.fullmatch('output/otto-conditioning-control-v1/run-01/evaluation.jsonl')
+>       assert not m.LEDGER.fullmatch('output/otto-spatial-study-v1/publication-verify-01/repo/output/run/episodes.jsonl')
+E       AssertionError: assert not <re.Match object; span=(0, 81), match='output/otto-spatial-study-v1/publication-verify-0>
+E        +  where <re.Match object; span=(0, 81), match='output/otto-spatial-study-v1/publication-verify-0> = <built-in method fullmatch of re.Pattern object at 0xb83a5de10>('output/otto-spatial-study-v1/publication-verify-01/repo/output/run/episodes.jsonl')
+E        +    where <built-in method fullmatch of re.Pattern object at 0xb83a5de10> = re.compile('^output/otto-[^/]+/[^/]+/(?:.*episodes.*\\.jsonl?|.*cases.*\\.jsonl?|native-setup\\.json|qualification\\.jsonl?|evaluation\\.jsonl)$').fullmatch
+E        +      where re.compile('^output/otto-[^/]+/[^/]+/(?:.*episodes.*\\.jsonl?|.*cases.*\\.jsonl?|native-setup\\.json|qualification\\.jsonl?|evaluation\\.jsonl)$') = <module '_test_spatial_seed_review' from '/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/review_otto_spatial_seeds.py'>.LEDGER
+
+tests/test_review_otto_spatial_seeds.py:42: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_review_otto_spatial_seeds.py::test_ledger_inventory_includes_stopped_collection_and_allocated_rows
+1 failed, 5 passed in 0.06s

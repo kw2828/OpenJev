@@ -1,0 +1,39 @@
+I001 [*] Import block is un-sorted or un-formatted
+  --> scripts/review_otto_spatial_seeds.py:6:1
+   |
+ 4 |   files. It does not establish global freshness or external training independence.
+ 5 |   """
+ 6 | / from __future__ import annotations
+ 7 | |
+ 8 | | import argparse
+ 9 | | from collections import Counter
+10 | | from datetime import UTC, datetime
+11 | | import hashlib
+12 | | import json
+13 | | from pathlib import Path
+14 | | import re
+15 | | import subprocess
+16 | | import time
+   | |___________^
+17 |
+18 |   ROOT = Path(__file__).resolve().parents[1]
+   |
+help: Organize imports
+   |
+8  | import argparse
+   - from collections import Counter
+   - from datetime import UTC, datetime
+9  | import hashlib
+10 | import json
+   - from pathlib import Path
+11 | import re
+12 | import subprocess
+13 | import time
+14 + from collections import Counter
+15 + from datetime import UTC, datetime
+16 + from pathlib import Path
+17 |
+   |
+
+Found 1 error.
+[*] 1 fixable with the `--fix` option.

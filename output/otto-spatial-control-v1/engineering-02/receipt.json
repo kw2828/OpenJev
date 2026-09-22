@@ -1,0 +1,84 @@
+{
+  "commands": [
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_otto_spatial_control.py",
+        "-k",
+        "late_output_failure"
+      ],
+      "name": "pytest"
+    },
+    {
+      "argv": [
+        ".venv/bin/python",
+        "-m",
+        "ruff",
+        "check",
+        "scripts/audit_otto_spatial_control.py",
+        "scripts/freeze_otto_spatial_control.py",
+        "scripts/review_otto_spatial_seeds.py",
+        "scripts/study_otto_spatial_control.py",
+        "tests/test_audit_otto_spatial_control.py",
+        "tests/test_otto_spatial_control.py",
+        "tests/test_review_otto_spatial_seeds.py"
+      ],
+      "name": "ruff"
+    }
+  ],
+  "cpu_thread_environment": {
+    "MKL_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1"
+  },
+  "files": {
+    "pytest.log": {
+      "bytes": 113,
+      "sha256": "2ac2fda3f548eb408131825f2deea42a3423d2010eb28c7b4038a9496aceedd9"
+    },
+    "ruff.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "started.json": {
+      "bytes": 2269,
+      "sha256": "192bc1e171f96246523b2fecb8d464c5fe8df83adfa86bf84ca4d74beb847de7"
+    }
+  },
+  "learned_model_calls": 0,
+  "prior_attempt": "output/otto-spatial-control-v1/engineering-01",
+  "prior_receipt_sha256": "7315ef685687cf100c0843eb6d7688bd20d200b156e89d3a12bb3b55c31812ae",
+  "results": [
+    {
+      "exit_code": 0,
+      "name": "pytest",
+      "wall_seconds": 0.31751825008541346
+    },
+    {
+      "exit_code": 0,
+      "name": "ruff",
+      "wall_seconds": 0.19417933304794133
+    }
+  ],
+  "scientific_arrays_decoded": 0,
+  "scope": "Affected late-failure fixture after one test-only lambda-to-dict style correction; production and all other tests unchanged",
+  "simulator_calls": 0,
+  "sources": {
+    "research/otto-spatial-control-protocol.md": "aec91ed7e17f03e6db5df0344f5ad72722abd542d9089f667d958420c45eba96",
+    "scripts/audit_otto_spatial_control.py": "85fc1d059407a3e95a9365cb7cfc254ff60b8230dccc7629c427b9615b108baa",
+    "scripts/freeze_otto_spatial_control.py": "05ba61e4a1cef9f5944982bf52415dcc1d18f99d3d04c31f0e2206fae88fcab7",
+    "scripts/review_otto_spatial_seeds.py": "7d5252c8cbc4c7a40f177b1563f0ae3c1b63bf7e087e213d3bcef32841b66a8f",
+    "scripts/study_otto_spatial_control.py": "cf87432697852209d323a3f809758fef5382d229a85092ca8f49380d9d275797",
+    "tests/test_audit_otto_spatial_control.py": "ecfd72c8effcee78f439e5fed15f57ce7a3042e46f78162096dc4fae56e89157",
+    "tests/test_otto_spatial_control.py": "ac569bab6b7622b3d7885717893a8bfeeeb54d3adf5fcdb2ea8ed0b8551e7a23",
+    "tests/test_review_otto_spatial_seeds.py": "f92cae0e5db212f5ae6254559bcdff2f3a8dcb0efec7428145e139dd5efebdb2"
+  },
+  "sources_unchanged": true,
+  "status": "passed",
+  "timeout_per_command_seconds": 180
+}

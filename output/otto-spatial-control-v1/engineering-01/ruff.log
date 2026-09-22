@@ -1,0 +1,20 @@
+PIE807 [*] Prefer `dict` over useless lambda
+   --> tests/test_otto_spatial_control.py:527:25
+    |
+525 |     runner.bind = runner.setup = runner.sync = lambda: None
+526 |     runner.qualification_inputs = lambda: None
+527 |     runner.load_heads = lambda: {}
+    |                         ^^^^^^^^^^
+528 |     runner.qualify = lambda _: None
+529 |     monkeypatch.setattr(S, 'payload_names', lambda _: {'serialization-projection.json'})
+    |
+help: Replace with `lambda` with `dict`
+    |
+526 |     runner.qualification_inputs = lambda: None
+    -     runner.load_heads = lambda: {}
+527 +     runner.load_heads = dict
+528 |     runner.qualify = lambda _: None
+    |
+
+Found 1 error.
+[*] 1 fixable with the `--fix` option.
