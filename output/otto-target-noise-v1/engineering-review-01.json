@@ -1,0 +1,52 @@
+{
+  "diagnostic_original_execution": {
+    "exit_code": 0,
+    "note": "Completed in original tool call; no asynchronous process session, no retry.",
+    "receipt_sha256": "7a9bece4a8e54915e69f5198134fc671996bb80d66da5ba9ac137aa7dcff41ca",
+    "session_id": null,
+    "tool_chunk": "735618"
+  },
+  "final_engineering": {
+    "cases": [
+      "Constant centered cost [-1,+1] despite shared replicate offset: observed1/noise0/cross1.",
+      "Alternating [-1,+1]/[+1,-1]: observed0/noise1/15/untruncatedsignal-1/15; tied split sets and undefined correlation.",
+      "Missing prescribed replicate/action record rejected."
+    ],
+    "exit_code": 0,
+    "fabricated_cases": 3,
+    "ruff": "passed",
+    "tool_chunk": "87f0fe"
+  },
+  "peer_review": {
+    "final_delta": "One clock snapshot shared by finished_ns and elapsed arithmetic; no numerical change.",
+    "reviewer": "rlcd_diagram_review",
+    "source_sha256_before_timestamp_only_delta": "df0820ce266073fba42a0949d97ecceac046388bc1348b479e2bf20d1ae9533c",
+    "verdict": "clear"
+  },
+  "plan_preparation": {
+    "exit_code": 0,
+    "sha256": "8e8041d43f4e7ab1a56163d8cd2730137aa5fdcc415705d330b161a0f3f90031",
+    "tool_chunk": "b75600"
+  },
+  "scope": "Pre-execution source review and synthetic arithmetic only; no empirical costs were decoded before the frozen plan.",
+  "source_sha256": "f7402db74f5cc0e66337ecaa639b78417afc8d8452ac616f672a9570e386e0b5",
+  "static_attempts": [
+    {
+      "exit_code": 1,
+      "finding": "Ruff BLE001 at broad original failure catch; no diagnostic execution.",
+      "tool_chunk": "feefb6"
+    },
+    {
+      "exit_code": 1,
+      "finding": "Ruff BLE001 at explicit Exception catches; no diagnostic execution.",
+      "tool_chunk": "1b731f"
+    },
+    {
+      "exit_code": 0,
+      "finding": "Ruff passed after explicit failure-preservation justification.",
+      "tool_chunk": "f9f1e4"
+    }
+  ],
+  "status": "passed",
+  "version": "otto-target-noise-preparation-v1"
+}
