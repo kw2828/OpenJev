@@ -1,0 +1,52 @@
+{
+  "commands": [
+    {
+      "argv": [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-p",
+        "no:cacheprovider",
+        "-q",
+        "tests/test_report_otto_spatial_control.py",
+        "tests/test_archive_otto_spatial_control.py"
+      ],
+      "name": "pytest"
+    },
+    {
+      "argv": [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/python",
+        "-m",
+        "ruff",
+        "check",
+        "--no-cache",
+        "scripts/archive_otto_spatial_control.py",
+        "scripts/report_otto_spatial_control.py",
+        "tests/test_archive_otto_spatial_control.py",
+        "tests/test_report_otto_spatial_control.py"
+      ],
+      "name": "ruff"
+    }
+  ],
+  "environment": {
+    "MKL_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "VECLIB_MAXIMUM_THREADS": "1"
+  },
+  "preparation": {
+    "bytes": 2741,
+    "sha256": "3c040138754a1010cb1f339c3a3edc488b45cc5377ab2d54d028e3e4670f0ce0"
+  },
+  "sources_before": {
+    "scripts/archive_otto_spatial_control.py": "7db5092977009ce1d123173728c46f43588fe0d7b4654d475a7a6e3f3aad7f1f",
+    "scripts/report_otto_spatial_control.py": "66c3f945f94d46b4e2cbb5c2074bfca2ce57e17952aeb8a8210bb8af09322631",
+    "tests/test_archive_otto_spatial_control.py": "d96fdba283c45186cf809b44872e17c51ff6b87d678770136cdefcb21106c5f3",
+    "tests/test_report_otto_spatial_control.py": "4c51bf6ee58a54c224cbed1d9b69436f9b1135bc7d76f7cca59d8f64bcd8c942"
+  },
+  "timeout_per_command_seconds": 180,
+  "version": "otto-spatial-control-publication-engineering-v1"
+}
