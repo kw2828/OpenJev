@@ -56,15 +56,15 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Latest completed research
 
-[The autonomous spatial test failed its continuation rule](research/otto-spatial-control-results.md): **1,152 searches, fifteen learned models, 32/66 conditions passed**. None of the learned models met the competence requirements. Spatial weighted success was **40.4% / 27.8% / 16.1%** across the three settings; analytic control found the source in **72/72 cases** and used less controller time per search.
+[Continuation-cost learning regressed](research/otto-teacher-learning-results.md): **six matched fits, 504 fresh searches, 5/33 continuation criteria passed**. Weighted success fell from **20.7% / 8.4% / 9.1%** with analytic targets to **7.7% / 4.1% / 5.8%** with continuation targets. Analytic control found all **72/72** sources. No learned fit met the competence requirements.
 
-[![All fifteen models and analytic control: success, capped moves and full controller cost](docs/assets/otto-spatial-control.png)](research/otto-spatial-control-results.md)
+[![All six learned fits and analytic control: success, capped moves and complete controller cost](docs/assets/otto-teacher-learning.png)](research/otto-teacher-learning-results.md)
 
-[All models and limits](research/otto-spatial-control-results.md) · [Protocol](research/otto-spatial-control-protocol.md) · [Raw evidence and checkpoints](https://github.com/kw2828/OpenJev/releases/tag/otto-spatial-control-v1).
+The new targets required **32,304 teacher continuations and 908,718 simulated moves**. The independent saved-record audit agrees with all outcomes and criteria. The report preserves the first audit failure and its numerical-verification repair. This recipe is not promoted.
 
-The completed audit replayed all **1,736,024 saved model decisions** with exact agreement. A [teacher-cost pilot](research/otto-teacher-label-pilot-results.md) generated **368 continuations in 6.67 seconds**; the [larger training cohort](research/otto-teacher-cohort-results.md) now qualifies **558/558 states from 144 trajectories**, with independent audit agreement. The [next learning comparison](research/otto-action-cost-followup.md) will retain continuous costs because several actions are nearly tied. These preparation phases trained no model and establish no architecture advantage.
+[All results and limits](research/otto-teacher-learning-results.md) · [Protocol](research/otto-teacher-learning-protocol.md) · [Evidence and checkpoints](https://github.com/kw2828/OpenJev/releases/tag/otto-teacher-learning-v1).
 
-Earlier dialogue, RockSample, compact-memory and pretrained-policy comparisons are collected in the [experiment archive](research/experiment-index.md), including failed attempts, frozen criteria and independent audits. The separate [shared-prefix scoring experiment](research/shared-prefix-results.md) measured **2.08x** speedup on four-question synthetic workloads; single-question caching was slower. This does not reproduce a proprietary RLCD system.
+Earlier spatial, dialogue, RockSample and memory studies remain in the [experiment archive](research/experiment-index.md), including negative results and failed attempts. The separate [shared-prefix scoring experiment](research/shared-prefix-results.md) measured **2.08x** speedup on four-question synthetic workloads; single-question caching was slower. This does not reproduce a proprietary RLCD system.
 
 ## Limits and provenance
 

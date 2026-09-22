@@ -1,0 +1,173 @@
+B023 Function definition does not bind loop variable `model`
+   --> src/openjev/research/otto_teacher_learning.py:209:83
+    |
+207 |             emit("fit_start", {"seed": seed, "arm": arm, "rows": len(features)})
+208 |             model = models[arm]
+209 |             optimizer = call("optimizer_initialization", lambda: torch.optim.Adam(model.parameters(), lr=LEARNING_RATE), arm=arm)
+    |                                                                                   ^^^^^
+210 |             _require(not optimizer.state, "fresh Adam state required")
+211 |             ty = torch.from_numpy(np.array(targets[arm]["scaled_float32"], copy=True))
+    |
+
+B023 Function definition does not bind loop variable `optimizer`
+   --> src/openjev/research/otto_teacher_learning.py:227:25
+    |
+226 |                     def update(indices=indices):
+227 |                         optimizer.zero_grad(set_to_none=True)
+    |                         ^^^^^^^^^
+228 |                         loss = (training_losses(model, tx[indices], ty[indices], tm[indices]) * tw[indices]).mean()
+229 |                         _require(bool(torch.isfinite(loss)), "finite weighted regression loss required")
+    |
+
+B023 Function definition does not bind loop variable `model`
+   --> src/openjev/research/otto_teacher_learning.py:228:49
+    |
+226 |                     def update(indices=indices):
+227 |                         optimizer.zero_grad(set_to_none=True)
+228 |                         loss = (training_losses(model, tx[indices], ty[indices], tm[indices]) * tw[indices]).mean()
+    |                                                 ^^^^^
+229 |                         _require(bool(torch.isfinite(loss)), "finite weighted regression loss required")
+230 |                         loss.backward()
+    |
+
+B023 Function definition does not bind loop variable `ty`
+   --> src/openjev/research/otto_teacher_learning.py:228:69
+    |
+226 |                     def update(indices=indices):
+227 |                         optimizer.zero_grad(set_to_none=True)
+228 |                         loss = (training_losses(model, tx[indices], ty[indices], tm[indices]) * tw[indices]).mean()
+    |                                                                     ^^
+229 |                         _require(bool(torch.isfinite(loss)), "finite weighted regression loss required")
+230 |                         loss.backward()
+    |
+
+B023 Function definition does not bind loop variable `tm`
+   --> src/openjev/research/otto_teacher_learning.py:228:82
+    |
+226 |                     def update(indices=indices):
+227 |                         optimizer.zero_grad(set_to_none=True)
+228 |                         loss = (training_losses(model, tx[indices], ty[indices], tm[indices]) * tw[indices]).mean()
+    |                                                                                  ^^
+229 |                         _require(bool(torch.isfinite(loss)), "finite weighted regression loss required")
+230 |                         loss.backward()
+    |
+
+B023 Function definition does not bind loop variable `tw`
+   --> src/openjev/research/otto_teacher_learning.py:228:97
+    |
+226 |                     def update(indices=indices):
+227 |                         optimizer.zero_grad(set_to_none=True)
+228 |                         loss = (training_losses(model, tx[indices], ty[indices], tm[indices]) * tw[indices]).mean()
+    |                                                                                                 ^^
+229 |                         _require(bool(torch.isfinite(loss)), "finite weighted regression loss required")
+230 |                         loss.backward()
+    |
+
+B023 Function definition does not bind loop variable `model`
+   --> src/openjev/research/otto_teacher_learning.py:231:105
+    |
+229 |                         _require(bool(torch.isfinite(loss)), "finite weighted regression loss required")
+230 |                         loss.backward()
+231 |                         _require(all(p.grad is not None and bool(torch.isfinite(p.grad).all()) for p in model.parameters()),
+    |                                                                                                         ^^^^^
+232 |                                  "finite present gradients required")
+233 |                         norm = torch.nn.utils.clip_grad_norm_(model.parameters(), GRADIENT_CLIP, error_if_nonfinite=True)
+    |
+
+B023 Function definition does not bind loop variable `model`
+   --> src/openjev/research/otto_teacher_learning.py:233:63
+    |
+231 | …     _require(all(p.grad is not None and bool(torch.isfinite(p.grad).all()) for p in model.parameters()),
+232 | …              "finite present gradients required")
+233 | …     norm = torch.nn.utils.clip_grad_norm_(model.parameters(), GRADIENT_CLIP, error_if_nonfinite=True)
+    |                                             ^^^^^
+234 | …     optimizer.step()
+235 | …     _require(all(bool(torch.isfinite(p).all()) for p in model.parameters()), "finite post-update weights required")
+    |
+
+B023 Function definition does not bind loop variable `optimizer`
+   --> src/openjev/research/otto_teacher_learning.py:234:25
+    |
+232 | …              "finite present gradients required")
+233 | …     norm = torch.nn.utils.clip_grad_norm_(model.parameters(), GRADIENT_CLIP, error_if_nonfinite=True)
+234 | …     optimizer.step()
+    |       ^^^^^^^^^
+235 | …     _require(all(bool(torch.isfinite(p).all()) for p in model.parameters()), "finite post-update weights required")
+236 | …     return {"loss": float(loss.detach()), "gradient_norm_before_clip": float(norm), "rows": len(indices)}
+    |
+
+B023 Function definition does not bind loop variable `model`
+   --> src/openjev/research/otto_teacher_learning.py:235:77
+    |
+233 | …     norm = torch.nn.utils.clip_grad_norm_(model.parameters(), GRADIENT_CLIP, error_if_nonfinite=True)
+234 | …     optimizer.step()
+235 | …     _require(all(bool(torch.isfinite(p).all()) for p in model.parameters()), "finite post-update weights required")
+    |                                                           ^^^^^
+236 | …     return {"loss": float(loss.detach()), "gradient_norm_before_clip": float(norm), "rows": len(indices)}
+    |
+
+B023 Function definition does not bind loop variable `model`
+   --> src/openjev/research/otto_teacher_learning.py:251:65
+    |
+249 |             steps = {name: int(optimizer.state[parameter]["step"].item()) for name, parameter in model.named_parameters()}
+250 |             _require(steps and all(value == expected for value in steps.values()), "complete Adam step witness required")
+251 |             final = call("checkpoint_export", lambda: _snapshot(model, head), arm=arm, phase="final")
+    |                                                                 ^^^^^
+252 |             final_file = publish(arm, "final", final)
+253 |             frozen = call("inference_setup", lambda: head.FrozenHead(final), arm=arm)
+    |
+
+B023 Function definition does not bind loop variable `final`
+   --> src/openjev/research/otto_teacher_learning.py:253:70
+    |
+251 |             final = call("checkpoint_export", lambda: _snapshot(model, head), arm=arm, phase="final")
+252 |             final_file = publish(arm, "final", final)
+253 |             frozen = call("inference_setup", lambda: head.FrozenHead(final), arm=arm)
+    |                                                                      ^^^^^
+254 |             count = min(16, len(features))
+255 |             probe = np.array(features[:count], copy=True, order="C")
+    |
+
+B023 Function definition does not bind loop variable `frozen`
+   --> src/openjev/research/otto_teacher_learning.py:256:57
+    |
+254 |             count = min(16, len(features))
+255 |             probe = np.array(features[:count], copy=True, order="C")
+256 |             numpy_values = call("parity_numpy", lambda: frozen.scores(probe), arm=arm, rows=count)
+    |                                                         ^^^^^^
+257 |             model.eval()
+    |
+
+B023 Function definition does not bind loop variable `probe`
+   --> src/openjev/research/otto_teacher_learning.py:256:71
+    |
+254 |             count = min(16, len(features))
+255 |             probe = np.array(features[:count], copy=True, order="C")
+256 |             numpy_values = call("parity_numpy", lambda: frozen.scores(probe), arm=arm, rows=count)
+    |                                                                       ^^^^^
+257 |             model.eval()
+    |
+
+B023 Function definition does not bind loop variable `model`
+   --> src/openjev/research/otto_teacher_learning.py:261:28
+    |
+259 |             def torch_prediction():
+260 |                 with torch.no_grad():
+261 |                     return model(torch.from_numpy(probe.copy())).numpy().copy()
+    |                            ^^^^^
+262 |
+263 |             torch_values = call("parity_torch", torch_prediction, arm=arm, rows=count)
+    |
+
+B023 Function definition does not bind loop variable `probe`
+   --> src/openjev/research/otto_teacher_learning.py:261:51
+    |
+259 |             def torch_prediction():
+260 |                 with torch.no_grad():
+261 |                     return model(torch.from_numpy(probe.copy())).numpy().copy()
+    |                                                   ^^^^^
+262 |
+263 |             torch_values = call("parity_torch", torch_prediction, arm=arm, rows=count)
+    |
+
+Found 16 errors.
