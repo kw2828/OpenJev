@@ -1,6 +1,6 @@
 # Teacher-continuation costs: saved-record component
 
-The [cost-summary component](../src/openjev/research/otto_teacher_costs.py) passed **18 fabricated-record tests** and Ruff. It prepares one part of the [conditional action-cost follow-up](otto-action-cost-followup.md). It generates no rollouts, trains no policy and establishes no task-performance or architecture result. Real label collection remains unadmitted while the original spatial-control audit runs.
+The [cost-summary component](../src/openjev/research/otto_teacher_costs.py) passed **18 fabricated-record tests** and Ruff. It prepares one part of the [conditional action-cost follow-up](otto-action-cost-followup.md). It generates no rollouts, trains no policy and establishes no task-performance or architecture result. Real label collection remains unadmitted. The later [completed spatial-control audit](otto-spatial-control-results.md) supplies the prerequisite comparison, not sampler qualification.
 
 The caller supplies the expected replicate IDs, eligible first actions and horizon separately from the records. The reducer rejects missing, duplicate or extra pairs. A completed unsuccessful rollout must reach the full horizon; a missing or interrupted rollout cannot be silently counted as censoring. Success exactly at the horizon remains a success, with the same capped cost as an unsuccessful horizon. Every cost includes the forced first action.
 

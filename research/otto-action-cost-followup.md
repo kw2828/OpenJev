@@ -2,6 +2,8 @@
 
 Status: an outcome-independent design sketch, written while the [1,152-episode spatial comparison](otto-spatial-control-protocol.md) is running. This does not admit new collection, fitting or evaluation. The current models, cases, limits and continuation rule remain unchanged. Lifecycle counts, not partial policy outcomes, informed this note.
 
+Outcome update: the [completed, audited comparison](otto-spatial-control-results.md) meets this proposal's prerequisite. Every learned head failed competence in every setting while analytic control found all 72 sources. The next step is to qualify the full continuation sampler and freeze a bounded comparison. No new collection or training is admitted by this update.
+
 If every learned head fails competence while analytic control remains competent, the next useful question is whether better action labels improve the same ordinary policy. That outcome would reject the tested recipes, not prove that representation, state coverage or the learning target caused the failures. If an ordinary head is competent, retain it as the positive control for any later architecture comparison. If the original run does not complete and pass its independent audit, report the interruption before drawing either conclusion.
 
 Several nearby ideas have already been tried here:

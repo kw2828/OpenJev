@@ -56,13 +56,13 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Latest completed research
 
-[Spatial features did not beat the simpler scalar controls](research/otto-spatial-study-results.md): **15 fits, five model families, 52,800 updates**. The 225-parameter statistics model has the lowest exposed-validation mean squared error in every paired seed. The spatial model's mean error is **4.93% higher**, with **3.64x** the fitting time. These are prediction diagnostics; the separate autonomous evaluation has completed and awaits its audit.
+[The autonomous spatial test failed its continuation rule](research/otto-spatial-control-results.md): **1,152 searches, fifteen learned models, 32/66 conditions passed**. None of the learned models met the competence requirements. Spatial weighted success was **40.4% / 27.8% / 16.1%** across the three settings; analytic control found the source in **72/72 cases** and used less controller time per search.
 
-[![All fifteen models: training and validation error, fitting time and diagnostic cost](docs/assets/otto-spatial-study.png)](research/otto-spatial-study-results.md)
+[![All fifteen models and analytic control: success, capped moves and full controller cost](docs/assets/otto-spatial-control.png)](research/otto-spatial-control-results.md)
 
-[All models and limits](research/otto-spatial-study-results.md) · [Protocol](research/otto-spatial-training-protocol.md) · [Raw evidence and checkpoints](https://github.com/kw2828/OpenJev/releases/tag/otto-spatial-study-v1).
+[All models and limits](research/otto-spatial-control-results.md) · [Protocol](research/otto-spatial-control-protocol.md) · [Raw evidence and checkpoints](https://github.com/kw2828/OpenJev/releases/tag/otto-spatial-control-v1).
 
-Independent replay checked all 100,470 final predictions. All fifteen models also [passed deployment checks](research/otto-spatial-control-qualification.md), agreeing on 780 action choices across shared public and boundary states. The [autonomous comparison](research/otto-spatial-control-status.md) completed all 1,152 searches; its saved-output audit is running, so the performance verdict remains pending. The earlier [504-search input-scaling comparison](research/otto-conditioning-control-results.md) remains failed on all 30 conditions. No novel architecture advantage is established.
+The completed audit replayed all **1,736,024 saved model decisions** with exact agreement. The [earlier scalar fitting study](research/otto-spatial-study-results.md) and [deployment checks](research/otto-spatial-control-qualification.md) remain separate evidence. The [next proposed comparison](research/otto-action-cost-followup.md) tests action-cost supervision in the same ordinary policy; its sampler is still being prepared. No novel architecture advantage is established.
 
 Earlier dialogue, RockSample, compact-memory and pretrained-policy comparisons are collected in the [experiment archive](research/experiment-index.md), including failed attempts, frozen criteria and independent audits. The separate [shared-prefix scoring experiment](research/shared-prefix-results.md) measured **2.08x** speedup on four-question synthetic workloads; single-question caching was slower. This does not reproduce a proprietary RLCD system.
 
