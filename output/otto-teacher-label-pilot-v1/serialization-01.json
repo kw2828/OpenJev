@@ -1,0 +1,497 @@
+{
+  "assumptions": {
+    "anchors": 6,
+    "failure_records_never_convert_to_censored_labels": true,
+    "float_character_allowance": 32,
+    "horizon": 2188,
+    "maximum_absolute_public_step": 4376,
+    "maximum_continuations": 384,
+    "maximum_moves": 840192,
+    "maximum_operation_id": 560225,
+    "replicates_each": 16
+  },
+  "conservative_total_upper_bytes": 3710854144,
+  "empirical_rows_read": 0,
+  "enforced_sampler_event_cap_bytes": 512,
+  "enforcement": "Reject an oversized event without truncation and fail the panel; preserve primary error. Charge actual sampler and other output bytes; enforce the separate reserve and total cap. Store draw evidence once. No wall-time guarantee follows from this byte projection.",
+  "event_classes": [
+    {
+      "count": 6,
+      "event_kind": "anchor_snapshot.attempt",
+      "example": {
+        "anchor_id": 5,
+        "event": "attempt",
+        "operation": "anchor_snapshot",
+        "operation_id": 999999,
+        "seed": 19000001,
+        "version": "otto-teacher-rollouts-v1"
+      },
+      "float_fields": 0,
+      "serialized_example_bytes": 139,
+      "upper_bytes_each": 139,
+      "upper_bytes_total": 834
+    },
+    {
+      "count": 6,
+      "event_kind": "anchor_snapshot.return",
+      "example": {
+        "anchor_id": 5,
+        "event": "return",
+        "operation": "anchor_snapshot",
+        "operation_id": 999999,
+        "public": {
+          "done": false,
+          "hit": -2,
+          "position": [
+            52,
+            52
+          ],
+          "step": 4376,
+          "valid_actions": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        "seed": 19000001,
+        "version": "otto-teacher-rollouts-v1"
+      },
+      "float_fields": 0,
+      "serialized_example_bytes": 228,
+      "upper_bytes_each": 228,
+      "upper_bytes_total": 1368
+    },
+    {
+      "count": 96,
+      "event_kind": "source_generator.attempt",
+      "example": {
+        "anchor_id": 5,
+        "event": "attempt",
+        "operation": "source_generator",
+        "operation_id": 999999,
+        "replicate_id": 15,
+        "seed": 19000001,
+        "version": "otto-teacher-rollouts-v1"
+      },
+      "float_fields": 0,
+      "serialized_example_bytes": 158,
+      "upper_bytes_each": 158,
+      "upper_bytes_total": 15168
+    },
+    {
+      "count": 96,
+      "event_kind": "source_generator.return",
+      "example": {
+        "anchor_id": 5,
+        "event": "return",
+        "operation": "source_generator",
+        "operation_id": 999999,
+        "replicate_id": 15,
+        "seed": 19000001,
+        "version": "otto-teacher-rollouts-v1"
+      },
+      "float_fields": 0,
+      "serialized_example_bytes": 157,
+      "upper_bytes_each": 157,
+      "upper_bytes_total": 15072
+    },
+    {
+      "count": 96,
+      "event_kind": "source_draw.attempt",
+      "example": {
+        "anchor_id": 5,
+        "event": "attempt",
+        "operation": "source_draw",
+        "operation_id": 999999,
+        "replicate_id": 15,
+        "seed": 19000001,
+        "version": "otto-teacher-rollouts-v1"
+      },
+      "float_fields": 0,
+      "serialized_example_bytes": 153,
+      "upper_bytes_each": 153,
+      "upper_bytes_total": 14688
+    },
+    {
+      "count": 96,
+      "event_kind": "source_draw.return",
+      "example": {
+        "anchor_id": 5,
+        "cdf_mass": 0.0,
+        "event": "return",
+        "operation": "source_draw",
+        "operation_id": 999999,
+        "replicate_id": 15,
+        "seed": 19000001,
+        "selected_index": 2808,
+        "source": [
+          52,
+          52
+        ],
+        "uniform": 0.0,
+        "version": "otto-teacher-rollouts-v1"
+      },
+      "float_fields": 2,
+      "serialized_example_bytes": 220,
+      "upper_bytes_each": 278,
+      "upper_bytes_total": 26688
+    },
+    {
+      "count": 384,
+      "event_kind": "teacher_snapshot.attempt",
+      "example": {
+        "anchor_id": 5,
+        "event": "attempt",
+        "first_action": 3,
+        "operation": "teacher_snapshot",
+        "operation_id": 999999,
+        "replicate_id": 15,
+        "seed": 19000001,
+        "version": "otto-teacher-rollouts-v1"
+      },
+      "float_fields": 0,
+      "serialized_example_bytes": 175,
+      "upper_bytes_each": 175,
+      "upper_bytes_total": 67200
+    },
+    {
+      "count": 384,
+      "event_kind": "teacher_snapshot.return",
+      "example": {
+        "anchor_id": 5,
+        "event": "return",
+        "first_action": 3,
+        "operation": "teacher_snapshot",
+        "operation_id": 999999,
+        "public": {
+          "done": false,
+          "hit": -2,
+          "position": [
+            52,
+            52
+          ],
+          "step": 4376,
+          "valid_actions": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        "replicate_id": 15,
+        "seed": 19000001,
+        "version": "otto-teacher-rollouts-v1"
+      },
+      "float_fields": 0,
+      "serialized_example_bytes": 264,
+      "upper_bytes_each": 264,
+      "upper_bytes_total": 101376
+    },
+    {
+      "count": 384,
+      "event_kind": "hit_generator.attempt",
+      "example": {
+        "anchor_id": 5,
+        "event": "attempt",
+        "first_action": 3,
+        "operation": "hit_generator",
+        "operation_id": 999999,
+        "replicate_id": 15,
+        "seed": 19000001,
+        "version": "otto-teacher-rollouts-v1"
+      },
+      "float_fields": 0,
+      "serialized_example_bytes": 172,
+      "upper_bytes_each": 172,
+      "upper_bytes_total": 66048
+    },
+    {
+      "count": 384,
+      "event_kind": "hit_generator.return",
+      "example": {
+        "anchor_id": 5,
+        "event": "return",
+        "first_action": 3,
+        "operation": "hit_generator",
+        "operation_id": 999999,
+        "replicate_id": 15,
+        "seed": 19000001,
+        "version": "otto-teacher-rollouts-v1"
+      },
+      "float_fields": 0,
+      "serialized_example_bytes": 171,
+      "upper_bytes_each": 171,
+      "upper_bytes_total": 65664
+    },
+    {
+      "count": 839808,
+      "event_kind": "teacher_choose.attempt",
+      "example": {
+        "anchor_id": 5,
+        "event": "attempt",
+        "first_action": 3,
+        "from_step": 4375,
+        "local_step": 2188,
+        "operation": "teacher_choose",
+        "operation_id": 999999,
+        "replicate_id": 15,
+        "seed": 19000001,
+        "version": "otto-teacher-rollouts-v1"
+      },
+      "float_fields": 0,
+      "serialized_example_bytes": 208,
+      "upper_bytes_each": 208,
+      "upper_bytes_total": 174680064
+    },
+    {
+      "count": 839808,
+      "event_kind": "teacher_choose.return",
+      "example": {
+        "action": 3,
+        "anchor_id": 5,
+        "event": "return",
+        "first_action": 3,
+        "from_step": 4375,
+        "local_step": 2188,
+        "operation": "teacher_choose",
+        "operation_id": 999999,
+        "replicate_id": 15,
+        "scores": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seed": 19000001,
+        "version": "otto-teacher-rollouts-v1"
+      },
+      "float_fields": 4,
+      "serialized_example_bytes": 245,
+      "upper_bytes_each": 361,
+      "upper_bytes_total": 303170688
+    },
+    {
+      "count": 840192,
+      "event_kind": "movement.attempt",
+      "example": {
+        "anchor_id": 5,
+        "event": "attempt",
+        "first_action": 3,
+        "from_step": 4375,
+        "local_step": 2188,
+        "operation": "movement",
+        "operation_id": 999999,
+        "replicate_id": 15,
+        "seed": 19000001,
+        "version": "otto-teacher-rollouts-v1"
+      },
+      "float_fields": 0,
+      "serialized_example_bytes": 202,
+      "upper_bytes_each": 202,
+      "upper_bytes_total": 169718784
+    },
+    {
+      "count": 840192,
+      "event_kind": "movement.return",
+      "example": {
+        "anchor_id": 5,
+        "event": "return",
+        "first_action": 3,
+        "found": false,
+        "from_step": 4375,
+        "local_step": 2188,
+        "operation": "movement",
+        "operation_id": 999999,
+        "position": [
+          52,
+          52
+        ],
+        "replicate_id": 15,
+        "seed": 19000001,
+        "version": "otto-teacher-rollouts-v1"
+      },
+      "float_fields": 0,
+      "serialized_example_bytes": 234,
+      "upper_bytes_each": 234,
+      "upper_bytes_total": 196604928
+    },
+    {
+      "count": 840192,
+      "event_kind": "hit_draw.attempt",
+      "example": {
+        "anchor_id": 5,
+        "event": "attempt",
+        "first_action": 3,
+        "from_step": 4375,
+        "local_step": 2188,
+        "operation": "hit_draw",
+        "operation_id": 999999,
+        "replicate_id": 15,
+        "seed": 19000001,
+        "version": "otto-teacher-rollouts-v1"
+      },
+      "float_fields": 0,
+      "serialized_example_bytes": 202,
+      "upper_bytes_each": 202,
+      "upper_bytes_total": 169718784
+    },
+    {
+      "count": 840192,
+      "event_kind": "hit_draw.return",
+      "example": {
+        "anchor_id": 5,
+        "cdf_mass": 0.0,
+        "draw_index": 2187,
+        "event": "return",
+        "first_action": 3,
+        "from_step": 4375,
+        "local_step": 2188,
+        "operation": "hit_draw",
+        "operation_id": 999999,
+        "probabilities": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "replicate_id": 15,
+        "seed": 19000001,
+        "selected_index": 3,
+        "uniform": 0.0,
+        "version": "otto-teacher-rollouts-v1"
+      },
+      "float_fields": 6,
+      "serialized_example_bytes": 301,
+      "upper_bytes_each": 475,
+      "upper_bytes_total": 399091200
+    },
+    {
+      "count": 840192,
+      "event_kind": "teacher_update.attempt",
+      "example": {
+        "anchor_id": 5,
+        "event": "attempt",
+        "first_action": 3,
+        "from_step": 4375,
+        "local_step": 2188,
+        "operation": "teacher_update",
+        "operation_id": 999999,
+        "replicate_id": 15,
+        "seed": 19000001,
+        "version": "otto-teacher-rollouts-v1"
+      },
+      "float_fields": 0,
+      "serialized_example_bytes": 208,
+      "upper_bytes_each": 208,
+      "upper_bytes_total": 174759936
+    },
+    {
+      "count": 840192,
+      "event_kind": "teacher_update.return",
+      "example": {
+        "anchor_id": 5,
+        "event": "return",
+        "first_action": 3,
+        "from_step": 4375,
+        "local_step": 2188,
+        "operation": "teacher_update",
+        "operation_id": 999999,
+        "public": {
+          "done": false,
+          "hit": -2,
+          "position": [
+            52,
+            52
+          ],
+          "step": 4376,
+          "valid_actions": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        "replicate_id": 15,
+        "seed": 19000001,
+        "version": "otto-teacher-rollouts-v1"
+      },
+      "float_fields": 0,
+      "serialized_example_bytes": 297,
+      "upper_bytes_each": 297,
+      "upper_bytes_total": 249537024
+    },
+    {
+      "count": 384,
+      "event_kind": "forced_action",
+      "example": {
+        "action": 3,
+        "anchor_id": 5,
+        "event": "forced_action",
+        "first_action": 3,
+        "from_step": 4375,
+        "local_step": 2188,
+        "replicate_id": 15,
+        "seed": 19000001,
+        "version": "otto-teacher-rollouts-v1"
+      },
+      "float_fields": 0,
+      "serialized_example_bytes": 174,
+      "upper_bytes_each": 174,
+      "upper_bytes_total": 66816
+    },
+    {
+      "count": 384,
+      "event_kind": "record",
+      "example": {
+        "anchor_id": 5,
+        "event": "record",
+        "first_action": 3,
+        "found": false,
+        "replicate_id": 15,
+        "seed": 19000001,
+        "steps": 2188,
+        "version": "otto-teacher-rollouts-v1"
+      },
+      "float_fields": 0,
+      "serialized_example_bytes": 148,
+      "upper_bytes_each": 148,
+      "upper_bytes_total": 56832
+    },
+    {
+      "count": 6,
+      "event_kind": "panel_complete",
+      "example": {
+        "anchor_id": 5,
+        "event": "panel_complete",
+        "operation_count": 999999,
+        "record_count": 64,
+        "seed": 19000001,
+        "version": "otto-teacher-rollouts-v1"
+      },
+      "float_fields": 0,
+      "serialized_example_bytes": 137,
+      "upper_bytes_each": 137,
+      "upper_bytes_total": 822
+    }
+  ],
+  "event_count_maximum": 6723474,
+  "fits": true,
+  "largest_padded_event_bytes": 475,
+  "model_calls": 0,
+  "native_calls": 0,
+  "non_sampler_output_reserve_bytes": 268435456,
+  "operation_pairs_maximum": 3361350,
+  "output_cap_bytes": 4294967296,
+  "output_margin_bytes": 584113152,
+  "per_kind_weighted_upper_bytes": 1837779984,
+  "program_sha256": "950400bf4aa924da0239fd4365546d25545b8d8cf809107040b62df6b85c1dc9",
+  "sampler_calls": 0,
+  "scope": "Fabricated byte projection only",
+  "serializer": "json.dumps(sort_keys=True,allow_nan=False,separators=(',',':')) + newline; UTF-8",
+  "source": {
+    "path": "src/openjev/research/otto_teacher_rollouts.py",
+    "sha256": "0fb4f0e4e45e0bed0c40c90c3bff5b19f58b888a838b1f155ab4ff6f0a777612"
+  },
+  "version": "otto-teacher-label-serialization-v1"
+}

@@ -1,0 +1,45 @@
+{
+  "commands": [
+    [
+      "pytest",
+      [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-p",
+        "no:cacheprovider",
+        "-q",
+        "tests/test_otto_teacher_anchors.py"
+      ]
+    ],
+    [
+      "ruff",
+      [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/python",
+        "-m",
+        "ruff",
+        "check",
+        "--no-cache",
+        "src/openjev/research/otto_teacher_anchors.py",
+        "tests/test_otto_teacher_anchors.py"
+      ]
+    ]
+  ],
+  "scope": "Fabricated anchor tests only; no empirical decoding, sampler, native, model or training calls",
+  "sources": {
+    "src/openjev/research/otto_public.py": "438631a18005493e0cafa0777315e2158cac97cc7d0e71ad9fd6402284615b3d",
+    "src/openjev/research/otto_teacher_anchors.py": "88d0793089111ac4aed0f3571a22486a0d6fbfd6b1354356632f93bdd756d39d",
+    "src/openjev/research/otto_teacher_costs.py": "39f00522aaa2fd8b88231a74f23f4db72d2e8fc86dcb68b83de26af2f35e30fe",
+    "src/openjev/research/otto_teacher_rollouts.py": "0fb4f0e4e45e0bed0c40c90c3bff5b19f58b888a838b1f155ab4ff6f0a777612",
+    "src/openjev/research/otto_teacher_snapshot.py": "c318bd1d743b1589153c360c4bd1a2afdec5df34e7b769be0b2c3a26a87e9c58",
+    "tests/test_otto_teacher_anchors.py": "b89b0a2e4bdfe9336ba53cb2d2d30a7c2c227ed491900e2e36578c807ec36cf4"
+  },
+  "threads": {
+    "MKL_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1"
+  },
+  "timeout_seconds_each": 60
+}

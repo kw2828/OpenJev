@@ -1,0 +1,39 @@
+I001 [*] Import block is un-sorted or un-formatted
+  --> tests/test_otto_teacher_anchors.py:7:1
+   |
+ 5 |   These checks establish extraction mechanics, not teacher-label effectiveness.
+ 6 |   """
+ 7 | / from __future__ import annotations
+ 8 | |
+ 9 | | import copy
+10 | | import hashlib
+11 | | import json
+12 | |
+13 | | import numpy as np
+14 | | import pytest
+15 | |
+16 | | from openjev.research import otto_teacher_anchors as anchors
+   | |____________________________________________________________^
+help: Organize imports
+   |
+17 |
+   -
+18 | CELLS = (
+   |
+
+ISC004 Unparenthesized implicit string concatenation in collection
+   --> tests/test_otto_teacher_anchors.py:187:9
+    |
+185 |           b'{"kind":"step","episode_id":"dagger:lambda3:950001:shared@91010","step":BAD\n',
+186 |           b'{"kind":"reset","episode_id":"train:lambda4:920001:teacher","public":null}\n',
+187 | /         b'{"kind":"step","episode_id":"valid:lambda3:930001:teacher",'
+188 | |         b'"note":"dagger:lambda3:950001:shared@9101","public":BROKEN\n',
+    | |_______________________________________________________________________^
+189 |       ]
+190 |       decode, decoded = anchors._decode_record, []
+    |
+help: Did you forget a comma?
+help: Wrap implicitly concatenated strings in parentheses
+
+Found 2 errors.
+[*] 1 fixable with the `--fix` option (1 hidden fix can be enabled with the `--unsafe-fixes` option).

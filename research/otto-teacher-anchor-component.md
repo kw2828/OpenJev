@@ -1,0 +1,17 @@
+# Reconstructing public training states for teacher costs
+
+The [six-anchor pilot](otto-teacher-label-pilot-protocol.md) uses existing learner-visited training states. The [extractor](../src/openjev/research/otto_teacher_anchors.py) selects six metadata rows by the fixed protocol order, then reconstructs their beliefs from public observations. It does not read the original hidden source, native posterior arrays, rewards or teacher scores into the reconstruction.
+
+Selection happens before reconstruction or continuation costs are available. The extractor filters raw transition lines by exact selected episode ID before decoding values, applies the original reset and observation updates, and checks every saved posterior hash and mass. Prefix t is the state after update t and before action t+1. All six final snapshots must validate before the collector can draw a new source. Unsupported states fail without replacement or repair.
+
+**36 fabricated tests passed.** They cover deterministic selection, excluded-record handling, exact replay against an independent arithmetic fixture, malformed or discontinuous traces, unsupported beliefs, the six validation calls and caller ownership. These checks establish mechanics only. No empirical anchor, rollout label or model was used by the tests.
+
+The [first engineering receipt](../output/otto-teacher-label-pilot-v1/engineering-01/receipt.json) retains the passing tests and two formatting findings. A blank-line and parenthesized-string correction preserved the exact executable AST. The [second receipt](../output/otto-teacher-label-pilot-v1/engineering-02/receipt.json) records the passing lint check; the unchanged tests were not rerun. All 219 prior spatial-study sources were unchanged across the test run.
+
+The separate [fabricated byte projection](../output/otto-teacher-label-pilot-v1/serialization-01.json) charges up to 512 bytes for each of 6,723,474 sampler events and reserves 256 MiB for other artifacts. Its conservative total is **3,710,854,144 bytes**, below the prospective 4 GiB output cap. The collector must enforce these bounds; this calculation does not establish execution speed or guarantee completion within the time limit. [Projection program](../scripts/budget_otto_teacher_labels.py).
+
+The [collector](../scripts/collect_otto_teacher_labels.py) binds historical input and source identities, freezes metadata selection in plan mode, and reserves numerical reconstruction and sampling for supervised run mode. **Eight fabricated collector tests and lint passed** in the [third engineering attempt](../output/otto-teacher-label-pilot-v1/engineering-03/receipt.json). They exercise oversized events, write and synchronization failures, cleanup failure, failed-receipt publication, and the requirement that all six anchors validate before sampling. Independent source review caught and corrected a cleanup path that could otherwise suppress failure evidence. No real sampler or historical numerical inputs were used by these tests.
+
+No empirical anchors have been selected or reconstructed in this preparation. The next execution step is to freeze the six exact training identities, then run the one declared feasibility collection and independently review its saved outputs.
+
+This preparation does not establish useful supervision, policy competence, a recurrence benefit or a connectome advantage. Those require the subsequent matched learning comparison and autonomous evaluation.
