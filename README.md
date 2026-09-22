@@ -56,13 +56,13 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Latest completed research
 
-[Input scaling did not improve autonomous search](research/otto-conditioning-control-results.md): **504 searches, seven controllers, all 30 conditions failed**. Across three sensing settings, the scaled models' weighted success is **13.57% / 5.10% / 9.20%**, versus **19.51% / 31.41% / 42.02%** for the original models and **100%** for analytic control. Scaling also increases moves and controller cost in every setting. Independent replay verifies all decisions and reported conditions.
+[Spatial features did not beat the simpler scalar controls](research/otto-spatial-study-results.md): **15 fits, five model families, 52,800 updates**. The 225-parameter statistics model has the lowest exposed-validation mean squared error in every paired seed. The spatial model's mean error is **4.93% higher**, with **3.64x** the fitting time. These are prediction diagnostics; autonomous performance is still untested for these models.
 
-[![All six models and analytic control: success, capped moves and complete controller cost](docs/assets/otto-conditioning-control.png)](research/otto-conditioning-control-results.md)
+[![All fifteen models: training and validation error, fitting time and diagnostic cost](docs/assets/otto-spatial-study.png)](research/otto-spatial-study-results.md)
 
-[All models and criteria](research/otto-conditioning-control-results.md) · [Protocol](research/otto-conditioning-control-protocol.md) · [Raw evidence and checkpoints](https://github.com/kw2828/OpenJev/releases/tag/otto-conditioning-control-v1).
+[All models and limits](research/otto-spatial-study-results.md) · [Protocol](research/otto-spatial-training-protocol.md) · [Raw evidence and checkpoints](https://github.com/kw2828/OpenJev/releases/tag/otto-spatial-study-v1).
 
-The earlier [scalar result](research/otto-conditioning-results.md) remains failed: better training fit did not establish better control. Five models for a separate [spatial representation comparison](research/otto-spatial-qualification-results.md) are now implemented and pass synthetic correctness/runtime checks. Empirical training and autonomous evaluation are next. No novel architecture advantage is established.
+Independent replay checked all 100,470 final predictions. The next comparison retains all fifteen models against analytic control on fresh searches. The earlier [504-search input-scaling comparison](research/otto-conditioning-control-results.md) remains failed on all 30 conditions. No novel architecture advantage is established.
 
 Earlier dialogue, RockSample, compact-memory and pretrained-policy comparisons are collected in the [experiment archive](research/experiment-index.md), including failed attempts, frozen criteria and independent audits. The separate [shared-prefix scoring experiment](research/shared-prefix-results.md) measured **2.08x** speedup on four-question synthetic workloads; single-question caching was slower. This does not reproduce a proprietary RLCD system.
 
