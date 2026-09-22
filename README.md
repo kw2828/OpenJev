@@ -62,7 +62,7 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 [All models and criteria](research/otto-conditioning-control-results.md) · [Protocol](research/otto-conditioning-control-protocol.md) · [Raw evidence and checkpoints](https://github.com/kw2828/OpenJev/releases/tag/otto-conditioning-control-v1).
 
-The earlier [scalar result](research/otto-conditioning-results.md) remains failed: better training fit did not establish better control. Next is a separate [spatial representation comparison](research/otto-spatial-design-review.md), currently proposed and untrained. No novel architecture advantage is established.
+The earlier [scalar result](research/otto-conditioning-results.md) remains failed: better training fit did not establish better control. Five models for a separate [spatial representation comparison](research/otto-spatial-qualification-results.md) are now implemented and pass synthetic correctness/runtime checks. Empirical training and autonomous evaluation are next. No novel architecture advantage is established.
 
 Earlier dialogue, RockSample, compact-memory and pretrained-policy comparisons are collected in the [experiment archive](research/experiment-index.md), including failed attempts, frozen criteria and independent audits. The separate [shared-prefix scoring experiment](research/shared-prefix-results.md) measured **2.08x** speedup on four-question synthetic workloads; single-question caching was slower. This does not reproduce a proprietary RLCD system.
 

@@ -1,0 +1,627 @@
+{
+  "calls": {
+    "backward": {
+      "attempted": 50,
+      "returned": 50
+    },
+    "deployment_construction": {
+      "attempted": 5,
+      "returned": 5
+    },
+    "export": {
+      "attempted": 5,
+      "returned": 5
+    },
+    "model_construction": {
+      "attempted": 10,
+      "returned": 10
+    },
+    "numpy_forward": {
+      "attempted": 40,
+      "returned": 40
+    },
+    "optimizer_construction": {
+      "attempted": 5,
+      "returned": 5
+    },
+    "optimizer_update": {
+      "attempted": 50,
+      "returned": 50
+    },
+    "torch_forward": {
+      "attempted": 95,
+      "returned": 95
+    }
+  },
+  "learned_task_advantage_established": false,
+  "parity": {
+    "cnn": {
+      "maximum_absolute_error": 5.551115123125783e-17,
+      "passes": true
+    },
+    "dense128": {
+      "maximum_absolute_error": 0.0,
+      "passes": true
+    },
+    "neighbor_free": {
+      "maximum_absolute_error": 5.551115123125783e-17,
+      "passes": true
+    },
+    "spatial": {
+      "maximum_absolute_error": 5.551115123125783e-17,
+      "passes": true
+    },
+    "statistics": {
+      "maximum_absolute_error": 0.0,
+      "passes": true
+    }
+  },
+  "projection": {
+    "excluded": [
+      "data authentication",
+      "shuffle and copies",
+      "per-epoch diagnostics",
+      "scientific journal I/O",
+      "complete supervision",
+      "branch construction",
+      "action selection",
+      "posterior updates",
+      "variable real-state workload"
+    ],
+    "families": {
+      "cnn": {
+        "final_diagnostics_seconds": 1.52838994,
+        "head_only_seconds_for_72_cases_three_seeds_at_cap": 4650.856402464,
+        "head_only_seconds_per_max_length_episode": 21.531742604,
+        "one_fit_seconds": 258.501799501,
+        "training_updates_seconds": 256.97215552
+      },
+      "dense128": {
+        "final_diagnostics_seconds": 0.207990159,
+        "head_only_seconds_for_72_cases_three_seeds_at_cap": 345.22029446400006,
+        "head_only_seconds_per_max_length_episode": 1.598242104,
+        "one_fit_seconds": 22.365683956999998,
+        "training_updates_seconds": 22.146507839999998
+      },
+      "neighbor_free": {
+        "final_diagnostics_seconds": 0.562435308,
+        "head_only_seconds_for_72_cases_three_seeds_at_cap": 1378.24308,
+        "head_only_seconds_per_max_length_episode": 6.380755,
+        "one_fit_seconds": 61.130701613,
+        "training_updates_seconds": 60.56716672
+      },
+      "spatial": {
+        "final_diagnostics_seconds": 0.879508416,
+        "head_only_seconds_for_72_cases_three_seeds_at_cap": 2003.9368455360004,
+        "head_only_seconds_per_max_length_episode": 9.277485396000001,
+        "one_fit_seconds": 82.97198540999999,
+        "training_updates_seconds": 82.09086216
+      },
+      "statistics": {
+        "final_diagnostics_seconds": 0.25449579099999997,
+        "head_only_seconds_for_72_cases_three_seeds_at_cap": 319.148401536,
+        "head_only_seconds_per_max_length_episode": 1.477538896,
+        "one_fit_seconds": 19.770365754,
+        "training_updates_seconds": 19.51483888
+      }
+    },
+    "fifteen_fit_seconds": 1334.2216087049999,
+    "not_admission": true,
+    "training_budget_seconds": 7200,
+    "two_times_allowance_seconds": 2668.4432174099998,
+    "within_planning_budget": true
+  },
+  "scope": "synthetic engineering only",
+  "timings": [
+    {
+      "all_seconds": [
+        0.056375791,
+        0.024129125,
+        0.023371792,
+        0.023472708,
+        0.023321542
+      ],
+      "batch": 128,
+      "kind": "spatial",
+      "stage": "update",
+      "warm_max": 0.023472708,
+      "warm_median": 0.023371792,
+      "warm_min": 0.023321542,
+      "warm_seconds": [
+        0.023371792,
+        0.023472708,
+        0.023321542
+      ]
+    },
+    {
+      "all_seconds": [
+        0.017127208,
+        0.016707792,
+        0.016490834,
+        0.016809333,
+        0.016608459
+      ],
+      "batch": 85,
+      "kind": "spatial",
+      "stage": "update",
+      "warm_max": 0.016809333,
+      "warm_median": 0.016608459,
+      "warm_min": 0.016490834,
+      "warm_seconds": [
+        0.016490834,
+        0.016809333,
+        0.016608459
+      ]
+    },
+    {
+      "all_seconds": [
+        0.017059625,
+        0.016693416,
+        0.01678225,
+        0.016771541
+      ],
+      "batch": 128,
+      "kind": "spatial",
+      "stage": "diagnostic",
+      "warm_max": 0.01678225,
+      "warm_median": 0.016771541,
+      "warm_min": 0.016693416,
+      "warm_seconds": [
+        0.016693416,
+        0.01678225,
+        0.016771541
+      ]
+    },
+    {
+      "all_seconds": [
+        0.011543625,
+        0.011806833,
+        0.011401334,
+        0.011287167
+      ],
+      "batch": 85,
+      "kind": "spatial",
+      "stage": "diagnostic",
+      "warm_max": 0.011806833,
+      "warm_median": 0.011401334,
+      "warm_min": 0.011287167,
+      "warm_seconds": [
+        0.011806833,
+        0.011401334,
+        0.011287167
+      ]
+    },
+    {
+      "all_seconds": [
+        0.00429525,
+        0.004204208,
+        0.004240167,
+        0.004175125,
+        0.004161417,
+        0.004188666,
+        0.004218416
+      ],
+      "batch": 16,
+      "kind": "spatial",
+      "stage": "deployment",
+      "warm_max": 0.004240167,
+      "warm_median": 0.004188666,
+      "warm_min": 0.004161417,
+      "warm_seconds": [
+        0.004240167,
+        0.004175125,
+        0.004161417,
+        0.004188666,
+        0.004218416
+      ]
+    },
+    {
+      "all_seconds": [
+        0.0175525,
+        0.017371208,
+        0.017039958,
+        0.017328875,
+        0.017249125
+      ],
+      "batch": 128,
+      "kind": "neighbor_free",
+      "stage": "update",
+      "warm_max": 0.017328875,
+      "warm_median": 0.017249125,
+      "warm_min": 0.017039958,
+      "warm_seconds": [
+        0.017039958,
+        0.017328875,
+        0.017249125
+      ]
+    },
+    {
+      "all_seconds": [
+        0.012001333,
+        0.011857334,
+        0.01193125,
+        0.011947959,
+        0.011917416
+      ],
+      "batch": 85,
+      "kind": "neighbor_free",
+      "stage": "update",
+      "warm_max": 0.011947959,
+      "warm_median": 0.01193125,
+      "warm_min": 0.011917416,
+      "warm_seconds": [
+        0.01193125,
+        0.011947959,
+        0.011917416
+      ]
+    },
+    {
+      "all_seconds": [
+        0.010487209,
+        0.010639667,
+        0.010742292,
+        0.010613125
+      ],
+      "batch": 128,
+      "kind": "neighbor_free",
+      "stage": "diagnostic",
+      "warm_max": 0.010742292,
+      "warm_median": 0.010639667,
+      "warm_min": 0.010613125,
+      "warm_seconds": [
+        0.010639667,
+        0.010742292,
+        0.010613125
+      ]
+    },
+    {
+      "all_seconds": [
+        0.007378417,
+        0.007180459,
+        0.007289208,
+        0.007249417
+      ],
+      "batch": 85,
+      "kind": "neighbor_free",
+      "stage": "diagnostic",
+      "warm_max": 0.007289208,
+      "warm_median": 0.007249417,
+      "warm_min": 0.007180459,
+      "warm_seconds": [
+        0.007180459,
+        0.007289208,
+        0.007249417
+      ]
+    },
+    {
+      "all_seconds": [
+        0.002964875,
+        0.002903541,
+        0.002899,
+        0.00289725,
+        0.00291625,
+        0.002887625,
+        0.002861625
+      ],
+      "batch": 16,
+      "kind": "neighbor_free",
+      "stage": "deployment",
+      "warm_max": 0.00291625,
+      "warm_median": 0.00289725,
+      "warm_min": 0.002861625,
+      "warm_seconds": [
+        0.002899,
+        0.00289725,
+        0.00291625,
+        0.002887625,
+        0.002861625
+      ]
+    },
+    {
+      "all_seconds": [
+        0.076189625,
+        0.072559209,
+        0.072334167,
+        0.072702042,
+        0.073568833
+      ],
+      "batch": 128,
+      "kind": "cnn",
+      "stage": "update",
+      "warm_max": 0.073568833,
+      "warm_median": 0.072702042,
+      "warm_min": 0.072334167,
+      "warm_seconds": [
+        0.072334167,
+        0.072702042,
+        0.073568833
+      ]
+    },
+    {
+      "all_seconds": [
+        0.050789625,
+        0.050509916,
+        0.048692125,
+        0.048102416,
+        0.0480295
+      ],
+      "batch": 85,
+      "kind": "cnn",
+      "stage": "update",
+      "warm_max": 0.048692125,
+      "warm_median": 0.048102416,
+      "warm_min": 0.0480295,
+      "warm_seconds": [
+        0.048692125,
+        0.048102416,
+        0.0480295
+      ]
+    },
+    {
+      "all_seconds": [
+        0.028174416,
+        0.02822975,
+        0.028006167,
+        0.029217708
+      ],
+      "batch": 128,
+      "kind": "cnn",
+      "stage": "diagnostic",
+      "warm_max": 0.029217708,
+      "warm_median": 0.02822975,
+      "warm_min": 0.028006167,
+      "warm_seconds": [
+        0.02822975,
+        0.028006167,
+        0.029217708
+      ]
+    },
+    {
+      "all_seconds": [
+        0.018552791,
+        0.018382666,
+        0.018595916,
+        0.019143416
+      ],
+      "batch": 85,
+      "kind": "cnn",
+      "stage": "diagnostic",
+      "warm_max": 0.019143416,
+      "warm_median": 0.018595916,
+      "warm_min": 0.018382666,
+      "warm_seconds": [
+        0.018382666,
+        0.018595916,
+        0.019143416
+      ]
+    },
+    {
+      "all_seconds": [
+        0.010273917,
+        0.009988292,
+        0.009840833,
+        0.009693083,
+        0.009599042,
+        0.009749667,
+        0.0096815
+      ],
+      "batch": 16,
+      "kind": "cnn",
+      "stage": "deployment",
+      "warm_max": 0.009840833,
+      "warm_median": 0.009693083,
+      "warm_min": 0.009599042,
+      "warm_seconds": [
+        0.009840833,
+        0.009693083,
+        0.009599042,
+        0.009749667,
+        0.0096815
+      ]
+    },
+    {
+      "all_seconds": [
+        0.007976459,
+        0.006378792,
+        0.0062615,
+        0.006317667,
+        0.006193125
+      ],
+      "batch": 128,
+      "kind": "dense128",
+      "stage": "update",
+      "warm_max": 0.006317667,
+      "warm_median": 0.0062615,
+      "warm_min": 0.006193125,
+      "warm_seconds": [
+        0.0062615,
+        0.006317667,
+        0.006193125
+      ]
+    },
+    {
+      "all_seconds": [
+        0.005049875,
+        0.004860959,
+        0.005083625,
+        0.005171667,
+        0.005164708
+      ],
+      "batch": 85,
+      "kind": "dense128",
+      "stage": "update",
+      "warm_max": 0.005171667,
+      "warm_median": 0.005164708,
+      "warm_min": 0.005083625,
+      "warm_seconds": [
+        0.005083625,
+        0.005171667,
+        0.005164708
+      ]
+    },
+    {
+      "all_seconds": [
+        0.003958958,
+        0.0038925,
+        0.003971209,
+        0.00388925
+      ],
+      "batch": 128,
+      "kind": "dense128",
+      "stage": "diagnostic",
+      "warm_max": 0.003971209,
+      "warm_median": 0.0038925,
+      "warm_min": 0.00388925,
+      "warm_seconds": [
+        0.0038925,
+        0.003971209,
+        0.00388925
+      ]
+    },
+    {
+      "all_seconds": [
+        0.002867,
+        0.002720625,
+        0.002716375,
+        0.00272925
+      ],
+      "batch": 85,
+      "kind": "dense128",
+      "stage": "diagnostic",
+      "warm_max": 0.00272925,
+      "warm_median": 0.002720625,
+      "warm_min": 0.002716375,
+      "warm_seconds": [
+        0.002720625,
+        0.002716375,
+        0.00272925
+      ]
+    },
+    {
+      "all_seconds": [
+        0.000728166,
+        0.00072,
+        0.000727625,
+        0.000730458,
+        0.000705958,
+        0.000691792,
+        0.000680791
+      ],
+      "batch": 16,
+      "kind": "dense128",
+      "stage": "deployment",
+      "warm_max": 0.000730458,
+      "warm_median": 0.000705958,
+      "warm_min": 0.000680791,
+      "warm_seconds": [
+        0.000727625,
+        0.000730458,
+        0.000705958,
+        0.000691792,
+        0.000680791
+      ]
+    },
+    {
+      "all_seconds": [
+        0.005878125,
+        0.005436875,
+        0.005487792,
+        0.005330666,
+        0.005581208
+      ],
+      "batch": 128,
+      "kind": "statistics",
+      "stage": "update",
+      "warm_max": 0.005581208,
+      "warm_median": 0.005487792,
+      "warm_min": 0.005330666,
+      "warm_seconds": [
+        0.005487792,
+        0.005330666,
+        0.005581208
+      ]
+    },
+    {
+      "all_seconds": [
+        0.004077292,
+        0.003826834,
+        0.003815958,
+        0.003943542,
+        0.00382625
+      ],
+      "batch": 85,
+      "kind": "statistics",
+      "stage": "update",
+      "warm_max": 0.003943542,
+      "warm_median": 0.00382625,
+      "warm_min": 0.003815958,
+      "warm_seconds": [
+        0.003815958,
+        0.003943542,
+        0.00382625
+      ]
+    },
+    {
+      "all_seconds": [
+        0.004704375,
+        0.004862625,
+        0.00467025,
+        0.004714541
+      ],
+      "batch": 128,
+      "kind": "statistics",
+      "stage": "diagnostic",
+      "warm_max": 0.004862625,
+      "warm_median": 0.004714541,
+      "warm_min": 0.00467025,
+      "warm_seconds": [
+        0.004862625,
+        0.00467025,
+        0.004714541
+      ]
+    },
+    {
+      "all_seconds": [
+        0.00325025,
+        0.003250958,
+        0.003227125,
+        0.003191083
+      ],
+      "batch": 85,
+      "kind": "statistics",
+      "stage": "diagnostic",
+      "warm_max": 0.003250958,
+      "warm_median": 0.003227125,
+      "warm_min": 0.003191083,
+      "warm_seconds": [
+        0.003250958,
+        0.003227125,
+        0.003191083
+      ]
+    },
+    {
+      "all_seconds": [
+        0.00074525,
+        0.000685459,
+        0.000675292,
+        0.000665292,
+        0.000666084,
+        0.000668167,
+        0.000653042
+      ],
+      "batch": 16,
+      "kind": "statistics",
+      "stage": "deployment",
+      "warm_max": 0.000675292,
+      "warm_median": 0.000666084,
+      "warm_min": 0.000653042,
+      "warm_seconds": [
+        0.000675292,
+        0.000665292,
+        0.000666084,
+        0.000668167,
+        0.000653042
+      ]
+    }
+  ]
+}
