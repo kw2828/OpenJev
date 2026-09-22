@@ -1,0 +1,51 @@
+# Fixed optimization-budget comparison: 80 versus 320 epochs
+
+22 September 2026. Prospective before fresh fitting, diagnostic inference or evaluation. The completed [target-precision comparison](otto-target-precision-results.md) failed 26 of 33 conditions. Its saved losses were still decreasing at epoch 80, which motivates testing optimization allocation. This does not establish that longer training will help. Freeze all sources, input descriptors, runtime, engineering evidence, seed reservations and this allocation before execution.
+
+## Immutable supervision and the single intervention
+
+Authenticate the complete precision study: plan `921318b9c978b208989ad66210a06adad8f104c827351eda1850f080d9f8a46a`, worker `34b331507fe8f53058baecdbeed0e3448b91202a6971762949d1ae7017f4bb2a`, original parent `fc3312338d04b5a0955727651e83a62f5907cedff7be007e165d4f4637a71e37`, agreeing independent audit `549eb00f8a04904f22bb9ff351c35c4e5f965b88a6f1944d0186886ac693baa7` and audit parent `bf756bbb82639b78de692bf7bc0cba818306ce82d7ca599c99d68ff45b272a34`. Preserve all 158 source pins, 1,144 input descriptors, 584 producer payloads and prior failure/audit lineage. Historical evaluation is authenticated as evidence, not read as training data.
+
+Reuse its complete R64 cache: 558 TRAIN anchors from 144 episodes, features, raw mean costs, centered float64 targets, scaled float32 targets, masks, both weight dtypes and the exact original R16 global scale. Both arms receive byte-identical copies. Preserve ties, duplicate/reset/late states and every eligible action. There is no new teacher sampling, target rescaling, label repair, row filtering or confidence weighting. Episode weights remain `558/(144*n_episode)`.
+
+Compare arms **short** and **long**, with **80** and **320 epochs**, respectively. Keep the ordinary 2,836→32→16→4 Tanh head, 91,380 parameters, eight D4 training views, masked centered MSE, Adam at 0.0003, batch 128, clipping 5 and CPU float32 unchanged. Use fresh paired seeds **30101, 30102, 30103**, short then long for each seed. Each model has a separate fresh Adam state. Reset `default_rng(seed+20000)` per arm. Both initial checkpoints are durably published before either arm updates; their exported arrays must match exactly.
+
+This is 400 updates per short fit and 1,600 per long fit: **six fits, 6,000 updates, 1,200 fit-epochs and 5,356,800 augmented row presentations**. No learning-rate change, early stopping, validation selection, checkpoint replacement, stochastic layer change or teacher fallback is permitted. Record all orders, pre-update minibatch losses, gradient norms and attempted/returned operations. The final epoch's online loss is not a fixed-checkpoint evaluation.
+
+At long epoch 80, durably export a **prefix** checkpoint and compare its arrays byte-for-byte with the paired short final checkpoint. Verify that the first 80 epoch orders, losses, gradient records and optimizer step counts agree, except arm names. Continue the same long optimizer state to epoch 320. This is a diagnostic checkpoint, never a selectable candidate. There are **15 checkpoint publications**: six initial, six final and three long prefixes. Reload each publication byte-exactly. Retain the six final first-16-TRAIN NumPy/Torch parity checks at absolute and relative tolerance 2e-5. Near-tie action equality is not inferred from this tolerance.
+
+## Fixed final TRAIN diagnostics
+
+After all fitting, independently reload each of the **six final checkpoints** once for diagnostics. Do not score initial or prefix checkpoints. For each model, score every one of the 558 saved rows under every one of the eight qualified D4 transformations, in group order and batches of at most 128 rows. This is **240 counted NumPy batch calls and 26,784 transformed row predictions**. Save all raw float32 outputs as `[558,8,4]` per model, exact checkpoint identities and operation records. No new posterior, environment or target computation is admitted here.
+
+For each row/view, transform the saved rounded float32 training targets and masks with the same qualified action permutation. Convert outputs and those rounded targets to float64, center each independently over eligible actions, and average squared error over eligible actions. Average over eight views for a row loss, then apply the stored float32 training weights upcast to float64 and divide their weighted sum by 558, without renormalizing weights. Also retain view-zero MSE. This is a fixed-final NumPy measurement of the same mathematical objective, with a declared float64 reduction; it is not claimed bit-identical to the Torch float32 online loss.
+
+Use view zero for the deployed choice: first ascending eligible action with absolute score difference strictly less than 1e-10 from the minimum, converting each float32 score to a Python float before subtraction as the deployed actor does. Save each chosen action and its raw R64 mean-cost gap above the minimum eligible saved R64 mean, in moves. Retain optimal-set agreement and exact first-argmin agreement, with all ties and zero gaps. Aggregate these decision metrics with the original float64 episode weights divided by 558. These are TRAIN diagnostics against finite-sample labels, not true environment regret, held-out accuracy or advancement criteria. They must not change data, schedules, checkpoints or evaluation.
+
+Charge all six diagnostic restores, transformations, predictions, arithmetic, serialization and storage separately. Evaluation then performs **six fresh checkpoint restores** into separate deployment heads. Diagnostic heads are not reused, and no deployment prediction is discarded as warmup. First deployment inference remains inside the complete controller interval.
+
+## Fresh full-horizon evaluation
+
+Use the unchanged qualified native adapter, public feature map, public posterior filter and in-bounds analytic control. Evaluate all six fixed final heads and the analytic control on 24 cases per length: **72 paired cases and 504 complete episodes**. Fresh evaluation seeds are **1080001-1080024**, **1090001-1090024**, **1100001-1100024** for sensing lengths 3, 4 and 5. Require a source/protocol/actual-ledger reservation check before freezing. Case c has initial hit `1+c%3`, paired block `c//3`, and the same inherited positive-hit mixture weights. Length 5 is absent from TRAIN but its known kernel is supplied at evaluation.
+
+Canonical order is `[short@30101,long@30101,short@30102,long@30102,short@30103,long@30103,analytic_inbounds]`, rotated left by `(regime_index*24+c)%7`. Pair source and overlapping hit random streams across arms using the unchanged adapter. Hidden sources and random witnesses remain evaluator-only. Actors receive public observations and the supplied kernel only. Record all actions, saved scores, draw witnesses and exact public/native posterior agreement. Assimilate the final observation, including success or horizon termination. Run until discovery or **2,188 moves**, retaining every failure and cycling trajectory. No action override, retraining or inference ensemble.
+
+Report all 21 arm/setting outcomes, family means over all three fit seeds, raw found counts, hit strata and every paired block. The 504 episodes share 72 cases and are not 504 independent samples. Do not treat block wins as a significance test or select a favorable model or setting.
+
+## Costs and all 33 continuation conditions
+
+All **33** must pass to advance the longer-training recipe:
+
+- Each of three analytic controls has weighted success at least 95%.
+- Each long fit in each setting has weighted success at least 95% and capped moves at most 105% of analytic control: 18 conditions.
+- In each setting, the long family has success no lower than short, capped moves at most 95% of short, positive paired move gains in at least six of eight blocks and controller cost at most 105% of short: 12 conditions.
+
+Keep complete controller timing unchanged: actor/feature initialization, feature construction, scoring, choice and public filtering, plus each fresh deployment restore allocated over its 72 episodes and model-module setup over 432 learned episodes. Only measured journal I/O is excluded from controller intervals. Record native simulation separately. Model import, diagnostic loads/work, training setup, each fit and pair overhead, deployment loads, all evaluation and final closure remain in the physical study cost. Historical R64 label acquisition is shared inherited work, disclosed separately and not counted twice as new work. A longer-training loss improvement alone cannot pass this rule.
+
+## One bounded execution and verification
+
+Run once under the existing suspend-inclusive supervisor, with **7,200 seconds, one numerical thread, 4 GiB peak RSS and 16 GiB output**. Input authentication, six fits, all fixed TRAIN diagnostics, 504 episodes and closure share this cap. The previous six fits took 7.92 seconds and evaluation 1,240.61 seconds; a roughly 21-minute estimate for the new experiment is a planning estimate, not a guarantee. Preserve original attempts and pending work, use exclusive output paths and durable checkpoint/episode boundaries, and require the original successful supervisor terminal. No retry, resume, replacement seed, budget extension, outcome-driven early stop or automatic additional epoch round.
+
+Require independent source review and meaningful fabricated checks for immutable targets, exact shared training prefix, failure handling and diagnostic reductions before freezing. A separately frozen saved-record audit verifies source/input closure, checkpoint and training records, diagnostic arithmetic and evaluation criteria without new training or simulator calls. Its report must distinguish saved-score verification from regenerating neural scores or gradients.
+
+If final TRAIN fit and label-relative decisions improve but competence fails, longer optimization is insufficient under this recipe. If fit barely improves, representation and conflicting targets remain alternatives. Neither result establishes a recurrent, connectome, biological-learning or other architectural advantage. The broader objective still requires a competent specific mechanism, matched compute comparisons, held-out confirmation and transfer to another environment.

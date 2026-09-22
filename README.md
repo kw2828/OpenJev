@@ -56,13 +56,13 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Latest completed research
 
-[Four times as many teacher samples did not reliably improve control](research/otto-target-precision-results.md): **six matched fits, 504 fresh searches, 7/33 continuation criteria passed**. Success changed from **21.4% / 12.8% / 15.1%** with 16-sample targets to **19.8% / 17.9% / 13.1%** with 64-sample targets. Analytic control found all **72/72** sources; no learned fit met the competence requirements.
+[Longer training fits the labels better, but control remains poor](research/otto-training-budget-results.md): **six matched fits, 504 fresh searches, 10/33 continuation criteria passed**. Training for 320 rather than 80 epochs raises weighted success from **10.2% / 20.4% / 4.5%** to **15.3% / 21.6% / 9.5%** across three settings. Analytic control found all **72/72** sources; no learned fit met the competence requirements.
 
-[![Every 16-sample and 64-sample fit versus analytic control: success, capped moves and complete controller time](docs/assets/otto-target-precision.png)](research/otto-target-precision-results.md)
+[![Every 80-epoch and 320-epoch fit versus analytic control: success, capped moves and complete controller time](docs/assets/otto-training-budget.png)](research/otto-training-budget-results.md)
 
-The additional labels cost **96,912 teacher continuations and 17.14 minutes**. The independent saved-record audit agrees with all outcomes and criteria. This recipe is not promoted. [Next proposed test](research/otto-target-precision-next-decisions.md): keep the labels fixed and compare training duration.
+On identical labels, final training error falls **11.4%** and the chosen-action cost gap against those labels falls **14.8%**. The independent saved-record audit agrees. These training gains do not establish an architecture advantage. [Next proposed diagnostic](research/otto-training-budget-next-decisions.md): measure conflicting labels at identical encoded inputs before allocating more training.
 
-[Results and limits](research/otto-target-precision-results.md) · [Protocol](research/otto-target-precision-protocol.md) · [Evidence and checkpoints](https://github.com/kw2828/OpenJev/releases/tag/otto-target-precision-v1) · [Previous comparison](research/otto-teacher-learning-results.md).
+[Results and limits](research/otto-training-budget-results.md) · [Protocol](research/otto-training-budget-protocol.md) · [Evidence and checkpoints](https://github.com/kw2828/OpenJev/releases/tag/otto-training-budget-v1) · [Previous comparison](research/otto-target-precision-results.md).
 
 Earlier spatial, dialogue, RockSample and memory studies remain in the [experiment archive](research/experiment-index.md), including negative results and failed attempts. The separate [shared-prefix scoring experiment](research/shared-prefix-results.md) measured **2.08x** speedup on four-question synthetic workloads; single-question caching was slower. This does not reproduce a proprietary RLCD system.
 

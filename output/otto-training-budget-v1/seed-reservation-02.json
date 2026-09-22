@@ -1,0 +1,36 @@
+{
+  "status": "clear",
+  "fit_seeds": [
+    30101,
+    30102,
+    30103
+  ],
+  "evaluation_first_seeds": {
+    "lambda3": 1080001,
+    "lambda4": 1090001,
+    "lambda5": 1100001
+  },
+  "cases_per_regime": 24,
+  "raw_scan": {
+    "path": "output/otto-training-budget-v1/seed-reservation-01.json",
+    "sha256": "739b363782dbd04cd1f706c452d6a9ee857abfd7007c8936cec3d35fcc1cbc37",
+    "bytes": 66362
+  },
+  "scope": "Domain-aware review of both literal hits from the immutable original scan. All proposed evaluation seeds and model initialization seeds are unused in known empirical OTTO fit/evaluation records. Numerical IDs are not asserted globally unique across distinct PRNG and task namespaces.",
+  "reviewed_matches": [
+    {
+      "path": "tests/test_audit_otto_capacity.py",
+      "source_sha256": "3a7a7005f284415ea7d1762a1338d1a6fb5a8716cf6ff16d2a5f0a53cda661de",
+      "classification": "old fabricated NumPy epoch-order fixture using historical fit10101 plus shuffle offset20000",
+      "decision": "not a prior Torch model initialization with30101 or proposed native evaluation seed; current shuffle is50101, with own fresh NumPy RNG and paired arms"
+    },
+    {
+      "path": "tests/test_otto_spatial_study.py",
+      "source_sha256": "8237ee52db66a0a4060c71bcebe74564872d91113c3a6a574d174d63ad84aefb",
+      "classification": "old fabricated NumPy epoch-order fixture using historical fit10101 plus shuffle offset20000",
+      "decision": "not a prior Torch model initialization with30101 or proposed native evaluation seed; current shuffle is50101, with own fresh NumPy RNG and paired arms"
+    }
+  ],
+  "qualification_note": "Current new helper fabricated test uses proposed30101 as intended; no empirical data or native evaluation is involved. Current proposal/tests are not historical benchmark use.",
+  "scientific_calls": 0
+}
