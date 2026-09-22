@@ -1,0 +1,25 @@
+# Conditional follow-up: learn which action reduces search cost
+
+Status: an outcome-independent design sketch, written while the [1,152-episode spatial comparison](otto-spatial-control-protocol.md) is running. This does not admit new collection, fitting or evaluation. The current models, cases, limits and continuation rule remain unchanged. Lifecycle counts, not partial policy outcomes, informed this note.
+
+If every learned head fails competence while analytic control remains competent, the next useful question is whether better action labels improve the same ordinary policy. That outcome would reject the tested recipes, not prove that representation, state coverage or the learning target caused the failures. If an ordinary head is competent, retain it as the positive control for any later architecture comparison. If the original run does not complete and pass its independent audit, report the interruption before drawing either conclusion.
+
+Several nearby ideas have already been tried here:
+
+| Existing comparison | What it established | What remains untested by that comparison |
+| --- | --- | --- |
+| [Symmetry and pooled student states](otto-symmetry-head-results.md) | Models trained on the same pooled teacher/student states with relative analytic-action targets still failed competence. | Counterfactual teacher-continuation cost labels at those kinds of states. Ordinary DAgger is not a new proposal. |
+| [Bellman versus Monte Carlo](otto-bellman-control-results.md) | Changing targets on fixed teacher-visited states did not meet the continuation rule. | Cost-sensitive action learning on a shared learner-visited training distribution. |
+| [Coverage collection](otto-coverage-collection-results.md) | One required quota was underfilled; subsequent fitting was not admitted. | Whether the intended coverage change improves learning. A failed collection quota is not a negative learning result. |
+
+The candidate mechanism is **counterfactual teacher-continuation supervision**. At each fixed public training belief, estimate the capped remaining search cost of each eligible first action, followed by the unchanged analytic teacher. Sample hidden source locations from that public belief and future observations from the declared observation model. Evaluator truth from an existing trajectory must not replace that distribution or enter either actor. Keep failed continuations at the full declared cap. These labels estimate a finite-horizon teacher objective, not optimal action values.
+
+Compare two copies of one ordinary four-action readout: existing analytic-preference labels versus the continuation-cost labels. Use identical public inputs, a common learner-visited TRAIN pool, initialization, optimization allocation and deployed selection rule. Fix anchor selection and collection limits before generating labels; never use the current evaluation cases as training anchors. Centering action-cost vectors can remove a common state offset without changing their ranking. Loss scaling, eligible-action handling and common-random-number coupling require an explicit protocol; matching update counts alone does not match compute.
+
+First qualify the labeler with bounded sampling, separate precision checks and action-gap measurements. Stop if the allocation produces mostly unresolved rankings or censor-induced ties. Extra rollout samples cannot be added after inspecting an unfavorable comparison. Training and label-generation costs must both be reported, followed by fresh full-horizon autonomous evaluation against analytic control. A low label-regression error alone is insufficient.
+
+This learning principle is established prior art. [Ross and Bagnell's interactive cost-sensitive imitation learning](https://arxiv.org/abs/1406.5979) uses action-cost information in iterative learning. The [original olfactory-search benchmark](https://arxiv.org/html/2302.00706v2) already studies reinforcement learning over sufficient belief states. This proposal is a more specific untested comparison in this repository, not an architectural contribution.
+
+The present interface supplies the exact public posterior and observation kernel. Extra recurrence cannot be credited with recovering missing history that the posterior already summarizes. A later recurrent world-model experiment should separately restrict observations or memory and test whether its learned state preserves action-relevant predictions. [Value equivalence](https://arxiv.org/abs/2011.03506) provides an established planning-oriented objective; [V-JEPA 2](https://arxiv.org/abs/2506.09985) provides established action-conditioned latent prediction. Neither citation demonstrates that our implementation works or transfers to robots.
+
+Only after a competent learning signal is established should a spatial, recurrent or connectome-inspired model be compared with the same data, targets and complete computation. That would need a specific mechanism, matched ordinary controls, fresh confirmation and a second environment before supporting the broader research goal. No novelty, biological-learning advantage or robotics result is claimed by this note.
