@@ -42,6 +42,8 @@ Prefer a dependency manifest listing exact earlier release assets and their mani
 
 The qualification plan names TRAIN/VALID NPZ caches of 170,443,229 and 33,549,363 bytes, plus row metadata of 2,087,245 and 412,957 bytes. These sizes are plan metadata, not new array reads. If the publication claims fully offline historical authentication, include the complete transitive input/payload closure and a dependency-completeness check. Otherwise state precisely which previous releases must be restored. Preserve absolute historical paths inside receipts; document relocation separately rather than rewriting evidence.
 
+Byte verification and saved-file inspection are portable. Existing strict numerical auditors additionally require the recorded absolute repository, input, historical worker-output and interpreter path layout, plus the pinned runtime. Cloning and extracting elsewhere does not satisfy these identity checks even with every dependency present. A different layout needs a separately reviewed relocation adapter; none is supplied here. Do not rewrite historical plans, receipts or other evidence to make a new location appear old.
+
 ## Packaging and byte verification
 
 Use the streaming `pack`, `verify_archive` and `unchanged` pattern from [archive_otto_bellman_control.py](../../scripts/archive_otto_bellman_control.py). The simpler [conditioning packager](../../scripts/package_otto_conditioning.py) reads each whole file and recursively enumerates its directory; do not reuse that approach for a worker allowed up to 6 GiB output.

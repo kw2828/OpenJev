@@ -208,6 +208,14 @@ requires those dependencies, including the old caches for qualification replay.
 The source freeze and its package manifest remain authoritative. Preserve the
 recorded NumPy/Python/Torch runtime when replaying numerical audits. A model-free
 byte verification requires only the archive, manifests and checksum tools.
+
+Byte verification and saved-file inspection are portable. The existing strict
+numerical auditors additionally require the recorded absolute repository,
+input, historical worker-output and interpreter path layout, plus the pinned
+runtime. Cloning and extracting elsewhere does not satisfy those identity
+checks even when all dependencies are present. A different layout requires a
+separately reviewed relocation adapter; none is provided here. Do not rewrite
+historical plans, receipts or other evidence to make a new location appear old.
 '''
 
 

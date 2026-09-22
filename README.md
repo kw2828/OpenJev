@@ -56,13 +56,13 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Latest completed research
 
-[Six paired fits test input scaling](research/otto-conditioning-results.md) on the same odor-search data. Scaling the belief inputs lowers mean training error above the empirical floor **42.11%**, but raises mean validation error **9.73%**. The independently checked screen **fails: 3/6 conditions**. This is an ordinary optimization control; autonomous performance remains untested.
+[Input scaling did not improve autonomous search](research/otto-conditioning-control-results.md): **504 searches, seven controllers, all 30 conditions failed**. Across three sensing settings, the scaled models' weighted success is **13.57% / 5.10% / 9.20%**, versus **19.51% / 31.41% / 42.02%** for the original models and **100%** for analytic control. Scaling also increases moves and controller cost in every setting. Independent replay verifies all decisions and reported conditions.
 
-[![All three paired seeds: training error above the empirical floor, validation error and fitting cost](docs/assets/otto-conditioning.png)](research/otto-conditioning-results.md)
+[![All six models and analytic control: success, capped moves and complete controller cost](docs/assets/otto-conditioning-control.png)](research/otto-conditioning-control-results.md)
 
-[All models and criteria](research/otto-conditioning-results.md) · [Protocol](research/otto-conditioning-protocol.md) · [Raw evidence](https://github.com/kw2828/OpenJev/releases/tag/otto-conditioning-v1).
+[All models and criteria](research/otto-conditioning-control-results.md) · [Protocol](research/otto-conditioning-control-protocol.md) · [Raw evidence and checkpoints](https://github.com/kw2828/OpenJev/releases/tag/otto-conditioning-control-v1).
 
-Next: compare both scaling settings on fresh autonomous searches, regardless of the scalar result. Earlier [capacity](research/otto-capacity-results.md), [Bellman training](research/otto-bellman-control-results.md) and [coverage collection](research/otto-coverage-collection-results.md) results remain in the [experiment archive](research/experiment-index.md). No novel architecture advantage is established.
+The earlier [scalar result](research/otto-conditioning-results.md) remains failed: better training fit did not establish better control. Next is a separate [spatial representation comparison](research/otto-spatial-design-review.md), currently proposed and untrained. No novel architecture advantage is established.
 
 Earlier dialogue, RockSample, compact-memory and pretrained-policy comparisons are collected in the [experiment archive](research/experiment-index.md), including failed attempts, frozen criteria and independent audits. The separate [shared-prefix scoring experiment](research/shared-prefix-results.md) measured **2.08x** speedup on four-question synthetic workloads; single-question caching was slower. This does not reproduce a proprietary RLCD system.
 
