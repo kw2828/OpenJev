@@ -56,13 +56,13 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Latest completed research
 
-[Longer training fits the labels better, but control remains poor](research/otto-training-budget-results.md): **six matched fits, 504 fresh searches, 10/33 continuation criteria passed**. Training for 320 rather than 80 epochs raises weighted success from **10.2% / 20.4% / 4.5%** to **15.3% / 21.6% / 9.5%** across three settings. Analytic control found all **72/72** sources; no learned fit met the competence requirements.
+[Learned query gates](research/otto-query-gate-learning-results.md): **six models, 576 fresh odor-source searches, continuation rule failed with 30/38 checks passed**. Recurrent and stateless gates called the existing neural planner on every decision. All searches succeeded, but the gates saved no computation and added overhead.
 
-[![Every 80-epoch and 320-epoch fit versus analytic control: success, capped moves and complete controller time](docs/assets/otto-training-budget.png)](research/otto-training-budget-results.md)
+[![All six query gates and both controls: search moves versus complete controller time in two primary settings and one transfer setting](docs/assets/otto-query-gate-tradeoff.png)](research/otto-query-gate-learning-results.md)
 
-On identical labels, final training error falls **11.4%** and the chosen-action cost gap against those labels falls **14.8%**. A [completed follow-up](research/otto-target-conflicts-results.md) finds that conflicting labels at identical inputs account for **67.4%** of the longer-trained models' remaining training loss. Both saved-data audits agree. These findings do not establish an architecture advantage.
+The neural planner uses fewer moves than analytic control in the two primary settings, but **2.34x as many moves** in the changed setting. The learned gates inherit those paths; overlapping points reflect identical behavior. No recurrence advantage is established. The independent saved-record audit agrees with the reported results.
 
-[Results and limits](research/otto-training-budget-results.md) · [Protocol](research/otto-training-budget-protocol.md) · [Evidence and checkpoints](https://github.com/kw2828/OpenJev/releases/tag/otto-training-budget-v1) · [Previous comparison](research/otto-target-precision-results.md).
+[Results and all models](research/otto-query-gate-learning-results.md) · [Evaluation protocol](research/otto-query-gate-evaluation-protocol.md) · [Evidence and checkpoints](https://github.com/kw2828/OpenJev/releases/tag/otto-query-gate-learning-v1) · [Next experiment](research/otto-query-gate-next-experiment.md).
 
 Earlier spatial, dialogue, RockSample and memory studies remain in the [experiment archive](research/experiment-index.md), including negative results and failed attempts. The separate [shared-prefix scoring experiment](research/shared-prefix-results.md) measured **2.08x** speedup on four-question synthetic workloads; single-question caching was slower. This does not reproduce a proprietary RLCD system.
 

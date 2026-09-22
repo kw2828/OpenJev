@@ -1,0 +1,932 @@
+{
+  "array_decodes": 0,
+  "audit_limitations": [
+    "Original neural values and native/public posterior equality remain inherited numerical evidence. No model or filter replay.",
+    "Saved-score action selection, episode reductions and cost/query accounting are recomputed; timing truth remains the original instrumentation.",
+    "Immediate completed phase files and process roots are authenticated; ancestral experiments are not re-audited.",
+    "Agreement verifies the fixed small screen, not algorithmic novelty or general robustness."
+  ],
+  "audit_receipt_sha256": "705108876f9a399f53687ff7e8ec8df39d391573e8c7f814e4a4ebe28b8f9be0",
+  "family_cells": 6,
+  "files": {
+    "controller-values.csv": {
+      "bytes": 2983,
+      "sha256": "2e1772b1829c7206409ec4e2e22c901b14b8a0ede3f76c1f64dc6f75e1c24a37"
+    },
+    "criteria.csv": {
+      "bytes": 5469,
+      "sha256": "cbe13f4704df0c3e59fb80a6a292250de52e194f30974baae5c8cd5e701da164"
+    },
+    "plotted-values.json": {
+      "bytes": 72684,
+      "sha256": "ce0e119c613f897b08161775918da2bfa5531fca36367a44c264702490d70899"
+    },
+    "query-gate-metrics.png": {
+      "bytes": 173312,
+      "sha256": "155f45d2c5854e7c5697f6fd842a68efc7e8eeb102d6ccbd3b895576c240e73b"
+    },
+    "query-gate-metrics.svg": {
+      "bytes": 144185,
+      "sha256": "e640419f4103a64cacc2fe6e2273c56c8b7029f61303b6c6b12fea81cea3a638"
+    },
+    "query-gate-tradeoff.png": {
+      "bytes": 146915,
+      "sha256": "a48d6c844ad564210f181eafe33fa204275d1762956a55e94f654d3a0a61b1cc"
+    },
+    "query-gate-tradeoff.svg": {
+      "bytes": 117280,
+      "sha256": "41b4132febf29775f0baa9625d5eae7507850a13d62e07905931bf4d2daa25f6"
+    }
+  },
+  "individual_cells": 24,
+  "inputs": {
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-boundary-control-v1/engineering-01/final-native-runtime-tests-01/pytest.log": {
+      "bytes": 179,
+      "sha256": "6eda8c7b455097980a3e72d0b2ffeadb45351a17dfa319c24a4637bc556114cc"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-boundary-control-v1/engineering-01/final-native-runtime-tests-01/receipt.json": {
+      "bytes": 2341,
+      "sha256": "e0eb1d479b5287d9c32dbe42a26e05df95954a025c2864f4afb0422b686daa4f"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-boundary-control-v1/engineering-01/final-native-runtime-tests-01/ruff.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-boundary-control-v1/engineering-01/openjev-otto-boundary-audit-preflight-01/pytest.log": {
+      "bytes": 4093,
+      "sha256": "957e4120ec8eddcffbcd626509b870728f61d6fdf049cfb1ee51a71970f592be"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-boundary-control-v1/engineering-01/openjev-otto-boundary-audit-preflight-01/receipt.json": {
+      "bytes": 743,
+      "sha256": "88fd3990ec3fe328ee87dbfda09233722514292d3c53e197cc8e0e57be9308ac"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-boundary-control-v1/engineering-01/openjev-otto-boundary-audit-preflight-01/ruff.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-boundary-control-v1/engineering-01/openjev-otto-boundary-audit-preflight-02/pytest.log": {
+      "bytes": 113,
+      "sha256": "64ddf8f23f0642bc50dbea3cba0b378d62f68681dcb4d71ebf6fb56e15e0a586"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-boundary-control-v1/engineering-01/openjev-otto-boundary-audit-preflight-02/receipt.json": {
+      "bytes": 916,
+      "sha256": "25f17a37fca164339ab62c76106c6186a0d9491c4e5e4c32f442333428fea0ac"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-boundary-control-v1/engineering-01/openjev-otto-boundary-audit-preflight-02/ruff.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-boundary-control-v1/engineering-01/openjev-otto-restricted-policy-preflight-01/pytest.log": {
+      "bytes": 99,
+      "sha256": "3d415a29b1a43ec244fd5e71060810809524c59f9c5e00fd18f6c6433a8b0314"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-boundary-control-v1/engineering-01/openjev-otto-restricted-policy-preflight-01/receipt.json": {
+      "bytes": 1155,
+      "sha256": "54c2a3f9acd44c864a5b5b2e428e2e159641b026b8a678d6f0fb6fefdea0f671"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-boundary-control-v1/engineering-01/openjev-otto-restricted-policy-preflight-01/ruff.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-boundary-control-v1/engineering-01/plan-assembly.py": {
+      "bytes": 9105,
+      "sha256": "dcb30ba771afe38781b0c840118413c050b6eeda49d3be7b0530d93d7b99aafe"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-boundary-control-v1/engineering-01/runner-preflight.json": {
+      "bytes": 2088,
+      "sha256": "9eb58b7af5af23fe540f2d411761755f71c19554a3ba0a8c813c2507cd5ed986"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-boundary-control-v1/engineering-01/selection-witness.json": {
+      "bytes": 475,
+      "sha256": "70f6d5dab84233b8c7297eb302cbf3962797b9447f861694e4cd98949fed7134"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-boundary-control-v1/engineering-01/source-review-witness.json": {
+      "bytes": 1022,
+      "sha256": "acbfac4804a2f325d228b89a779f99422c84ed394c2f30f5ffc4baa720338345"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-boundary-control-v1/plan-01.json": {
+      "bytes": 20896,
+      "sha256": "fad1e7add6d1ad763dc26343f9be30cdf48094f075869daa2420e3dbd18726e5"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-pretrained-reference-v1/extraction-01/tensor-metadata.json": {
+      "bytes": 3426,
+      "sha256": "5ca9e7f623965c737a1e82e8fe642593582cd375e697ed70d2fb58a8ad84125f"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-pretrained-reference-v1/extraction-01/tensors.npz": {
+      "bytes": 53565386,
+      "sha256": "610dd348ebcff65dd655c3ac67f0cfe895225b0156771e6a4a2cd235272aaf26"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-pretrained-reference-v2/qualification-01/original.weights-legacy.h5": {
+      "bytes": 53581916,
+      "sha256": "1efb73aa38e0fd8b08d6d03059c0db4664da3afb8eaff1d7ab9b363f8e7ad37d"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-pretrained-reference-v2/qualification-01/receipt.json": {
+      "bytes": 10935,
+      "sha256": "30c1b7321787053820a5ebdd1194a2ff085d7c8d21f7e9a62d4e31ab15ac9457"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-pretrained-reference-v2/qualification-plan-01.json": {
+      "bytes": 11467,
+      "sha256": "40d90544fd1d9a49f12275140f704d96c5dfae2c3ac1becc8aebf55ac19364f5"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-pretrained-reference-v2/qualification-process-01.terminal.json": {
+      "bytes": 1856,
+      "sha256": "ff7747fa81fbc0ec8e264d2eebe6702b71c7f93f8fbdaf3467d8b0558f87df24"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/audit-01/audit.json": {
+      "bytes": 172190,
+      "sha256": "1953d36dd80cd9ac8847bf43b2f8afc7879dd4bc19c8a9d1fb6a8a9d3c59cd29"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/audit-01/receipt.json": {
+      "bytes": 2979,
+      "sha256": "705108876f9a399f53687ff7e8ec8df39d391573e8c7f814e4a4ebe28b8f9be0"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/audit-01/started.json": {
+      "bytes": 1355,
+      "sha256": "cc62648e4691dc2b29639532850473925eb463a6d5ce65b819c3ea6fe9d97173"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/audit-plan-01.json": {
+      "bytes": 1370,
+      "sha256": "1a3c30d5a968c7b5067cf861654c67f4c8983a5062278eac06542590e5288f15"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/audit-supervision-01.launch.json": {
+      "bytes": 1170,
+      "sha256": "fcfde653170a9112f94635599e267f4a7c4075cf5481340b6cb7124a0b169af6"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/audit-supervision-01.terminal.json": {
+      "bytes": 1737,
+      "sha256": "b31c1b8054b0fe89c409ebfedb9ed0234373fbc66661be0fd52de97437c21771"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/collection-01/collection-costs.json": {
+      "bytes": 1910,
+      "sha256": "848d62ba8db8a1746c9b2d874bdde8a95ce080013f528fdc34d883cd3bc579fa"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/collection-01/episodes.jsonl": {
+      "bytes": 83635,
+      "sha256": "8e78bc07801d0e6ef21df2f11841f58c268e60d61e30ab005756593834640a84"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/collection-01/forwards.jsonl": {
+      "bytes": 1834029,
+      "sha256": "557e01f75e32b9c8ffdeac529ff3788e3d6b018dec03a77fda6d9f7be182ee92"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/collection-01/gate-operations.jsonl": {
+      "bytes": 3983483,
+      "sha256": "db50f44aeab0781157aa1be1a6edd1e083ba8ce34ec9fc104444afc0d2431e28"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/collection-01/public-transitions.jsonl": {
+      "bytes": 6477701,
+      "sha256": "13cb33266aff7e8216e3d9f16917ad4148fa317e27cd699ffab5db35e4f465ab"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/collection-01/receipt.json": {
+      "bytes": 22043,
+      "sha256": "51709d4791f82b157d8b519aee5f129fa5df2b4af091cb854b282c0acbf256cf"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/collection-01/runtime.json": {
+      "bytes": 1925,
+      "sha256": "053cc053201a6094bd9fdd17704eb0c84f57837ce0bf45f029bb136ad2385352"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/collection-01/setup.json": {
+      "bytes": 693,
+      "sha256": "fe32d787032bdbd78be5641ab1b191f78bce508fc0b7f03b145735f7d86c6808"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/collection-01/started.json": {
+      "bytes": 1892,
+      "sha256": "593a41b94a1ec2c8a4fd9e6da578ae522152069f920e14e412e0278afa5a1d8d"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/collection-01/summary.json": {
+      "bytes": 143692,
+      "sha256": "f27a19ef30cba3a3a7cf3e19047600a1623581731291337b5837068f00073ad8"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/collection-01/training-data.npz": {
+      "bytes": 305898,
+      "sha256": "349e24cb38140b7c3c73dc017965ab11c78699206bc6758b9638857bfbbc6a55"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/collection-01/weights.jsonl": {
+      "bytes": 983,
+      "sha256": "3ae69c1ce6a5c099aae3231d1b55a4eaf68525c4cf4dff16d15bbe6221e4f3b0"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/collection-01/work.jsonl": {
+      "bytes": 6243118,
+      "sha256": "c4146912f2478ed489438013153bbe5274cb2ec763e7e6f1bc5ddf3ae6523b2f"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/collection-plan-01.json": {
+      "bytes": 35833,
+      "sha256": "f16f23f82d9eb271ac3c1a15df0c567f0a782b169abcdd4711de8fb9a7700be6"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/collection-supervision-01.launch.json": {
+      "bytes": 1219,
+      "sha256": "3368aae7eda02fec93747aafd977b047b0465dc5162810390f08af90246e49bf"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/collection-supervision-01.terminal.json": {
+      "bytes": 1787,
+      "sha256": "a52e0b64b7f29d99264e51e2ec2f21d84ee43bb7ba05c204948bf44d6c57f77e"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/evaluation-01/deployment.json": {
+      "bytes": 4672,
+      "sha256": "1a9d7915863bf97e539bb29f624ddd2eeb85828a718412263cd0f2154244aefc"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/evaluation-01/episodes.jsonl": {
+      "bytes": 3246549,
+      "sha256": "eac90aec102dc4679b7c02a5773278ea55140ee465674b39eff04b012bd70334"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/evaluation-01/forwards.jsonl.gz": {
+      "bytes": 6054344,
+      "sha256": "3a9ab8c9321ed89e5ea9a50f85357ed0242c0478b7bc089c67b59ccdba1e4fe2"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/evaluation-01/gate-decisions.jsonl.gz": {
+      "bytes": 5855277,
+      "sha256": "9fc328ff8ba59e3b16968ce74bb53144b696a39565ec6c2f337b05c39633887c"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/evaluation-01/gate-operations.jsonl.gz": {
+      "bytes": 1343839,
+      "sha256": "7a30a92e1fb23a29269ecaeb541414aa594ee72782dcb40b5cb4663b08d525de"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/evaluation-01/receipt.json": {
+      "bytes": 22559,
+      "sha256": "337206eda48e0165db915552affb816e1d328b3c43534b819ea192c9ab512b5b"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/evaluation-01/runtime.json": {
+      "bytes": 1925,
+      "sha256": "053cc053201a6094bd9fdd17704eb0c84f57837ce0bf45f029bb136ad2385352"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/evaluation-01/setup.json": {
+      "bytes": 693,
+      "sha256": "f4d1de057b76262ef76a50c53bd7faf39f68137111690692fc4ff4dcd79b376c"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/evaluation-01/started.json": {
+      "bytes": 1851,
+      "sha256": "4668de4c894a14a8bea23a90d24dfe91007ec5e18fcbdaaf4267055a7b92026c"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/evaluation-01/summary.json": {
+      "bytes": 165045,
+      "sha256": "5c246a6a02925594e46150c2637e10b7d12b2793c7a70852a0f49417c138e9da"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/evaluation-01/transitions.jsonl.gz": {
+      "bytes": 3913427,
+      "sha256": "15bce3999aa836a08e561ab495943807add331ad3c176c861f4d3bd1f52c3f17"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/evaluation-01/weights.jsonl.gz": {
+      "bytes": 457,
+      "sha256": "73d1dbb0ef377097c956d89d67c7e82413a348f4231663a55956ae1fa9c74a33"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/evaluation-01/work.jsonl.gz": {
+      "bytes": 5159995,
+      "sha256": "3ca34627b4929faf863cdb25d0a4ec3505318f05bc385ee7057909144559c1da"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/evaluation-engineering-01/receipt.json": {
+      "bytes": 1530,
+      "sha256": "dc9879c1386c59e3b154e2e1f0e1d9a227b4939d986932e0ea1ebc9d9ee18ef8"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/evaluation-plan-01.json": {
+      "bytes": 143764,
+      "sha256": "e58bbde3732ea404843bfab763b1690a998926526a509e1ee49fb9634ca905d4"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/evaluation-supervision-01.launch.json": {
+      "bytes": 1221,
+      "sha256": "1ed6eaaf2eff954477b1a796ebc0b8200a1c2bb1451493d2b8c302b02a0a1fa3"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/evaluation-supervision-01.terminal.json": {
+      "bytes": 1791,
+      "sha256": "dcae36ec898d075620136d9b84df6faf487a2114a933723cb79d346f735b7d6e"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/model-engineering-01/command-0.log": {
+      "bytes": 99,
+      "sha256": "46ce809ddafef761e29559bd93ec3bb8f11308ba6e749b8d08bbee9e9572b4fb"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/model-engineering-01/command-1.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/model-engineering-01/receipt.json": {
+      "bytes": 1591,
+      "sha256": "fb92e667e11fc3ce12b0fd95f86dda6485df5c77fbeb6336fdc5efd512e85e55"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/seed-review-01.json": {
+      "bytes": 39745,
+      "sha256": "44af26aced6ba4a5618e5e14b2bc7ade38d35fbbf69e0f933817b14d10a4743c"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/training-01/data.json": {
+      "bytes": 37917,
+      "sha256": "59d3c34b7b123985259b82b797aa71b5db3181f7e61ecfe2e2e065f3fe166f2a"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/training-01/epochs.jsonl": {
+      "bytes": 90086,
+      "sha256": "d1c377c5d1424c79957d9640c189fa7f91324d56789cae7a9d44fff1082fe721"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/training-01/fits.jsonl": {
+      "bytes": 37687,
+      "sha256": "bcb9ad2c3d1d140436bc53fbe5383909b721f343ac67280e8c4ec487118cb700"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/training-01/gru32-40101-initial.npz": {
+      "bytes": 25541,
+      "sha256": "03025a8f4ed68225171ff0da0fb334bb16c5c5ca271b0191bc8e51b886a3647d"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/training-01/gru32-40101-parity.npz": {
+      "bytes": 304542,
+      "sha256": "d72f9a74d6e4b2b93922523a920fd4483102c5a8b92e4b8f8f75dd429fc05a63"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/training-01/gru32-40101.npz": {
+      "bytes": 25698,
+      "sha256": "2bfcb9101bd8649255b5c96e6f1087ae07cae312cce537be0e281b51dbc12aaa"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/training-01/gru32-40102-initial.npz": {
+      "bytes": 25507,
+      "sha256": "aee5f70338d3c170de595037f1213881795ba6f33c8c45f8a5b5a42e34d1eb8e"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/training-01/gru32-40102-parity.npz": {
+      "bytes": 305753,
+      "sha256": "2d521aaf44808ae6ac2ceb5e5334c50e85b0dbd83bf76dd30dc210a62ddb332b"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/training-01/gru32-40102.npz": {
+      "bytes": 25705,
+      "sha256": "56b76bac21876c6801de82314d0b5b8f90838a3acb674fb1fcf83e7de068da7b"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/training-01/gru32-40103-initial.npz": {
+      "bytes": 25543,
+      "sha256": "941f7c941da5fcee837b93c4f836ff74900f68f46894a402b9eee7ef8220db31"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/training-01/gru32-40103-parity.npz": {
+      "bytes": 303028,
+      "sha256": "3920fb9b5b2276051ffbc42ab826ddd6ef2eefc989d8874a8d736e4a946fa114"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/training-01/gru32-40103.npz": {
+      "bytes": 25692,
+      "sha256": "9e1915bba0ce9a6c9172c9512be2749288e6ea420b9e5e8a96423733e94d4665"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/training-01/mlp190-40101-initial.npz": {
+      "bytes": 24461,
+      "sha256": "f225b0a31340016eded7cd549db61d55687e74d253f9bf488382ef90741b9590"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/training-01/mlp190-40101-parity.npz": {
+      "bytes": 24358,
+      "sha256": "be81baffbffb3b4b6824346a6753373dd501b5b10bd90e805067accb9fcc4d28"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/training-01/mlp190-40101.npz": {
+      "bytes": 25146,
+      "sha256": "aa9e408a168b3a8b018a1484dfa234c2fc0d917969b6e8c51cdb116b8dd9cf14"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/training-01/mlp190-40102-initial.npz": {
+      "bytes": 24418,
+      "sha256": "c0ad9f4b0ed88f9d6acd47545a024eb6e39c43721ac324a6fefe41c0476e27b4"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/training-01/mlp190-40102-parity.npz": {
+      "bytes": 24327,
+      "sha256": "bcecb4f42462571e960822bb4f2bf113a57ceeb097e8b7788fddf48cbc95925e"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/training-01/mlp190-40102.npz": {
+      "bytes": 25149,
+      "sha256": "022c741b4c23a8e8f12f4690be39f4e9f56aedad96800246ed1981d6b0504656"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/training-01/mlp190-40103-initial.npz": {
+      "bytes": 24440,
+      "sha256": "2c3b47eb989433de397a891eaef80ac2693c1c6ad8e7a948ca7efa9a117427d2"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/training-01/mlp190-40103-parity.npz": {
+      "bytes": 24492,
+      "sha256": "aabca90ae087df0d091ade2b79fe2bc3f9eb9b46d6f46e3720c858e46df94e2e"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/training-01/mlp190-40103.npz": {
+      "bytes": 25131,
+      "sha256": "a54949b84e5cde0a164134d6d0f74ff311701201ba655d31742b23a3e46fae24"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/training-01/orders.jsonl": {
+      "bytes": 144186,
+      "sha256": "c7d0b81bfc0986b8f6196b0635f55871841bb382072d0077b1dc43e5675f886f"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/training-01/parity.jsonl": {
+      "bytes": 4020642,
+      "sha256": "e2901d7a0e76eb51ca480382da0e4a3e6e847aa3c381562f04286c7a0d8bd1dd"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/training-01/receipt.json": {
+      "bytes": 21177,
+      "sha256": "ea97a73b687c8fb7bbde4ae0e63bed7a7cb8cef26cace154eed5207b0989dd26"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/training-01/runtime.json": {
+      "bytes": 448,
+      "sha256": "2556c62d3f0c2bab372d15e23e51de526cdb71d2f10386cbf67f299fbbf9a152"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/training-01/started.json": {
+      "bytes": 1605,
+      "sha256": "35cd0bc80a342b9515326f4679d1a3516611f6406edcdf637c25d395f03f6c14"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/training-01/summary.json": {
+      "bytes": 39087,
+      "sha256": "c3e5c8c7f0d07d9498db6b43ab460e385f1cc5987c4682e26c14b8c1e94ed65f"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/training-01/work.jsonl": {
+      "bytes": 16964815,
+      "sha256": "4a0c0a24bf541d60b2fb39273f861cfa7693f8996e2737c4865a6461d48aef50"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/training-engineering-01/command-0.log": {
+      "bytes": 99,
+      "sha256": "c718d29ae399655c14e13cef4baff94446a893d9a8455eb9163140fc82473fa9"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/training-engineering-01/command-1.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/training-engineering-01/receipt.json": {
+      "bytes": 1508,
+      "sha256": "e87d692551f2618122c7082c43397020e14b1470b9eccea5dcd940e3dbd8f9c8"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/training-plan-01.json": {
+      "bytes": 23771,
+      "sha256": "7831e878d1486c5dc6907d49ba90affc69924e0ad86561d478f749d11593bfe9"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/training-supervision-01.launch.json": {
+      "bytes": 1190,
+      "sha256": "a08a3c010171e7a7a451de0e7e84011d028175023b357cd5b4935a944c8f4dca"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-learning-v1/training-supervision-01.terminal.json": {
+      "bytes": 1758,
+      "sha256": "634861a9b952b0969ef8650084a7f6101611ad221684ecc8ddf7f0f9ac91b15e"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-v1/engineering-01/receipt.json": {
+      "bytes": 1630,
+      "sha256": "034b77391fd9e9d2bad5455f77dd8f7e0a8ed5373c351cfc96ba542638a2a76a"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-v1/native-plan-01.json": {
+      "bytes": 20351,
+      "sha256": "65d92b9f6c54ea29218c9b3f904af3579f7817b2072bee2696e76cea643f1d15"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-v1/native-run-01/checks.jsonl": {
+      "bytes": 1334282,
+      "sha256": "c69c2547c00211a43c8cd713ef59e517b09eb3c7acf784ba6cb16987be2b5986"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-v1/native-run-01/episodes.jsonl": {
+      "bytes": 12774,
+      "sha256": "aac3450f34a75b655253f7c7727fd51c567fe43906fea3e04550c79f357abce6"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-v1/native-run-01/features.jsonl": {
+      "bytes": 107966,
+      "sha256": "4cd00a9ec4a064124315ab8ccdfd6ca0fc59f3151d1006bae20294ae74a7e2e6"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-v1/native-run-01/forwards.jsonl": {
+      "bytes": 155604,
+      "sha256": "476241d1134fa1c04828c1446ce709583422e61937b8c00330ee88e43aa5f8b9"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-v1/native-run-01/gate-operations.jsonl": {
+      "bytes": 259399,
+      "sha256": "6b8ed51bf60b7e98176aa2409e167b77c088036942de7e00ed0b55d3c2d62426"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-v1/native-run-01/qualification-costs.json": {
+      "bytes": 283,
+      "sha256": "b9efebf26334637bc790c16e5dcf392b59e7f57675bf7d814027ffa0ebf99842"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-v1/native-run-01/receipt.json": {
+      "bytes": 21080,
+      "sha256": "9196580258c04b9e38b058085a33bd7964c2116613363822262adbdf75055f5b"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-v1/native-run-01/runtime.json": {
+      "bytes": 1925,
+      "sha256": "053cc053201a6094bd9fdd17704eb0c84f57837ce0bf45f029bb136ad2385352"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-v1/native-run-01/setup.json": {
+      "bytes": 693,
+      "sha256": "6d6022bf61950a193051fa59a34b855fde864451465dfd6c37e9cf71cb9c8c7e"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-v1/native-run-01/started.json": {
+      "bytes": 1829,
+      "sha256": "9a6ff9d1e8347460bc1268b36ea8117e744edccfe1935d810d4f6b613eda0389"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-v1/native-run-01/summary.json": {
+      "bytes": 24917,
+      "sha256": "85f46e945cf144e6688461466371fb45db175b86e4c1b5d9e2e954ee08b4ca5a"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-v1/native-run-01/weights.jsonl": {
+      "bytes": 1043,
+      "sha256": "066c169efead97207c62e3ffc79b45000936d6fabbd2bb56590dd65822d78b7d"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-v1/native-run-01/work.jsonl": {
+      "bytes": 748976,
+      "sha256": "5a315072be80cec6b912c92e3c4d4a6dac7ed505c99394d0f2abd9152248bdeb"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-v1/native-supervision-01.launch.json": {
+      "bytes": 1191,
+      "sha256": "0070922f0ce7f45b4daddf2377f1ffed04783d28ea93a59e48c761dcfa750c9c"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-v1/native-supervision-01.terminal.json": {
+      "bytes": 1760,
+      "sha256": "9b336c339ff9dab9feca55df1c225622dc26170ba283fef5529a18a9df7c89dc"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-query-gate-v1/seed-review-01.json": {
+      "bytes": 36428,
+      "sha256": "8fd8a2b3d0896a43c5d55f579d3cd7051718da9f4c0300af71affcf87ceda230"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-released-native-v1/actor-preflight-01/openjev-otto-released-policy-preflight-01-pytest.log": {
+      "bytes": 99,
+      "sha256": "93cbd6af997ab18295dc6e0af3358051220edbb2e4c2423f1d15f20d62c8ecbd"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-released-native-v1/actor-preflight-01/openjev-otto-released-policy-preflight-01-ruff.log": {
+      "bytes": 1799,
+      "sha256": "a4efbacd5c046a1036167639c24d143444659881cba93c89f889333fca80d3a4"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-released-native-v1/actor-preflight-01/openjev-otto-released-policy-preflight-01.json": {
+      "bytes": 1247,
+      "sha256": "89986b2ba044462c46ad33e548fdeee4a845ff1ee7730a8a0216428e7a68d8a2"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-released-native-v1/actor-preflight-01/openjev-otto-released-policy-preflight-02-diff.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-released-native-v1/actor-preflight-01/openjev-otto-released-policy-preflight-02-pytest.log": {
+      "bytes": 113,
+      "sha256": "4d5b1aefb970dfbde629ce8cfadfb63c8a010d4636a78ccc8891f40470965e6f"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-released-native-v1/actor-preflight-01/openjev-otto-released-policy-preflight-02-ruff.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-released-native-v1/actor-preflight-01/openjev-otto-released-policy-preflight-02.json": {
+      "bytes": 1906,
+      "sha256": "516fa622998ecc79d45817f7abfd023002e85e383708dc64e7364e8b019e70cc"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-released-native-v1/audit-01/audit.py": {
+      "bytes": 29888,
+      "sha256": "7b405bccfcc6d6c4bf7412729801e37e8a2a80b027b0ad3d6d367ebb5a8559d1"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-released-native-v1/runtime-preflight-01/command-0.log": {
+      "bytes": 253,
+      "sha256": "c06827650f999bd87b305313d15518f44b14b20698009958902fef22895aedfb"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-released-native-v1/runtime-preflight-01/command-1.log": {
+      "bytes": 70,
+      "sha256": "564e0041adbc076905d4f2fe314f58fc0aac6aeee978e9704ccd586eaff67eab"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-released-native-v1/runtime-preflight-01/numerical-configuration.txt": {
+      "bytes": 1637,
+      "sha256": "d602f95ba0b6fa2faf2f9ad1ead5e8c601400ede985db4a4a8b058efcb52fb26"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-released-native-v1/runtime-preflight-01/preflight.py": {
+      "bytes": 1844,
+      "sha256": "0970f39c88a88632aa18dc9beba6b2668406c2dccf8139de9a3cf6903e4335a5"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-released-native-v1/runtime-preflight-01/primitive-checks.jsonl": {
+      "bytes": 980,
+      "sha256": "9dc34292d69b674aac7c9be996ec1283d1e0b7a5ef7957b7c9993946df151156"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-released-native-v1/runtime-preflight-01/receipt.json": {
+      "bytes": 1605,
+      "sha256": "74382257d199c5cc61a55be5be104c6cdf99a84493c072d258c324fd1837365f"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-released-native-v1/runtime-preflight-01/runtime.json": {
+      "bytes": 488,
+      "sha256": "18fc8fe71fc70d7f3674208a598fd1f7f04ccc1f1a41bdab75ecb2e46c6407b3"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-released-native-v1/runtime-setup-01/command-0.log": {
+      "bytes": 195,
+      "sha256": "51edd117e0f33767571a3b6a4802913feb345793a8379e7211fcd7cf63a93fe8"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-released-native-v1/runtime-setup-01/command-1.log": {
+      "bytes": 975,
+      "sha256": "dd41efeb15eb5c380fed61d9b667cdaed431b3976407766c6f6e0950d6f0f151"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-released-native-v1/runtime-setup-01/command-2.log": {
+      "bytes": 132,
+      "sha256": "cafe41a9590131207693690899d96f01c2b6379529c178c1356da4fe9ea17d7b"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-released-native-v1/runtime-setup-01/installed-packages.json": {
+      "bytes": 1025,
+      "sha256": "024965b28139a9bfd64005ffdf55be084a35939c33039f028e8d45ed051a8eec"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-released-native-v1/runtime-setup-01/receipt.json": {
+      "bytes": 1597,
+      "sha256": "620802e7e5777ee38a813c1488c353c072ff1eccd5258c4c3fd7095b2a645ea1"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-released-native-v1/runtime-setup-01/requirements.txt": {
+      "bytes": 721,
+      "sha256": "edee083daa08ca7c7a82959ebcb57d08813af1344157dc2eec81acefd6eb0dc3"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-released-native-v1/runtime-tests-01/receipt.json": {
+      "bytes": 1041,
+      "sha256": "168efe042ae1d23d63bcdc1c03ca333c42de730b537fd76350d538de1533f43c"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-released-native-v1/runtime-tests-01/tests.log": {
+      "bytes": 99,
+      "sha256": "de4248f2bff0b3dc39c1d9348cf7218dcc0c16425e82b7e73a03dd2f8990f91e"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-released-reference-v1/engineering-01/final-runtime-tests-02/pytest.log": {
+      "bytes": 179,
+      "sha256": "4552af24778bb3fa4560330ca4c863d9b8907283b409b120ae5761afde3350e7"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-released-reference-v1/engineering-01/final-runtime-tests-02/receipt.json": {
+      "bytes": 919,
+      "sha256": "5e3b79a2ec09e36562fe23b26a010a734b532b20619190f8372b2825e3606eac"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-released-reference-v1/engineering-01/final-runtime-tests/pytest.log": {
+      "bytes": 1797,
+      "sha256": "c824c96ef501779eeb2c4ca17e3d83ccdc57f80af3539547f592d751c9661c15"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-released-reference-v1/engineering-01/final-runtime-tests/receipt.json": {
+      "bytes": 2238,
+      "sha256": "91cf19b74f10c667364d8f13ba70f47754b4cd43eea2b3d0e3e359ff03c08ab0"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-released-reference-v1/engineering-01/final-runtime-tests/ruff.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-released-reference-v1/engineering-01/history.json": {
+      "bytes": 1997,
+      "sha256": "d349fca6fc151a66ec48306b3fbceff9f15b057ea092260b478f17caf4b2d054"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-released-reference-v1/engineering-01/openjev-otto-reference-control-preflight-01-pytest.log": {
+      "bytes": 99,
+      "sha256": "a20368d3dd921d9ef1e9595decde4c3a53485604704f83246b078137418cdca0"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-released-reference-v1/engineering-01/openjev-otto-reference-control-preflight-01-ruff.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-released-reference-v1/engineering-01/openjev-otto-reference-control-preflight-01.json": {
+      "bytes": 1341,
+      "sha256": "c1529c71cdee7e587cd0f97875218284fc6467fb62803c002d34cb0cdfcf5298"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-released-reference-v1/engineering-01/openjev-otto-reference-control-preflight-02-pytest.log": {
+      "bytes": 114,
+      "sha256": "626f5b99571eb61eeec4d9e55433ab3c6a22e9eedf23c1eb0ab2610b86ba5401"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-released-reference-v1/engineering-01/openjev-otto-reference-control-preflight-02-ruff.log": {
+      "bytes": 395,
+      "sha256": "470aff9ca7445630fe0f2409e6039f693cbc725f80864276121f0ce6991ee3bf"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-released-reference-v1/engineering-01/openjev-otto-reference-control-preflight-02.json": {
+      "bytes": 1704,
+      "sha256": "16ac15268a7ed18c7d6c5768f1e2bb0a80cfa6d6aae054ccfb528e8a520cf493"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-released-reference-v1/engineering-01/openjev-otto-reference-control-preflight-03-ruff.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-released-reference-v1/engineering-01/openjev-otto-reference-control-preflight-03.json": {
+      "bytes": 1083,
+      "sha256": "ee6d84bb6baed4d2dc3f63a8c45e742f3c0b59bf56b3882e97f6168398c842e0"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-released-reference-v1/engineering-01/openjev-released-reference-audit-preflight-01/pytest.log": {
+      "bytes": 3706,
+      "sha256": "ccd1f3fa18f0b9407507917a73847168b11b10cbe1eb3acad008b3d0c73d4b05"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-released-reference-v1/engineering-01/openjev-released-reference-audit-preflight-01/receipt.json": {
+      "bytes": 1062,
+      "sha256": "76026f76f1e2c3866eddc972efe95e6bba65b66260283b0d8339ef0ca3a65cb5"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-released-reference-v1/engineering-01/openjev-released-reference-audit-preflight-01/ruff.log": {
+      "bytes": 3558,
+      "sha256": "fea3bccf64772af63d34be42116fbba86e14681353306c8c665c6e64759fbc03"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-released-reference-v1/engineering-01/openjev-released-reference-audit-preflight-02/pytest.log": {
+      "bytes": 7425,
+      "sha256": "d8ae29bb9beb2c660297c0e8e3f7ba1730f96be2a27f8dc901ba7fa2d281d3db"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-released-reference-v1/engineering-01/openjev-released-reference-audit-preflight-02/receipt.json": {
+      "bytes": 1149,
+      "sha256": "7b3c62974f1bcf7365170e9b35ec43b1d856cd0cddfcd2053015fa8e60d93575"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-released-reference-v1/engineering-01/openjev-released-reference-audit-preflight-02/ruff.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-released-reference-v1/engineering-01/openjev-released-reference-audit-preflight-03/pytest.log": {
+      "bytes": 98,
+      "sha256": "8989a153a4f265bdf8bf8abfcbf7ce96cf91c69ee66d543244ebf0fc2c9d041d"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-released-reference-v1/engineering-01/openjev-released-reference-audit-preflight-03/receipt.json": {
+      "bytes": 1400,
+      "sha256": "f7a10ff779f067a2188f28327a0e64b9fb23dc053ea999eba04a46b850370a0d"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-released-reference-v1/engineering-01/openjev-released-reference-audit-preflight-03/ruff.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-released-reference-v1/engineering-01/openjev-released-reference-plan-assembly.py": {
+      "bytes": 5931,
+      "sha256": "36043190a45dbbd8e2cc8a262dc4a117c497a8ba971023676a609a8e5b6f5d30"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-released-reference-v1/engineering-01/openjev-released-reference-runner-preflight-01.json": {
+      "bytes": 2060,
+      "sha256": "7b0969f28bcb2078b930951e620ee3836d49888cd7a408c2516b6ec86e9f01dd"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-released-reference-v1/engineering-01/source-review.json": {
+      "bytes": 1540,
+      "sha256": "d14ed6ac31b630565dd9e017805f36ebf108a7a80a67f7cd4259f676bf058981"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-spectral-control-v1/run-01/public-kernel-base.npz": {
+      "bytes": 87802,
+      "sha256": "3c8b578558db93040ff56b4f1c7cdd8f0f5b599225b6b80123aa431db6e04ff9"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-spectral-control-v1/run-01/public-kernel-shift.npz": {
+      "bytes": 92487,
+      "sha256": "175eaef6995ff180ef49ac10358dd687f97e428ce3d312aa525fe1ad4591f53c"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-symmetry-head-v1/run-01/kernel-lambda5.npz": {
+      "bytes": 97910,
+      "sha256": "21e98a4d0a78f947f9d8e4ac350f527294981e299cc8084ad3570437cb8aa894"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/research/otto-boundary-control-protocol.md": {
+      "bytes": 10528,
+      "sha256": "9c86c160e51307c51df8b890fffc00914ea3a89093e83330cb1aef9491f6aef5"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/research/otto-query-gate-collection-protocol.md": {
+      "bytes": 3480,
+      "sha256": "5c14dba17de15336f11749fbaa304f2c3685eddbeb1142e7699c5e279dcd5c9b"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/research/otto-query-gate-evaluation-protocol.md": {
+      "bytes": 3862,
+      "sha256": "37804aa3538f46c607c417aec6717701d0c6319b16e525215f6955df2c92c50f"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/research/otto-query-gate-learning-design.md": {
+      "bytes": 7154,
+      "sha256": "0fd13e6c75f156aa77f2ac07c0af73b948d84e1f6f9a9d7be5036c0a834f8980"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/research/otto-query-gate-native-protocol.md": {
+      "bytes": 3611,
+      "sha256": "6ee6f4d003abc56fe19ae3c369ed771190e521611043b4fedf099015907d7d38"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/research/otto-query-gate-training-protocol.md": {
+      "bytes": 3154,
+      "sha256": "5d13c14fad33c4375a3aefb1e34474adc9881c5115f5d30381d473e95a1ae334"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/research/otto-released-native-qualification-protocol.md": {
+      "bytes": 6584,
+      "sha256": "bbb9cb0ea3e430e7312f8f544ec27ce379b52e4e0beffbe2f17c43f47e217f98"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/research/otto-released-reference-protocol.md": {
+      "bytes": 10056,
+      "sha256": "5160a125197e5b7c01c8d8b60fb61fd419c2a175fcdde46953be5e899fb0e9cd"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/audit_otto_boundary_control.py": {
+      "bytes": 36398,
+      "sha256": "9a1ab23570104a73c7700db3a43d0245fe0b3487f3233212884cd2ded34e35b2"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/audit_otto_released_reference.py": {
+      "bytes": 40716,
+      "sha256": "6f63cbc79107fc3046d28645fa4336fe04bfb91ee53368c78ba3971ced1942e1"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/collect_otto_query_gate.py": {
+      "bytes": 34021,
+      "sha256": "5e2b06fc0ff5b888122e733f12b20c881deab7f56b94908ed5a283f7a48c76df"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/evaluate_otto_query_gate.py": {
+      "bytes": 48414,
+      "sha256": "cf850bcf3a046bd8a07100b5c6bcfbdd04939b486de476406016ab1409d0e60e"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/qualify_otto_pretrained.py": {
+      "bytes": 36124,
+      "sha256": "7c6514831ea204938905bf36575d50bc9abb5365be19bcc4c396fdad672c035a"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/qualify_otto_query_gate_native.py": {
+      "bytes": 28577,
+      "sha256": "0ef5368a55dab615129602576300c3231d94fd28f7543d31354d9805ea8a5049"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/qualify_otto_reference_control.py": {
+      "bytes": 16608,
+      "sha256": "0b8591d2c92dd1c006e06d120b167eebfd350d483d2a61e6e933d2025a59bdb5"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/qualify_otto_released_native.py": {
+      "bytes": 31478,
+      "sha256": "96c68e94498c6b83eb2983c1183c444c5d1080eee06ff961562aeb56a845c65e"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/qualify_otto_restricted_policy.py": {
+      "bytes": 13370,
+      "sha256": "05a93d9260dcf483d208879bc0c2c922dd0e1c1d6ed7eb227778fb76ac7431d8"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/study_otto_boundary_control.py": {
+      "bytes": 31070,
+      "sha256": "f00af83597e9ecd4bf8e2354fad7e4c6e25f69a9e182fcdd12f0e47050081dd8"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/study_otto_released_reference.py": {
+      "bytes": 43949,
+      "sha256": "da2a7e418dd29819bddf190f46d1707f1163a22b01a048b33d3dedab875ad87e"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/supervise_dialogue_observation_v2.py": {
+      "bytes": 9715,
+      "sha256": "610a2fcd2d4d55eb35bce92e61942d5169491dee9d05e2f47f65e211fdf94144"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/train_otto_query_gate.py": {
+      "bytes": 34454,
+      "sha256": "9ac60aa8f0eccbcee9d43e97a62945be25109ebee87644ab9c32779d878f6aac"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/src/openjev/research/otto_public.py": {
+      "bytes": 9214,
+      "sha256": "438631a18005493e0cafa0777315e2158cac97cc7d0e71ad9fd6402284615b3d"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/src/openjev/research/otto_query_gate.py": {
+      "bytes": 13613,
+      "sha256": "3ef019d408934dc5277378998713e6b38c35334eafcd9b17db163e3e5f8b124c"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/src/openjev/research/otto_query_gate_models.py": {
+      "bytes": 7722,
+      "sha256": "cfaea0e571d4e658031a9407633c8040c300233a4d7b0c1fba9dee760183ba67"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/src/openjev/research/otto_reference_control.py": {
+      "bytes": 5955,
+      "sha256": "21e5f6ece09426d26c4a3214d95f0f4803a8efd4bacb9ca347c1d896407c5893"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/src/openjev/research/otto_released_policy.py": {
+      "bytes": 10245,
+      "sha256": "8abac34fef2a6517d43209d5ca27514633363248f66a249e2f4d6615aa0a0d45"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/src/openjev/research/otto_restricted_policy.py": {
+      "bytes": 3539,
+      "sha256": "3e63240b3502b4d4633f9c1671b4ad7ce34466f21c74a4d470bed91d77514630"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/src/openjev/research/suspend_clock.py": {
+      "bytes": 5919,
+      "sha256": "cac9077db3c66f5ef43d9412b732f5b869c1004c4bac98589816780c120f6124"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/tests/test_audit_otto_boundary_control.py": {
+      "bytes": 15872,
+      "sha256": "7fd1df56288c284b640eb5c2a2595ee9fbdf8fddfca6576a67214bd26fc9b92b"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/tests/test_audit_otto_released_reference.py": {
+      "bytes": 18594,
+      "sha256": "1fd498ebdf385746c8b5ea9b40982c14198ff1eb0390027ddeacc4a4385e2685"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/tests/test_collect_otto_query_gate.py": {
+      "bytes": 4506,
+      "sha256": "48aa343c6aaebdf02ba6f1377d3cd4feb8b1ec36b03505e4cbfc442a8da82ff7"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/tests/test_evaluate_otto_query_gate.py": {
+      "bytes": 4739,
+      "sha256": "d740bbe2fe59b25b27ff1195d27c7e59a8552a6517c269642cff96b3f0bf7fce"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/tests/test_otto_boundary_control.py": {
+      "bytes": 11768,
+      "sha256": "b22187b411f439df10b2c5a89cc7f8314dbc41aa989cf5543768936249b94766"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/tests/test_otto_query_gate.py": {
+      "bytes": 11628,
+      "sha256": "fe77fd7fb5c1a853716236b93fb8734575fbada4d034224e03f05bb5bad1d889"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/tests/test_otto_query_gate_models.py": {
+      "bytes": 5100,
+      "sha256": "cdc694654be8a631657756552c731690eec8c8a1cab4f0d168ede2e2287a8c51"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/tests/test_otto_reference_control.py": {
+      "bytes": 10033,
+      "sha256": "e989a18ad56f80bb412b62570bba649978ea171eccfdb2b8c404566a543ab37c"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/tests/test_otto_released_policy.py": {
+      "bytes": 11920,
+      "sha256": "cc2e7e543a8e8b7139dbcb974680e8af0213e81cbd089b475b14710dc8f8b6b7"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/tests/test_otto_released_reference.py": {
+      "bytes": 15856,
+      "sha256": "e7d7f5191134a9dfef0b84648a3b3cb6bf82628797c9455007898de1569050dc"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/tests/test_otto_restricted_policy.py": {
+      "bytes": 8876,
+      "sha256": "49132b1c8cf3e7891a88cb387f40f01e10afb946952a58463c129743b275c0eb"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/tests/test_qualify_otto_released_native.py": {
+      "bytes": 10091,
+      "sha256": "efb111da294f0e40ac3e1f60adc435b64e085083f1e27d5fd0da7fd672fd8072"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/tests/test_train_otto_query_gate.py": {
+      "bytes": 5650,
+      "sha256": "c0fef18169fae5f946b6a4ab456a32860ee10d259eab57b570359628b75ec122"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/tmp/otto-source-review-01/isotropic/classes/heuristicpolicy.py": {
+      "bytes": 29448,
+      "sha256": "e473c5c0e2908622e704012fc79dffc05172fe8b6f4036dcbf240a05c4e4b469"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/tmp/otto-source-review-01/isotropic/classes/policy.py": {
+      "bytes": 2236,
+      "sha256": "8fc915c86972a8be0ccd0a98d9522be4cd9c751d862a351d60221f8c7902976d"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/tmp/otto-source-review-01/isotropic/classes/rlpolicy.py": {
+      "bytes": 4482,
+      "sha256": "d32b98f903f90bfeed40111c9120a524442e31c0d28eb7cdac0d6db80c2af5fb"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/tmp/otto-source-review-01/isotropic/classes/sourcetracking.py": {
+      "bytes": 23646,
+      "sha256": "1057f129fa8a3249a7297a9ef2c15059d37430b12e42a2f1d43dfcdffe3e76f1"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/tmp/otto-source-review-01/isotropic/classes/valuemodel.py": {
+      "bytes": 10678,
+      "sha256": "151eae8b84c42a92691d6dd817fe5384f2feb806ae405088a5c57da03d067eb8"
+    }
+  },
+  "limits": {
+    "output_bytes": 67108864,
+    "rss_bytes": 2147483648,
+    "seconds": 180
+  },
+  "matplotlib_version": "3.11.2",
+  "metric_points": 96,
+  "model_calls": 0,
+  "optimizer_calls": 0,
+  "peak_rss_bytes": 149946368,
+  "reported_conditions": 62,
+  "reported_passed": 48,
+  "required_conditions": 38,
+  "required_passed": 30,
+  "scope": "Saved JSON presentation and byte authentication only; no independent numerical replay.",
+  "simulator_calls": 0,
+  "source": {
+    "bytes": 26297,
+    "sha256": "62a8ff9a1bb5428d157beaaaf8352e121ee63d2145dc8a3f678fd4d8c1688390"
+  },
+  "status": "completed",
+  "tradeoff_points": 30,
+  "version": "otto-query-gate-render-v1",
+  "wall_seconds": 1.234362583
+}
