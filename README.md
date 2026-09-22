@@ -62,7 +62,7 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 [All models and limits](research/otto-spatial-control-results.md) · [Protocol](research/otto-spatial-control-protocol.md) · [Raw evidence and checkpoints](https://github.com/kw2828/OpenJev/releases/tag/otto-spatial-control-v1).
 
-The completed audit replayed all **1,736,024 saved model decisions** with exact agreement. The [earlier scalar fitting study](research/otto-spatial-study-results.md) and [deployment checks](research/otto-spatial-control-qualification.md) remain separate evidence. The [next proposed comparison](research/otto-action-cost-followup.md) tests action-cost supervision in the same ordinary policy; its sampler is still being prepared. No novel architecture advantage is established.
+The completed audit replayed all **1,736,024 saved model decisions** with exact agreement. A follow-up [teacher-cost pilot](research/otto-teacher-label-pilot-results.md) generated **368 continuations in 6.67 seconds**, with independent audit agreement. Several action costs are nearly tied, so the [next learning comparison](research/otto-action-cost-followup.md) will retain continuous targets. No model was trained in that pilot, and no novel architecture advantage is established.
 
 Earlier dialogue, RockSample, compact-memory and pretrained-policy comparisons are collected in the [experiment archive](research/experiment-index.md), including failed attempts, frozen criteria and independent audits. The separate [shared-prefix scoring experiment](research/shared-prefix-results.md) measured **2.08x** speedup on four-question synthetic workloads; single-question caching was slower. This does not reproduce a proprietary RLCD system.
 

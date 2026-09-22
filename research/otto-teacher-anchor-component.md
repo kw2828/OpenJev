@@ -12,6 +12,6 @@ The separate [fabricated byte projection](../output/otto-teacher-label-pilot-v1/
 
 The [collector](../scripts/collect_otto_teacher_labels.py) binds historical input and source identities, freezes metadata selection in plan mode, and reserves numerical reconstruction and sampling for supervised run mode. **Eight fabricated collector tests and lint passed** in the [third engineering attempt](../output/otto-teacher-label-pilot-v1/engineering-03/receipt.json). They exercise oversized events, write and synchronization failures, cleanup failure, failed-receipt publication, and the requirement that all six anchors validate before sampling. Independent source review caught and corrected a cleanup path that could otherwise suppress failure evidence. No real sampler or historical numerical inputs were used by these tests.
 
-No empirical anchors have been selected or reconstructed in this preparation. The next execution step is to freeze the six exact training identities, then run the one declared feasibility collection and independently review its saved outputs.
+The subsequent [completed feasibility pilot](otto-teacher-label-pilot-results.md) froze six exact training identities, reconstructed them and collected 368 continuations. Independent saved-output review agrees. The preparation checks above remain distinct from that empirical result.
 
 This preparation does not establish useful supervision, policy competence, a recurrence benefit or a connectome advantage. Those require the subsequent matched learning comparison and autonomous evaluation.
