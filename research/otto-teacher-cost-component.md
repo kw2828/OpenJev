@@ -21,3 +21,5 @@ The [tests](../tests/test_otto_teacher_costs.py) also cover hand-computed means 
 Evidence: [original engineering receipt](../output/otto-teacher-cost-engineering-v1/attempt-01/receipt.json), [test log](../output/otto-teacher-cost-engineering-v1/attempt-01/pytest.log), [code-check log](../output/otto-teacher-cost-engineering-v1/attempt-01/ruff.log). The original captured command completed with exit 0, tool chunk `bb8d3a`. The receipt SHA-256 is `044aa77818c5648f5f54eb2afd06d58a1bb16f5a1c59c7becea14c5d7b25f9a4`.
 
 A future study still needs a qualified public-only rollout sampler, fixed anchor and sample allocations, complete cost accounting, a separately frozen admission rule and fresh autonomous evaluation. This component does not supply those missing parts.
+
+The subsequent [analytical budget check](otto-teacher-cost-budget.md) shows why the range-only interval should remain an uncertainty reference rather than a mandatory confident-label gate for a small pilot. No real continuation records were needed for that calculation.

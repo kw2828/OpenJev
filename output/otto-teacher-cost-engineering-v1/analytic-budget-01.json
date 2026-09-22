@@ -1,0 +1,89 @@
+{
+  "component_sha256": "39f00522aaa2fd8b88231a74f23f4db72d2e8fc86dcb68b83de26af2f35e30fe",
+  "eligible_actions": 4,
+  "familywise_alpha": 0.05,
+  "fixed_allocations": [
+    {
+      "hoeffding_radius": 1810.1700911288046,
+      "replicates": 16
+    },
+    {
+      "hoeffding_radius": 905.0850455644023,
+      "replicates": 64
+    },
+    {
+      "hoeffding_radius": 452.54252278220116,
+      "replicates": 256
+    },
+    {
+      "hoeffding_radius": 226.27126139110058,
+      "replicates": 1024
+    }
+  ],
+  "horizon": 2188,
+  "interpretation": "A radius target does not guarantee a particular observed gap or its strict resolution. On the simultaneous coverage event, a true gap greater than twice the radius is sufficient for strict correct resolution. True gaps are unknown here.",
+  "minimum_n_formula": "ceil(2*(H-1)^2*(log(2*M)-log(alpha))/desired_radius^2)",
+  "pair_count": 6,
+  "radius_formula": "2*(H-1)*sqrt((log(2*M)-log(alpha))/(2*N))",
+  "radius_targets": [
+    {
+      "action_rollouts": 209709812,
+      "actual_radius_at_n": 0.9999999918084541,
+      "desired_radius_moves": 1,
+      "minimum_replicates": 52427453,
+      "radius_at_n_minus_one": 1.0000000013454424,
+      "worst_case_steps": 458845068656
+    },
+    {
+      "action_rollouts": 8388396,
+      "actual_radius_at_n": 4.999998909973909,
+      "desired_radius_moves": 5,
+      "minimum_replicates": 2097099,
+      "radius_at_n_minus_one": 5.0000001020971,
+      "worst_case_steps": 18353810448
+    },
+    {
+      "action_rollouts": 2097100,
+      "actual_radius_at_n": 9.999995435703145,
+      "desired_radius_moves": 10,
+      "minimum_replicates": 524275,
+      "radius_at_n_minus_one": 10.000004972692073,
+      "worst_case_steps": 4588454800
+    },
+    {
+      "action_rollouts": 335536,
+      "actual_radius_at_n": 24.99998858925786,
+      "desired_radius_moves": 25,
+      "minimum_replicates": 83884,
+      "radius_at_n_minus_one": 25.000137605829046,
+      "worst_case_steps": 734152768
+    },
+    {
+      "action_rollouts": 83884,
+      "actual_radius_at_n": 49.99997717851572,
+      "desired_radius_moves": 50,
+      "minimum_replicates": 20971,
+      "radius_at_n_minus_one": 50.00116934306277,
+      "worst_case_steps": 183538192
+    },
+    {
+      "action_rollouts": 20972,
+      "actual_radius_at_n": 99.99757019847597,
+      "desired_radius_moves": 100,
+      "minimum_replicates": 5243,
+      "radius_at_n_minus_one": 100.00710785601099,
+      "worst_case_steps": 45886736
+    }
+  ],
+  "sampling_assumptions": "Independent identically distributed complete replicate vectors at one fixed public anchor, same teacher/horizon, predeclared allocation; common randomness across actions within a vector allowed.",
+  "scope": "Analytical sample-complexity projection with hypothetical radius targets; not empirical labels, action gaps, power estimates or study admission",
+  "status": "computed",
+  "version": "otto-teacher-cost-analytic-budget-v1",
+  "work": {
+    "empirical_records_read": 0,
+    "label_collection_calls": 0,
+    "model_calls": 0,
+    "simulator_calls": 0,
+    "training_calls": 0
+  }
+}
