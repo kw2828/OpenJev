@@ -35,3 +35,9 @@ Only after resolving the objective question, test whether a query-written associ
 Compare an ordinary shared GRU, a matched additive-write memory, and a delta-write memory with identical key/value access. Keep the objective fixed across memory arms. The [fast-weight delta rule](https://proceedings.mlr.press/v139/schlag21a.html) and [DeltaNet](https://arxiv.org/abs/2406.06484) are prior art; adding them here does not establish novelty or biological learning. Preserve the existing GRU innovation path when adding a residual memory readout so the first comparison does not also alter its correction signal.
 
 The present analysis does not identify memory capacity as the cause of the failures. Any retained development gain still needs untouched-seed confirmation, an unseen scenario shift, autonomous quality-versus-total-compute evidence and a second environment before a paper-level architecture claim.
+
+## Implemented component
+
+The standalone [SPO+ loss](../src/openjev/research/otto_spo_plus_loss.py) is implemented and independently source-reviewed. All [27 fabricated tests](../tests/test_otto_spo_plus_loss.py) and Ruff passed, including hand-calculated values, gradients, exact ties, padding, illegal actions, fixed weights and an exhaustive 98,415-case formula/regret grid. [Qualification receipt](../output/otto-spo-plus-loss-v1/engineering-01/qualification-01/receipt.json).
+
+It exposes per-row losses and a weighted scalar. The maximum uses the first maximizing action for its subgradient; the teacher reference is uniform over exact raw-float32 minima. This component is not integrated into a trainer and has produced no trained model or performance result. The twelve-fit study above remains unfrozen and unexecuted.
