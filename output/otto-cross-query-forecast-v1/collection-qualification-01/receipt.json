@@ -1,0 +1,246 @@
+{
+  "files": {
+    "collector-command-0.log": {
+      "bytes": 99,
+      "sha256": "4bef8ccc91d652945f621ddca9c4e50ca46b45cd3a08bc0ace3f3e3c966811f6"
+    },
+    "collector-command-0.terminal.json": {
+      "bytes": 381,
+      "sha256": "5dd34e34c252fb9712e62f3d1feeec7f0dbc7789cc67281d5f009d7d06b16886"
+    },
+    "collector-command-1.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "collector-command-1.terminal.json": {
+      "bytes": 356,
+      "sha256": "34895a13f49a0dd77fa6c7567583c0e8185bf33989f4c28ccc392da9ca3625b6"
+    },
+    "collector-receipt.json": {
+      "bytes": 3355,
+      "sha256": "ec3f0fbc8fc9a22fc4f796a4afc8a7b95b65e143ee2994c073fd7ddd9008970d"
+    },
+    "collector-started.json": {
+      "bytes": 2136,
+      "sha256": "548c79d7614414d50c8b790badcf8c4e601147eb57ca589abe03fe6e9400db7e"
+    },
+    "inherited-data-command-0.log": {
+      "bytes": 99,
+      "sha256": "4e243c799a77f1d3cb76324f5cbb892e9fa8e7391ab7817981fa100fb2685ca8"
+    },
+    "inherited-data-command-1.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "inherited-data-receipt.json": {
+      "bytes": 1618,
+      "sha256": "a3d15f9fdfd169e6701173be7951718cd5c74c7fe66fd4d5846391c9f0ef00b2"
+    },
+    "inherited-sampling-command-0.log": {
+      "bytes": 99,
+      "sha256": "e283b39e1d7385449425408e32b74a2b66078ee160a14ce37c59c1f0fb41317f"
+    },
+    "inherited-sampling-command-1.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "inherited-sampling-receipt.json": {
+      "bytes": 2301,
+      "sha256": "cd751bc4549d3693c068f8df3977778526cf20d0dae9c12fc19c0093044a0e0d"
+    },
+    "models-command-1.log": {
+      "bytes": 99,
+      "sha256": "b1dc31af212bc06d00793ccafff27831d3024629a15d2e8090daffec98048443"
+    },
+    "models-command-2.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "models-receipt.json": {
+      "bytes": 1743,
+      "sha256": "63f0184d170ffb8f5d1d845e8ab979c61754e87b16d156145c62a3d7b89162b1"
+    },
+    "models-started.json": {
+      "bytes": 1523,
+      "sha256": "4c34957946eb22ca0bc25d487b00bd6c98fe188371079c5496fb27c6a28b3020"
+    }
+  },
+  "inputs": [
+    {
+      "bytes": 1743,
+      "copied_receipt": "models-receipt.json",
+      "path": "output/otto-cross-query-forecast-v1/qualification-model-01/receipt.json",
+      "role": "models",
+      "sha256": "63f0184d170ffb8f5d1d845e8ab979c61754e87b16d156145c62a3d7b89162b1"
+    },
+    {
+      "bytes": 3355,
+      "copied_receipt": "collector-receipt.json",
+      "path": "output/otto-cross-query-forecast-v1/qualification-collector-02/receipt.json",
+      "role": "collector",
+      "sha256": "ec3f0fbc8fc9a22fc4f796a4afc8a7b95b65e143ee2994c073fd7ddd9008970d"
+    },
+    {
+      "bytes": 1618,
+      "copied_receipt": "inherited-data-receipt.json",
+      "path": "output/otto-sampled-forecast-v1/collection-qualification-01/data-receipt.json",
+      "role": "inherited-data",
+      "sha256": "a3d15f9fdfd169e6701173be7951718cd5c74c7fe66fd4d5846391c9f0ef00b2"
+    },
+    {
+      "bytes": 2301,
+      "copied_receipt": "inherited-sampling-receipt.json",
+      "path": "output/otto-sampled-forecast-v1/collection-qualification-01/sampled-receipt.json",
+      "role": "inherited-sampling",
+      "sha256": "cd751bc4549d3693c068f8df3977778526cf20d0dae9c12fc19c0093044a0e0d"
+    }
+  ],
+  "results": [
+    {
+      "command": [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_otto_cross_query_scores.py"
+      ],
+      "exit_code": 0,
+      "log": "models-command-1.log",
+      "qualification_receipt": "models-receipt.json",
+      "wall_seconds": 1.6140407919883728
+    },
+    {
+      "command": [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/ruff",
+        "check",
+        "src/openjev/research/otto_cross_query_scores.py",
+        "tests/test_otto_cross_query_scores.py"
+      ],
+      "exit_code": 0,
+      "log": "models-command-2.log",
+      "qualification_receipt": "models-receipt.json",
+      "wall_seconds": 0.04733508313074708
+    },
+    {
+      "command": [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv-otto-released-native/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "tests/test_collect_otto_cross_query_forecasts.py"
+      ],
+      "elapsed_seconds": 0.417941417,
+      "exit_code": 0,
+      "log": "collector-command-0.log",
+      "pid": 21773,
+      "qualification_receipt": "collector-receipt.json",
+      "reaped": true,
+      "timed_out": false
+    },
+    {
+      "command": [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/ruff",
+        "check",
+        "scripts/collect_otto_cross_query_forecasts.py",
+        "tests/test_collect_otto_cross_query_forecasts.py"
+      ],
+      "elapsed_seconds": 0.045357292,
+      "exit_code": 0,
+      "log": "collector-command-1.log",
+      "pid": 21778,
+      "qualification_receipt": "collector-receipt.json",
+      "reaped": true,
+      "timed_out": false
+    },
+    {
+      "command": [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "tests/test_otto_score_forecast_data.py"
+      ],
+      "exit_code": 0,
+      "log": "inherited-data-command-0.log",
+      "qualification_receipt": "inherited-data-receipt.json"
+    },
+    {
+      "command": [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/ruff",
+        "check",
+        "src/openjev/research/otto_score_forecast_data.py",
+        "tests/test_otto_score_forecast_data.py"
+      ],
+      "exit_code": 0,
+      "log": "inherited-data-command-1.log",
+      "qualification_receipt": "inherited-data-receipt.json"
+    },
+    {
+      "command": [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv-otto-released-native/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "tests/test_collect_otto_sampled_forecasts.py",
+        "tests/test_otto_sampled_forecast_data.py"
+      ],
+      "exit_code": 0,
+      "log": "inherited-sampling-command-0.log",
+      "qualification_receipt": "inherited-sampling-receipt.json"
+    },
+    {
+      "command": [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/ruff",
+        "check",
+        "scripts/collect_otto_sampled_forecasts.py",
+        "tests/test_collect_otto_sampled_forecasts.py",
+        "src/openjev/research/otto_sampled_forecast_data.py",
+        "tests/test_otto_sampled_forecast_data.py"
+      ],
+      "exit_code": 0,
+      "log": "inherited-sampling-command-1.log",
+      "qualification_receipt": "inherited-sampling-receipt.json"
+    }
+  ],
+  "scope": "Aggregate new model/collector qualifications and unchanged inherited pure-data qualifications. No new tests or model/native calls.",
+  "sources_after": {
+    "scripts/collect_otto_cross_query_forecasts.py": "d41aa3189610d837bead14d8cacabe7d6111e417a337eee09c2d2eec8a59bf4e",
+    "src/openjev/research/otto_cross_query_scores.py": "799979c0c60460352df076750d15b2cb9a5db6b6976707605dcca7c90fa76e08",
+    "src/openjev/research/otto_sampled_forecast_data.py": "c48d8cc8981f11ba0f3d97b4de3ee2b46afa7ccb5413e3c4cff114802b746e70",
+    "src/openjev/research/otto_score_forecast_data.py": "dc8b371dad15cf5bc4bb7941d087023cd7702d62522532d24c1839f685ea6f8c",
+    "tests/test_collect_otto_cross_query_forecasts.py": "81f3acbf39a157e7472eda499f1316faa5aab28a61ad35366169a45f0f18e5ab",
+    "tests/test_otto_cross_query_scores.py": "d937f05a5add9a4c61d7358666e4c6afd209546c38492730a8b781dd5729dc0b",
+    "tests/test_otto_sampled_forecast_data.py": "5acedb53a2d935dcbe33ff2e7d14bb13326aef374ea91ab7207173c79a2dbef5",
+    "tests/test_otto_score_forecast_data.py": "ca1432fbdbb954af97a51cbf138263a7dfd5c0ba97f966caf977322086d479cb"
+  },
+  "sources_before": {
+    "scripts/collect_otto_cross_query_forecasts.py": "d41aa3189610d837bead14d8cacabe7d6111e417a337eee09c2d2eec8a59bf4e",
+    "src/openjev/research/otto_cross_query_scores.py": "799979c0c60460352df076750d15b2cb9a5db6b6976707605dcca7c90fa76e08",
+    "src/openjev/research/otto_sampled_forecast_data.py": "c48d8cc8981f11ba0f3d97b4de3ee2b46afa7ccb5413e3c4cff114802b746e70",
+    "src/openjev/research/otto_score_forecast_data.py": "dc8b371dad15cf5bc4bb7941d087023cd7702d62522532d24c1839f685ea6f8c",
+    "tests/test_collect_otto_cross_query_forecasts.py": "81f3acbf39a157e7472eda499f1316faa5aab28a61ad35366169a45f0f18e5ab",
+    "tests/test_otto_cross_query_scores.py": "d937f05a5add9a4c61d7358666e4c6afd209546c38492730a8b781dd5729dc0b",
+    "tests/test_otto_sampled_forecast_data.py": "5acedb53a2d935dcbe33ff2e7d14bb13326aef374ea91ab7207173c79a2dbef5",
+    "tests/test_otto_score_forecast_data.py": "ca1432fbdbb954af97a51cbf138263a7dfd5c0ba97f966caf977322086d479cb"
+  },
+  "status": "passed",
+  "verified_dependency_sources": {
+    "scripts/collect_otto_cross_query_forecasts.py": "d41aa3189610d837bead14d8cacabe7d6111e417a337eee09c2d2eec8a59bf4e",
+    "scripts/collect_otto_sampled_forecasts.py": "c2682016686502059a9a0fa4943e82733f4c3c1cd6d64b2e86002ca08ca58987",
+    "src/openjev/research/otto_cross_query_scores.py": "799979c0c60460352df076750d15b2cb9a5db6b6976707605dcca7c90fa76e08",
+    "src/openjev/research/otto_released_policy.py": "8abac34fef2a6517d43209d5ca27514633363248f66a249e2f4d6615aa0a0d45",
+    "src/openjev/research/otto_sampled_forecast_data.py": "c48d8cc8981f11ba0f3d97b4de3ee2b46afa7ccb5413e3c4cff114802b746e70",
+    "src/openjev/research/otto_score_forecast_data.py": "dc8b371dad15cf5bc4bb7941d087023cd7702d62522532d24c1839f685ea6f8c",
+    "tests/test_collect_otto_cross_query_forecasts.py": "81f3acbf39a157e7472eda499f1316faa5aab28a61ad35366169a45f0f18e5ab",
+    "tests/test_collect_otto_sampled_forecasts.py": "59c0212c99d5c4f4dae9413097b508ab40eb677fc5d18171c14f3f9a0d9e86d2",
+    "tests/test_otto_cross_query_scores.py": "d937f05a5add9a4c61d7358666e4c6afd209546c38492730a8b781dd5729dc0b",
+    "tests/test_otto_sampled_forecast_data.py": "5acedb53a2d935dcbe33ff2e7d14bb13326aef374ea91ab7207173c79a2dbef5",
+    "tests/test_otto_score_forecast_data.py": "ca1432fbdbb954af97a51cbf138263a7dfd5c0ba97f966caf977322086d479cb"
+  }
+}

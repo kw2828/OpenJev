@@ -1,0 +1,34 @@
+{
+  "sources": {
+    "scripts/audit_otto_cross_query_forecasts.py": "33ca57a318d8895903163cb0dd1e69b04c47126293427a3ccc9614d9017a3474",
+    "tests/test_audit_otto_cross_query_forecasts.py": "a99fa29b00e7a2111abca45cb995387b10be1934cd7b7fec9ce2a5ed4abddad7",
+    "scripts/audit_otto_score_forecasts.py": "c944b2edf7b053c65cb43b3e24ee81a549a1584808cb3fbf0553c28593e9d2ce"
+  },
+  "commands": [
+    [
+      "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/python",
+      "-m",
+      "pytest",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "tests/test_audit_otto_cross_query_forecasts.py"
+    ],
+    [
+      "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/ruff",
+      "check",
+      "scripts/audit_otto_cross_query_forecasts.py",
+      "tests/test_audit_otto_cross_query_forecasts.py"
+    ]
+  ],
+  "environment": {
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "PYTHONPATH": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/src"
+  },
+  "change": "Unique EOF sentinel and narrow regression; prior nine-case qualification remains intact."
+}

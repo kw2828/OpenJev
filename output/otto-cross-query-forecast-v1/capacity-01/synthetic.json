@@ -1,0 +1,228 @@
+{
+  "arrays": {
+    "features": {
+      "dtype": "torch.float32",
+      "sha256": "7c95f533905b76c291d2a23961ce06f2c79896264a53751375bd8bc157e4c286",
+      "shape": [
+        6,
+        2188,
+        31
+      ]
+    },
+    "legal": {
+      "dtype": "torch.bool",
+      "sha256": "28321ffcd20b7a9ea3d2a84220e3365812fd4a37adaa69f5e6e6dbd833b4cc5b",
+      "shape": [
+        6,
+        2188,
+        4
+      ]
+    },
+    "query_mask": {
+      "dtype": "torch.bool",
+      "sha256": "31403ac27ee4bc302dc37480fbda68a489b40b9969c6462234f0972621ff9acb",
+      "shape": [
+        6,
+        2188
+      ]
+    },
+    "query_scores": {
+      "dtype": "torch.float32",
+      "sha256": "6d5ba713a63125951574ba11fac933f54bce43991835540bbe66edde83175dbd",
+      "shape": [
+        6,
+        2188,
+        4
+      ]
+    },
+    "row_weights": {
+      "dtype": "torch.float32",
+      "sha256": "675b36646292837aab1cc99ea01534bd6ae38a0b7c416f5609cb1fa469d37118",
+      "shape": [
+        6,
+        2188
+      ]
+    },
+    "selected_targets": {
+      "dtype": "torch.float32",
+      "sha256": "c9ee2433995fe209ba584b2aaf365832ef8202c9c9cc1cb3c5b902d6d3e824ec",
+      "shape": [
+        6,
+        2188,
+        4
+      ]
+    }
+  },
+  "configuration": {
+    "admission_seconds": 5400.0,
+    "batch": 6,
+    "chunk": 32,
+    "clip_norm": 5.0,
+    "episode_denominator": 54,
+    "families": [
+      "innovation",
+      "innovation_gru",
+      "persistent_direct",
+      "reset_direct"
+    ],
+    "feature_seed": 1129399089,
+    "fit_seeds": 3,
+    "fixed_overhead_seconds": 120.0,
+    "learning_rate": 0.003,
+    "length": 2188,
+    "model_seed": 1129401649,
+    "period": 4,
+    "projection_multiplier": 1.5,
+    "scale": 64.0,
+    "scope": "synthetic throughput planning only; no performance or scientific result",
+    "selected_windows_per_episode": 8,
+    "selection_seeds": [
+      1129404160,
+      1129404161,
+      1129404162,
+      1129404163,
+      1129404164,
+      1129404165
+    ],
+    "training_cap_seconds": 7200,
+    "updates_per_fit": 720,
+    "weight_decay": 0.0,
+    "zero_target_chunks": "forward without autograd, still charged and counted"
+  },
+  "formula": "uniform local Torch generator; complete query scores; sampled nonquery targets only",
+  "selected_nonquery_rows": 144,
+  "selections": [
+    {
+      "algorithm": "numpy.Generator(PCG64(seed)).choice(W,size=k,replace=False); sorted",
+      "inclusion_denominator": 547,
+      "inclusion_numerator": 8,
+      "inclusion_probability": 0.014625228519195612,
+      "length": 2188,
+      "period": 4,
+      "population_windows": 547,
+      "seed": 1129404160,
+      "selected_windows": 8,
+      "start_offsets": [
+        384,
+        420,
+        976,
+        1072,
+        1148,
+        1392,
+        1540,
+        2012
+      ],
+      "version": "otto-sampled-forecast-data-v1"
+    },
+    {
+      "algorithm": "numpy.Generator(PCG64(seed)).choice(W,size=k,replace=False); sorted",
+      "inclusion_denominator": 547,
+      "inclusion_numerator": 8,
+      "inclusion_probability": 0.014625228519195612,
+      "length": 2188,
+      "period": 4,
+      "population_windows": 547,
+      "seed": 1129404161,
+      "selected_windows": 8,
+      "start_offsets": [
+        12,
+        292,
+        696,
+        1040,
+        1536,
+        1676,
+        1752,
+        2060
+      ],
+      "version": "otto-sampled-forecast-data-v1"
+    },
+    {
+      "algorithm": "numpy.Generator(PCG64(seed)).choice(W,size=k,replace=False); sorted",
+      "inclusion_denominator": 547,
+      "inclusion_numerator": 8,
+      "inclusion_probability": 0.014625228519195612,
+      "length": 2188,
+      "period": 4,
+      "population_windows": 547,
+      "seed": 1129404162,
+      "selected_windows": 8,
+      "start_offsets": [
+        252,
+        500,
+        1268,
+        1284,
+        1456,
+        1632,
+        1684,
+        2180
+      ],
+      "version": "otto-sampled-forecast-data-v1"
+    },
+    {
+      "algorithm": "numpy.Generator(PCG64(seed)).choice(W,size=k,replace=False); sorted",
+      "inclusion_denominator": 547,
+      "inclusion_numerator": 8,
+      "inclusion_probability": 0.014625228519195612,
+      "length": 2188,
+      "period": 4,
+      "population_windows": 547,
+      "seed": 1129404163,
+      "selected_windows": 8,
+      "start_offsets": [
+        460,
+        768,
+        1096,
+        1132,
+        1176,
+        1312,
+        1548,
+        2020
+      ],
+      "version": "otto-sampled-forecast-data-v1"
+    },
+    {
+      "algorithm": "numpy.Generator(PCG64(seed)).choice(W,size=k,replace=False); sorted",
+      "inclusion_denominator": 547,
+      "inclusion_numerator": 8,
+      "inclusion_probability": 0.014625228519195612,
+      "length": 2188,
+      "period": 4,
+      "population_windows": 547,
+      "seed": 1129404164,
+      "selected_windows": 8,
+      "start_offsets": [
+        76,
+        184,
+        552,
+        1776,
+        1840,
+        1908,
+        1912,
+        2180
+      ],
+      "version": "otto-sampled-forecast-data-v1"
+    },
+    {
+      "algorithm": "numpy.Generator(PCG64(seed)).choice(W,size=k,replace=False); sorted",
+      "inclusion_denominator": 547,
+      "inclusion_numerator": 8,
+      "inclusion_probability": 0.014625228519195612,
+      "length": 2188,
+      "period": 4,
+      "population_windows": 547,
+      "seed": 1129404165,
+      "selected_windows": 8,
+      "start_offsets": [
+        236,
+        736,
+        1196,
+        1260,
+        1340,
+        1872,
+        1908,
+        1972
+      ],
+      "version": "otto-sampled-forecast-data-v1"
+    }
+  ]
+}

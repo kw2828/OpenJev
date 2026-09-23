@@ -1,0 +1,118 @@
+{
+  "admitted": true,
+  "all_four_families_required": true,
+  "empirical_payloads_read": 0,
+  "families": [
+    {
+      "backward_chunks": 38,
+      "batch_seconds": 0.262244417,
+      "changed_parameters": [
+        "output.weight",
+        "output.bias"
+      ],
+      "chunks": 69,
+      "family": "innovation",
+      "forward_rows": 13128,
+      "gradient_norm_before_clip": 0.006818080320954323,
+      "loss": 0.0005041025572154467,
+      "no_grad_chunks": 31,
+      "optimizer_updates": 1,
+      "parameter_count": 5978,
+      "parameter_gradient_norms_before_clip": {
+        "correction.weight": 0.0,
+        "output.bias": 0.004310015123337507,
+        "output.weight": 0.005282990168780088,
+        "recurrent.bias_hh_l0": 0.0,
+        "recurrent.bias_ih_l0": 0.0,
+        "recurrent.weight_hh_l0": 0.0,
+        "recurrent.weight_ih_l0": 0.0
+      },
+      "timing_scope": "zero_grad through final update checks; includes guards and per-operation durable logging; excludes model/optimizer construction"
+    },
+    {
+      "backward_chunks": 38,
+      "batch_seconds": 0.28777625,
+      "changed_parameters": [
+        "output.weight",
+        "output.bias"
+      ],
+      "chunks": 69,
+      "family": "innovation_gru",
+      "forward_rows": 13128,
+      "gradient_norm_before_clip": 0.0077043198980391026,
+      "loss": 0.0005041025572154467,
+      "no_grad_chunks": 31,
+      "optimizer_updates": 1,
+      "parameter_count": 5996,
+      "parameter_gradient_norms_before_clip": {
+        "output.bias": 0.004310015123337507,
+        "output.weight": 0.006385946646332741,
+        "recurrent.bias_hh_l0": 0.0,
+        "recurrent.bias_ih_l0": 0.0,
+        "recurrent.weight_hh_l0": 0.0,
+        "recurrent.weight_ih_l0": 0.0
+      },
+      "timing_scope": "zero_grad through final update checks; includes guards and per-operation durable logging; excludes model/optimizer construction"
+    },
+    {
+      "backward_chunks": 38,
+      "batch_seconds": 0.218831167,
+      "changed_parameters": [
+        "output.weight",
+        "output.bias"
+      ],
+      "chunks": 69,
+      "family": "persistent_direct",
+      "forward_rows": 13128,
+      "gradient_norm_before_clip": 0.006813026033341885,
+      "loss": 0.0005041025572154467,
+      "no_grad_chunks": 31,
+      "optimizer_updates": 1,
+      "parameter_count": 5862,
+      "parameter_gradient_norms_before_clip": {
+        "output.bias": 0.004310015123337507,
+        "output.weight": 0.005276466254144907,
+        "recurrent.bias_hh_l0": 0.0,
+        "recurrent.bias_ih_l0": 0.0,
+        "recurrent.weight_hh_l0": 0.0,
+        "recurrent.weight_ih_l0": 0.0
+      },
+      "timing_scope": "zero_grad through final update checks; includes guards and per-operation durable logging; excludes model/optimizer construction"
+    },
+    {
+      "backward_chunks": 38,
+      "batch_seconds": 0.210287875,
+      "changed_parameters": [
+        "output.weight",
+        "output.bias"
+      ],
+      "chunks": 69,
+      "family": "reset_direct",
+      "forward_rows": 13128,
+      "gradient_norm_before_clip": 0.006315219681710005,
+      "loss": 0.0005041025572154467,
+      "no_grad_chunks": 31,
+      "optimizer_updates": 1,
+      "parameter_count": 5862,
+      "parameter_gradient_norms_before_clip": {
+        "output.bias": 0.004310015123337507,
+        "output.weight": 0.004615817219018936,
+        "recurrent.bias_hh_l0": 0.0,
+        "recurrent.bias_ih_l0": 0.0,
+        "recurrent.weight_hh_l0": 0.0,
+        "recurrent.weight_ih_l0": 0.0
+      },
+      "timing_scope": "zero_grad through final update checks; includes guards and per-operation durable logging; excludes model/optimizer construction"
+    }
+  ],
+  "formula": "1.5 * 3 * 720 * sum(batch_seconds) + 120 <= 5400",
+  "new_native_calls": 0,
+  "new_teacher_calls": 0,
+  "optimizer_updates": 4,
+  "projected_seconds": 3292.41265716,
+  "scope": "one synthetic maximum-length batch per family, not a timing guarantee or scientific efficacy",
+  "sum_batch_seconds": 0.979139709,
+  "technical_complete": true,
+  "threshold_seconds": 5400.0,
+  "version": "otto-cross-query-capacity-v1"
+}

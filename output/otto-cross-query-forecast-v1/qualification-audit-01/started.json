@@ -1,0 +1,33 @@
+{
+  "sources": {
+    "scripts/audit_otto_cross_query_forecasts.py": "fa13d9564e9fd8a0b429ef312a859df68b74e381054d4354ff22fecf1a7f55c2",
+    "tests/test_audit_otto_cross_query_forecasts.py": "9e751a714125f185674da831c10e7136f19e36db030631e4be4b22ef500e4eb6",
+    "scripts/audit_otto_score_forecasts.py": "c944b2edf7b053c65cb43b3e24ee81a549a1584808cb3fbf0553c28593e9d2ce"
+  },
+  "commands": [
+    [
+      "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/python",
+      "-m",
+      "pytest",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "tests/test_audit_otto_cross_query_forecasts.py"
+    ],
+    [
+      "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/ruff",
+      "check",
+      "scripts/audit_otto_cross_query_forecasts.py",
+      "tests/test_audit_otto_cross_query_forecasts.py"
+    ]
+  ],
+  "environment": {
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "PYTHONPATH": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/src"
+  }
+}
