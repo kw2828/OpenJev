@@ -72,6 +72,11 @@ or architecture advantage.
 [All checkpoints and evidence](https://github.com/kw2828/OpenJev/releases/tag/otto-prequery-calibration-v1) ·
 [Previous comparison](research/otto-cross-query-forecast-results.md).
 
+A [follow-up diagnosis](research/otto-prequery-decision-diagnosis-results.md)
+locates the mean agreement loss in the first three steps, before any correction.
+A separate forecast readout is implemented for the next comparison; its effect
+on trained performance is still untested.
+
 Earlier [sparse querying](research/otto-sparse-query-results.md) reduced controller
 cost but missed move-quality requirements. The [first forecast collection](research/otto-score-forecast-results.md)
 stopped incomplete, and [exact caching](research/otto-exact-cache-results.md) failed

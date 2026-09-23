@@ -1,0 +1,1 @@
+Preserves the exact renderer used for figure-02. Final source removes two unused E402 lint-suppression comments only. The initial renderer-only Ruff check reported RUF100 for both comments. No rendering or numerical computation is repeated for that comment-only cleanup.

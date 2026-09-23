@@ -1,0 +1,71 @@
+{
+  "blocking_findings": [],
+  "created_at": "2026-09-23T08:38:20.402388+00:00",
+  "execution_counts": {
+    "component_imports": 0,
+    "empirical_array_reads": 0,
+    "model_calls": 0,
+    "native_calls": 0,
+    "tests": 0,
+    "training_calls": 0
+  },
+  "files": {
+    "src/openjev/research/otto_cross_query_scores.py": {
+      "bytes": 14085,
+      "sha256": "799979c0c60460352df076750d15b2cb9a5db6b6976707605dcca7c90fa76e08"
+    },
+    "src/openjev/research/otto_prequery_scores.py": {
+      "bytes": 5366,
+      "sha256": "6dfff08284004a134abf47b4ab4dc425f5d9c96f63c58475007295a666b24f4e"
+    },
+    "src/openjev/research/otto_separate_prior_scores.py": {
+      "bytes": 3623,
+      "sha256": "086348b0db778308b152fd3abf29b645d258d14e12abc12a6b879371081b7575"
+    },
+    "tests/test_otto_separate_prior_scores.py": {
+      "bytes": 15636,
+      "sha256": "c8dd82079a16b91a496b03ac47bdb8203c75aa9c0ccb11489a6a922b99e55748"
+    }
+  },
+  "findings": [
+    {
+      "conclusion": "The pinned base has exactly one rank-two readout path, after a later-query pre-assimilation GRU step; rank-three nonquery sequence readouts retain the original output head.",
+      "topic": "routing"
+    },
+    {
+      "conclusion": "For identical existing parameters and copied output/prior_output tensors, forward arithmetic, correction, capture mapping and carry are unchanged. The two separate readout parameter gradients sum to the shared-head gradient, subject to floating-point accumulation order.",
+      "topic": "copied_head_equivalence"
+    },
+    {
+      "conclusion": "The first later-query prior loss has no decision-head path. An initial nonquery loss has no prior-head path. Both share the backbone, and subsequent nonquery losses can reach the prior head through query correction. No backbone or post-training decision isolation is claimed.",
+      "topic": "gradient_scope"
+    },
+    {
+      "conclusion": "Later-query prior values use the current public features and previous anchor/carry before current query-score assimilation. Exact current-query prediction override and future-input rejection semantics are inherited.",
+      "topic": "causality"
+    },
+    {
+      "conclusion": "Inherited active-mask validation, unused-score poison tolerance, positive-zero prior padding, first-query exclusion, detached owned carry, ended-lane behavior and finally-based capture cleanup are preserved.",
+      "topic": "state_and_failure"
+    },
+    {
+      "conclusion": "Existing modules are constructed before the additional head, preserving their paired seeded initialization. Both new head tensors are zeroed. make_head preserves caller Torch RNG through the inherited fork pattern. Added parameter counts are 120 for innovation and 116 for innovation_gru.",
+      "topic": "initialization"
+    },
+    {
+      "conclusion": "Six paired-family tests plus four malformed-input cases give 16 authored cases covering byte comparisons, a scalar GRU oracle, gradient routing, causality, carry/chunk behavior and injected failures.",
+      "topic": "fabricated_test_scope"
+    }
+  ],
+  "limitations": [
+    "No component or test imports, model calls, test execution, training, simulator calls or empirical array reads occurred in this review.",
+    "This is source consistency review, not runtime qualification, gradient measurement, performance evidence or scientific efficacy evidence.",
+    "Rank-based dispatch is valid only for the pinned internal base call contract; callers must authenticate both frozen dependencies.",
+    "Equivalence requires copying the old head into the prior head. Independently trained heads can alter corrections and all later recurrent states.",
+    "Synthetic gradient nonzero assertions and exact numerical comparisons remain to be established by the separately recorded runtime qualification."
+  ],
+  "review_type": "independent_source_only",
+  "reviewer": "rlcd_diagram_review",
+  "status": "clear",
+  "version": "otto-separate-prior-source-review-v1"
+}

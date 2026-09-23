@@ -1,0 +1,12 @@
+BLE001 Do not catch blind exception: `BaseException`
+   --> scripts/diagnose_otto_prequery_decisions.py:373:16
+    |
+371 |                 (args.output / "receipt.json").rename(args.output / "receipt.invalid.json")
+372 |             write(args.output / "failure.json", receipt)
+373 |         except BaseException as secondary:
+    |                ^^^^^^^^^^^^^
+374 |             error.add_note("Failure record could not be published: " + repr(secondary))
+375 |         raise
+    |
+
+Found 1 error.

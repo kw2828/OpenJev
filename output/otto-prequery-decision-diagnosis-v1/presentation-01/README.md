@@ -1,0 +1,1 @@
+The first saved-summary plot completed. Visual inspection found mean labels overlapping some seed markers. The final render moves mean labels below the axes; the scientific values are unchanged. figure-01 and its original source remain preserved.
