@@ -1,5 +1,7 @@
 # Prequery supervision: engineering record
 
+The scientific comparison has since completed: [results and original receipts](otto-prequery-calibration-results.md). The preparation record below describes what was established before collection.
+
 This is preparation for the [frozen protocol](otto-prequery-calibration-protocol.md),
 not a scientific result. The earlier [cross-query result](otto-cross-query-forecast-results.md)
 remains closed. The new implementation exposes and supervises a forecast already
