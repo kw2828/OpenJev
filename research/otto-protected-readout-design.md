@@ -1,6 +1,6 @@
 # Preserve recurrent forecasts while adapting decisions
 
-Status: engineering adapter implemented and qualified; scientific protocol and training remain pending. No new empirical data or training has been admitted for this comparison.
+Status: the complete collection, training and independent-audit implementation passed 323 fabricated checks and Ruff. The [collection plan](../output/otto-protected-readout-v1/collection-plan-01.json) binds fresh seeds, the protocol, runtime and source hashes. Collection and fitting have not started at this publication checkpoint.
 
 The [previous fixed SPO+ recipe](otto-action-focused-results.md) lowered its TRAIN decision surrogate but worsened the later teacher-score gap in every paired comparison. Both score-MSE components rose. That observation motivates a causal comparison of where adaptation is allowed; it does not demonstrate damaged memory, conflicting gradients or insufficient recurrent capacity.
 
@@ -15,7 +15,7 @@ Use the ordinary shared-output GRU as the backbone. Train three fresh AUX models
 
 All branches receive the same zero-initialized linear action readout from the existing hidden state. Its centered residual is added to the original nonquery action scores. It never feeds the recurrent correction or prior prediction. Genuine query actions and information access remain unchanged.
 
-The [implemented adapter](../src/openjev/research/otto_protected_readout.py) adds 116 parameters to the 5,996-parameter GRU. Its residual is in raw score units, while the original backbone readout includes its established factor of 64. The training protocol must explicitly fix the learning-rate and output-scale conventions before collection. Equal parameter counts alone do not make those parameterizations equivalent.
+The [original engineering adapter](../src/openjev/research/otto_protected_readout.py) adds 116 parameters to the 5,996-parameter GRU. Its raw-score residual remains unchanged. The [training adapter](../src/openjev/research/otto_protected_training_model.py) supplies a factor of 64 before centering, matching the backbone's normalized readout units. Both adaptation modes use this same head and learning rate. Twenty fabricated output-unit and strict-copy checks passed. This parameterization was fixed before collecting new data; it was not selected from VALID outcomes.
 
 Frozen branches lock every original parameter and detach their recurrent features. Joint branches permit gradients into the original predictor. Keep the bare pretrained backbone as a reference. Frozen-MSE controls the extra readout; joint-MSE controls extra training exposure; joint-SPO controls the gradient route for the decision objective. A GRU-only screen avoids conflating an adaptation mechanism with a new architecture.
 
@@ -25,9 +25,11 @@ Use 80 AUX pretraining epochs and 40 adaptation epochs: three shared pretrains a
 
 The final protocol must reserve fresh collection, fitting and selection seeds and specify exact cohort sizes, optimizer resets, schedules, row masks, detach conventions, loss arithmetic, budgets and source pins before collection. No old VALID trajectory may select a branch, coefficient or stopping time. Save final checkpoints only and close all branches before untouched evaluation is decoded. Previous failed and incomplete studies remain closed.
 
+The [protocol](otto-protected-readout-protocol.md) specifies 54 fresh TRAIN paths, 36 fresh VALID paths, 15 final models including references and one 29-condition gate. Its initial implementation-stage status is superseded for collection by the published, hash-bound plan. Fitting still requires a separate plan authenticating this collection's successful original supervisor closure. [Integrated qualification](../output/otto-protected-readout-v1/integrated-engineering-01/qualification-01/receipt.json) and [source reviews](../output/otto-protected-readout-v1/study-engineering-01/source-review-01.json) precede empirical work.
+
 ## Required evidence
 
-The intended continuation rule requires Protected-SPO to lower mean later teacher-score gap in both settings against Frozen-MSE, Joint-MSE and Joint-SPO, preserve full and initial action agreement, and avoid paired-seed regression against Frozen-MSE. Also report every branch against its bare pretrained reference. Exact effect thresholds and scope denominators must be frozen before execution, not chosen after results.
+The protocol requires Protected-SPO to lower mean later teacher-score gap by at least 10% in both settings against each of Frozen-MSE, Joint-MSE, Joint-SPO and the bare pretrained reference. It must also preserve full and initial action agreement against the strongest control mean and avoid paired-seed regression against Frozen-MSE. Support and technical-completion checks complete the 29-condition rule. These thresholds and scope denominators must be frozen before execution, not chosen after results.
 
 Before real training, fabricated tests must establish identical initial predictions, legal query and padding behavior, chronological chunk equivalence, no residual feedback, and gradient separation. During training, bitwise parameter comparisons must show that frozen backbones remain unchanged; saved predictions must verify unchanged base forecasts on the same paths. Record all branch costs: matching data and optimizer updates does not equal matching computation. Use the qualified detached supervisor for fresh phases and preserve failures without retries.
 
