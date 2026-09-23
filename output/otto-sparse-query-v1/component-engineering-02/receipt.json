@@ -1,0 +1,54 @@
+{
+  "files": {
+    "command-0.log": {
+      "bytes": 98,
+      "sha256": "0b7ede8c8682c95da8ee490cf24dab3160596fde2b4a9c8da2658980b3dec7fc"
+    },
+    "command-1.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    }
+  },
+  "results": [
+    {
+      "command": [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv-otto-released-native/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_otto_sparse_metrics.py"
+      ],
+      "exit_code": 0,
+      "log": "command-0.log",
+      "wall_seconds": 0.2513840419705957
+    },
+    {
+      "command": [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/ruff",
+        "check",
+        "src/openjev/research/otto_sparse_query.py",
+        "tests/test_otto_sparse_query.py",
+        "src/openjev/research/otto_sparse_metrics.py",
+        "tests/test_otto_sparse_metrics.py"
+      ],
+      "exit_code": 0,
+      "log": "command-1.log",
+      "wall_seconds": 0.19017612491734326
+    }
+  ],
+  "scope": "Six affected metrics tests after explicit loop-variable binding; unchanged nine gate tests retain their original pass. Zero neural/native/sampler/optimizer calls.",
+  "sources_after": {
+    "src/openjev/research/otto_sparse_metrics.py": "c952f02bb5373cb36a272f9bb26bf3bcbd33a30d16cd894ff3566206a6fbbf6f",
+    "src/openjev/research/otto_sparse_query.py": "1dc62ac8875a399258a058d2544199defb19094db01c8714a924bfe090fc3025",
+    "tests/test_otto_sparse_metrics.py": "f356fde691b9bcfb7776b750e2ae6e6256cdcc8b8e609031f7186ef4e3211730",
+    "tests/test_otto_sparse_query.py": "bc5603fb06fd23e41939d16bf6b9a54509b7e7e5d86b25fb4083147a30b6830a"
+  },
+  "sources_before": {
+    "src/openjev/research/otto_sparse_metrics.py": "c952f02bb5373cb36a272f9bb26bf3bcbd33a30d16cd894ff3566206a6fbbf6f",
+    "src/openjev/research/otto_sparse_query.py": "1dc62ac8875a399258a058d2544199defb19094db01c8714a924bfe090fc3025",
+    "tests/test_otto_sparse_metrics.py": "f356fde691b9bcfb7776b750e2ae6e6256cdcc8b8e609031f7186ef4e3211730",
+    "tests/test_otto_sparse_query.py": "bc5603fb06fd23e41939d16bf6b9a54509b7e7e5d86b25fb4083147a30b6830a"
+  },
+  "status": "passed",
+  "version": "otto-sparse-components-engineering-v1"
+}

@@ -1,0 +1,205 @@
+{
+  "component_receipts": {
+    "audit-engineering-01": {
+      "bytes": 1786,
+      "path": "output/otto-sparse-query-v1/audit-engineering-01/receipt.json",
+      "sha256": "f6d6ada896e6e34e7e24ff0f6afd82e5ea51c6f1e17bcc8abed1a3aa4278575f"
+    },
+    "component-engineering-01": {
+      "bytes": 2237,
+      "path": "output/otto-sparse-query-v1/component-engineering-01/receipt.json",
+      "sha256": "e1a483ef436fe0360d675d7985587511843a38457a0a53986496d4055041e4cb"
+    },
+    "component-engineering-02": {
+      "bytes": 2269,
+      "path": "output/otto-sparse-query-v1/component-engineering-02/receipt.json",
+      "sha256": "ffe05ac3451c1d4533f4adee31a604c2bdcf2d30e918bf04a786db4c7436a1a0"
+    },
+    "runner-engineering-01": {
+      "bytes": 2272,
+      "path": "output/otto-sparse-query-v1/runner-engineering-01/receipt.json",
+      "sha256": "6f58c45a8ee57f0f86d1a2deb55b1ce82f87bf82493aa592225ecb44c16d4577"
+    }
+  },
+  "current_source_test_coverage": {
+    "audit-engineering-01": [
+      "scripts/audit_otto_sparse_query.py",
+      "tests/test_audit_otto_sparse_query.py"
+    ],
+    "component-engineering-01": [
+      "src/openjev/research/otto_sparse_query.py",
+      "tests/test_otto_sparse_query.py"
+    ],
+    "component-engineering-02": [
+      "src/openjev/research/otto_sparse_metrics.py",
+      "tests/test_otto_sparse_metrics.py"
+    ],
+    "runner-engineering-01": [
+      "scripts/study_otto_sparse_query.py",
+      "tests/test_study_otto_sparse_query.py"
+    ]
+  },
+  "distinct_test_cases": 29,
+  "files": {
+    "command-0.log": {
+      "bytes": 99,
+      "sha256": "c98c6aa926cffcd9b85d2e9ece50ab0f8a5d7eadb1f160aa451da8f9207b51a0"
+    },
+    "command-1.log": {
+      "bytes": 98,
+      "sha256": "0b7ede8c8682c95da8ee490cf24dab3160596fde2b4a9c8da2658980b3dec7fc"
+    },
+    "command-2.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "command-3.log": {
+      "bytes": 98,
+      "sha256": "f9e270a1148f8079728fc97df1841a3afa34d3e9b6eb4dd211e305897b916afd"
+    },
+    "command-4.log": {
+      "bytes": 98,
+      "sha256": "caf56757b18b52a7c892a24609a6f4ec6e8900c554da434531b573fc2a87250b"
+    },
+    "command-5.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "preserved-failed-static.log": {
+      "bytes": 465,
+      "sha256": "8ed126eb90521f2167b3ef047ffd1d33b67efdafbc9a7edf4af17731afad3ab1"
+    }
+  },
+  "original_test_case_executions": 35,
+  "preserved_failure": {
+    "issue": "B023 loop-variable binding in metrics means; corrected before freeze; original lint log retained.",
+    "receipt": {
+      "bytes": 2237,
+      "path": "output/otto-sparse-query-v1/component-engineering-01/receipt.json",
+      "sha256": "e1a483ef436fe0360d675d7985587511843a38457a0a53986496d4055041e4cb"
+    }
+  },
+  "results": [
+    {
+      "command": [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv-otto-released-native/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_otto_sparse_query.py",
+        "tests/test_otto_sparse_metrics.py"
+      ],
+      "exit_code": 0,
+      "log": "command-0.log",
+      "original_log": "command-0.log",
+      "original_receipt": "output/otto-sparse-query-v1/component-engineering-01/receipt.json",
+      "wall_seconds": 0.4719952910672873
+    },
+    {
+      "command": [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv-otto-released-native/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_otto_sparse_metrics.py"
+      ],
+      "exit_code": 0,
+      "log": "command-1.log",
+      "original_log": "command-0.log",
+      "original_receipt": "output/otto-sparse-query-v1/component-engineering-02/receipt.json",
+      "wall_seconds": 0.2513840419705957
+    },
+    {
+      "command": [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/ruff",
+        "check",
+        "src/openjev/research/otto_sparse_query.py",
+        "tests/test_otto_sparse_query.py",
+        "src/openjev/research/otto_sparse_metrics.py",
+        "tests/test_otto_sparse_metrics.py"
+      ],
+      "exit_code": 0,
+      "log": "command-2.log",
+      "original_log": "command-1.log",
+      "original_receipt": "output/otto-sparse-query-v1/component-engineering-02/receipt.json",
+      "wall_seconds": 0.19017612491734326
+    },
+    {
+      "command": [
+        ".venv-otto-released-native/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "tests/test_study_otto_sparse_query.py"
+      ],
+      "cwd": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev",
+      "environment": {
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "exit_code": 0,
+      "log": "command-3.log",
+      "log_provenance": "tool output transcript d9169d; exact seen stdout transcribed, no original filesystem log existed",
+      "original_log": "command-0.log",
+      "original_receipt": "output/otto-sparse-query-v1/runner-engineering-01/receipt.json",
+      "original_tool_chunk": "d9169d",
+      "pytest_reported_seconds": 0.13,
+      "seconds": 0.176442916,
+      "shell_command": "PYTHONDONTWRITEBYTECODE=1 .venv-otto-released-native/bin/python -m pytest -q -p no:cacheprovider tests/test_study_otto_sparse_query.py",
+      "tests_passed": 7
+    },
+    {
+      "command": [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv-otto-released-native/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_audit_otto_sparse_query.py"
+      ],
+      "exit_code": 0,
+      "log": "command-4.log",
+      "original_log": "command-0.log",
+      "original_receipt": "output/otto-sparse-query-v1/audit-engineering-01/receipt.json",
+      "wall_seconds": 0.29074683296494186
+    },
+    {
+      "command": [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/ruff",
+        "check",
+        "scripts/audit_otto_sparse_query.py",
+        "tests/test_audit_otto_sparse_query.py",
+        "scripts/study_otto_sparse_query.py",
+        "tests/test_study_otto_sparse_query.py"
+      ],
+      "exit_code": 0,
+      "log": "command-5.log",
+      "original_log": "command-1.log",
+      "original_receipt": "output/otto-sparse-query-v1/audit-engineering-01/receipt.json",
+      "wall_seconds": 0.0342443329282105
+    }
+  ],
+  "scope": "Metadata aggregation only. No tests or scientific calls rerun. Nine gate, six current metrics, seven runner and seven audit cases qualify the final components. The first15-case pass used the pre-binding metrics source; six affected metrics cases were rerun after the one-line lint repair. Runner original output is explicitly transcribed with its original tool ID and retrospective unchanged-byte binding.",
+  "sources_after": {
+    "scripts/audit_otto_sparse_query.py": "e73a94a8927fea330c65f0b006ade1d82f79693e21336c91bf5acd742b1d7925",
+    "scripts/study_otto_sparse_query.py": "16ccf7404d3da0c3011049f60894a8596ef4e0de231cf569b0faa543eb2a0339",
+    "src/openjev/research/otto_sparse_metrics.py": "c952f02bb5373cb36a272f9bb26bf3bcbd33a30d16cd894ff3566206a6fbbf6f",
+    "src/openjev/research/otto_sparse_query.py": "1dc62ac8875a399258a058d2544199defb19094db01c8714a924bfe090fc3025",
+    "tests/test_audit_otto_sparse_query.py": "168c9d64d4273435e9f42d0933829098812536e8bb1325673f3bde78c65f2293",
+    "tests/test_otto_sparse_metrics.py": "f356fde691b9bcfb7776b750e2ae6e6256cdcc8b8e609031f7186ef4e3211730",
+    "tests/test_otto_sparse_query.py": "bc5603fb06fd23e41939d16bf6b9a54509b7e7e5d86b25fb4083147a30b6830a",
+    "tests/test_study_otto_sparse_query.py": "4ae5ac0cd1e6b760577f09ce9b1b6e14dad56f9678a0678837ac043891f30a1e"
+  },
+  "sources_before": {
+    "scripts/audit_otto_sparse_query.py": "e73a94a8927fea330c65f0b006ade1d82f79693e21336c91bf5acd742b1d7925",
+    "scripts/study_otto_sparse_query.py": "16ccf7404d3da0c3011049f60894a8596ef4e0de231cf569b0faa543eb2a0339",
+    "src/openjev/research/otto_sparse_metrics.py": "c952f02bb5373cb36a272f9bb26bf3bcbd33a30d16cd894ff3566206a6fbbf6f",
+    "src/openjev/research/otto_sparse_query.py": "1dc62ac8875a399258a058d2544199defb19094db01c8714a924bfe090fc3025",
+    "tests/test_audit_otto_sparse_query.py": "168c9d64d4273435e9f42d0933829098812536e8bb1325673f3bde78c65f2293",
+    "tests/test_otto_sparse_metrics.py": "f356fde691b9bcfb7776b750e2ae6e6256cdcc8b8e609031f7186ef4e3211730",
+    "tests/test_otto_sparse_query.py": "bc5603fb06fd23e41939d16bf6b9a54509b7e7e5d86b25fb4083147a30b6830a",
+    "tests/test_study_otto_sparse_query.py": "4ae5ac0cd1e6b760577f09ce9b1b6e14dad56f9678a0678837ac043891f30a1e"
+  },
+  "status": "passed",
+  "version": "otto-sparse-engineering-aggregation-v1"
+}

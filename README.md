@@ -56,15 +56,15 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Research status
 
-The [completed query-value pilot](research/otto-query-advantage-v2-results.md) collected **72 paths and 264 paired label panels**, but failed its continuation rule: **7/11 conditions passed**. The base signal covers too few independent cases; the shifted setting shows no positive repeatability. No new gate is trained from this recipe.
+The [sparse-query comparison](research/otto-sparse-query-results.md) completed **360 fresh evaluation paths** across five controllers. Periodic querying cut controller cost by **53.15% / 40.79%** versus always-neural control in the two primary settings. Every path succeeded, but move quality missed two requirements: **FAIL, 14/16 conditions passed**.
 
-[![All query-value anchors and bootstrap draws, including the failed continuation rule](docs/assets/otto-query-advantage-v2.png)](research/otto-query-advantage-v2-results.md)
+[![All five controllers and all three settings, including the failed continuation rule](docs/assets/otto-sparse-query.png)](research/otto-sparse-query-results.md)
 
-The separate [logging benchmark](research/otto-query-logging-results.md) measured **5.103x median speedup** on fabricated event streams with identical output and per-event durability. This is an engineering result, not a model speedup.
+The corrected saved-record audit agrees; its [original checker failure and repair](research/otto-sparse-query-audit-repair.md) remain visible. This fixed-schedule result establishes no recurrent or biological architecture advantage. [Complete evidence](https://github.com/kw2828/OpenJev/releases/tag/otto-sparse-query-v1).
 
-Earlier [recurrent and stateless query gates](research/otto-query-gate-learning-results.md) queried on every decision across 576 searches, saving no computation. The next proposed test is whether simple sparse-query controls preserve performance while reducing total cost. [Complete evidence](https://github.com/kw2828/OpenJev/releases/tag/otto-query-advantage-v2).
+Earlier [query-value labels failed their 7/11 rule](research/otto-query-advantage-v2-results.md), and [learned query gates](research/otto-query-gate-learning-results.md) saved no computation. These and the other positive, negative and incomplete studies remain in the [experiment archive](research/experiment-index.md).
 
-Earlier spatial, dialogue, RockSample and memory studies remain in the [experiment archive](research/experiment-index.md), including negative results and failed attempts. The separate [shared-prefix scoring experiment](research/shared-prefix-results.md) measured **2.08x** speedup on four-question synthetic workloads; single-question caching was slower. This does not reproduce a proprietary RLCD system.
+The separate [shared-prefix scoring experiment](research/shared-prefix-results.md) measured **2.08x** speedup on four-question synthetic workloads; single-question caching was slower. This does not reproduce a proprietary RLCD system.
 
 ## Limits and provenance
 

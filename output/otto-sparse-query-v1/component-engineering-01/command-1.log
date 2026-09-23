@@ -1,0 +1,10 @@
+B023 Function definition does not bind loop variable `weights`
+   --> src/openjev/research/otto_sparse_metrics.py:118:34
+    |
+117 |         def means(subset):
+118 |             return {m: math.fsum(weights[h] * math.fsum(float(r[m]) for r in subset if r["initial_hit"] == h)
+    |                                  ^^^^^^^
+119 |                                / sum(r["initial_hit"] == h for r in subset) for h in (1, 2, 3)) for m in METRICS}
+    |
+
+Found 1 error.

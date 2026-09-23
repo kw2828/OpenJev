@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/audit_otto_sparse_query.py", line 675, in <module>
+    main()
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/audit_otto_sparse_query.py", line 671, in main
+    Audit(args).execute()
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/audit_otto_sparse_query.py", line 638, in execute
+    self.body()
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/audit_otto_sparse_query.py", line 613, in body
+    self.costs(rows)
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/audit_otto_sparse_query.py", line 418, in costs
+    self.require(all(type(c[k]) in (int, float) and math.isfinite(c[k]) and c[k] >= 0 for k in c if k.endswith("seconds")), "finite physical stage costs")
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/audit_otto_sparse_query.py", line 210, in require
+    raise ValueError(message)
+ValueError: finite physical stage costs
