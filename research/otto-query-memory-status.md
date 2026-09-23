@@ -67,3 +67,9 @@ contribution. Those claims require subsequent experiments if this screen passes.
 [Related work and limits on novelty claims](otto-query-memory-related-work.md)
 compare this mechanism with fast-weight delta updates, Gated Delta Networks and
 Titans. The registered experiment remains unchanged.
+
+The [conditional TEST evaluator and independent audit](otto-query-memory-test-engineering.md)
+now pass 105 new fabricated tests and lint, with independent source review.
+They preserve all 48 P4/P8 views and require the completed, independently passed
+DEV gate before any TEST decode. These checks leave the live training sources
+unchanged and do not admit TEST execution or establish effectiveness.

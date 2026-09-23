@@ -2,7 +2,7 @@
 
 Source review, September 23, 2026. This checks the supplied social-media post
 against primary sources. No upstream model was run or timing reproduced. This
-note does not change the registered protected-readout experiment or its rule.
+note does not change a registered experiment or its rule.
 
 ## The architecture recipe is a hypothesis
 
@@ -86,8 +86,10 @@ before adding RL. Report accuracy, log loss, Brier score, reliability plots and
 decision utility with total compute. Teacher agreement and softmax-transformed
 costs are not substitutes for observed correctness or outcome calibration.
 
-The [running comparison](otto-protected-readout-design.md) first tests whether
-protecting a recurrent predictor helps its action readout. Its outputs are
-teacher-score predictions, not calibrated success probabilities. Neither the
-post nor these implementations establishes a connectome or world-model
-advantage for OpenJev.
+The [protected-readout comparison](otto-protected-readout-results.md) has closed
+with a failed continuation rule. The [current query-memory study](otto-query-memory-status.md)
+tests whether corrections written at actual observation times help a frozen
+recurrent predictor beyond ordinary recurrent training and simple last-error
+correction. Its outputs are teacher-score predictions, not calibrated success
+probabilities. Neither the post nor these implementations establishes a
+connectome or world-model advantage for OpenJev.
