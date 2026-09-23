@@ -1,0 +1,104 @@
+{
+  "blocking_findings": [],
+  "created_at": "2026-09-23T08:53:08.106267+00:00",
+  "execution_counts": {
+    "component_imports": 0,
+    "empirical_array_reads": 0,
+    "model_calls": 0,
+    "native_calls": 0,
+    "optimizer_calls": 0,
+    "tests": 0
+  },
+  "files": {
+    "output/otto-separate-prior-engineering-v1/source-review-01.json": {
+      "bytes": 3982,
+      "sha256": "6c2edf46b1866675666c6b4ea6c1942851aa76c8f3cf749ad7d6061b8b0bc7ff"
+    },
+    "research/otto-separate-prior-protocol.md": {
+      "bytes": 11636,
+      "sha256": "1ac60a486aaedafdd3d2961d153aead2835c9bb3df15b7e1de44473ed4a3b0df"
+    },
+    "scripts/collect_otto_separate_prior.py": {
+      "bytes": 48099,
+      "sha256": "05b000fc5d28de280dd24d6106d17011ef384d326c195812bc354a87d0b8cea9"
+    },
+    "scripts/qualify_otto_separate_prior_capacity.py": {
+      "bytes": 24449,
+      "sha256": "f93ee1090fee172385b3ec344423f33cbee52f081eca8a129caf752ab2107962"
+    },
+    "scripts/train_otto_separate_prior.py": {
+      "bytes": 50835,
+      "sha256": "bfe9d8c7bd15d332c4365b7fd9d276938e272854e29d34321e220ad214672a4b"
+    },
+    "src/openjev/research/otto_separate_prior_metrics.py": {
+      "bytes": 17067,
+      "sha256": "1d3672fa7012427853f078b0631c0510366ce29ff022656303a792f64760654b"
+    },
+    "tests/test_collect_otto_separate_prior.py": {
+      "bytes": 17755,
+      "sha256": "1343ee51da02c4d5de30ddc97f81ba6bb8a756447a20e18df7882c574701e09f"
+    },
+    "tests/test_otto_separate_prior_metrics.py": {
+      "bytes": 8531,
+      "sha256": "8ffdbe3e9377a956c1b28f755d43678c5529bc4b28eb5bfa6f49b4720cb13426"
+    },
+    "tests/test_qualify_otto_separate_prior_capacity.py": {
+      "bytes": 2987,
+      "sha256": "7841b4869c758406eda515b7a95952268f5da727f33a1d87cd331f81aefe7b96"
+    },
+    "tests/test_train_otto_separate_prior.py": {
+      "bytes": 14211,
+      "sha256": "790f159e8089fd51e4b1f2834eefea5885992d9b3a4ae3b02ec1cfe7e8ce4a87"
+    }
+  },
+  "findings": [
+    {
+      "conclusion": "54 TRAIN and36 VALID complete paths,138708 maximum teacher calls,196920 native moves and118152 public replay updates match the held collector. Query/window-union annotation and selected nonquery weights remain unchanged.",
+      "topic": "collection_protocol_alignment"
+    },
+    {
+      "conclusion": "Eight explicit architecture/readout/objective cells across three fresh seeds produce24 final models. Existing parameter tensors match within architecture across readouts; each readout pairs both objectives exactly. Extra prior-head parameters are disclosed, and backbone/correction feedback prevents an isolated-gradient claim.",
+      "topic": "factorial_controls"
+    },
+    {
+      "conclusion": "The inherited batch/loss arithmetic remains unchanged:54/B scaling, detached32-step chunks, fixed parameters within each batch, one Adam update after accumulation,80epochs and720updates per fit. MSE does not numerically read prior targets/weights; auxiliary masks decide extra backward work. Total17280 updates and full tails are required.",
+      "topic": "optimization"
+    },
+    {
+      "conclusion": "All24 checkpoints are saved/read back and paired initialization/order witnesses checked before the VALID decode barrier.85 closed payloads include24 checkpoints,24 TRAIN forecasts and25 VALID/hold forecast files. No epoch or model selection is introduced.",
+      "topic": "validation_and_artifacts"
+    },
+    {
+      "conclusion": "Initial steps1-3, full nonquery paths and postcorrection steps>=5 retain fixed episode denominators with separate support and age weights.39 unique records feed explicit19/19/29 named decisions. Strict positive-reference gap/prior improvements and descriptive paired-seed factorial interactions match the protocol; no all39 promotion gate exists.",
+      "topic": "metrics_and_gates"
+    },
+    {
+      "conclusion": "All8 cells run the actual production batch using6 synthetic length2188 histories,69 chronological chunks, selected nonquery windows and complete later-query targets. Auxiliary cells use69 backward chunks. One Adam step per cell and finite complete gradients are checked. The fixed projection is1.5*3*720*sum(batch_seconds)+180<=16200 inside the21600-second training cap.",
+      "topic": "capacity"
+    },
+    {
+      "conclusion": "Capacity batch time includes stage/return journaling and checks but excludes initialization, which remains in physical phase wall. Training reports actual extra backward work, rescoring, checkpoint and wall costs. Return publication precedes acknowledgement; uncertain pending work and late-failure receipt demotion remain preserved.",
+      "topic": "cost_and_failure"
+    },
+    {
+      "conclusion": "The collector freezes the exact22-file qualified component set plus explicit inherited runtime and downstream source dependencies. Trainer and capacity merge consistent inherited pins and authenticate original successful phase parents before numerical imports.",
+      "topic": "source_closure"
+    },
+    {
+      "conclusion": "The authored trainer18/capacity2 cases cover all8 cell batch parity, poisoned MSE-only priors, full-tail auxiliary backward counts, zero-support Adam, hand rescoring,24-checkpoint barrier, uncertain publication, initialization pairs and exact90-row cohort. Thirteen metrics cases cover scope weights, near ties, membership, strict zero ties and signed interactions.",
+      "topic": "fabricated_fixtures"
+    }
+  ],
+  "limitations": [
+    "No component imports, test execution, model/native/optimizer calls or empirical array reads occurred in this review.",
+    "Synthetic fixture expectations have been source-reviewed only. Runtime qualification and original supervised capacity completion remain separate prerequisites.",
+    "Capacity projection is a planning estimate, not a runtime guarantee. Source review establishes no scientific performance, autonomous control or scenario-shift result.",
+    "Historical-result narrative in the protocol is inherited from prior closed reports; this review did not decode old outcomes or independently repeat their diagnosis.",
+    "The collector was authored by this reviewer and independently reviewed by next_evidence_review; this receipt does not relabel that authorship as independent collector review."
+  ],
+  "review_type": "independent_source_only",
+  "reviewer": "rlcd_diagram_review",
+  "scope": "Independent review of trainer, capacity probe, metrics and prospective protocol; alignment to the separately peer-reviewed collector authored by this reviewer. The saved scientific auditor has a separate reviewer and is outside this receipt.",
+  "status": "clear",
+  "version": "otto-separate-prior-study-source-review-v1"
+}

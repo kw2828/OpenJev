@@ -1,0 +1,308 @@
+{
+  "arrays": {
+    "actions": {
+      "dtype": "int64",
+      "sha256": "30fd85e2ffc672936f490ddc38ddb3b70bf1b99af6489b5617f3a943df78a083",
+      "shape": [
+        13128
+      ]
+    },
+    "episode_offsets": {
+      "dtype": "int64",
+      "sha256": "199407649a72351073678a7e18b8732ac50b83b2f0ccec3153da8c1bfaafe4fc",
+      "shape": [
+        7
+      ]
+    },
+    "features": {
+      "dtype": "float32",
+      "sha256": "ddb3bcadcd433d3cf6036e60d7de5297a8d8a6b9e39c6e64270a0184f4445041",
+      "shape": [
+        13128,
+        31
+      ]
+    },
+    "legal": {
+      "dtype": "bool",
+      "sha256": "28321ffcd20b7a9ea3d2a84220e3365812fd4a37adaa69f5e6e6dbd833b4cc5b",
+      "shape": [
+        13128,
+        4
+      ]
+    },
+    "prior_mask": {
+      "dtype": "bool",
+      "sha256": "ce6adbc9c199376cfad3dbedaf2f842f43e3851f8ae12f3f7ce647c6694b5875",
+      "shape": [
+        13128
+      ]
+    },
+    "prior_targets": {
+      "dtype": "float32",
+      "sha256": "55a7b96be0388c7ac11374f225fa58f90d9bcbbb96b3cf428bd27a0167dd82fc",
+      "shape": [
+        13128,
+        4
+      ]
+    },
+    "prior_weights": {
+      "dtype": "float64",
+      "sha256": "f128fe617552d0b228f32177fba6cb2a1f3c700d91359c93e392c659c1e56878",
+      "shape": [
+        13128
+      ]
+    },
+    "query_mask": {
+      "dtype": "bool",
+      "sha256": "31403ac27ee4bc302dc37480fbda68a489b40b9969c6462234f0972621ff9acb",
+      "shape": [
+        13128
+      ]
+    },
+    "query_scores": {
+      "dtype": "float32",
+      "sha256": "021ec223e0e4983f519a967b70e9130c3cfbfdefbac0f220b659f0d67846e6ff",
+      "shape": [
+        13128,
+        4
+      ]
+    },
+    "targets": {
+      "dtype": "float32",
+      "sha256": "f8f421a9669cd4e42614e4c1120cb9d44009ca2c101898a8f66c6e3dab2afc6f",
+      "shape": [
+        13128,
+        4
+      ]
+    },
+    "weights": {
+      "dtype": "float64",
+      "sha256": "a27ce6437d76d87d349997be4d89251c2ad391522e7a0cd3c96e1ca4279458e3",
+      "shape": [
+        13128
+      ]
+    }
+  },
+  "configuration": {
+    "admission_seconds": 16200.0,
+    "batch": 6,
+    "cells": {
+      "gru_separate_aux": {
+        "architecture": "innovation_gru",
+        "objective": "query_aux",
+        "readout": "separate"
+      },
+      "gru_separate_mse": {
+        "architecture": "innovation_gru",
+        "objective": "mse",
+        "readout": "separate"
+      },
+      "gru_shared_aux": {
+        "architecture": "innovation_gru",
+        "objective": "query_aux",
+        "readout": "shared"
+      },
+      "gru_shared_mse": {
+        "architecture": "innovation_gru",
+        "objective": "mse",
+        "readout": "shared"
+      },
+      "innovation_separate_aux": {
+        "architecture": "innovation",
+        "objective": "query_aux",
+        "readout": "separate"
+      },
+      "innovation_separate_mse": {
+        "architecture": "innovation",
+        "objective": "mse",
+        "readout": "separate"
+      },
+      "innovation_shared_aux": {
+        "architecture": "innovation",
+        "objective": "query_aux",
+        "readout": "shared"
+      },
+      "innovation_shared_mse": {
+        "architecture": "innovation",
+        "objective": "mse",
+        "readout": "shared"
+      }
+    },
+    "chunk": 32,
+    "clip_norm": 5.0,
+    "episode_denominator": 54,
+    "families": [
+      "innovation_shared_mse",
+      "innovation_shared_aux",
+      "innovation_separate_mse",
+      "innovation_separate_aux",
+      "gru_shared_mse",
+      "gru_shared_aux",
+      "gru_separate_mse",
+      "gru_separate_aux"
+    ],
+    "feature_seed": 1397834545,
+    "fit_seeds": 3,
+    "fixed_overhead_seconds": 180.0,
+    "learning_rate": 0.003,
+    "length": 2188,
+    "model_seed": 1397837105,
+    "period": 4,
+    "prior_coefficient": 1.0,
+    "prior_rows_per_episode": 546,
+    "prior_weight": "1/(54*546)",
+    "projection_multiplier": 1.5,
+    "scale": 64.0,
+    "scope": "synthetic throughput planning only; no performance or scientific result",
+    "selected_windows_per_episode": 8,
+    "selection_seeds": [
+      1397839616,
+      1397839617,
+      1397839618,
+      1397839619,
+      1397839620,
+      1397839621
+    ],
+    "training_cap_seconds": 21600,
+    "updates_per_fit": 720,
+    "weight_decay": 0.0,
+    "zero_target_chunks": "forward without autograd, still charged and counted"
+  },
+  "formula": "local fixed generators; complete query scores; sampled nonquery and complete later-query targets",
+  "prior_rows": 3276,
+  "selected_nonquery_rows": 144,
+  "selections": [
+    {
+      "algorithm": "numpy.Generator(PCG64(seed)).choice(W,size=k,replace=False); sorted",
+      "inclusion_denominator": 547,
+      "inclusion_numerator": 8,
+      "inclusion_probability": 0.014625228519195612,
+      "length": 2188,
+      "period": 4,
+      "population_windows": 547,
+      "seed": 1397839616,
+      "selected_windows": 8,
+      "start_offsets": [
+        252,
+        304,
+        896,
+        964,
+        1064,
+        1096,
+        1304,
+        1508
+      ],
+      "version": "otto-sampled-forecast-data-v1"
+    },
+    {
+      "algorithm": "numpy.Generator(PCG64(seed)).choice(W,size=k,replace=False); sorted",
+      "inclusion_denominator": 547,
+      "inclusion_numerator": 8,
+      "inclusion_probability": 0.014625228519195612,
+      "length": 2188,
+      "period": 4,
+      "population_windows": 547,
+      "seed": 1397839617,
+      "selected_windows": 8,
+      "start_offsets": [
+        248,
+        376,
+        608,
+        860,
+        1048,
+        1168,
+        1272,
+        2036
+      ],
+      "version": "otto-sampled-forecast-data-v1"
+    },
+    {
+      "algorithm": "numpy.Generator(PCG64(seed)).choice(W,size=k,replace=False); sorted",
+      "inclusion_denominator": 547,
+      "inclusion_numerator": 8,
+      "inclusion_probability": 0.014625228519195612,
+      "length": 2188,
+      "period": 4,
+      "population_windows": 547,
+      "seed": 1397839618,
+      "selected_windows": 8,
+      "start_offsets": [
+        164,
+        348,
+        380,
+        568,
+        752,
+        900,
+        1360,
+        1684
+      ],
+      "version": "otto-sampled-forecast-data-v1"
+    },
+    {
+      "algorithm": "numpy.Generator(PCG64(seed)).choice(W,size=k,replace=False); sorted",
+      "inclusion_denominator": 547,
+      "inclusion_numerator": 8,
+      "inclusion_probability": 0.014625228519195612,
+      "length": 2188,
+      "period": 4,
+      "population_windows": 547,
+      "seed": 1397839619,
+      "selected_windows": 8,
+      "start_offsets": [
+        632,
+        708,
+        964,
+        976,
+        1264,
+        1476,
+        1692,
+        2128
+      ],
+      "version": "otto-sampled-forecast-data-v1"
+    },
+    {
+      "algorithm": "numpy.Generator(PCG64(seed)).choice(W,size=k,replace=False); sorted",
+      "inclusion_denominator": 547,
+      "inclusion_numerator": 8,
+      "inclusion_probability": 0.014625228519195612,
+      "length": 2188,
+      "period": 4,
+      "population_windows": 547,
+      "seed": 1397839620,
+      "selected_windows": 8,
+      "start_offsets": [
+        152,
+        480,
+        672,
+        976,
+        1188,
+        1260,
+        1768,
+        2148
+      ],
+      "version": "otto-sampled-forecast-data-v1"
+    },
+    {
+      "algorithm": "numpy.Generator(PCG64(seed)).choice(W,size=k,replace=False); sorted",
+      "inclusion_denominator": 547,
+      "inclusion_numerator": 8,
+      "inclusion_probability": 0.014625228519195612,
+      "length": 2188,
+      "period": 4,
+      "population_windows": 547,
+      "seed": 1397839621,
+      "selected_windows": 8,
+      "start_offsets": [
+        108,
+        124,
+        688,
+        956,
+        1024,
+        1168,
+        1604,
+        1948
+      ],
+      "version": "otto-sampled-forecast-data-v1"
+    }
+  ]
+}

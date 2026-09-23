@@ -1,0 +1,134 @@
+{
+  "configuration": {
+    "admission_seconds": 16200.0,
+    "batch": 6,
+    "cells": {
+      "gru_separate_aux": {
+        "architecture": "innovation_gru",
+        "objective": "query_aux",
+        "readout": "separate"
+      },
+      "gru_separate_mse": {
+        "architecture": "innovation_gru",
+        "objective": "mse",
+        "readout": "separate"
+      },
+      "gru_shared_aux": {
+        "architecture": "innovation_gru",
+        "objective": "query_aux",
+        "readout": "shared"
+      },
+      "gru_shared_mse": {
+        "architecture": "innovation_gru",
+        "objective": "mse",
+        "readout": "shared"
+      },
+      "innovation_separate_aux": {
+        "architecture": "innovation",
+        "objective": "query_aux",
+        "readout": "separate"
+      },
+      "innovation_separate_mse": {
+        "architecture": "innovation",
+        "objective": "mse",
+        "readout": "separate"
+      },
+      "innovation_shared_aux": {
+        "architecture": "innovation",
+        "objective": "query_aux",
+        "readout": "shared"
+      },
+      "innovation_shared_mse": {
+        "architecture": "innovation",
+        "objective": "mse",
+        "readout": "shared"
+      }
+    },
+    "chunk": 32,
+    "clip_norm": 5.0,
+    "episode_denominator": 54,
+    "families": [
+      "innovation_shared_mse",
+      "innovation_shared_aux",
+      "innovation_separate_mse",
+      "innovation_separate_aux",
+      "gru_shared_mse",
+      "gru_shared_aux",
+      "gru_separate_mse",
+      "gru_separate_aux"
+    ],
+    "feature_seed": 1397834545,
+    "fit_seeds": 3,
+    "fixed_overhead_seconds": 180.0,
+    "learning_rate": 0.003,
+    "length": 2188,
+    "model_seed": 1397837105,
+    "period": 4,
+    "prior_coefficient": 1.0,
+    "prior_rows_per_episode": 546,
+    "prior_weight": "1/(54*546)",
+    "projection_multiplier": 1.5,
+    "scale": 64.0,
+    "scope": "synthetic throughput planning only; no performance or scientific result",
+    "selected_windows_per_episode": 8,
+    "selection_seeds": [
+      1397839616,
+      1397839617,
+      1397839618,
+      1397839619,
+      1397839620,
+      1397839621
+    ],
+    "training_cap_seconds": 21600,
+    "updates_per_fit": 720,
+    "weight_decay": 0.0,
+    "zero_target_chunks": "forward without autograd, still charged and counted"
+  },
+  "engineering": {
+    "bytes": 8596,
+    "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/otto-separate-prior-v1/engineering-01/qualification-01/receipt.json",
+    "sha256": "62f349b6ae987973430ad0aa69222a1d82b38fb2da5974fd249cfb7c2c6a39a1"
+  },
+  "limits": {
+    "output_bytes": 134217728,
+    "rss_bytes": 4294967296,
+    "seconds": 180
+  },
+  "runtime": {
+    "executable": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/python",
+    "numpy": "2.5.3",
+    "python": "3.12.13 (main, Jul 23 2026, 14:33:47) [Clang 22.1.3 ]",
+    "torch": "2.14.0"
+  },
+  "sources": {
+    "research/otto-separate-prior-protocol.md": "1ac60a486aaedafdd3d2961d153aead2835c9bb3df15b7e1de44473ed4a3b0df",
+    "scripts/qualify_otto_prequery_capacity.py": "aee58117b9a1c6b2a7110174c4c4ad97029cd6cc42c157c1500aab614c4ec49c",
+    "scripts/qualify_otto_separate_prior_capacity.py": "f93ee1090fee172385b3ec344423f33cbee52f081eca8a129caf752ab2107962",
+    "scripts/supervise_dialogue_observation_v2.py": "610a2fcd2d4d55eb35bce92e61942d5169491dee9d05e2f47f65e211fdf94144",
+    "scripts/train_otto_cross_query_forecasts.py": "d9b2f9f3836f373ec59e6fd06ac1ed1107215ecaed3e6b6159f9631bdc75e911",
+    "scripts/train_otto_prequery_calibration.py": "90bcb6bf067bf204e08edd593786964414e5a9c854eb7b81cd61ad024b2b28d0",
+    "scripts/train_otto_separate_prior.py": "bfe9d8c7bd15d332c4365b7fd9d276938e272854e29d34321e220ad214672a4b",
+    "src/openjev/__init__.py": "07c32263c02ef437fa5b3ad3b37a5750de6379f5eae1d58262aedcc7a0e0eef9",
+    "src/openjev/research/__init__.py": "5ef355243927221b3b2d7f205b726f292efc192935fda538bbee70f608e12139",
+    "src/openjev/research/otto_cross_query_data.py": "b8dad9f0e29da73f00188cf79cacc4611ff97fceed4c8e21b8607381c80c4fb5",
+    "src/openjev/research/otto_cross_query_metrics.py": "cacd670cf3f6eae7ed240161fb8467714d7b51485f15031007dea7478e8c0df7",
+    "src/openjev/research/otto_cross_query_scores.py": "799979c0c60460352df076750d15b2cb9a5db6b6976707605dcca7c90fa76e08",
+    "src/openjev/research/otto_prequery_data.py": "ae78b3ca2017dd88f83b58622bc0ba9d3d0ab92ee7af7a9f605ec2f2c3687f5a",
+    "src/openjev/research/otto_prequery_loss.py": "ca05805f4dd81b30c9929aba2bab182a640ce99569138a525b8d39c6788a54cc",
+    "src/openjev/research/otto_prequery_metrics.py": "2694b57214fa6e6f8e468d3371e6b7e477091371e40e5cdc863452da7cd7436a",
+    "src/openjev/research/otto_prequery_scores.py": "6dfff08284004a134abf47b4ab4dc425f5d9c96f63c58475007295a666b24f4e",
+    "src/openjev/research/otto_sampled_forecast_data.py": "c48d8cc8981f11ba0f3d97b4de3ee2b46afa7ccb5413e3c4cff114802b746e70",
+    "src/openjev/research/otto_score_forecast_data.py": "dc8b371dad15cf5bc4bb7941d087023cd7702d62522532d24c1839f685ea6f8c",
+    "src/openjev/research/otto_separate_prior_metrics.py": "1d3672fa7012427853f078b0631c0510366ce29ff022656303a792f64760654b",
+    "src/openjev/research/otto_separate_prior_scores.py": "086348b0db778308b152fd3abf29b645d258d14e12abc12a6b879371081b7575",
+    "src/openjev/research/suspend_clock.py": "cac9077db3c66f5ef43d9412b732f5b869c1004c4bac98589816780c120f6124",
+    "tests/test_otto_prequery_data.py": "8ce42ca392d15ce49f23d08a437d797c99584c20079e3e7970422659ee66df04",
+    "tests/test_otto_prequery_loss.py": "e93bc9ee2cd04180d0301c1653394caa54495adcfaf71a8302096756a1885407",
+    "tests/test_otto_prequery_scores.py": "fbc18300688c75e7b872afa2f8fd1fd1fb7f87f69be5cda47ad7cde1b29af63a",
+    "tests/test_otto_separate_prior_scores.py": "c8dd82079a16b91a496b03ac47bdb8203c75aa9c0ccb11489a6a922b99e55748",
+    "tests/test_qualify_otto_separate_prior_capacity.py": "7841b4869c758406eda515b7a95952268f5da727f33a1d87cd331f81aefe7b96",
+    "tests/test_train_otto_separate_prior.py": "790f159e8089fd51e4b1f2834eefea5885992d9b3a4ae3b02ec1cfe7e8ce4a87"
+  },
+  "status": "frozen_before_synthetic_work",
+  "version": "otto-separate-prior-capacity-v1"
+}
