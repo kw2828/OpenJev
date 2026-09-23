@@ -1,6 +1,6 @@
 # Query-written memory study status
 
-**Fresh collection is running; training and evaluation code pass qualification.**
+**All 108 trajectories are collected; training and evaluation code pass qualification.**
 No new learned-model performance result exists. The earlier protected-readout
 FAIL 15/29 is unchanged.
 
@@ -34,15 +34,26 @@ metrics, schedule-derived computation counts and the boundary before DEV access.
 Both qualification attempts are preserved in the
 [training engineering record](otto-query-memory-training-engineering.md).
 
-The original collection worker and supervisor were verified live at 78 of 108
-completed trajectories on September 23, 2026. This is a progress snapshot, not a
-completed collection receipt. No collected arrays or checkpoints have been
-decoded for fitting or evaluation.
+The [original collection receipt](../output/otto-query-memory-v1/collection-01/receipt.json)
+records all 108 trajectories: 54 TRAIN, 18 DEV and 36 TEST. Its
+[original supervisor](../output/otto-query-memory-v1/collection-native-01.terminal.json)
+completed with exit code zero, no timeout, a reaped worker and an absent worker
+process group. Collection took 2,154.57 seconds including supervisor cleanup.
+All 17 payload hashes were authenticated before the capacity planner used only
+TRAIN episode lengths. No collected arrays or checkpoints have been decoded for
+fitting or evaluation. Raw collection payloads remain local pending an evidence
+release; the receipts identify their exact bytes.
 
-Training remains unadmitted. It needs a successful original collection closure,
-the separate fabricated training-capacity check and a published source-bound
-training plan. No scientific retries or replacement seeds are allowed.
+Training remains unadmitted. The
+[capacity plan](../output/otto-query-memory-v1/capacity-plan-01.json) is frozen
+before its synthetic timing run. Training still requires that check to pass and
+a separate published source-bound training plan. No scientific retries or
+replacement seeds are allowed.
 
 The period-eight comparison changes observations on fixed collected paths.
 It does not establish autonomous search quality, teacher-call savings or an ICLR
 contribution. Those claims require subsequent experiments if this screen passes.
+
+[Related work and limits on novelty claims](otto-query-memory-related-work.md)
+compare this mechanism with fast-weight delta updates, Gated Delta Networks and
+Titans. The registered experiment remains unchanged.
