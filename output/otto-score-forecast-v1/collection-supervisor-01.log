@@ -1,0 +1,74 @@
+{"phase": "train", "completed_episodes": 3, "total": 90}
+{"phase": "train", "completed_episodes": 6, "total": 90}
+{"phase": "train", "completed_episodes": 9, "total": 90}
+{"phase": "train", "completed_episodes": 12, "total": 90}
+{"phase": "train", "completed_episodes": 15, "total": 90}
+{"phase": "train", "completed_episodes": 18, "total": 90}
+{"phase": "train", "completed_episodes": 21, "total": 90}
+{"phase": "train", "completed_episodes": 24, "total": 90}
+{"phase": "train", "completed_episodes": 27, "total": 90}
+{"phase": "train", "completed_episodes": 30, "total": 90}
+{"phase": "train", "completed_episodes": 33, "total": 90}
+{"phase": "train", "completed_episodes": 36, "total": 90}
+{"phase": "train", "completed_episodes": 39, "total": 90}
+{"phase": "train", "completed_episodes": 42, "total": 90}
+{"phase": "train", "completed_episodes": 45, "total": 90}
+{"phase": "train", "completed_episodes": 48, "total": 90}
+{"phase": "train", "completed_episodes": 51, "total": 90}
+{"phase": "train", "completed_episodes": 54, "total": 90}
+{"phase": "valid", "completed_episodes": 57, "total": 90}
+{"phase": "valid", "completed_episodes": 60, "total": 90}
+{"phase": "valid", "completed_episodes": 63, "total": 90}
+{"phase": "valid", "completed_episodes": 66, "total": 90}
+Traceback (most recent call last):
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/collect_otto_score_forecasts.py", line 623, in <module>
+    main()
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/collect_otto_score_forecasts.py", line 619, in main
+    Run(args).execute()
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/collect_otto_score_forecasts.py", line 559, in execute
+    self.body()
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/collect_otto_score_forecasts.py", line 521, in body
+    self.complete_episode(identity, paired)
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/collect_otto_score_forecasts.py", line 475, in complete_episode
+    row = self.episode(identity)
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/collect_otto_score_forecasts.py", line 431, in episode
+    action, raw, cache, queried, correction = route_scores(
+                                              ^^^^^^^^^^^^^
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/collect_otto_score_forecasts.py", line 134, in route_scores
+    raw = teacher(deployed)
+          ^^^^^^^^^^^^^^^^^
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/collect_otto_score_forecasts.py", line 419, in score
+    raw = self.ledger.call("teacher_score", lambda: teacher._value_policy()[1])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/collect_otto_score_forecasts.py", line 252, in call
+    result = function()
+             ^^^^^^^^^^
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/collect_otto_score_forecasts.py", line 419, in <lambda>
+    raw = self.ledger.call("teacher_score", lambda: teacher._value_policy()[1])
+                                                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/tmp/otto-source-review-01/isotropic/classes/rlpolicy.py", line 109, in _value_policy
+    values_next = self.model(inputs, sym_avg=self.sym_avg)  # (Nactions*Nhits, 1)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/study_otto_released_reference.py", line 321, in __call__
+    result = self.ledger.call('tensorflow_value', lambda: self.model(inputs, training=False, sym_avg=True))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/collect_otto_score_forecasts.py", line 252, in call
+    result = function()
+             ^^^^^^^^^^
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/study_otto_released_reference.py", line 321, in <lambda>
+    result = self.ledger.call('tensorflow_value', lambda: self.model(inputs, training=False, sym_avg=True))
+                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv-otto-released-native/lib/python3.12/site-packages/tf_keras/src/utils/traceback_utils.py", line 70, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/tmp/otto-source-review-01/isotropic/classes/valuemodel.py", line 163, in call
+    x = self.FC_block[i](x, training=training)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/collect_otto_score_forecasts.py", line 555, in interrupt
+    raise InterruptedError("original score-forecast supervisor stopped worker")
+InterruptedError: Exception encountered when calling layer 'dense' (type Dense).
+
+original score-forecast supervisor stopped worker
+
+Call arguments received by layer 'dense' (type Dense):
+  • inputs=tf.Tensor(shape=(128, 11025), dtype=float32)

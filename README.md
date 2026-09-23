@@ -56,6 +56,13 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Research status
 
+The new [recurrent score-forecast pilot](research/otto-score-forecast-results.md)
+implements four matched small models and passed **72 engineering checks**.
+Its fixed collection budget completed **67/90 episodes**; training and the
+45-condition forecast screen remain **unstarted / not evaluated**.
+
+[![Recurrent pilot coverage, with training and performance evaluation unstarted](docs/assets/otto-score-forecast-status.png)](research/otto-score-forecast-results.md)
+
 The [sparse-query comparison](research/otto-sparse-query-results.md) completed **360 fresh evaluation paths** across five controllers. Periodic querying cut controller cost by **53.15% / 40.79%** versus always-neural control in the two primary settings. Every path succeeded, but move quality missed two requirements: **FAIL, 14/16 conditions passed**.
 
 [![All five controllers and all three settings, including the failed continuation rule](docs/assets/otto-sparse-query.png)](research/otto-sparse-query-results.md)
