@@ -42,8 +42,13 @@ process group. Collection took 2,154.57 seconds including supervisor cleanup.
 All 17 payload hashes were authenticated before the capacity planner used only
 TRAIN episode lengths. TRAIN arrays are now decoded inside the admitted worker;
 DEV access is guarded by the completed checkpoint/TRAIN-prediction barrier,
-and this producer cannot decode TEST. Raw collection payloads remain local pending an evidence
-release; the receipts identify their exact bytes.
+and this producer cannot decode TEST. All 17 raw collection payloads are now in
+the [collection evidence release](https://github.com/kw2828/OpenJev/releases/tag/otto-query-memory-collection-v1),
+with their original receipts, 132 frozen source records and a dependency map.
+Packaging used opaque bytes only. GitHub's four asset digests and sizes match
+the local files; the [verification record](../output/otto-query-memory-collection-publication-v1/release-verification-01.json)
+preserves those checks. Native teacher weights, kernels and the installed
+runtime remain external, so this is not a self-contained native reproduction.
 
 The [capacity check](../output/otto-query-memory-v1/capacity-01/summary.json)
 completed all five fabricated updates and passed its rule. The projected time
@@ -73,3 +78,11 @@ now pass 105 new fabricated tests and lint, with independent source review.
 They preserve all 48 P4/P8 views and require the completed, independently passed
 DEV gate before any TEST decode. These checks leave the live training sources
 unchanged and do not admit TEST execution or establish effectiveness.
+
+The [saved-audit renderer](../scripts/render_otto_query_memory.py) passes
+16 fabricated tests and its scoped lint check. Its synthetic eight-panel chart
+was visually inspected. It retains every method, seed and failed condition;
+empirical rendering still requires the original independent audit and process
+closures. The [qualification record](../output/otto-query-memory-render-engineering-v1/renderer-qualified.json)
+retains the initial combined lint attempt, including the separate archive
+packager's style finding. No empirical result chart has been generated.
