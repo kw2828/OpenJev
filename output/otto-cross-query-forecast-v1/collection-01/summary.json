@@ -1,0 +1,276 @@
+{
+  "annotation_only": 6035,
+  "by_stage_arm": [
+    {
+      "annotation_only": 342,
+      "arm": "analytic",
+      "deployed_queries": 0,
+      "episodes": 18,
+      "rows": 390,
+      "stage": "train"
+    },
+    {
+      "annotation_only": 0,
+      "arm": "neural",
+      "deployed_queries": 320,
+      "episodes": 18,
+      "rows": 320,
+      "stage": "train"
+    },
+    {
+      "annotation_only": 358,
+      "arm": "period4_hold",
+      "deployed_queries": 5523,
+      "episodes": 18,
+      "rows": 22072,
+      "stage": "train"
+    },
+    {
+      "annotation_only": 206,
+      "arm": "analytic",
+      "deployed_queries": 0,
+      "episodes": 12,
+      "rows": 206,
+      "stage": "valid"
+    },
+    {
+      "annotation_only": 0,
+      "arm": "neural",
+      "deployed_queries": 294,
+      "episodes": 12,
+      "rows": 294,
+      "stage": "valid"
+    },
+    {
+      "annotation_only": 5129,
+      "arm": "period4_hold",
+      "deployed_queries": 1717,
+      "episodes": 12,
+      "rows": 6846,
+      "stage": "valid"
+    }
+  ],
+  "censored": 13,
+  "complete": true,
+  "corrections": 7569,
+  "costs": {
+    "feature_module_seconds": 0.012914124876260757,
+    "journal_io_seconds": 4.080104342661798,
+    "operation_seconds": {
+      "actor_construction": {
+        "attempted": 90,
+        "returned": 90,
+        "seconds": 0.009674291824921966
+      },
+      "actor_update": {
+        "attempted": 30128,
+        "returned": 30128,
+        "seconds": 1.0377809240017086
+      },
+      "analytic_score": {
+        "attempted": 30128,
+        "returned": 30128,
+        "seconds": 7.967775983270258
+      },
+      "annotation_public_reset": {
+        "attempted": 54,
+        "returned": 54,
+        "seconds": 0.0018002919387072325
+      },
+      "annotation_public_update": {
+        "attempted": 22782,
+        "returned": 22782,
+        "seconds": 0.31115890317596495
+      },
+      "backend_binding": {
+        "attempted": 125,
+        "returned": 125,
+        "seconds": 0.00047720596194267273
+      },
+      "feature_build": {
+        "attempted": 30128,
+        "returned": 30128,
+        "seconds": 1.4811490585561842
+      },
+      "native_reset": {
+        "attempted": 90,
+        "returned": 90,
+        "seconds": 0.4411192066036165
+      },
+      "native_step": {
+        "attempted": 30128,
+        "returned": 30128,
+        "seconds": 53.90246456465684
+      },
+      "teacher_score": {
+        "attempted": 13889,
+        "returned": 13889,
+        "seconds": 479.2782819028944
+      },
+      "tensorflow_build": {
+        "attempted": 1,
+        "returned": 1,
+        "seconds": 0.06472083297558129
+      },
+      "tensorflow_construction": {
+        "attempted": 1,
+        "returned": 1,
+        "seconds": 0.01211854093708098
+      },
+      "tensorflow_load": {
+        "attempted": 1,
+        "returned": 1,
+        "seconds": 0.014954666839912534
+      },
+      "tensorflow_value": {
+        "attempted": 13889,
+        "returned": 13889,
+        "seconds": 465.2192796058953
+      }
+    },
+    "original_setup_wall_seconds": 3.8199941660277545,
+    "scope": "Setup, TRAIN loop, TRAIN serialization, VALID loop and VALID serialization are disjoint physical intervals. Operation timers overlap; I/O timer is partial and overlaps those intervals. Source authentication, final hashing and process overhead remain paid in original worker/parent time. Physical teacher annotations are included; these are collection costs, not deployed-controller cost measurements.",
+    "train_collection_seconds": 303.5914802500047,
+    "train_serialization_seconds": 0.049657458206638694,
+    "valid_collection_seconds": 273.56828716699965,
+    "valid_serialization_seconds": 0.015093374997377396
+  },
+  "datasets": {
+    "train": {
+      "arrays": {
+        "actions": {
+          "bytes": 182256,
+          "dtype": "int64",
+          "sha256": "0e855be5cd9bc2b65c458f4549409e3e6c31fbc7bd429156341d45199c6b7d46",
+          "shape": [
+            22782
+          ]
+        },
+        "correction": {
+          "bytes": 22782,
+          "dtype": "bool",
+          "sha256": "e41fc845584a41c0fd35c336ef3d78b913f8fcb9ad2c0034f82534dc3a47197e",
+          "shape": [
+            22782
+          ]
+        },
+        "episode_offsets": {
+          "bytes": 440,
+          "dtype": "int64",
+          "sha256": "cd4bf0b42af6de30d1f054ef6a57672bcbbac2a127f2a59a5294f46824483efe",
+          "shape": [
+            55
+          ]
+        },
+        "features": {
+          "bytes": 2824968,
+          "dtype": "float32",
+          "sha256": "2cb1140b58bc77a8e67cb55a646d872cc7b63b04ef13df07986fb4dd90655e7a",
+          "shape": [
+            22782,
+            31
+          ]
+        },
+        "label_mask": {
+          "bytes": 22782,
+          "dtype": "bool",
+          "sha256": "e7958b03e5b7a9f4978bf84ce07a940852c5be61385a87f513dedafecdfb33f2",
+          "shape": [
+            22782
+          ]
+        },
+        "legal": {
+          "bytes": 91128,
+          "dtype": "bool",
+          "sha256": "b3e1dbdfe08052f68967ed682b00ce7f4c5366404ffb1aff219d823fb17368e1",
+          "shape": [
+            22782,
+            4
+          ]
+        },
+        "raw_q": {
+          "bytes": 364512,
+          "dtype": "float32",
+          "sha256": "1d4b89d5c6b158551622ddbd8e30b81b8f08af44b810d1af3dcbe9ab3911fbb8",
+          "shape": [
+            22782,
+            4
+          ]
+        }
+      },
+      "bytes": 690016,
+      "episodes": 54,
+      "path": "train.npz",
+      "rows": 22782,
+      "sha256": "51d8988f78d5f917933637655d82a12e99a02040a34f2d752a8fec28b833790d"
+    },
+    "valid": {
+      "arrays": {
+        "actions": {
+          "bytes": 58768,
+          "dtype": "int64",
+          "sha256": "f676c6858e033776afd178e629f823700158720026a3ba166c024e0a45be8d62",
+          "shape": [
+            7346
+          ]
+        },
+        "correction": {
+          "bytes": 7346,
+          "dtype": "bool",
+          "sha256": "bac63a0dafadcb74a8ff085652f4c39034a96912200fa9c657e34e6522d9d4fb",
+          "shape": [
+            7346
+          ]
+        },
+        "episode_offsets": {
+          "bytes": 296,
+          "dtype": "int64",
+          "sha256": "f0126e04488c43c0a6dd33eac125c921c69b70098d411b6b121e94a7857e27f7",
+          "shape": [
+            37
+          ]
+        },
+        "features": {
+          "bytes": 910904,
+          "dtype": "float32",
+          "sha256": "a493393068c677cae31af8798b2e1bf74903e81d4b3d2064c2fe1e96e822047f",
+          "shape": [
+            7346,
+            31
+          ]
+        },
+        "legal": {
+          "bytes": 29384,
+          "dtype": "bool",
+          "sha256": "90f9350c4a0ce4cd2209fc320137c258075881a22875d1fa4312e8450fa7173d",
+          "shape": [
+            7346,
+            4
+          ]
+        },
+        "raw_q": {
+          "bytes": 117536,
+          "dtype": "float32",
+          "sha256": "3402dca0b873197b5e02f4da1ab3d33e8f134aab73dcef6116d1d29c40a4327a",
+          "shape": [
+            7346,
+            4
+          ]
+        }
+      },
+      "bytes": 187294,
+      "episodes": 36,
+      "path": "valid.npz",
+      "rows": 7346,
+      "sha256": "2e72beca4dc3d412bd1a6375a640823ec8f0f0c9dec190b33322a237d096da31"
+    }
+  },
+  "deployed_queries": 7854,
+  "efficacy_claim": false,
+  "episodes": 90,
+  "found": 77,
+  "rows": 30128,
+  "teacher_calls": 13889,
+  "training_updates": 0,
+  "version": "otto-cross-query-forecast-collection-v1"
+}

@@ -1,7 +1,9 @@
 # Cross-query recurrence: implementation and cost qualification
 
-**The four-model comparison is feasible under its planned training budget. No
-new trajectory or task-performance result is available yet.** The proposed model
+**Engineering qualification passed; the subsequent scientific comparison
+failed its continuation rule, with 40/53 conditions passed.** See the
+[completed results](otto-cross-query-forecast-results.md). This note preserves
+the preparation and cost qualification. The proposed model
 keeps recurrent state across planner queries and corrects that state using the
 newly observed forecast error. Three ordinary GRU controls test whether the
 explicit correction adds anything beyond memory and access to the same error.
@@ -51,7 +53,7 @@ complete histories, costs and the fixed admission calculation. It did not rerun
 models. Its first invocation used the wrong terminal filename and is preserved
 as a failed audit preparation attempt, with no synthetic work repeated.
 
-## Evidence and next step
+## Evidence and completed execution
 
 - [Model tests](../output/otto-cross-query-forecast-v1/qualification-model-01/receipt.json),
   [collector tests](../output/otto-cross-query-forecast-v1/qualification-collector-02/receipt.json),
@@ -65,10 +67,13 @@ as a failed audit preparation attempt, with no synthetic work repeated.
   [original supervisor](../output/otto-cross-query-forecast-v1/capacity-supervisor-01.terminal.json),
   [saved-file check](../output/otto-cross-query-forecast-v1/capacity-audit-02/receipt.json).
 
-The training runner and independent results auditor are now qualified. The next
-step is collecting the fresh 54 TRAIN and 36 VALID paths. All twelve fits must close
-before VALID is decoded. A forecast improvement would still need a separate
-fresh autonomous-control comparison that includes all computation costs and
-tests an unseen sensing regime. There is
-no new architecture, biological-learning or recurrent-world-model advantage
-established by these engineering checks.
+The fresh collection completed all 54 TRAIN and 36 VALID paths in 581.81 seconds.
+All twelve final fits closed before VALID was decoded; fitting, evaluation and
+closure took 754.65 seconds under the original supervisor. The independent
+saved-output audit also closed successfully. These are measured phase times,
+distinct from the earlier conservative synthetic admission estimate.
+
+The candidate did not beat the ordinary controls. The experiment is closed;
+no retry, replacement seed or autonomous promotion is admitted by this result.
+There is no new architecture, biological-learning or recurrent-world-model
+advantage established by these checks or the completed comparison.

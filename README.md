@@ -56,20 +56,19 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Research status
 
-The [completed recurrent forecast experiment](research/otto-sampled-forecast-results.md)
-collected **90 complete trajectories** and trained **12 small models** on the
-54 training paths. Across three fits, an ordinary GRU averages **76.54% / 64.36%**
-teacher agreement in the two settings, versus **30.24% / 33.27%** when holding
-the last scores.
+The [latest recurrent comparison](research/otto-cross-query-forecast-results.md)
+collected **90 complete trajectories** and trained **12 small models**. It tests
+whether correcting persistent memory with newly observed prediction errors helps.
+The proposed correction trails a plain persistent GRU in both settings and
+**fails its continuation rule: 40/53 conditions passed**. The independent audit agrees.
 
-Our proposed score-feedback GRU reaches **71.53% / 62.74%** and loses to that
-ordinary GRU. Its fixed continuation rule **fails: 41/45 checks passed**.
-The independent audit agrees. These are forecasts on recorded paths; autonomous
-control, deployment savings and architectural novelty remain unproven.
+[![All twelve memory-model fits, hold baseline and failed continuation rule](docs/assets/otto-cross-query-forecast.png)](research/otto-cross-query-forecast-results.md)
 
-[![All twelve recurrent and feedforward fits, with hold baseline and failed continuation rule](docs/assets/otto-sampled-forecast.png)](research/otto-sampled-forecast-results.md)
-
-[All checkpoints and evidence](https://github.com/kw2828/OpenJev/releases/tag/otto-sampled-forecast-v1) · [Full results and costs](research/otto-sampled-forecast-results.md) · [Experiment archive](research/experiment-index.md).
+These are teacher-score forecasts on recorded paths. They do not establish
+autonomous control, deployment savings or architectural novelty.
+[Full results and costs](research/otto-cross-query-forecast-results.md) ·
+[All checkpoints and evidence](https://github.com/kw2828/OpenJev/releases/tag/otto-cross-query-forecast-v1) ·
+[Previous forecast comparison](research/otto-sampled-forecast-results.md).
 
 Earlier [sparse querying](research/otto-sparse-query-results.md) reduced controller
 cost but missed move-quality requirements. The [first forecast collection](research/otto-score-forecast-results.md)
