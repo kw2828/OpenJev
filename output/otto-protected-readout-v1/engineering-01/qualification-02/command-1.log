@@ -1,0 +1,207 @@
+F.F.FF...........................                                        [100%]
+=================================== FAILURES ===================================
+__ test_exact_held_initialization_forecasts_parameter_counts_and_rng[frozen] ___
+
+mode = 'frozen'
+
+    @pytest.mark.parametrize("mode", M.MODES)
+    def test_exact_held_initialization_forecasts_parameter_counts_and_rng(mode):
+        rng = torch.random.get_rng_state().clone()
+        model, old = M.make_head(mode, 51), original.make_head(M.KIND, 51)
+        assert torch.equal(rng, torch.random.get_rng_state())
+        assert sum(p.numel() for p in model.parameters()) == M.parameter_count(mode) == 6112
+        assert sum(p.numel() for p in model.parameters() if p.requires_grad) == M.parameter_count(mode, trainable_only=True)
+        assert M.parameter_count(mode, trainable_only=True) == (116 if mode == "frozen" else 6112)
+        assert set(model.state_dict()) == set(old.state_dict()) | {"action_residual.weight", "action_residual.bias"}
+        for name, value in old.state_dict().items():
+            assert torch.equal(bits(value), bits(model.state_dict()[name]))
+        assert torch.equal(model.action_residual.weight, torch.zeros(4, 28))
+        assert torch.equal(model.action_residual.bias, torch.zeros(4))
+        nonzero_backbone(model); nonzero_backbone(old)
+        packet, ends = inputs(), torch.ones(3, dtype=torch.bool)
+        calls, old_calls = [], []
+    
+        def observe(log, label):
+            return lambda _module, args, _output: log.append((label, tuple(args[0].shape)))
+    
+        hooks = [model.recurrent.register_forward_hook(observe(calls, "gru")),
+                 model.output.register_forward_hook(observe(calls, "readout")),
+                 old.recurrent.register_forward_hook(observe(old_calls, "gru")),
+                 old.output.register_forward_hook(observe(old_calls, "readout"))]
+        try:
+            actual = model(*packet, episode_ends=ends)
+            with torch.no_grad() if mode == "frozen" else nullcontext():
+                expected = old(*packet, episode_ends=ends)
+        finally:
+            for hook in hooks:
+                hook.remove()
+        assert calls == old_calls and len(calls) > 0
+>       same_base(actual, expected)
+
+tests/test_otto_protected_readout.py:91: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+actual = Forecast(prediction=tensor([[[12.0000, 15.0000, 11.0000, 18.0000],
+         [12.4507, 13.3902, 12.7698, 17.3893],
+    ...      [ 0.0000,  0.0000,  0.0000,  0.0000],
+         [ 0.0000,  0.0000,  0.0000,  0.0000]]], grad_fn=<StackBackward0>))
+expected = Forecast(prediction=tensor([[[12.0000, 15.0000, 11.0000, 18.0000],
+         [12.4507, 13.3902, 12.7698, 17.3893],
+    ...0.0000]]), has_query=tensor([True, True, True]), absolute_step=tensor([13,  5,  1]), ended=tensor([True, True, True])))
+
+    def same_base(actual, expected):
+        for name in ("prediction", "prior", "prior_mask"):
+>           assert torch.equal(bits(getattr(actual, name)), bits(getattr(expected, name)))
+E           AssertionError: assert False
+E            +  where False = <built-in method equal of type object at 0x10e8ad3a0>(tensor([[[  0,   0,  64,  65,   0,   0, 112,  65,   0,   0,  48,  65,   0,   0,\n          144,  65],\n         [ 32,  5...       [  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,\n            0,   0]]], dtype=torch.uint8), tensor([[[  0,   0,  64,  65,   0,   0, 112,  65,   0,   0,  48,  65,   0,   0,\n          144,  65],\n         [ 32,  5...       [  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,\n            0,   0]]], dtype=torch.uint8))
+E            +    where <built-in method equal of type object at 0x10e8ad3a0> = torch.equal
+E            +    and   tensor([[[  0,   0,  64,  65,   0,   0, 112,  65,   0,   0,  48,  65,   0,   0,\n          144,  65],\n         [ 32,  5...       [  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,\n            0,   0]]], dtype=torch.uint8) = bits(tensor([[[12.0000, 15.0000, 11.0000, 18.0000],\n         [12.4507, 13.3902, 12.7698, 17.3893],\n         [12.4195, 13.37...000,  0.0000,  0.0000],\n         [ 0.0000,  0.0000,  0.0000,  0.0000],\n         [ 0.0000,  0.0000,  0.0000,  0.0000]]]))
+E            +      where tensor([[[12.0000, 15.0000, 11.0000, 18.0000],\n         [12.4507, 13.3902, 12.7698, 17.3893],\n         [12.4195, 13.37...000,  0.0000,  0.0000],\n         [ 0.0000,  0.0000,  0.0000,  0.0000],\n         [ 0.0000,  0.0000,  0.0000,  0.0000]]]) = getattr(Forecast(prediction=tensor([[[12.0000, 15.0000, 11.0000, 18.0000],\n         [12.4507, 13.3902, 12.7698, 17.3893],\n    ...      [ 0.0000,  0.0000,  0.0000,  0.0000],\n         [ 0.0000,  0.0000,  0.0000,  0.0000]]], grad_fn=<StackBackward0>)), 'prediction')
+E            +    and   tensor([[[  0,   0,  64,  65,   0,   0, 112,  65,   0,   0,  48,  65,   0,   0,\n          144,  65],\n         [ 32,  5...       [  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,\n            0,   0]]], dtype=torch.uint8) = bits(tensor([[[12.0000, 15.0000, 11.0000, 18.0000],\n         [12.4507, 13.3902, 12.7698, 17.3893],\n         [12.4195, 13.37...000,  0.0000,  0.0000],\n         [ 0.0000,  0.0000,  0.0000,  0.0000],\n         [ 0.0000,  0.0000,  0.0000,  0.0000]]]))
+E            +      where tensor([[[12.0000, 15.0000, 11.0000, 18.0000],\n         [12.4507, 13.3902, 12.7698, 17.3893],\n         [12.4195, 13.37...000,  0.0000,  0.0000],\n         [ 0.0000,  0.0000,  0.0000,  0.0000],\n         [ 0.0000,  0.0000,  0.0000,  0.0000]]]) = getattr(Forecast(prediction=tensor([[[12.0000, 15.0000, 11.0000, 18.0000],\n         [12.4507, 13.3902, 12.7698, 17.3893],\n    ...0.0000]]), has_query=tensor([True, True, True]), absolute_step=tensor([13,  5,  1]), ended=tensor([True, True, True]))), 'prediction')
+
+tests/test_otto_protected_readout.py:41: AssertionError
+_ test_residual_matches_independent_linear_oracle_and_never_changes_base[frozen] _
+
+mode = 'frozen'
+
+    @pytest.mark.parametrize("mode", M.MODES)
+    def test_residual_matches_independent_linear_oracle_and_never_changes_base(mode):
+        model = nonzero_residual(nonzero_backbone(M.make_head(mode, 73)))
+        old = nonzero_backbone(original.make_head(M.KIND, 73))
+        packet, ends = inputs((4, 4)), torch.ones(2, dtype=torch.bool)
+        captured = []
+    
+        def hidden(_module, args, _output):
+            if args[0].ndim == 3:
+                captured.append(args[0].detach().clone())
+    
+        handle = old.output.register_forward_hook(hidden)
+        try:
+            with torch.no_grad() if mode == "frozen" else nullcontext():
+                expected = old(*packet, episode_ends=ends)
+        finally:
+            handle.remove()
+        assert len(captured) == 1 and captured[0].shape == (2, 3, 28)
+        actual = model(*packet, episode_ends=ends)
+>       same_base(actual, expected)
+
+tests/test_otto_protected_readout.py:117: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+actual = Forecast(prediction=tensor([[[12.0000, 15.0000, 11.0000, 18.0000],
+         [11.3167, 13.0122, 13.1478, 18.5233],
+    ...      [22.4970, 16.9557, 11.4543,  9.0930],
+         [24.8436, 17.7379, 10.6721,  6.7464]]], grad_fn=<StackBackward0>))
+expected = Forecast(prediction=tensor([[[12.0000, 15.0000, 11.0000, 18.0000],
+         [11.3167, 13.0122, 13.1478, 18.5233],
+    ...     [13., 16., 12., 19.]]), has_query=tensor([True, True]), absolute_step=tensor([4, 4]), ended=tensor([True, True])))
+
+    def same_base(actual, expected):
+        for name in ("prediction", "prior", "prior_mask"):
+>           assert torch.equal(bits(getattr(actual, name)), bits(getattr(expected, name)))
+E           AssertionError: assert False
+E            +  where False = <built-in method equal of type object at 0x10e8ad3a0>(tensor([[[  0,   0,  64,  65,   0,   0, 112,  65,   0,   0,  48,  65,   0,   0,\n          144,  65],\n         [  9,  1...       [206, 130, 179,  65,  31,  23, 139,  65,  30,  97,  44,  65,   8, 107,\n           22,  65]]], dtype=torch.uint8), tensor([[[  0,   0,  64,  65,   0,   0, 112,  65,   0,   0,  48,  65,   0,   0,\n          144,  65],\n         [  9,  1...       [206, 130, 179,  65,  31,  23, 139,  65,  30,  97,  44,  65,   6, 107,\n           22,  65]]], dtype=torch.uint8))
+E            +    where <built-in method equal of type object at 0x10e8ad3a0> = torch.equal
+E            +    and   tensor([[[  0,   0,  64,  65,   0,   0, 112,  65,   0,   0,  48,  65,   0,   0,\n          144,  65],\n         [  9,  1...       [206, 130, 179,  65,  31,  23, 139,  65,  30,  97,  44,  65,   8, 107,\n           22,  65]]], dtype=torch.uint8) = bits(tensor([[[12.0000, 15.0000, 11.0000, 18.0000],\n         [11.3167, 13.0122, 13.1478, 18.5233],\n         [12.2371, 13.31...741, 12.0859, 13.3377],\n         [20.5616, 16.7605, 11.3995, 11.2784],\n         [22.4389, 17.3863, 10.7737,  9.4011]]]))
+E            +      where tensor([[[12.0000, 15.0000, 11.0000, 18.0000],\n         [11.3167, 13.0122, 13.1478, 18.5233],\n         [12.2371, 13.31...741, 12.0859, 13.3377],\n         [20.5616, 16.7605, 11.3995, 11.2784],\n         [22.4389, 17.3863, 10.7737,  9.4011]]]) = getattr(Forecast(prediction=tensor([[[12.0000, 15.0000, 11.0000, 18.0000],\n         [11.3167, 13.0122, 13.1478, 18.5233],\n    ...      [22.4970, 16.9557, 11.4543,  9.0930],\n         [24.8436, 17.7379, 10.6721,  6.7464]]], grad_fn=<StackBackward0>)), 'prediction')
+E            +    and   tensor([[[  0,   0,  64,  65,   0,   0, 112,  65,   0,   0,  48,  65,   0,   0,\n          144,  65],\n         [  9,  1...       [206, 130, 179,  65,  31,  23, 139,  65,  30,  97,  44,  65,   6, 107,\n           22,  65]]], dtype=torch.uint8) = bits(tensor([[[12.0000, 15.0000, 11.0000, 18.0000],\n         [11.3167, 13.0122, 13.1478, 18.5233],\n         [12.2371, 13.31...741, 12.0859, 13.3377],\n         [20.5616, 16.7605, 11.3995, 11.2784],\n         [22.4389, 17.3863, 10.7737,  9.4011]]]))
+E            +      where tensor([[[12.0000, 15.0000, 11.0000, 18.0000],\n         [11.3167, 13.0122, 13.1478, 18.5233],\n         [12.2371, 13.31...741, 12.0859, 13.3377],\n         [20.5616, 16.7605, 11.3995, 11.2784],\n         [22.4389, 17.3863, 10.7737,  9.4011]]]) = getattr(Forecast(prediction=tensor([[[12.0000, 15.0000, 11.0000, 18.0000],\n         [11.3167, 13.0122, 13.1478, 18.5233],\n    ...     [13., 16., 12., 19.]]), has_query=tensor([True, True]), absolute_step=tensor([4, 4]), ended=tensor([True, True]))), 'prediction')
+
+tests/test_otto_protected_readout.py:41: AssertionError
+_ test_frozen_and_joint_same_weights_have_bitwise_parity_in_shared_no_grad[False] _
+
+residual_is_nonzero = False
+
+    @pytest.mark.parametrize("residual_is_nonzero", [False, True])
+    def test_frozen_and_joint_same_weights_have_bitwise_parity_in_shared_no_grad(residual_is_nonzero):
+        frozen = nonzero_backbone(M.make_head("frozen", 43))
+        if residual_is_nonzero:
+            nonzero_residual(frozen)
+        joint = M.make_head("joint", 44)
+        joint.load_state_dict(frozen.state_dict(), strict=True)
+        for name, value in frozen.state_dict().items():
+            assert torch.equal(bits(value), bits(joint.state_dict()[name]))
+        packet, ends = inputs((13, 10, 7, 2)), torch.ones(4, dtype=torch.bool)
+        with torch.no_grad():
+            frozen_result = frozen(*packet, episode_ends=ends)
+            joint_result = joint(*packet, episode_ends=ends)
+>       same_base(frozen_result, joint_result)
+
+tests/test_otto_protected_readout.py:141: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+actual = Forecast(prediction=tensor([[[12.0000, 15.0000, 11.0000, 18.0000],
+         [12.0774, 13.2658, 12.8942, 17.7626],
+    ...00,  0.0000,  0.0000],
+         [ 0.0000,  0.0000,  0.0000,  0.0000],
+         [ 0.0000,  0.0000,  0.0000,  0.0000]]]))
+expected = Forecast(prediction=tensor([[[12.0000, 15.0000, 11.0000, 18.0000],
+         [12.0774, 13.2658, 12.8942, 17.7626],
+    ...00,  0.0000,  0.0000],
+         [ 0.0000,  0.0000,  0.0000,  0.0000],
+         [ 0.0000,  0.0000,  0.0000,  0.0000]]]))
+
+    def same_base(actual, expected):
+        for name in ("prediction", "prior", "prior_mask"):
+>           assert torch.equal(bits(getattr(actual, name)), bits(getattr(expected, name)))
+E           AssertionError: assert False
+E            +  where False = <built-in method equal of type object at 0x10e8ad3a0>(tensor([[[  0,   0,  64,  65,   0,   0, 112,  65,   0,   0,  48,  65,   0,   0,\n          144,  65],\n         [ 59,  6...       [  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,\n            0,   0]]], dtype=torch.uint8), tensor([[[  0,   0,  64,  65,   0,   0, 112,  65,   0,   0,  48,  65,   0,   0,\n          144,  65],\n         [ 59,  6...       [  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,\n            0,   0]]], dtype=torch.uint8))
+E            +    where <built-in method equal of type object at 0x10e8ad3a0> = torch.equal
+E            +    and   tensor([[[  0,   0,  64,  65,   0,   0, 112,  65,   0,   0,  48,  65,   0,   0,\n          144,  65],\n         [ 59,  6...       [  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,\n            0,   0]]], dtype=torch.uint8) = bits(tensor([[[12.0000, 15.0000, 11.0000, 18.0000],\n         [12.0774, 13.2658, 12.8942, 17.7626],\n         [11.6671, 13.12...000,  0.0000,  0.0000],\n         [ 0.0000,  0.0000,  0.0000,  0.0000],\n         [ 0.0000,  0.0000,  0.0000,  0.0000]]]))
+E            +      where tensor([[[12.0000, 15.0000, 11.0000, 18.0000],\n         [12.0774, 13.2658, 12.8942, 17.7626],\n         [11.6671, 13.12...000,  0.0000,  0.0000],\n         [ 0.0000,  0.0000,  0.0000,  0.0000],\n         [ 0.0000,  0.0000,  0.0000,  0.0000]]]) = getattr(Forecast(prediction=tensor([[[12.0000, 15.0000, 11.0000, 18.0000],\n         [12.0774, 13.2658, 12.8942, 17.7626],\n    ...00,  0.0000,  0.0000],\n         [ 0.0000,  0.0000,  0.0000,  0.0000],\n         [ 0.0000,  0.0000,  0.0000,  0.0000]]])), 'prediction')
+E            +    and   tensor([[[  0,   0,  64,  65,   0,   0, 112,  65,   0,   0,  48,  65,   0,   0,\n          144,  65],\n         [ 59,  6...       [  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,\n            0,   0]]], dtype=torch.uint8) = bits(tensor([[[12.0000, 15.0000, 11.0000, 18.0000],\n         [12.0774, 13.2658, 12.8942, 17.7626],\n         [11.6671, 13.12...000,  0.0000,  0.0000],\n         [ 0.0000,  0.0000,  0.0000,  0.0000],\n         [ 0.0000,  0.0000,  0.0000,  0.0000]]]))
+E            +      where tensor([[[12.0000, 15.0000, 11.0000, 18.0000],\n         [12.0774, 13.2658, 12.8942, 17.7626],\n         [11.6671, 13.12...000,  0.0000,  0.0000],\n         [ 0.0000,  0.0000,  0.0000,  0.0000],\n         [ 0.0000,  0.0000,  0.0000,  0.0000]]]) = getattr(Forecast(prediction=tensor([[[12.0000, 15.0000, 11.0000, 18.0000],\n         [12.0774, 13.2658, 12.8942, 17.7626],\n    ...00,  0.0000,  0.0000],\n         [ 0.0000,  0.0000,  0.0000,  0.0000],\n         [ 0.0000,  0.0000,  0.0000,  0.0000]]])), 'prediction')
+
+tests/test_otto_protected_readout.py:41: AssertionError
+_ test_frozen_and_joint_same_weights_have_bitwise_parity_in_shared_no_grad[True] _
+
+residual_is_nonzero = True
+
+    @pytest.mark.parametrize("residual_is_nonzero", [False, True])
+    def test_frozen_and_joint_same_weights_have_bitwise_parity_in_shared_no_grad(residual_is_nonzero):
+        frozen = nonzero_backbone(M.make_head("frozen", 43))
+        if residual_is_nonzero:
+            nonzero_residual(frozen)
+        joint = M.make_head("joint", 44)
+        joint.load_state_dict(frozen.state_dict(), strict=True)
+        for name, value in frozen.state_dict().items():
+            assert torch.equal(bits(value), bits(joint.state_dict()[name]))
+        packet, ends = inputs((13, 10, 7, 2)), torch.ones(4, dtype=torch.bool)
+        with torch.no_grad():
+            frozen_result = frozen(*packet, episode_ends=ends)
+            joint_result = joint(*packet, episode_ends=ends)
+>       same_base(frozen_result, joint_result)
+
+tests/test_otto_protected_readout.py:141: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+actual = Forecast(prediction=tensor([[[12.0000, 15.0000, 11.0000, 18.0000],
+         [12.0774, 13.2658, 12.8942, 17.7626],
+    ...00,  0.0000,  0.0000],
+         [ 0.0000,  0.0000,  0.0000,  0.0000],
+         [ 0.0000,  0.0000,  0.0000,  0.0000]]]))
+expected = Forecast(prediction=tensor([[[12.0000, 15.0000, 11.0000, 18.0000],
+         [12.0774, 13.2658, 12.8942, 17.7626],
+    ...00,  0.0000,  0.0000],
+         [ 0.0000,  0.0000,  0.0000,  0.0000],
+         [ 0.0000,  0.0000,  0.0000,  0.0000]]]))
+
+    def same_base(actual, expected):
+        for name in ("prediction", "prior", "prior_mask"):
+>           assert torch.equal(bits(getattr(actual, name)), bits(getattr(expected, name)))
+E           AssertionError: assert False
+E            +  where False = <built-in method equal of type object at 0x10e8ad3a0>(tensor([[[  0,   0,  64,  65,   0,   0, 112,  65,   0,   0,  48,  65,   0,   0,\n          144,  65],\n         [ 59,  6...       [  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,\n            0,   0]]], dtype=torch.uint8), tensor([[[  0,   0,  64,  65,   0,   0, 112,  65,   0,   0,  48,  65,   0,   0,\n          144,  65],\n         [ 59,  6...       [  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,\n            0,   0]]], dtype=torch.uint8))
+E            +    where <built-in method equal of type object at 0x10e8ad3a0> = torch.equal
+E            +    and   tensor([[[  0,   0,  64,  65,   0,   0, 112,  65,   0,   0,  48,  65,   0,   0,\n          144,  65],\n         [ 59,  6...       [  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,\n            0,   0]]], dtype=torch.uint8) = bits(tensor([[[12.0000, 15.0000, 11.0000, 18.0000],\n         [12.0774, 13.2658, 12.8942, 17.7626],\n         [11.6671, 13.12...000,  0.0000,  0.0000],\n         [ 0.0000,  0.0000,  0.0000,  0.0000],\n         [ 0.0000,  0.0000,  0.0000,  0.0000]]]))
+E            +      where tensor([[[12.0000, 15.0000, 11.0000, 18.0000],\n         [12.0774, 13.2658, 12.8942, 17.7626],\n         [11.6671, 13.12...000,  0.0000,  0.0000],\n         [ 0.0000,  0.0000,  0.0000,  0.0000],\n         [ 0.0000,  0.0000,  0.0000,  0.0000]]]) = getattr(Forecast(prediction=tensor([[[12.0000, 15.0000, 11.0000, 18.0000],\n         [12.0774, 13.2658, 12.8942, 17.7626],\n    ...00,  0.0000,  0.0000],\n         [ 0.0000,  0.0000,  0.0000,  0.0000],\n         [ 0.0000,  0.0000,  0.0000,  0.0000]]])), 'prediction')
+E            +    and   tensor([[[  0,   0,  64,  65,   0,   0, 112,  65,   0,   0,  48,  65,   0,   0,\n          144,  65],\n         [ 59,  6...       [  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,\n            0,   0]]], dtype=torch.uint8) = bits(tensor([[[12.0000, 15.0000, 11.0000, 18.0000],\n         [12.0774, 13.2658, 12.8942, 17.7626],\n         [11.6671, 13.12...000,  0.0000,  0.0000],\n         [ 0.0000,  0.0000,  0.0000,  0.0000],\n         [ 0.0000,  0.0000,  0.0000,  0.0000]]]))
+E            +      where tensor([[[12.0000, 15.0000, 11.0000, 18.0000],\n         [12.0774, 13.2658, 12.8942, 17.7626],\n         [11.6671, 13.12...000,  0.0000,  0.0000],\n         [ 0.0000,  0.0000,  0.0000,  0.0000],\n         [ 0.0000,  0.0000,  0.0000,  0.0000]]]) = getattr(Forecast(prediction=tensor([[[12.0000, 15.0000, 11.0000, 18.0000],\n         [12.0774, 13.2658, 12.8942, 17.7626],\n    ...00,  0.0000,  0.0000],\n         [ 0.0000,  0.0000,  0.0000,  0.0000],\n         [ 0.0000,  0.0000,  0.0000,  0.0000]]])), 'prediction')
+
+tests/test_otto_protected_readout.py:41: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_otto_protected_readout.py::test_exact_held_initialization_forecasts_parameter_counts_and_rng[frozen]
+FAILED tests/test_otto_protected_readout.py::test_residual_matches_independent_linear_oracle_and_never_changes_base[frozen]
+FAILED tests/test_otto_protected_readout.py::test_frozen_and_joint_same_weights_have_bitwise_parity_in_shared_no_grad[False]
+FAILED tests/test_otto_protected_readout.py::test_frozen_and_joint_same_weights_have_bitwise_parity_in_shared_no_grad[True]
+4 failed, 29 passed in 1.59s

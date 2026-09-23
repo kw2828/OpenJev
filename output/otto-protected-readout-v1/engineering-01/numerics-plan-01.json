@@ -1,0 +1,18 @@
+{
+  "scope": "Fabricated engineering only, no empirical data or optimizer",
+  "input_fixture": "tests/test_otto_protected_readout.py inputs((13,10,7,2)), nonzero_backbone, seed43",
+  "comparisons": [
+    "original with parameter gradients enabled vs disabled under common no_grad",
+    "frozen adapter vs frozen-parameter original under common no_grad",
+    "joint adapter vs grad-enabled original under common no_grad"
+  ],
+  "budget": {
+    "maximum_forward_calls": 4,
+    "seconds": 60
+  },
+  "record": [
+    "max absolute differences in recurrent hidden outputs, readout outputs, prediction, prior, carry",
+    "bitwise equality"
+  ],
+  "mutations": "Only fabricated model requires_grad flags; no source edits"
+}

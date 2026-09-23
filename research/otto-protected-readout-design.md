@@ -1,6 +1,6 @@
 # Preserve recurrent forecasts while adapting decisions
 
-Status: prospective engineering design, not a frozen scientific protocol or a result. No new empirical data or training has been admitted for this comparison.
+Status: engineering adapter implemented and qualified; scientific protocol and training remain pending. No new empirical data or training has been admitted for this comparison.
 
 The [previous fixed SPO+ recipe](otto-action-focused-results.md) lowered its TRAIN decision surrogate but worsened the later teacher-score gap in every paired comparison. Both score-MSE components rose. That observation motivates a causal comparison of where adaptation is allowed; it does not demonstrate damaged memory, conflicting gradients or insufficient recurrent capacity.
 
@@ -15,6 +15,8 @@ Use the ordinary shared-output GRU as the backbone. Train three fresh AUX models
 
 All branches receive the same zero-initialized linear action readout from the existing hidden state. Its centered residual is added to the original nonquery action scores. It never feeds the recurrent correction or prior prediction. Genuine query actions and information access remain unchanged.
 
+The [implemented adapter](../src/openjev/research/otto_protected_readout.py) adds 116 parameters to the 5,996-parameter GRU. Its residual is in raw score units, while the original backbone readout includes its established factor of 64. The training protocol must explicitly fix the learning-rate and output-scale conventions before collection. Equal parameter counts alone do not make those parameterizations equivalent.
+
 Frozen branches lock every original parameter and detach their recurrent features. Joint branches permit gradients into the original predictor. Keep the bare pretrained backbone as a reference. Frozen-MSE controls the extra readout; joint-MSE controls extra training exposure; joint-SPO controls the gradient route for the decision objective. A GRU-only screen avoids conflating an adaptation mechanism with a new architecture.
 
 ## Prospective training conventions
@@ -28,5 +30,9 @@ The final protocol must reserve fresh collection, fitting and selection seeds an
 The intended continuation rule requires Protected-SPO to lower mean later teacher-score gap in both settings against Frozen-MSE, Joint-MSE and Joint-SPO, preserve full and initial action agreement, and avoid paired-seed regression against Frozen-MSE. Also report every branch against its bare pretrained reference. Exact effect thresholds and scope denominators must be frozen before execution, not chosen after results.
 
 Before real training, fabricated tests must establish identical initial predictions, legal query and padding behavior, chronological chunk equivalence, no residual feedback, and gradient separation. During training, bitwise parameter comparisons must show that frozen backbones remain unchanged; saved predictions must verify unchanged base forecasts on the same paths. Record all branch costs: matching data and optimizer updates does not equal matching computation. Use the qualified detached supervisor for fresh phases and preserve failures without retries.
+
+Exact numerical comparisons must use matching parameter-gradient flags and execution contexts. A four-forward fabricated diagnostic found small float32 differences when freezing the original GRU itself; each adapter matched the original with equivalent flags bitwise. This is an engineering observation, not an empirical model result or an identified backend-kernel cause. Frozen branches must be compared before and after adaptation under the same frozen configuration. Frozen prior-only chunks may have no differentiable loss, so the trainer must not call backward unconditionally; the protocol must specify how zero-gradient chunks and optimizer updates are counted.
+
+All **33 fabricated engineering tests** and Ruff passed, with independent source review. Checks include initial equality against the matched original, unchanged recurrent calls, gradient separation, hidden-state causality, mixed episode lengths, chunk behavior, ignored padding and capture cleanup. Two earlier failed qualification attempts are preserved alongside the numerical diagnosis; no empirical experiment was retried. [Qualification receipt](../output/otto-protected-readout-v1/engineering-01/qualification-03/receipt.json).
 
 Frozen features, residual adaptation and [SPO+](https://arxiv.org/abs/1710.08005) are established techniques. This experiment can support an adaptation finding if it succeeds. It cannot by itself establish a novel architecture, biological learning, autonomous performance or a paper-level result. A retained gain still needs fresh confirmation, scenario shift, total-compute comparisons and a second environment before testing additional connectome or associative-memory structure.
