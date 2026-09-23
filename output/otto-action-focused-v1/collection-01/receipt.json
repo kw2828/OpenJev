@@ -1,0 +1,507 @@
+{
+  "calls": {
+    "actor_construction": {
+      "attempted": 90,
+      "returned": 90,
+      "seconds": 0.015261289663612843
+    },
+    "actor_update": {
+      "attempted": 38778,
+      "returned": 38778,
+      "seconds": 2.1554219669196755
+    },
+    "analytic_score": {
+      "attempted": 38778,
+      "returned": 38778,
+      "seconds": 13.932469642255455
+    },
+    "annotation_public_reset": {
+      "attempted": 54,
+      "returned": 54,
+      "seconds": 0.002674791030585766
+    },
+    "annotation_public_update": {
+      "attempted": 20674,
+      "returned": 20674,
+      "seconds": 0.5767661915160716
+    },
+    "backend_binding": {
+      "attempted": 126,
+      "returned": 126,
+      "seconds": 0.0015168378595262766
+    },
+    "feature_build": {
+      "attempted": 38778,
+      "returned": 38778,
+      "seconds": 3.057427351595834
+    },
+    "native_reset": {
+      "attempted": 90,
+      "returned": 90,
+      "seconds": 0.5484477046411484
+    },
+    "native_step": {
+      "attempted": 38778,
+      "returned": 38778,
+      "seconds": 105.08798304572701
+    },
+    "teacher_score": {
+      "attempted": 24114,
+      "returned": 24114,
+      "seconds": 1031.241192753194
+    },
+    "tensorflow_build": {
+      "attempted": 1,
+      "returned": 1,
+      "seconds": 0.10061495914123952
+    },
+    "tensorflow_construction": {
+      "attempted": 1,
+      "returned": 1,
+      "seconds": 0.016097125131636858
+    },
+    "tensorflow_load": {
+      "attempted": 1,
+      "returned": 1,
+      "seconds": 0.012917832937091589
+    },
+    "tensorflow_value": {
+      "attempted": 24114,
+      "returned": 24114,
+      "seconds": 994.5568484866526
+    }
+  },
+  "complete": true,
+  "completed_episodes": 90,
+  "datasets": {
+    "train": {
+      "arrays": {
+        "actions": {
+          "bytes": 165392,
+          "dtype": "int64",
+          "sha256": "6f60054063acc09e90b8d7a5f3c48f4806c35ff6a68768f022b006bc2dd32a71",
+          "shape": [
+            20674
+          ]
+        },
+        "correction": {
+          "bytes": 20674,
+          "dtype": "bool",
+          "sha256": "7b87b24792d1546f3197459eb68b140ac8078eb3b20a2153c257bdddf57438b7",
+          "shape": [
+            20674
+          ]
+        },
+        "episode_offsets": {
+          "bytes": 440,
+          "dtype": "int64",
+          "sha256": "0c771fb5e97285e7215e9831eb8f23e365ae2d86c4051cae75c5b8ad156ab1a2",
+          "shape": [
+            55
+          ]
+        },
+        "features": {
+          "bytes": 2563576,
+          "dtype": "float32",
+          "sha256": "651518d6e50605eec9fb25f62af14244debd716f54cd9859cc0ec1ce7b12f110",
+          "shape": [
+            20674,
+            31
+          ]
+        },
+        "label_mask": {
+          "bytes": 20674,
+          "dtype": "bool",
+          "sha256": "14f0d02d36439dcc7cb2dbf11702edb54960432aea7da811a571866e5ea6347e",
+          "shape": [
+            20674
+          ]
+        },
+        "legal": {
+          "bytes": 82696,
+          "dtype": "bool",
+          "sha256": "fdf71e1b62acad67981d05221a0fd3df8d062e62f22096fa9d2dfa04f691c7f0",
+          "shape": [
+            20674,
+            4
+          ]
+        },
+        "raw_q": {
+          "bytes": 330784,
+          "dtype": "float32",
+          "sha256": "38d2d1ea90c07e981a8a338ce270c78a57c6edf75ca580ccce7f1af3001a5328",
+          "shape": [
+            20674,
+            4
+          ]
+        }
+      },
+      "bytes": 449431,
+      "episodes": 54,
+      "path": "train.npz",
+      "rows": 20674,
+      "sha256": "aa4c015d71effda8ea8f061880a69d0db91c056e216da78422dcde6073599660"
+    },
+    "valid": {
+      "arrays": {
+        "actions": {
+          "bytes": 144832,
+          "dtype": "int64",
+          "sha256": "ea855bcda524ff2e9dc5b7960dace05fb8ed2c6e6153b0edf141d238faafcd52",
+          "shape": [
+            18104
+          ]
+        },
+        "correction": {
+          "bytes": 18104,
+          "dtype": "bool",
+          "sha256": "e2116a174319a640b97d1c64d10d27909cab5ba16876b8fad9ba1312ac4c18f9",
+          "shape": [
+            18104
+          ]
+        },
+        "episode_offsets": {
+          "bytes": 296,
+          "dtype": "int64",
+          "sha256": "5c59dd5f0ba4e1312830c018e1c47340d396bb0c2f15b845540c2f3f8951af9a",
+          "shape": [
+            37
+          ]
+        },
+        "features": {
+          "bytes": 2244896,
+          "dtype": "float32",
+          "sha256": "d58203a03d858d06f3789b432f97ffe9f1f526761732e00e5149cc3c19b9e8d8",
+          "shape": [
+            18104,
+            31
+          ]
+        },
+        "legal": {
+          "bytes": 72416,
+          "dtype": "bool",
+          "sha256": "3256884cccd3b498c700fbfc8be3369d628d546fa60621d14766cdd20e7e4811",
+          "shape": [
+            18104,
+            4
+          ]
+        },
+        "raw_q": {
+          "bytes": 289664,
+          "dtype": "float32",
+          "sha256": "2c6f4efaae19f073feb935c2ed2e50273eeecaf77b64edca87746e667119ca58",
+          "shape": [
+            18104,
+            4
+          ]
+        }
+      },
+      "bytes": 485607,
+      "episodes": 36,
+      "path": "valid.npz",
+      "rows": 18104,
+      "sha256": "47285ab28aa6d48b61565fe3c1f968b50a20c6c580d28abc2f8d462b043a727d"
+    }
+  },
+  "files": {
+    "annotations.jsonl.gz": {
+      "bytes": 84594,
+      "sha256": "f0a7e814674f6ddab294e3615dc3c5d7e8724fd9a1f92226ed93084dc63472db"
+    },
+    "cohort.json": {
+      "bytes": 22727,
+      "sha256": "5d212901e5597a5957c60618e26229fc4565e2b73812d78515aaacdc350ae2da"
+    },
+    "costs.json": {
+      "bytes": 2443,
+      "sha256": "4732a95e45804260529fc1b1704e66acdb8b7e680139edf0fb2aad4e68cdd0b8"
+    },
+    "deployment.json": {
+      "bytes": 1434,
+      "sha256": "fb6e632e4730d7b38d2e742322609c72af2e4014571256f65d0b23cdee301235"
+    },
+    "episode-boundaries.jsonl": {
+      "bytes": 38206,
+      "sha256": "7933c681a5c4bb430ab247461fbd47f2231a26b3940270d0881890bf8e09c982"
+    },
+    "episodes.jsonl": {
+      "bytes": 3689035,
+      "sha256": "9bca374e95b96a0a9ae8b202edc6cba8c9be4c3d60be7d0d95f94edfa5281351"
+    },
+    "forwards.jsonl.gz": {
+      "bytes": 3077077,
+      "sha256": "cd7ba8c8af983dbbec2f7f572506f3c33979745044ca4b1003fa38cc8aa18e39"
+    },
+    "runtime.json": {
+      "bytes": 1925,
+      "sha256": "053cc053201a6094bd9fdd17704eb0c84f57837ce0bf45f029bb136ad2385352"
+    },
+    "samples.jsonl.gz": {
+      "bytes": 8643983,
+      "sha256": "6fa274feac6e4fa28a92aec9288a64288f412314d7e81aab490557f6bf02375f"
+    },
+    "setup.json": {
+      "bytes": 694,
+      "sha256": "98243c7980ebae4f581e8900d025a9a57cce7c82d3a8cd9b3cf0441a3f6c2e59"
+    },
+    "started.json": {
+      "bytes": 1878,
+      "sha256": "58d9bca7b6b309faf3953d5c13ed69832dbca62efed17dc1493591a2dedaedb8"
+    },
+    "summary.json": {
+      "bytes": 7427,
+      "sha256": "d9ada6667c42d5d462bc471567853fd591fb3ab500a29a0836447439dc906e4d"
+    },
+    "train-selection.json": {
+      "bytes": 26736,
+      "sha256": "360d3c164cb1435ee28112480a9b5f370bb4091fa6758b6977b4a58b2657d88a"
+    },
+    "train.npz": {
+      "bytes": 449431,
+      "sha256": "aa4c015d71effda8ea8f061880a69d0db91c056e216da78422dcde6073599660"
+    },
+    "transitions.jsonl.gz": {
+      "bytes": 2810369,
+      "sha256": "ac765d4da879399064c0bef583427a9441776c0b3ca22dcd5e8a4d900b6f10a4"
+    },
+    "valid.npz": {
+      "bytes": 485607,
+      "sha256": "47285ab28aa6d48b61565fe3c1f968b50a20c6c580d28abc2f8d462b043a727d"
+    },
+    "weights.jsonl.gz": {
+      "bytes": 457,
+      "sha256": "73d1dbb0ef377097c956d89d67c7e82413a348f4231663a55956ae1fa9c74a33"
+    },
+    "work.jsonl.gz": {
+      "bytes": 8634721,
+      "sha256": "9dc2614fd90415072c0a51772867b56b6f56f0c507e8783c5b21e2e5d08918a2"
+    }
+  },
+  "finished_ns": 1545040167730625,
+  "inputs": {
+    "collection_plan": {
+      "bytes": 35833,
+      "path": "output/otto-query-gate-learning-v1/collection-plan-01.json",
+      "sha256": "f16f23f82d9eb271ac3c1a15df0c567f0a782b169abcdd4711de8fb9a7700be6"
+    },
+    "engineering": {
+      "bytes": 9176,
+      "path": "output/otto-action-focused-v1/engineering-01/qualification-01/receipt.json",
+      "sha256": "de4af14ba2118369fc42e130127b438b5e65565c2eb96d1081b01d0398c59102"
+    },
+    "seed_review": {
+      "bytes": 726289,
+      "path": "output/otto-action-focused-v1/engineering-01/seed-review-01.json",
+      "sha256": "17c5571a1b1d086f1f4f114f7c6e5899e4cf2902ca764ab653ca02dbddaccc8d"
+    }
+  },
+  "journal_scope": "Encoded returns are provisional within a pending episode; all journals flush/fsync before durable episode row and completion boundary. Interrupted episodes are failures, never resumed.",
+  "limits": {
+    "native_seconds": 7200,
+    "output_bytes": 2147483648,
+    "rss_bytes": 4294967296
+  },
+  "native_inputs": {
+    "base_kernel": {
+      "bytes": 87802,
+      "path": "output/otto-spectral-control-v1/run-01/public-kernel-base.npz",
+      "sha256": "3c8b578558db93040ff56b4f1c7cdd8f0f5b599225b6b80123aa431db6e04ff9"
+    },
+    "previous_plan": {
+      "bytes": 11467,
+      "path": "output/otto-pretrained-reference-v2/qualification-plan-01.json",
+      "sha256": "40d90544fd1d9a49f12275140f704d96c5dfae2c3ac1becc8aebf55ac19364f5"
+    },
+    "previous_receipt": {
+      "bytes": 10935,
+      "path": "output/otto-pretrained-reference-v2/qualification-01/receipt.json",
+      "sha256": "30c1b7321787053820a5ebdd1194a2ff085d7c8d21f7e9a62d4e31ab15ac9457"
+    },
+    "previous_terminal": {
+      "bytes": 1856,
+      "path": "output/otto-pretrained-reference-v2/qualification-process-01.terminal.json",
+      "sha256": "ff7747fa81fbc0ec8e264d2eebe6702b71c7f93f8fbdaf3467d8b0558f87df24"
+    },
+    "shift_kernel": {
+      "bytes": 92487,
+      "path": "output/otto-spectral-control-v1/run-01/public-kernel-shift.npz",
+      "sha256": "175eaef6995ff180ef49ac10358dd687f97e428ce3d312aa525fe1ad4591f53c"
+    },
+    "tensor_metadata": {
+      "bytes": 3426,
+      "path": "output/otto-pretrained-reference-v1/extraction-01/tensor-metadata.json",
+      "sha256": "5ca9e7f623965c737a1e82e8fe642593582cd375e697ed70d2fb58a8ad84125f"
+    },
+    "tensors": {
+      "bytes": 53565386,
+      "path": "output/otto-pretrained-reference-v1/extraction-01/tensors.npz",
+      "sha256": "610dd348ebcff65dd655c3ac67f0cfe895225b0156771e6a4a2cd235272aaf26"
+    },
+    "weights": {
+      "bytes": 53581916,
+      "path": "output/otto-pretrained-reference-v2/qualification-01/original.weights-legacy.h5",
+      "sha256": "1efb73aa38e0fd8b08d6d03059c0db4664da3afb8eaff1d7ab9b363f8e7ad37d"
+    }
+  },
+  "peak_rss_bytes": 739311616,
+  "pending": [],
+  "pending_action": null,
+  "pending_emission": null,
+  "pending_episode": null,
+  "plan_sha256": "f235f2a03fa528b11905d7b1d1b9eaa33b8aaf7fe0cb6505f9cd6eca6af4c507",
+  "requires_successful_original_supervisor": true,
+  "scope": "Full fixed paths; every TRAIN query anchor plus sampled windows, and census VALID. No fitting.",
+  "sources": {
+    "output/otto-boundary-control-v1/engineering-01/final-native-runtime-tests-01/pytest.log": "6eda8c7b455097980a3e72d0b2ffeadb45351a17dfa319c24a4637bc556114cc",
+    "output/otto-boundary-control-v1/engineering-01/final-native-runtime-tests-01/receipt.json": "e0eb1d479b5287d9c32dbe42a26e05df95954a025c2864f4afb0422b686daa4f",
+    "output/otto-boundary-control-v1/engineering-01/final-native-runtime-tests-01/ruff.log": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+    "output/otto-boundary-control-v1/engineering-01/openjev-otto-boundary-audit-preflight-01/pytest.log": "957e4120ec8eddcffbcd626509b870728f61d6fdf049cfb1ee51a71970f592be",
+    "output/otto-boundary-control-v1/engineering-01/openjev-otto-boundary-audit-preflight-01/receipt.json": "88fd3990ec3fe328ee87dbfda09233722514292d3c53e197cc8e0e57be9308ac",
+    "output/otto-boundary-control-v1/engineering-01/openjev-otto-boundary-audit-preflight-01/ruff.log": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+    "output/otto-boundary-control-v1/engineering-01/openjev-otto-boundary-audit-preflight-02/pytest.log": "64ddf8f23f0642bc50dbea3cba0b378d62f68681dcb4d71ebf6fb56e15e0a586",
+    "output/otto-boundary-control-v1/engineering-01/openjev-otto-boundary-audit-preflight-02/receipt.json": "25f17a37fca164339ab62c76106c6186a0d9491c4e5e4c32f442333428fea0ac",
+    "output/otto-boundary-control-v1/engineering-01/openjev-otto-boundary-audit-preflight-02/ruff.log": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+    "output/otto-boundary-control-v1/engineering-01/openjev-otto-restricted-policy-preflight-01/pytest.log": "3d415a29b1a43ec244fd5e71060810809524c59f9c5e00fd18f6c6433a8b0314",
+    "output/otto-boundary-control-v1/engineering-01/openjev-otto-restricted-policy-preflight-01/receipt.json": "54c2a3f9acd44c864a5b5b2e428e2e159641b026b8a678d6f0fb6fefdea0f671",
+    "output/otto-boundary-control-v1/engineering-01/openjev-otto-restricted-policy-preflight-01/ruff.log": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+    "output/otto-boundary-control-v1/engineering-01/plan-assembly.py": "dcb30ba771afe38781b0c840118413c050b6eeda49d3be7b0530d93d7b99aafe",
+    "output/otto-boundary-control-v1/engineering-01/runner-preflight.json": "9eb58b7af5af23fe540f2d411761755f71c19554a3ba0a8c813c2507cd5ed986",
+    "output/otto-boundary-control-v1/engineering-01/selection-witness.json": "70f6d5dab84233b8c7297eb302cbf3962797b9447f861694e4cd98949fed7134",
+    "output/otto-boundary-control-v1/engineering-01/source-review-witness.json": "acbfac4804a2f325d228b89a779f99422c84ed394c2f30f5ffc4baa720338345",
+    "output/otto-released-native-v1/actor-preflight-01/openjev-otto-released-policy-preflight-01-pytest.log": "93cbd6af997ab18295dc6e0af3358051220edbb2e4c2423f1d15f20d62c8ecbd",
+    "output/otto-released-native-v1/actor-preflight-01/openjev-otto-released-policy-preflight-01-ruff.log": "a4efbacd5c046a1036167639c24d143444659881cba93c89f889333fca80d3a4",
+    "output/otto-released-native-v1/actor-preflight-01/openjev-otto-released-policy-preflight-01.json": "89986b2ba044462c46ad33e548fdeee4a845ff1ee7730a8a0216428e7a68d8a2",
+    "output/otto-released-native-v1/actor-preflight-01/openjev-otto-released-policy-preflight-02-diff.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "output/otto-released-native-v1/actor-preflight-01/openjev-otto-released-policy-preflight-02-pytest.log": "4d5b1aefb970dfbde629ce8cfadfb63c8a010d4636a78ccc8891f40470965e6f",
+    "output/otto-released-native-v1/actor-preflight-01/openjev-otto-released-policy-preflight-02-ruff.log": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+    "output/otto-released-native-v1/actor-preflight-01/openjev-otto-released-policy-preflight-02.json": "516fa622998ecc79d45817f7abfd023002e85e383708dc64e7364e8b019e70cc",
+    "output/otto-released-native-v1/audit-01/audit.py": "7b405bccfcc6d6c4bf7412729801e37e8a2a80b027b0ad3d6d367ebb5a8559d1",
+    "output/otto-released-native-v1/runtime-preflight-01/command-0.log": "c06827650f999bd87b305313d15518f44b14b20698009958902fef22895aedfb",
+    "output/otto-released-native-v1/runtime-preflight-01/command-1.log": "564e0041adbc076905d4f2fe314f58fc0aac6aeee978e9704ccd586eaff67eab",
+    "output/otto-released-native-v1/runtime-preflight-01/numerical-configuration.txt": "d602f95ba0b6fa2faf2f9ad1ead5e8c601400ede985db4a4a8b058efcb52fb26",
+    "output/otto-released-native-v1/runtime-preflight-01/preflight.py": "0970f39c88a88632aa18dc9beba6b2668406c2dccf8139de9a3cf6903e4335a5",
+    "output/otto-released-native-v1/runtime-preflight-01/primitive-checks.jsonl": "9dc34292d69b674aac7c9be996ec1283d1e0b7a5ef7957b7c9993946df151156",
+    "output/otto-released-native-v1/runtime-preflight-01/receipt.json": "74382257d199c5cc61a55be5be104c6cdf99a84493c072d258c324fd1837365f",
+    "output/otto-released-native-v1/runtime-preflight-01/runtime.json": "18fc8fe71fc70d7f3674208a598fd1f7f04ccc1f1a41bdab75ecb2e46c6407b3",
+    "output/otto-released-native-v1/runtime-setup-01/command-0.log": "51edd117e0f33767571a3b6a4802913feb345793a8379e7211fcd7cf63a93fe8",
+    "output/otto-released-native-v1/runtime-setup-01/command-1.log": "dd41efeb15eb5c380fed61d9b667cdaed431b3976407766c6f6e0950d6f0f151",
+    "output/otto-released-native-v1/runtime-setup-01/command-2.log": "cafe41a9590131207693690899d96f01c2b6379529c178c1356da4fe9ea17d7b",
+    "output/otto-released-native-v1/runtime-setup-01/installed-packages.json": "024965b28139a9bfd64005ffdf55be084a35939c33039f028e8d45ed051a8eec",
+    "output/otto-released-native-v1/runtime-setup-01/receipt.json": "620802e7e5777ee38a813c1488c353c072ff1eccd5258c4c3fd7095b2a645ea1",
+    "output/otto-released-native-v1/runtime-setup-01/requirements.txt": "edee083daa08ca7c7a82959ebcb57d08813af1344157dc2eec81acefd6eb0dc3",
+    "output/otto-released-native-v1/runtime-tests-01/receipt.json": "168efe042ae1d23d63bcdc1c03ca333c42de730b537fd76350d538de1533f43c",
+    "output/otto-released-native-v1/runtime-tests-01/tests.log": "de4248f2bff0b3dc39c1d9348cf7218dcc0c16425e82b7e73a03dd2f8990f91e",
+    "output/otto-released-reference-v1/engineering-01/final-runtime-tests-02/pytest.log": "4552af24778bb3fa4560330ca4c863d9b8907283b409b120ae5761afde3350e7",
+    "output/otto-released-reference-v1/engineering-01/final-runtime-tests-02/receipt.json": "5e3b79a2ec09e36562fe23b26a010a734b532b20619190f8372b2825e3606eac",
+    "output/otto-released-reference-v1/engineering-01/final-runtime-tests/pytest.log": "c824c96ef501779eeb2c4ca17e3d83ccdc57f80af3539547f592d751c9661c15",
+    "output/otto-released-reference-v1/engineering-01/final-runtime-tests/receipt.json": "91cf19b74f10c667364d8f13ba70f47754b4cd43eea2b3d0e3e359ff03c08ab0",
+    "output/otto-released-reference-v1/engineering-01/final-runtime-tests/ruff.log": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+    "output/otto-released-reference-v1/engineering-01/history.json": "d349fca6fc151a66ec48306b3fbceff9f15b057ea092260b478f17caf4b2d054",
+    "output/otto-released-reference-v1/engineering-01/openjev-otto-reference-control-preflight-01-pytest.log": "a20368d3dd921d9ef1e9595decde4c3a53485604704f83246b078137418cdca0",
+    "output/otto-released-reference-v1/engineering-01/openjev-otto-reference-control-preflight-01-ruff.log": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+    "output/otto-released-reference-v1/engineering-01/openjev-otto-reference-control-preflight-01.json": "c1529c71cdee7e587cd0f97875218284fc6467fb62803c002d34cb0cdfcf5298",
+    "output/otto-released-reference-v1/engineering-01/openjev-otto-reference-control-preflight-02-pytest.log": "626f5b99571eb61eeec4d9e55433ab3c6a22e9eedf23c1eb0ab2610b86ba5401",
+    "output/otto-released-reference-v1/engineering-01/openjev-otto-reference-control-preflight-02-ruff.log": "470aff9ca7445630fe0f2409e6039f693cbc725f80864276121f0ce6991ee3bf",
+    "output/otto-released-reference-v1/engineering-01/openjev-otto-reference-control-preflight-02.json": "16ac15268a7ed18c7d6c5768f1e2bb0a80cfa6d6aae054ccfb528e8a520cf493",
+    "output/otto-released-reference-v1/engineering-01/openjev-otto-reference-control-preflight-03-ruff.log": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+    "output/otto-released-reference-v1/engineering-01/openjev-otto-reference-control-preflight-03.json": "ee6d84bb6baed4d2dc3f63a8c45e742f3c0b59bf56b3882e97f6168398c842e0",
+    "output/otto-released-reference-v1/engineering-01/openjev-released-reference-audit-preflight-01/pytest.log": "ccd1f3fa18f0b9407507917a73847168b11b10cbe1eb3acad008b3d0c73d4b05",
+    "output/otto-released-reference-v1/engineering-01/openjev-released-reference-audit-preflight-01/receipt.json": "76026f76f1e2c3866eddc972efe95e6bba65b66260283b0d8339ef0ca3a65cb5",
+    "output/otto-released-reference-v1/engineering-01/openjev-released-reference-audit-preflight-01/ruff.log": "fea3bccf64772af63d34be42116fbba86e14681353306c8c665c6e64759fbc03",
+    "output/otto-released-reference-v1/engineering-01/openjev-released-reference-audit-preflight-02/pytest.log": "d8ae29bb9beb2c660297c0e8e3f7ba1730f96be2a27f8dc901ba7fa2d281d3db",
+    "output/otto-released-reference-v1/engineering-01/openjev-released-reference-audit-preflight-02/receipt.json": "7b3c62974f1bcf7365170e9b35ec43b1d856cd0cddfcd2053015fa8e60d93575",
+    "output/otto-released-reference-v1/engineering-01/openjev-released-reference-audit-preflight-02/ruff.log": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+    "output/otto-released-reference-v1/engineering-01/openjev-released-reference-audit-preflight-03/pytest.log": "8989a153a4f265bdf8bf8abfcbf7ce96cf91c69ee66d543244ebf0fc2c9d041d",
+    "output/otto-released-reference-v1/engineering-01/openjev-released-reference-audit-preflight-03/receipt.json": "f7a10ff779f067a2188f28327a0e64b9fb23dc053ea999eba04a46b850370a0d",
+    "output/otto-released-reference-v1/engineering-01/openjev-released-reference-audit-preflight-03/ruff.log": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+    "output/otto-released-reference-v1/engineering-01/openjev-released-reference-plan-assembly.py": "36043190a45dbbd8e2cc8a262dc4a117c497a8ba971023676a609a8e5b6f5d30",
+    "output/otto-released-reference-v1/engineering-01/openjev-released-reference-runner-preflight-01.json": "7b0969f28bcb2078b930951e620ee3836d49888cd7a408c2516b6ec86e9f01dd",
+    "output/otto-released-reference-v1/engineering-01/source-review.json": "d14ed6ac31b630565dd9e017805f36ebf108a7a80a67f7cd4259f676bf058981",
+    "research/otto-action-focused-protocol.md": "30698c25ef57a91f32bd48b6e44823902bb571cf3fc8aac77feff108a1fcf78b",
+    "research/otto-boundary-control-protocol.md": "9c86c160e51307c51df8b890fffc00914ea3a89093e83330cb1aef9491f6aef5",
+    "research/otto-query-gate-collection-protocol.md": "5c14dba17de15336f11749fbaa304f2c3685eddbeb1142e7699c5e279dcd5c9b",
+    "research/otto-query-gate-evaluation-protocol.md": "37804aa3538f46c607c417aec6717701d0c6319b16e525215f6955df2c92c50f",
+    "research/otto-query-gate-learning-design.md": "0fd13e6c75f156aa77f2ac07c0af73b948d84e1f6f9a9d7be5036c0a834f8980",
+    "research/otto-query-gate-native-protocol.md": "6ee6f4d003abc56fe19ae3c369ed771190e521611043b4fedf099015907d7d38",
+    "research/otto-query-gate-training-protocol.md": "5d13c14fad33c4375a3aefb1e34474adc9881c5115f5d30381d473e95a1ae334",
+    "research/otto-released-native-qualification-protocol.md": "bbb9cb0ea3e430e7312f8f544ec27ce379b52e4e0beffbe2f17c43f47e217f98",
+    "research/otto-released-reference-protocol.md": "5160a125197e5b7c01c8d8b60fb61fd419c2a175fcdde46953be5e899fb0e9cd",
+    "scripts/audit_otto_action_focused.py": "4ee295fc8d77b81b6df869811b471770f47af2d6f5a763e040a21ad7d0578729",
+    "scripts/audit_otto_boundary_control.py": "9a1ab23570104a73c7700db3a43d0245fe0b3487f3233212884cd2ded34e35b2",
+    "scripts/audit_otto_released_reference.py": "6f63cbc79107fc3046d28645fa4336fe04bfb91ee53368c78ba3971ced1942e1",
+    "scripts/audit_otto_score_forecasts.py": "c944b2edf7b053c65cb43b3e24ee81a549a1584808cb3fbf0553c28593e9d2ce",
+    "scripts/collect_otto_action_focused.py": "61deef33c332fd00a07c3b4e3f08d3303b210d7ada64a3b5de02521fda7a6154",
+    "scripts/collect_otto_query_gate.py": "5e2b06fc0ff5b888122e733f12b20c881deab7f56b94908ed5a283f7a48c76df",
+    "scripts/qualify_otto_prequery_capacity.py": "aee58117b9a1c6b2a7110174c4c4ad97029cd6cc42c157c1500aab614c4ec49c",
+    "scripts/qualify_otto_pretrained.py": "7c6514831ea204938905bf36575d50bc9abb5365be19bcc4c396fdad672c035a",
+    "scripts/qualify_otto_query_gate_native.py": "0ef5368a55dab615129602576300c3231d94fd28f7543d31354d9805ea8a5049",
+    "scripts/qualify_otto_reference_control.py": "0b8591d2c92dd1c006e06d120b167eebfd350d483d2a61e6e933d2025a59bdb5",
+    "scripts/qualify_otto_released_native.py": "96c68e94498c6b83eb2983c1183c444c5d1080eee06ff961562aeb56a845c65e",
+    "scripts/qualify_otto_restricted_policy.py": "05a93d9260dcf483d208879bc0c2c922dd0e1c1d6ed7eb227778fb76ac7431d8",
+    "scripts/study_otto_boundary_control.py": "f00af83597e9ecd4bf8e2354fad7e4c6e25f69a9e182fcdd12f0e47050081dd8",
+    "scripts/study_otto_released_reference.py": "da2a7e418dd29819bddf190f46d1707f1163a22b01a048b33d3dedab875ad87e",
+    "scripts/supervise_dialogue_observation_v2.py": "610a2fcd2d4d55eb35bce92e61942d5169491dee9d05e2f47f65e211fdf94144",
+    "scripts/train_otto_action_focused.py": "ece2ff3f70bf47b20c390357ea0c5297afca54749f98904b4b8bf8ac84b4e3d0",
+    "scripts/train_otto_cross_query_forecasts.py": "d9b2f9f3836f373ec59e6fd06ac1ed1107215ecaed3e6b6159f9631bdc75e911",
+    "scripts/train_otto_prequery_calibration.py": "90bcb6bf067bf204e08edd593786964414e5a9c854eb7b81cd61ad024b2b28d0",
+    "src/openjev/__init__.py": "07c32263c02ef437fa5b3ad3b37a5750de6379f5eae1d58262aedcc7a0e0eef9",
+    "src/openjev/research/__init__.py": "5ef355243927221b3b2d7f205b726f292efc192935fda538bbee70f608e12139",
+    "src/openjev/research/otto_action_focused_loss.py": "11ada01d4750599fafdf9a56be746b9ed4e9109b6ee439b50477a2eae674375f",
+    "src/openjev/research/otto_action_focused_metrics.py": "85c7a319c74c48736866de732d905b79f36bc5d66a157b5e730433671b90842c",
+    "src/openjev/research/otto_cross_query_data.py": "b8dad9f0e29da73f00188cf79cacc4611ff97fceed4c8e21b8607381c80c4fb5",
+    "src/openjev/research/otto_cross_query_metrics.py": "cacd670cf3f6eae7ed240161fb8467714d7b51485f15031007dea7478e8c0df7",
+    "src/openjev/research/otto_cross_query_scores.py": "799979c0c60460352df076750d15b2cb9a5db6b6976707605dcca7c90fa76e08",
+    "src/openjev/research/otto_prequery_data.py": "ae78b3ca2017dd88f83b58622bc0ba9d3d0ab92ee7af7a9f605ec2f2c3687f5a",
+    "src/openjev/research/otto_prequery_loss.py": "ca05805f4dd81b30c9929aba2bab182a640ce99569138a525b8d39c6788a54cc",
+    "src/openjev/research/otto_prequery_metrics.py": "2694b57214fa6e6f8e468d3371e6b7e477091371e40e5cdc863452da7cd7436a",
+    "src/openjev/research/otto_prequery_scores.py": "6dfff08284004a134abf47b4ab4dc425f5d9c96f63c58475007295a666b24f4e",
+    "src/openjev/research/otto_public.py": "438631a18005493e0cafa0777315e2158cac97cc7d0e71ad9fd6402284615b3d",
+    "src/openjev/research/otto_query_gate.py": "3ef019d408934dc5277378998713e6b38c35334eafcd9b17db163e3e5f8b124c",
+    "src/openjev/research/otto_reference_control.py": "21e5f6ece09426d26c4a3214d95f0f4803a8efd4bacb9ca347c1d896407c5893",
+    "src/openjev/research/otto_released_policy.py": "8abac34fef2a6517d43209d5ca27514633363248f66a249e2f4d6615aa0a0d45",
+    "src/openjev/research/otto_restricted_policy.py": "3e63240b3502b4d4633f9c1671b4ad7ce34466f21c74a4d470bed91d77514630",
+    "src/openjev/research/otto_sampled_forecast_data.py": "c48d8cc8981f11ba0f3d97b4de3ee2b46afa7ccb5413e3c4cff114802b746e70",
+    "src/openjev/research/otto_score_forecast_data.py": "dc8b371dad15cf5bc4bb7941d087023cd7702d62522532d24c1839f685ea6f8c",
+    "src/openjev/research/otto_separate_prior_metrics.py": "1d3672fa7012427853f078b0631c0510366ce29ff022656303a792f64760654b",
+    "src/openjev/research/otto_spo_plus_loss.py": "41312c5bc028e60c691725f1b866cb4910503be7a1bae6e4a9adc23ab453b5d8",
+    "src/openjev/research/suspend_clock.py": "cac9077db3c66f5ef43d9412b732f5b869c1004c4bac98589816780c120f6124",
+    "tests/test_audit_otto_action_focused.py": "da1346fbd31351811835c8bdaf151ed1b5d889699e8e3432a23434daf66d3221",
+    "tests/test_audit_otto_boundary_control.py": "7fd1df56288c284b640eb5c2a2595ee9fbdf8fddfca6576a67214bd26fc9b92b",
+    "tests/test_audit_otto_released_reference.py": "1fd498ebdf385746c8b5ea9b40982c14198ff1eb0390027ddeacc4a4385e2685",
+    "tests/test_collect_otto_action_focused.py": "18eef4c23f7d948f7e07016b0a7020761659b9497fc6046950c5168354f72133",
+    "tests/test_collect_otto_query_gate.py": "48aa343c6aaebdf02ba6f1377d3cd4feb8b1ec36b03505e4cbfc442a8da82ff7",
+    "tests/test_otto_action_focused_loss.py": "0f97af456fd4d757d618da957258fe38be5ba26a40a63994a591650e3e52a333",
+    "tests/test_otto_action_focused_metrics.py": "decba6c5d1ff60754202433555c6e3b630e190c477c3b54712f4216dbf186b13",
+    "tests/test_otto_boundary_control.py": "b22187b411f439df10b2c5a89cc7f8314dbc41aa989cf5543768936249b94766",
+    "tests/test_otto_cross_query_data.py": "a905f25925f410912025b39100a5fd77cdebc0bcdb796ffd465faa91156a428f",
+    "tests/test_otto_cross_query_scores.py": "d937f05a5add9a4c61d7358666e4c6afd209546c38492730a8b781dd5729dc0b",
+    "tests/test_otto_prequery_data.py": "8ce42ca392d15ce49f23d08a437d797c99584c20079e3e7970422659ee66df04",
+    "tests/test_otto_prequery_loss.py": "e93bc9ee2cd04180d0301c1653394caa54495adcfaf71a8302096756a1885407",
+    "tests/test_otto_prequery_scores.py": "fbc18300688c75e7b872afa2f8fd1fd1fb7f87f69be5cda47ad7cde1b29af63a",
+    "tests/test_otto_query_gate.py": "fe77fd7fb5c1a853716236b93fb8734575fbada4d034224e03f05bb5bad1d889",
+    "tests/test_otto_reference_control.py": "e989a18ad56f80bb412b62570bba649978ea171eccfdb2b8c404566a543ab37c",
+    "tests/test_otto_released_policy.py": "cc2e7e543a8e8b7139dbcb974680e8af0213e81cbd089b475b14710dc8f8b6b7",
+    "tests/test_otto_released_reference.py": "e7d7f5191134a9dfef0b84648a3b3cb6bf82628797c9455007898de1569050dc",
+    "tests/test_otto_restricted_policy.py": "49132b1c8cf3e7891a88cb387f40f01e10afb946952a58463c129743b275c0eb",
+    "tests/test_otto_sampled_forecast_data.py": "5acedb53a2d935dcbe33ff2e7d14bb13326aef374ea91ab7207173c79a2dbef5",
+    "tests/test_otto_score_forecast_data.py": "ca1432fbdbb954af97a51cbf138263a7dfd5c0ba97f966caf977322086d479cb",
+    "tests/test_otto_separate_prior_metrics.py": "8ffdbe3e9377a956c1b28f755d43678c5529bc4b28eb5bfa6f49b4720cb13426",
+    "tests/test_otto_spo_plus_loss.py": "594b5efcb13677826beed8fc8d0c6f35698318d4222b517f61664607774d24ff",
+    "tests/test_qualify_otto_prequery_capacity.py": "a0e4a7b8e62886607d07c8a316bec94ab775397ed4c6a17907a31f6ca69d7110",
+    "tests/test_qualify_otto_released_native.py": "efb111da294f0e40ac3e1f60adc435b64e085083f1e27d5fd0da7fd672fd8072",
+    "tests/test_train_otto_action_focused.py": "2b694014f632ce81941968049dfbc31a9c52a5553be8824424a41ad3a9f0bc34",
+    "tmp/otto-source-review-01/isotropic/classes/heuristicpolicy.py": "e473c5c0e2908622e704012fc79dffc05172fe8b6f4036dcbf240a05c4e4b469",
+    "tmp/otto-source-review-01/isotropic/classes/policy.py": "8fc915c86972a8be0ccd0a98d9522be4cd9c751d862a351d60221f8c7902976d",
+    "tmp/otto-source-review-01/isotropic/classes/rlpolicy.py": "d32b98f903f90bfeed40111c9120a524442e31c0d28eb7cdac0d6db80c2af5fb",
+    "tmp/otto-source-review-01/isotropic/classes/sourcetracking.py": "1057f129fa8a3249a7297a9ef2c15059d37430b12e42a2f1d43dfcdffe3e76f1",
+    "tmp/otto-source-review-01/isotropic/classes/valuemodel.py": "151eae8b84c42a92691d6dd817fe5384f2feb806ae405088a5c57da03d067eb8"
+  },
+  "started_ns": 1543812026586916,
+  "status": "completed",
+  "supervision_sha256": "f55fce632b32e7d1f961dcec18076c3b265d6d5dbd46e486510c58060d7e5654",
+  "train_episodes": 54,
+  "training_updates": 0,
+  "valid_episodes": 36,
+  "version": "otto-action-focused-collection-v1",
+  "wall_seconds": 1228.141143709
+}
