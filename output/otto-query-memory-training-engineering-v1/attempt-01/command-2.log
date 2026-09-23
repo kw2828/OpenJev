@@ -1,0 +1,120 @@
+RUF007 Prefer `itertools.pairwise()` over `zip()` when iterating over successive pairs
+   --> scripts/audit_otto_query_memory.py:294:22
+    |
+292 |     weight = np.zeros(total, np.float64)
+293 |     prior_weight = np.zeros(total, np.float64)
+294 |     for low, high in zip(offsets[:-1], offsets[1:], strict=True):
+    |                      ^^^
+295 |         steps = np.arange(high - low)
+296 |         local_query = steps % 4 == 0
+    |
+help: Replace `zip()` with `itertools.pairwise()`
+
+BLE001 Do not catch blind exception: `BaseException`
+   --> scripts/audit_otto_query_memory.py:871:20
+    |
+869 |                 self.receipt["files"] = {path.name: descriptor(path) for path in self.out.iterdir() if path.is_file()}
+870 |                 write(self.out / "receipt.json", self.receipt)
+871 |             except BaseException as secondary:
+    |                    ^^^^^^^^^^^^^
+872 |                 error.add_note("Failure receipt publication also failed: " + repr(secondary))
+873 |             raise
+    |
+
+BLE001 Do not catch blind exception: `BaseException`
+   --> scripts/qualify_otto_query_memory_capacity.py:572:20
+    |
+570 |                 self.receipt["files"] = {p.name: descriptor(p) for p in self.out.iterdir() if p.is_file()}
+571 |                 write(self.out / "receipt.json", self.receipt)
+572 |             except BaseException as publication:
+    |                    ^^^^^^^^^^^^^
+573 |                 error.add_note(f"Failure publication: {publication!r}")
+574 |             raise
+    |
+
+B023 Function definition does not bind loop variable `attempt`
+   --> scripts/train_otto_query_memory.py:558:50
+    |
+556 |                 self.event({"event": "attempt", **attempt}, "work.jsonl")
+557 |                 def stage(name, start):
+558 |                     self.receipt["pending"] = {**attempt, "stage": name, "start": start}
+    |                                                  ^^^^^^^
+559 |                 result = self.core.batch_update(model, optimizer, history, indices, check=self.check, stage=stage)
+560 |                 steps += 1
+    |
+
+PLC0206 Extracting value from dictionary without calling `.items()`
+   --> scripts/train_otto_query_memory.py:641:25
+    |
+639 |                         torch.from_numpy(packet["nonquery_weights"]), torch.from_numpy(packet["prior_weights"]),
+640 |                         inputs["query_mask"], forecast.prior_mask, episode_count=history["episode_count"])
+641 |                     for name in terms:
+    |                         ^^^^^^^^^^^^^
+642 |                         terms[name].append(float(loss[name]) * len(indices) / history["episode_count"])
+    |                         -----------
+643 |                     fields = {name: getattr(forecast, "prediction" if name == "base_prediction" else name)
+644 |                               for name in PREDICTION_FIELDS if name != "episode_offsets"}
+    |
+help: Use `for name, value in terms.items()` instead
+
+I001 [*] Import block is un-sorted or un-formatted
+   --> scripts/train_otto_query_memory.py:741:9
+    |
+739 |           torch.use_deterministic_algorithms(True)
+740 |           sys.path.insert(0, str(ROOT / "src"))
+741 | /         from openjev.research import otto_query_memory_data as data
+742 | |         from openjev.research import otto_query_memory_metrics as metrics
+743 | |         from openjev.research import otto_query_memory_gate as gate
+744 | |         from openjev.research import otto_query_memory_model as models
+745 | |         from openjev.research import otto_query_memory_training as core
+    | |_______________________________________________________________________^
+746 |
+747 |           self.np, self.torch, self.models, self.data, self.metrics, self.core = np, torch, models, data, metrics, core
+    |
+help: Organize imports
+    |
+741 |         from openjev.research import otto_query_memory_data as data
+742 +         from openjev.research import otto_query_memory_gate as gate
+743 |         from openjev.research import otto_query_memory_metrics as metrics
+    -         from openjev.research import otto_query_memory_gate as gate
+744 |         from openjev.research import otto_query_memory_model as models
+    |
+
+RUF007 Prefer `itertools.pairwise()` over `zip()` when iterating over successive pairs
+  --> tests/test_otto_query_memory_audit_numerics.py:45:22
+   |
+43 |     features = np.zeros((total, 31), np.float32)
+44 |     correction = np.zeros(total, np.bool_)
+45 |     for low, high in zip(offsets[:-1], offsets[1:], strict=True):
+   |                      ^^^
+46 |         steps = np.arange(high - low)
+47 |         features[low:high, 15] = steps / 2188
+   |
+help: Replace `zip()` with `itertools.pairwise()`
+
+RUF007 Prefer `itertools.pairwise()` over `zip()` when iterating over successive pairs
+  --> tests/test_otto_query_memory_training.py:22:40
+   |
+20 |     correction = np.zeros(total, np.bool_)
+21 |     target = np.zeros((total, 4), np.float32)
+22 |     for lane, (low, high) in enumerate(zip(offsets[:-1], offsets[1:], strict=True)):
+   |                                        ^^^
+23 |         steps = np.arange(high - low)
+24 |         features[low:high, 15] = steps / 2188
+   |
+help: Replace `zip()` with `itertools.pairwise()`
+
+RUF007 Prefer `itertools.pairwise()` over `zip()` when iterating over successive pairs
+  --> tests/test_train_otto_query_memory.py:38:41
+   |
+36 |     correction = np.zeros(total, np.bool_)
+37 |     identities = []
+38 |     for index, (low, high) in enumerate(zip(offsets[:-1], offsets[1:], strict=True)):
+   |                                         ^^^
+39 |         steps = np.arange(high - low)
+40 |         features[low:high, 15] = steps / 2188
+   |
+help: Replace `zip()` with `itertools.pairwise()`
+
+Found 9 errors.
+[*] 1 fixable with the `--fix` option (4 hidden fixes can be enabled with the `--unsafe-fixes` option).

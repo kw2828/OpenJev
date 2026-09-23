@@ -1,6 +1,6 @@
 # Query-written memory study status
 
-**Collection plan frozen; scientific collection not yet started at this publication.**
+**Fresh collection is running; training and evaluation code pass qualification.**
 No new learned-model performance result exists. The earlier protected-readout
 FAIL 15/29 is unchanged.
 
@@ -28,9 +28,20 @@ and qualification before any native call. The metadata-only planning attempt
 with the wrong interpreter was rejected before collection; the required native
 interpreter produced the plan. Both attempts are retained.
 
+The full training/evaluation suite now passes **528 fabricated tests and lint**.
+It verifies complete-episode updates, all eight evaluation views, independent
+metrics, schedule-derived computation counts and the boundary before DEV access.
+Both qualification attempts are preserved in the
+[training engineering record](otto-query-memory-training-engineering.md).
+
+The original collection worker and supervisor were verified live at 78 of 108
+completed trajectories on September 23, 2026. This is a progress snapshot, not a
+completed collection receipt. No collected arrays or checkpoints have been
+decoded for fitting or evaluation.
+
 Training remains unadmitted. It needs a successful original collection closure,
-qualified training/audit code, a bounded fabricated capacity check and a separate
-published source-bound plan. No scientific retries or replacement seeds are allowed.
+the separate fabricated training-capacity check and a published source-bound
+training plan. No scientific retries or replacement seeds are allowed.
 
 The period-eight comparison changes observations on fixed collected paths.
 It does not establish autonomous search quality, teacher-call savings or an ICLR
