@@ -8,6 +8,7 @@ improvement does not survive every paired-seed check. TEST remains unopened.
 
 [Frozen protocol](otto-query-memory-protocol.md) ·
 [Every method, seed and condition](otto-query-memory-dev-results/query-memory-dev.md) ·
+[Models and TRAIN/DEV evidence](https://github.com/kw2828/OpenJev/releases/tag/otto-query-memory-dev-v1) ·
 [Collection evidence](https://github.com/kw2828/OpenJev/releases/tag/otto-query-memory-collection-v1)
 
 ![All eight methods and all three seeds, including the failed candidate](otto-query-memory-dev-results/query-memory-dev.png)
@@ -119,8 +120,12 @@ not make the scientific result positive.
 [Training closure](../output/otto-query-memory-v1/training-closure-01.json),
 [audit closure](../output/otto-query-memory-v1/dev-audit-closure-01.json) and
 [render provenance](../output/otto-query-memory-v1/render-01.json) bind the original
-processes, saved results and this figure. The separate TRAIN/DEV evidence package
-retains every checkpoint and prediction, including the failed candidate.
+processes, saved results and this figure. The
+[TRAIN/DEV evidence release](https://github.com/kw2828/OpenJev/releases/tag/otto-query-memory-dev-v1)
+retains every checkpoint and prediction, including the failed candidate. Its
+295-member archive passes an exact byte roundtrip; all four uploaded asset
+digests and sizes match the local files in the
+[verification record](../output/otto-query-memory-dev-publication-v1/release-verification-01.json).
 Native weights, kernels and two recorded runtime environments remain external;
 the evidence package is not a self-contained executable reproduction.
 
@@ -128,8 +133,10 @@ A specific next question is whether corrections need uncertainty-dependent
 strength rather than this fixed-rate memory write. The
 [Bayesian residual-memory reference](otto-query-memory-bayesian-baseline.md)
 provides an independently tested baseline for that question, not an empirical
-improvement. Any follow-up needs a distinct protocol and fresh evaluation data,
-with ordinary joint training, last-error and instantaneous-memory controls.
+improvement. The [next mechanism-screen design](otto-residual-estimator-design.md)
+keeps the trained representation fixed, retains ordinary joint training and
+simple-error controls, and specifies 54 fresh paths. It is a proposal awaiting
+integration qualification and registration, not an admitted or completed run.
 
 These results establish no autonomous search improvement, calibrated probability,
 biological-wiring advantage, new RL algorithm or novel world-model architecture.

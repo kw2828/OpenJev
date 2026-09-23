@@ -64,7 +64,8 @@ other. The independent audit completed; the held-out test remains unused.
 [![All eight memory methods and three fit seeds, including the failed candidate](research/otto-query-memory-dev-results/query-memory-dev.png)](research/otto-query-memory-results.md)
 
 [Results and costs](research/otto-query-memory-results.md) ·
-[Every method and seed](research/otto-query-memory-dev-results/query-memory-dev.md).
+[Every method and seed](research/otto-query-memory-dev-results/query-memory-dev.md) ·
+[All models and evidence](https://github.com/kw2828/OpenJev/releases/tag/otto-query-memory-dev-v1).
 This fixed-path comparison establishes no autonomous or architecture advantage.
 
 The [earlier protected-readout failure](research/otto-protected-readout-results.md),

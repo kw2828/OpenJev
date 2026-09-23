@@ -78,6 +78,15 @@ saved outputs. The [audit closure](../output/otto-query-memory-v1/dev-audit-clos
 retains the original process and result identities. Technical completion does
 not override the failed scientific rule; conditional TEST is not admitted.
 
+All training checkpoints/predictions, audit outputs and original process evidence
+are in the [TRAIN/DEV release](https://github.com/kw2828/OpenJev/releases/tag/otto-query-memory-dev-v1).
+The 295-member archive passed an exact opaque-byte roundtrip; all four GitHub
+asset digests and sizes match. The
+[release verification](../output/otto-query-memory-dev-publication-v1/release-verification-01.json)
+retains the tag commit and asset checks. Together with the collection release,
+this preserves the complete negative result, subject to the declared external
+native/runtime dependencies.
+
 The planned period-eight TEST comparison was not executed. Changing observations
 on fixed collected paths would not establish autonomous search quality,
 teacher-call savings or an ICLR contribution.
@@ -105,4 +114,7 @@ figure and complete Markdown table to the saved audit without new model calls.
 
 The separate [Bayesian residual-memory reference](otto-query-memory-bayesian-baseline.md)
 is tested engineering for a future hypothesis. It was not part of this study
-and supplies no empirical improvement or novelty claim.
+and supplies no empirical improvement or novelty claim. The
+[next mechanism-screen design](otto-residual-estimator-design.md) specifies fresh
+development/confirmation data and retains ordinary joint training as a control;
+integration and source-bound registration are still required before execution.

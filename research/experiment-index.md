@@ -4,6 +4,8 @@ Studies and frozen work awaiting execution, including failures and controls. A p
 
 ## Complete experiment list
 
+- [Frozen-feature Bayesian residual estimators](otto-residual-estimator-design.md): **proposal only, not admitted or evaluated**. A distinct 54-path screen compares nine methods with fixed representations, ordinary joint training and simple-error controls. Bayesian covariance and correction-strength contrasts are separate from the usefulness rule; the failed prior study's TEST stays unused.
+
 - [Query-written memory comparison](otto-query-memory-results.md): **18 fits, 108 collected paths; DEV FAIL 6/13**. History delta memory has a **54.1% higher / 14.3% lower** later teacher-score gap than the best control in the two settings, with several paired-seed failures. Original training and independent audit close successfully. TEST remains unused; no autonomous comparison is admitted. [All methods and seeds](otto-query-memory-dev-results/query-memory-dev.md) · [Protocol](otto-query-memory-protocol.md) · [Closure and qualification](otto-query-memory-status.md).
 
 - [Query-written memory engineering](otto-query-memory-engineering.md): **128 fabricated tests and lint pass; no new trained-model result**. Separate period-four/eight predictor and causal history-conditioned correction kernel, with exact query outputs, prewrite forecasts, explicit carry and computation counts. Prior failure remains closed. [New hypothesis and required comparisons](otto-query-memory-design.md).
