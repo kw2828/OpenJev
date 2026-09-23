@@ -1,6 +1,6 @@
 # Action-focused training before another memory architecture
 
-Status: implemented and qualified; the [fresh twelve-fit study](otto-action-focused-protocol.md) has a completed worker receipt, but original supervisor closure is unverified after a session interruption. Its technical-completion condition remains false. A separate [saved-output diagnosis](otto-action-focused-interruption-protocol.md) is pending and cannot qualify the original run. Protocol and sources were frozen before collection in commit `1b61df2`. The [ranking diagnosis](otto-ranking-diagnosis-results.md) leaves the earlier failed studies closed.
+Status: implemented; the [saved-output diagnosis](otto-action-focused-results.md) finds worse later choices in all twelve paired seed-by-setting comparisons. The original supervisor closure remains unverified after a session interruption, so the experiment is descriptive and ineligible for continuation. The separate diagnostic closed successfully and cannot qualify the original run. Protocol and sources were frozen before collection in commit `1b61df2`. Earlier failed studies remain closed.
 
 ## Question
 
@@ -42,4 +42,4 @@ The standalone [SPO+ loss](../src/openjev/research/otto_spo_plus_loss.py) is imp
 
 It exposes per-row losses and a weighted scalar. The maximum uses the first maximizing action for its subgradient; the teacher reference is uniform over exact raw-float32 minima. The new [trainer](../scripts/train_otto_action_focused.py) integrates the loss with unchanged shared-output models. All **190 fabricated checks** and Ruff passed across collection, loss, training, metrics and the independent saved-output audit. [Qualification receipt](../output/otto-action-focused-v1/engineering-01/qualification-01/receipt.json).
 
-The frozen comparison uses 54 fresh TRAIN paths, 36 VALID paths and three paired seeds for each of four cells. Its worker reports twelve completed fits and 8,640 updates, with every checkpoint closed before VALID. That receipt cannot replace the missing original supervisor exit record. The models and predictions are preserved without a training retry; numerical interpretation awaits the separate diagnostic.
+The frozen comparison uses 54 fresh TRAIN paths, 36 VALID paths and three paired seeds for each of four cells. Its worker reports twelve completed fits and 8,640 updates, with every checkpoint closed before VALID. That receipt cannot replace the missing original supervisor exit record. The models and predictions are preserved without a training retry. The separately closed diagnostic reconciles all saved arithmetic and finds no primary gain. [Results](otto-action-focused-results.md) · [Next protected-readout design](otto-protected-readout-design.md).

@@ -56,23 +56,20 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Research status
 
-The [latest diagnosis](research/otto-ranking-diagnosis-results.md) checks all
-**24 recurrent fits on the same saved decisions**. In one GRU comparison,
-score error falls **8.64%** while agreement loses **2.47 percentage points**.
-Even error across the best-action boundary falls. Better forecasts alone do
-not guarantee better choices.
+Adding a decision-focused loss **worsened later choices in all 12 paired
+comparisons**. Mean teacher-score gaps increased **26-34%** for explicit
+correction and **52-107%** for the ordinary GRU. Some agreement scores improved;
+the primary metric did not.
 
-[![All recurrent fits: score error, teacher gap and action agreement](docs/assets/otto-ranking-levels.png)](research/otto-ranking-diagnosis-results.md)
+[![All paired changes, descriptive only because the original training parent is unverified](docs/assets/otto-action-focused-changes.png)](research/otto-action-focused-results.md)
 
-This is a retrospective diagnostic, not a new performance gain. All three
-[original continuation decisions](research/otto-separate-prior-results.md)
-remain failed. The fresh twelve-fit decision-focused comparison finished
-training, but its supervising process has no final exit record after a
-session interruption. Its technical-completion condition remains unmet;
-[saved-output diagnosis](research/otto-action-focused-interruption-protocol.md) is pending.
-[Results](research/otto-ranking-diagnosis-results.md) ·
-[Evidence](https://github.com/kw2828/OpenJev/releases/tag/otto-ranking-diagnosis-v1) ·
-[Frozen experiment](research/otto-action-focused-protocol.md).
+An independent diagnostic reconciles the saved results. The original training
+supervisor's final record is missing after a session interruption, so these
+results remain descriptive and the experiment cannot qualify for continuation.
+Next: test a separate action readout while keeping the recurrent predictor fixed.
+[Results and limits](research/otto-action-focused-results.md) ·
+[Models and evidence](https://github.com/kw2828/OpenJev/releases/tag/otto-action-focused-v1) ·
+[Next experiment](research/otto-protected-readout-design.md).
 
 Earlier comparisons, controls and incomplete runs remain in the
 [experiment archive](research/experiment-index.md).
@@ -80,6 +77,7 @@ Earlier comparisons, controls and incomplete runs remain in the
 The separate [shared-prefix scoring experiment](research/shared-prefix-results.md)
 measured **2.08x** speedup on four-question synthetic workloads; single-question
 caching was slower. This does not reproduce a proprietary RLCD system.
+[Public Qwen RLCD code review](research/rlcd-public-implementation-review.md).
 
 ## Limits and provenance
 
