@@ -1,0 +1,44 @@
+Traceback (most recent call last):
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/study_otto_query_advantage.py", line 734, in <module>
+    main()
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/study_otto_query_advantage.py", line 730, in main
+    Run(args).execute()
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/study_otto_query_advantage.py", line 658, in execute
+    summaries = self.label_anchors()
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/study_otto_query_advantage.py", line 577, in label_anchors
+    records = self.ledger.call("pair_panel", lambda anchor=anchor, belief=belief: self.sample_pair(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/study_otto_query_advantage.py", line 268, in call
+    result = function()
+             ^^^^^^^^^^
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/study_otto_query_advantage.py", line 577, in <lambda>
+    records = self.ledger.call("pair_panel", lambda anchor=anchor, belief=belief: self.sample_pair(
+                                                                                  ^^^^^^^^^^^^^^^^^
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/src/openjev/research/otto_query_pair_rollouts.py", line 54, in sample_query_pair
+    records.append(inherited._continuation(events, public, belief, kernel,
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/src/openjev/research/otto_teacher_rollouts.py", line 182, in _continuation
+    action, _ = events.call("teacher_choose", teacher.choose,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/src/openjev/research/otto_teacher_rollouts.py", line 108, in call
+    result = function(*args)
+             ^^^^^^^^^^^^^^^
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/src/openjev/research/otto_reference_control.py", line 112, in choose
+    action, scores = self._policy._value_policy()
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/src/openjev/research/otto_reference_control.py", line 52, in _value_policy
+    distance = self.env._extract_N_from_2N(self.distance_array, target)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/src/openjev/research/otto_released_policy.py", line 112, in _extract_N_from_2N
+    position = _position(origin)
+               ^^^^^^^^^^^^^^^^^
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/src/openjev/research/otto_released_policy.py", line 36, in _position
+    return tuple(_integer(x, "coordinate", 0, N - 1) for x in value)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/src/openjev/research/otto_released_policy.py", line 36, in <genexpr>
+    return tuple(_integer(x, "coordinate", 0, N - 1) for x in value)
+
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/study_otto_query_advantage.py", line 613, in interrupt
+    raise InterruptedError("pilot terminated")
+InterruptedError: pilot terminated

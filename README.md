@@ -54,7 +54,9 @@ The stronger memory comparison **failed its rule: 24/25 checks passed**. Persist
 
 The GIF is from the earlier, weaker-control study. The [stronger comparison](research/reacher-two-observation-control.md) retains all nine models, five references and complete costs. Neither establishes a new architecture or biological-wiring advantage.
 
-## Latest completed research
+## Research status
+
+The [follow-up query-value pilot](research/otto-query-advantage-results.md) hit its fixed 15-minute limit after **72 trajectories and 210/256 label panels**. It remains incomplete; no signal conclusion or new model is claimed. [Protocol and preserved evidence](research/otto-query-advantage-protocol.md).
 
 [Learned query gates](research/otto-query-gate-learning-results.md): **six models, 576 fresh odor-source searches, continuation rule failed with 30/38 checks passed**. Recurrent and stateless gates called the existing neural planner on every decision. All searches succeeded, but the gates saved no computation and added overhead.
 
