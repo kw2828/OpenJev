@@ -25,3 +25,8 @@ beat both fixed alternatives after switches without worsening stable cases.
 If fixed decay explains the improvement, or the gate suppresses memory everywhere,
 reject the adaptive-memory explanation. This proposal does not change the current
 experiment or admit another run.
+
+A [Bayesian memory baseline proposal](otto-query-memory-bayesian-baseline.md)
+compares this rule with recursive least squares, ALPaCA, Longhorn and Bayesian
+synaptic plasticity. It specifies the additional state and uncertainty
+assumptions for a separate comparison; it does not modify the frozen study.
