@@ -1,6 +1,6 @@
 # Query-written memory study status
 
-**All 108 trajectories are collected; training and evaluation code pass qualification.**
+**Training is running on the completed 108-trajectory collection.**
 No new learned-model performance result exists. The earlier protected-readout
 FAIL 15/29 is unchanged.
 
@@ -40,8 +40,9 @@ records all 108 trajectories: 54 TRAIN, 18 DEV and 36 TEST. Its
 completed with exit code zero, no timeout, a reaped worker and an absent worker
 process group. Collection took 2,154.57 seconds including supervisor cleanup.
 All 17 payload hashes were authenticated before the capacity planner used only
-TRAIN episode lengths. No collected arrays or checkpoints have been decoded for
-fitting or evaluation. Raw collection payloads remain local pending an evidence
+TRAIN episode lengths. TRAIN arrays are now decoded inside the admitted worker;
+DEV access is guarded by the completed checkpoint/TRAIN-prediction barrier,
+and this producer cannot decode TEST. Raw collection payloads remain local pending an evidence
 release; the receipts identify their exact bytes.
 
 The [capacity check](../output/otto-query-memory-v1/capacity-01/summary.json)
@@ -53,8 +54,11 @@ group. This estimate is not a runtime guarantee or an effectiveness result.
 The [training plan](../output/otto-query-memory-v1/training-plan-01.json) is
 frozen before fitting. It binds both completed phases, all qualified sources,
 18 fits across three seeds and the unchanged 21,600-second hard limit. The
-training worker has not started at this publication. No scientific retries,
-replacement seeds, shortened schedules or budget extensions are allowed.
+[original training worker](../output/otto-query-memory-v1/training-native-01.launch.json)
+is now running. It completed its first three pretraining epochs at the first
+live check; both worker and supervisor were present. Launch and progress do not
+establish completion or model effectiveness. No scientific retries, replacement
+seeds, shortened schedules or budget extensions are allowed.
 
 The period-eight comparison changes observations on fixed collected paths.
 It does not establish autonomous search quality, teacher-call savings or an ICLR
