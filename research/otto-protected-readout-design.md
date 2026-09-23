@@ -1,6 +1,6 @@
 # Preserve recurrent forecasts while adapting decisions
 
-Status: the complete collection, training and independent-audit implementation passed 323 fabricated checks and Ruff. The [collection plan](../output/otto-protected-readout-v1/collection-plan-01.json) binds fresh seeds, the protocol, runtime and source hashes. Collection and fitting have not started at this publication checkpoint.
+Status: all 90 fresh trajectories are collected, and the original supervisor closed successfully in 611.60 seconds. The implementation passed 323 fabricated checks and Ruff. The [collection plan](../output/otto-protected-readout-v1/collection-plan-01.json) and [training plan](../output/otto-protected-readout-v1/training-plan-01.json) bind the exact data, seeds, protocol, runtime and source hashes. Training has not started at this publication checkpoint; there is no new effectiveness result.
 
 The [previous fixed SPO+ recipe](otto-action-focused-results.md) lowered its TRAIN decision surrogate but worsened the later teacher-score gap in every paired comparison. Both score-MSE components rose. That observation motivates a causal comparison of where adaptation is allowed; it does not demonstrate damaged memory, conflicting gradients or insufficient recurrent capacity.
 
@@ -25,7 +25,7 @@ Use 80 AUX pretraining epochs and 40 adaptation epochs: three shared pretrains a
 
 The final protocol must reserve fresh collection, fitting and selection seeds and specify exact cohort sizes, optimizer resets, schedules, row masks, detach conventions, loss arithmetic, budgets and source pins before collection. No old VALID trajectory may select a branch, coefficient or stopping time. Save final checkpoints only and close all branches before untouched evaluation is decoded. Previous failed and incomplete studies remain closed.
 
-The [protocol](otto-protected-readout-protocol.md) specifies 54 fresh TRAIN paths, 36 fresh VALID paths, 15 final models including references and one 29-condition gate. Its initial implementation-stage status is superseded for collection by the published, hash-bound plan. Fitting still requires a separate plan authenticating this collection's successful original supervisor closure. [Integrated qualification](../output/otto-protected-readout-v1/integrated-engineering-01/qualification-01/receipt.json) and [source reviews](../output/otto-protected-readout-v1/study-engineering-01/source-review-01.json) precede empirical work.
+The [protocol](otto-protected-readout-protocol.md) specifies 54 fresh TRAIN paths, 36 fresh VALID paths, 15 final models including references and one 29-condition gate. Its initial implementation-stage status is superseded by the published, hash-bound plans. The training plan authenticates the collection's successful original supervisor closure before any training array is decoded. [Integrated qualification](../output/otto-protected-readout-v1/integrated-engineering-01/qualification-01/receipt.json) and [source reviews](../output/otto-protected-readout-v1/study-engineering-01/source-review-01.json) precede empirical work.
 
 ## Required evidence
 

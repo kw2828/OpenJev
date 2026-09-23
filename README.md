@@ -66,7 +66,9 @@ the primary metric did not.
 An independent diagnostic reconciles the saved results. The original training
 supervisor's final record is missing after a session interruption, so these
 results remain descriptive and the experiment cannot qualify for continuation.
-Next: test a separate action readout while keeping the recurrent predictor fixed.
+The next comparison tests a separate action readout while keeping the recurrent
+predictor fixed. All 90 fresh trajectories are collected and the five-way,
+three-seed training comparison is registered. Effectiveness results are pending.
 [Results and limits](research/otto-action-focused-results.md) ·
 [Models and evidence](https://github.com/kw2828/OpenJev/releases/tag/otto-action-focused-v1) ·
 [Next experiment](research/otto-protected-readout-design.md).
