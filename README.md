@@ -66,11 +66,11 @@ not guarantee better choices.
 
 This is a retrospective diagnostic, not a new performance gain. All three
 [original continuation decisions](research/otto-separate-prior-results.md)
-remain failed. Next: test an established decision-focused loss against the
-ordinary GRU before changing memory architecture.
+remain failed. A fresh twelve-fit comparison of decision-focused training
+against the ordinary GRU is underway; results are pending.
 [Results](research/otto-ranking-diagnosis-results.md) ·
 [Evidence](https://github.com/kw2828/OpenJev/releases/tag/otto-ranking-diagnosis-v1) ·
-[Next experiment](research/otto-action-focused-design.md).
+[Frozen experiment](research/otto-action-focused-protocol.md).
 
 Earlier comparisons, controls and incomplete runs remain in the
 [experiment archive](research/experiment-index.md).

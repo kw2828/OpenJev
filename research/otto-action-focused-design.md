@@ -1,6 +1,6 @@
 # Action-focused training before another memory architecture
 
-Status: prospective engineering and experiment design. No new fit, policy result or continuation decision is reported here. The [ranking diagnosis](otto-ranking-diagnosis-results.md) leaves the original failed studies closed.
+Status: implemented and qualified; the [fresh twelve-fit study](otto-action-focused-protocol.md) is underway. Its protocol and sources were frozen before collection in commit `1b61df2`. No new performance result or continuation decision is reported here. The [ranking diagnosis](otto-ranking-diagnosis-results.md) leaves the original failed studies closed. The frozen protocol now supplies the exact execution contract for this earlier design.
 
 ## Question
 
@@ -36,8 +36,10 @@ Compare an ordinary shared GRU, a matched additive-write memory, and a delta-wri
 
 The present analysis does not identify memory capacity as the cause of the failures. Any retained development gain still needs untouched-seed confirmation, an unseen scenario shift, autonomous quality-versus-total-compute evidence and a second environment before a paper-level architecture claim.
 
-## Implemented component
+## Implemented comparison
 
 The standalone [SPO+ loss](../src/openjev/research/otto_spo_plus_loss.py) is implemented and independently source-reviewed. All [27 fabricated tests](../tests/test_otto_spo_plus_loss.py) and Ruff passed, including hand-calculated values, gradients, exact ties, padding, illegal actions, fixed weights and an exhaustive 98,415-case formula/regret grid. [Qualification receipt](../output/otto-spo-plus-loss-v1/engineering-01/qualification-01/receipt.json).
 
-It exposes per-row losses and a weighted scalar. The maximum uses the first maximizing action for its subgradient; the teacher reference is uniform over exact raw-float32 minima. This component is not integrated into a trainer and has produced no trained model or performance result. The twelve-fit study above remains unfrozen and unexecuted.
+It exposes per-row losses and a weighted scalar. The maximum uses the first maximizing action for its subgradient; the teacher reference is uniform over exact raw-float32 minima. The new [trainer](../scripts/train_otto_action_focused.py) integrates the loss with unchanged shared-output models. All **190 fabricated checks** and Ruff passed across collection, loss, training, metrics and the independent saved-output audit. [Qualification receipt](../output/otto-action-focused-v1/engineering-01/qualification-01/receipt.json).
+
+The frozen comparison uses 54 fresh TRAIN paths, 36 VALID paths and three paired seeds for each of four cells. It closes every final checkpoint before decoding VALID, with separate objective and architecture continuation decisions. Engineering success and an active run are not evidence of improved decisions; results remain pending.
