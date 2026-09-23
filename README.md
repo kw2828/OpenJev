@@ -56,15 +56,13 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Research status
 
-The [follow-up query-value pilot](research/otto-query-advantage-results.md) hit its fixed 15-minute limit after **72 trajectories and 210/256 label panels**. It remains incomplete; no signal conclusion or new model is claimed. [Protocol and preserved evidence](research/otto-query-advantage-protocol.md).
+The [completed query-value pilot](research/otto-query-advantage-v2-results.md) collected **72 paths and 264 paired label panels**, but failed its continuation rule: **7/11 conditions passed**. The base signal covers too few independent cases; the shifted setting shows no positive repeatability. No new gate is trained from this recipe.
 
-[Learned query gates](research/otto-query-gate-learning-results.md): **six models, 576 fresh odor-source searches, continuation rule failed with 30/38 checks passed**. Recurrent and stateless gates called the existing neural planner on every decision. All searches succeeded, but the gates saved no computation and added overhead.
+[![All query-value anchors and bootstrap draws, including the failed continuation rule](docs/assets/otto-query-advantage-v2.png)](research/otto-query-advantage-v2-results.md)
 
-[![All six query gates and both controls: search moves versus complete controller time in two primary settings and one transfer setting](docs/assets/otto-query-gate-tradeoff.png)](research/otto-query-gate-learning-results.md)
+The separate [logging benchmark](research/otto-query-logging-results.md) measured **5.103x median speedup** on fabricated event streams with identical output and per-event durability. This is an engineering result, not a model speedup.
 
-The neural planner uses fewer moves than analytic control in the two primary settings, but **2.34x as many moves** in the changed setting. The learned gates inherit those paths; overlapping points reflect identical behavior. No recurrence advantage is established. The independent saved-record audit agrees with the reported results.
-
-[Results and all models](research/otto-query-gate-learning-results.md) · [Evaluation protocol](research/otto-query-gate-evaluation-protocol.md) · [Evidence and checkpoints](https://github.com/kw2828/OpenJev/releases/tag/otto-query-gate-learning-v1) · [Next experiment](research/otto-query-gate-next-experiment.md).
+Earlier [recurrent and stateless query gates](research/otto-query-gate-learning-results.md) queried on every decision across 576 searches, saving no computation. The next proposed test is whether simple sparse-query controls preserve performance while reducing total cost. [Complete evidence](https://github.com/kw2828/OpenJev/releases/tag/otto-query-advantage-v2).
 
 Earlier spatial, dialogue, RockSample and memory studies remain in the [experiment archive](research/experiment-index.md), including negative results and failed attempts. The separate [shared-prefix scoring experiment](research/shared-prefix-results.md) measured **2.08x** speedup on four-question synthetic workloads; single-question caching was slower. This does not reproduce a proprietary RLCD system.
 

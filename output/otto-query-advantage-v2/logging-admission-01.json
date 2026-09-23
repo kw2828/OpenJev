@@ -1,0 +1,1081 @@
+{
+  "admitted": true,
+  "checks": {
+    "all_fabricated_bytes_verified": true,
+    "all_reviewed_files_unchanged": true,
+    "count": 1341,
+    "durable_append_count_agreement": true,
+    "engineering_receipts_and_logs": true,
+    "exact_payload_closure": true,
+    "frozen_speedup_gate": true,
+    "original_successful_supervisor": true,
+    "source_closure": true,
+    "timing_arithmetic": true
+  },
+  "details": {
+    "append_fsyncs_per_arm": 4096,
+    "candidate_additional_close_fsyncs": 1,
+    "closed_output_bytes": 11663571,
+    "engineering": [
+      {
+        "bytes": 1514,
+        "files": {
+          "command-0.log": {
+            "bytes": 99,
+            "sha256": "8c776bb4fa98b32be608b2afe1d90a7255c18c27e43bd48fbb222c8001fe5d78"
+          },
+          "command-1.log": {
+            "bytes": 19,
+            "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+          }
+        },
+        "path": "output/otto-query-advantage-v2/journal-engineering-01/receipt.json",
+        "results": [
+          {
+            "command": [
+              "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv-otto-released-native/bin/python",
+              "-m",
+              "pytest",
+              "-q",
+              "tests/test_durable_jsonl.py"
+            ],
+            "exit_code": 0,
+            "log": "command-0.log",
+            "seconds": 5.060182250104845
+          },
+          {
+            "command": [
+              "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/ruff",
+              "check",
+              "src/openjev/research/durable_jsonl.py",
+              "tests/test_durable_jsonl.py"
+            ],
+            "exit_code": 0,
+            "log": "command-1.log",
+            "seconds": 0.08519050013273954
+          }
+        ],
+        "sha256": "d9be79b007a9ec9aa900c1295a3a5553cf55c41dab41877a2c98eb865256de60",
+        "sources_after": {
+          "src/openjev/research/durable_jsonl.py": "6a2bd3935b859727ad54389bd6e9ed9a93dc0f0aa5c2b88195c615bcf61fd0d6",
+          "tests/test_durable_jsonl.py": "55897533db05503d28afbf9c3587beb2fdf7227b9e628ce2201314976781ad7a"
+        },
+        "sources_before": {
+          "src/openjev/research/durable_jsonl.py": "6a2bd3935b859727ad54389bd6e9ed9a93dc0f0aa5c2b88195c615bcf61fd0d6",
+          "tests/test_durable_jsonl.py": "55897533db05503d28afbf9c3587beb2fdf7227b9e628ce2201314976781ad7a"
+        },
+        "status": "passed",
+        "tests_passed": 19
+      },
+      {
+        "bytes": 2511,
+        "files": {
+          "command-0.log": {
+            "bytes": 99,
+            "sha256": "e431b716bcd6c07735354426ac34552b6129ba8dd0d8644e4e60f78aa669e259"
+          },
+          "command-1.log": {
+            "bytes": 19,
+            "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+          }
+        },
+        "path": "output/otto-query-advantage-v2/integration-engineering-01/receipt.json",
+        "results": [
+          {
+            "command": [
+              "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv-otto-released-native/bin/python",
+              "-m",
+              "pytest",
+              "-q",
+              "tests/test_study_otto_query_advantage_v2.py",
+              "tests/test_audit_otto_query_advantage_v2.py"
+            ],
+            "exit_code": 0,
+            "log": "command-0.log",
+            "seconds": 1.3519018338993192
+          },
+          {
+            "command": [
+              "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/ruff",
+              "check",
+              "scripts/study_otto_query_advantage_v2.py",
+              "tests/test_study_otto_query_advantage_v2.py",
+              "scripts/audit_otto_query_advantage_v2.py",
+              "tests/test_audit_otto_query_advantage_v2.py",
+              "scripts/qualify_otto_query_logging.py"
+            ],
+            "exit_code": 0,
+            "log": "command-1.log",
+            "seconds": 0.15537491696886718
+          }
+        ],
+        "sha256": "20ea2d65f9fe0ae84139a4836a807394e63e8a5ed07f027e67f6ef930fcce410",
+        "sources_after": {
+          "scripts/audit_otto_query_advantage_v2.py": "638656e2bd4283af27fbe734837f79e5d7feaaf6a9e3ad271ea4cfabf6804bce",
+          "scripts/qualify_otto_query_logging.py": "c074895f7d17fc33ee9bd01e25b1eb97f69b357ef97d4aa84143e35869119577",
+          "scripts/study_otto_query_advantage_v2.py": "a8a51a5124ca2d7155b8dc339123b63ee54c66b6581c1c13e70a6e38bd6e76ca",
+          "tests/test_audit_otto_query_advantage_v2.py": "a8b8da323f71f14bea0f4b406518456fd7b2c14aeb77a6de4387c339f4e26bdd",
+          "tests/test_study_otto_query_advantage_v2.py": "0eb595094511af682e185b7d7b8f064708dc5ff4110286beaf269ce8ea435504"
+        },
+        "sources_before": {
+          "scripts/audit_otto_query_advantage_v2.py": "638656e2bd4283af27fbe734837f79e5d7feaaf6a9e3ad271ea4cfabf6804bce",
+          "scripts/qualify_otto_query_logging.py": "c074895f7d17fc33ee9bd01e25b1eb97f69b357ef97d4aa84143e35869119577",
+          "scripts/study_otto_query_advantage_v2.py": "a8a51a5124ca2d7155b8dc339123b63ee54c66b6581c1c13e70a6e38bd6e76ca",
+          "tests/test_audit_otto_query_advantage_v2.py": "a8b8da323f71f14bea0f4b406518456fd7b2c14aeb77a6de4387c339f4e26bdd",
+          "tests/test_study_otto_query_advantage_v2.py": "0eb595094511af682e185b7d7b8f064708dc5ff4110286beaf269ce8ea435504"
+        },
+        "status": "passed",
+        "tests_passed": 33
+      }
+    ],
+    "engineering_source_boundary": [
+      {
+        "engineering_sha256": "c074895f7d17fc33ee9bd01e25b1eb97f69b357ef97d4aa84143e35869119577",
+        "scope": "The 52 tests cover unchanged journal/producer/auditor sources; final benchmark lifecycle patch has separate source review and final static check e921e0, not a claimed rerun of those tests.",
+        "source": "scripts/qualify_otto_query_logging.py",
+        "timed_sha256": "5fa2a38394d6bb1881c370122a10301b014089805801017072f2d1f29a89c81a"
+      }
+    ],
+    "events_per_trace": 4096,
+    "faster_blocks": 6,
+    "frozen_sources": {
+      "research/otto-query-logging-qualification-protocol.md": {
+        "bytes": 2145,
+        "sha256": "27319e5d3d4b75d045bd103ae4b755a362839cedcfc99bf5c3b17d124f6558c2"
+      },
+      "scripts/qualify_otto_query_logging.py": {
+        "bytes": 14131,
+        "sha256": "5fa2a38394d6bb1881c370122a10301b014089805801017072f2d1f29a89c81a"
+      },
+      "scripts/study_otto_query_advantage.py": {
+        "bytes": 46233,
+        "sha256": "ab67e579a7db5147e8cc61cc6e467a85da65edc8c1fc9d121c0180393a1ca6ff"
+      },
+      "scripts/study_otto_query_advantage_v2.py": {
+        "bytes": 52020,
+        "sha256": "a8a51a5124ca2d7155b8dc339123b63ee54c66b6581c1c13e70a6e38bd6e76ca"
+      },
+      "scripts/supervise_dialogue_observation_v2.py": {
+        "bytes": 9715,
+        "sha256": "610a2fcd2d4d55eb35bce92e61942d5169491dee9d05e2f47f65e211fdf94144"
+      },
+      "src/openjev/research/durable_jsonl.py": {
+        "bytes": 14482,
+        "sha256": "6a2bd3935b859727ad54389bd6e9ed9a93dc0f0aa5c2b88195c615bcf61fd0d6"
+      },
+      "src/openjev/research/suspend_clock.py": {
+        "bytes": 5919,
+        "sha256": "cac9077db3c66f5ef43d9412b732f5b869c1004c4bac98589816780c120f6124"
+      },
+      "tests/test_durable_jsonl.py": {
+        "bytes": 9634,
+        "sha256": "55897533db05503d28afbf9c3587beb2fdf7227b9e628ce2201314976781ad7a"
+      },
+      "tests/test_study_otto_query_advantage_v2.py": {
+        "bytes": 8015,
+        "sha256": "0eb595094511af682e185b7d7b8f064708dc5ff4110286beaf269ce8ea435504"
+      }
+    },
+    "measured_total_seconds": 8.329273207811639,
+    "median_speedup": 5.103019357580662,
+    "original_session": 91514,
+    "original_terminal_tool": "a2860e",
+    "parent_seconds": 8.555973209,
+    "payload_count": 181,
+    "peak_worker_rss_bytes": 36913152,
+    "required_faster_blocks": 5,
+    "required_median_speedup": 2,
+    "review_seconds_before_publication": 0.06578191602602601,
+    "reviewed_descriptors": {
+      "output/otto-query-advantage-v2/integration-engineering-01/command-0.log": {
+        "bytes": 99,
+        "sha256": "e431b716bcd6c07735354426ac34552b6129ba8dd0d8644e4e60f78aa669e259"
+      },
+      "output/otto-query-advantage-v2/integration-engineering-01/command-1.log": {
+        "bytes": 19,
+        "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+      },
+      "output/otto-query-advantage-v2/integration-engineering-01/receipt.json": {
+        "bytes": 2511,
+        "sha256": "20ea2d65f9fe0ae84139a4836a807394e63e8a5ed07f027e67f6ef930fcce410"
+      },
+      "output/otto-query-advantage-v2/journal-engineering-01/command-0.log": {
+        "bytes": 99,
+        "sha256": "8c776bb4fa98b32be608b2afe1d90a7255c18c27e43bd48fbb222c8001fe5d78"
+      },
+      "output/otto-query-advantage-v2/journal-engineering-01/command-1.log": {
+        "bytes": 19,
+        "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+      },
+      "output/otto-query-advantage-v2/journal-engineering-01/receipt.json": {
+        "bytes": 1514,
+        "sha256": "d9be79b007a9ec9aa900c1295a3a5553cf55c41dab41877a2c98eb865256de60"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-00-new/anchors.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-00-new/anchors.npz": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-00-new/episodes.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-00-new/forwards.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-00-new/gate-operations.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-00-new/native-truth.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-00-new/panels.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-00-new/public-transitions.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-00-new/receipt.json": {
+        "bytes": 413,
+        "sha256": "0a0ca8f67c08f88cdc2b9db3a5feb0e795a5b08f5ba7827164985dfac0339ce5"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-00-new/runtime.json": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-00-new/sampler-events.jsonl": {
+        "bytes": 968282,
+        "sha256": "e304d22ce293d3f550f7f01ff8c978561cdf8f82797105f87b184ff7f59bbb15"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-00-new/setup.json": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-00-new/started.json": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-00-new/weights.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-00-new/work.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-00-old/anchors.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-00-old/anchors.npz": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-00-old/episodes.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-00-old/forwards.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-00-old/gate-operations.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-00-old/native-truth.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-00-old/panels.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-00-old/public-transitions.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-00-old/receipt.json": {
+        "bytes": 412,
+        "sha256": "e34a1f9c3d177d573238c674b645aff04433bcedc31876615ffe806ac022ffef"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-00-old/runtime.json": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-00-old/sampler-events.jsonl": {
+        "bytes": 968282,
+        "sha256": "e304d22ce293d3f550f7f01ff8c978561cdf8f82797105f87b184ff7f59bbb15"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-00-old/setup.json": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-00-old/started.json": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-00-old/weights.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-00-old/work.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-01-new/anchors.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-01-new/anchors.npz": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-01-new/episodes.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-01-new/forwards.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-01-new/gate-operations.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-01-new/native-truth.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-01-new/panels.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-01-new/public-transitions.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-01-new/receipt.json": {
+        "bytes": 414,
+        "sha256": "0ffe4feb6e12d5f1f7ff7c70ab06c80c7f6cf1f7d63a3612e6f2f6c94e4e756e"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-01-new/runtime.json": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-01-new/sampler-events.jsonl": {
+        "bytes": 968282,
+        "sha256": "e304d22ce293d3f550f7f01ff8c978561cdf8f82797105f87b184ff7f59bbb15"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-01-new/setup.json": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-01-new/started.json": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-01-new/weights.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-01-new/work.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-01-old/anchors.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-01-old/anchors.npz": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-01-old/episodes.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-01-old/forwards.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-01-old/gate-operations.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-01-old/native-truth.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-01-old/panels.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-01-old/public-transitions.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-01-old/receipt.json": {
+        "bytes": 412,
+        "sha256": "170ebfbf026de025bdc382e98603fe181276c9476ddd1cd7b1c0e5c3af3b43ce"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-01-old/runtime.json": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-01-old/sampler-events.jsonl": {
+        "bytes": 968282,
+        "sha256": "e304d22ce293d3f550f7f01ff8c978561cdf8f82797105f87b184ff7f59bbb15"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-01-old/setup.json": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-01-old/started.json": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-01-old/weights.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-01-old/work.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-02-new/anchors.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-02-new/anchors.npz": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-02-new/episodes.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-02-new/forwards.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-02-new/gate-operations.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-02-new/native-truth.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-02-new/panels.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-02-new/public-transitions.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-02-new/receipt.json": {
+        "bytes": 412,
+        "sha256": "b6eac16aa3215484fb4b098ad8e798fa843d4a9f1d71b4e3b2a13bfbcb6a6be4"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-02-new/runtime.json": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-02-new/sampler-events.jsonl": {
+        "bytes": 968282,
+        "sha256": "e304d22ce293d3f550f7f01ff8c978561cdf8f82797105f87b184ff7f59bbb15"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-02-new/setup.json": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-02-new/started.json": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-02-new/weights.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-02-new/work.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-02-old/anchors.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-02-old/anchors.npz": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-02-old/episodes.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-02-old/forwards.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-02-old/gate-operations.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-02-old/native-truth.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-02-old/panels.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-02-old/public-transitions.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-02-old/receipt.json": {
+        "bytes": 413,
+        "sha256": "caf5f251dac9b666638a31dc3f9bf276efe5bfdd9b86d76306fcdaa56f2be52c"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-02-old/runtime.json": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-02-old/sampler-events.jsonl": {
+        "bytes": 968282,
+        "sha256": "e304d22ce293d3f550f7f01ff8c978561cdf8f82797105f87b184ff7f59bbb15"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-02-old/setup.json": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-02-old/started.json": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-02-old/weights.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-02-old/work.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-03-new/anchors.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-03-new/anchors.npz": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-03-new/episodes.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-03-new/forwards.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-03-new/gate-operations.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-03-new/native-truth.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-03-new/panels.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-03-new/public-transitions.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-03-new/receipt.json": {
+        "bytes": 413,
+        "sha256": "084085d172d05f4230a5318fe11dbfd9e18f37f502a6502f2c569be4fc401843"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-03-new/runtime.json": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-03-new/sampler-events.jsonl": {
+        "bytes": 968282,
+        "sha256": "e304d22ce293d3f550f7f01ff8c978561cdf8f82797105f87b184ff7f59bbb15"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-03-new/setup.json": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-03-new/started.json": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-03-new/weights.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-03-new/work.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-03-old/anchors.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-03-old/anchors.npz": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-03-old/episodes.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-03-old/forwards.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-03-old/gate-operations.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-03-old/native-truth.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-03-old/panels.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-03-old/public-transitions.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-03-old/receipt.json": {
+        "bytes": 409,
+        "sha256": "7442a591e312cdfae43cd9fe75b0ff8a47b84a2dd78c12b03d1181c49c27a7e0"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-03-old/runtime.json": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-03-old/sampler-events.jsonl": {
+        "bytes": 968282,
+        "sha256": "e304d22ce293d3f550f7f01ff8c978561cdf8f82797105f87b184ff7f59bbb15"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-03-old/setup.json": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-03-old/started.json": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-03-old/weights.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-03-old/work.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-04-new/anchors.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-04-new/anchors.npz": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-04-new/episodes.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-04-new/forwards.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-04-new/gate-operations.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-04-new/native-truth.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-04-new/panels.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-04-new/public-transitions.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-04-new/receipt.json": {
+        "bytes": 415,
+        "sha256": "654c8118cd7e6c8ac6dac608f67fec81449810d7549df6e7525279b0db87a056"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-04-new/runtime.json": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-04-new/sampler-events.jsonl": {
+        "bytes": 968282,
+        "sha256": "e304d22ce293d3f550f7f01ff8c978561cdf8f82797105f87b184ff7f59bbb15"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-04-new/setup.json": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-04-new/started.json": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-04-new/weights.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-04-new/work.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-04-old/anchors.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-04-old/anchors.npz": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-04-old/episodes.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-04-old/forwards.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-04-old/gate-operations.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-04-old/native-truth.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-04-old/panels.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-04-old/public-transitions.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-04-old/receipt.json": {
+        "bytes": 411,
+        "sha256": "9c52836b39910db8b1bf18eebe837a361df5de0bf513b933238a6e89a947a14e"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-04-old/runtime.json": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-04-old/sampler-events.jsonl": {
+        "bytes": 968282,
+        "sha256": "e304d22ce293d3f550f7f01ff8c978561cdf8f82797105f87b184ff7f59bbb15"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-04-old/setup.json": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-04-old/started.json": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-04-old/weights.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-04-old/work.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-05-new/anchors.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-05-new/anchors.npz": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-05-new/episodes.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-05-new/forwards.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-05-new/gate-operations.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-05-new/native-truth.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-05-new/panels.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-05-new/public-transitions.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-05-new/receipt.json": {
+        "bytes": 412,
+        "sha256": "2d4d2312fcffdb2ffdf24ae9d39d183a3bbc452109c8c4cbb5d0c515cc5b1a56"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-05-new/runtime.json": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-05-new/sampler-events.jsonl": {
+        "bytes": 968282,
+        "sha256": "e304d22ce293d3f550f7f01ff8c978561cdf8f82797105f87b184ff7f59bbb15"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-05-new/setup.json": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-05-new/started.json": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-05-new/weights.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-05-new/work.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-05-old/anchors.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-05-old/anchors.npz": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-05-old/episodes.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-05-old/forwards.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-05-old/gate-operations.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-05-old/native-truth.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-05-old/panels.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-05-old/public-transitions.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-05-old/receipt.json": {
+        "bytes": 412,
+        "sha256": "8d0c1d13d8e96c4fe4a621c70d9fe46fd1ca63efa4757e87cb7a6b0450b52ef2"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-05-old/runtime.json": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-05-old/sampler-events.jsonl": {
+        "bytes": 968282,
+        "sha256": "e304d22ce293d3f550f7f01ff8c978561cdf8f82797105f87b184ff7f59bbb15"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-05-old/setup.json": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-05-old/started.json": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-05-old/weights.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/block-05-old/work.jsonl": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "output/otto-query-advantage-v2/logging-01/receipt.json": {
+        "bytes": 35947,
+        "sha256": "9486e1ee975e2037ff0637bdc476f5e74d634bda81d441e6e388f228d769ec2c"
+      },
+      "output/otto-query-advantage-v2/logging-01/started.json": {
+        "bytes": 3292,
+        "sha256": "5bba41bbdc1d363bba252124cb9d3d32e804100e713cc3673b557bf6c14a8f5e"
+      },
+      "output/otto-query-advantage-v2/logging-plan-01.json": {
+        "bytes": 2385,
+        "sha256": "896389bae7ff5ffdd5a538be523b22d07827f4bd31a8cfad9d0cbafcf206a7eb"
+      },
+      "output/otto-query-advantage-v2/logging-supervision-01.launch.json": {
+        "bytes": 1246,
+        "sha256": "0e4234a07da404570e9b8b6509f5e012655de1c16ec62478d60c51c28dbdff15"
+      },
+      "output/otto-query-advantage-v2/logging-supervision-01.terminal.json": {
+        "bytes": 1812,
+        "sha256": "449bbc83949c11d1f46ebe2c58bc06e23ec84ce36dbffde6e2e1e6004115f408"
+      },
+      "research/otto-query-logging-qualification-protocol.md": {
+        "bytes": 2145,
+        "sha256": "27319e5d3d4b75d045bd103ae4b755a362839cedcfc99bf5c3b17d124f6558c2"
+      },
+      "scripts/audit_otto_query_advantage_v2.py": {
+        "bytes": 64859,
+        "sha256": "638656e2bd4283af27fbe734837f79e5d7feaaf6a9e3ad271ea4cfabf6804bce"
+      },
+      "scripts/qualify_otto_query_logging.py": {
+        "bytes": 14131,
+        "sha256": "5fa2a38394d6bb1881c370122a10301b014089805801017072f2d1f29a89c81a"
+      },
+      "scripts/study_otto_query_advantage.py": {
+        "bytes": 46233,
+        "sha256": "ab67e579a7db5147e8cc61cc6e467a85da65edc8c1fc9d121c0180393a1ca6ff"
+      },
+      "scripts/study_otto_query_advantage_v2.py": {
+        "bytes": 52020,
+        "sha256": "a8a51a5124ca2d7155b8dc339123b63ee54c66b6581c1c13e70a6e38bd6e76ca"
+      },
+      "scripts/supervise_dialogue_observation_v2.py": {
+        "bytes": 9715,
+        "sha256": "610a2fcd2d4d55eb35bce92e61942d5169491dee9d05e2f47f65e211fdf94144"
+      },
+      "src/openjev/research/durable_jsonl.py": {
+        "bytes": 14482,
+        "sha256": "6a2bd3935b859727ad54389bd6e9ed9a93dc0f0aa5c2b88195c615bcf61fd0d6"
+      },
+      "src/openjev/research/suspend_clock.py": {
+        "bytes": 5919,
+        "sha256": "cac9077db3c66f5ef43d9412b732f5b869c1004c4bac98589816780c120f6124"
+      },
+      "tests/test_audit_otto_query_advantage_v2.py": {
+        "bytes": 7860,
+        "sha256": "a8b8da323f71f14bea0f4b406518456fd7b2c14aeb77a6de4387c339f4e26bdd"
+      },
+      "tests/test_durable_jsonl.py": {
+        "bytes": 9634,
+        "sha256": "55897533db05503d28afbf9c3587beb2fdf7227b9e628ce2201314976781ad7a"
+      },
+      "tests/test_study_otto_query_advantage_v2.py": {
+        "bytes": 8015,
+        "sha256": "0eb595094511af682e185b7d7b8f064708dc5ff4110286beaf269ce8ea435504"
+      }
+    },
+    "saved_events_byte_verified": 49152,
+    "timing_rows": [
+      {
+        "block": 0,
+        "new_seconds": 0.2388765828218311,
+        "old_seconds": 1.2011513740289956,
+        "speedup": 5.028334547655885
+      },
+      {
+        "block": 1,
+        "new_seconds": 0.21366758435033262,
+        "old_seconds": 1.1063075419515371,
+        "speedup": 5.177704167505439
+      },
+      {
+        "block": 2,
+        "new_seconds": 0.2381864998023957,
+        "old_seconds": 1.2402678332291543,
+        "speedup": 5.207129011333999
+      },
+      {
+        "block": 3,
+        "new_seconds": 0.22901479224674404,
+        "old_seconds": 1.029289749916643,
+        "speedup": 4.49442474793362
+      },
+      {
+        "block": 4,
+        "new_seconds": 0.23242637468501925,
+        "old_seconds": 1.2824897922109812,
+        "speedup": 5.517832448873293
+      },
+      {
+        "block": 5,
+        "new_seconds": 0.2292452489491552,
+        "old_seconds": 1.0883498336188495,
+        "speedup": 4.74753495920972
+      }
+    ],
+    "trace": {
+      "bytes": 968282,
+      "sha256": "e304d22ce293d3f550f7f01ff8c978561cdf8f82797105f87b184ff7f59bbb15"
+    },
+    "trace_count": 12,
+    "unallocated_worker_seconds": 0.10482850018836132,
+    "worker_seconds": 8.434101708
+  },
+  "launch": {
+    "bytes": 1246,
+    "path": "output/otto-query-advantage-v2/logging-supervision-01.launch.json",
+    "sha256": "0e4234a07da404570e9b8b6509f5e012655de1c16ec62478d60c51c28dbdff15"
+  },
+  "limits": {
+    "qualification": {
+      "output_bytes": 67108864,
+      "rss_bytes": 1073741824,
+      "seconds": 120
+    },
+    "saved_review": {
+      "output_bytes": 1048576,
+      "rss_bytes": 1073741824,
+      "seconds": 120
+    }
+  },
+  "plan": {
+    "bytes": 2385,
+    "path": "output/otto-query-advantage-v2/logging-plan-01.json",
+    "sha256": "896389bae7ff5ffdd5a538be523b22d07827f4bd31a8cfad9d0cbafcf206a7eb"
+  },
+  "receipt": {
+    "bytes": 35947,
+    "path": "output/otto-query-advantage-v2/logging-01/receipt.json",
+    "sha256": "9486e1ee975e2037ff0637bdc476f5e74d634bda81d441e6e388f228d769ec2c"
+  },
+  "scope": "Independent saved engineering evidence and arithmetic review only. Timers and successful fsync acknowledgements remain evidence from the original pinned harness. No rerun, model, native environment, sampler, optimization, empirical array decoding, or scientific outcome analysis. Admission qualifies fabricated durable logging and does not guarantee scientific completion within 900 seconds or establish learning efficacy.",
+  "status": "passed",
+  "terminal": {
+    "bytes": 1812,
+    "path": "output/otto-query-advantage-v2/logging-supervision-01.terminal.json",
+    "sha256": "449bbc83949c11d1f46ebe2c58bc06e23ec84ce36dbffde6e2e1e6004115f408"
+  },
+  "version": "otto-query-logging-admission-v1"
+}
