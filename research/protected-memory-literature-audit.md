@@ -1,0 +1,38 @@
+# Novelty audit: protected predictors, fast memory and connectomes
+
+Checked September 23, 2026, while the registered protected-readout experiment was training. No held-out outcomes from that running study informed this note. The studies below are the authors' reports, not OpenJev reproductions. This note changes neither the running experiment nor its continuation rule.
+
+**Preserving a predictor while adapting decisions is established.** The [current comparison](otto-protected-readout-design.md) tests a concrete gradient-routing choice with strong controls. Even a successful result would not establish a new architecture. Its ordinary GRU predicts teacher scores; it is not a reproduction of a visual world model.
+
+## Prior work that narrows the claim
+
+| Primary source | What is established | Consequence for OpenJev |
+| --- | --- | --- |
+| [DreamerV3, Nature 2025](https://www.nature.com/articles/s41586-025-08744-2) | Recurrent world modelling and actor/critic learning are separate components. | Gradient separation is prior art. Dreamer's world model continues learning; do not describe it as permanently frozen. The [official actor code](https://github.com/danijar/dreamerv3/blob/main/dreamerv3/agent.py) and [configuration](https://github.com/danijar/dreamerv3/blob/main/dreamerv3/configs.yaml), checked on the date above, also distinguish actor gradients from replay-value gradients into representations. |
+| [V-JEPA 2, 2025](https://arxiv.org/abs/2506.09985) | A frozen video encoder supports a subsequently trained action-conditioned predictor and planning. | Frozen representations and downstream control are established. The predictor changes during post-training, unlike our complete frozen score predictor. |
+| [Differentiable Plasticity, ICML 2018](https://proceedings.mlr.press/v80/miconi18a.html) | Fixed weights and episode-dependent Hebbian traces coexist, with plasticity parameters learned by backpropagation. | Fast/slow learning and learned plasticity do not require biological wiring and are not new architectural claims. |
+| [Fast Weight Programmers, ICML 2021](https://proceedings.mlr.press/v139/schlag21a.html) | Associative memory includes additive writes, corrective delta writes and learned write rates. | Query-written delta memory already appears in our [earlier design](otto-action-focused-design.md). Reintroducing it is implementation work, not a new idea. |
+| [The World Model Remembers, the Actor Forgets, July 2026 preprint](https://arxiv.org/abs/2607.19749) | Compares actor recovery through RL and graded self-imitation with a frozen world model and matched imagined rollouts. | A direct prior-art collision for a broad predictor-preservation claim. Its reported MiniGrid study uses three seeds and one task ordering per chain; its recovery result is not evidence for our teacher-score setting. |
+| [FLYNN, July 2026 revision](https://arxiv.org/html/2607.00025v2) | Connectome-topology recurrent navigation learned by DAgger imitation. Its small-world control matches the recurrent substrate, sensory routing and path-length properties; comparisons also include conventional networks. | A useful stronger control design. Reported robustness concerns visual texture changes and vision loss, with target-angle and collision inputs still available. It does not establish robustness to arbitrary dynamics shifts, biological plasticity or physical-robot transfer. |
+| [Distributed control circuits across a brain-and-cord connectome, Nature 2026](https://www.nature.com/articles/s41586-026-10735-w) | Anatomical evidence supports local sensory-effector loops coordinated by long-range circuits and supervisory brain regions. | Motivate specific local-feedback and coordination hypotheses. This is anatomical evidence, not a benchmark showing that a copied graph improves a learned controller. |
+| [Eligibility-trace plasticity in the optic lobe, Scientific Reports 2026](https://www.nature.com/articles/s41598-026-52140-3) | Studies connectome geometry, decoder information, an energy proxy and learning rules under compute proxies. | Eligibility learning is already studied with connectomes. Geometry alignment is not robot utility; its energy measure is not measured metabolism. The paper also qualifies its five-seed local decoding result and decoder sensitivity. |
+
+## A sharper subsequent question
+
+Does a trace of earlier public states help assign a newly observed correction better than an instantaneous associative write?
+
+This is a proposed mechanism test, not an admitted experiment or a novelty claim. Finish the current comparison first and preserve its continuation decision. Any different experiment needs its own explicit motivation, fresh allocation and fixed rule; it cannot serve as a retry of the present validation set.
+
+Keep the recurrent predictor unchanged. A separate, episode-local memory contributes only to nonquery action scores. At an actual scheduled query, compute the difference between the observed teacher score and the predictor's prequery forecast. Compare assigning that correction to the current key with assigning it to a bounded eligibility trace of preceding public states and actions. The trace contains no skipped teacher labels. Reset all added memory at episode boundaries and keep query outputs exact. Prevent direct fast-memory input or gradients into the base predictor; its forecasts and carry must match the reference for identical public input histories. This does not imply identical states on autonomous trajectories when the policies choose different actions.
+
+The ordinary delta write is the main mechanism control. Retain an additive write, a simple decaying last-error correction, and the cheaper static residual. A shuffled-trace control should preserve trace norms and computation while disrupting temporal assignment, using a prospective causal shuffling rule that never reads future observations. A no-write intervention tests whether the added state is actually used.
+
+Match trainable parameters, information access, training exposure and initial predictor weights. For the closest trace controls, also match memory allocation and arithmetic. Report actual cost, including key construction, traces, writes and reads. Keep the practical unpadded baseline visible: spending unused operations to match a budget cannot establish a speed advantage. Where exact budget matching is impossible, report the quality-cost frontier instead of claiming a match.
+
+Require improvement on fresh cases and a separately specified observation-delay shift. Evaluate complete episodes, all fit seeds and autonomous utility before claiming control gains. A gain only over the static residual supports online correction. Equal performance from shuffled traces would undermine temporal credit assignment. Eligibility traces themselves remain established prior art; a contribution would need a specific reproducible interaction between delayed feedback, decisions and preserved prediction.
+
+## When connectome structure becomes relevant
+
+Only after identifying a useful computation should biological structure constrain it. Test whether typed local feedback modules and sparse coordination improve that computation beyond ordinary modular recurrence. Use identical interfaces and dynamics with biological topology, degree-preserving rewiring, type-label shuffling and a generic modular graph. Include a strong dense recurrent control with measured parameter, state-memory and runtime budgets. A favorable graph picture or neural-activity resemblance cannot substitute for the control result.
+
+The present evidence supports further experiments. It does not yet support an ICLR-level novelty or performance claim.
