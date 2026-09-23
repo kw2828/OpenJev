@@ -66,8 +66,10 @@ not guarantee better choices.
 
 This is a retrospective diagnostic, not a new performance gain. All three
 [original continuation decisions](research/otto-separate-prior-results.md)
-remain failed. A fresh twelve-fit comparison of decision-focused training
-against the ordinary GRU is underway; results are pending.
+remain failed. The fresh twelve-fit decision-focused comparison finished
+training, but its supervising process has no final exit record after a
+session interruption. Its technical-completion condition remains unmet;
+[saved-output diagnosis](research/otto-action-focused-interruption-protocol.md) is pending.
 [Results](research/otto-ranking-diagnosis-results.md) ·
 [Evidence](https://github.com/kw2828/OpenJev/releases/tag/otto-ranking-diagnosis-v1) ·
 [Frozen experiment](research/otto-action-focused-protocol.md).
