@@ -56,21 +56,21 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Research status
 
-The [latest recurrent comparison](research/otto-separate-prior-results.md)
-collected **90 complete trajectories** and trained **24 small models**. With the
-same auxiliary objective, separate forecast and decision outputs reduced
-full-path agreement and worsened later teacher-score gaps in both architectures
-and both settings.
+The [latest diagnosis](research/otto-ranking-diagnosis-results.md) checks all
+**24 recurrent fits on the same saved decisions**. In one GRU comparison,
+score error falls **8.64%** while agreement loses **2.47 percentage points**.
+Even error across the best-action boundary falls. Better forecasts alone do
+not guarantee better choices.
 
-[![All 24 fits, forecast errors and failed continuation decisions](docs/assets/otto-separate-prior-forecast.png)](research/otto-separate-prior-results.md)
+[![All recurrent fits: score error, teacher gap and action agreement](docs/assets/otto-ranking-levels.png)](research/otto-ranking-diagnosis-results.md)
 
-All three continuation decisions **fail**: explicit mechanism **11/19**, ordinary
-GRU mechanism **10/19**, architecture comparison **14/29**. The independent audit
-agrees. These recorded-path forecasts establish no autonomous-control or novel
-architecture advantage.
-[Results and costs](research/otto-separate-prior-results.md) ·
-[All checkpoints and evidence](https://github.com/kw2828/OpenJev/releases/tag/otto-separate-prior-v1) ·
-[Previous comparison](research/otto-prequery-calibration-results.md).
+This is a retrospective diagnostic, not a new performance gain. All three
+[original continuation decisions](research/otto-separate-prior-results.md)
+remain failed. Next: test an established decision-focused loss against the
+ordinary GRU before changing memory architecture.
+[Results](research/otto-ranking-diagnosis-results.md) ·
+[Evidence](https://github.com/kw2828/OpenJev/releases/tag/otto-ranking-diagnosis-v1) ·
+[Next experiment](research/otto-action-focused-design.md).
 
 Earlier comparisons, controls and incomplete runs remain in the
 [experiment archive](research/experiment-index.md).
