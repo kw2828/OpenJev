@@ -56,22 +56,19 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Research status
 
-Adding a decision-focused loss **worsened later choices in all 12 paired
-comparisons**. Mean teacher-score gaps increased **26-34%** for explicit
-correction and **52-107%** for the ordinary GRU. Some agreement scores improved;
-the primary metric did not.
+Protecting recurrent forecasts while adapting decisions **failed its rule:
+15/29 conditions passed** across 15 fits and 90 fresh trajectories. The predictor
+stayed unchanged, but the candidate's later teacher-score gaps were
+**29.05% / 36.28% higher** than ordinary joint MSE adaptation. All original phases
+and the independent audit completed successfully.
 
-[![All paired changes, descriptive only because the original training parent is unverified](docs/assets/otto-action-focused-changes.png)](research/otto-action-focused-results.md)
+[![All five model families and three fit seeds, including the failed candidate](docs/assets/otto-protected-readout-gaps.png)](research/otto-protected-readout-results.md)
 
-An independent diagnostic reconciles the saved results. The original training
-supervisor's final record is missing after a session interruption, so these
-results remain descriptive and the experiment cannot qualify for continuation.
-The next comparison tests a separate action readout while keeping the recurrent
-predictor fixed. All 90 fresh trajectories are collected and the five-way,
-three-seed training comparison is registered. Effectiveness results are pending.
-[Results and limits](research/otto-action-focused-results.md) ·
-[Models and evidence](https://github.com/kw2828/OpenJev/releases/tag/otto-action-focused-v1) ·
-[Next experiment](research/otto-protected-readout-design.md).
+[Results and costs](research/otto-protected-readout-results.md) ·
+[All models and evidence](https://github.com/kw2828/OpenJev/releases/tag/otto-protected-readout-v1).
+This fixed-path comparison establishes no autonomous or architecture advantage.
+The [earlier interrupted study](research/otto-action-focused-results.md) remains
+descriptive and ineligible for continuation.
 
 Earlier comparisons, controls and incomplete runs remain in the
 [experiment archive](research/experiment-index.md).
