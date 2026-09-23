@@ -56,25 +56,20 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Research status
 
-Protecting recurrent forecasts while adapting decisions **failed its rule:
-15/29 conditions passed** across 15 fits and 90 fresh trajectories. The predictor
-stayed unchanged, but the candidate's later teacher-score gaps were
-**29.05% / 36.28% higher** than ordinary joint MSE adaptation. All original phases
-and the independent audit completed successfully.
+Memory updated by observed prediction errors **failed its development rule:
+6/13 conditions passed** across 18 fits. Its later decision-cost gap was
+**54.1% higher** than the best control in one setting and **14.3% lower** in the
+other. The independent audit completed; the held-out test remains unused.
 
-[![All five model families and three fit seeds, including the failed candidate](docs/assets/otto-protected-readout-gaps.png)](research/otto-protected-readout-results.md)
+[![All eight memory methods and three fit seeds, including the failed candidate](research/otto-query-memory-dev-results/query-memory-dev.png)](research/otto-query-memory-results.md)
 
-[Results and costs](research/otto-protected-readout-results.md) ·
-[All models and evidence](https://github.com/kw2828/OpenJev/releases/tag/otto-protected-readout-v1).
+[Results and costs](research/otto-query-memory-results.md) ·
+[Every method and seed](research/otto-query-memory-dev-results/query-memory-dev.md).
 This fixed-path comparison establishes no autonomous or architecture advantage.
-The [earlier interrupted study](research/otto-action-focused-results.md) remains
-descriptive and ineligible for continuation.
 
-Earlier comparisons, controls and incomplete runs remain in the
+The [earlier protected-readout failure](research/otto-protected-readout-results.md),
+other comparisons and incomplete runs remain in the
 [experiment archive](research/experiment-index.md).
-
-Next: [memory updated by observed prediction errors](research/otto-query-memory-status.md).
-Training is running on the completed fresh collection; 528 implementation tests pass and effectiveness is not yet evaluated.
 
 The separate [shared-prefix scoring experiment](research/shared-prefix-results.md)
 measured **2.08x** speedup on four-question synthetic workloads; single-question

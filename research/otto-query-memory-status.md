@@ -1,8 +1,13 @@
 # Query-written memory study status
 
-**Training is running on the completed 108-trajectory collection.**
-No new learned-model performance result exists. The earlier protected-readout
-FAIL 15/29 is unchanged.
+**Completed: DEV FAIL, 6/13 conditions passed.** All 18 fits and the independent
+saved-output audit closed successfully. TEST remains unused and unadmitted.
+The earlier protected-readout FAIL 15/29 is unchanged.
+
+[Results and costs](otto-query-memory-results.md) ·
+[Every method, seed and condition](otto-query-memory-dev-results/query-memory-dev.md)
+
+![All eight methods and all three fit seeds](otto-query-memory-dev-results/query-memory-dev.png)
 
 The new [protocol](otto-query-memory-protocol.md) compares query-written memory
 with ordinary recurrent training, instantaneous memory and simple last-error
@@ -40,9 +45,9 @@ records all 108 trajectories: 54 TRAIN, 18 DEV and 36 TEST. Its
 completed with exit code zero, no timeout, a reaped worker and an absent worker
 process group. Collection took 2,154.57 seconds including supervisor cleanup.
 All 17 payload hashes were authenticated before the capacity planner used only
-TRAIN episode lengths. TRAIN arrays are now decoded inside the admitted worker;
-DEV access is guarded by the completed checkpoint/TRAIN-prediction barrier,
-and this producer cannot decode TEST. All 17 raw collection payloads are now in
+TRAIN episode lengths. TRAIN arrays were decoded inside the admitted worker;
+DEV access followed the completed checkpoint/TRAIN-prediction barrier.
+The training producer performed zero TEST decodes. All 17 raw collection payloads are now in
 the [collection evidence release](https://github.com/kw2828/OpenJev/releases/tag/otto-query-memory-collection-v1),
 with their original receipts, 132 frozen source records and a dependency map.
 Packaging used opaque bytes only. GitHub's four asset digests and sizes match
@@ -59,15 +64,23 @@ group. This estimate is not a runtime guarantee or an effectiveness result.
 The [training plan](../output/otto-query-memory-v1/training-plan-01.json) is
 frozen before fitting. It binds both completed phases, all qualified sources,
 18 fits across three seeds and the unchanged 21,600-second hard limit. The
-[original training worker](../output/otto-query-memory-v1/training-native-01.launch.json)
-is now running. It completed its first three pretraining epochs at the first
-live check; both worker and supervisor were present. Launch and progress do not
-establish completion or model effectiveness. No scientific retries, replacement
-seeds, shortened schedules or budget extensions are allowed.
+[original training supervisor](../output/otto-query-memory-v1/training-native-01.terminal.json)
+closed normally in 4,543.35 seconds, with its worker reaped and process group
+absent. All 18 fits, 7,560 updates, 45,360 episode exposures and 80 payloads
+completed. The [training closure](../output/otto-query-memory-v1/training-closure-01.json)
+authenticates the original process joins and payload hashes. No scientific retry,
+replacement seed, shortened schedule or budget extension occurred.
 
-The period-eight comparison changes observations on fixed collected paths.
-It does not establish autonomous search quality, teacher-call savings or an ICLR
-contribution. Those claims require subsequent experiments if this screen passes.
+The [independent DEV audit](../output/otto-query-memory-v1/dev-audit-01/receipt.json)
+closed normally in 12.48 seconds, with 70 array decodes and zero model, optimizer,
+teacher, simulator or TEST calls. It reconstructed the failed 6/13 gate from
+saved outputs. The [audit closure](../output/otto-query-memory-v1/dev-audit-closure-01.json)
+retains the original process and result identities. Technical completion does
+not override the failed scientific rule; conditional TEST is not admitted.
+
+The planned period-eight TEST comparison was not executed. Changing observations
+on fixed collected paths would not establish autonomous search quality,
+teacher-call savings or an ICLR contribution.
 
 [Related work and limits on novelty claims](otto-query-memory-related-work.md)
 compare this mechanism with fast-weight delta updates, Gated Delta Networks and
@@ -76,13 +89,20 @@ Titans. The registered experiment remains unchanged.
 The [conditional TEST evaluator and independent audit](otto-query-memory-test-engineering.md)
 now pass 105 new fabricated tests and lint, with independent source review.
 They preserve all 48 P4/P8 views and require the completed, independently passed
-DEV gate before any TEST decode. These checks leave the live training sources
-unchanged and do not admit TEST execution or establish effectiveness.
+DEV gate before any TEST decode. These checks left the frozen training sources
+unchanged. The completed DEV result now prevents their empirical execution.
 
 The [saved-audit renderer](../scripts/render_otto_query_memory.py) passes
 16 fabricated tests and its scoped lint check. Its synthetic eight-panel chart
 was visually inspected. It retains every method, seed and failed condition;
-empirical rendering still requires the original independent audit and process
-closures. The [qualification record](../output/otto-query-memory-render-engineering-v1/renderer-qualified.json)
+the empirical DEV figure was generated only after authenticating the independent
+audit and original process closures, then visually inspected. The
+[qualification record](../output/otto-query-memory-render-engineering-v1/renderer-qualified.json)
 retains the initial combined lint attempt, including the separate archive
-packager's style finding. No empirical result chart has been generated.
+packager's style finding. The
+[render record](../output/otto-query-memory-v1/render-01.json) binds the empirical
+figure and complete Markdown table to the saved audit without new model calls.
+
+The separate [Bayesian residual-memory reference](otto-query-memory-bayesian-baseline.md)
+is tested engineering for a future hypothesis. It was not part of this study
+and supplies no empirical improvement or novelty claim.

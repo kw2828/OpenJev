@@ -4,7 +4,7 @@ Studies and frozen work awaiting execution, including failures and controls. A p
 
 ## Complete experiment list
 
-- [Fresh query-written memory comparison](otto-query-memory-status.md): **training running after 108 collected trajectories and a passed capacity check; no new effectiveness result**. The 528 fabricated checks and lint pass. Separate TRAIN/DEV/TEST paths, ordinary recurrent and simple-error controls, and conditional untouched P4/P8 evaluation. [Protocol](otto-query-memory-protocol.md) · [Training qualification](otto-query-memory-training-engineering.md).
+- [Query-written memory comparison](otto-query-memory-results.md): **18 fits, 108 collected paths; DEV FAIL 6/13**. History delta memory has a **54.1% higher / 14.3% lower** later teacher-score gap than the best control in the two settings, with several paired-seed failures. Original training and independent audit close successfully. TEST remains unused; no autonomous comparison is admitted. [All methods and seeds](otto-query-memory-dev-results/query-memory-dev.md) · [Protocol](otto-query-memory-protocol.md) · [Closure and qualification](otto-query-memory-status.md).
 
 - [Query-written memory engineering](otto-query-memory-engineering.md): **128 fabricated tests and lint pass; no new trained-model result**. Separate period-four/eight predictor and causal history-conditioned correction kernel, with exact query outputs, prewrite forecasts, explicit carry and computation counts. Prior failure remains closed. [New hypothesis and required comparisons](otto-query-memory-design.md).
 
