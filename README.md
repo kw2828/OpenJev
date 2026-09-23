@@ -79,7 +79,8 @@ Earlier comparisons, controls and incomplete runs remain in the
 The separate [shared-prefix scoring experiment](research/shared-prefix-results.md)
 measured **2.08x** speedup on four-question synthetic workloads; single-question
 caching was slower. This does not reproduce a proprietary RLCD system.
-[Public Qwen RLCD code review](research/rlcd-public-implementation-review.md).
+[Public Qwen RLCD code review](research/rlcd-public-implementation-review.md) ·
+[Jev architecture claims, SemIf and Jevlike](research/jev-architecture-source-review.md).
 
 ## Limits and provenance
 
