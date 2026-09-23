@@ -1,0 +1,56 @@
+{
+  "sources": [
+    "scripts/collect_otto_prequery_calibration.py",
+    "tests/test_collect_otto_prequery_calibration.py",
+    "src/openjev/research/otto_prequery_scores.py",
+    "tests/test_otto_prequery_scores.py",
+    "src/openjev/research/otto_prequery_data.py",
+    "tests/test_otto_prequery_data.py",
+    "src/openjev/research/otto_prequery_loss.py",
+    "tests/test_otto_prequery_loss.py",
+    "src/openjev/research/otto_score_forecast_data.py",
+    "tests/test_otto_score_forecast_data.py",
+    "src/openjev/research/otto_sampled_forecast_data.py",
+    "tests/test_otto_sampled_forecast_data.py"
+  ],
+  "commands": [
+    [
+      "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv-otto-released-native/bin/python",
+      "-m",
+      "pytest",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "tests/test_collect_otto_prequery_calibration.py"
+    ],
+    [
+      "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/python",
+      "-m",
+      "pytest",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "tests/test_otto_prequery_scores.py",
+      "tests/test_otto_prequery_data.py",
+      "tests/test_otto_prequery_loss.py",
+      "tests/test_otto_score_forecast_data.py",
+      "tests/test_otto_sampled_forecast_data.py"
+    ],
+    [
+      "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/ruff",
+      "check",
+      "scripts/collect_otto_prequery_calibration.py",
+      "tests/test_collect_otto_prequery_calibration.py",
+      "src/openjev/research/otto_prequery_scores.py",
+      "tests/test_otto_prequery_scores.py",
+      "src/openjev/research/otto_prequery_data.py",
+      "tests/test_otto_prequery_data.py",
+      "src/openjev/research/otto_prequery_loss.py",
+      "tests/test_otto_prequery_loss.py",
+      "src/openjev/research/otto_score_forecast_data.py",
+      "tests/test_otto_score_forecast_data.py",
+      "src/openjev/research/otto_sampled_forecast_data.py",
+      "tests/test_otto_sampled_forecast_data.py"
+    ]
+  ]
+}

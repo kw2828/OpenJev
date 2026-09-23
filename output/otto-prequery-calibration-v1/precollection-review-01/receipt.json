@@ -1,0 +1,323 @@
+{
+  "api": {
+    "cells": {
+      "innovation_aux": {
+        "architecture": "innovation",
+        "objective": "query_aux"
+      },
+      "innovation_gru_aux": {
+        "architecture": "innovation_gru",
+        "objective": "query_aux"
+      },
+      "innovation_gru_mse": {
+        "architecture": "innovation_gru",
+        "objective": "mse"
+      },
+      "innovation_mse": {
+        "architecture": "innovation",
+        "objective": "mse"
+      }
+    },
+    "collection_payloads": 18,
+    "fit_seeds": [
+      275000001,
+      275000002,
+      275000003
+    ],
+    "fits": 12,
+    "required_conditions": 55,
+    "saved_prediction_files": 25,
+    "scope": "Literal configuration and declared API joins; algorithms separately peer-reviewed and qualified.",
+    "training_payloads": 49,
+    "updates_per_fit": 720,
+    "updates_total": 8640
+  },
+  "capacity": {
+    "admission_seconds": 8100.0,
+    "admitted": true,
+    "batch_seconds": {
+      "innovation_aux": 0.292000541,
+      "innovation_gru_aux": 0.332442417,
+      "innovation_gru_mse": 0.221530166,
+      "innovation_mse": 0.201548959
+    },
+    "original_parent_successful": true,
+    "parent_seconds": 2.298837458,
+    "projected_seconds": 3513.9715489200003,
+    "training_cap_seconds": 10800,
+    "worker_seconds": 2.007828375
+  },
+  "checks_passed": 1685,
+  "clear": true,
+  "empirical_arrays_decoded": 0,
+  "files": {
+    "checked-files.json": {
+      "bytes": 50180,
+      "path": "output/otto-prequery-calibration-v1/precollection-review-01/checked-files.json",
+      "sha256": "d75243eae84be0e0574c78fbb093c37811af278881f771778e13508c8cb67298"
+    }
+  },
+  "finished_unix_ns": 1790148238602644000,
+  "input_count": 10,
+  "limits": [
+    "No empirical arrays or model files opened; numerical native input descriptors inherited unchanged.",
+    "Saved test execution and synthetic timing truth inherited; neither rerun.",
+    "Source algorithms separately peer-reviewed; this verifies frozen configuration and API joins.",
+    "Capacity projection is prospective planning, not a runtime guarantee or scientific efficacy."
+  ],
+  "manifest": {
+    "bytes": 22080,
+    "path": "output/otto-prequery-calibration-v1/precollection-freeze-01.json",
+    "sha256": "1880f1cf74facc4a32cfbefcf71a7ea34304c1637ea270d2155f2015a6b26416"
+  },
+  "model_calls": 0,
+  "native_calls": 0,
+  "new_completed_fabricated_tests": 138,
+  "optimizer_calls": 0,
+  "qualification_cases": {
+    "audit_qualification": 20,
+    "components_qualification": 92,
+    "metrics_qualification": 16,
+    "training_qualification": 10
+  },
+  "qualification_count_scope": "Direct newly recorded passed case executions, including unchanged helper tests; aggregate copies not recounted.",
+  "qualifications": {
+    "audit_qualification": {
+      "commands": [
+        {
+          "command": [
+            "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/python",
+            "-m",
+            "pytest",
+            "-q",
+            "-p",
+            "no:cacheprovider",
+            "tests/test_audit_otto_prequery_calibration.py"
+          ],
+          "log": {
+            "bytes": 99,
+            "path": "output/otto-prequery-calibration-v1/audit-qualification-01/command-0.log",
+            "sha256": "e95c548ac93a43f6893d2db9c5b7a9a4f4c53bf7e36fbe9f2070b1bc56611df4"
+          },
+          "passed_cases": 20
+        },
+        {
+          "command": [
+            "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/ruff",
+            "check",
+            "scripts/audit_otto_prequery_calibration.py",
+            "tests/test_audit_otto_prequery_calibration.py"
+          ],
+          "log": {
+            "bytes": 19,
+            "path": "output/otto-prequery-calibration-v1/audit-qualification-01/command-1.log",
+            "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+          },
+          "passed_cases": 0
+        }
+      ],
+      "passed_cases": 20,
+      "receipt": {
+        "bytes": 2390,
+        "path": "output/otto-prequery-calibration-v1/audit-qualification-01/receipt.json",
+        "sha256": "7cea423440687234d465501d2a331bfcb047d3a88aab7b26905543235f028235"
+      },
+      "sources": {
+        "scripts/audit_otto_prequery_calibration.py": "6da83a8bc9dfffebd82d6400d65eb5a4a8ed0dd3fee67b2bbfefa7dd5f6cd402",
+        "tests/test_audit_otto_prequery_calibration.py": "4476feaaf74ce13872904978cd23e0668153e05c0e5d0c62196769e7bd1bab00"
+      }
+    },
+    "components_qualification": {
+      "commands": [
+        {
+          "command": [
+            "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv-otto-released-native/bin/python",
+            "-m",
+            "pytest",
+            "-q",
+            "-p",
+            "no:cacheprovider",
+            "tests/test_collect_otto_prequery_calibration.py"
+          ],
+          "log": {
+            "bytes": 99,
+            "path": "output/otto-prequery-calibration-v1/engineering-01/command-0.log",
+            "sha256": "dc73640ef02afbd8d65d8db048f6b373b2cf15a7b92f5d501ac92bb60870faba"
+          },
+          "passed_cases": 22
+        },
+        {
+          "command": [
+            "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/python",
+            "-m",
+            "pytest",
+            "-q",
+            "-p",
+            "no:cacheprovider",
+            "tests/test_otto_prequery_scores.py",
+            "tests/test_otto_prequery_data.py",
+            "tests/test_otto_prequery_loss.py",
+            "tests/test_otto_score_forecast_data.py",
+            "tests/test_otto_sampled_forecast_data.py"
+          ],
+          "log": {
+            "bytes": 99,
+            "path": "output/otto-prequery-calibration-v1/engineering-01/command-1.log",
+            "sha256": "d4daa9d360427154ab5a2328d3cb484a47a761e3d2df211f75141b9aa5aa1bf7"
+          },
+          "passed_cases": 70
+        },
+        {
+          "command": [
+            "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/ruff",
+            "check",
+            "scripts/collect_otto_prequery_calibration.py",
+            "tests/test_collect_otto_prequery_calibration.py",
+            "src/openjev/research/otto_prequery_scores.py",
+            "tests/test_otto_prequery_scores.py",
+            "src/openjev/research/otto_prequery_data.py",
+            "tests/test_otto_prequery_data.py",
+            "src/openjev/research/otto_prequery_loss.py",
+            "tests/test_otto_prequery_loss.py",
+            "src/openjev/research/otto_score_forecast_data.py",
+            "tests/test_otto_score_forecast_data.py",
+            "src/openjev/research/otto_sampled_forecast_data.py",
+            "tests/test_otto_sampled_forecast_data.py"
+          ],
+          "log": {
+            "bytes": 19,
+            "path": "output/otto-prequery-calibration-v1/engineering-01/command-2.log",
+            "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+          },
+          "passed_cases": 0
+        }
+      ],
+      "passed_cases": 92,
+      "receipt": {
+        "bytes": 6136,
+        "path": "output/otto-prequery-calibration-v1/engineering-01/receipt.json",
+        "sha256": "47101fc3db33945aa89162a477b264930a0bfb40633af27acdc0494dc1a319fe"
+      },
+      "sources": {
+        "scripts/collect_otto_prequery_calibration.py": "05b3dca1ab14b5087d675b28b440879af39305c5f30c4e124fea6d996f22dd30",
+        "src/openjev/research/otto_prequery_data.py": "ae78b3ca2017dd88f83b58622bc0ba9d3d0ab92ee7af7a9f605ec2f2c3687f5a",
+        "src/openjev/research/otto_prequery_loss.py": "ca05805f4dd81b30c9929aba2bab182a640ce99569138a525b8d39c6788a54cc",
+        "src/openjev/research/otto_prequery_scores.py": "6dfff08284004a134abf47b4ab4dc425f5d9c96f63c58475007295a666b24f4e",
+        "src/openjev/research/otto_sampled_forecast_data.py": "c48d8cc8981f11ba0f3d97b4de3ee2b46afa7ccb5413e3c4cff114802b746e70",
+        "src/openjev/research/otto_score_forecast_data.py": "dc8b371dad15cf5bc4bb7941d087023cd7702d62522532d24c1839f685ea6f8c",
+        "tests/test_collect_otto_prequery_calibration.py": "111d85e7a3855f62ff1a2fcd7a8a8e36fb489758fd35ddcb399c244da23bf126",
+        "tests/test_otto_prequery_data.py": "8ce42ca392d15ce49f23d08a437d797c99584c20079e3e7970422659ee66df04",
+        "tests/test_otto_prequery_loss.py": "e93bc9ee2cd04180d0301c1653394caa54495adcfaf71a8302096756a1885407",
+        "tests/test_otto_prequery_scores.py": "fbc18300688c75e7b872afa2f8fd1fd1fb7f87f69be5cda47ad7cde1b29af63a",
+        "tests/test_otto_sampled_forecast_data.py": "5acedb53a2d935dcbe33ff2e7d14bb13326aef374ea91ab7207173c79a2dbef5",
+        "tests/test_otto_score_forecast_data.py": "ca1432fbdbb954af97a51cbf138263a7dfd5c0ba97f966caf977322086d479cb"
+      }
+    },
+    "metrics_qualification": {
+      "commands": [
+        {
+          "command": [
+            "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/python",
+            "-m",
+            "pytest",
+            "-q",
+            "-p",
+            "no:cacheprovider",
+            "tests/test_otto_prequery_metrics.py"
+          ],
+          "log": {
+            "bytes": 99,
+            "path": "output/otto-prequery-calibration-v1/metrics-qualification-01/command-0.log",
+            "sha256": "ab277bdacf751086524d98f6278d368dc8c69e03e8c4f8de481e9c0e50740187"
+          },
+          "passed_cases": 16
+        },
+        {
+          "command": [
+            "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/ruff",
+            "check",
+            "src/openjev/research/otto_prequery_metrics.py",
+            "tests/test_otto_prequery_metrics.py"
+          ],
+          "log": {
+            "bytes": 19,
+            "path": "output/otto-prequery-calibration-v1/metrics-qualification-01/command-1.log",
+            "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+          },
+          "passed_cases": 0
+        }
+      ],
+      "passed_cases": 16,
+      "receipt": {
+        "bytes": 2357,
+        "path": "output/otto-prequery-calibration-v1/metrics-qualification-01/receipt.json",
+        "sha256": "21e0efcc167daf12944de90d8cf2e0ffadb4f72b9d762a98263bae922c2b6860"
+      },
+      "sources": {
+        "src/openjev/research/otto_prequery_metrics.py": "2694b57214fa6e6f8e468d3371e6b7e477091371e40e5cdc863452da7cd7436a",
+        "tests/test_otto_prequery_metrics.py": "60e7ce2444cad91f9ed67e328846ab1b95bdb9d184cfc041921cb1b91006968e"
+      }
+    },
+    "training_qualification": {
+      "commands": [
+        {
+          "command": [
+            "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/python",
+            "-m",
+            "pytest",
+            "-q",
+            "-p",
+            "no:cacheprovider",
+            "tests/test_train_otto_prequery_calibration.py",
+            "tests/test_qualify_otto_prequery_capacity.py"
+          ],
+          "log": {
+            "bytes": 99,
+            "path": "output/otto-prequery-calibration-v1/training-qualification-01/command-0.log",
+            "sha256": "633e94b1f5f31868282c3747277fb33b0560f329488e867ba094a51daf3f39df"
+          },
+          "passed_cases": 10
+        },
+        {
+          "command": [
+            "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/ruff",
+            "check",
+            "scripts/train_otto_prequery_calibration.py",
+            "tests/test_train_otto_prequery_calibration.py",
+            "scripts/qualify_otto_prequery_capacity.py",
+            "tests/test_qualify_otto_prequery_capacity.py"
+          ],
+          "log": {
+            "bytes": 19,
+            "path": "output/otto-prequery-calibration-v1/training-qualification-01/command-1.log",
+            "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+          },
+          "passed_cases": 0
+        }
+      ],
+      "passed_cases": 10,
+      "receipt": {
+        "bytes": 3027,
+        "path": "output/otto-prequery-calibration-v1/training-qualification-01/receipt.json",
+        "sha256": "608b3ff55aaad6a2eb0e8a9c72cf4fe423c7a25234080d74505370a997194d1c"
+      },
+      "sources": {
+        "scripts/qualify_otto_prequery_capacity.py": "aee58117b9a1c6b2a7110174c4c4ad97029cd6cc42c157c1500aab614c4ec49c",
+        "scripts/train_otto_prequery_calibration.py": "90bcb6bf067bf204e08edd593786964414e5a9c854eb7b81cd61ad024b2b28d0",
+        "tests/test_qualify_otto_prequery_capacity.py": "a0e4a7b8e62886607d07c8a316bec94ab775397ed4c6a17907a31f6ca69d7110",
+        "tests/test_train_otto_prequery_calibration.py": "ac0e65ca1a4420d277ef96215624b2ce985cc8883c65029406f884a224a81c72"
+      }
+    }
+  },
+  "review_source": {
+    "bytes": 27760,
+    "path": "output/otto-prequery-calibration-v1/review_precollection.py",
+    "sha256": "ebc5997d1f57951eef1d454e9b1c6c86b15cfd22b41da5fa9c61fea8e98cd379"
+  },
+  "scope": "Saved metadata/source-byte/qualification-log/original process review only; no source module execution.",
+  "source_count": 136,
+  "started_unix_ns": 1790148238538747000,
+  "status": "passed",
+  "teacher_calls": 0,
+  "version": "otto-prequery-precollection-review-v1"
+}

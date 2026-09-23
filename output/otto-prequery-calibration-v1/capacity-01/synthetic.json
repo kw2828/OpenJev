@@ -1,0 +1,280 @@
+{
+  "arrays": {
+    "actions": {
+      "dtype": "int64",
+      "sha256": "30fd85e2ffc672936f490ddc38ddb3b70bf1b99af6489b5617f3a943df78a083",
+      "shape": [
+        13128
+      ]
+    },
+    "episode_offsets": {
+      "dtype": "int64",
+      "sha256": "199407649a72351073678a7e18b8732ac50b83b2f0ccec3153da8c1bfaafe4fc",
+      "shape": [
+        7
+      ]
+    },
+    "features": {
+      "dtype": "float32",
+      "sha256": "51759a0f6b96916e209cd8bc15d8d9b7b51c92e40075807f6054c035a5324048",
+      "shape": [
+        13128,
+        31
+      ]
+    },
+    "legal": {
+      "dtype": "bool",
+      "sha256": "28321ffcd20b7a9ea3d2a84220e3365812fd4a37adaa69f5e6e6dbd833b4cc5b",
+      "shape": [
+        13128,
+        4
+      ]
+    },
+    "prior_mask": {
+      "dtype": "bool",
+      "sha256": "ce6adbc9c199376cfad3dbedaf2f842f43e3851f8ae12f3f7ce647c6694b5875",
+      "shape": [
+        13128
+      ]
+    },
+    "prior_targets": {
+      "dtype": "float32",
+      "sha256": "83621d57e112dd02a1252d063d33d4feae610ae711596c170de1a51e5a860c6b",
+      "shape": [
+        13128,
+        4
+      ]
+    },
+    "prior_weights": {
+      "dtype": "float64",
+      "sha256": "f128fe617552d0b228f32177fba6cb2a1f3c700d91359c93e392c659c1e56878",
+      "shape": [
+        13128
+      ]
+    },
+    "query_mask": {
+      "dtype": "bool",
+      "sha256": "31403ac27ee4bc302dc37480fbda68a489b40b9969c6462234f0972621ff9acb",
+      "shape": [
+        13128
+      ]
+    },
+    "query_scores": {
+      "dtype": "float32",
+      "sha256": "56ef6140195940c3d03849e6a017be00e61c1228c7ba580b94be950790e147dc",
+      "shape": [
+        13128,
+        4
+      ]
+    },
+    "targets": {
+      "dtype": "float32",
+      "sha256": "ba12c5e1cf333704796bb0cbfbd0ba61d043b5a86e5df04c81027c5a13ec7f9a",
+      "shape": [
+        13128,
+        4
+      ]
+    },
+    "weights": {
+      "dtype": "float64",
+      "sha256": "b378a409ebcd1438659b7cad4431970204e720e728e53c171f91ff646d9a3d06",
+      "shape": [
+        13128
+      ]
+    }
+  },
+  "configuration": {
+    "admission_seconds": 8100.0,
+    "batch": 6,
+    "cells": {
+      "innovation_aux": {
+        "architecture": "innovation",
+        "objective": "query_aux"
+      },
+      "innovation_gru_aux": {
+        "architecture": "innovation_gru",
+        "objective": "query_aux"
+      },
+      "innovation_gru_mse": {
+        "architecture": "innovation_gru",
+        "objective": "mse"
+      },
+      "innovation_mse": {
+        "architecture": "innovation",
+        "objective": "mse"
+      }
+    },
+    "chunk": 32,
+    "clip_norm": 5.0,
+    "episode_denominator": 54,
+    "families": [
+      "innovation_aux",
+      "innovation_mse",
+      "innovation_gru_mse",
+      "innovation_gru_aux"
+    ],
+    "feature_seed": 1347502897,
+    "fit_seeds": 3,
+    "fixed_overhead_seconds": 120.0,
+    "learning_rate": 0.003,
+    "length": 2188,
+    "model_seed": 1347505457,
+    "period": 4,
+    "prior_coefficient": 1.0,
+    "prior_rows_per_episode": 546,
+    "prior_weight": "1/(54*546)",
+    "projection_multiplier": 1.5,
+    "scale": 64.0,
+    "scope": "synthetic throughput planning only; no performance or scientific result",
+    "selected_windows_per_episode": 8,
+    "selection_seeds": [
+      1347507968,
+      1347507969,
+      1347507970,
+      1347507971,
+      1347507972,
+      1347507973
+    ],
+    "training_cap_seconds": 10800,
+    "updates_per_fit": 720,
+    "weight_decay": 0.0,
+    "zero_target_chunks": "forward without autograd, still charged and counted"
+  },
+  "formula": "local fixed generators; complete query scores; sampled nonquery and complete later-query targets",
+  "prior_rows": 3276,
+  "selected_nonquery_rows": 144,
+  "selections": [
+    {
+      "algorithm": "numpy.Generator(PCG64(seed)).choice(W,size=k,replace=False); sorted",
+      "inclusion_denominator": 547,
+      "inclusion_numerator": 8,
+      "inclusion_probability": 0.014625228519195612,
+      "length": 2188,
+      "period": 4,
+      "population_windows": 547,
+      "seed": 1347507968,
+      "selected_windows": 8,
+      "start_offsets": [
+        288,
+        312,
+        344,
+        380,
+        448,
+        696,
+        772,
+        1904
+      ],
+      "version": "otto-sampled-forecast-data-v1"
+    },
+    {
+      "algorithm": "numpy.Generator(PCG64(seed)).choice(W,size=k,replace=False); sorted",
+      "inclusion_denominator": 547,
+      "inclusion_numerator": 8,
+      "inclusion_probability": 0.014625228519195612,
+      "length": 2188,
+      "period": 4,
+      "population_windows": 547,
+      "seed": 1347507969,
+      "selected_windows": 8,
+      "start_offsets": [
+        0,
+        24,
+        252,
+        748,
+        944,
+        992,
+        1332,
+        2024
+      ],
+      "version": "otto-sampled-forecast-data-v1"
+    },
+    {
+      "algorithm": "numpy.Generator(PCG64(seed)).choice(W,size=k,replace=False); sorted",
+      "inclusion_denominator": 547,
+      "inclusion_numerator": 8,
+      "inclusion_probability": 0.014625228519195612,
+      "length": 2188,
+      "period": 4,
+      "population_windows": 547,
+      "seed": 1347507970,
+      "selected_windows": 8,
+      "start_offsets": [
+        312,
+        768,
+        836,
+        1296,
+        1492,
+        1772,
+        2168,
+        2184
+      ],
+      "version": "otto-sampled-forecast-data-v1"
+    },
+    {
+      "algorithm": "numpy.Generator(PCG64(seed)).choice(W,size=k,replace=False); sorted",
+      "inclusion_denominator": 547,
+      "inclusion_numerator": 8,
+      "inclusion_probability": 0.014625228519195612,
+      "length": 2188,
+      "period": 4,
+      "population_windows": 547,
+      "seed": 1347507971,
+      "selected_windows": 8,
+      "start_offsets": [
+        40,
+        200,
+        212,
+        608,
+        1100,
+        1772,
+        2080,
+        2148
+      ],
+      "version": "otto-sampled-forecast-data-v1"
+    },
+    {
+      "algorithm": "numpy.Generator(PCG64(seed)).choice(W,size=k,replace=False); sorted",
+      "inclusion_denominator": 547,
+      "inclusion_numerator": 8,
+      "inclusion_probability": 0.014625228519195612,
+      "length": 2188,
+      "period": 4,
+      "population_windows": 547,
+      "seed": 1347507972,
+      "selected_windows": 8,
+      "start_offsets": [
+        92,
+        180,
+        260,
+        848,
+        1052,
+        1544,
+        1712,
+        1784
+      ],
+      "version": "otto-sampled-forecast-data-v1"
+    },
+    {
+      "algorithm": "numpy.Generator(PCG64(seed)).choice(W,size=k,replace=False); sorted",
+      "inclusion_denominator": 547,
+      "inclusion_numerator": 8,
+      "inclusion_probability": 0.014625228519195612,
+      "length": 2188,
+      "period": 4,
+      "population_windows": 547,
+      "seed": 1347507973,
+      "selected_windows": 8,
+      "start_offsets": [
+        112,
+        160,
+        348,
+        436,
+        468,
+        716,
+        820,
+        1884
+      ],
+      "version": "otto-sampled-forecast-data-v1"
+    }
+  ]
+}
