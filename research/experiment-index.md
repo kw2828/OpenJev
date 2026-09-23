@@ -4,6 +4,8 @@ Studies and frozen work awaiting execution, including failures and controls. A p
 
 ## Complete experiment list
 
+- [Query-written memory engineering](otto-query-memory-engineering.md): **128 fabricated tests and lint pass; no new trained-model result**. Separate period-four/eight predictor and causal history-conditioned correction kernel, with exact query outputs, prewrite forecasts, explicit carry and computation counts. Prior failure remains closed. [New hypothesis and required comparisons](otto-query-memory-design.md).
+
 - [Protected recurrent forecasts and action readouts](otto-protected-readout-results.md): **15 fits, 90 fresh trajectories; FAIL 15/29**. All original phases and the independent audit close successfully. Frozen-SPO preserves recurrent forecasts bitwise but has **29.05% / 36.28% higher** mean later teacher-score gaps than Joint AUX. All eight 10% mean-gap comparisons and all four agreement guards fail. No autonomous, connectome or architecture advantage established. [All models and evidence](https://github.com/kw2828/OpenJev/releases/tag/otto-protected-readout-v1).
 
 - [Decision-focused recurrent training: negative, descriptive result](otto-action-focused-results.md): all **12 paired seed-by-setting later gaps worsen**. Mean increases are 26-34% for explicit correction and 52-107% for GRU. Saved arithmetic independently reconciles; original training parent closure remains unverified, so all three continuation gates stay ineligible. Complete models and predictions are retained without retry. [Figures and evidence](https://github.com/kw2828/OpenJev/releases/tag/otto-action-focused-v1) · [Frozen protocol](otto-action-focused-protocol.md) · [Next protected-readout design](otto-protected-readout-design.md).

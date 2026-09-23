@@ -73,6 +73,9 @@ descriptive and ineligible for continuation.
 Earlier comparisons, controls and incomplete runs remain in the
 [experiment archive](research/experiment-index.md).
 
+Next: [memory updated by observed prediction errors](research/otto-query-memory-engineering.md).
+Its 128 implementation tests pass; effectiveness has not been evaluated.
+
 The separate [shared-prefix scoring experiment](research/shared-prefix-results.md)
 measured **2.08x** speedup on four-question synthetic workloads; single-question
 caching was slower. This does not reproduce a proprietary RLCD system.

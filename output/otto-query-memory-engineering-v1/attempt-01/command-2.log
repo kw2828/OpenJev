@@ -1,0 +1,72 @@
+I001 [*] Import block is un-sorted or un-formatted
+  --> output/otto-query-memory-engineering-v1/run_engineering.py:2:1
+   |
+ 1 |   """Bounded fabricated qualification; outputs never count as scientific results."""
+ 2 | / import hashlib
+ 3 | | import json
+ 4 | | import os
+ 5 | | from pathlib import Path
+ 6 | | import platform
+ 7 | | import signal
+ 8 | | import subprocess
+ 9 | | import sys
+10 | | import time
+   | |___________^
+11 |
+12 |   ROOT = Path(__file__).resolve().parents[2]
+   |
+help: Organize imports
+   |
+4  | import os
+   - from pathlib import Path
+5  | import platform
+--------------------------------------------------------------------------------
+9  | import time
+10 + from pathlib import Path
+11 |
+   |
+
+I001 [*] Import block is un-sorted or un-formatted
+ --> tests/test_otto_query_memory.py:2:1
+  |
+1 |   """Fabricated analytic, causal, ownership and differentiation contracts only."""
+2 | / from __future__ import annotations
+3 | |
+4 | | from dataclasses import replace
+5 | |
+6 | | import pytest
+7 | | import torch
+8 | |
+9 | | from openjev.research.otto_query_memory import Config, MODES, QueryMemory, detach_carry
+  | |_______________________________________________________________________________________^
+help: Organize imports
+   |
+8  |
+   - from openjev.research.otto_query_memory import Config, MODES, QueryMemory, detach_carry
+9  + from openjev.research.otto_query_memory import MODES, Config, QueryMemory, detach_carry
+10 |
+   |
+
+I001 [*] Import block is un-sorted or un-formatted
+  --> tests/test_otto_scheduled_predictor.py:2:1
+   |
+ 1 |   """Fabricated tensors only: no empirical checkpoints, collection or fitting."""
+ 2 | / from contextlib import nullcontext
+ 3 | | from dataclasses import replace
+ 4 | |
+ 5 | | import pytest
+ 6 | | import torch
+ 7 | | from torch.nn import functional as F
+ 8 | |
+ 9 | | from openjev.research import otto_protected_training_model as original
+10 | | from openjev.research import otto_scheduled_predictor as M
+   | |__________________________________________________________^
+help: Organize imports
+   |
+11 |
+   -
+12 | FIELDS = ("prediction", "action_prediction", "prior", "shadow_prior", "prior_mask", "keys_hidden", "key_mask")
+   |
+
+Found 3 errors.
+[*] 3 fixable with the `--fix` option.

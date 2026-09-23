@@ -1,0 +1,76 @@
+........................................................................ [ 57%]
+................................................FF....                   [100%]
+=================================== FAILURES ===================================
+_ test_composed_full_episode_and_detached_chunks_match_and_leave_slow_state_unchanged[4] _
+
+period = 4
+
+    @pytest.mark.parametrize("period", (4, 8))
+    def test_composed_full_episode_and_detached_chunks_match_and_leave_slow_state_unchanged(period):
+        model = predictor.make_head("frozen", 73, period)
+        kernel = memory.QueryMemory(memory.Config("trace_delta", key_dim=3))
+        features, scores, mask = packet(period)
+        ends, lengths = torch.tensor([True]), torch.tensor([65])
+        before = {name: value.clone() for name, value in model.state_dict().items()}
+        slow = model(features, scores, lengths, mask, episode_ends=ends)
+        full = apply(kernel, slow, scores, mask, lengths, ends, projection())
+        chunks, corrections, slow_carry, fast_carry = [], [], None, None
+        for start, stop in ((0, 32), (32, 64), (64, 65)):
+            chunk_lengths, chunk_ends = torch.tensor([stop - start]), torch.tensor([stop == 65])
+            part = model(features[:, start:stop], scores[:, start:stop], chunk_lengths,
+                         mask[:, start:stop], episode_ends=chunk_ends, carry=slow_carry)
+            result = apply(kernel, part, scores[:, start:stop], mask[:, start:stop],
+                           chunk_lengths, chunk_ends, projection(), carry=fast_carry)
+            chunks.append(result.action_prediction)
+            corrections.append(result.prewrite_correction)
+            slow_carry = predictor.detach_carry(part.carry)
+            fast_carry = memory.detach_carry(result.carry)
+        assert torch.equal(torch.cat(chunks, 1), full.action_prediction)
+        assert torch.equal(torch.cat(corrections, 1), full.prewrite_correction)
+>       assert torch.equal(full.carry.matrix, fast_carry.matrix)
+E       AssertionError: assert False
+E        +  where False = <built-in method equal of type object at 0x10a9893a0>(tensor([[[ 1.5384e-03, -1.0772e-05, -1.5500e-03],\n         [ 1.9999e-02, -1.4003e-04, -2.0150e-02],\n         [-1.6922e-02,  1.1849e-04,  1.7050e-02],\n         [-4.6151e-03,  3.2315e-05,  4.6500e-03]]]), tensor([[[ 1.5384e-03, -1.0772e-05, -1.5500e-03],\n         [ 1.9999e-02, -1.4003e-04, -2.0150e-02],\n         [-1.6922e-02,  1.1849e-04,  1.7050e-02],\n         [-4.6151e-03,  3.2315e-05,  4.6500e-03]]]))
+E        +    where <built-in method equal of type object at 0x10a9893a0> = torch.equal
+E        +    and   tensor([[[ 1.5384e-03, -1.0772e-05, -1.5500e-03],\n         [ 1.9999e-02, -1.4003e-04, -2.0150e-02],\n         [-1.6922e-02,  1.1849e-04,  1.7050e-02],\n         [-4.6151e-03,  3.2315e-05,  4.6500e-03]]]) = Carry(config=Config(mode='trace_delta', key_dim=3, step_size=0.25, trace_decay=0.75, memory_decay=1.0, last_error_deca...]]), last_error=tensor([[0., 0., 0., 0.]]), absolute_step=tensor([65]), has_query=tensor([True]), ended=tensor([True])).matrix
+E        +      where Carry(config=Config(mode='trace_delta', key_dim=3, step_size=0.25, trace_decay=0.75, memory_decay=1.0, last_error_deca...]]), last_error=tensor([[0., 0., 0., 0.]]), absolute_step=tensor([65]), has_query=tensor([True]), ended=tensor([True])) = Forecast(action_prediction=tensor([[[ 4.0000,  7.0000,  2.0000,  6.0000],\n         [ 4.0000,  7.0000,  2.0000,  6.0000...nates': 0, 'last_error_read_coordinates': 0, 'last_error_written_coordinates': 0, 'action_corrected_coordinates': 192}).carry
+E        +    and   tensor([[[ 1.5384e-03, -1.0772e-05, -1.5500e-03],\n         [ 1.9999e-02, -1.4003e-04, -2.0150e-02],\n         [-1.6922e-02,  1.1849e-04,  1.7050e-02],\n         [-4.6151e-03,  3.2315e-05,  4.6500e-03]]]) = Carry(config=Config(mode='trace_delta', key_dim=3, step_size=0.25, trace_decay=0.75, memory_decay=1.0, last_error_deca...]]), last_error=tensor([[0., 0., 0., 0.]]), absolute_step=tensor([65]), has_query=tensor([True]), ended=tensor([True])).matrix
+
+tests/test_otto_query_memory_integration.py:54: AssertionError
+_ test_composed_full_episode_and_detached_chunks_match_and_leave_slow_state_unchanged[8] _
+
+period = 8
+
+    @pytest.mark.parametrize("period", (4, 8))
+    def test_composed_full_episode_and_detached_chunks_match_and_leave_slow_state_unchanged(period):
+        model = predictor.make_head("frozen", 73, period)
+        kernel = memory.QueryMemory(memory.Config("trace_delta", key_dim=3))
+        features, scores, mask = packet(period)
+        ends, lengths = torch.tensor([True]), torch.tensor([65])
+        before = {name: value.clone() for name, value in model.state_dict().items()}
+        slow = model(features, scores, lengths, mask, episode_ends=ends)
+        full = apply(kernel, slow, scores, mask, lengths, ends, projection())
+        chunks, corrections, slow_carry, fast_carry = [], [], None, None
+        for start, stop in ((0, 32), (32, 64), (64, 65)):
+            chunk_lengths, chunk_ends = torch.tensor([stop - start]), torch.tensor([stop == 65])
+            part = model(features[:, start:stop], scores[:, start:stop], chunk_lengths,
+                         mask[:, start:stop], episode_ends=chunk_ends, carry=slow_carry)
+            result = apply(kernel, part, scores[:, start:stop], mask[:, start:stop],
+                           chunk_lengths, chunk_ends, projection(), carry=fast_carry)
+            chunks.append(result.action_prediction)
+            corrections.append(result.prewrite_correction)
+            slow_carry = predictor.detach_carry(part.carry)
+            fast_carry = memory.detach_carry(result.carry)
+        assert torch.equal(torch.cat(chunks, 1), full.action_prediction)
+>       assert torch.equal(torch.cat(corrections, 1), full.prewrite_correction)
+E       AssertionError: assert False
+E        +  where False = <built-in method equal of type object at 0x10a9893a0>(tensor([[[ 0.0000e+00,  0.0000e+00,  0.0000e+00,  0.0000e+00],\n         [ 0.0000e+00,  0.0000e+00,  0.0000e+00,  0.000... [-5.3564e-04, -6.9633e-03,  5.8920e-03,  1.6069e-03],\n         [-5.2408e-04, -6.8131e-03,  5.7649e-03,  1.5723e-03]]]), tensor([[[ 0.0000e+00,  0.0000e+00,  0.0000e+00,  0.0000e+00],\n         [ 0.0000e+00,  0.0000e+00,  0.0000e+00,  0.000... [-5.3564e-04, -6.9633e-03,  5.8920e-03,  1.6069e-03],\n         [-5.2408e-04, -6.8131e-03,  5.7649e-03,  1.5723e-03]]]))
+E        +    where <built-in method equal of type object at 0x10a9893a0> = torch.equal
+E        +    and   tensor([[[ 0.0000e+00,  0.0000e+00,  0.0000e+00,  0.0000e+00],\n         [ 0.0000e+00,  0.0000e+00,  0.0000e+00,  0.000... [-5.3564e-04, -6.9633e-03,  5.8920e-03,  1.6069e-03],\n         [-5.2408e-04, -6.8131e-03,  5.7649e-03,  1.5723e-03]]]) = <built-in method cat of type object at 0x10a9893a0>([tensor([[[ 0.0000,  0.0000,  0.0000,  0.0000],\n         [ 0.0000,  0.0000,  0.0000,  0.0000],\n         [ 0.0000,  0.0...3],\n         [-5.3564e-04, -6.9633e-03,  5.8920e-03,  1.6069e-03]]]), tensor([[[-0.0005, -0.0068,  0.0058,  0.0016]]])], 1)
+E        +      where <built-in method cat of type object at 0x10a9893a0> = torch.cat
+E        +    and   tensor([[[ 0.0000e+00,  0.0000e+00,  0.0000e+00,  0.0000e+00],\n         [ 0.0000e+00,  0.0000e+00,  0.0000e+00,  0.000... [-5.3564e-04, -6.9633e-03,  5.8920e-03,  1.6069e-03],\n         [-5.2408e-04, -6.8131e-03,  5.7649e-03,  1.5723e-03]]]) = Forecast(action_prediction=tensor([[[ 4.0000,  7.0000,  2.0000,  6.0000],\n         [ 4.0000,  7.0000,  2.0000,  6.0000...nates': 0, 'last_error_read_coordinates': 0, 'last_error_written_coordinates': 0, 'action_corrected_coordinates': 224}).prewrite_correction
+
+tests/test_otto_query_memory_integration.py:53: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_otto_query_memory_integration.py::test_composed_full_episode_and_detached_chunks_match_and_leave_slow_state_unchanged[4]
+FAILED tests/test_otto_query_memory_integration.py::test_composed_full_episode_and_detached_chunks_match_and_leave_slow_state_unchanged[8]
+2 failed, 124 passed in 1.80s
