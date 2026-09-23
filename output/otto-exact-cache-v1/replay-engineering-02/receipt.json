@@ -1,0 +1,48 @@
+{
+  "status": "passed",
+  "scope": "Fabricated replay histories and bytes only. No empirical arrays, native environments, learned models or TensorFlow imports.",
+  "sources_before": {
+    "scripts/replay_otto_exact_cache.py": "e405b62ad563e0a332e59e8aec1b0a8ac13f31d71703cc5f88894a05f29eb9f1",
+    "tests/test_replay_otto_exact_cache.py": "b3eb04db855e0598e6d52e0b2404955c3aa66c2743e91beddf38e76e6d982d3f"
+  },
+  "sources_after": {
+    "scripts/replay_otto_exact_cache.py": "e405b62ad563e0a332e59e8aec1b0a8ac13f31d71703cc5f88894a05f29eb9f1",
+    "tests/test_replay_otto_exact_cache.py": "b3eb04db855e0598e6d52e0b2404955c3aa66c2743e91beddf38e76e6d982d3f"
+  },
+  "results": [
+    {
+      "command": [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv-otto-released-native/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "tests/test_replay_otto_exact_cache.py"
+      ],
+      "exit_code": 0,
+      "log": "command-0.log"
+    },
+    {
+      "command": [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/ruff",
+        "check",
+        "scripts/replay_otto_exact_cache.py",
+        "tests/test_replay_otto_exact_cache.py"
+      ],
+      "exit_code": 0,
+      "log": "command-1.log"
+    }
+  ],
+  "created_unix": 1790138964.688415,
+  "files": {
+    "command-0.log": {
+      "sha256": "9f39cddcde6d5038bc8db373a34293a3515b328cecc2daba891c67c410dc2cb2",
+      "bytes": 99
+    },
+    "command-1.log": {
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "bytes": 19
+    }
+  }
+}

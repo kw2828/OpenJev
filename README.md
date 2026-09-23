@@ -61,6 +61,11 @@ implements four matched small models and passed **72 engineering checks**.
 Its fixed collection budget completed **67/90 episodes**; training and the
 45-condition forecast screen remain **unstarted / not evaluated**.
 
+The [exact-cache follow-up](research/otto-exact-cache-results.md) verified all
+22,296 saved requests, but found reuse for only **10.65% of historical forward
+time**, below its 40% threshold. This is potential avoided work, not a measured
+speedup; the next collection design needs cheaper annotations.
+
 [![Recurrent pilot coverage, with training and performance evaluation unstarted](docs/assets/otto-score-forecast-status.png)](research/otto-score-forecast-results.md)
 
 The [sparse-query comparison](research/otto-sparse-query-results.md) completed **360 fresh evaluation paths** across five controllers. Periodic querying cut controller cost by **53.15% / 40.79%** versus always-neural control in the two primary settings. Every path succeeded, but move quality missed two requirements: **FAIL, 14/16 conditions passed**.

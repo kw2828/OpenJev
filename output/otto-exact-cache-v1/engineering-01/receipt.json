@@ -1,0 +1,55 @@
+{
+  "status": "passed",
+  "scope": "Fabricated cache and metadata fixtures only; no saved empirical arrays, models or native environment calls.",
+  "sources_before": {
+    "scripts/diagnose_otto_exact_cache.py": "3aba301da062f0243d0e14738cb8a636cfd82ec80dbaa997a7f50067249dec18",
+    "tests/test_diagnose_otto_exact_cache.py": "e3edd9991400a35036eb3fb851a0cc0d2dc88ab9fbbeafcf1811bade47be41dc",
+    "src/openjev/research/otto_exact_value_cache.py": "b7ff822c3feb727cc61dd22741536e56727788cf8b8f36e8f7ce2fa1faab9574",
+    "tests/test_otto_exact_value_cache.py": "7e92c9037a46400330f181a61cb65adb42e5c2b23d556cb42bf83095f1cd60bd"
+  },
+  "sources_after": {
+    "scripts/diagnose_otto_exact_cache.py": "3aba301da062f0243d0e14738cb8a636cfd82ec80dbaa997a7f50067249dec18",
+    "tests/test_diagnose_otto_exact_cache.py": "e3edd9991400a35036eb3fb851a0cc0d2dc88ab9fbbeafcf1811bade47be41dc",
+    "src/openjev/research/otto_exact_value_cache.py": "b7ff822c3feb727cc61dd22741536e56727788cf8b8f36e8f7ce2fa1faab9574",
+    "tests/test_otto_exact_value_cache.py": "7e92c9037a46400330f181a61cb65adb42e5c2b23d556cb42bf83095f1cd60bd"
+  },
+  "results": [
+    {
+      "command": [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv-otto-released-native/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "tests/test_diagnose_otto_exact_cache.py",
+        "tests/test_otto_exact_value_cache.py"
+      ],
+      "exit_code": 0,
+      "log": "command-0.log"
+    },
+    {
+      "command": [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/ruff",
+        "check",
+        "scripts/diagnose_otto_exact_cache.py",
+        "tests/test_diagnose_otto_exact_cache.py",
+        "src/openjev/research/otto_exact_value_cache.py",
+        "tests/test_otto_exact_value_cache.py"
+      ],
+      "exit_code": 0,
+      "log": "command-1.log"
+    }
+  ],
+  "created_unix": 1790138322.665843,
+  "files": {
+    "command-0.log": {
+      "sha256": "3479e554ef3cce40c6a735beffbd5efa16351c7f6a64e999f407cea5323fed35",
+      "bytes": 99
+    },
+    "command-1.log": {
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "bytes": 19
+    }
+  }
+}
