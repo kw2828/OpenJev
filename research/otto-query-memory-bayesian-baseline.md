@@ -82,3 +82,31 @@ could test whether its uncertainty helps decide when to pay for an expert, with
 matched total compute and autonomous outcomes. The present proposal establishes
 neither RLCD nor a world model, conformal coverage, biological superiority or an
 ICLR contribution.
+
+## Standalone numerical reference
+
+[`BayesianScoreMemory`](../src/openjev/research/bayesian_score_memory.py) provides
+an inference-only NumPy reference with explicit prior and observation variances.
+It accepts caller-supplied cues and already-centered targets. `predict` leaves
+state unchanged; `observe` returns the pre-write prediction and then incorporates
+one label. Scheduling, first-query exclusion, score scaling and the recurrent
+backbone belong to a future caller. The live experiment does not import it.
+
+The diagonal mode forms an update using the diagonal prior, then discards the
+off-diagonal posterior entries. This is a moment projection, not accumulated
+diagonal precision and not exact full-covariance RLS for general cues.
+
+The reference uses float64 and validates full covariance by Cholesky, adding
+$O(d^3)$ validation work to an $O(d^2)$ rank-one update. At $d=8$, its mean and
+covariance arrays occupy 768 bytes in full mode or 320 bytes in diagonal mode,
+excluding caller traces, metadata, returned copies and work buffers. These are
+reference-array sizes, not the float32 deployment estimate above or measured
+runtime/RSS savings. It has no training, dataset access or benchmark integration.
+
+The [engineering record](../output/bayesian-memory-engineering-v1/attempt-02/receipt.json)
+passes **117 fabricated tests and lint**, including an independently constructed
+batch posterior, a rational full/diagonal example, repeated-cue conditioning,
+read-before-write behavior and atomic failures. The first attempt passed all
+tests but failed import formatting; its receipt is retained. Both attempts
+verified the current study's 145 bound sources unchanged. These checks establish
+reference correctness on the tested cases, not empirical effectiveness.
