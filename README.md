@@ -56,27 +56,29 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Research status
 
-The new [recurrent score-forecast pilot](research/otto-score-forecast-results.md)
-implements four matched small models and passed **72 engineering checks**.
-Its fixed collection budget completed **67/90 episodes**; training and the
-45-condition forecast screen remain **unstarted / not evaluated**.
+The [completed recurrent forecast experiment](research/otto-sampled-forecast-results.md)
+collected **90 complete trajectories** and trained **12 small models** on the
+54 training paths. Across three fits, an ordinary GRU averages **76.54% / 64.36%**
+teacher agreement in the two settings, versus **30.24% / 33.27%** when holding
+the last scores.
 
-The [exact-cache follow-up](research/otto-exact-cache-results.md) verified all
-22,296 saved requests, but found reuse for only **10.65% of historical forward
-time**, below its 40% threshold. This is potential avoided work, not a measured
-speedup; the next collection design needs cheaper annotations.
+Our proposed score-feedback GRU reaches **71.53% / 62.74%** and loses to that
+ordinary GRU. Its fixed continuation rule **fails: 41/45 checks passed**.
+The independent audit agrees. These are forecasts on recorded paths; autonomous
+control, deployment savings and architectural novelty remain unproven.
 
-[![Recurrent pilot coverage, with training and performance evaluation unstarted](docs/assets/otto-score-forecast-status.png)](research/otto-score-forecast-results.md)
+[![All twelve recurrent and feedforward fits, with hold baseline and failed continuation rule](docs/assets/otto-sampled-forecast.png)](research/otto-sampled-forecast-results.md)
 
-The [sparse-query comparison](research/otto-sparse-query-results.md) completed **360 fresh evaluation paths** across five controllers. Periodic querying cut controller cost by **53.15% / 40.79%** versus always-neural control in the two primary settings. Every path succeeded, but move quality missed two requirements: **FAIL, 14/16 conditions passed**.
+[All checkpoints and evidence](https://github.com/kw2828/OpenJev/releases/tag/otto-sampled-forecast-v1) · [Full results and costs](research/otto-sampled-forecast-results.md) · [Experiment archive](research/experiment-index.md).
 
-[![All five controllers and all three settings, including the failed continuation rule](docs/assets/otto-sparse-query.png)](research/otto-sparse-query-results.md)
+Earlier [sparse querying](research/otto-sparse-query-results.md) reduced controller
+cost but missed move-quality requirements. The [first forecast collection](research/otto-score-forecast-results.md)
+stopped incomplete, and [exact caching](research/otto-exact-cache-results.md) failed
+its opportunity screen. Their original results remain preserved.
 
-The corrected saved-record audit agrees; its [original checker failure and repair](research/otto-sparse-query-audit-repair.md) remain visible. This fixed-schedule result establishes no recurrent or biological architecture advantage. [Complete evidence](https://github.com/kw2828/OpenJev/releases/tag/otto-sparse-query-v1).
-
-Earlier [query-value labels failed their 7/11 rule](research/otto-query-advantage-v2-results.md), and [learned query gates](research/otto-query-gate-learning-results.md) saved no computation. These and the other positive, negative and incomplete studies remain in the [experiment archive](research/experiment-index.md).
-
-The separate [shared-prefix scoring experiment](research/shared-prefix-results.md) measured **2.08x** speedup on four-question synthetic workloads; single-question caching was slower. This does not reproduce a proprietary RLCD system.
+The separate [shared-prefix scoring experiment](research/shared-prefix-results.md)
+measured **2.08x** speedup on four-question synthetic workloads; single-question
+caching was slower. This does not reproduce a proprietary RLCD system.
 
 ## Limits and provenance
 
