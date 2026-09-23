@@ -54,3 +54,11 @@ training/AUX losses remain authenticated producer evidence; the audit does not
 replay them.
 
 No scientific training or DEV evaluation has run at this publication.
+
+The separate [training-capacity run](../output/otto-query-memory-v1/capacity-01/summary.json)
+has now completed all five fabricated updates using the frozen plan and actual
+TRAIN episode lengths. It estimates 14,316.69 seconds against the 16,200-second
+admission threshold and unchanged 21,600-second hard limit. The original
+supervisor confirms a successful 2.78-second run and complete worker cleanup.
+No empirical array or checkpoint was decoded, and no teacher or simulator was
+called. The separately published training plan is now ready for execution.

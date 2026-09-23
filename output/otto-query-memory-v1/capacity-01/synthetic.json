@@ -1,0 +1,89 @@
+{
+  "arrays": {
+    "actions": {
+      "dtype": "int64",
+      "sha256": "1c48cd36ed98c7c000d3ee4e04d7f28b86ea2fb34b114db98bfc28a0ef653910",
+      "shape": [
+        1536
+      ]
+    },
+    "correction": {
+      "dtype": "bool",
+      "sha256": "e40553428be6edf2377a458b078249af3aff94a2e70abee017263b2a90ff6732",
+      "shape": [
+        1536
+      ]
+    },
+    "episode_offsets": {
+      "dtype": "int64",
+      "sha256": "5bae7290f1fce5b509241d293fd73bc885f662b8fcbe8c33ef181b7b40d18979",
+      "shape": [
+        7
+      ]
+    },
+    "features": {
+      "dtype": "float32",
+      "sha256": "468ed3a418d2cdd4289f0082fc5b6199a73b3dc845537fb8053283506d178c9b",
+      "shape": [
+        1536,
+        31
+      ]
+    },
+    "legal": {
+      "dtype": "bool",
+      "sha256": "110fdf1a578978f4aa5b21779bbbfc6e04eb639326e051a436fb9fd2de29405e",
+      "shape": [
+        1536,
+        4
+      ]
+    },
+    "raw_q": {
+      "dtype": "float32",
+      "sha256": "c586c1d690815c9a22476fbcb6646287ad6aee16eb007684e063bbfd2db7140b",
+      "shape": [
+        1536,
+        4
+      ]
+    }
+  },
+  "configuration": {
+    "batch": 6,
+    "branch_epochs": 40,
+    "branch_orders": "PCG64(fit_seed) restarted in every branch",
+    "chunk": 32,
+    "clip_norm": 5.0,
+    "families": [
+      "ordinary",
+      "instant_delta",
+      "trace_delta",
+      "trace_additive",
+      "trace_scrambled"
+    ],
+    "fit_seeds": [
+      309000001,
+      309000002,
+      309000003
+    ],
+    "fixed_overhead_seconds": 600.0,
+    "key_dim": 8,
+    "learning_rate": 0.003,
+    "length": 256,
+    "model_seed": 1001,
+    "objective": "full_forecast_aux",
+    "period": 4,
+    "pretraining_epochs": 80,
+    "projection_multiplier": 2.0,
+    "scope": "synthetic timing plus authenticated TRAIN lengths only; heuristic admission, not performance",
+    "synthetic_seed": 1001,
+    "threshold_seconds": 16200.0,
+    "train_episodes": 54,
+    "training_cap_seconds": 21600,
+    "weight_decay": 0.0
+  },
+  "empirical_values_used": false,
+  "episode_count": 6,
+  "generator": "NumPy PCG64(1001), new fabricated arrays only",
+  "nonquery_rows": 1152,
+  "normalization": "six-episode synthetic denominator; whole-batch mean equals54/6 training scaling",
+  "prior_rows": 378
+}

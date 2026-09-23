@@ -44,11 +44,17 @@ TRAIN episode lengths. No collected arrays or checkpoints have been decoded for
 fitting or evaluation. Raw collection payloads remain local pending an evidence
 release; the receipts identify their exact bytes.
 
-Training remains unadmitted. The
-[capacity plan](../output/otto-query-memory-v1/capacity-plan-01.json) is frozen
-before its synthetic timing run. Training still requires that check to pass and
-a separate published source-bound training plan. No scientific retries or
-replacement seeds are allowed.
+The [capacity check](../output/otto-query-memory-v1/capacity-01/summary.json)
+completed all five fabricated updates and passed its rule. The projected time
+is 14,316.69 seconds, below the 16,200-second admission threshold. The genuine
+supervisor completed in 2.78 seconds with exit code zero and an absent worker
+group. This estimate is not a runtime guarantee or an effectiveness result.
+
+The [training plan](../output/otto-query-memory-v1/training-plan-01.json) is
+frozen before fitting. It binds both completed phases, all qualified sources,
+18 fits across three seeds and the unchanged 21,600-second hard limit. The
+training worker has not started at this publication. No scientific retries,
+replacement seeds, shortened schedules or budget extensions are allowed.
 
 The period-eight comparison changes observations on fixed collected paths.
 It does not establish autonomous search quality, teacher-call savings or an ICLR
