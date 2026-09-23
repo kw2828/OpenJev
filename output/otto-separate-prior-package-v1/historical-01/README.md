@@ -56,24 +56,31 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Research status
 
-The [latest recurrent comparison](research/otto-separate-prior-results.md)
-collected **90 complete trajectories** and trained **24 small models**. With the
-same auxiliary objective, separate forecast and decision outputs reduced
-full-path agreement and worsened later teacher-score gaps in both architectures
-and both settings.
+The [latest recurrent comparison](research/otto-prequery-calibration-results.md)
+collected **90 complete trajectories** and trained **12 small models**. Directly
+training the forecast made before each planner query lowers the proposed model's
+teacher-score gap by **20.32% / 40.62%** across two settings. The same loss also
+helps an ordinary GRU, and training costs roughly **1.9x** as much.
 
-[![All 24 fits, forecast errors and failed continuation decisions](docs/assets/otto-separate-prior-forecast.png)](research/otto-separate-prior-results.md)
+[![All twelve fits, prior forecast errors and teacher-score gaps](docs/assets/otto-prequery-forecast.png)](research/otto-prequery-calibration-results.md)
 
-All three continuation decisions **fail**: explicit mechanism **11/19**, ordinary
-GRU mechanism **10/19**, architecture comparison **14/29**. The independent audit
-agrees. These recorded-path forecasts establish no autonomous-control or novel
-architecture advantage.
-[Results and costs](research/otto-separate-prior-results.md) ·
-[All checkpoints and evidence](https://github.com/kw2828/OpenJev/releases/tag/otto-separate-prior-v1) ·
-[Previous comparison](research/otto-prequery-calibration-results.md).
+The continuation rule still **fails: 51/55 conditions passed**. The proposed
+model loses full-path agreement and does not consistently beat the ordinary GRU.
+These recorded-path forecasts establish no autonomous control, deployment saving
+or architecture advantage.
+[Full results and costs](research/otto-prequery-calibration-results.md) ·
+[All checkpoints and evidence](https://github.com/kw2828/OpenJev/releases/tag/otto-prequery-calibration-v1) ·
+[Previous comparison](research/otto-cross-query-forecast-results.md).
 
-Earlier comparisons, controls and incomplete runs remain in the
-[experiment archive](research/experiment-index.md).
+A [follow-up diagnosis](research/otto-prequery-decision-diagnosis-results.md)
+locates the mean agreement loss in the first three steps, before any correction.
+A separate forecast readout is implemented for the next comparison; its effect
+on trained performance is still untested.
+
+Earlier [sparse querying](research/otto-sparse-query-results.md) reduced controller
+cost but missed move-quality requirements. The [first forecast collection](research/otto-score-forecast-results.md)
+stopped incomplete, and [exact caching](research/otto-exact-cache-results.md) failed
+its opportunity screen. Their original results remain preserved.
 
 The separate [shared-prefix scoring experiment](research/shared-prefix-results.md)
 measured **2.08x** speedup on four-question synthetic workloads; single-question

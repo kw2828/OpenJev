@@ -1,6 +1,6 @@
 # Separate forecast and decision readouts
 
-The [saved-output diagnosis](otto-prequery-decision-diagnosis-results.md) identified a specific tradeoff in its exposed cohort: the auxiliary forecast objective improved later decisions on average, but worsened the first three steps. This module gives prior forecasts their own output layer. The subsequent [fresh 24-fit comparison](otto-separate-prior-results.md) is now complete and **all three continuation decisions fail**: explicit mechanism 11/19, GRU mechanism 10/19, architecture 14/29. Separate outputs lower full-path agreement and increase primary teacher-score gaps versus shared-AUX in both architectures and both settings.
+The [saved-output diagnosis](otto-prequery-decision-diagnosis-results.md) identifies a specific tradeoff: the auxiliary forecast objective improves later decisions on average, but worsens the first three steps. The new module gives prior forecasts their own output layer. **It has not been trained or evaluated for effectiveness.**
 
 ## Mechanism
 
@@ -23,9 +23,7 @@ The tests use fabricated score histories only. Qualification covers seeded initi
 
 **All 16 fabricated cases pass**, and Ruff passes, in the [first runtime qualification](../output/otto-separate-prior-engineering-v1/qualification-01/receipt.json). The [original terminal record](../output/otto-separate-prior-engineering-v1/qualification-01.terminal.json) retains process closure, and the [independent source review](../output/otto-separate-prior-engineering-v1/source-review-01.json) records the internal-contract checks and exact pins. A preparation request was superseded before execution to strengthen the tests; both requests remain in the engineering directory. This evidence concerns implementation behavior only. There are no new saved fits, empirical predictions, teacher queries or simulator episodes in this engineering step.
 
-## Comparison design and completed follow-up
-
-The design below was written before the experiment. The separately [frozen protocol](otto-separate-prior-protocol.md) admitted 90 fresh trajectories and 24 fits only after 171 fabricated cases and a capacity probe passed. The [result](otto-separate-prior-results.md) and independent audit retain every fit and failed condition. No scientific source or acceptance rule changed during execution. This design history is retained to explain the tested intervention; it is no longer an unexecuted plan.
+## Prospective comparison
 
 The next study should test the complete two-by-two combination of shared/separate readouts and original/auxiliary losses, in both recurrent families, with three paired fit seeds: **24 fits**. Including separate-readout original-MSE controls lets us distinguish the effect of changing the readout/correction path from the added forecast objective. Separate readouts still add parameters, so this is not an exact parameter-matched architecture comparison.
 
