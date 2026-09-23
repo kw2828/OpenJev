@@ -1,0 +1,14 @@
+SIM117 Use a single `with` statement with multiple contexts instead of nested `with` statements
+   --> output/otto-query-memory-collection-publication-v1/package.py:101:5
+    |
+ 99 |       members["MANIFEST.json"] = encoded(manifest)
+100 |       archive = output / "otto-query-memory-collection-v1.tar.gz"
+101 | /     with archive.open("xb") as stream, gzip.GzipFile(filename="", mode="wb", fileobj=stream, mtime=0) as compressed:
+102 | |         with tarfile.open(fileobj=compressed, mode="w") as tar:
+    | |_______________________________________________________________^
+103 |               for name, data in sorted(members.items()):
+104 |                   info = tarfile.TarInfo(name)
+    |
+help: Combine `with` statements
+
+Found 1 error.
