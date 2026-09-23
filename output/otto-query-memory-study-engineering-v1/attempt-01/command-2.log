@@ -1,0 +1,38 @@
+RUF007 Prefer `itertools.pairwise()` over `zip()` when iterating over successive pairs
+  --> src/openjev/research/otto_query_memory_data.py:60:22
+   |
+58 |     nonquery_weights = np.zeros(total, np.float64)
+59 |     prior_weights = np.zeros(total, np.float64)
+60 |     for low, high in zip(offsets[:-1], offsets[1:], strict=True):
+   |                      ^^^
+61 |         steps = np.arange(high - low, dtype=np.int64)
+62 |         require(np.array_equal(features[low:high, 15], (steps / HORIZON).astype(np.float32))
+   |
+help: Replace `zip()` with `itertools.pairwise()`
+
+RUF007 Prefer `itertools.pairwise()` over `zip()` when iterating over successive pairs
+  --> tests/test_otto_query_memory_data.py:14:22
+   |
+12 |     offsets = np.array([0, *np.cumsum(lengths)], np.int64)
+13 |     correction = np.zeros(total, np.bool_)
+14 |     for low, high in zip(offsets[:-1], offsets[1:], strict=True):
+   |                      ^^^
+15 |         steps = np.arange(high - low)
+16 |         features[low:high, 15] = steps / 2188
+   |
+help: Replace `zip()` with `itertools.pairwise()`
+
+PERF102 When using only the values of a dict use the `values()` method
+  --> tests/test_otto_query_memory_data.py:43:23
+   |
+41 |     assert sum(projected["prior_weights"]) == pytest.approx(2 / 3)
+42 |     assert not projected["nonquery_weights"][-1] and not projected["prior_weights"][-1]
+43 |     for key, value in projected.items():
+   |                       ^^^^^^^^^^^^^^^
+44 |         if isinstance(value, np.ndarray):
+45 |             assert not value.flags.writeable
+   |
+help: Replace `.items()` with `.values()`
+
+Found 3 errors.
+No fixes available (3 hidden fixes can be enabled with the `--unsafe-fixes` option).
