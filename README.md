@@ -79,8 +79,11 @@ with task-derived structure and privileged starting readouts. Better observed
 prediction does not establish better decisions or calibrated confidence.
 The [equal-update follow-up stopped at engineering qualification](research/finite-update-learning-stop-results.md).
 All 273 tests passed, but conservative runtime projections exceeded its fixed
-90-second admission limit. No scientific run started. Every completed or
-failed study stays in the [experiment archive](research/experiment-index.md).
+90-second admission limit. No scientific run started.
+A separate [computation-sharing helper](research/finite-joint-reuse-qualification-results.md)
+passes 44 numerical tests while removing repeated probability construction
+and history filtering. Full integration and measured speed remain next.
+Every completed or failed study stays in the [experiment archive](research/experiment-index.md).
 
 The separate [shared-prefix scoring experiment](research/shared-prefix-results.md)
 measured **2.08x** speedup on four-question synthetic workloads; single-question
