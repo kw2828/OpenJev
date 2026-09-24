@@ -1,0 +1,2714 @@
+{
+  "calls": {
+    "dev_array_decodes": 1,
+    "fit_count": 12,
+    "optimizer_steps": 31680
+  },
+  "collection_receipt": {
+    "bytes": 5429,
+    "sha256": "e26ec5ea2e2af62ac6afbe73f026a133ecd81803a5c25ea0261c71d74ffc5701"
+  },
+  "data_cases": {
+    "dev": 187,
+    "train": 1046
+  },
+  "dev_data": {
+    "bytes": 1162972,
+    "sha256": "bcd9c1994854cd7999b6592c769c191d078afe3d4bc0c0cc1c556bd4a9700b46"
+  },
+  "fits": [
+    {
+      "blind_input_keys": [
+        "prefix",
+        "prefix_lengths",
+        "actions"
+      ],
+      "cases": 1046,
+      "changed_tensors": [
+        "assimilation.weight_ih",
+        "assimilation.weight_hh",
+        "assimilation.bias_ih",
+        "assimilation.bias_hh",
+        "outcome_head.weight",
+        "outcome_head.bias",
+        "cost_head.weight",
+        "cost_head.bias",
+        "aux_head.weight",
+        "aux_head.bias",
+        "transition.weight_ih",
+        "transition.weight_hh",
+        "transition.bias_ih",
+        "transition.bias_hh"
+      ],
+      "checkpoint": {
+        "bytes": 34523,
+        "sha256": "01d08186465ab701b25eac3e5607bfd712f27dbb931b6513152c3ad1cc94362e"
+      },
+      "epochs": 80,
+      "evaluation_decodes_so_far": 0,
+      "exposures": 83680,
+      "family": "recurrent_soft",
+      "last_batch_loss": 1.0365900467210252,
+      "last_gradient_norm": 0.49100279808044434,
+      "model_kind": "action_recurrent",
+      "parameters": {
+        "cost_scale": 0.007891484536230564,
+        "count": 8299,
+        "direct_descriptor": null,
+        "hidden_dim": 28,
+        "kind": "action_recurrent",
+        "parameters": {
+          "assimilation.bias_hh": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "assimilation.bias_ih": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "assimilation.weight_hh": {
+            "count": 2352,
+            "shape": [
+              84,
+              28
+            ]
+          },
+          "assimilation.weight_ih": {
+            "count": 2604,
+            "shape": [
+              84,
+              31
+            ]
+          },
+          "aux_head.bias": {
+            "count": 2,
+            "shape": [
+              2
+            ]
+          },
+          "aux_head.weight": {
+            "count": 56,
+            "shape": [
+              2,
+              28
+            ]
+          },
+          "cost_head.bias": {
+            "count": 4,
+            "shape": [
+              4
+            ]
+          },
+          "cost_head.weight": {
+            "count": 112,
+            "shape": [
+              4,
+              28
+            ]
+          },
+          "outcome_head.bias": {
+            "count": 5,
+            "shape": [
+              5
+            ]
+          },
+          "outcome_head.weight": {
+            "count": 140,
+            "shape": [
+              5,
+              28
+            ]
+          },
+          "transition.bias_hh": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "transition.bias_ih": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "transition.weight_hh": {
+            "count": 2352,
+            "shape": [
+              84,
+              28
+            ]
+          },
+          "transition.weight_ih": {
+            "count": 336,
+            "shape": [
+              84,
+              4
+            ]
+          }
+        },
+        "trainable_count": 8299,
+        "zero_proposed_action_weight_parameters": 0
+      },
+      "privileged_targets_only": [
+        "raw_costs",
+        "gap_oracle",
+        "normal_oracle"
+      ],
+      "seconds": 10.035812083166093,
+      "seed": 327000001,
+      "soft_targets": true,
+      "training_horizons": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "updates": 2640
+    },
+    {
+      "blind_input_keys": [
+        "prefix",
+        "prefix_lengths",
+        "actions"
+      ],
+      "cases": 1046,
+      "changed_tensors": [
+        "assimilation.weight_ih",
+        "assimilation.weight_hh",
+        "assimilation.bias_ih",
+        "assimilation.bias_hh",
+        "outcome_head.weight",
+        "outcome_head.bias",
+        "cost_head.weight",
+        "cost_head.bias",
+        "aux_head.weight",
+        "aux_head.bias",
+        "transition.weight_ih",
+        "transition.weight_hh",
+        "transition.bias_ih",
+        "transition.bias_hh"
+      ],
+      "checkpoint": {
+        "bytes": 34545,
+        "sha256": "dbcbc7e53a12ad79c002cecc7deca783839b816c44235efbe85da01c7fb30c86"
+      },
+      "epochs": 80,
+      "evaluation_decodes_so_far": 0,
+      "exposures": 83680,
+      "family": "recurrent_sampled",
+      "last_batch_loss": 1.035188913345337,
+      "last_gradient_norm": 0.6585485339164734,
+      "model_kind": "action_recurrent",
+      "parameters": {
+        "cost_scale": 0.007891484536230564,
+        "count": 8299,
+        "direct_descriptor": null,
+        "hidden_dim": 28,
+        "kind": "action_recurrent",
+        "parameters": {
+          "assimilation.bias_hh": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "assimilation.bias_ih": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "assimilation.weight_hh": {
+            "count": 2352,
+            "shape": [
+              84,
+              28
+            ]
+          },
+          "assimilation.weight_ih": {
+            "count": 2604,
+            "shape": [
+              84,
+              31
+            ]
+          },
+          "aux_head.bias": {
+            "count": 2,
+            "shape": [
+              2
+            ]
+          },
+          "aux_head.weight": {
+            "count": 56,
+            "shape": [
+              2,
+              28
+            ]
+          },
+          "cost_head.bias": {
+            "count": 4,
+            "shape": [
+              4
+            ]
+          },
+          "cost_head.weight": {
+            "count": 112,
+            "shape": [
+              4,
+              28
+            ]
+          },
+          "outcome_head.bias": {
+            "count": 5,
+            "shape": [
+              5
+            ]
+          },
+          "outcome_head.weight": {
+            "count": 140,
+            "shape": [
+              5,
+              28
+            ]
+          },
+          "transition.bias_hh": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "transition.bias_ih": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "transition.weight_hh": {
+            "count": 2352,
+            "shape": [
+              84,
+              28
+            ]
+          },
+          "transition.weight_ih": {
+            "count": 336,
+            "shape": [
+              84,
+              4
+            ]
+          }
+        },
+        "trainable_count": 8299,
+        "zero_proposed_action_weight_parameters": 0
+      },
+      "privileged_targets_only": [
+        "raw_costs",
+        "gap_oracle",
+        "normal_oracle"
+      ],
+      "seconds": 9.311512042069808,
+      "seed": 327000001,
+      "soft_targets": false,
+      "training_horizons": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "updates": 2640
+    },
+    {
+      "blind_input_keys": [
+        "prefix",
+        "prefix_lengths",
+        "actions"
+      ],
+      "cases": 1046,
+      "changed_tensors": [
+        "assimilation.weight_ih",
+        "assimilation.weight_hh",
+        "assimilation.bias_ih",
+        "assimilation.bias_hh",
+        "outcome_head.weight",
+        "outcome_head.bias",
+        "cost_head.weight",
+        "cost_head.bias",
+        "aux_head.weight",
+        "aux_head.bias",
+        "transition.weight_hh",
+        "transition.bias_ih",
+        "transition.bias_hh"
+      ],
+      "checkpoint": {
+        "bytes": 34498,
+        "sha256": "5cb6b40956c9a4b2eb578514a9336b4af316922422ed50bc8a65e1a8b0f3e194"
+      },
+      "epochs": 80,
+      "evaluation_decodes_so_far": 0,
+      "exposures": 83680,
+      "family": "action_blind_soft",
+      "last_batch_loss": 1.2093758980658706,
+      "last_gradient_norm": 0.6322512626647949,
+      "model_kind": "action_blind",
+      "parameters": {
+        "cost_scale": 0.007891484536230564,
+        "count": 8299,
+        "direct_descriptor": null,
+        "hidden_dim": 28,
+        "kind": "action_blind",
+        "parameters": {
+          "assimilation.bias_hh": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "assimilation.bias_ih": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "assimilation.weight_hh": {
+            "count": 2352,
+            "shape": [
+              84,
+              28
+            ]
+          },
+          "assimilation.weight_ih": {
+            "count": 2604,
+            "shape": [
+              84,
+              31
+            ]
+          },
+          "aux_head.bias": {
+            "count": 2,
+            "shape": [
+              2
+            ]
+          },
+          "aux_head.weight": {
+            "count": 56,
+            "shape": [
+              2,
+              28
+            ]
+          },
+          "cost_head.bias": {
+            "count": 4,
+            "shape": [
+              4
+            ]
+          },
+          "cost_head.weight": {
+            "count": 112,
+            "shape": [
+              4,
+              28
+            ]
+          },
+          "outcome_head.bias": {
+            "count": 5,
+            "shape": [
+              5
+            ]
+          },
+          "outcome_head.weight": {
+            "count": 140,
+            "shape": [
+              5,
+              28
+            ]
+          },
+          "transition.bias_hh": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "transition.bias_ih": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "transition.weight_hh": {
+            "count": 2352,
+            "shape": [
+              84,
+              28
+            ]
+          },
+          "transition.weight_ih": {
+            "count": 336,
+            "shape": [
+              84,
+              4
+            ]
+          }
+        },
+        "trainable_count": 8299,
+        "zero_proposed_action_weight_parameters": 336
+      },
+      "privileged_targets_only": [
+        "raw_costs",
+        "gap_oracle",
+        "normal_oracle"
+      ],
+      "seconds": 9.633711750153452,
+      "seed": 327000001,
+      "soft_targets": true,
+      "training_horizons": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "updates": 2640
+    },
+    {
+      "blind_input_keys": [
+        "prefix",
+        "prefix_lengths",
+        "actions"
+      ],
+      "cases": 1046,
+      "changed_tensors": [
+        "assimilation.weight_ih",
+        "assimilation.weight_hh",
+        "assimilation.bias_ih",
+        "assimilation.bias_hh",
+        "outcome_head.weight",
+        "outcome_head.bias",
+        "cost_head.weight",
+        "cost_head.bias",
+        "aux_head.weight",
+        "aux_head.bias",
+        "action_encoder.weight",
+        "action_encoder.bias",
+        "direct_prior.weight",
+        "direct_prior.bias"
+      ],
+      "checkpoint": {
+        "bytes": 33781,
+        "sha256": "db4ddf4f8b72883bba4e32b00eea25f6d684cf7a1b939a3f5892d574df5923e7"
+      },
+      "epochs": 80,
+      "evaluation_decodes_so_far": 0,
+      "exposures": 83680,
+      "family": "direct_soft",
+      "last_batch_loss": 1.0834533640019772,
+      "last_gradient_norm": 0.8398053646087646,
+      "model_kind": "direct_horizon",
+      "parameters": {
+        "cost_scale": 0.007891484536230564,
+        "count": 8107,
+        "direct_descriptor": "shared position-conditioned token MLP, causal mean pool",
+        "hidden_dim": 28,
+        "kind": "direct_horizon",
+        "parameters": {
+          "action_encoder.bias": {
+            "count": 48,
+            "shape": [
+              48
+            ]
+          },
+          "action_encoder.weight": {
+            "count": 432,
+            "shape": [
+              48,
+              9
+            ]
+          },
+          "assimilation.bias_hh": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "assimilation.bias_ih": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "assimilation.weight_hh": {
+            "count": 2352,
+            "shape": [
+              84,
+              28
+            ]
+          },
+          "assimilation.weight_ih": {
+            "count": 2604,
+            "shape": [
+              84,
+              31
+            ]
+          },
+          "aux_head.bias": {
+            "count": 2,
+            "shape": [
+              2
+            ]
+          },
+          "aux_head.weight": {
+            "count": 56,
+            "shape": [
+              2,
+              28
+            ]
+          },
+          "cost_head.bias": {
+            "count": 4,
+            "shape": [
+              4
+            ]
+          },
+          "cost_head.weight": {
+            "count": 112,
+            "shape": [
+              4,
+              28
+            ]
+          },
+          "direct_prior.bias": {
+            "count": 28,
+            "shape": [
+              28
+            ]
+          },
+          "direct_prior.weight": {
+            "count": 2156,
+            "shape": [
+              28,
+              77
+            ]
+          },
+          "outcome_head.bias": {
+            "count": 5,
+            "shape": [
+              5
+            ]
+          },
+          "outcome_head.weight": {
+            "count": 140,
+            "shape": [
+              5,
+              28
+            ]
+          }
+        },
+        "trainable_count": 8107,
+        "zero_proposed_action_weight_parameters": 0
+      },
+      "privileged_targets_only": [
+        "raw_costs",
+        "gap_oracle",
+        "normal_oracle"
+      ],
+      "seconds": 9.940225499914959,
+      "seed": 327000001,
+      "soft_targets": true,
+      "training_horizons": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "updates": 2640
+    },
+    {
+      "blind_input_keys": [
+        "prefix",
+        "prefix_lengths",
+        "actions"
+      ],
+      "cases": 1046,
+      "changed_tensors": [
+        "assimilation.weight_ih",
+        "assimilation.weight_hh",
+        "assimilation.bias_ih",
+        "assimilation.bias_hh",
+        "outcome_head.weight",
+        "outcome_head.bias",
+        "cost_head.weight",
+        "cost_head.bias",
+        "aux_head.weight",
+        "aux_head.bias",
+        "transition.weight_ih",
+        "transition.weight_hh",
+        "transition.bias_ih",
+        "transition.bias_hh"
+      ],
+      "checkpoint": {
+        "bytes": 34525,
+        "sha256": "d9d72545dfd942f85819f0b79b7ede055e8aa0730f228c4eeeac07b86198e645"
+      },
+      "epochs": 80,
+      "evaluation_decodes_so_far": 0,
+      "exposures": 83680,
+      "family": "recurrent_sampled",
+      "last_batch_loss": 0.8009300231933594,
+      "last_gradient_norm": 0.6934632062911987,
+      "model_kind": "action_recurrent",
+      "parameters": {
+        "cost_scale": 0.007891484536230564,
+        "count": 8299,
+        "direct_descriptor": null,
+        "hidden_dim": 28,
+        "kind": "action_recurrent",
+        "parameters": {
+          "assimilation.bias_hh": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "assimilation.bias_ih": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "assimilation.weight_hh": {
+            "count": 2352,
+            "shape": [
+              84,
+              28
+            ]
+          },
+          "assimilation.weight_ih": {
+            "count": 2604,
+            "shape": [
+              84,
+              31
+            ]
+          },
+          "aux_head.bias": {
+            "count": 2,
+            "shape": [
+              2
+            ]
+          },
+          "aux_head.weight": {
+            "count": 56,
+            "shape": [
+              2,
+              28
+            ]
+          },
+          "cost_head.bias": {
+            "count": 4,
+            "shape": [
+              4
+            ]
+          },
+          "cost_head.weight": {
+            "count": 112,
+            "shape": [
+              4,
+              28
+            ]
+          },
+          "outcome_head.bias": {
+            "count": 5,
+            "shape": [
+              5
+            ]
+          },
+          "outcome_head.weight": {
+            "count": 140,
+            "shape": [
+              5,
+              28
+            ]
+          },
+          "transition.bias_hh": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "transition.bias_ih": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "transition.weight_hh": {
+            "count": 2352,
+            "shape": [
+              84,
+              28
+            ]
+          },
+          "transition.weight_ih": {
+            "count": 336,
+            "shape": [
+              84,
+              4
+            ]
+          }
+        },
+        "trainable_count": 8299,
+        "zero_proposed_action_weight_parameters": 0
+      },
+      "privileged_targets_only": [
+        "raw_costs",
+        "gap_oracle",
+        "normal_oracle"
+      ],
+      "seconds": 9.51376554183662,
+      "seed": 327000002,
+      "soft_targets": false,
+      "training_horizons": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "updates": 2640
+    },
+    {
+      "blind_input_keys": [
+        "prefix",
+        "prefix_lengths",
+        "actions"
+      ],
+      "cases": 1046,
+      "changed_tensors": [
+        "assimilation.weight_ih",
+        "assimilation.weight_hh",
+        "assimilation.bias_ih",
+        "assimilation.bias_hh",
+        "outcome_head.weight",
+        "outcome_head.bias",
+        "cost_head.weight",
+        "cost_head.bias",
+        "aux_head.weight",
+        "aux_head.bias",
+        "transition.weight_hh",
+        "transition.bias_ih",
+        "transition.bias_hh"
+      ],
+      "checkpoint": {
+        "bytes": 34524,
+        "sha256": "3866fcaddccb3146779801400f095570f509cf9fbf0b923b3bc6e856104206ba"
+      },
+      "epochs": 80,
+      "evaluation_decodes_so_far": 0,
+      "exposures": 83680,
+      "family": "action_blind_soft",
+      "last_batch_loss": 1.1010550402225725,
+      "last_gradient_norm": 0.6211294531822205,
+      "model_kind": "action_blind",
+      "parameters": {
+        "cost_scale": 0.007891484536230564,
+        "count": 8299,
+        "direct_descriptor": null,
+        "hidden_dim": 28,
+        "kind": "action_blind",
+        "parameters": {
+          "assimilation.bias_hh": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "assimilation.bias_ih": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "assimilation.weight_hh": {
+            "count": 2352,
+            "shape": [
+              84,
+              28
+            ]
+          },
+          "assimilation.weight_ih": {
+            "count": 2604,
+            "shape": [
+              84,
+              31
+            ]
+          },
+          "aux_head.bias": {
+            "count": 2,
+            "shape": [
+              2
+            ]
+          },
+          "aux_head.weight": {
+            "count": 56,
+            "shape": [
+              2,
+              28
+            ]
+          },
+          "cost_head.bias": {
+            "count": 4,
+            "shape": [
+              4
+            ]
+          },
+          "cost_head.weight": {
+            "count": 112,
+            "shape": [
+              4,
+              28
+            ]
+          },
+          "outcome_head.bias": {
+            "count": 5,
+            "shape": [
+              5
+            ]
+          },
+          "outcome_head.weight": {
+            "count": 140,
+            "shape": [
+              5,
+              28
+            ]
+          },
+          "transition.bias_hh": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "transition.bias_ih": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "transition.weight_hh": {
+            "count": 2352,
+            "shape": [
+              84,
+              28
+            ]
+          },
+          "transition.weight_ih": {
+            "count": 336,
+            "shape": [
+              84,
+              4
+            ]
+          }
+        },
+        "trainable_count": 8299,
+        "zero_proposed_action_weight_parameters": 336
+      },
+      "privileged_targets_only": [
+        "raw_costs",
+        "gap_oracle",
+        "normal_oracle"
+      ],
+      "seconds": 9.453725165920332,
+      "seed": 327000002,
+      "soft_targets": true,
+      "training_horizons": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "updates": 2640
+    },
+    {
+      "blind_input_keys": [
+        "prefix",
+        "prefix_lengths",
+        "actions"
+      ],
+      "cases": 1046,
+      "changed_tensors": [
+        "assimilation.weight_ih",
+        "assimilation.weight_hh",
+        "assimilation.bias_ih",
+        "assimilation.bias_hh",
+        "outcome_head.weight",
+        "outcome_head.bias",
+        "cost_head.weight",
+        "cost_head.bias",
+        "aux_head.weight",
+        "aux_head.bias",
+        "action_encoder.weight",
+        "action_encoder.bias",
+        "direct_prior.weight",
+        "direct_prior.bias"
+      ],
+      "checkpoint": {
+        "bytes": 33765,
+        "sha256": "8757866664b83fb32ed7a75e7ea172902634c3de857e8de085fb5f751d5b4b09"
+      },
+      "epochs": 80,
+      "evaluation_decodes_so_far": 0,
+      "exposures": 83680,
+      "family": "direct_soft",
+      "last_batch_loss": 1.0276741320841136,
+      "last_gradient_norm": 0.9479548931121826,
+      "model_kind": "direct_horizon",
+      "parameters": {
+        "cost_scale": 0.007891484536230564,
+        "count": 8107,
+        "direct_descriptor": "shared position-conditioned token MLP, causal mean pool",
+        "hidden_dim": 28,
+        "kind": "direct_horizon",
+        "parameters": {
+          "action_encoder.bias": {
+            "count": 48,
+            "shape": [
+              48
+            ]
+          },
+          "action_encoder.weight": {
+            "count": 432,
+            "shape": [
+              48,
+              9
+            ]
+          },
+          "assimilation.bias_hh": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "assimilation.bias_ih": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "assimilation.weight_hh": {
+            "count": 2352,
+            "shape": [
+              84,
+              28
+            ]
+          },
+          "assimilation.weight_ih": {
+            "count": 2604,
+            "shape": [
+              84,
+              31
+            ]
+          },
+          "aux_head.bias": {
+            "count": 2,
+            "shape": [
+              2
+            ]
+          },
+          "aux_head.weight": {
+            "count": 56,
+            "shape": [
+              2,
+              28
+            ]
+          },
+          "cost_head.bias": {
+            "count": 4,
+            "shape": [
+              4
+            ]
+          },
+          "cost_head.weight": {
+            "count": 112,
+            "shape": [
+              4,
+              28
+            ]
+          },
+          "direct_prior.bias": {
+            "count": 28,
+            "shape": [
+              28
+            ]
+          },
+          "direct_prior.weight": {
+            "count": 2156,
+            "shape": [
+              28,
+              77
+            ]
+          },
+          "outcome_head.bias": {
+            "count": 5,
+            "shape": [
+              5
+            ]
+          },
+          "outcome_head.weight": {
+            "count": 140,
+            "shape": [
+              5,
+              28
+            ]
+          }
+        },
+        "trainable_count": 8107,
+        "zero_proposed_action_weight_parameters": 0
+      },
+      "privileged_targets_only": [
+        "raw_costs",
+        "gap_oracle",
+        "normal_oracle"
+      ],
+      "seconds": 9.97641074983403,
+      "seed": 327000002,
+      "soft_targets": true,
+      "training_horizons": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "updates": 2640
+    },
+    {
+      "blind_input_keys": [
+        "prefix",
+        "prefix_lengths",
+        "actions"
+      ],
+      "cases": 1046,
+      "changed_tensors": [
+        "assimilation.weight_ih",
+        "assimilation.weight_hh",
+        "assimilation.bias_ih",
+        "assimilation.bias_hh",
+        "outcome_head.weight",
+        "outcome_head.bias",
+        "cost_head.weight",
+        "cost_head.bias",
+        "aux_head.weight",
+        "aux_head.bias",
+        "transition.weight_ih",
+        "transition.weight_hh",
+        "transition.bias_ih",
+        "transition.bias_hh"
+      ],
+      "checkpoint": {
+        "bytes": 34518,
+        "sha256": "64b1f1accde18ea0f8ee28ae3282584b0e8a8837985372ad7ee11487d6e2fa49"
+      },
+      "epochs": 80,
+      "evaluation_decodes_so_far": 0,
+      "exposures": 83680,
+      "family": "recurrent_soft",
+      "last_batch_loss": 0.930895457084354,
+      "last_gradient_norm": 0.5126462578773499,
+      "model_kind": "action_recurrent",
+      "parameters": {
+        "cost_scale": 0.007891484536230564,
+        "count": 8299,
+        "direct_descriptor": null,
+        "hidden_dim": 28,
+        "kind": "action_recurrent",
+        "parameters": {
+          "assimilation.bias_hh": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "assimilation.bias_ih": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "assimilation.weight_hh": {
+            "count": 2352,
+            "shape": [
+              84,
+              28
+            ]
+          },
+          "assimilation.weight_ih": {
+            "count": 2604,
+            "shape": [
+              84,
+              31
+            ]
+          },
+          "aux_head.bias": {
+            "count": 2,
+            "shape": [
+              2
+            ]
+          },
+          "aux_head.weight": {
+            "count": 56,
+            "shape": [
+              2,
+              28
+            ]
+          },
+          "cost_head.bias": {
+            "count": 4,
+            "shape": [
+              4
+            ]
+          },
+          "cost_head.weight": {
+            "count": 112,
+            "shape": [
+              4,
+              28
+            ]
+          },
+          "outcome_head.bias": {
+            "count": 5,
+            "shape": [
+              5
+            ]
+          },
+          "outcome_head.weight": {
+            "count": 140,
+            "shape": [
+              5,
+              28
+            ]
+          },
+          "transition.bias_hh": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "transition.bias_ih": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "transition.weight_hh": {
+            "count": 2352,
+            "shape": [
+              84,
+              28
+            ]
+          },
+          "transition.weight_ih": {
+            "count": 336,
+            "shape": [
+              84,
+              4
+            ]
+          }
+        },
+        "trainable_count": 8299,
+        "zero_proposed_action_weight_parameters": 0
+      },
+      "privileged_targets_only": [
+        "raw_costs",
+        "gap_oracle",
+        "normal_oracle"
+      ],
+      "seconds": 9.62513312487863,
+      "seed": 327000002,
+      "soft_targets": true,
+      "training_horizons": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "updates": 2640
+    },
+    {
+      "blind_input_keys": [
+        "prefix",
+        "prefix_lengths",
+        "actions"
+      ],
+      "cases": 1046,
+      "changed_tensors": [
+        "assimilation.weight_ih",
+        "assimilation.weight_hh",
+        "assimilation.bias_ih",
+        "assimilation.bias_hh",
+        "outcome_head.weight",
+        "outcome_head.bias",
+        "cost_head.weight",
+        "cost_head.bias",
+        "aux_head.weight",
+        "aux_head.bias",
+        "transition.weight_hh",
+        "transition.bias_ih",
+        "transition.bias_hh"
+      ],
+      "checkpoint": {
+        "bytes": 34524,
+        "sha256": "0b167d9cf95b081fd2aa921c9ce344949f38f9b424e58a53ed9fdba61f91e0d4"
+      },
+      "epochs": 80,
+      "evaluation_decodes_so_far": 0,
+      "exposures": 83680,
+      "family": "action_blind_soft",
+      "last_batch_loss": 1.246791852858725,
+      "last_gradient_norm": 0.49601203203201294,
+      "model_kind": "action_blind",
+      "parameters": {
+        "cost_scale": 0.007891484536230564,
+        "count": 8299,
+        "direct_descriptor": null,
+        "hidden_dim": 28,
+        "kind": "action_blind",
+        "parameters": {
+          "assimilation.bias_hh": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "assimilation.bias_ih": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "assimilation.weight_hh": {
+            "count": 2352,
+            "shape": [
+              84,
+              28
+            ]
+          },
+          "assimilation.weight_ih": {
+            "count": 2604,
+            "shape": [
+              84,
+              31
+            ]
+          },
+          "aux_head.bias": {
+            "count": 2,
+            "shape": [
+              2
+            ]
+          },
+          "aux_head.weight": {
+            "count": 56,
+            "shape": [
+              2,
+              28
+            ]
+          },
+          "cost_head.bias": {
+            "count": 4,
+            "shape": [
+              4
+            ]
+          },
+          "cost_head.weight": {
+            "count": 112,
+            "shape": [
+              4,
+              28
+            ]
+          },
+          "outcome_head.bias": {
+            "count": 5,
+            "shape": [
+              5
+            ]
+          },
+          "outcome_head.weight": {
+            "count": 140,
+            "shape": [
+              5,
+              28
+            ]
+          },
+          "transition.bias_hh": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "transition.bias_ih": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "transition.weight_hh": {
+            "count": 2352,
+            "shape": [
+              84,
+              28
+            ]
+          },
+          "transition.weight_ih": {
+            "count": 336,
+            "shape": [
+              84,
+              4
+            ]
+          }
+        },
+        "trainable_count": 8299,
+        "zero_proposed_action_weight_parameters": 336
+      },
+      "privileged_targets_only": [
+        "raw_costs",
+        "gap_oracle",
+        "normal_oracle"
+      ],
+      "seconds": 9.501329541904852,
+      "seed": 327000003,
+      "soft_targets": true,
+      "training_horizons": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "updates": 2640
+    },
+    {
+      "blind_input_keys": [
+        "prefix",
+        "prefix_lengths",
+        "actions"
+      ],
+      "cases": 1046,
+      "changed_tensors": [
+        "assimilation.weight_ih",
+        "assimilation.weight_hh",
+        "assimilation.bias_ih",
+        "assimilation.bias_hh",
+        "outcome_head.weight",
+        "outcome_head.bias",
+        "cost_head.weight",
+        "cost_head.bias",
+        "aux_head.weight",
+        "aux_head.bias",
+        "action_encoder.weight",
+        "action_encoder.bias",
+        "direct_prior.weight",
+        "direct_prior.bias"
+      ],
+      "checkpoint": {
+        "bytes": 33788,
+        "sha256": "6907509201b393f5f745868f9d7e39e2b390aee69a64ba742b03d87ad1e2495b"
+      },
+      "epochs": 80,
+      "evaluation_decodes_so_far": 0,
+      "exposures": 83680,
+      "family": "direct_soft",
+      "last_batch_loss": 1.1697976318273986,
+      "last_gradient_norm": 0.6357278823852539,
+      "model_kind": "direct_horizon",
+      "parameters": {
+        "cost_scale": 0.007891484536230564,
+        "count": 8107,
+        "direct_descriptor": "shared position-conditioned token MLP, causal mean pool",
+        "hidden_dim": 28,
+        "kind": "direct_horizon",
+        "parameters": {
+          "action_encoder.bias": {
+            "count": 48,
+            "shape": [
+              48
+            ]
+          },
+          "action_encoder.weight": {
+            "count": 432,
+            "shape": [
+              48,
+              9
+            ]
+          },
+          "assimilation.bias_hh": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "assimilation.bias_ih": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "assimilation.weight_hh": {
+            "count": 2352,
+            "shape": [
+              84,
+              28
+            ]
+          },
+          "assimilation.weight_ih": {
+            "count": 2604,
+            "shape": [
+              84,
+              31
+            ]
+          },
+          "aux_head.bias": {
+            "count": 2,
+            "shape": [
+              2
+            ]
+          },
+          "aux_head.weight": {
+            "count": 56,
+            "shape": [
+              2,
+              28
+            ]
+          },
+          "cost_head.bias": {
+            "count": 4,
+            "shape": [
+              4
+            ]
+          },
+          "cost_head.weight": {
+            "count": 112,
+            "shape": [
+              4,
+              28
+            ]
+          },
+          "direct_prior.bias": {
+            "count": 28,
+            "shape": [
+              28
+            ]
+          },
+          "direct_prior.weight": {
+            "count": 2156,
+            "shape": [
+              28,
+              77
+            ]
+          },
+          "outcome_head.bias": {
+            "count": 5,
+            "shape": [
+              5
+            ]
+          },
+          "outcome_head.weight": {
+            "count": 140,
+            "shape": [
+              5,
+              28
+            ]
+          }
+        },
+        "trainable_count": 8107,
+        "zero_proposed_action_weight_parameters": 0
+      },
+      "privileged_targets_only": [
+        "raw_costs",
+        "gap_oracle",
+        "normal_oracle"
+      ],
+      "seconds": 9.842350792139769,
+      "seed": 327000003,
+      "soft_targets": true,
+      "training_horizons": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "updates": 2640
+    },
+    {
+      "blind_input_keys": [
+        "prefix",
+        "prefix_lengths",
+        "actions"
+      ],
+      "cases": 1046,
+      "changed_tensors": [
+        "assimilation.weight_ih",
+        "assimilation.weight_hh",
+        "assimilation.bias_ih",
+        "assimilation.bias_hh",
+        "outcome_head.weight",
+        "outcome_head.bias",
+        "cost_head.weight",
+        "cost_head.bias",
+        "aux_head.weight",
+        "aux_head.bias",
+        "transition.weight_ih",
+        "transition.weight_hh",
+        "transition.bias_ih",
+        "transition.bias_hh"
+      ],
+      "checkpoint": {
+        "bytes": 34520,
+        "sha256": "28a81601383878cd86051a35bdf3a7a28a5daecdc72bd5c5519ac5f9d3353ad0"
+      },
+      "epochs": 80,
+      "evaluation_decodes_so_far": 0,
+      "exposures": 83680,
+      "family": "recurrent_soft",
+      "last_batch_loss": 1.0915195597485639,
+      "last_gradient_norm": 0.45476317405700684,
+      "model_kind": "action_recurrent",
+      "parameters": {
+        "cost_scale": 0.007891484536230564,
+        "count": 8299,
+        "direct_descriptor": null,
+        "hidden_dim": 28,
+        "kind": "action_recurrent",
+        "parameters": {
+          "assimilation.bias_hh": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "assimilation.bias_ih": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "assimilation.weight_hh": {
+            "count": 2352,
+            "shape": [
+              84,
+              28
+            ]
+          },
+          "assimilation.weight_ih": {
+            "count": 2604,
+            "shape": [
+              84,
+              31
+            ]
+          },
+          "aux_head.bias": {
+            "count": 2,
+            "shape": [
+              2
+            ]
+          },
+          "aux_head.weight": {
+            "count": 56,
+            "shape": [
+              2,
+              28
+            ]
+          },
+          "cost_head.bias": {
+            "count": 4,
+            "shape": [
+              4
+            ]
+          },
+          "cost_head.weight": {
+            "count": 112,
+            "shape": [
+              4,
+              28
+            ]
+          },
+          "outcome_head.bias": {
+            "count": 5,
+            "shape": [
+              5
+            ]
+          },
+          "outcome_head.weight": {
+            "count": 140,
+            "shape": [
+              5,
+              28
+            ]
+          },
+          "transition.bias_hh": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "transition.bias_ih": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "transition.weight_hh": {
+            "count": 2352,
+            "shape": [
+              84,
+              28
+            ]
+          },
+          "transition.weight_ih": {
+            "count": 336,
+            "shape": [
+              84,
+              4
+            ]
+          }
+        },
+        "trainable_count": 8299,
+        "zero_proposed_action_weight_parameters": 0
+      },
+      "privileged_targets_only": [
+        "raw_costs",
+        "gap_oracle",
+        "normal_oracle"
+      ],
+      "seconds": 9.53359695803374,
+      "seed": 327000003,
+      "soft_targets": true,
+      "training_horizons": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "updates": 2640
+    },
+    {
+      "blind_input_keys": [
+        "prefix",
+        "prefix_lengths",
+        "actions"
+      ],
+      "cases": 1046,
+      "changed_tensors": [
+        "assimilation.weight_ih",
+        "assimilation.weight_hh",
+        "assimilation.bias_ih",
+        "assimilation.bias_hh",
+        "outcome_head.weight",
+        "outcome_head.bias",
+        "cost_head.weight",
+        "cost_head.bias",
+        "aux_head.weight",
+        "aux_head.bias",
+        "transition.weight_ih",
+        "transition.weight_hh",
+        "transition.bias_ih",
+        "transition.bias_hh"
+      ],
+      "checkpoint": {
+        "bytes": 34503,
+        "sha256": "9ea7a761fdff6243bc5df2de967e9666e72f5f6668f2b7b3d097f473a65ed52b"
+      },
+      "epochs": 80,
+      "evaluation_decodes_so_far": 0,
+      "exposures": 83680,
+      "family": "recurrent_sampled",
+      "last_batch_loss": 0.7610570788383484,
+      "last_gradient_norm": 0.9927852749824524,
+      "model_kind": "action_recurrent",
+      "parameters": {
+        "cost_scale": 0.007891484536230564,
+        "count": 8299,
+        "direct_descriptor": null,
+        "hidden_dim": 28,
+        "kind": "action_recurrent",
+        "parameters": {
+          "assimilation.bias_hh": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "assimilation.bias_ih": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "assimilation.weight_hh": {
+            "count": 2352,
+            "shape": [
+              84,
+              28
+            ]
+          },
+          "assimilation.weight_ih": {
+            "count": 2604,
+            "shape": [
+              84,
+              31
+            ]
+          },
+          "aux_head.bias": {
+            "count": 2,
+            "shape": [
+              2
+            ]
+          },
+          "aux_head.weight": {
+            "count": 56,
+            "shape": [
+              2,
+              28
+            ]
+          },
+          "cost_head.bias": {
+            "count": 4,
+            "shape": [
+              4
+            ]
+          },
+          "cost_head.weight": {
+            "count": 112,
+            "shape": [
+              4,
+              28
+            ]
+          },
+          "outcome_head.bias": {
+            "count": 5,
+            "shape": [
+              5
+            ]
+          },
+          "outcome_head.weight": {
+            "count": 140,
+            "shape": [
+              5,
+              28
+            ]
+          },
+          "transition.bias_hh": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "transition.bias_ih": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "transition.weight_hh": {
+            "count": 2352,
+            "shape": [
+              84,
+              28
+            ]
+          },
+          "transition.weight_ih": {
+            "count": 336,
+            "shape": [
+              84,
+              4
+            ]
+          }
+        },
+        "trainable_count": 8299,
+        "zero_proposed_action_weight_parameters": 0
+      },
+      "privileged_targets_only": [
+        "raw_costs",
+        "gap_oracle",
+        "normal_oracle"
+      ],
+      "seconds": 9.509343249956146,
+      "seed": 327000003,
+      "soft_targets": false,
+      "training_horizons": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "updates": 2640
+    }
+  ],
+  "prediction_times": [
+    {
+      "cases": 187,
+      "condition": "gap",
+      "family": "recurrent_soft",
+      "seconds": 0.08384750015102327,
+      "seed": 327000001,
+      "work": {
+        "aux_head_calls": 1496,
+        "cost_head_calls": 1496,
+        "direct_prior_calls": 0,
+        "direct_prior_rows": 0,
+        "direct_token_calls": 0,
+        "direct_token_rows": 0,
+        "observation_assimilation_calls": 0,
+        "observation_assimilation_rows": 0,
+        "outcome_head_calls": 1496,
+        "prefix_assimilation_calls": 1683,
+        "prefix_assimilation_rows": 1683,
+        "readout_rows": 1496,
+        "terminal_frozen_rows": 0,
+        "transition_calls": 1496,
+        "transition_rows": 1496
+      }
+    },
+    {
+      "cases": 187,
+      "condition": "normal",
+      "family": "recurrent_soft",
+      "seconds": 0.1358664999715984,
+      "seed": 327000001,
+      "work": {
+        "aux_head_calls": 1496,
+        "cost_head_calls": 1496,
+        "direct_prior_calls": 0,
+        "direct_prior_rows": 0,
+        "direct_token_calls": 0,
+        "direct_token_rows": 0,
+        "observation_assimilation_calls": 1411,
+        "observation_assimilation_rows": 1411,
+        "outcome_head_calls": 1496,
+        "prefix_assimilation_calls": 1683,
+        "prefix_assimilation_rows": 1683,
+        "readout_rows": 1496,
+        "terminal_frozen_rows": 71,
+        "transition_calls": 1425,
+        "transition_rows": 1425
+      }
+    },
+    {
+      "cases": 187,
+      "condition": "opposite",
+      "family": "recurrent_soft",
+      "seconds": 0.07828920800238848,
+      "seed": 327000001,
+      "work": {
+        "aux_head_calls": 1496,
+        "cost_head_calls": 1496,
+        "direct_prior_calls": 0,
+        "direct_prior_rows": 0,
+        "direct_token_calls": 0,
+        "direct_token_rows": 0,
+        "observation_assimilation_calls": 0,
+        "observation_assimilation_rows": 0,
+        "outcome_head_calls": 1496,
+        "prefix_assimilation_calls": 1683,
+        "prefix_assimilation_rows": 1683,
+        "readout_rows": 1496,
+        "terminal_frozen_rows": 0,
+        "transition_calls": 1496,
+        "transition_rows": 1496
+      }
+    },
+    {
+      "cases": 187,
+      "condition": "gap",
+      "family": "recurrent_soft",
+      "seconds": 0.08357487502507865,
+      "seed": 327000002,
+      "work": {
+        "aux_head_calls": 1496,
+        "cost_head_calls": 1496,
+        "direct_prior_calls": 0,
+        "direct_prior_rows": 0,
+        "direct_token_calls": 0,
+        "direct_token_rows": 0,
+        "observation_assimilation_calls": 0,
+        "observation_assimilation_rows": 0,
+        "outcome_head_calls": 1496,
+        "prefix_assimilation_calls": 1683,
+        "prefix_assimilation_rows": 1683,
+        "readout_rows": 1496,
+        "terminal_frozen_rows": 0,
+        "transition_calls": 1496,
+        "transition_rows": 1496
+      }
+    },
+    {
+      "cases": 187,
+      "condition": "normal",
+      "family": "recurrent_soft",
+      "seconds": 0.12633337499573827,
+      "seed": 327000002,
+      "work": {
+        "aux_head_calls": 1496,
+        "cost_head_calls": 1496,
+        "direct_prior_calls": 0,
+        "direct_prior_rows": 0,
+        "direct_token_calls": 0,
+        "direct_token_rows": 0,
+        "observation_assimilation_calls": 1411,
+        "observation_assimilation_rows": 1411,
+        "outcome_head_calls": 1496,
+        "prefix_assimilation_calls": 1683,
+        "prefix_assimilation_rows": 1683,
+        "readout_rows": 1496,
+        "terminal_frozen_rows": 71,
+        "transition_calls": 1425,
+        "transition_rows": 1425
+      }
+    },
+    {
+      "cases": 187,
+      "condition": "opposite",
+      "family": "recurrent_soft",
+      "seconds": 0.0801446249242872,
+      "seed": 327000002,
+      "work": {
+        "aux_head_calls": 1496,
+        "cost_head_calls": 1496,
+        "direct_prior_calls": 0,
+        "direct_prior_rows": 0,
+        "direct_token_calls": 0,
+        "direct_token_rows": 0,
+        "observation_assimilation_calls": 0,
+        "observation_assimilation_rows": 0,
+        "outcome_head_calls": 1496,
+        "prefix_assimilation_calls": 1683,
+        "prefix_assimilation_rows": 1683,
+        "readout_rows": 1496,
+        "terminal_frozen_rows": 0,
+        "transition_calls": 1496,
+        "transition_rows": 1496
+      }
+    },
+    {
+      "cases": 187,
+      "condition": "gap",
+      "family": "recurrent_soft",
+      "seconds": 0.10021733399480581,
+      "seed": 327000003,
+      "work": {
+        "aux_head_calls": 1496,
+        "cost_head_calls": 1496,
+        "direct_prior_calls": 0,
+        "direct_prior_rows": 0,
+        "direct_token_calls": 0,
+        "direct_token_rows": 0,
+        "observation_assimilation_calls": 0,
+        "observation_assimilation_rows": 0,
+        "outcome_head_calls": 1496,
+        "prefix_assimilation_calls": 1683,
+        "prefix_assimilation_rows": 1683,
+        "readout_rows": 1496,
+        "terminal_frozen_rows": 0,
+        "transition_calls": 1496,
+        "transition_rows": 1496
+      }
+    },
+    {
+      "cases": 187,
+      "condition": "normal",
+      "family": "recurrent_soft",
+      "seconds": 0.13134454190731049,
+      "seed": 327000003,
+      "work": {
+        "aux_head_calls": 1496,
+        "cost_head_calls": 1496,
+        "direct_prior_calls": 0,
+        "direct_prior_rows": 0,
+        "direct_token_calls": 0,
+        "direct_token_rows": 0,
+        "observation_assimilation_calls": 1411,
+        "observation_assimilation_rows": 1411,
+        "outcome_head_calls": 1496,
+        "prefix_assimilation_calls": 1683,
+        "prefix_assimilation_rows": 1683,
+        "readout_rows": 1496,
+        "terminal_frozen_rows": 71,
+        "transition_calls": 1425,
+        "transition_rows": 1425
+      }
+    },
+    {
+      "cases": 187,
+      "condition": "opposite",
+      "family": "recurrent_soft",
+      "seconds": 0.07823312492109835,
+      "seed": 327000003,
+      "work": {
+        "aux_head_calls": 1496,
+        "cost_head_calls": 1496,
+        "direct_prior_calls": 0,
+        "direct_prior_rows": 0,
+        "direct_token_calls": 0,
+        "direct_token_rows": 0,
+        "observation_assimilation_calls": 0,
+        "observation_assimilation_rows": 0,
+        "outcome_head_calls": 1496,
+        "prefix_assimilation_calls": 1683,
+        "prefix_assimilation_rows": 1683,
+        "readout_rows": 1496,
+        "terminal_frozen_rows": 0,
+        "transition_calls": 1496,
+        "transition_rows": 1496
+      }
+    },
+    {
+      "cases": 187,
+      "condition": "gap",
+      "family": "recurrent_sampled",
+      "seconds": 0.07807308388873935,
+      "seed": 327000001,
+      "work": {
+        "aux_head_calls": 1496,
+        "cost_head_calls": 1496,
+        "direct_prior_calls": 0,
+        "direct_prior_rows": 0,
+        "direct_token_calls": 0,
+        "direct_token_rows": 0,
+        "observation_assimilation_calls": 0,
+        "observation_assimilation_rows": 0,
+        "outcome_head_calls": 1496,
+        "prefix_assimilation_calls": 1683,
+        "prefix_assimilation_rows": 1683,
+        "readout_rows": 1496,
+        "terminal_frozen_rows": 0,
+        "transition_calls": 1496,
+        "transition_rows": 1496
+      }
+    },
+    {
+      "cases": 187,
+      "condition": "normal",
+      "family": "recurrent_sampled",
+      "seconds": 0.12179583311080933,
+      "seed": 327000001,
+      "work": {
+        "aux_head_calls": 1496,
+        "cost_head_calls": 1496,
+        "direct_prior_calls": 0,
+        "direct_prior_rows": 0,
+        "direct_token_calls": 0,
+        "direct_token_rows": 0,
+        "observation_assimilation_calls": 1411,
+        "observation_assimilation_rows": 1411,
+        "outcome_head_calls": 1496,
+        "prefix_assimilation_calls": 1683,
+        "prefix_assimilation_rows": 1683,
+        "readout_rows": 1496,
+        "terminal_frozen_rows": 71,
+        "transition_calls": 1425,
+        "transition_rows": 1425
+      }
+    },
+    {
+      "cases": 187,
+      "condition": "opposite",
+      "family": "recurrent_sampled",
+      "seconds": 0.0939159169793129,
+      "seed": 327000001,
+      "work": {
+        "aux_head_calls": 1496,
+        "cost_head_calls": 1496,
+        "direct_prior_calls": 0,
+        "direct_prior_rows": 0,
+        "direct_token_calls": 0,
+        "direct_token_rows": 0,
+        "observation_assimilation_calls": 0,
+        "observation_assimilation_rows": 0,
+        "outcome_head_calls": 1496,
+        "prefix_assimilation_calls": 1683,
+        "prefix_assimilation_rows": 1683,
+        "readout_rows": 1496,
+        "terminal_frozen_rows": 0,
+        "transition_calls": 1496,
+        "transition_rows": 1496
+      }
+    },
+    {
+      "cases": 187,
+      "condition": "gap",
+      "family": "recurrent_sampled",
+      "seconds": 0.09149541589431465,
+      "seed": 327000002,
+      "work": {
+        "aux_head_calls": 1496,
+        "cost_head_calls": 1496,
+        "direct_prior_calls": 0,
+        "direct_prior_rows": 0,
+        "direct_token_calls": 0,
+        "direct_token_rows": 0,
+        "observation_assimilation_calls": 0,
+        "observation_assimilation_rows": 0,
+        "outcome_head_calls": 1496,
+        "prefix_assimilation_calls": 1683,
+        "prefix_assimilation_rows": 1683,
+        "readout_rows": 1496,
+        "terminal_frozen_rows": 0,
+        "transition_calls": 1496,
+        "transition_rows": 1496
+      }
+    },
+    {
+      "cases": 187,
+      "condition": "normal",
+      "family": "recurrent_sampled",
+      "seconds": 0.13625679188407958,
+      "seed": 327000002,
+      "work": {
+        "aux_head_calls": 1496,
+        "cost_head_calls": 1496,
+        "direct_prior_calls": 0,
+        "direct_prior_rows": 0,
+        "direct_token_calls": 0,
+        "direct_token_rows": 0,
+        "observation_assimilation_calls": 1411,
+        "observation_assimilation_rows": 1411,
+        "outcome_head_calls": 1496,
+        "prefix_assimilation_calls": 1683,
+        "prefix_assimilation_rows": 1683,
+        "readout_rows": 1496,
+        "terminal_frozen_rows": 71,
+        "transition_calls": 1425,
+        "transition_rows": 1425
+      }
+    },
+    {
+      "cases": 187,
+      "condition": "opposite",
+      "family": "recurrent_sampled",
+      "seconds": 0.0810396249871701,
+      "seed": 327000002,
+      "work": {
+        "aux_head_calls": 1496,
+        "cost_head_calls": 1496,
+        "direct_prior_calls": 0,
+        "direct_prior_rows": 0,
+        "direct_token_calls": 0,
+        "direct_token_rows": 0,
+        "observation_assimilation_calls": 0,
+        "observation_assimilation_rows": 0,
+        "outcome_head_calls": 1496,
+        "prefix_assimilation_calls": 1683,
+        "prefix_assimilation_rows": 1683,
+        "readout_rows": 1496,
+        "terminal_frozen_rows": 0,
+        "transition_calls": 1496,
+        "transition_rows": 1496
+      }
+    },
+    {
+      "cases": 187,
+      "condition": "gap",
+      "family": "recurrent_sampled",
+      "seconds": 0.08152662497013807,
+      "seed": 327000003,
+      "work": {
+        "aux_head_calls": 1496,
+        "cost_head_calls": 1496,
+        "direct_prior_calls": 0,
+        "direct_prior_rows": 0,
+        "direct_token_calls": 0,
+        "direct_token_rows": 0,
+        "observation_assimilation_calls": 0,
+        "observation_assimilation_rows": 0,
+        "outcome_head_calls": 1496,
+        "prefix_assimilation_calls": 1683,
+        "prefix_assimilation_rows": 1683,
+        "readout_rows": 1496,
+        "terminal_frozen_rows": 0,
+        "transition_calls": 1496,
+        "transition_rows": 1496
+      }
+    },
+    {
+      "cases": 187,
+      "condition": "normal",
+      "family": "recurrent_sampled",
+      "seconds": 0.12441512499935925,
+      "seed": 327000003,
+      "work": {
+        "aux_head_calls": 1496,
+        "cost_head_calls": 1496,
+        "direct_prior_calls": 0,
+        "direct_prior_rows": 0,
+        "direct_token_calls": 0,
+        "direct_token_rows": 0,
+        "observation_assimilation_calls": 1411,
+        "observation_assimilation_rows": 1411,
+        "outcome_head_calls": 1496,
+        "prefix_assimilation_calls": 1683,
+        "prefix_assimilation_rows": 1683,
+        "readout_rows": 1496,
+        "terminal_frozen_rows": 71,
+        "transition_calls": 1425,
+        "transition_rows": 1425
+      }
+    },
+    {
+      "cases": 187,
+      "condition": "opposite",
+      "family": "recurrent_sampled",
+      "seconds": 0.08232854097150266,
+      "seed": 327000003,
+      "work": {
+        "aux_head_calls": 1496,
+        "cost_head_calls": 1496,
+        "direct_prior_calls": 0,
+        "direct_prior_rows": 0,
+        "direct_token_calls": 0,
+        "direct_token_rows": 0,
+        "observation_assimilation_calls": 0,
+        "observation_assimilation_rows": 0,
+        "outcome_head_calls": 1496,
+        "prefix_assimilation_calls": 1683,
+        "prefix_assimilation_rows": 1683,
+        "readout_rows": 1496,
+        "terminal_frozen_rows": 0,
+        "transition_calls": 1496,
+        "transition_rows": 1496
+      }
+    },
+    {
+      "cases": 187,
+      "condition": "gap",
+      "family": "action_blind_soft",
+      "seconds": 0.08831316698342562,
+      "seed": 327000001,
+      "work": {
+        "aux_head_calls": 1496,
+        "cost_head_calls": 1496,
+        "direct_prior_calls": 0,
+        "direct_prior_rows": 0,
+        "direct_token_calls": 0,
+        "direct_token_rows": 0,
+        "observation_assimilation_calls": 0,
+        "observation_assimilation_rows": 0,
+        "outcome_head_calls": 1496,
+        "prefix_assimilation_calls": 1683,
+        "prefix_assimilation_rows": 1683,
+        "readout_rows": 1496,
+        "terminal_frozen_rows": 0,
+        "transition_calls": 1496,
+        "transition_rows": 1496
+      }
+    },
+    {
+      "cases": 187,
+      "condition": "normal",
+      "family": "action_blind_soft",
+      "seconds": 0.13364933291450143,
+      "seed": 327000001,
+      "work": {
+        "aux_head_calls": 1496,
+        "cost_head_calls": 1496,
+        "direct_prior_calls": 0,
+        "direct_prior_rows": 0,
+        "direct_token_calls": 0,
+        "direct_token_rows": 0,
+        "observation_assimilation_calls": 1411,
+        "observation_assimilation_rows": 1411,
+        "outcome_head_calls": 1496,
+        "prefix_assimilation_calls": 1683,
+        "prefix_assimilation_rows": 1683,
+        "readout_rows": 1496,
+        "terminal_frozen_rows": 71,
+        "transition_calls": 1425,
+        "transition_rows": 1425
+      }
+    },
+    {
+      "cases": 187,
+      "condition": "opposite",
+      "family": "action_blind_soft",
+      "seconds": 0.07785337488166988,
+      "seed": 327000001,
+      "work": {
+        "aux_head_calls": 1496,
+        "cost_head_calls": 1496,
+        "direct_prior_calls": 0,
+        "direct_prior_rows": 0,
+        "direct_token_calls": 0,
+        "direct_token_rows": 0,
+        "observation_assimilation_calls": 0,
+        "observation_assimilation_rows": 0,
+        "outcome_head_calls": 1496,
+        "prefix_assimilation_calls": 1683,
+        "prefix_assimilation_rows": 1683,
+        "readout_rows": 1496,
+        "terminal_frozen_rows": 0,
+        "transition_calls": 1496,
+        "transition_rows": 1496
+      }
+    },
+    {
+      "cases": 187,
+      "condition": "gap",
+      "family": "action_blind_soft",
+      "seconds": 0.07432950008660555,
+      "seed": 327000002,
+      "work": {
+        "aux_head_calls": 1496,
+        "cost_head_calls": 1496,
+        "direct_prior_calls": 0,
+        "direct_prior_rows": 0,
+        "direct_token_calls": 0,
+        "direct_token_rows": 0,
+        "observation_assimilation_calls": 0,
+        "observation_assimilation_rows": 0,
+        "outcome_head_calls": 1496,
+        "prefix_assimilation_calls": 1683,
+        "prefix_assimilation_rows": 1683,
+        "readout_rows": 1496,
+        "terminal_frozen_rows": 0,
+        "transition_calls": 1496,
+        "transition_rows": 1496
+      }
+    },
+    {
+      "cases": 187,
+      "condition": "normal",
+      "family": "action_blind_soft",
+      "seconds": 0.12482133321464062,
+      "seed": 327000002,
+      "work": {
+        "aux_head_calls": 1496,
+        "cost_head_calls": 1496,
+        "direct_prior_calls": 0,
+        "direct_prior_rows": 0,
+        "direct_token_calls": 0,
+        "direct_token_rows": 0,
+        "observation_assimilation_calls": 1411,
+        "observation_assimilation_rows": 1411,
+        "outcome_head_calls": 1496,
+        "prefix_assimilation_calls": 1683,
+        "prefix_assimilation_rows": 1683,
+        "readout_rows": 1496,
+        "terminal_frozen_rows": 71,
+        "transition_calls": 1425,
+        "transition_rows": 1425
+      }
+    },
+    {
+      "cases": 187,
+      "condition": "opposite",
+      "family": "action_blind_soft",
+      "seconds": 0.07977550011128187,
+      "seed": 327000002,
+      "work": {
+        "aux_head_calls": 1496,
+        "cost_head_calls": 1496,
+        "direct_prior_calls": 0,
+        "direct_prior_rows": 0,
+        "direct_token_calls": 0,
+        "direct_token_rows": 0,
+        "observation_assimilation_calls": 0,
+        "observation_assimilation_rows": 0,
+        "outcome_head_calls": 1496,
+        "prefix_assimilation_calls": 1683,
+        "prefix_assimilation_rows": 1683,
+        "readout_rows": 1496,
+        "terminal_frozen_rows": 0,
+        "transition_calls": 1496,
+        "transition_rows": 1496
+      }
+    },
+    {
+      "cases": 187,
+      "condition": "gap",
+      "family": "action_blind_soft",
+      "seconds": 0.07547654118388891,
+      "seed": 327000003,
+      "work": {
+        "aux_head_calls": 1496,
+        "cost_head_calls": 1496,
+        "direct_prior_calls": 0,
+        "direct_prior_rows": 0,
+        "direct_token_calls": 0,
+        "direct_token_rows": 0,
+        "observation_assimilation_calls": 0,
+        "observation_assimilation_rows": 0,
+        "outcome_head_calls": 1496,
+        "prefix_assimilation_calls": 1683,
+        "prefix_assimilation_rows": 1683,
+        "readout_rows": 1496,
+        "terminal_frozen_rows": 0,
+        "transition_calls": 1496,
+        "transition_rows": 1496
+      }
+    },
+    {
+      "cases": 187,
+      "condition": "normal",
+      "family": "action_blind_soft",
+      "seconds": 0.12060649995692074,
+      "seed": 327000003,
+      "work": {
+        "aux_head_calls": 1496,
+        "cost_head_calls": 1496,
+        "direct_prior_calls": 0,
+        "direct_prior_rows": 0,
+        "direct_token_calls": 0,
+        "direct_token_rows": 0,
+        "observation_assimilation_calls": 1411,
+        "observation_assimilation_rows": 1411,
+        "outcome_head_calls": 1496,
+        "prefix_assimilation_calls": 1683,
+        "prefix_assimilation_rows": 1683,
+        "readout_rows": 1496,
+        "terminal_frozen_rows": 71,
+        "transition_calls": 1425,
+        "transition_rows": 1425
+      }
+    },
+    {
+      "cases": 187,
+      "condition": "opposite",
+      "family": "action_blind_soft",
+      "seconds": 0.0767393340356648,
+      "seed": 327000003,
+      "work": {
+        "aux_head_calls": 1496,
+        "cost_head_calls": 1496,
+        "direct_prior_calls": 0,
+        "direct_prior_rows": 0,
+        "direct_token_calls": 0,
+        "direct_token_rows": 0,
+        "observation_assimilation_calls": 0,
+        "observation_assimilation_rows": 0,
+        "outcome_head_calls": 1496,
+        "prefix_assimilation_calls": 1683,
+        "prefix_assimilation_rows": 1683,
+        "readout_rows": 1496,
+        "terminal_frozen_rows": 0,
+        "transition_calls": 1496,
+        "transition_rows": 1496
+      }
+    },
+    {
+      "cases": 187,
+      "condition": "gap",
+      "family": "direct_soft",
+      "seconds": 0.10195762501098216,
+      "seed": 327000001,
+      "work": {
+        "aux_head_calls": 1496,
+        "cost_head_calls": 1496,
+        "direct_prior_calls": 1496,
+        "direct_prior_rows": 1496,
+        "direct_token_calls": 1496,
+        "direct_token_rows": 6732,
+        "observation_assimilation_calls": 0,
+        "observation_assimilation_rows": 0,
+        "outcome_head_calls": 1496,
+        "prefix_assimilation_calls": 1683,
+        "prefix_assimilation_rows": 1683,
+        "readout_rows": 1496,
+        "terminal_frozen_rows": 0,
+        "transition_calls": 0,
+        "transition_rows": 0
+      }
+    },
+    {
+      "cases": 187,
+      "condition": "normal",
+      "family": "direct_soft",
+      "seconds": 0.13931041699834168,
+      "seed": 327000001,
+      "work": {
+        "aux_head_calls": 1496,
+        "cost_head_calls": 1496,
+        "direct_prior_calls": 1425,
+        "direct_prior_rows": 1425,
+        "direct_token_calls": 1425,
+        "direct_token_rows": 1425,
+        "observation_assimilation_calls": 1411,
+        "observation_assimilation_rows": 1411,
+        "outcome_head_calls": 1496,
+        "prefix_assimilation_calls": 1683,
+        "prefix_assimilation_rows": 1683,
+        "readout_rows": 1496,
+        "terminal_frozen_rows": 71,
+        "transition_calls": 0,
+        "transition_rows": 0
+      }
+    },
+    {
+      "cases": 187,
+      "condition": "opposite",
+      "family": "direct_soft",
+      "seconds": 0.10854500019922853,
+      "seed": 327000001,
+      "work": {
+        "aux_head_calls": 1496,
+        "cost_head_calls": 1496,
+        "direct_prior_calls": 1496,
+        "direct_prior_rows": 1496,
+        "direct_token_calls": 1496,
+        "direct_token_rows": 6732,
+        "observation_assimilation_calls": 0,
+        "observation_assimilation_rows": 0,
+        "outcome_head_calls": 1496,
+        "prefix_assimilation_calls": 1683,
+        "prefix_assimilation_rows": 1683,
+        "readout_rows": 1496,
+        "terminal_frozen_rows": 0,
+        "transition_calls": 0,
+        "transition_rows": 0
+      }
+    },
+    {
+      "cases": 187,
+      "condition": "gap",
+      "family": "direct_soft",
+      "seconds": 0.10809500003233552,
+      "seed": 327000002,
+      "work": {
+        "aux_head_calls": 1496,
+        "cost_head_calls": 1496,
+        "direct_prior_calls": 1496,
+        "direct_prior_rows": 1496,
+        "direct_token_calls": 1496,
+        "direct_token_rows": 6732,
+        "observation_assimilation_calls": 0,
+        "observation_assimilation_rows": 0,
+        "outcome_head_calls": 1496,
+        "prefix_assimilation_calls": 1683,
+        "prefix_assimilation_rows": 1683,
+        "readout_rows": 1496,
+        "terminal_frozen_rows": 0,
+        "transition_calls": 0,
+        "transition_rows": 0
+      }
+    },
+    {
+      "cases": 187,
+      "condition": "normal",
+      "family": "direct_soft",
+      "seconds": 0.14232866698876023,
+      "seed": 327000002,
+      "work": {
+        "aux_head_calls": 1496,
+        "cost_head_calls": 1496,
+        "direct_prior_calls": 1425,
+        "direct_prior_rows": 1425,
+        "direct_token_calls": 1425,
+        "direct_token_rows": 1425,
+        "observation_assimilation_calls": 1411,
+        "observation_assimilation_rows": 1411,
+        "outcome_head_calls": 1496,
+        "prefix_assimilation_calls": 1683,
+        "prefix_assimilation_rows": 1683,
+        "readout_rows": 1496,
+        "terminal_frozen_rows": 71,
+        "transition_calls": 0,
+        "transition_rows": 0
+      }
+    },
+    {
+      "cases": 187,
+      "condition": "opposite",
+      "family": "direct_soft",
+      "seconds": 0.10452204197645187,
+      "seed": 327000002,
+      "work": {
+        "aux_head_calls": 1496,
+        "cost_head_calls": 1496,
+        "direct_prior_calls": 1496,
+        "direct_prior_rows": 1496,
+        "direct_token_calls": 1496,
+        "direct_token_rows": 6732,
+        "observation_assimilation_calls": 0,
+        "observation_assimilation_rows": 0,
+        "outcome_head_calls": 1496,
+        "prefix_assimilation_calls": 1683,
+        "prefix_assimilation_rows": 1683,
+        "readout_rows": 1496,
+        "terminal_frozen_rows": 0,
+        "transition_calls": 0,
+        "transition_rows": 0
+      }
+    },
+    {
+      "cases": 187,
+      "condition": "gap",
+      "family": "direct_soft",
+      "seconds": 0.10624650004319847,
+      "seed": 327000003,
+      "work": {
+        "aux_head_calls": 1496,
+        "cost_head_calls": 1496,
+        "direct_prior_calls": 1496,
+        "direct_prior_rows": 1496,
+        "direct_token_calls": 1496,
+        "direct_token_rows": 6732,
+        "observation_assimilation_calls": 0,
+        "observation_assimilation_rows": 0,
+        "outcome_head_calls": 1496,
+        "prefix_assimilation_calls": 1683,
+        "prefix_assimilation_rows": 1683,
+        "readout_rows": 1496,
+        "terminal_frozen_rows": 0,
+        "transition_calls": 0,
+        "transition_rows": 0
+      }
+    },
+    {
+      "cases": 187,
+      "condition": "normal",
+      "family": "direct_soft",
+      "seconds": 0.13931325008161366,
+      "seed": 327000003,
+      "work": {
+        "aux_head_calls": 1496,
+        "cost_head_calls": 1496,
+        "direct_prior_calls": 1425,
+        "direct_prior_rows": 1425,
+        "direct_token_calls": 1425,
+        "direct_token_rows": 1425,
+        "observation_assimilation_calls": 1411,
+        "observation_assimilation_rows": 1411,
+        "outcome_head_calls": 1496,
+        "prefix_assimilation_calls": 1683,
+        "prefix_assimilation_rows": 1683,
+        "readout_rows": 1496,
+        "terminal_frozen_rows": 71,
+        "transition_calls": 0,
+        "transition_rows": 0
+      }
+    },
+    {
+      "cases": 187,
+      "condition": "opposite",
+      "family": "direct_soft",
+      "seconds": 0.11121254204772413,
+      "seed": 327000003,
+      "work": {
+        "aux_head_calls": 1496,
+        "cost_head_calls": 1496,
+        "direct_prior_calls": 1496,
+        "direct_prior_rows": 1496,
+        "direct_token_calls": 1496,
+        "direct_token_rows": 6732,
+        "observation_assimilation_calls": 0,
+        "observation_assimilation_rows": 0,
+        "outcome_head_calls": 1496,
+        "prefix_assimilation_calls": 1683,
+        "prefix_assimilation_rows": 1683,
+        "readout_rows": 1496,
+        "terminal_frozen_rows": 0,
+        "transition_calls": 0,
+        "transition_rows": 0
+      }
+    }
+  ],
+  "scope": "full-belief TRAIN distillation into fixed-path forecast imitation, not autonomous control",
+  "status": "DEV_FAIL",
+  "train_data": {
+    "bytes": 5469772,
+    "sha256": "add8cf6ff79733c6fcc1293bf2eb2e538ccb6b52ccd89afbf1ce5306f0faecb6"
+  }
+}

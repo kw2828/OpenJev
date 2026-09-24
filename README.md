@@ -56,20 +56,23 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Research status
 
-The latest OTTO pilot trained a small **action-conditioned recurrent model** to
-forecast through missing observations. It passed **2/18 comparisons**, failing
-the overall rule. Mean long-gap log loss improved over a direct predictor,
-but decision gap was **16.31% worse** after a sensing shift. Action conditioning
-did not consistently beat an action-blind control.
+The latest OTTO study trained **12 compact models** on 1,046 cases and evaluated
+187 fresh development cases. Bayesian probability targets lowered long-gap log
+loss **31.9% / 33.7%** versus the identical recurrent model trained on sampled
+outcomes, averaged across three fits in the base/shifted settings.
 
-[![Action-gap prediction across four methods and two sensing settings](research/otto-action-latent-results/horizons.png)](research/otto-action-latent-results.md)
+**The overall rule still failed: 7/18 comparisons passed.** Decision gains varied
+by seed, and the direct model predicted action effects better after the sensing
+shift. This is a supervised forecasting result, not an autonomous-control gain.
 
-[Results and limits](research/otto-action-latent-results.md) ·
-[Every fit and comparison](research/otto-action-latent-results/README.md) ·
-[Checkpoints and evidence](https://github.com/kw2828/OpenJev/releases/tag/otto-action-latent-v1).
-All nine neural fits and the independent audit completed. This is a prediction
-experiment on fixed paths; it establishes no autonomous-control gain or new
-architecture.
+[![Probability training, decisions and action effects across two sensing settings](research/otto-belief-distillation-results/benchmark.png)](research/otto-belief-distillation-results.md)
+
+[Results and every comparison](research/otto-belief-distillation-results.md) ·
+[Checkpoints and evidence](https://github.com/kw2828/OpenJev/releases/tag/otto-belief-distillation-v1) ·
+[Next: learning action effects](research/otto-belief-distillation-next.md).
+All fits and the independent audit completed. The earlier
+[action-latent pilot](research/otto-action-latent-results.md) remains a failed
+comparison on a different dataset.
 
 The [solved-readout comparison](research/otto-direct-readout-results.md),
 The [fresh-path compute comparison](research/otto-readout-compute-results.md),

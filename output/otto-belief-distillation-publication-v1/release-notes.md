@@ -1,0 +1,7 @@
+The matched probability-supervision pilot completed all 12 fits and its independent audit. Its registered outcome is **DEV_FAIL: 7/18 paired comparisons passed**.
+
+Full-belief training targets lower mean long-gap log loss **31.94% / 33.74%** versus the identical sampled-target recurrent model in the base/shifted sensing settings (ratios of three-fit means). Decision gains vary across seeds. Under shift, the direct predictor estimates opposite-action effects more accurately in all three fits. This is a development forecasting result, not an autonomous-control or architecture claim.
+
+The study retained 1,046 TRAIN and 187 fresh DEV cases. This release preserves all checkpoints, saved forecasts, probability targets, native call journals, frozen sources, qualification failures and closure receipts. The evidence archive also includes direct original OTTO teacher inputs and licenses. Qualified runtimes and some ancestral authentication dependencies remain external; the manifest documents the boundary. SHA256SUMS and the archive verification record support byte-level checks.
+
+See [results and figure](https://github.com/kw2828/OpenJev/blob/main/research/otto-belief-distillation-results.md), [every paired comparison](https://github.com/kw2828/OpenJev/blob/main/research/otto-belief-distillation-results/README.md), and [the next action-effect hypothesis](https://github.com/kw2828/OpenJev/blob/main/research/otto-belief-distillation-next.md).

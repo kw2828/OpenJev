@@ -66,6 +66,10 @@ decision. Correlated control trajectories and changing policies require an
 appropriate sequential treatment; ordinary exchangeable-sample guarantees
 cannot simply be asserted for them.
 
+The API's [confidence statistic](https://docs.typesafe.ai/confidence) describes
+distribution concentration. It is distinct from candidate probabilities and
+does not replace an empirical calibration measurement.
+
 ## What to borrow for OpenJev
 
 Our [local scorer](../src/openjev/decisions.py) already reads unique candidate
@@ -86,10 +90,12 @@ before adding RL. Report accuracy, log loss, Brier score, reliability plots and
 decision utility with total compute. Teacher agreement and softmax-transformed
 costs are not substitutes for observed correctness or outcome calibration.
 
-The [protected-readout comparison](otto-protected-readout-results.md) has closed
-with a failed continuation rule. The [current query-memory study](otto-query-memory-status.md)
-tests whether corrections written at actual observation times help a frozen
-recurrent predictor beyond ordinary recurrent training and simple last-error
-correction. Its outputs are teacher-score predictions, not calibrated success
-probabilities. Neither the post nor these implementations establishes a
-connectome or world-model advantage for OpenJev.
+The [protected-readout comparison](otto-protected-readout-results.md) and
+[action-latent pilot](otto-action-latent-results.md) both failed their continuation
+rules. The new [belief-distillation study](otto-belief-distillation-protocol.md)
+tests full conditional outcome probabilities as supervised TRAIN targets for a
+compact recurrent predictor. Its teacher uses a checked Bayesian filter under a
+known sensor law; the student cannot inspect the full belief during inference.
+A same-seed sampled-label twin, action-blind model and direct predictor separate
+supervision and recurrence effects. This is not a reproduction of TypeSafe RLCD,
+a calibration guarantee or evidence for connectome wiring.
