@@ -1,0 +1,93 @@
+.....................................F.................................. [ 48%]
+..................................F..................................... [ 96%]
+......                                                                   [100%]
+=================================== FAILURES ===================================
+___ test_rank_deficiency_uses_minimum_norm_and_reports_absent_full_condition ___
+
+    def test_rank_deficiency_uses_minimum_norm_and_reports_absent_full_condition():
+        z = np.array([[1., 2.], [2., 4.], [3., 6.]])
+        effective = np.array([5., 11., 17.])
+        target = np.outer(z[:, 0], reference_basis() @ effective)
+        A, b = M.build_design(z, target, np.ones((3, 4), bool), np.ones(3))
+        solved = M.solve_design(A, b, mode="ols")
+        expected = np.outer(effective, [1., 2.]) / 5
+        np.testing.assert_allclose(solved["B"], expected, rtol=1e-13, atol=1e-13)
+        assert solved["diagnostics"]["rank"] == 3
+        assert solved["diagnostics"]["condition_number"] is None
+        assert solved["diagnostics"]["retained_condition_number"] is not None
+        assert not solved["diagnostics"]["full_column_rank"]
+>       np.testing.assert_allclose(solved["B"] @ np.array([2., -1.]), 0., atol=2e-14)
+E       AssertionError: 
+E       Not equal to tolerance rtol=1e-07, atol=2e-14
+E       
+E       Mismatched elements: 1 / 3 (33.3%)
+E       Mismatch at index:
+E        [0]: -5.3512749786932545e-14 (ACTUAL), 0.0 (DESIRED)
+E       Max absolute difference among violations: 5.35127498e-14
+E       Max relative difference among violations: inf
+E        ACTUAL: array([-5.351275e-14, -1.065814e-14,  0.000000e+00])
+E        DESIRED: array(0.)
+
+tests/test_otto_direct_readout.py:118: AssertionError
+____ test_authentication_uses_only_fixed_parent_and_comparator_checkpoints _____
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10fed2f90>
+
+    def test_authentication_uses_only_fixed_parent_and_comparator_checkpoints(monkeypatch):
+        called, verified = [], []
+        sources = {'old.py': 'old'}
+        old_plan = {'sources': sources, 'train': {'stage': 'train'}, 'dev': {'stage': 'dev'},
+                    'lineage': {'checkpoints': {'pretrained': {'fixture': True}}}, 'runtime': {'fixture': True}}
+        files = {'fits.json': {'path': 'fits.json'}}
+        for seed in runner.SEEDS:
+            for family in ('action_residual_only', 'full_joint'):
+                name = f'checkpoint-{family}-{seed}.npz'
+                files[name] = {'path': name}
+        closure = {'technical_complete': True, 'status': 'DEV_FAIL', 'plan': {'path': 'old-plan'},
+                   'producer_receipt': {'path': 'producer'}, 'producer_terminal': {'path': 'producer-terminal'},
+                   'audit_receipt': {'path': 'audit'}, 'audit_terminal': {'path': 'audit-terminal'}}
+    
+        def closed(*args):
+            called.append(args)
+            return copy.deepcopy(old_plan), {'files': copy.deepcopy(files)}, Path('/fabricated')
+    
+        def descriptor(path):
+            sha = runner.PRIOR_SHA if path == runner.PRIOR else runner.CLOSURE_SHA if path == runner.CLOSURE else 'new'
+            return {'path': str(path), 'sha256': sha, 'bytes': 1}
+    
+        monkeypatch.setattr(runner, 'descriptor', descriptor)
+        monkeypatch.setattr(runner, 'read', lambda _: closure)
+        monkeypatch.setattr(runner, 'load', lambda *_: SimpleNamespace(process_closure=closed))
+        monkeypatch.setattr(runner, 'verify', lambda pin: verified.append(pin['path']))
+>       actual = runner.authenticate()
+                 ^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_run_otto_direct_readout.py:116: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def authenticate():
+        require(descriptor(PRIOR)['sha256'] == PRIOR_SHA and descriptor(CLOSURE)['sha256'] == CLOSURE_SHA,
+                'immutable completed predecessor')
+        old = load(PRIOR, '_direct_prior')
+        closure = read(CLOSURE)
+        plan, receipt, _ = old.process_closure(closure['plan']['path'], closure['producer_receipt']['path'],
+                                              closure['producer_terminal']['path'])
+        old.process_closure(closure['plan']['path'], closure['audit_receipt']['path'], closure['audit_terminal']['path'])
+        require(closure['technical_complete'] and closure['status'] == 'DEV_FAIL', 'closed prior failure retained')
+        sources = {**plan['sources'], **{name: descriptor(name)['sha256'] for name in NEW}}
+        comparators = {family: {str(seed): receipt['files'][f'checkpoint-{family}-{seed}.npz'] for seed in SEEDS}
+                       for family in ('action_residual_only', 'full_joint')}
+        for items in comparators.values():
+            for pin in items.values():
+                verify(pin)
+        return {**{k: plan[k] for k in ('train', 'dev', 'lineage', 'runtime')}, 'sources': sources,
+                'comparators': comparators, 'prior_closure': descriptor(CLOSURE),
+>               'prior_fits': receipt['files']['fits.json'], 'prior_views': receipt['files']['views.json']}
+                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'views.json'
+
+scripts/run_otto_direct_readout.py:111: KeyError
+=========================== short test summary info ============================
+FAILED tests/test_otto_direct_readout.py::test_rank_deficiency_uses_minimum_norm_and_reports_absent_full_condition
+FAILED tests/test_run_otto_direct_readout.py::test_authentication_uses_only_fixed_parent_and_comparator_checkpoints
+2 failed, 148 passed in 1.82s
