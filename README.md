@@ -80,9 +80,14 @@ prediction does not establish better decisions or calibrated confidence.
 The [equal-update follow-up stopped at engineering qualification](research/finite-update-learning-stop-results.md).
 All 273 tests passed, but conservative runtime projections exceeded its fixed
 90-second admission limit. No scientific run started.
-A separate [computation-sharing helper](research/finite-joint-reuse-qualification-results.md)
-passes 44 numerical tests while removing repeated probability construction
-and history filtering. Full integration and measured speed remain next.
+The [integrated computation-sharing benchmark](research/finite-joint-reuse-throughput-results.md)
+now measures **1.20x / 1.20x / 1.35x median training throughput** across the
+three models. All nine measured pairs favor reuse; 78 tests and the independent
+saved-state audit pass. This is a training-speed result on one machine, with
+no new task-performance claim.
+
+[![All nine measured training-throughput ratios](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-joint-reuse-throughput-results/benchmark.png)](research/finite-joint-reuse-throughput-results.md)
+
 Every completed or failed study stays in the [experiment archive](research/experiment-index.md).
 
 The separate [shared-prefix scoring experiment](research/shared-prefix-results.md)
