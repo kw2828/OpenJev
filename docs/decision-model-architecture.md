@@ -4,6 +4,9 @@ A decision API can encode context once and score supplied options without
 generating an explanation. This is useful for OpenJev, but speed, decision
 quality and probability calibration are separate measurements.
 
+The [24 September source check](../research/decision-model-source-check.md)
+maps the shared screenshots' claims to the actual public implementations.
+
 The widely shared three-step diagram is a possible implementation, not a
 verified specification of TypeSafe Jev. Archer Hume's
 [investigation](https://archerhume.com/posts/jevs-architecture-unmasked/)

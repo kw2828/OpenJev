@@ -1,0 +1,22 @@
+# Decision-model source check
+
+Primary sources checked 24 September 2026 after screenshots described public projects as reconstructions of Jev. This is a source review, not a new experiment or verification of proprietary internals.
+
+The names matter: **SemIf** (capital I, not SemLF) is TheoLeeCJ's project, formerly OpenJev and currently hosted as [SemIf-OpenJev](https://github.com/TheoLeeCJ/SemIf-OpenJev). [zhihz/openjev](https://github.com/zhihz/openjev) is separate. This repository, [kw2828/OpenJev](https://github.com/kw2828/OpenJev), is another independent research project. Shared naming does not establish shared implementations or affiliation with TypeSafe.
+
+| Screenshot claim | What the primary sources support |
+|---|---|
+| Public projects reconstructed Jev. | SemIf explicitly says it reproduces the interface pattern, not Jev's undisclosed model or training. [Jevlike's README](https://github.com/vinnylarouge/jevlike#readme) likewise describes an independent starter with similar inputs and outputs. |
+| Jev has a fixed 255-slot classification head. | [Hume's article](https://archerhume.com/posts/jevs-architecture-unmasked/) observes a 255-option API limit but states that request validation enforces it. A proposed 256-slot head and a pointer-style scorer remain alternatives, not recovered architecture. |
+| Direct probabilities require removing the LM head. | [SemIf's method](https://github.com/TheoLeeCJ/SemIf-OpenJev/blob/master/docs/METHOD.md) selects answer-token logits from frozen Qwen, then normalizes them. [zhihz's code](https://github.com/zhihz/openjev/blob/main/decisionmaking/instruction.py) retains `AutoModelForCausalLM`. Reading probabilities without a generation loop does not imply removing the vocabulary projection. |
+| Jevlike implements the same fixed head. | Its [model](https://github.com/vinnylarouge/jevlike/blob/main/jevlike/model.py) lets each option attend to context and produces one shared dot-product score per option. Option count varies; `rank` specifies representation width. Its [ordinary trainer](https://github.com/vinnylarouge/jevlike/blob/main/jevlike/train.py) uses supervised cross-entropy. |
+| RL is necessary to calibrate confidence. | [TypeSafe](https://typesafe.ai/blog/introducing-system-one-models-and-jev) names its method Reinforcement Learning for Calibrated Decisions. That is its stated approach, not a necessity theorem. [Temperature scaling](https://arxiv.org/abs/1706.04599) is established without RL; [SemIf](https://github.com/TheoLeeCJ/SemIf-OpenJev/blob/master/docs/CALIBRATION.md) implements a separately fitted, labeled calibration step. |
+| The Qwen RLCD upload reproduces that training. | The [model card](https://huggingface.co/harshatheg/Qwen-2.5-1B-RLCD) describes parallel constrained decoding. Its [inspected engine](https://huggingface.co/harshatheg/Qwen-2.5-1B-RLCD/blob/main/core/engine_torch.py) loads Qwen2.5-1.5B, broadcasts a prefix cache and softmaxes candidate-token logits. Its calibrated-probability flag supplies no calibration evidence. These sources do not establish TypeSafe's training recipe. |
+
+## What we can borrow and test
+
+Direct option-logit readout, variable-option scoring and shared-prefix computation are useful conventional baselines. A fair comparison should retain the same backbone and candidate information, charge complete inference costs, and check whether faster execution changes predictions. Neither schema validity nor normalized probabilities establish factual accuracy or calibration.
+
+For decision quality, separate discrimination, calibration and downstream cost. Compare native scores with temperature scaling fitted only on a calibration split; report held-out NLL/Brier, reliability and decision cost, including distribution shift. Test option permutations and irrelevant alternatives rather than assuming invariance. A positive temperature preserves argmax, so its calibration gains must not be presented as accuracy gains.
+
+These are prospective evaluation suggestions. No model was run for this note. Borrowing these established mechanisms does not satisfy our separate goal of a novel recurrent architecture, and the public evidence does not justify certainty about Jev's private design.
