@@ -1,0 +1,12 @@
+BLE001 Do not catch blind exception: `Exception`
+   --> scripts/qualify_otto_observation_operator.py:133:12
+    |
+131 |     try:
+132 |         preserved = preserve_running_study() == registration
+133 |     except Exception as exc:
+    |            ^^^^^^^^^
+134 |         preserved, preservation_error = False, repr(exc)
+135 |     passed = before == after and preserved and len(outcomes) == 3 and all(
+    |
+
+Found 1 error.
