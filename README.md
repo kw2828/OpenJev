@@ -58,25 +58,24 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Research status
 
-The [latest recurrent replication](research/finite-cost-readout-replication-results.md)
-uses **six fresh fits**. Learning the decision readout lowers mean four- and
-eight-step regret **59.55% / 55.47%** against its initially matched fixed
-control, with every paired seed improving. However, **both versions fail all
-three absolute criteria**. The replication rule fails, 6/8 conditions, so the
-planned longer-horizon training study does not proceed.
+The [latest recurrent comparison](research/finite-factorized-dynamics-results.md)
+tests **nine fits**. A structured 352-parameter model lowers mean four- and
+eight-step decision regret **35.15% / 19.39%** versus a 1,120-parameter control
+that starts with the same predictions. It passes the criterion that receives
+new observations, but **fails short-horizon learning and forecasting without
+new observations across seeds**. The smaller model also takes slightly longer
+to train. It does not advance as a reliable candidate.
 
-[![All six fresh recurrent fits and the failed replication rule](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-cost-readout-replication-results/benchmark.png)](research/finite-cost-readout-replication-results.md)
+[![All nine recurrent fits, showing seed variation and measured training costs](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-factorized-dynamics-results/benchmark.png)](research/finite-factorized-dynamics-results.md)
 
-[Open recurrent chart](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-cost-readout-replication-results/benchmark.png) ·
-[All six checkpoints and evidence](https://github.com/kw2828/OpenJev/releases/tag/finite-cost-readout-replication-v1).
+[Open recurrent chart](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-factorized-dynamics-results/benchmark.png) ·
+[All nine checkpoints and evidence](https://github.com/kw2828/OpenJev/releases/tag/finite-factorized-dynamics-v1).
 
-This is a small synthetic study with privileged starting readouts, not a
-calibrated text model or a new architecture. The preceding
-[readout comparison](research/finite-cost-readout-results.md),
-[observation-prediction comparison](research/finite-prefix-learning-results.md),
-[shared-filter comparison](research/finite-shared-filter-results.md),
-[factor diagnostic](research/finite-factor-learning-results.md) and every
-completed or failed study remain in the [experiment archive](research/experiment-index.md).
+This is a small synthetic study with task-derived structure and privileged
+starting readouts, not a calibrated text model or a new architecture. The
+[earlier readout replication](research/finite-cost-readout-replication-results.md)
+remains failed, and its longer-horizon training follow-up remains closed.
+Every completed or failed study stays in the [experiment archive](research/experiment-index.md).
 
 The separate [shared-prefix scoring experiment](research/shared-prefix-results.md)
 measured **2.08x** speedup on four-question synthetic workloads; single-question
