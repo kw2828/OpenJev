@@ -56,20 +56,22 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Research status
 
-The latest OTTO experiment trained **six models** and evaluated them on **36
-fresh paths**. Full recurrent training passed only **1/6 paired seed/setting comparisons**.
-Training just the 116-parameter readout produced **3.01% / 12.82% lower mean
-later teacher-cost gaps** than full joint training, at comparable measured cost.
+The latest OTTO experiment directly solved **six small readout heads**. Fixed
+ridge lowers mean later decision gap **16.49%** versus Adam in one setting but
+is **3.71% worse** in the other. It passed **4/6 comparisons**, failing the overall
+rule. These are reused development paths, not fresh confirmation.
 
-[![Fresh-path comparison: all fits, training costs and paired checks](research/otto-readout-compute-results/methods.png)](research/otto-readout-compute-results.md)
+[![Solved readouts: every method, seed, adaptation cost and paired check](research/otto-direct-readout-results/methods.png)](research/otto-direct-readout-results.md)
 
-[Results and limits](research/otto-readout-compute-results.md) ·
-[Every fit and check](research/otto-readout-compute-results/README.md) ·
-[Checkpoints and evidence](https://github.com/kw2828/OpenJev/releases/tag/otto-readout-compute-v1).
-The readout wins only four of six later-gap comparisons. Both models still use
-recurrent memory; no inference speedup or autonomous-control gain is established.
+[Results and limits](research/otto-direct-readout-results.md) ·
+[Every fit and check](research/otto-direct-readout-results/README.md) ·
+[Checkpoints and evidence](https://github.com/kw2828/OpenJev/releases/tag/otto-direct-readout-v1).
+Adaptation took **4.8 to 5.2 seconds**, including features and export validation.
+This strengthens a conventional baseline; it establishes no novel architecture,
+inference speedup or autonomous-control gain.
 
-The [earlier equal-update ablation](research/otto-readout-state-ablation-results.md),
+The [fresh-path compute comparison](research/otto-readout-compute-results.md),
+[earlier equal-update ablation](research/otto-readout-state-ablation-results.md),
 [Bayesian-memory failure](research/otto-residual-reanalysis-results.md),
 [earlier memory comparison](research/otto-query-memory-results.md), and other
 completed or failed runs remain in the [experiment archive](research/experiment-index.md).
