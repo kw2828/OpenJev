@@ -60,23 +60,24 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Research status
 
-The latest observation-compression experiment **passes all 26 registered checks**.
-Within a 1,024-byte retained-state cap, a spectral sketch achieves **zero measured
-decision regret** on two 192-observation tests. A simpler DCT sketch performs
-almost identically. Both are slower than raw buffers on the long-stream timing probes.
+The latest [sensor-memory screen](research/sensor-screen-results.md) **fails its
+continuation rule: 3/6 conditions passed**. Static quadratic calibration already
+has low error on both development months. Adaptive models help in June but do
+not meet the required improvement in both months. Later data remains untouched.
 
-[![Observation consolidation: accuracy, storage and measured computation](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/measurement-results/benchmark.png)](research/measurement-results.md)
+[![Nine predictors in the TRAIN-only delayed sensor screen](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/sensor-screen-results/benchmark.png)](research/sensor-screen-results.md)
 
-[Results and independent audit](research/measurement-results.md) ·
-[Protocol](research/measurement-protocol.md) ·
-[Next research question](research/measurement-next.md) ·
+[Results and independent audit](research/sensor-screen-results.md) ·
+[Protocol](research/sensor-screen-protocol.md) ·
+[Next research question](research/sensor-screen-next.md) ·
 [All experiments](research/experiment-index.md).
 
-This establishes a stronger memory baseline on a fixed grid with a supplied
-Gaussian model. It does not establish a trained architecture or learned world
-dynamics. The earlier [RL deletion policy](research/retention-results.md),
-[uncertainty correction](research/residual-memory-results.md) and
-[query-centered model](research/query-feature-results.md) remain failed studies.
+The earlier [observation-compression baseline](research/measurement-results.md)
+passes all 26 registered checks: a 1,022-byte spectral sketch has zero measured
+decision regret on two long-stream tests. A simple DCT sketch performs almost
+identically, and both are slower than raw buffers there. This is a fixed-grid,
+supplied-model baseline, not a trained architecture. The [RL deletion policy](research/retention-results.md)
+remains a failed study.
 
 Separate engineering studies measured [1.20-1.35x training throughput](research/finite-joint-reuse-throughput-results.md)
 from shared computation and [2.08x scoring speed](research/shared-prefix-results.md)

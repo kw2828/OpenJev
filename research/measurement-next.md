@@ -2,6 +2,8 @@
 
 Prospective design only, 24 September 2026. This note identifies a possible next test; a separate protocol must be frozen before running it.
 
+**Budget correction, 24 September 2026:** the sketch below is an unimplemented proposal. Its 1,008-byte table omits inputs waiting for delayed labels. The [subsequent sensor-screen protocol](sensor-screen-protocol.md) uses all seven public inputs and a 24-hour delay; its raw pending-input queue alone costs 1,344 bytes. The original table is not a feasible deployment budget for that interface. A learned comparison must be rebudgeted and separately registered.
+
 The [completed consolidation study](measurement-results.md) passed 26/26
 conditions. Spectral118 had zero measured regret on LONG and LONG_SHIFT, while
 DCT118 had only 2.65e-13 and 1.05e-14. The static, supplied-law grid is effectively

@@ -1,0 +1,224 @@
+{
+  "admission": {
+    "csv": {
+      "bytes": 785065,
+      "sha256": "13277ae5d8581e80b7be09d47c7d3d06fe9b8e957078f2cf6e859f955e62f996"
+    },
+    "manifest": {
+      "bytes": 2208,
+      "sha256": "213054621335ed527d2a6bbffb3a160e0e9de0d73ee992192db1fbf76803a3ba"
+    },
+    "manifest_files": 15,
+    "original_inner_seconds": 1.1293944159988314,
+    "original_process_seconds": 1.477522665867582,
+    "qualification": {
+      "bytes": 2912,
+      "sha256": "a8600a9fae29fbb9e64c71067a127f687d34f260dce343641e92c99767836e3d"
+    },
+    "registration": {
+      "bytes": 2437,
+      "sha256": "e99a649965127a6bbb4ca3b6d6cfc999ab71c73c1ef0bca382db8773751afe60"
+    },
+    "registration_commit": "a99c05ff91bf1b29c22812065fc3dba60a0067a5",
+    "run_receipt": {
+      "bytes": 3074,
+      "sha256": "9daf1fdd72b1bd60c8ff279d8edb1025863772da3bf66f2d36e055b4df157356"
+    },
+    "sources": {
+      "research/sensor-screen-protocol.md": {
+        "bytes": 9885,
+        "sha256": "a50aab51d87e53af30a92cb09943a7de1c84131dd5c3e27880faf5ef7e3ef1ef"
+      },
+      "scripts/audit_sensor_screen.py": {
+        "bytes": 31583,
+        "sha256": "db2b4961447d1b20063b5544ff5acd4e5630471b6dc410e34773b5afbe5b59c5"
+      },
+      "scripts/sensor_screen.py": {
+        "bytes": 18279,
+        "sha256": "73e18ab19fe97df35e01e4c0d6a19424554943c5c6f693d019a6473fb0116903"
+      },
+      "src/openjev/research/sensor_data.py": {
+        "bytes": 10483,
+        "sha256": "039f0f63cc80f3bda3d42711cb7d71bdc830afb1b42e60e10cb64f185d2a0894"
+      },
+      "tests/test_audit_sensor_screen.py": {
+        "bytes": 15740,
+        "sha256": "74627357e26faf0fe504a0ccbddd20caf0b5ac64f5f329309eb2d545a0d8ad6c"
+      },
+      "tests/test_sensor_data.py": {
+        "bytes": 10497,
+        "sha256": "2de1c335d4517a892bcd2f8b463ab87938283032865f6dd94e39883ceca354b9"
+      },
+      "tests/test_sensor_screen.py": {
+        "bytes": 7382,
+        "sha256": "0c86b6e2bc91bd929d496a0bfa5ab738de44bad63f7045904a61d74bb8f87fb7"
+      }
+    }
+  },
+  "agreement": true,
+  "counts": {
+    "array_loads": 52,
+    "clock_hours": 1464,
+    "held_out_numeric_values": 0,
+    "independent_adaptive_streams": 4,
+    "independent_static_fits": 4,
+    "model_calls": 0,
+    "npz_decodes": 3,
+    "numerical_segments": [
+      "train"
+    ],
+    "producer_calls": 0
+  },
+  "limitations": [
+    "TRAIN-only usefulness screen, not held-out performance or a learned-memory result.",
+    "Hourly label delay is imposed; source timestamps remain naive local calendar hours.",
+    "Pending inputs and dense regression states are counted; no byte-matched architecture claim.",
+    "Metadata and source-time execution are original receipt evidence."
+  ],
+  "resources": {
+    "excludes": "Python/runtime/native workspace, fit-only and audit artifacts, environment",
+    "fixed_byte_cap": null,
+    "includes": "dense precision, information, normalization, queue, decay, clock, type tag",
+    "logical_persistent_bytes": {
+      "linear7": 177,
+      "persistence": 17,
+      "quadratic7": 401,
+      "rls-linear7-lambda.995": 2049,
+      "rls-linear7-lambda1": 2049,
+      "rls-quadratic7-lambda.995": 12129,
+      "rls-quadratic7-lambda1": 12129,
+      "s2linear": 129,
+      "s2quadratic": 137
+    },
+    "queue_raw_inputs_bytes_per_rls": 1344,
+    "scope": "No memory-matched architecture or latency claim"
+  },
+  "results": {
+    "adaptive_qualifiers": [],
+    "best_static_rmse": {
+      "june": 0.05825131200021233,
+      "may": 0.04723931208404329
+    },
+    "conditions": [
+      {
+        "name": "fit_rows_at_least_512",
+        "passed": true
+      },
+      {
+        "name": "may_rows_at_least_256",
+        "passed": true
+      },
+      {
+        "name": "june_rows_at_least_256",
+        "passed": true
+      },
+      {
+        "name": "may_static_rmse_above_1pct_fit_std",
+        "passed": false
+      },
+      {
+        "name": "june_static_rmse_above_1pct_fit_std",
+        "passed": false
+      },
+      {
+        "name": "same_rls_beats_best_static_by_10pct_both_months",
+        "passed": false
+      }
+    ],
+    "fit_rows": 1179,
+    "fit_target_std": 7.340209776575051,
+    "metrics": {
+      "june": {
+        "linear7": {
+          "mae": 1.1570659900769393,
+          "rmse": 1.3304682103377496
+        },
+        "persistence": {
+          "mae": 4.124193548387097,
+          "rmse": 5.607244214699807
+        },
+        "quadratic7": {
+          "mae": 0.05162433149453129,
+          "rmse": 0.06718615481249521
+        },
+        "rls-linear7-lambda.995": {
+          "mae": 0.48917892446805766,
+          "rmse": 0.6448661299083062
+        },
+        "rls-linear7-lambda1": {
+          "mae": 0.6010749790410126,
+          "rmse": 0.7570712939444392
+        },
+        "rls-quadratic7-lambda.995": {
+          "mae": 0.030166055758531016,
+          "rmse": 0.037365574229470754
+        },
+        "rls-quadratic7-lambda1": {
+          "mae": 0.031567335871426135,
+          "rmse": 0.03916595467067879
+        },
+        "s2linear": {
+          "mae": 0.9076946751805578,
+          "rmse": 1.1089925994243046
+        },
+        "s2quadratic": {
+          "mae": 0.045745306706674885,
+          "rmse": 0.05825131200021233
+        }
+      },
+      "may": {
+        "linear7": {
+          "mae": 0.6831872712253741,
+          "rmse": 0.9119441382367635
+        },
+        "persistence": {
+          "mae": 4.472876712328768,
+          "rmse": 6.474696798317044
+        },
+        "quadratic7": {
+          "mae": 0.03674082790257726,
+          "rmse": 0.04723931208404329
+        },
+        "rls-linear7-lambda.995": {
+          "mae": 0.5946359101074844,
+          "rmse": 0.854144286130712
+        },
+        "rls-linear7-lambda1": {
+          "mae": 0.6211387762948319,
+          "rmse": 0.8576944751765623
+        },
+        "rls-quadratic7-lambda.995": {
+          "mae": 0.033947792359657177,
+          "rmse": 0.04577000265109289
+        },
+        "rls-quadratic7-lambda1": {
+          "mae": 0.03470138601540093,
+          "rmse": 0.0442219036851973
+        },
+        "s2linear": {
+          "mae": 0.9675415096501592,
+          "rmse": 1.233427946411229
+        },
+        "s2quadratic": {
+          "mae": 0.04637242103568423,
+          "rmse": 0.06260198242279919
+        }
+      }
+    },
+    "month_rows": {
+      "june": 682,
+      "may": 730
+    },
+    "outcome": "REJECT_BENZENE_MEMORY_BENCHMARK",
+    "passed": 3,
+    "scope": "TRAIN-only benchmark qualification, not held-out results",
+    "total": 6,
+    "version": "sensor-screen-v1"
+  },
+  "seconds": 0.400807041907683,
+  "tolerance": {
+    "atol": 1e-08,
+    "rtol": 1e-07
+  },
+  "version": "sensor-screen-audit-v1"
+}
