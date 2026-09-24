@@ -1,0 +1,2776 @@
+{
+  "calls": {
+    "dev_array_decodes": 1,
+    "fit_count": 12,
+    "optimizer_steps": 31680,
+    "train_array_decodes": 1,
+    "training_rollouts": 95040
+  },
+  "collection_receipt": {
+    "bytes": 5410,
+    "sha256": "dd1e21985ae9d47f48ff6e7e53406a3a606130a270aa2ba3addd7dd0e18719a6"
+  },
+  "data_cases": {
+    "dev": 181,
+    "train": 1046
+  },
+  "dev_data": {
+    "bytes": 1112764,
+    "sha256": "29e6c4f28d2d563bd3dae2b946b4a7d0d1166a89633b7d61595fd1f32899bcb0"
+  },
+  "fits": [
+    {
+      "blind_input_keys": [
+        "prefix",
+        "prefix_lengths",
+        "actions"
+      ],
+      "cases": 1046,
+      "changed_tensors": [
+        "assimilation.weight_ih",
+        "assimilation.weight_hh",
+        "assimilation.bias_ih",
+        "assimilation.bias_hh",
+        "outcome_head.weight",
+        "outcome_head.bias",
+        "cost_head.weight",
+        "cost_head.bias",
+        "aux_head.weight",
+        "aux_head.bias",
+        "transition.weight_ih",
+        "transition.weight_hh",
+        "transition.bias_ih",
+        "transition.bias_hh"
+      ],
+      "checkpoint": {
+        "bytes": 34526,
+        "sha256": "765284c2abda1975c60a17ece2f5cc0fb4438213186d7a1eee1ebf7ee5299b76"
+      },
+      "effect_weight": 0.1,
+      "epochs": 80,
+      "evaluation_decodes_so_far": 0,
+      "exposures": 83680,
+      "family": "effect_recurrent",
+      "last_batch_loss": 1.0960220957991458,
+      "last_gradient_norm": 0.9181219339370728,
+      "model_kind": "action_recurrent",
+      "parameters": {
+        "cost_scale": 0.007891484536230564,
+        "count": 8299,
+        "direct_descriptor": null,
+        "hidden_dim": 28,
+        "kind": "action_recurrent",
+        "parameters": {
+          "assimilation.bias_hh": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "assimilation.bias_ih": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "assimilation.weight_hh": {
+            "count": 2352,
+            "shape": [
+              84,
+              28
+            ]
+          },
+          "assimilation.weight_ih": {
+            "count": 2604,
+            "shape": [
+              84,
+              31
+            ]
+          },
+          "aux_head.bias": {
+            "count": 2,
+            "shape": [
+              2
+            ]
+          },
+          "aux_head.weight": {
+            "count": 56,
+            "shape": [
+              2,
+              28
+            ]
+          },
+          "cost_head.bias": {
+            "count": 4,
+            "shape": [
+              4
+            ]
+          },
+          "cost_head.weight": {
+            "count": 112,
+            "shape": [
+              4,
+              28
+            ]
+          },
+          "outcome_head.bias": {
+            "count": 5,
+            "shape": [
+              5
+            ]
+          },
+          "outcome_head.weight": {
+            "count": 140,
+            "shape": [
+              5,
+              28
+            ]
+          },
+          "transition.bias_hh": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "transition.bias_ih": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "transition.weight_hh": {
+            "count": 2352,
+            "shape": [
+              84,
+              28
+            ]
+          },
+          "transition.weight_ih": {
+            "count": 336,
+            "shape": [
+              84,
+              4
+            ]
+          }
+        },
+        "trainable_count": 8299,
+        "zero_proposed_action_weight_parameters": 0
+      },
+      "privileged_targets_only": [
+        "raw_costs",
+        "gap_oracle",
+        "normal_oracle",
+        "opposite_oracle"
+      ],
+      "seconds": 12.224995832890272,
+      "seed": 330000001,
+      "soft_targets": true,
+      "training_horizons": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "training_rollouts_per_batch": 3,
+      "updates": 2640
+    },
+    {
+      "blind_input_keys": [
+        "prefix",
+        "prefix_lengths",
+        "actions"
+      ],
+      "cases": 1046,
+      "changed_tensors": [
+        "assimilation.weight_ih",
+        "assimilation.weight_hh",
+        "assimilation.bias_ih",
+        "assimilation.bias_hh",
+        "outcome_head.weight",
+        "outcome_head.bias",
+        "cost_head.weight",
+        "cost_head.bias",
+        "aux_head.weight",
+        "aux_head.bias",
+        "transition.weight_ih",
+        "transition.weight_hh",
+        "transition.bias_ih",
+        "transition.bias_hh"
+      ],
+      "checkpoint": {
+        "bytes": 34557,
+        "sha256": "d6698077f15dd9d5bbac80b942275162c9f3723f369dbd642cc51e395dba253f"
+      },
+      "effect_weight": 0.0,
+      "epochs": 80,
+      "evaluation_decodes_so_far": 0,
+      "exposures": 83680,
+      "family": "paired_recurrent",
+      "last_batch_loss": 1.0670942099858103,
+      "last_gradient_norm": 0.7217579483985901,
+      "model_kind": "action_recurrent",
+      "parameters": {
+        "cost_scale": 0.007891484536230564,
+        "count": 8299,
+        "direct_descriptor": null,
+        "hidden_dim": 28,
+        "kind": "action_recurrent",
+        "parameters": {
+          "assimilation.bias_hh": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "assimilation.bias_ih": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "assimilation.weight_hh": {
+            "count": 2352,
+            "shape": [
+              84,
+              28
+            ]
+          },
+          "assimilation.weight_ih": {
+            "count": 2604,
+            "shape": [
+              84,
+              31
+            ]
+          },
+          "aux_head.bias": {
+            "count": 2,
+            "shape": [
+              2
+            ]
+          },
+          "aux_head.weight": {
+            "count": 56,
+            "shape": [
+              2,
+              28
+            ]
+          },
+          "cost_head.bias": {
+            "count": 4,
+            "shape": [
+              4
+            ]
+          },
+          "cost_head.weight": {
+            "count": 112,
+            "shape": [
+              4,
+              28
+            ]
+          },
+          "outcome_head.bias": {
+            "count": 5,
+            "shape": [
+              5
+            ]
+          },
+          "outcome_head.weight": {
+            "count": 140,
+            "shape": [
+              5,
+              28
+            ]
+          },
+          "transition.bias_hh": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "transition.bias_ih": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "transition.weight_hh": {
+            "count": 2352,
+            "shape": [
+              84,
+              28
+            ]
+          },
+          "transition.weight_ih": {
+            "count": 336,
+            "shape": [
+              84,
+              4
+            ]
+          }
+        },
+        "trainable_count": 8299,
+        "zero_proposed_action_weight_parameters": 0
+      },
+      "privileged_targets_only": [
+        "raw_costs",
+        "gap_oracle",
+        "normal_oracle",
+        "opposite_oracle"
+      ],
+      "seconds": 11.569720124825835,
+      "seed": 330000001,
+      "soft_targets": true,
+      "training_horizons": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "training_rollouts_per_batch": 3,
+      "updates": 2640
+    },
+    {
+      "blind_input_keys": [
+        "prefix",
+        "prefix_lengths",
+        "actions"
+      ],
+      "cases": 1046,
+      "changed_tensors": [
+        "assimilation.weight_ih",
+        "assimilation.weight_hh",
+        "assimilation.bias_ih",
+        "assimilation.bias_hh",
+        "outcome_head.weight",
+        "outcome_head.bias",
+        "cost_head.weight",
+        "cost_head.bias",
+        "aux_head.weight",
+        "aux_head.bias",
+        "transition.weight_hh",
+        "transition.bias_ih",
+        "transition.bias_hh"
+      ],
+      "checkpoint": {
+        "bytes": 34530,
+        "sha256": "5361681a954a6c562e584ccd3901699651b27cb5c8f44d48090ad879edad6771"
+      },
+      "effect_weight": 0.0,
+      "epochs": 80,
+      "evaluation_decodes_so_far": 0,
+      "exposures": 83680,
+      "family": "paired_blind",
+      "last_batch_loss": 1.2898595865816123,
+      "last_gradient_norm": 0.5995045900344849,
+      "model_kind": "action_blind",
+      "parameters": {
+        "cost_scale": 0.007891484536230564,
+        "count": 8299,
+        "direct_descriptor": null,
+        "hidden_dim": 28,
+        "kind": "action_blind",
+        "parameters": {
+          "assimilation.bias_hh": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "assimilation.bias_ih": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "assimilation.weight_hh": {
+            "count": 2352,
+            "shape": [
+              84,
+              28
+            ]
+          },
+          "assimilation.weight_ih": {
+            "count": 2604,
+            "shape": [
+              84,
+              31
+            ]
+          },
+          "aux_head.bias": {
+            "count": 2,
+            "shape": [
+              2
+            ]
+          },
+          "aux_head.weight": {
+            "count": 56,
+            "shape": [
+              2,
+              28
+            ]
+          },
+          "cost_head.bias": {
+            "count": 4,
+            "shape": [
+              4
+            ]
+          },
+          "cost_head.weight": {
+            "count": 112,
+            "shape": [
+              4,
+              28
+            ]
+          },
+          "outcome_head.bias": {
+            "count": 5,
+            "shape": [
+              5
+            ]
+          },
+          "outcome_head.weight": {
+            "count": 140,
+            "shape": [
+              5,
+              28
+            ]
+          },
+          "transition.bias_hh": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "transition.bias_ih": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "transition.weight_hh": {
+            "count": 2352,
+            "shape": [
+              84,
+              28
+            ]
+          },
+          "transition.weight_ih": {
+            "count": 336,
+            "shape": [
+              84,
+              4
+            ]
+          }
+        },
+        "trainable_count": 8299,
+        "zero_proposed_action_weight_parameters": 336
+      },
+      "privileged_targets_only": [
+        "raw_costs",
+        "gap_oracle",
+        "normal_oracle",
+        "opposite_oracle"
+      ],
+      "seconds": 11.962872583186254,
+      "seed": 330000001,
+      "soft_targets": true,
+      "training_horizons": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "training_rollouts_per_batch": 3,
+      "updates": 2640
+    },
+    {
+      "blind_input_keys": [
+        "prefix",
+        "prefix_lengths",
+        "actions"
+      ],
+      "cases": 1046,
+      "changed_tensors": [
+        "assimilation.weight_ih",
+        "assimilation.weight_hh",
+        "assimilation.bias_ih",
+        "assimilation.bias_hh",
+        "outcome_head.weight",
+        "outcome_head.bias",
+        "cost_head.weight",
+        "cost_head.bias",
+        "aux_head.weight",
+        "aux_head.bias",
+        "action_encoder.weight",
+        "action_encoder.bias",
+        "direct_prior.weight",
+        "direct_prior.bias"
+      ],
+      "checkpoint": {
+        "bytes": 33786,
+        "sha256": "06aaeefed14c74cdfc8cd9ba1143f1147163d94e8a5f2ad78590bb8d6314ff79"
+      },
+      "effect_weight": 0.0,
+      "epochs": 80,
+      "evaluation_decodes_so_far": 0,
+      "exposures": 83680,
+      "family": "paired_direct",
+      "last_batch_loss": 1.129502797214565,
+      "last_gradient_norm": 0.6403398513793945,
+      "model_kind": "direct_horizon",
+      "parameters": {
+        "cost_scale": 0.007891484536230564,
+        "count": 8107,
+        "direct_descriptor": "shared position-conditioned token MLP, causal mean pool",
+        "hidden_dim": 28,
+        "kind": "direct_horizon",
+        "parameters": {
+          "action_encoder.bias": {
+            "count": 48,
+            "shape": [
+              48
+            ]
+          },
+          "action_encoder.weight": {
+            "count": 432,
+            "shape": [
+              48,
+              9
+            ]
+          },
+          "assimilation.bias_hh": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "assimilation.bias_ih": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "assimilation.weight_hh": {
+            "count": 2352,
+            "shape": [
+              84,
+              28
+            ]
+          },
+          "assimilation.weight_ih": {
+            "count": 2604,
+            "shape": [
+              84,
+              31
+            ]
+          },
+          "aux_head.bias": {
+            "count": 2,
+            "shape": [
+              2
+            ]
+          },
+          "aux_head.weight": {
+            "count": 56,
+            "shape": [
+              2,
+              28
+            ]
+          },
+          "cost_head.bias": {
+            "count": 4,
+            "shape": [
+              4
+            ]
+          },
+          "cost_head.weight": {
+            "count": 112,
+            "shape": [
+              4,
+              28
+            ]
+          },
+          "direct_prior.bias": {
+            "count": 28,
+            "shape": [
+              28
+            ]
+          },
+          "direct_prior.weight": {
+            "count": 2156,
+            "shape": [
+              28,
+              77
+            ]
+          },
+          "outcome_head.bias": {
+            "count": 5,
+            "shape": [
+              5
+            ]
+          },
+          "outcome_head.weight": {
+            "count": 140,
+            "shape": [
+              5,
+              28
+            ]
+          }
+        },
+        "trainable_count": 8107,
+        "zero_proposed_action_weight_parameters": 0
+      },
+      "privileged_targets_only": [
+        "raw_costs",
+        "gap_oracle",
+        "normal_oracle",
+        "opposite_oracle"
+      ],
+      "seconds": 12.19718995783478,
+      "seed": 330000001,
+      "soft_targets": true,
+      "training_horizons": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "training_rollouts_per_batch": 3,
+      "updates": 2640
+    },
+    {
+      "blind_input_keys": [
+        "prefix",
+        "prefix_lengths",
+        "actions"
+      ],
+      "cases": 1046,
+      "changed_tensors": [
+        "assimilation.weight_ih",
+        "assimilation.weight_hh",
+        "assimilation.bias_ih",
+        "assimilation.bias_hh",
+        "outcome_head.weight",
+        "outcome_head.bias",
+        "cost_head.weight",
+        "cost_head.bias",
+        "aux_head.weight",
+        "aux_head.bias",
+        "transition.weight_ih",
+        "transition.weight_hh",
+        "transition.bias_ih",
+        "transition.bias_hh"
+      ],
+      "checkpoint": {
+        "bytes": 34524,
+        "sha256": "575eae4c4399e8e149e04bdde67996c11c6222793b01d7915b6d54571eb0206e"
+      },
+      "effect_weight": 0.0,
+      "epochs": 80,
+      "evaluation_decodes_so_far": 0,
+      "exposures": 83680,
+      "family": "paired_recurrent",
+      "last_batch_loss": 0.9620401839014638,
+      "last_gradient_norm": 0.7569625377655029,
+      "model_kind": "action_recurrent",
+      "parameters": {
+        "cost_scale": 0.007891484536230564,
+        "count": 8299,
+        "direct_descriptor": null,
+        "hidden_dim": 28,
+        "kind": "action_recurrent",
+        "parameters": {
+          "assimilation.bias_hh": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "assimilation.bias_ih": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "assimilation.weight_hh": {
+            "count": 2352,
+            "shape": [
+              84,
+              28
+            ]
+          },
+          "assimilation.weight_ih": {
+            "count": 2604,
+            "shape": [
+              84,
+              31
+            ]
+          },
+          "aux_head.bias": {
+            "count": 2,
+            "shape": [
+              2
+            ]
+          },
+          "aux_head.weight": {
+            "count": 56,
+            "shape": [
+              2,
+              28
+            ]
+          },
+          "cost_head.bias": {
+            "count": 4,
+            "shape": [
+              4
+            ]
+          },
+          "cost_head.weight": {
+            "count": 112,
+            "shape": [
+              4,
+              28
+            ]
+          },
+          "outcome_head.bias": {
+            "count": 5,
+            "shape": [
+              5
+            ]
+          },
+          "outcome_head.weight": {
+            "count": 140,
+            "shape": [
+              5,
+              28
+            ]
+          },
+          "transition.bias_hh": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "transition.bias_ih": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "transition.weight_hh": {
+            "count": 2352,
+            "shape": [
+              84,
+              28
+            ]
+          },
+          "transition.weight_ih": {
+            "count": 336,
+            "shape": [
+              84,
+              4
+            ]
+          }
+        },
+        "trainable_count": 8299,
+        "zero_proposed_action_weight_parameters": 0
+      },
+      "privileged_targets_only": [
+        "raw_costs",
+        "gap_oracle",
+        "normal_oracle",
+        "opposite_oracle"
+      ],
+      "seconds": 12.397238750010729,
+      "seed": 330000002,
+      "soft_targets": true,
+      "training_horizons": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "training_rollouts_per_batch": 3,
+      "updates": 2640
+    },
+    {
+      "blind_input_keys": [
+        "prefix",
+        "prefix_lengths",
+        "actions"
+      ],
+      "cases": 1046,
+      "changed_tensors": [
+        "assimilation.weight_ih",
+        "assimilation.weight_hh",
+        "assimilation.bias_ih",
+        "assimilation.bias_hh",
+        "outcome_head.weight",
+        "outcome_head.bias",
+        "cost_head.weight",
+        "cost_head.bias",
+        "aux_head.weight",
+        "aux_head.bias",
+        "transition.weight_hh",
+        "transition.bias_ih",
+        "transition.bias_hh"
+      ],
+      "checkpoint": {
+        "bytes": 34529,
+        "sha256": "57a645251e1150bcb232d59502a0f7940d87b07d72d445fc9ab156e4417da3cf"
+      },
+      "effect_weight": 0.0,
+      "epochs": 80,
+      "evaluation_decodes_so_far": 0,
+      "exposures": 83680,
+      "family": "paired_blind",
+      "last_batch_loss": 1.1417160713151413,
+      "last_gradient_norm": 0.9755155444145203,
+      "model_kind": "action_blind",
+      "parameters": {
+        "cost_scale": 0.007891484536230564,
+        "count": 8299,
+        "direct_descriptor": null,
+        "hidden_dim": 28,
+        "kind": "action_blind",
+        "parameters": {
+          "assimilation.bias_hh": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "assimilation.bias_ih": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "assimilation.weight_hh": {
+            "count": 2352,
+            "shape": [
+              84,
+              28
+            ]
+          },
+          "assimilation.weight_ih": {
+            "count": 2604,
+            "shape": [
+              84,
+              31
+            ]
+          },
+          "aux_head.bias": {
+            "count": 2,
+            "shape": [
+              2
+            ]
+          },
+          "aux_head.weight": {
+            "count": 56,
+            "shape": [
+              2,
+              28
+            ]
+          },
+          "cost_head.bias": {
+            "count": 4,
+            "shape": [
+              4
+            ]
+          },
+          "cost_head.weight": {
+            "count": 112,
+            "shape": [
+              4,
+              28
+            ]
+          },
+          "outcome_head.bias": {
+            "count": 5,
+            "shape": [
+              5
+            ]
+          },
+          "outcome_head.weight": {
+            "count": 140,
+            "shape": [
+              5,
+              28
+            ]
+          },
+          "transition.bias_hh": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "transition.bias_ih": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "transition.weight_hh": {
+            "count": 2352,
+            "shape": [
+              84,
+              28
+            ]
+          },
+          "transition.weight_ih": {
+            "count": 336,
+            "shape": [
+              84,
+              4
+            ]
+          }
+        },
+        "trainable_count": 8299,
+        "zero_proposed_action_weight_parameters": 336
+      },
+      "privileged_targets_only": [
+        "raw_costs",
+        "gap_oracle",
+        "normal_oracle",
+        "opposite_oracle"
+      ],
+      "seconds": 13.362906374968588,
+      "seed": 330000002,
+      "soft_targets": true,
+      "training_horizons": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "training_rollouts_per_batch": 3,
+      "updates": 2640
+    },
+    {
+      "blind_input_keys": [
+        "prefix",
+        "prefix_lengths",
+        "actions"
+      ],
+      "cases": 1046,
+      "changed_tensors": [
+        "assimilation.weight_ih",
+        "assimilation.weight_hh",
+        "assimilation.bias_ih",
+        "assimilation.bias_hh",
+        "outcome_head.weight",
+        "outcome_head.bias",
+        "cost_head.weight",
+        "cost_head.bias",
+        "aux_head.weight",
+        "aux_head.bias",
+        "action_encoder.weight",
+        "action_encoder.bias",
+        "direct_prior.weight",
+        "direct_prior.bias"
+      ],
+      "checkpoint": {
+        "bytes": 33757,
+        "sha256": "f92cb95c0d2c323ed3d19b74bbd2eae5a851263a1cd4eb70109b55d329a972e8"
+      },
+      "effect_weight": 0.0,
+      "epochs": 80,
+      "evaluation_decodes_so_far": 0,
+      "exposures": 83680,
+      "family": "paired_direct",
+      "last_batch_loss": 1.0018762562153247,
+      "last_gradient_norm": 1.0165053606033325,
+      "model_kind": "direct_horizon",
+      "parameters": {
+        "cost_scale": 0.007891484536230564,
+        "count": 8107,
+        "direct_descriptor": "shared position-conditioned token MLP, causal mean pool",
+        "hidden_dim": 28,
+        "kind": "direct_horizon",
+        "parameters": {
+          "action_encoder.bias": {
+            "count": 48,
+            "shape": [
+              48
+            ]
+          },
+          "action_encoder.weight": {
+            "count": 432,
+            "shape": [
+              48,
+              9
+            ]
+          },
+          "assimilation.bias_hh": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "assimilation.bias_ih": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "assimilation.weight_hh": {
+            "count": 2352,
+            "shape": [
+              84,
+              28
+            ]
+          },
+          "assimilation.weight_ih": {
+            "count": 2604,
+            "shape": [
+              84,
+              31
+            ]
+          },
+          "aux_head.bias": {
+            "count": 2,
+            "shape": [
+              2
+            ]
+          },
+          "aux_head.weight": {
+            "count": 56,
+            "shape": [
+              2,
+              28
+            ]
+          },
+          "cost_head.bias": {
+            "count": 4,
+            "shape": [
+              4
+            ]
+          },
+          "cost_head.weight": {
+            "count": 112,
+            "shape": [
+              4,
+              28
+            ]
+          },
+          "direct_prior.bias": {
+            "count": 28,
+            "shape": [
+              28
+            ]
+          },
+          "direct_prior.weight": {
+            "count": 2156,
+            "shape": [
+              28,
+              77
+            ]
+          },
+          "outcome_head.bias": {
+            "count": 5,
+            "shape": [
+              5
+            ]
+          },
+          "outcome_head.weight": {
+            "count": 140,
+            "shape": [
+              5,
+              28
+            ]
+          }
+        },
+        "trainable_count": 8107,
+        "zero_proposed_action_weight_parameters": 0
+      },
+      "privileged_targets_only": [
+        "raw_costs",
+        "gap_oracle",
+        "normal_oracle",
+        "opposite_oracle"
+      ],
+      "seconds": 12.44379754178226,
+      "seed": 330000002,
+      "soft_targets": true,
+      "training_horizons": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "training_rollouts_per_batch": 3,
+      "updates": 2640
+    },
+    {
+      "blind_input_keys": [
+        "prefix",
+        "prefix_lengths",
+        "actions"
+      ],
+      "cases": 1046,
+      "changed_tensors": [
+        "assimilation.weight_ih",
+        "assimilation.weight_hh",
+        "assimilation.bias_ih",
+        "assimilation.bias_hh",
+        "outcome_head.weight",
+        "outcome_head.bias",
+        "cost_head.weight",
+        "cost_head.bias",
+        "aux_head.weight",
+        "aux_head.bias",
+        "transition.weight_ih",
+        "transition.weight_hh",
+        "transition.bias_ih",
+        "transition.bias_hh"
+      ],
+      "checkpoint": {
+        "bytes": 34518,
+        "sha256": "0f69267b47ab9e15311592f0ac42ef50bb272021bcfbd06d10691c7e4f7a21f5"
+      },
+      "effect_weight": 0.1,
+      "epochs": 80,
+      "evaluation_decodes_so_far": 0,
+      "exposures": 83680,
+      "family": "effect_recurrent",
+      "last_batch_loss": 0.9698120837651077,
+      "last_gradient_norm": 1.0458600521087646,
+      "model_kind": "action_recurrent",
+      "parameters": {
+        "cost_scale": 0.007891484536230564,
+        "count": 8299,
+        "direct_descriptor": null,
+        "hidden_dim": 28,
+        "kind": "action_recurrent",
+        "parameters": {
+          "assimilation.bias_hh": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "assimilation.bias_ih": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "assimilation.weight_hh": {
+            "count": 2352,
+            "shape": [
+              84,
+              28
+            ]
+          },
+          "assimilation.weight_ih": {
+            "count": 2604,
+            "shape": [
+              84,
+              31
+            ]
+          },
+          "aux_head.bias": {
+            "count": 2,
+            "shape": [
+              2
+            ]
+          },
+          "aux_head.weight": {
+            "count": 56,
+            "shape": [
+              2,
+              28
+            ]
+          },
+          "cost_head.bias": {
+            "count": 4,
+            "shape": [
+              4
+            ]
+          },
+          "cost_head.weight": {
+            "count": 112,
+            "shape": [
+              4,
+              28
+            ]
+          },
+          "outcome_head.bias": {
+            "count": 5,
+            "shape": [
+              5
+            ]
+          },
+          "outcome_head.weight": {
+            "count": 140,
+            "shape": [
+              5,
+              28
+            ]
+          },
+          "transition.bias_hh": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "transition.bias_ih": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "transition.weight_hh": {
+            "count": 2352,
+            "shape": [
+              84,
+              28
+            ]
+          },
+          "transition.weight_ih": {
+            "count": 336,
+            "shape": [
+              84,
+              4
+            ]
+          }
+        },
+        "trainable_count": 8299,
+        "zero_proposed_action_weight_parameters": 0
+      },
+      "privileged_targets_only": [
+        "raw_costs",
+        "gap_oracle",
+        "normal_oracle",
+        "opposite_oracle"
+      ],
+      "seconds": 12.0312287081033,
+      "seed": 330000002,
+      "soft_targets": true,
+      "training_horizons": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "training_rollouts_per_batch": 3,
+      "updates": 2640
+    },
+    {
+      "blind_input_keys": [
+        "prefix",
+        "prefix_lengths",
+        "actions"
+      ],
+      "cases": 1046,
+      "changed_tensors": [
+        "assimilation.weight_ih",
+        "assimilation.weight_hh",
+        "assimilation.bias_ih",
+        "assimilation.bias_hh",
+        "outcome_head.weight",
+        "outcome_head.bias",
+        "cost_head.weight",
+        "cost_head.bias",
+        "aux_head.weight",
+        "aux_head.bias",
+        "transition.weight_hh",
+        "transition.bias_ih",
+        "transition.bias_hh"
+      ],
+      "checkpoint": {
+        "bytes": 34523,
+        "sha256": "ba30e1e7e2ec4056a34f5c76480858d84014e81ed61c8fcece2a7637522ca24f"
+      },
+      "effect_weight": 0.0,
+      "epochs": 80,
+      "evaluation_decodes_so_far": 0,
+      "exposures": 83680,
+      "family": "paired_blind",
+      "last_batch_loss": 0.967473317727236,
+      "last_gradient_norm": 0.7687709331512451,
+      "model_kind": "action_blind",
+      "parameters": {
+        "cost_scale": 0.007891484536230564,
+        "count": 8299,
+        "direct_descriptor": null,
+        "hidden_dim": 28,
+        "kind": "action_blind",
+        "parameters": {
+          "assimilation.bias_hh": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "assimilation.bias_ih": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "assimilation.weight_hh": {
+            "count": 2352,
+            "shape": [
+              84,
+              28
+            ]
+          },
+          "assimilation.weight_ih": {
+            "count": 2604,
+            "shape": [
+              84,
+              31
+            ]
+          },
+          "aux_head.bias": {
+            "count": 2,
+            "shape": [
+              2
+            ]
+          },
+          "aux_head.weight": {
+            "count": 56,
+            "shape": [
+              2,
+              28
+            ]
+          },
+          "cost_head.bias": {
+            "count": 4,
+            "shape": [
+              4
+            ]
+          },
+          "cost_head.weight": {
+            "count": 112,
+            "shape": [
+              4,
+              28
+            ]
+          },
+          "outcome_head.bias": {
+            "count": 5,
+            "shape": [
+              5
+            ]
+          },
+          "outcome_head.weight": {
+            "count": 140,
+            "shape": [
+              5,
+              28
+            ]
+          },
+          "transition.bias_hh": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "transition.bias_ih": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "transition.weight_hh": {
+            "count": 2352,
+            "shape": [
+              84,
+              28
+            ]
+          },
+          "transition.weight_ih": {
+            "count": 336,
+            "shape": [
+              84,
+              4
+            ]
+          }
+        },
+        "trainable_count": 8299,
+        "zero_proposed_action_weight_parameters": 336
+      },
+      "privileged_targets_only": [
+        "raw_costs",
+        "gap_oracle",
+        "normal_oracle",
+        "opposite_oracle"
+      ],
+      "seconds": 11.987693125149235,
+      "seed": 330000003,
+      "soft_targets": true,
+      "training_horizons": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "training_rollouts_per_batch": 3,
+      "updates": 2640
+    },
+    {
+      "blind_input_keys": [
+        "prefix",
+        "prefix_lengths",
+        "actions"
+      ],
+      "cases": 1046,
+      "changed_tensors": [
+        "assimilation.weight_ih",
+        "assimilation.weight_hh",
+        "assimilation.bias_ih",
+        "assimilation.bias_hh",
+        "outcome_head.weight",
+        "outcome_head.bias",
+        "cost_head.weight",
+        "cost_head.bias",
+        "aux_head.weight",
+        "aux_head.bias",
+        "action_encoder.weight",
+        "action_encoder.bias",
+        "direct_prior.weight",
+        "direct_prior.bias"
+      ],
+      "checkpoint": {
+        "bytes": 33757,
+        "sha256": "ec46e7b1c17fac719027e1cedbbdff14f7674eee4db784a29016069fd4837e8e"
+      },
+      "effect_weight": 0.0,
+      "epochs": 80,
+      "evaluation_decodes_so_far": 0,
+      "exposures": 83680,
+      "family": "paired_direct",
+      "last_batch_loss": 0.8945907344612032,
+      "last_gradient_norm": 0.8789071440696716,
+      "model_kind": "direct_horizon",
+      "parameters": {
+        "cost_scale": 0.007891484536230564,
+        "count": 8107,
+        "direct_descriptor": "shared position-conditioned token MLP, causal mean pool",
+        "hidden_dim": 28,
+        "kind": "direct_horizon",
+        "parameters": {
+          "action_encoder.bias": {
+            "count": 48,
+            "shape": [
+              48
+            ]
+          },
+          "action_encoder.weight": {
+            "count": 432,
+            "shape": [
+              48,
+              9
+            ]
+          },
+          "assimilation.bias_hh": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "assimilation.bias_ih": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "assimilation.weight_hh": {
+            "count": 2352,
+            "shape": [
+              84,
+              28
+            ]
+          },
+          "assimilation.weight_ih": {
+            "count": 2604,
+            "shape": [
+              84,
+              31
+            ]
+          },
+          "aux_head.bias": {
+            "count": 2,
+            "shape": [
+              2
+            ]
+          },
+          "aux_head.weight": {
+            "count": 56,
+            "shape": [
+              2,
+              28
+            ]
+          },
+          "cost_head.bias": {
+            "count": 4,
+            "shape": [
+              4
+            ]
+          },
+          "cost_head.weight": {
+            "count": 112,
+            "shape": [
+              4,
+              28
+            ]
+          },
+          "direct_prior.bias": {
+            "count": 28,
+            "shape": [
+              28
+            ]
+          },
+          "direct_prior.weight": {
+            "count": 2156,
+            "shape": [
+              28,
+              77
+            ]
+          },
+          "outcome_head.bias": {
+            "count": 5,
+            "shape": [
+              5
+            ]
+          },
+          "outcome_head.weight": {
+            "count": 140,
+            "shape": [
+              5,
+              28
+            ]
+          }
+        },
+        "trainable_count": 8107,
+        "zero_proposed_action_weight_parameters": 0
+      },
+      "privileged_targets_only": [
+        "raw_costs",
+        "gap_oracle",
+        "normal_oracle",
+        "opposite_oracle"
+      ],
+      "seconds": 12.475043000187725,
+      "seed": 330000003,
+      "soft_targets": true,
+      "training_horizons": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "training_rollouts_per_batch": 3,
+      "updates": 2640
+    },
+    {
+      "blind_input_keys": [
+        "prefix",
+        "prefix_lengths",
+        "actions"
+      ],
+      "cases": 1046,
+      "changed_tensors": [
+        "assimilation.weight_ih",
+        "assimilation.weight_hh",
+        "assimilation.bias_ih",
+        "assimilation.bias_hh",
+        "outcome_head.weight",
+        "outcome_head.bias",
+        "cost_head.weight",
+        "cost_head.bias",
+        "aux_head.weight",
+        "aux_head.bias",
+        "transition.weight_ih",
+        "transition.weight_hh",
+        "transition.bias_ih",
+        "transition.bias_hh"
+      ],
+      "checkpoint": {
+        "bytes": 34523,
+        "sha256": "8ad2dde2ca212d7c51129cc9888fa1b62731b057549671e9471cbbb5aba0ebd8"
+      },
+      "effect_weight": 0.1,
+      "epochs": 80,
+      "evaluation_decodes_so_far": 0,
+      "exposures": 83680,
+      "family": "effect_recurrent",
+      "last_batch_loss": 0.853242369690062,
+      "last_gradient_norm": 0.7538835406303406,
+      "model_kind": "action_recurrent",
+      "parameters": {
+        "cost_scale": 0.007891484536230564,
+        "count": 8299,
+        "direct_descriptor": null,
+        "hidden_dim": 28,
+        "kind": "action_recurrent",
+        "parameters": {
+          "assimilation.bias_hh": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "assimilation.bias_ih": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "assimilation.weight_hh": {
+            "count": 2352,
+            "shape": [
+              84,
+              28
+            ]
+          },
+          "assimilation.weight_ih": {
+            "count": 2604,
+            "shape": [
+              84,
+              31
+            ]
+          },
+          "aux_head.bias": {
+            "count": 2,
+            "shape": [
+              2
+            ]
+          },
+          "aux_head.weight": {
+            "count": 56,
+            "shape": [
+              2,
+              28
+            ]
+          },
+          "cost_head.bias": {
+            "count": 4,
+            "shape": [
+              4
+            ]
+          },
+          "cost_head.weight": {
+            "count": 112,
+            "shape": [
+              4,
+              28
+            ]
+          },
+          "outcome_head.bias": {
+            "count": 5,
+            "shape": [
+              5
+            ]
+          },
+          "outcome_head.weight": {
+            "count": 140,
+            "shape": [
+              5,
+              28
+            ]
+          },
+          "transition.bias_hh": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "transition.bias_ih": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "transition.weight_hh": {
+            "count": 2352,
+            "shape": [
+              84,
+              28
+            ]
+          },
+          "transition.weight_ih": {
+            "count": 336,
+            "shape": [
+              84,
+              4
+            ]
+          }
+        },
+        "trainable_count": 8299,
+        "zero_proposed_action_weight_parameters": 0
+      },
+      "privileged_targets_only": [
+        "raw_costs",
+        "gap_oracle",
+        "normal_oracle",
+        "opposite_oracle"
+      ],
+      "seconds": 12.109146500006318,
+      "seed": 330000003,
+      "soft_targets": true,
+      "training_horizons": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "training_rollouts_per_batch": 3,
+      "updates": 2640
+    },
+    {
+      "blind_input_keys": [
+        "prefix",
+        "prefix_lengths",
+        "actions"
+      ],
+      "cases": 1046,
+      "changed_tensors": [
+        "assimilation.weight_ih",
+        "assimilation.weight_hh",
+        "assimilation.bias_ih",
+        "assimilation.bias_hh",
+        "outcome_head.weight",
+        "outcome_head.bias",
+        "cost_head.weight",
+        "cost_head.bias",
+        "aux_head.weight",
+        "aux_head.bias",
+        "transition.weight_ih",
+        "transition.weight_hh",
+        "transition.bias_ih",
+        "transition.bias_hh"
+      ],
+      "checkpoint": {
+        "bytes": 34507,
+        "sha256": "54a6c0a9e6c4ed7d3c089cea3da6626d69b2aed297452fe64ba80453a2aeed71"
+      },
+      "effect_weight": 0.0,
+      "epochs": 80,
+      "evaluation_decodes_so_far": 0,
+      "exposures": 83680,
+      "family": "paired_recurrent",
+      "last_batch_loss": 0.849377280234871,
+      "last_gradient_norm": 0.6175101399421692,
+      "model_kind": "action_recurrent",
+      "parameters": {
+        "cost_scale": 0.007891484536230564,
+        "count": 8299,
+        "direct_descriptor": null,
+        "hidden_dim": 28,
+        "kind": "action_recurrent",
+        "parameters": {
+          "assimilation.bias_hh": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "assimilation.bias_ih": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "assimilation.weight_hh": {
+            "count": 2352,
+            "shape": [
+              84,
+              28
+            ]
+          },
+          "assimilation.weight_ih": {
+            "count": 2604,
+            "shape": [
+              84,
+              31
+            ]
+          },
+          "aux_head.bias": {
+            "count": 2,
+            "shape": [
+              2
+            ]
+          },
+          "aux_head.weight": {
+            "count": 56,
+            "shape": [
+              2,
+              28
+            ]
+          },
+          "cost_head.bias": {
+            "count": 4,
+            "shape": [
+              4
+            ]
+          },
+          "cost_head.weight": {
+            "count": 112,
+            "shape": [
+              4,
+              28
+            ]
+          },
+          "outcome_head.bias": {
+            "count": 5,
+            "shape": [
+              5
+            ]
+          },
+          "outcome_head.weight": {
+            "count": 140,
+            "shape": [
+              5,
+              28
+            ]
+          },
+          "transition.bias_hh": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "transition.bias_ih": {
+            "count": 84,
+            "shape": [
+              84
+            ]
+          },
+          "transition.weight_hh": {
+            "count": 2352,
+            "shape": [
+              84,
+              28
+            ]
+          },
+          "transition.weight_ih": {
+            "count": 336,
+            "shape": [
+              84,
+              4
+            ]
+          }
+        },
+        "trainable_count": 8299,
+        "zero_proposed_action_weight_parameters": 0
+      },
+      "privileged_targets_only": [
+        "raw_costs",
+        "gap_oracle",
+        "normal_oracle",
+        "opposite_oracle"
+      ],
+      "seconds": 11.935726874973625,
+      "seed": 330000003,
+      "soft_targets": true,
+      "training_horizons": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "training_rollouts_per_batch": 3,
+      "updates": 2640
+    }
+  ],
+  "prediction_times": [
+    {
+      "cases": 181,
+      "condition": "gap",
+      "family": "effect_recurrent",
+      "seconds": 0.06985062500461936,
+      "seed": 330000001,
+      "work": {
+        "aux_head_calls": 1448,
+        "cost_head_calls": 1448,
+        "direct_prior_calls": 0,
+        "direct_prior_rows": 0,
+        "direct_token_calls": 0,
+        "direct_token_rows": 0,
+        "observation_assimilation_calls": 0,
+        "observation_assimilation_rows": 0,
+        "outcome_head_calls": 1448,
+        "prefix_assimilation_calls": 1629,
+        "prefix_assimilation_rows": 1629,
+        "readout_rows": 1448,
+        "terminal_frozen_rows": 0,
+        "transition_calls": 1448,
+        "transition_rows": 1448
+      }
+    },
+    {
+      "cases": 181,
+      "condition": "normal",
+      "family": "effect_recurrent",
+      "seconds": 0.10715958289802074,
+      "seed": 330000001,
+      "work": {
+        "aux_head_calls": 1448,
+        "cost_head_calls": 1448,
+        "direct_prior_calls": 0,
+        "direct_prior_rows": 0,
+        "direct_token_calls": 0,
+        "direct_token_rows": 0,
+        "observation_assimilation_calls": 1364,
+        "observation_assimilation_rows": 1364,
+        "outcome_head_calls": 1448,
+        "prefix_assimilation_calls": 1629,
+        "prefix_assimilation_rows": 1629,
+        "readout_rows": 1448,
+        "terminal_frozen_rows": 70,
+        "transition_calls": 1378,
+        "transition_rows": 1378
+      }
+    },
+    {
+      "cases": 181,
+      "condition": "opposite",
+      "family": "effect_recurrent",
+      "seconds": 0.07298399996943772,
+      "seed": 330000001,
+      "work": {
+        "aux_head_calls": 1448,
+        "cost_head_calls": 1448,
+        "direct_prior_calls": 0,
+        "direct_prior_rows": 0,
+        "direct_token_calls": 0,
+        "direct_token_rows": 0,
+        "observation_assimilation_calls": 0,
+        "observation_assimilation_rows": 0,
+        "outcome_head_calls": 1448,
+        "prefix_assimilation_calls": 1629,
+        "prefix_assimilation_rows": 1629,
+        "readout_rows": 1448,
+        "terminal_frozen_rows": 0,
+        "transition_calls": 1448,
+        "transition_rows": 1448
+      }
+    },
+    {
+      "cases": 181,
+      "condition": "gap",
+      "family": "effect_recurrent",
+      "seconds": 0.07202762505039573,
+      "seed": 330000002,
+      "work": {
+        "aux_head_calls": 1448,
+        "cost_head_calls": 1448,
+        "direct_prior_calls": 0,
+        "direct_prior_rows": 0,
+        "direct_token_calls": 0,
+        "direct_token_rows": 0,
+        "observation_assimilation_calls": 0,
+        "observation_assimilation_rows": 0,
+        "outcome_head_calls": 1448,
+        "prefix_assimilation_calls": 1629,
+        "prefix_assimilation_rows": 1629,
+        "readout_rows": 1448,
+        "terminal_frozen_rows": 0,
+        "transition_calls": 1448,
+        "transition_rows": 1448
+      }
+    },
+    {
+      "cases": 181,
+      "condition": "normal",
+      "family": "effect_recurrent",
+      "seconds": 0.11813037493266165,
+      "seed": 330000002,
+      "work": {
+        "aux_head_calls": 1448,
+        "cost_head_calls": 1448,
+        "direct_prior_calls": 0,
+        "direct_prior_rows": 0,
+        "direct_token_calls": 0,
+        "direct_token_rows": 0,
+        "observation_assimilation_calls": 1364,
+        "observation_assimilation_rows": 1364,
+        "outcome_head_calls": 1448,
+        "prefix_assimilation_calls": 1629,
+        "prefix_assimilation_rows": 1629,
+        "readout_rows": 1448,
+        "terminal_frozen_rows": 70,
+        "transition_calls": 1378,
+        "transition_rows": 1378
+      }
+    },
+    {
+      "cases": 181,
+      "condition": "opposite",
+      "family": "effect_recurrent",
+      "seconds": 0.06953579210676253,
+      "seed": 330000002,
+      "work": {
+        "aux_head_calls": 1448,
+        "cost_head_calls": 1448,
+        "direct_prior_calls": 0,
+        "direct_prior_rows": 0,
+        "direct_token_calls": 0,
+        "direct_token_rows": 0,
+        "observation_assimilation_calls": 0,
+        "observation_assimilation_rows": 0,
+        "outcome_head_calls": 1448,
+        "prefix_assimilation_calls": 1629,
+        "prefix_assimilation_rows": 1629,
+        "readout_rows": 1448,
+        "terminal_frozen_rows": 0,
+        "transition_calls": 1448,
+        "transition_rows": 1448
+      }
+    },
+    {
+      "cases": 181,
+      "condition": "gap",
+      "family": "effect_recurrent",
+      "seconds": 0.0700938340742141,
+      "seed": 330000003,
+      "work": {
+        "aux_head_calls": 1448,
+        "cost_head_calls": 1448,
+        "direct_prior_calls": 0,
+        "direct_prior_rows": 0,
+        "direct_token_calls": 0,
+        "direct_token_rows": 0,
+        "observation_assimilation_calls": 0,
+        "observation_assimilation_rows": 0,
+        "outcome_head_calls": 1448,
+        "prefix_assimilation_calls": 1629,
+        "prefix_assimilation_rows": 1629,
+        "readout_rows": 1448,
+        "terminal_frozen_rows": 0,
+        "transition_calls": 1448,
+        "transition_rows": 1448
+      }
+    },
+    {
+      "cases": 181,
+      "condition": "normal",
+      "family": "effect_recurrent",
+      "seconds": 0.11282741697505116,
+      "seed": 330000003,
+      "work": {
+        "aux_head_calls": 1448,
+        "cost_head_calls": 1448,
+        "direct_prior_calls": 0,
+        "direct_prior_rows": 0,
+        "direct_token_calls": 0,
+        "direct_token_rows": 0,
+        "observation_assimilation_calls": 1364,
+        "observation_assimilation_rows": 1364,
+        "outcome_head_calls": 1448,
+        "prefix_assimilation_calls": 1629,
+        "prefix_assimilation_rows": 1629,
+        "readout_rows": 1448,
+        "terminal_frozen_rows": 70,
+        "transition_calls": 1378,
+        "transition_rows": 1378
+      }
+    },
+    {
+      "cases": 181,
+      "condition": "opposite",
+      "family": "effect_recurrent",
+      "seconds": 0.07302358280867338,
+      "seed": 330000003,
+      "work": {
+        "aux_head_calls": 1448,
+        "cost_head_calls": 1448,
+        "direct_prior_calls": 0,
+        "direct_prior_rows": 0,
+        "direct_token_calls": 0,
+        "direct_token_rows": 0,
+        "observation_assimilation_calls": 0,
+        "observation_assimilation_rows": 0,
+        "outcome_head_calls": 1448,
+        "prefix_assimilation_calls": 1629,
+        "prefix_assimilation_rows": 1629,
+        "readout_rows": 1448,
+        "terminal_frozen_rows": 0,
+        "transition_calls": 1448,
+        "transition_rows": 1448
+      }
+    },
+    {
+      "cases": 181,
+      "condition": "gap",
+      "family": "paired_recurrent",
+      "seconds": 0.07407141709700227,
+      "seed": 330000001,
+      "work": {
+        "aux_head_calls": 1448,
+        "cost_head_calls": 1448,
+        "direct_prior_calls": 0,
+        "direct_prior_rows": 0,
+        "direct_token_calls": 0,
+        "direct_token_rows": 0,
+        "observation_assimilation_calls": 0,
+        "observation_assimilation_rows": 0,
+        "outcome_head_calls": 1448,
+        "prefix_assimilation_calls": 1629,
+        "prefix_assimilation_rows": 1629,
+        "readout_rows": 1448,
+        "terminal_frozen_rows": 0,
+        "transition_calls": 1448,
+        "transition_rows": 1448
+      }
+    },
+    {
+      "cases": 181,
+      "condition": "normal",
+      "family": "paired_recurrent",
+      "seconds": 0.11105362512171268,
+      "seed": 330000001,
+      "work": {
+        "aux_head_calls": 1448,
+        "cost_head_calls": 1448,
+        "direct_prior_calls": 0,
+        "direct_prior_rows": 0,
+        "direct_token_calls": 0,
+        "direct_token_rows": 0,
+        "observation_assimilation_calls": 1364,
+        "observation_assimilation_rows": 1364,
+        "outcome_head_calls": 1448,
+        "prefix_assimilation_calls": 1629,
+        "prefix_assimilation_rows": 1629,
+        "readout_rows": 1448,
+        "terminal_frozen_rows": 70,
+        "transition_calls": 1378,
+        "transition_rows": 1378
+      }
+    },
+    {
+      "cases": 181,
+      "condition": "opposite",
+      "family": "paired_recurrent",
+      "seconds": 0.07001874991692603,
+      "seed": 330000001,
+      "work": {
+        "aux_head_calls": 1448,
+        "cost_head_calls": 1448,
+        "direct_prior_calls": 0,
+        "direct_prior_rows": 0,
+        "direct_token_calls": 0,
+        "direct_token_rows": 0,
+        "observation_assimilation_calls": 0,
+        "observation_assimilation_rows": 0,
+        "outcome_head_calls": 1448,
+        "prefix_assimilation_calls": 1629,
+        "prefix_assimilation_rows": 1629,
+        "readout_rows": 1448,
+        "terminal_frozen_rows": 0,
+        "transition_calls": 1448,
+        "transition_rows": 1448
+      }
+    },
+    {
+      "cases": 181,
+      "condition": "gap",
+      "family": "paired_recurrent",
+      "seconds": 0.06867912504822016,
+      "seed": 330000002,
+      "work": {
+        "aux_head_calls": 1448,
+        "cost_head_calls": 1448,
+        "direct_prior_calls": 0,
+        "direct_prior_rows": 0,
+        "direct_token_calls": 0,
+        "direct_token_rows": 0,
+        "observation_assimilation_calls": 0,
+        "observation_assimilation_rows": 0,
+        "outcome_head_calls": 1448,
+        "prefix_assimilation_calls": 1629,
+        "prefix_assimilation_rows": 1629,
+        "readout_rows": 1448,
+        "terminal_frozen_rows": 0,
+        "transition_calls": 1448,
+        "transition_rows": 1448
+      }
+    },
+    {
+      "cases": 181,
+      "condition": "normal",
+      "family": "paired_recurrent",
+      "seconds": 0.10623320797458291,
+      "seed": 330000002,
+      "work": {
+        "aux_head_calls": 1448,
+        "cost_head_calls": 1448,
+        "direct_prior_calls": 0,
+        "direct_prior_rows": 0,
+        "direct_token_calls": 0,
+        "direct_token_rows": 0,
+        "observation_assimilation_calls": 1364,
+        "observation_assimilation_rows": 1364,
+        "outcome_head_calls": 1448,
+        "prefix_assimilation_calls": 1629,
+        "prefix_assimilation_rows": 1629,
+        "readout_rows": 1448,
+        "terminal_frozen_rows": 70,
+        "transition_calls": 1378,
+        "transition_rows": 1378
+      }
+    },
+    {
+      "cases": 181,
+      "condition": "opposite",
+      "family": "paired_recurrent",
+      "seconds": 0.06980349984951317,
+      "seed": 330000002,
+      "work": {
+        "aux_head_calls": 1448,
+        "cost_head_calls": 1448,
+        "direct_prior_calls": 0,
+        "direct_prior_rows": 0,
+        "direct_token_calls": 0,
+        "direct_token_rows": 0,
+        "observation_assimilation_calls": 0,
+        "observation_assimilation_rows": 0,
+        "outcome_head_calls": 1448,
+        "prefix_assimilation_calls": 1629,
+        "prefix_assimilation_rows": 1629,
+        "readout_rows": 1448,
+        "terminal_frozen_rows": 0,
+        "transition_calls": 1448,
+        "transition_rows": 1448
+      }
+    },
+    {
+      "cases": 181,
+      "condition": "gap",
+      "family": "paired_recurrent",
+      "seconds": 0.06912712496705353,
+      "seed": 330000003,
+      "work": {
+        "aux_head_calls": 1448,
+        "cost_head_calls": 1448,
+        "direct_prior_calls": 0,
+        "direct_prior_rows": 0,
+        "direct_token_calls": 0,
+        "direct_token_rows": 0,
+        "observation_assimilation_calls": 0,
+        "observation_assimilation_rows": 0,
+        "outcome_head_calls": 1448,
+        "prefix_assimilation_calls": 1629,
+        "prefix_assimilation_rows": 1629,
+        "readout_rows": 1448,
+        "terminal_frozen_rows": 0,
+        "transition_calls": 1448,
+        "transition_rows": 1448
+      }
+    },
+    {
+      "cases": 181,
+      "condition": "normal",
+      "family": "paired_recurrent",
+      "seconds": 0.10762420808896422,
+      "seed": 330000003,
+      "work": {
+        "aux_head_calls": 1448,
+        "cost_head_calls": 1448,
+        "direct_prior_calls": 0,
+        "direct_prior_rows": 0,
+        "direct_token_calls": 0,
+        "direct_token_rows": 0,
+        "observation_assimilation_calls": 1364,
+        "observation_assimilation_rows": 1364,
+        "outcome_head_calls": 1448,
+        "prefix_assimilation_calls": 1629,
+        "prefix_assimilation_rows": 1629,
+        "readout_rows": 1448,
+        "terminal_frozen_rows": 70,
+        "transition_calls": 1378,
+        "transition_rows": 1378
+      }
+    },
+    {
+      "cases": 181,
+      "condition": "opposite",
+      "family": "paired_recurrent",
+      "seconds": 0.07510825013741851,
+      "seed": 330000003,
+      "work": {
+        "aux_head_calls": 1448,
+        "cost_head_calls": 1448,
+        "direct_prior_calls": 0,
+        "direct_prior_rows": 0,
+        "direct_token_calls": 0,
+        "direct_token_rows": 0,
+        "observation_assimilation_calls": 0,
+        "observation_assimilation_rows": 0,
+        "outcome_head_calls": 1448,
+        "prefix_assimilation_calls": 1629,
+        "prefix_assimilation_rows": 1629,
+        "readout_rows": 1448,
+        "terminal_frozen_rows": 0,
+        "transition_calls": 1448,
+        "transition_rows": 1448
+      }
+    },
+    {
+      "cases": 181,
+      "condition": "gap",
+      "family": "paired_blind",
+      "seconds": 0.07396295899525285,
+      "seed": 330000001,
+      "work": {
+        "aux_head_calls": 1448,
+        "cost_head_calls": 1448,
+        "direct_prior_calls": 0,
+        "direct_prior_rows": 0,
+        "direct_token_calls": 0,
+        "direct_token_rows": 0,
+        "observation_assimilation_calls": 0,
+        "observation_assimilation_rows": 0,
+        "outcome_head_calls": 1448,
+        "prefix_assimilation_calls": 1629,
+        "prefix_assimilation_rows": 1629,
+        "readout_rows": 1448,
+        "terminal_frozen_rows": 0,
+        "transition_calls": 1448,
+        "transition_rows": 1448
+      }
+    },
+    {
+      "cases": 181,
+      "condition": "normal",
+      "family": "paired_blind",
+      "seconds": 0.10863954084925354,
+      "seed": 330000001,
+      "work": {
+        "aux_head_calls": 1448,
+        "cost_head_calls": 1448,
+        "direct_prior_calls": 0,
+        "direct_prior_rows": 0,
+        "direct_token_calls": 0,
+        "direct_token_rows": 0,
+        "observation_assimilation_calls": 1364,
+        "observation_assimilation_rows": 1364,
+        "outcome_head_calls": 1448,
+        "prefix_assimilation_calls": 1629,
+        "prefix_assimilation_rows": 1629,
+        "readout_rows": 1448,
+        "terminal_frozen_rows": 70,
+        "transition_calls": 1378,
+        "transition_rows": 1378
+      }
+    },
+    {
+      "cases": 181,
+      "condition": "opposite",
+      "family": "paired_blind",
+      "seconds": 0.07018645806238055,
+      "seed": 330000001,
+      "work": {
+        "aux_head_calls": 1448,
+        "cost_head_calls": 1448,
+        "direct_prior_calls": 0,
+        "direct_prior_rows": 0,
+        "direct_token_calls": 0,
+        "direct_token_rows": 0,
+        "observation_assimilation_calls": 0,
+        "observation_assimilation_rows": 0,
+        "outcome_head_calls": 1448,
+        "prefix_assimilation_calls": 1629,
+        "prefix_assimilation_rows": 1629,
+        "readout_rows": 1448,
+        "terminal_frozen_rows": 0,
+        "transition_calls": 1448,
+        "transition_rows": 1448
+      }
+    },
+    {
+      "cases": 181,
+      "condition": "gap",
+      "family": "paired_blind",
+      "seconds": 0.06990429200232029,
+      "seed": 330000002,
+      "work": {
+        "aux_head_calls": 1448,
+        "cost_head_calls": 1448,
+        "direct_prior_calls": 0,
+        "direct_prior_rows": 0,
+        "direct_token_calls": 0,
+        "direct_token_rows": 0,
+        "observation_assimilation_calls": 0,
+        "observation_assimilation_rows": 0,
+        "outcome_head_calls": 1448,
+        "prefix_assimilation_calls": 1629,
+        "prefix_assimilation_rows": 1629,
+        "readout_rows": 1448,
+        "terminal_frozen_rows": 0,
+        "transition_calls": 1448,
+        "transition_rows": 1448
+      }
+    },
+    {
+      "cases": 181,
+      "condition": "normal",
+      "family": "paired_blind",
+      "seconds": 0.10785320797003806,
+      "seed": 330000002,
+      "work": {
+        "aux_head_calls": 1448,
+        "cost_head_calls": 1448,
+        "direct_prior_calls": 0,
+        "direct_prior_rows": 0,
+        "direct_token_calls": 0,
+        "direct_token_rows": 0,
+        "observation_assimilation_calls": 1364,
+        "observation_assimilation_rows": 1364,
+        "outcome_head_calls": 1448,
+        "prefix_assimilation_calls": 1629,
+        "prefix_assimilation_rows": 1629,
+        "readout_rows": 1448,
+        "terminal_frozen_rows": 70,
+        "transition_calls": 1378,
+        "transition_rows": 1378
+      }
+    },
+    {
+      "cases": 181,
+      "condition": "opposite",
+      "family": "paired_blind",
+      "seconds": 0.07934937509708107,
+      "seed": 330000002,
+      "work": {
+        "aux_head_calls": 1448,
+        "cost_head_calls": 1448,
+        "direct_prior_calls": 0,
+        "direct_prior_rows": 0,
+        "direct_token_calls": 0,
+        "direct_token_rows": 0,
+        "observation_assimilation_calls": 0,
+        "observation_assimilation_rows": 0,
+        "outcome_head_calls": 1448,
+        "prefix_assimilation_calls": 1629,
+        "prefix_assimilation_rows": 1629,
+        "readout_rows": 1448,
+        "terminal_frozen_rows": 0,
+        "transition_calls": 1448,
+        "transition_rows": 1448
+      }
+    },
+    {
+      "cases": 181,
+      "condition": "gap",
+      "family": "paired_blind",
+      "seconds": 0.08064108318649232,
+      "seed": 330000003,
+      "work": {
+        "aux_head_calls": 1448,
+        "cost_head_calls": 1448,
+        "direct_prior_calls": 0,
+        "direct_prior_rows": 0,
+        "direct_token_calls": 0,
+        "direct_token_rows": 0,
+        "observation_assimilation_calls": 0,
+        "observation_assimilation_rows": 0,
+        "outcome_head_calls": 1448,
+        "prefix_assimilation_calls": 1629,
+        "prefix_assimilation_rows": 1629,
+        "readout_rows": 1448,
+        "terminal_frozen_rows": 0,
+        "transition_calls": 1448,
+        "transition_rows": 1448
+      }
+    },
+    {
+      "cases": 181,
+      "condition": "normal",
+      "family": "paired_blind",
+      "seconds": 0.1080927918665111,
+      "seed": 330000003,
+      "work": {
+        "aux_head_calls": 1448,
+        "cost_head_calls": 1448,
+        "direct_prior_calls": 0,
+        "direct_prior_rows": 0,
+        "direct_token_calls": 0,
+        "direct_token_rows": 0,
+        "observation_assimilation_calls": 1364,
+        "observation_assimilation_rows": 1364,
+        "outcome_head_calls": 1448,
+        "prefix_assimilation_calls": 1629,
+        "prefix_assimilation_rows": 1629,
+        "readout_rows": 1448,
+        "terminal_frozen_rows": 70,
+        "transition_calls": 1378,
+        "transition_rows": 1378
+      }
+    },
+    {
+      "cases": 181,
+      "condition": "opposite",
+      "family": "paired_blind",
+      "seconds": 0.07182350009679794,
+      "seed": 330000003,
+      "work": {
+        "aux_head_calls": 1448,
+        "cost_head_calls": 1448,
+        "direct_prior_calls": 0,
+        "direct_prior_rows": 0,
+        "direct_token_calls": 0,
+        "direct_token_rows": 0,
+        "observation_assimilation_calls": 0,
+        "observation_assimilation_rows": 0,
+        "outcome_head_calls": 1448,
+        "prefix_assimilation_calls": 1629,
+        "prefix_assimilation_rows": 1629,
+        "readout_rows": 1448,
+        "terminal_frozen_rows": 0,
+        "transition_calls": 1448,
+        "transition_rows": 1448
+      }
+    },
+    {
+      "cases": 181,
+      "condition": "gap",
+      "family": "paired_direct",
+      "seconds": 0.09720479184761643,
+      "seed": 330000001,
+      "work": {
+        "aux_head_calls": 1448,
+        "cost_head_calls": 1448,
+        "direct_prior_calls": 1448,
+        "direct_prior_rows": 1448,
+        "direct_token_calls": 1448,
+        "direct_token_rows": 6516,
+        "observation_assimilation_calls": 0,
+        "observation_assimilation_rows": 0,
+        "outcome_head_calls": 1448,
+        "prefix_assimilation_calls": 1629,
+        "prefix_assimilation_rows": 1629,
+        "readout_rows": 1448,
+        "terminal_frozen_rows": 0,
+        "transition_calls": 0,
+        "transition_rows": 0
+      }
+    },
+    {
+      "cases": 181,
+      "condition": "normal",
+      "family": "paired_direct",
+      "seconds": 0.13569437502883375,
+      "seed": 330000001,
+      "work": {
+        "aux_head_calls": 1448,
+        "cost_head_calls": 1448,
+        "direct_prior_calls": 1378,
+        "direct_prior_rows": 1378,
+        "direct_token_calls": 1378,
+        "direct_token_rows": 1378,
+        "observation_assimilation_calls": 1364,
+        "observation_assimilation_rows": 1364,
+        "outcome_head_calls": 1448,
+        "prefix_assimilation_calls": 1629,
+        "prefix_assimilation_rows": 1629,
+        "readout_rows": 1448,
+        "terminal_frozen_rows": 70,
+        "transition_calls": 0,
+        "transition_rows": 0
+      }
+    },
+    {
+      "cases": 181,
+      "condition": "opposite",
+      "family": "paired_direct",
+      "seconds": 0.09438179200515151,
+      "seed": 330000001,
+      "work": {
+        "aux_head_calls": 1448,
+        "cost_head_calls": 1448,
+        "direct_prior_calls": 1448,
+        "direct_prior_rows": 1448,
+        "direct_token_calls": 1448,
+        "direct_token_rows": 6516,
+        "observation_assimilation_calls": 0,
+        "observation_assimilation_rows": 0,
+        "outcome_head_calls": 1448,
+        "prefix_assimilation_calls": 1629,
+        "prefix_assimilation_rows": 1629,
+        "readout_rows": 1448,
+        "terminal_frozen_rows": 0,
+        "transition_calls": 0,
+        "transition_rows": 0
+      }
+    },
+    {
+      "cases": 181,
+      "condition": "gap",
+      "family": "paired_direct",
+      "seconds": 0.09623154206201434,
+      "seed": 330000002,
+      "work": {
+        "aux_head_calls": 1448,
+        "cost_head_calls": 1448,
+        "direct_prior_calls": 1448,
+        "direct_prior_rows": 1448,
+        "direct_token_calls": 1448,
+        "direct_token_rows": 6516,
+        "observation_assimilation_calls": 0,
+        "observation_assimilation_rows": 0,
+        "outcome_head_calls": 1448,
+        "prefix_assimilation_calls": 1629,
+        "prefix_assimilation_rows": 1629,
+        "readout_rows": 1448,
+        "terminal_frozen_rows": 0,
+        "transition_calls": 0,
+        "transition_rows": 0
+      }
+    },
+    {
+      "cases": 181,
+      "condition": "normal",
+      "family": "paired_direct",
+      "seconds": 0.16461408301256597,
+      "seed": 330000002,
+      "work": {
+        "aux_head_calls": 1448,
+        "cost_head_calls": 1448,
+        "direct_prior_calls": 1378,
+        "direct_prior_rows": 1378,
+        "direct_token_calls": 1378,
+        "direct_token_rows": 1378,
+        "observation_assimilation_calls": 1364,
+        "observation_assimilation_rows": 1364,
+        "outcome_head_calls": 1448,
+        "prefix_assimilation_calls": 1629,
+        "prefix_assimilation_rows": 1629,
+        "readout_rows": 1448,
+        "terminal_frozen_rows": 70,
+        "transition_calls": 0,
+        "transition_rows": 0
+      }
+    },
+    {
+      "cases": 181,
+      "condition": "opposite",
+      "family": "paired_direct",
+      "seconds": 0.09882112499326468,
+      "seed": 330000002,
+      "work": {
+        "aux_head_calls": 1448,
+        "cost_head_calls": 1448,
+        "direct_prior_calls": 1448,
+        "direct_prior_rows": 1448,
+        "direct_token_calls": 1448,
+        "direct_token_rows": 6516,
+        "observation_assimilation_calls": 0,
+        "observation_assimilation_rows": 0,
+        "outcome_head_calls": 1448,
+        "prefix_assimilation_calls": 1629,
+        "prefix_assimilation_rows": 1629,
+        "readout_rows": 1448,
+        "terminal_frozen_rows": 0,
+        "transition_calls": 0,
+        "transition_rows": 0
+      }
+    },
+    {
+      "cases": 181,
+      "condition": "gap",
+      "family": "paired_direct",
+      "seconds": 0.09573108400218189,
+      "seed": 330000003,
+      "work": {
+        "aux_head_calls": 1448,
+        "cost_head_calls": 1448,
+        "direct_prior_calls": 1448,
+        "direct_prior_rows": 1448,
+        "direct_token_calls": 1448,
+        "direct_token_rows": 6516,
+        "observation_assimilation_calls": 0,
+        "observation_assimilation_rows": 0,
+        "outcome_head_calls": 1448,
+        "prefix_assimilation_calls": 1629,
+        "prefix_assimilation_rows": 1629,
+        "readout_rows": 1448,
+        "terminal_frozen_rows": 0,
+        "transition_calls": 0,
+        "transition_rows": 0
+      }
+    },
+    {
+      "cases": 181,
+      "condition": "normal",
+      "family": "paired_direct",
+      "seconds": 0.13851829199120402,
+      "seed": 330000003,
+      "work": {
+        "aux_head_calls": 1448,
+        "cost_head_calls": 1448,
+        "direct_prior_calls": 1378,
+        "direct_prior_rows": 1378,
+        "direct_token_calls": 1378,
+        "direct_token_rows": 1378,
+        "observation_assimilation_calls": 1364,
+        "observation_assimilation_rows": 1364,
+        "outcome_head_calls": 1448,
+        "prefix_assimilation_calls": 1629,
+        "prefix_assimilation_rows": 1629,
+        "readout_rows": 1448,
+        "terminal_frozen_rows": 70,
+        "transition_calls": 0,
+        "transition_rows": 0
+      }
+    },
+    {
+      "cases": 181,
+      "condition": "opposite",
+      "family": "paired_direct",
+      "seconds": 0.0949002921115607,
+      "seed": 330000003,
+      "work": {
+        "aux_head_calls": 1448,
+        "cost_head_calls": 1448,
+        "direct_prior_calls": 1448,
+        "direct_prior_rows": 1448,
+        "direct_token_calls": 1448,
+        "direct_token_rows": 6516,
+        "observation_assimilation_calls": 0,
+        "observation_assimilation_rows": 0,
+        "outcome_head_calls": 1448,
+        "prefix_assimilation_calls": 1629,
+        "prefix_assimilation_rows": 1629,
+        "readout_rows": 1448,
+        "terminal_frozen_rows": 0,
+        "transition_calls": 0,
+        "transition_rows": 0
+      }
+    }
+  ],
+  "scope": "paired action-effect TRAIN supervision for fixed-path forecast imitation, not autonomous control",
+  "status": "DEV_FAIL",
+  "train_data": {
+    "bytes": 5469772,
+    "sha256": "add8cf6ff79733c6fcc1293bf2eb2e538ccb6b52ccd89afbf1ce5306f0faecb6"
+  },
+  "training_reference": {
+    "cases": 1046,
+    "parent_closure": {
+      "bytes": 26997,
+      "sha256": "6a72021165661ab60a33809ba857e7f304ba64849160374c713597e1c73e6eaf"
+    },
+    "parent_collection_receipt": {
+      "bytes": 5429,
+      "sha256": "e26ec5ea2e2af62ac6afbe73f026a133ecd81803a5c25ea0261c71d74ffc5701"
+    },
+    "prior_dev_decodes": 0,
+    "teacher_cost_linkage": {
+      "scope": "Full parent acquisition charged as shared upstream data cost, includes its unused DEV acquisition. No free-label claim.",
+      "whole_parent_collection_seconds": 306.72326325,
+      "whole_parent_native_steps": 18026,
+      "whole_parent_teacher_annotations": 5460
+    },
+    "train": {
+      "bytes": 5469772,
+      "path": "output/otto-belief-distillation-v1/collection-01/train.npz",
+      "sha256": "add8cf6ff79733c6fcc1293bf2eb2e538ccb6b52ccd89afbf1ce5306f0faecb6"
+    },
+    "training_horizon": 4
+  }
+}

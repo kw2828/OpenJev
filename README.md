@@ -56,30 +56,23 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Research status
 
-The latest OTTO study trained **12 compact models** on 1,046 cases and evaluated
-187 fresh development cases. Bayesian probability targets lowered long-gap log
-loss **31.9% / 33.7%** versus the identical recurrent model trained on sampled
-outcomes, averaged across three fits in the base/shifted settings.
+The latest OTTO experiment trained **12 compact models** on the same 1,046 cases
+and evaluated 181 fresh cases. Adding an action-effect loss lowered mean error
+in predicted action effects **22.8% / 19.4%** in the base/shifted settings,
+compared with an otherwise identical recurrent model.
 
-**The overall rule still failed: 7/18 comparisons passed.** Decision gains varied
-by seed, and the direct model predicted action effects better after the sensing
-shift. This is a supervised forecasting result, not an autonomous-control gain.
+**Shifted decision error increased 19.8%, and the full rule failed: 6/18 comparisons.**
+All six comparisons against the identical recurrent control failed. These are
+three-fit averages from a forecasting and teacher-imitation study; they do not
+establish an autonomous-control or architecture advantage.
 
-[![Probability training, decisions and action effects across two sensing settings](research/otto-belief-distillation-results/benchmark.png)](research/otto-belief-distillation-results.md)
+[![Action-effect forecasts improve, but shifted decisions worsen](research/otto-action-effect-results/benchmark.png)](research/otto-action-effect-results.md)
 
-[Results and every comparison](research/otto-belief-distillation-results.md) ·
-[Checkpoints and evidence](https://github.com/kw2828/OpenJev/releases/tag/otto-belief-distillation-v1) ·
-[Next: learning action effects](research/otto-belief-distillation-next.md).
-All fits and the independent audit completed. The earlier
-[action-latent pilot](research/otto-action-latent-results.md) remains a failed
-comparison on a different dataset.
-
-The [solved-readout comparison](research/otto-direct-readout-results.md),
-The [fresh-path compute comparison](research/otto-readout-compute-results.md),
-[earlier equal-update ablation](research/otto-readout-state-ablation-results.md),
-[Bayesian-memory failure](research/otto-residual-reanalysis-results.md),
-[earlier memory comparison](research/otto-query-memory-results.md), and other
-completed or failed runs remain in the [experiment archive](research/experiment-index.md).
+[All results and controls](research/otto-action-effect-results.md) ·
+[Checkpoints and evidence](https://github.com/kw2828/OpenJev/releases/tag/otto-action-effect-v1) ·
+[Next hypothesis](research/otto-action-effect-next.md).
+The earlier [probability-target gains](research/otto-belief-distillation-results.md)
+and all other completed or failed studies remain in the [experiment archive](research/experiment-index.md).
 
 The separate [shared-prefix scoring experiment](research/shared-prefix-results.md)
 measured **2.08x** speedup on four-question synthetic workloads; single-question

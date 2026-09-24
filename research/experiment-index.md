@@ -1,5 +1,7 @@
 # OpenJev experiment archive
 
+- [Paired action-effect supervision](otto-action-effect-results.md): 12 fits, the same 1,046 TRAIN cases and 181 fresh DEV cases; audited **DEV_FAIL, 6/18**, unchanged legacy gate also 6/18. Against the identical recurrent control, mean action-effect error falls 22.78% / 19.44%, but shifted decision gap rises 19.79%; all six complete matched-recurrent comparisons fail. [Next: align decision targets with available information](otto-action-effect-next.md).
+
 - [Full-belief probability distillation](otto-belief-distillation-results.md): 12 fits, 1,046 TRAIN and 187 fresh DEV cases; audited **DEV_FAIL, 7/18**. Soft targets lower mean long-gap log loss 31.94% / 33.74% versus sampled targets; action-effect accuracy fails to transfer consistently. [Next hypothesis](otto-belief-distillation-next.md).
 
 - [Action-conditioned latent prediction](otto-action-latent-results.md): fresh precommitted action blocks, nine neural fits and one ridge reference; DEV_FAIL, 2/18 comparisons. [Next hypothesis](otto-action-latent-next.md).
