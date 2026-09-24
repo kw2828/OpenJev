@@ -1,0 +1,118 @@
+{
+  "config": {
+    "checkpoint_selection": "all three parent static Nystr\u00f6m final fits",
+    "cohorts": 3,
+    "contexts": 128,
+    "defer_cost": 0.2,
+    "fewshots": 4,
+    "fit_seeds": [
+      11,
+      23,
+      37
+    ],
+    "latency_repeats": 20,
+    "latency_warmups": 3,
+    "modes": [
+      "sor",
+      "query_only",
+      "fic",
+      "full"
+    ],
+    "namespace": 442260924,
+    "noise_variance": 0.0225,
+    "populations": {
+      "base": {
+        "basis_points": 16,
+        "blocks": 4,
+        "extent": 2.0,
+        "offset": 100
+      },
+      "long": {
+        "basis_points": 128,
+        "blocks": 4,
+        "extent": 2.0,
+        "offset": 300
+      },
+      "shift": {
+        "basis_points": 16,
+        "blocks": 8,
+        "extent": 3.0,
+        "offset": 200
+      }
+    },
+    "queries": 4,
+    "training_updates": 0,
+    "version": "residual-memory-v1",
+    "wall_cap_seconds": 1200
+  },
+  "environment": {
+    "numpy": "2.5.3",
+    "platform": "macOS-26.6.1-arm64-arm-64bit",
+    "python": "3.12.13 (main, Jul 23 2026, 14:33:47) [Clang 22.1.3 ]",
+    "scipy": "1.18.1",
+    "threads": 1,
+    "torch": "2.14.0"
+  },
+  "parent": {
+    "checkpoints": {
+      "nystrom16-11.pt": {
+        "bytes": 2446,
+        "sha256": "ff45bad33c1d1cfe432fd62029e1830f22c4d24ae61441f35826f1f120846442"
+      },
+      "nystrom16-23.pt": {
+        "bytes": 2446,
+        "sha256": "eecc9f4ffe1d27e109e2157821ac9754ea0da66b8a339daef5b41c3d3f3d1665"
+      },
+      "nystrom16-37.pt": {
+        "bytes": 2446,
+        "sha256": "a834813412656e7148a883c80608e19ab5457311a0bd063b32cdb0bb40ef8ca2"
+      }
+    },
+    "manifest": {
+      "bytes": 20994,
+      "sha256": "0993227b3bbb8b65bc8332f92ff8a0cf3f9c32570be505ba55bd2e09aa35c2ae"
+    },
+    "registration": {
+      "bytes": 2279,
+      "sha256": "4f2c321fdf598d73060be19b552437d4f58eb2f6e0ad1ad0f67aba71815e9d59"
+    }
+  },
+  "sources": {
+    "research/residual-memory-protocol.md": {
+      "bytes": 6900,
+      "sha256": "538d262a9a1707740d127b29e4dab320eb5a3d9cf7cdc262e10ca29c52e41517"
+    },
+    "scripts/audit_query_feature_study.py": {
+      "bytes": 24663,
+      "sha256": "5ec48d0bb67a4555bb3d7d05cbffcf6b82ad760f53abb9e01aa41ae5fea918ea"
+    },
+    "scripts/audit_residual_memory_study.py": {
+      "bytes": 24111,
+      "sha256": "a8d4bcd36f0ec34fc209fa572c837f325d328edc583ab00bf86b6633224ec1e2"
+    },
+    "scripts/residual_memory_study.py": {
+      "bytes": 14518,
+      "sha256": "12f9467ee275d9e22b4960ac5dc729b91ff6065c9eed92a5c1d28125cd32ab00"
+    },
+    "src/openjev/research/query_feature_data.py": {
+      "bytes": 12622,
+      "sha256": "2347ab1c3ced4abfc4942184fe6994d9a0b69a67eebeecb846a33d496e08173e"
+    },
+    "src/openjev/research/residual_memory.py": {
+      "bytes": 12143,
+      "sha256": "aef2168c23ef4aede9bb065dd6583f7d4f5be2ea9f86f68ef69edb2e39010f61"
+    },
+    "tests/test_audit_residual_memory_study.py": {
+      "bytes": 13875,
+      "sha256": "4fd3474c4f2a217903a19afa28b72003e5a833f7531170fd32545ec729b140ac"
+    },
+    "tests/test_residual_memory.py": {
+      "bytes": 13762,
+      "sha256": "8fb75bfa99c3d62348c010cd3da0bd723282c0dac84c9819596884a4d6bb15c3"
+    },
+    "tests/test_residual_memory_study.py": {
+      "bytes": 3528,
+      "sha256": "e60c1aa26644202b28efe728b560e983606273caf1a24dd94e76477efe918281"
+    }
+  }
+}
