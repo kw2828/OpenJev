@@ -58,26 +58,34 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Research status
 
-The [latest recurrent comparison](research/finite-reuse-learning-results.md)
-passes **all 19 predeclared continuation conditions**: nine fits, three seeds,
-and exactly 1,024 history-learning plus 3,072 joint updates per fit. The constrained
-transition lowers mean four/eight-step decision regret by **99.13% / 99.53%**
-against the original free model and **99.11% / 99.51%** against the initially
-matched free model. Every paired seed improves; two weak fits in each control
-drive much of the large average gap.
+The [five-seed recurrent replication](research/finite-reuse-replication-results.md)
+**fails its continuation rule: 45/54 conditions pass**. Fifteen fresh fits receive
+the same 1,024 history-learning and 3,072 joint updates, then face ordinary and
+noisier observations without further training.
 
-[![Every recurrent fit: four- and eight-step decision regret and full training time](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-reuse-learning-results/benchmark.png)](research/finite-reuse-learning-results.md)
+| Evaluation | Conditions passed | Outcome |
+|---|---:|---|
+| Original observation noise | 24/27 | Three paired comparisons lose |
+| Higher observation noise | 21/27 | Four paired comparisons lose; short-horizon and observed-filtering criteria fail |
 
-[Open recurrent chart](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-reuse-learning-results/benchmark.png) ·
-[Complete evidence](research/finite-reuse-learning-results/evidence.tar.gz) ·
-[Protocol](research/finite-reuse-learning-protocol.md).
+[![All five seeds: both observation settings and complete training time](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-reuse-replication-results/benchmark.png)](research/finite-reuse-replication-results.md)
 
-Mean fitting time is **23.86 seconds**, versus **22.35 / 22.14 seconds** for the
-controls. All 229 qualification tests pass and the independent saved-output
-audit agrees. This is a local result in a small synthetic world with task-derived
-constraints and privileged starting readouts. Untouched replication, a scenario
-shift and a second environment are still needed. It establishes neither
-biological-wiring benefits nor calibrated text probabilities.
+[Open recurrent chart](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-reuse-replication-results/benchmark.png) ·
+[Complete evidence](research/finite-reuse-replication-results/evidence.tar.gz) ·
+[Protocol](research/finite-reuse-replication-protocol.md).
+
+Mean four/eight-step regret falls **99.50-99.82%** across the two controls at
+original noise and **92.92-95.58%** at higher noise, but weak control fits drive
+much of these averages. Seed 435261005 causes all seven paired losses.
+Rounded mean fitting time is **25.46 seconds**, versus **23.89 / 24.19 seconds**
+for the controls. All 336 qualification tests pass; the independent audit agrees.
+
+The [earlier three-seed study passed](research/finite-reuse-learning-results.md),
+but this stronger test does not establish reliable transfer. Both retain favorable
+transition assumptions and task-derived head initialization. The
+[next proposed diagnostic](research/finite-recurrent-next-direction.md) isolates
+dependence on that initialization before changing the transition architecture.
+A second environment and evidence of novelty are still needed.
 
 The [earlier equal-time comparison failed](research/finite-rounded-learning-results.md),
 and the [first equal-update attempt stopped before scientific training](research/finite-update-learning-stop-results.md).
