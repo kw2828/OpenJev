@@ -32,7 +32,7 @@ The free [browser demo](https://kw2828.github.io/OpenJev/) runs Qwen3-0.6B throu
 
 ## Chess
 
-[![First scheduled candidate-policy game, drawn by repetition](docs/assets/chess-candidate-game-001.gif)](https://kw2828.github.io/OpenJev/chess-candidate-replay.html)
+[![First scheduled candidate-policy game, drawn by repetition](https://raw.githubusercontent.com/kw2828/OpenJev/main/docs/assets/chess-candidate-game-001.gif)](https://kw2828.github.io/OpenJev/chess-candidate-replay.html)
 
 Four small policies score legal moves across **twelve fits and 288 games**. Exact next-board differences raise ordinary move agreement from **31.75% to 33.15%**, but cost more computation and fail the engine-loss and game-score criteria. The GIF is the first scheduled game, not a selected win. No learned world model or Elo rating is established.
 
@@ -40,7 +40,7 @@ Four small policies score legal moves across **twelve fits and 288 games**. Exac
 
 ## Doom
 
-[![First JEPA-trained policy and first evaluation seed](docs/assets/jepa-policy-181000-preview.gif)](docs/assets/jepa-policy-181000.gif)
+[![First JEPA-trained policy and first evaluation seed](https://raw.githubusercontent.com/kw2828/OpenJev/main/docs/assets/jepa-policy-181000-preview.gif)](docs/assets/jepa-policy-181000.gif)
 
 **13 kills in 19.26 game seconds**, from the first fit and first evaluation seed. JEPA supplies training rewards; a small policy plays this recording. The full nine-method comparison did **not** establish a reliable JEPA advantage. This is one illustrative episode, not an inference-speed benchmark.
 
@@ -48,7 +48,7 @@ Four small policies score legal moves across **twelve fits and 288 games**. Exac
 
 ## Robot reaching
 
-[![Preselected first robot case with persistent memory and trained reset controls](evidence/reacher-geometry-memory-v1/report/fixed-case-replay.gif)](research/reacher-geometry-memory.md)
+[![Preselected first robot case with persistent memory and trained reset controls](https://raw.githubusercontent.com/kw2828/OpenJev/main/evidence/reacher-geometry-memory-v1/report/fixed-case-replay.gif)](research/reacher-geometry-memory.md)
 
 The stronger memory comparison **failed its rule: 24/25 checks passed**. Persistent GRU lowers control cost by **4.44% / 2.94%** versus a separately trained two-observation controller; the rule requires at least 3% on both sensing-gap panels. Supplied-physics controllers still perform better.
 
@@ -56,27 +56,21 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Research status
 
-The latest OTTO diagnostic found **48% / 62% lower teacher-cost decision regret**
-in the base/shifted settings using an expensive reference that averages costs
-over possible futures. Separate samples choose and evaluate its actions on
-**48 fresh prefixes**, against three frozen recurrent policies. The predeclared
-headroom criterion passed in both settings, with an independent audit.
+The latest six-model comparison tested **averaging possible-future cost targets
+in the same GRU**. On 173 fresh evaluation prefixes, it lowered teacher-cost
+regret **4.9%** in the base setting but raised it **6.1%** under a sensing shift.
+Both settings failed the predeclared rule; the independent audit passed.
 
-**This is a target for learning, not a newly improved model.** All twelve existing
-models stayed frozen; the diagnostic used 23,557 teacher evaluations. It does
-not establish better autonomous control, calibrated probabilities or a novel
-architecture. A [registered training pilot](research/otto-conditional-label-protocol.md)
-now compares sampled and averaged cost targets in the same recurrent model,
-using fresh data. Its results are pending.
+[![All six matched fits and uncertainty intervals](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/otto-conditional-label-results/benchmark.png)](research/otto-conditional-label-results.md)
 
-[![Frozen recurrent decisions and an independently evaluated reference](research/otto-cost-information-results/benchmark.png)](research/otto-cost-information-results.md)
+[Results and controls](research/otto-conditional-label-results.md) ·
+[All six checkpoints and evidence](https://github.com/kw2828/OpenJev/releases/tag/otto-conditional-label-v1).
+The earlier [expensive-reference diagnostic](research/otto-cost-information-results.md)
+found headroom, but this training recipe did not reliably capture it.
 
-[Results, uncertainty and costs](research/otto-cost-information-results.md) ·
-[Checkpoints and evidence](https://github.com/kw2828/OpenJev/releases/tag/otto-cost-information-v1) ·
-[Next experiment and protocol clarification](research/otto-cost-information-next.md).
-The previous [action-effect study](research/otto-action-effect-results.md) remains
-**DEV_FAIL, 6/18**. All completed and failed studies remain in the
-[experiment archive](research/experiment-index.md).
+A separate [observation-operator recurrent component](research/otto-observation-operator-status.md)
+passes 24 fabricated tests. It has **no empirical architecture result yet**.
+All completed and failed studies remain in the [experiment archive](research/experiment-index.md).
 
 The separate [shared-prefix scoring experiment](research/shared-prefix-results.md)
 measured **2.08x** speedup on four-question synthetic workloads; single-question

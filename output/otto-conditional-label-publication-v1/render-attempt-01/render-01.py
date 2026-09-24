@@ -240,7 +240,7 @@ def document(numbers):
         ('The common scale is derived only from all sampled TRAIN contrasts, not from the smaller mean-target '
          'variance. Both arms use the unchanged 28-state GRU: 8,299 total parameters, 8,096 potentially updated '
          'parameters and 203 frozen outcome/auxiliary-head parameters. Their forward compute is still charged. '
-         'Only the public nine-row prefix, lengths and committed action sequence enter the model; full belief arrays, hidden '
+         'Only the public nine-row prefix, lengths and committed action sequence enter the model; beliefs, hidden '
          'sources, draws and teacher costs are not model inputs.'), '',
         '## Every paired fit and secondary loss', '',
         '| Setting | Fit seed | Sampled regret | Mean32 regret | Paired gain | Sampled target MSE: sampled / mean32 | Mean-target MSE: sampled / mean32 |',

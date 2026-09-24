@@ -1,5 +1,7 @@
 # OpenJev experiment archive
 
+- [Same GRU, conditional cost labels](otto-conditional-label-results.md): **audited DEV_FAIL in both settings**, six matched fits, 329 fresh TRAIN and 173 DEV prefixes. Averaging the same 32-label bank lowers mean teacher-cost regret 4.9% in lambda3 but raises it 6.1% in the unseen sensing regime. Both margin and paired-seed consistency checks fail; no architecture or autonomous-control claim. [All checkpoints and evidence](https://github.com/kw2828/OpenJev/releases/tag/otto-conditional-label-v1). [Interpretation and next qualification](otto-conditional-label-next.md).
+
 - [Observation-operator component](otto-observation-operator-status.md): **24 fabricated tests and 16 geometry rollouts pass**. Tied observation marginals and an independently learned blind-transition control have explicit probability accounting, causal forecasts and verified optimizer paths. No empirical training or architecture advantage established.
 
 - [Conditional-cost decision headroom](otto-cost-information-results.md): **audited HEADROOM_RESOLVED**, 48 retained fresh prefixes from 64 starts, twelve frozen policies and 23,557 teacher annotations. Separate selection/evaluation streams lower mean teacher-cost regret about 48% / 62% versus three recurrent policies, with the predeclared criterion passing in both settings. This is an expensive reference diagnostic, not a trained-model or autonomous-control gain. [Next: separate conditional labels from recurrent state design](otto-cost-information-next.md).
