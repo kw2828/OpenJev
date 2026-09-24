@@ -60,17 +60,20 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Research status
 
-The latest [sensor-memory screen](research/sensor-screen-results.md) **fails its
-continuation rule: 3/6 conditions passed**. Static quadratic calibration already
-has low error on both development months. Adaptive models help in June but do
-not meet the required improvement in both months. Later data remains untouched.
+The latest [recurrent dynamics experiment](research/phase-results.md) trains
+15 small models on measured Silverbox hardware data. The energy-dependent
+phase model **fails its rule: 3/21 conditions pass**. GRU16 and a seven-parameter
+cubic dynamics model perform substantially better. Official TEST remains unused.
 
-[![Nine predictors in the TRAIN-only delayed sensor screen](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/sensor-screen-results/benchmark.png)](research/sensor-screen-results.md)
+[![Every model seed and reference in the Silverbox recurrent dynamics comparison](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/phase-results/benchmark.png)](research/phase-results.md)
 
-[Results and independent audit](research/sensor-screen-results.md) ·
-[Protocol](research/sensor-screen-protocol.md) ·
-[Next research question](research/sensor-screen-next.md) ·
+[Results, checkpoints and independent audit](research/phase-results.md) ·
+[Protocol](research/phase-protocol.md) ·
+[Next research question](research/phase-next.md) ·
 [All experiments](research/experiment-index.md).
+
+The preceding [sensor-memory screen](research/sensor-screen-results.md) rejected
+its target because static calibration already left too little headroom.
 
 The earlier [observation-compression baseline](research/measurement-results.md)
 passes all 26 registered checks: a 1,022-byte spectral sketch has zero measured
