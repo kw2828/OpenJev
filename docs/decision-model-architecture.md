@@ -40,9 +40,8 @@ A recurrent model should additionally justify its memory and transition
 predictions against simpler controls. Neither replacing the output head nor
 adding a calibration loss establishes architectural novelty.
 
-The current [action-error study protocol](../research/finite-action-range-study-protocol.md)
-tests whether squared action-error range improves long-horizon decision regret
-over both MSE and twice-MSE, using unchanged recurrent models in a synthetic
-world. It changes neither the state architecture nor probability calibration.
-It does not implement RLCD. Treat its result separately from the local Qwen
-decision API and the browser demo.
+The [query-centered feature pilot](../research/query-feature-results.md) now
+trains nonlinear feature encoders with Bayesian prediction heads and tests their
+decisions against a known conditional law. All 15 fits complete, but the candidate
+fails its continuation rule. This is neither RLCD nor a calibration guarantee.
+Its synthetic results remain separate from the local Qwen API and browser demo.

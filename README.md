@@ -60,22 +60,21 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Research status
 
-Before training another recurrent model, we tested a strong conventional
-reference on a recent paper's linear function-reuse task. Cached least squares
-achieved **100% function recovery and zero decision regret on 10,240 fresh
-requests**, with an independent audit and 69 passing tests. This establishes a
-baseline the next architecture must take seriously, not a new neural result.
+The latest pilot trained **15 models** to make uncertain decisions from noisy
+nonlinear memories. Query-centered features increased decision regret by
+**63% normally and 9% under shift** versus the same-sized static model.
+Kernel features performed better; under shift, all fitted arms lost to always
+deferring. The candidate fails its continuation rule, **2/24 checks passed**.
 
-[![Function-reuse diagnostic: all cohorts, prediction error, decisions, storage and computation](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/function-reuse-reference-results/benchmark.png)](research/function-reuse-reference-results.md)
+[![Query-centered features: decision quality, training curves and measured computation](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/query-feature-results/benchmark.png)](research/query-feature-results.md)
 
-[Results and evidence](research/function-reuse-reference-results.md) ·
-[Next: query-time memory](research/query-time-memory-next.md) ·
+[Results, checkpoints and independent audit](research/query-feature-results.md) ·
+[Protocol](research/query-feature-protocol.md) ·
 [All experiments](research/experiment-index.md).
 
-The earlier [observation-reliability direction](research/schedule-headroom-results.md)
-remains closed: average gains came with worse normal-noise decisions. The next
-research target is a meaningful quality-versus-compute improvement over strong
-retrieval and statistical controls.
+An earlier [linear function-reuse diagnostic](research/function-reuse-reference-results.md)
+was already solved by cached least squares. We require improvements over strong
+conventional controls before expanding architecture claims.
 
 Separate engineering studies measured [1.20-1.35x training throughput](research/finite-joint-reuse-throughput-results.md)
 from shared computation and [2.08x scoring speed](research/shared-prefix-results.md)
