@@ -58,21 +58,23 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Research status
 
-The [latest recurrent diagnostic](research/finite-factor-learning-results.md)
-separates learning a starting state from learning dynamics across **12 fits**.
-With the correct starting state supplied, learned dynamics pass all three
-criteria, including eight-step forecasts. Models that must infer the starting
-state from history fail. This identifies a useful training bottleneck;
-the successful models still depend on privileged state information.
+The [latest recurrent comparison](research/finite-shared-filter-results.md)
+trains **nine models using public histories**. Sharing learned dynamics between
+history processing and forecasting lowers mean eight-step regret **10.27%**
+versus separate dynamics and **6.43%** versus a GRU history encoder. Every paired
+seed improves at that horizon, but **all three absolute learning criteria fail**.
+This is partial progress in a synthetic world with a known cost readout.
 
-[![Every fit in the starting-state and dynamics comparison](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-factor-learning-results/benchmark.png)](research/finite-factor-learning-results.md)
+[![Every shared-filter, untied-filter and GRU-prefix fit](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-shared-filter-results/benchmark.png)](research/finite-shared-filter-results.md)
 
-[Open recurrent chart](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-factor-learning-results/benchmark.png) ·
-[All 12 checkpoints and evidence](https://github.com/kw2828/OpenJev/releases/tag/finite-factor-learning-v1).
+[Open recurrent chart](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-shared-filter-results/benchmark.png) ·
+[All nine checkpoints and evidence](https://github.com/kw2828/OpenJev/releases/tag/finite-shared-filter-v1).
 
-The earlier [15-model learning study](research/finite-observation-learning-results.md)
-and [conditional-label comparison](research/otto-conditional-label-results.md)
-failed their criteria. All completed and failed studies remain in the
+The preceding [factor diagnostic](research/finite-factor-learning-results.md)
+passed only when the correct starting state was supplied. The
+[15-model learning study](research/finite-observation-learning-results.md) and
+[conditional-label comparison](research/otto-conditional-label-results.md)
+failed. All completed and failed studies remain in the
 [experiment archive](research/experiment-index.md).
 
 The separate [shared-prefix scoring experiment](research/shared-prefix-results.md)

@@ -1,6 +1,6 @@
 # Proposed next diagnostic: share the learned prefix filter with the forecast model
 
-**Proposal only. Not registered or executed.** The completed [factor diagnostic](finite-factor-learning-results/report.md) passed all three criteria with an exact prefix posterior and learned operators. The learned-prefix/exact-operator and jointly learned cells failed each criterion overall. This supports testing the prefix-learning path under this recipe. It does not establish an irreducible GRU limitation, convergence, or a transfer result.
+**Executed follow-up:** the [shared-filter diagnostic](finite-shared-filter-results.md) has now completed under its own frozen protocol. The proposal below records the reasoning before that study. The completed [factor diagnostic](finite-factor-learning-results/report.md) passed all three criteria with an exact prefix posterior and learned operators. The learned-prefix/exact-operator and jointly learned cells failed each criterion overall. This supported testing the prefix-learning path under this recipe. It did not establish an irreducible GRU limitation, convergence, or a transfer result.
 
 ## Mechanism
 
