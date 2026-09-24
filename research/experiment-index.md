@@ -1,5 +1,7 @@
 # OpenJev experiment archive
 
+- [Conditional-cost decision headroom](otto-cost-information-results.md): **audited HEADROOM_RESOLVED**, 48 retained fresh prefixes from 64 starts, twelve frozen policies and 23,557 teacher annotations. Separate selection/evaluation streams lower mean teacher-cost regret about 48% / 62% versus three recurrent policies, with the predeclared criterion passing in both settings. This is an expensive reference diagnostic, not a trained-model or autonomous-control gain. [Next: separate conditional labels from recurrent state design](otto-cost-information-next.md).
+
 - [Paired action-effect supervision](otto-action-effect-results.md): 12 fits, the same 1,046 TRAIN cases and 181 fresh DEV cases; audited **DEV_FAIL, 6/18**, unchanged legacy gate also 6/18. Against the identical recurrent control, mean action-effect error falls 22.78% / 19.44%, but shifted decision gap rises 19.79%; all six complete matched-recurrent comparisons fail. [Next: align decision targets with available information](otto-action-effect-next.md).
 
 - [Full-belief probability distillation](otto-belief-distillation-results.md): 12 fits, 1,046 TRAIN and 187 fresh DEV cases; audited **DEV_FAIL, 7/18**. Soft targets lower mean long-gap log loss 31.94% / 33.74% versus sampled targets; action-effect accuracy fails to transfer consistently. [Next hypothesis](otto-belief-distillation-next.md).

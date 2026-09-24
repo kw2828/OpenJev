@@ -56,23 +56,26 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Research status
 
-The latest OTTO experiment trained **12 compact models** on the same 1,046 cases
-and evaluated 181 fresh cases. Adding an action-effect loss lowered mean error
-in predicted action effects **22.8% / 19.4%** in the base/shifted settings,
-compared with an otherwise identical recurrent model.
+The latest OTTO diagnostic found **48% / 62% lower teacher-cost decision regret**
+in the base/shifted settings using an expensive reference that averages costs
+over possible futures. Separate samples choose and evaluate its actions on
+**48 fresh prefixes**, against three frozen recurrent policies. The predeclared
+headroom criterion passed in both settings, with an independent audit.
 
-**Shifted decision error increased 19.8%, and the full rule failed: 6/18 comparisons.**
-All six comparisons against the identical recurrent control failed. These are
-three-fit averages from a forecasting and teacher-imitation study; they do not
-establish an autonomous-control or architecture advantage.
+**This is a target for learning, not a newly improved model.** All twelve existing
+models stayed frozen; the diagnostic used 23,557 teacher evaluations. It does
+not establish better autonomous control, calibrated probabilities or a novel
+architecture. The next experiment will isolate better training targets before
+changing the recurrent state.
 
-[![Action-effect forecasts improve, but shifted decisions worsen](research/otto-action-effect-results/benchmark.png)](research/otto-action-effect-results.md)
+[![Frozen recurrent decisions and an independently evaluated reference](research/otto-cost-information-results/benchmark.png)](research/otto-cost-information-results.md)
 
-[All results and controls](research/otto-action-effect-results.md) ·
-[Checkpoints and evidence](https://github.com/kw2828/OpenJev/releases/tag/otto-action-effect-v1) ·
-[Next hypothesis](research/otto-action-effect-next.md).
-The earlier [probability-target gains](research/otto-belief-distillation-results.md)
-and all other completed or failed studies remain in the [experiment archive](research/experiment-index.md).
+[Results, uncertainty and costs](research/otto-cost-information-results.md) ·
+[Checkpoints and evidence](https://github.com/kw2828/OpenJev/releases/tag/otto-cost-information-v1) ·
+[Next experiment and protocol clarification](research/otto-cost-information-next.md).
+The previous [action-effect study](research/otto-action-effect-results.md) remains
+**DEV_FAIL, 6/18**. All completed and failed studies remain in the
+[experiment archive](research/experiment-index.md).
 
 The separate [shared-prefix scoring experiment](research/shared-prefix-results.md)
 measured **2.08x** speedup on four-question synthetic workloads; single-question
