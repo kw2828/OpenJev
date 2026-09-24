@@ -56,21 +56,22 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Research status
 
-Memory updated by observed prediction errors **failed its development rule:
-6/13 conditions passed** across 18 fits. Its later decision-cost gap was
-**54.1% higher** than the best control in one setting and **14.3% lower** in the
-other. The independent audit completed; the held-out test remains unused.
+The latest Bayesian-memory comparison **failed its development rule: 4/13
+conditions passed**. Its later decision-cost gap was **30.11% higher** than
+ordinary joint training in one setting and **3.35% higher** in the other.
+All 72 evaluations and the independent audit completed.
 
-[![All eight memory methods and three fit seeds, including the failed candidate](research/otto-query-memory-dev-results/query-memory-dev.png)](research/otto-query-memory-results.md)
+[![Nine residual-memory methods and all three fit seeds](research/otto-residual-reanalysis-results/methods.png)](research/otto-residual-reanalysis-results.md)
 
-[Results and costs](research/otto-query-memory-results.md) ·
-[Every method and seed](research/otto-query-memory-dev-results/query-memory-dev.md) ·
-[All models and evidence](https://github.com/kw2828/OpenJev/releases/tag/otto-query-memory-dev-v1).
-This fixed-path comparison establishes no autonomous or architecture advantage.
+[Results and costs](research/otto-residual-reanalysis-results.md) ·
+[Every method and seed](research/otto-residual-reanalysis-results/README.md) ·
+[Complete evidence](https://github.com/kw2828/OpenJev/releases/tag/otto-residual-reanalysis-v1).
+This reanalysis uses prior development paths. It establishes no autonomous or
+architecture advantage; confirmation remains unused.
 
-The [Bayesian memory comparison](research/otto-residual-estimator-status.md)
-collected 18 fresh development paths, then stopped on an environment-validation
-bug before evaluation. No new performance result was produced.
+The [earlier memory result](research/otto-query-memory-results.md) and
+[original environment-validation failure](research/otto-residual-runtime-repair.md)
+remain preserved.
 
 The [earlier protected-readout failure](research/otto-protected-readout-results.md),
 other comparisons and incomplete runs remain in the

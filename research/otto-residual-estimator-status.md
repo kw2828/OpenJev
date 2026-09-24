@@ -1,5 +1,9 @@
 # Bayesian residual comparison status
 
+The separate [prior-DEV reanalysis](otto-residual-reanalysis-results.md) completed
+with **DEV FAIL 4/13** after a qualified environment-handoff repair. The original
+attempt documented below remains a technical failure.
+
 **Closed with an evaluation-planning failure. No new performance result.**
 All 18 development paths were collected successfully: 4,816 native steps and
 teacher calls in 197.31 seconds, including the original supervisor's cleanup.

@@ -4,6 +4,8 @@ Studies and frozen work awaiting execution, including failures and controls. A p
 
 ## Complete experiment list
 
+- [Prior-DEV Bayesian residual reanalysis](otto-residual-reanalysis-results.md): **audited DEV FAIL 4/13**, all 72 views completed at selected tau 0.1. Later score gaps are 30.11% / 3.35% worse than joint auxiliary training; covariance contrast fails 2/10. The real two-interpreter handoff is repaired and qualified. Prior development data is disclosed, and the earlier failed screen remains closed. [Figure and all methods](otto-residual-reanalysis-results/README.md) · [Complete evidence](https://github.com/kw2828/OpenJev/releases/tag/otto-residual-reanalysis-v1).
+
 - [Frozen-feature Bayesian residual estimators](otto-residual-estimator-status.md): **18 DEV paths collected; evaluation planning failed before numerical decoding**. The 531 fabricated tests and capacity probe missed a conflict between the native collector and evaluator runtime checks. No candidate selection or performance result was produced; confirmation and the prior study's TEST remain unused. [Failure and separate repair plan](otto-residual-runtime-repair.md) · [Protocol](otto-residual-estimator-protocol.md).
 
 - [Query-written memory comparison](otto-query-memory-results.md): **18 fits, 108 collected paths; DEV FAIL 6/13**. History delta memory has a **54.1% higher / 14.3% lower** later teacher-score gap than the best control in the two settings, with several paired-seed failures. Original training and independent audit close successfully. TEST remains unused; no autonomous comparison is admitted. [All methods and seeds](otto-query-memory-dev-results/query-memory-dev.md) · [Protocol](otto-query-memory-protocol.md) · [Closure and qualification](otto-query-memory-status.md).
