@@ -63,3 +63,10 @@ a small deletion policy with group-relative policy gradients. It improves on
 the same eight-slot analytic recurrence but loses to a stronger raw-observation control
 within the same storage cap. This is RL for memory management, not a replication
 of TypeSafe's proprietary RLCD training.
+
+The [observation-consolidation comparison](../research/measurement-results.md)
+uses fixed spectral and DCT sketches with exact Gaussian conditioning on their
+retained numerical row spaces. It passes its storage-budgeted baseline criteria;
+DCT performs almost identically to the spectral primary. This is an analytic
+memory baseline with supplied grid/kernel structure, separate from the text API
+and any claim of a learned or proprietary decision architecture.

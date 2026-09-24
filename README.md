@@ -60,23 +60,23 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Research status
 
-The latest experiment trains three small RL policies to choose what a recurrent
-Gaussian memory forgets. They lower decision regret **17-28%** versus the same
-eight-slot analytic memory. A simple 41-observation buffer has **3-7x lower regret**
-within the same storage cap and is faster in the recorded inference probe. The learned candidate fails
-the continuation rule, **12/42 checks passed**.
+The latest observation-compression experiment **passes all 26 registered checks**.
+Within a 1,024-byte retained-state cap, a spectral sketch achieves **zero measured
+decision regret** on two 192-observation tests. A simpler DCT sketch performs
+almost identically. Both are slower than raw buffers on the long-stream timing probes.
 
-[![Learned memory retention: decision regret, predictive quality, storage and measured computation](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/retention-results/benchmark.png)](research/retention-results.md)
+[![Observation consolidation: accuracy, storage and measured computation](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/measurement-results/benchmark.png)](research/measurement-results.md)
 
-[Results, checkpoints and independent replay](research/retention-results.md) ·
-[Protocol](research/retention-protocol.md) ·
-[Next research question](research/retention-next.md) ·
+[Results and independent audit](research/measurement-results.md) ·
+[Protocol](research/measurement-protocol.md) ·
+[Next research question](research/measurement-next.md) ·
 [All experiments](research/experiment-index.md).
 
-These are controlled experiments on static synthetic fields, not learned world
-dynamics. The earlier [uncertainty correction](research/residual-memory-results.md)
-and [query-centered model](research/query-feature-results.md) also failed their
-rules. New memory models must beat strong conventional controls.
+This establishes a stronger memory baseline on a fixed grid with a supplied
+Gaussian model. It does not establish a trained architecture or learned world
+dynamics. The earlier [RL deletion policy](research/retention-results.md),
+[uncertainty correction](research/residual-memory-results.md) and
+[query-centered model](research/query-feature-results.md) remain failed studies.
 
 Separate engineering studies measured [1.20-1.35x training throughput](research/finite-joint-reuse-throughput-results.md)
 from shared computation and [2.08x scoring speed](research/shared-prefix-results.md)
