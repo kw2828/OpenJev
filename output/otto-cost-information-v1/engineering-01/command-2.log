@@ -1,0 +1,199 @@
+B023 Function definition does not bind loop variable `current`
+   --> scripts/collect_otto_cost_information.py:171:109
+    |
+169 |             if current['done']:
+170 |                 return {'identity': identity, 'excluded': 'found_during_observed_prefix', 'native_steps': t}, None
+171 |             action, scores = call('analytic_score', lambda: self.analytic(actor._policy._value_policy()[1], current['valid_actions']))
+    |                                                                                                             ^^^^^^^
+172 |             f, previous = call('feature_build', lambda: self.features(view, current, sensing, scores,
+173 |                 last_action, current['step'] - current['step'] % 4, previous))
+    |
+
+B023 Function definition does not bind loop variable `current`
+   --> scripts/collect_otto_cost_information.py:172:77
+    |
+170 |                 return {'identity': identity, 'excluded': 'found_during_observed_prefix', 'native_steps': t}, None
+171 |             action, scores = call('analytic_score', lambda: self.analytic(actor._policy._value_policy()[1], current['valid_actions']))
+172 |             f, previous = call('feature_build', lambda: self.features(view, current, sensing, scores,
+    |                                                                             ^^^^^^^
+173 |                 last_action, current['step'] - current['step'] % 4, previous))
+174 |             prefix.append(f.copy())
+    |
+
+B023 Function definition does not bind loop variable `scores`
+   --> scripts/collect_otto_cost_information.py:172:95
+    |
+170 |                 return {'identity': identity, 'excluded': 'found_during_observed_prefix', 'native_steps': t}, None
+171 |             action, scores = call('analytic_score', lambda: self.analytic(actor._policy._value_policy()[1], current['valid_actions']))
+172 |             f, previous = call('feature_build', lambda: self.features(view, current, sensing, scores,
+    |                                                                                               ^^^^^^
+173 |                 last_action, current['step'] - current['step'] % 4, previous))
+174 |             prefix.append(f.copy())
+    |
+
+B023 Function definition does not bind loop variable `last_action`
+   --> scripts/collect_otto_cost_information.py:173:17
+    |
+171 |             action, scores = call('analytic_score', lambda: self.analytic(actor._policy._value_policy()[1], current['valid_actions']))
+172 |             f, previous = call('feature_build', lambda: self.features(view, current, sensing, scores,
+173 |                 last_action, current['step'] - current['step'] % 4, previous))
+    |                 ^^^^^^^^^^^
+174 |             prefix.append(f.copy())
+175 |             if t == 8:
+    |
+
+B023 Function definition does not bind loop variable `current`
+   --> scripts/collect_otto_cost_information.py:173:30
+    |
+171 |             action, scores = call('analytic_score', lambda: self.analytic(actor._policy._value_policy()[1], current['valid_actions']))
+172 |             f, previous = call('feature_build', lambda: self.features(view, current, sensing, scores,
+173 |                 last_action, current['step'] - current['step'] % 4, previous))
+    |                              ^^^^^^^
+174 |             prefix.append(f.copy())
+175 |             if t == 8:
+    |
+
+B023 Function definition does not bind loop variable `current`
+   --> scripts/collect_otto_cost_information.py:173:48
+    |
+171 |             action, scores = call('analytic_score', lambda: self.analytic(actor._policy._value_policy()[1], current['valid_actions']))
+172 |             f, previous = call('feature_build', lambda: self.features(view, current, sensing, scores,
+173 |                 last_action, current['step'] - current['step'] % 4, previous))
+    |                                                ^^^^^^^
+174 |             prefix.append(f.copy())
+175 |             if t == 8:
+    |
+
+B023 Function definition does not bind loop variable `previous`
+   --> scripts/collect_otto_cost_information.py:173:69
+    |
+171 |             action, scores = call('analytic_score', lambda: self.analytic(actor._policy._value_policy()[1], current['valid_actions']))
+172 |             f, previous = call('feature_build', lambda: self.features(view, current, sensing, scores,
+173 |                 last_action, current['step'] - current['step'] % 4, previous))
+    |                                                                     ^^^^^^^^
+174 |             prefix.append(f.copy())
+175 |             if t == 8:
+    |
+
+B023 Function definition does not bind loop variable `action`
+   --> scripts/collect_otto_cost_information.py:178:59
+    |
+176 |                 break
+177 |             prefix_actions.append(action)
+178 |             result = call('native_step', lambda: env.step(action, quiet=True))
+    |                                                           ^^^^^^
+179 |             after = self.reference.packet(rt.public.observation(env, current['step'] + 1))
+180 |             c.require((int(result[0]), bool(result[2])) == (after['hit'], after['done']), 'native outcome identity')
+    |
+
+B023 Function definition does not bind loop variable `action`
+   --> scripts/collect_otto_cost_information.py:181:55
+    |
+179 |             after = self.reference.packet(rt.public.observation(env, current['step'] + 1))
+180 |             c.require((int(result[0]), bool(result[2])) == (after['hit'], after['done']), 'native outcome identity')
+181 |             call('actor_update', lambda: actor.update(action, after))
+    |                                                       ^^^^^^
+182 |             likelihood = call('sampler_lookup', lambda: self.sampler.likelihood_at(
+183 |                 self.sensor_laws[identity['regime']], np.asarray(after['position'], np.int64)))
+    |
+
+B023 Function definition does not bind loop variable `after`
+   --> scripts/collect_otto_cost_information.py:181:63
+    |
+179 |             after = self.reference.packet(rt.public.observation(env, current['step'] + 1))
+180 |             c.require((int(result[0]), bool(result[2])) == (after['hit'], after['done']), 'native outcome identity')
+181 |             call('actor_update', lambda: actor.update(action, after))
+    |                                                               ^^^^^
+182 |             likelihood = call('sampler_lookup', lambda: self.sampler.likelihood_at(
+183 |                 self.sensor_laws[identity['regime']], np.asarray(after['position'], np.int64)))
+    |
+
+B023 Function definition does not bind loop variable `after`
+   --> scripts/collect_otto_cost_information.py:183:66
+    |
+181 |             call('actor_update', lambda: actor.update(action, after))
+182 |             likelihood = call('sampler_lookup', lambda: self.sampler.likelihood_at(
+183 |                 self.sensor_laws[identity['regime']], np.asarray(after['position'], np.int64)))
+    |                                                                  ^^^^^
+184 |             index = int(after['position'][0] * 53 + after['position'][1])
+185 |             update = call('shadow_update', lambda: self.bayes.observe(shadow, likelihood, index,
+    |
+
+B023 Function definition does not bind loop variable `shadow`
+   --> scripts/collect_otto_cost_information.py:185:71
+    |
+183 |                 self.sensor_laws[identity['regime']], np.asarray(after['position'], np.int64)))
+184 |             index = int(after['position'][0] * 53 + after['position'][1])
+185 |             update = call('shadow_update', lambda: self.bayes.observe(shadow, likelihood, index,
+    |                                                                       ^^^^^^
+186 |                 None if after['done'] else after['hit'], known_found=after['done']))
+187 |             shadow = update['belief']
+    |
+
+B023 Function definition does not bind loop variable `likelihood`
+   --> scripts/collect_otto_cost_information.py:185:79
+    |
+183 |                 self.sensor_laws[identity['regime']], np.asarray(after['position'], np.int64)))
+184 |             index = int(after['position'][0] * 53 + after['position'][1])
+185 |             update = call('shadow_update', lambda: self.bayes.observe(shadow, likelihood, index,
+    |                                                                               ^^^^^^^^^^
+186 |                 None if after['done'] else after['hit'], known_found=after['done']))
+187 |             shadow = update['belief']
+    |
+
+B023 Function definition does not bind loop variable `index`
+   --> scripts/collect_otto_cost_information.py:185:91
+    |
+183 |                 self.sensor_laws[identity['regime']], np.asarray(after['position'], np.int64)))
+184 |             index = int(after['position'][0] * 53 + after['position'][1])
+185 |             update = call('shadow_update', lambda: self.bayes.observe(shadow, likelihood, index,
+    |                                                                                           ^^^^^
+186 |                 None if after['done'] else after['hit'], known_found=after['done']))
+187 |             shadow = update['belief']
+    |
+
+B023 Function definition does not bind loop variable `after`
+   --> scripts/collect_otto_cost_information.py:186:25
+    |
+184 |             index = int(after['position'][0] * 53 + after['position'][1])
+185 |             update = call('shadow_update', lambda: self.bayes.observe(shadow, likelihood, index,
+186 |                 None if after['done'] else after['hit'], known_found=after['done']))
+    |                         ^^^^^
+187 |             shadow = update['belief']
+188 |             self.shadow_record(shadow, actor, after, update['evidence'])
+    |
+
+B023 Function definition does not bind loop variable `after`
+   --> scripts/collect_otto_cost_information.py:186:44
+    |
+184 |             index = int(after['position'][0] * 53 + after['position'][1])
+185 |             update = call('shadow_update', lambda: self.bayes.observe(shadow, likelihood, index,
+186 |                 None if after['done'] else after['hit'], known_found=after['done']))
+    |                                            ^^^^^
+187 |             shadow = update['belief']
+188 |             self.shadow_record(shadow, actor, after, update['evidence'])
+    |
+
+B023 Function definition does not bind loop variable `after`
+   --> scripts/collect_otto_cost_information.py:186:70
+    |
+184 |             index = int(after['position'][0] * 53 + after['position'][1])
+185 |             update = call('shadow_update', lambda: self.bayes.observe(shadow, likelihood, index,
+186 |                 None if after['done'] else after['hit'], known_found=after['done']))
+    |                                                                      ^^^^^
+187 |             shadow = update['belief']
+188 |             self.shadow_record(shadow, actor, after, update['evidence'])
+    |
+
+B023 Function definition does not bind loop variable `expected`
+   --> scripts/collect_otto_cost_information.py:192:81
+    |
+190 |                 displacement = np.asarray(env.source) - np.asarray(after['position'])
+191 |                 expected = self.sensor_raw[identity['regime']][displacement[0] + 52, displacement[1] + 52]
+192 |                 call('sampler_draw_validation', lambda: self.validate_draw(env, expected, 'hit'))
+    |                                                                                 ^^^^^^^^
+193 |             witness = self.reference.belief_witness(actor, env, after, np)
+194 |             self.ledger.emit('transitions.jsonl', {'case': identity['id'], 'action': action, 'public': after, 'posterior': witness})
+    |
+
+Found 18 errors.

@@ -1,6 +1,6 @@
 # Decision-only models: what the public sources establish
 
-Source review, September 23, 2026. This checks the supplied social-media post
+Source review, September 24, 2026. This checks the supplied social-media posts
 against primary sources. No upstream model was run or timing reproduced. This
 note does not change a registered experiment or its rule.
 
@@ -9,6 +9,12 @@ note does not change a registered experiment or its rule.
 [TypeSafe's announcement](https://typesafe.ai/blog/introducing-system-one-models-and-jev)
 describes parallel numerical outputs and RLCD training. It does not publish the
 complete architecture or training algorithm.
+
+The public [Choice limit](https://docs.typesafe.ai/primitives/choice) is 255
+options per question. [Score](https://docs.typesafe.ai/primitives/score) returns
+probabilities over 2-10 ordered levels and their probability-weighted mean.
+Neither interface establishes the screenshot's proposed fixed classifier or
+sigmoid score head.
 
 [Archer Hume's article](https://archerhume.com/posts/jevs-architecture-unmasked/)
 explicitly distinguishes observations from inference. The 255-option limit is
@@ -24,18 +30,24 @@ that the proprietary system has been reproduced.
 
 ## Public implementations are different baselines
 
-**SemIf**, reviewed at
-[`1f2dea3`](https://github.com/TheoLeeCJ/SemIf/tree/1f2dea3e25379f9dfc98cb83c324f00ab5deda37):
-its [direct scorer](https://github.com/TheoLeeCJ/SemIf/blob/1f2dea3e25379f9dfc98cb83c324f00ab5deda37/src/semif_phase1/direct.py)
+**SemIf**, formerly OpenJev, reviewed at
+[`23cf1f3`](https://github.com/TheoLeeCJ/SemIf-OpenJev/tree/23cf1f39fc9534fe81437200959b6dfc7106e45a):
+its [direct scorer](https://github.com/TheoLeeCJ/SemIf-OpenJev/blob/23cf1f39fc9534fe81437200959b6dfc7106e45a/src/semif_phase1/direct.py)
 retains the causal-LM vocabulary head and selects label-token logits for 2-16
-options. It does not replace that head with 255 output slots. Its
-[shared path](https://github.com/TheoLeeCJ/SemIf/blob/1f2dea3e25379f9dfc98cb83c324f00ab5deda37/src/semif_phase1/shared.py)
-reuses state computation; CUDA batches suffix branches, while PyTorch/MPS
-evaluates copied-cache branches serially. The
-[calibration benchmark](https://github.com/TheoLeeCJ/SemIf/blob/1f2dea3e25379f9dfc98cb83c324f00ab5deda37/benchmarks/calibrate.py)
-fits a positive temperature using labeled log loss and group-disjoint
-out-of-fold evaluation. This is offline calibration of a frozen model, not RL
-or a blanket calibration guarantee for its API.
+options. It does not replace that head with 255 output slots. The project's
+[reported timing](https://github.com/TheoLeeCJ/SemIf-OpenJev/blob/23cf1f39fc9534fe81437200959b6dfc7106e45a/README.md#speed)
+is 1.023 seconds for direct readout versus 5.332 seconds for compact generated
+JSON, a 5.21x ratio, using the same frozen Qwen3.5-4B, state and 21 binary
+questions on an RTX 3090. Choices agree on 18/21 questions. These are the
+publisher's systems measurements, not a reproduced or quality-matched Jev
+comparison.
+
+Its [calibration benchmark](https://github.com/TheoLeeCJ/SemIf-OpenJev/blob/23cf1f39fc9534fe81437200959b6dfc7106e45a/docs/CALIBRATION.md)
+fits a positive temperature using labeled log loss and group-disjoint five-fold
+evaluation. It reports WANLI expected calibration error falling from 0.208 to
+0.069 with unchanged accuracy; improvements on two other workloads have
+overlapping uncertainty intervals. This is offline calibration of a frozen
+model, not RL or a guarantee for arbitrary API requests.
 
 **Jevlike**, reviewed at
 [`94f5fd1`](https://github.com/vinnylarouge/jevlike/tree/94f5fd1b0b11d52bbdfdf4e0ee6aa96b568f8452):
@@ -48,6 +60,11 @@ supports CPU and supervised cross-entropy;
 measures calibration error without fitting a calibrator. Its separate game
 policies use learned button embeddings. This is an independent implementation,
 not recovered TypeSafe code.
+
+Its [reported roughly 100x timing comparison](https://github.com/vinnylarouge/jevlike/blob/94f5fd1b0b11d52bbdfdf4e0ee6aa96b568f8452/README.md)
+uses eight options against a small decoder forced to emit 400 tokens. That
+denominator does not establish a 100x advantage over a minimal, equally accurate
+decision baseline or the proprietary Jev service.
 
 ## Calibration does not require RL
 
@@ -72,30 +89,29 @@ does not replace an empirical calibration measurement.
 
 ## What to borrow for OpenJev
 
-Our [local scorer](../src/openjev/decisions.py) already reads unique candidate
+Our **kw2828/OpenJev** is a separate project from TypeSafe's Jev, SemIf and
+jevlike. Our [local scorer](../src/openjev/decisions.py) already reads unique candidate
 label probabilities without generating an explanation. It retains the
 vocabulary projection and explicitly labels its probabilities uncalibrated.
 The separate [shared-prefix experiment](shared-prefix-results.md) measures
 cache reuse; it supplies no calibration or learning claim.
 
-The useful additional baseline is a variable-candidate attention readout. A
-future comparison could keep the readout architecture fixed while varying current-state
-input versus recurrent memory, with a separate option-interaction control.
-Evaluate unfamiliar candidate sets and paraphrases, not just a fixed label
-catalog. This is a proposed comparison, not an admitted follow-up or new result.
+A bounded text baseline would freeze one Qwen checkpoint and its candidate
+prompts, then compare raw option probabilities with one positive temperature
+fitted on a separate, group-disjoint calibration split. Predeclare the workload,
+candidate permutations, untouched test groups, decision costs and latency
+measurement. Report accuracy, log loss, Brier score, reliability plots and
+decision utility, charging tokenization, state encoding and scoring. Temperature
+scaling preserves argmax; any utility gain must come from a declared
+probability-dependent decision rule. This is a proposal, not an admitted study.
+Teacher agreement and softmax-transformed costs are not outcome calibration.
 
-For probability claims, reserve separate calibration and test data and compare
-raw probabilities, temperature scaling and supervised proper-score training
-before adding RL. Report accuracy, log loss, Brier score, reliability plots and
-decision utility with total compute. Teacher agreement and softmax-transformed
-costs are not substitutes for observed correctness or outcome calibration.
-
-The [protected-readout comparison](otto-protected-readout-results.md) and
-[action-latent pilot](otto-action-latent-results.md) both failed their continuation
-rules. The new [belief-distillation study](otto-belief-distillation-protocol.md)
-tests full conditional outcome probabilities as supervised TRAIN targets for a
-compact recurrent predictor. Its teacher uses a checked Bayesian filter under a
-known sensor law; the student cannot inspect the full belief during inference.
-A same-seed sampled-label twin, action-blind model and direct predictor separate
-supervision and recurrence effects. This is not a reproduction of TypeSafe RLCD,
-a calibration guarantee or evidence for connectome wiring.
+Our closed [belief-distillation study](otto-belief-distillation-results.md) and
+[paired action-effect study](otto-action-effect-results.md) failed their
+continuation rules, at 7/18 and 6/18 comparisons respectively. Their gates and
+data differ, so those counts do not measure progress against each other. They
+test supervised recurrent forecasting and an additional action-effect loss,
+not TypeSafe RLCD, probability calibration or connectome wiring. The separate
+[cost-information diagnostic](otto-cost-information-protocol.md) investigates
+whether forecast and decision targets condition on the same available
+information; its protocol alone establishes no result.
