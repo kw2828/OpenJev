@@ -1,6 +1,6 @@
 # Next question: readout learning or recurrent-state adaptation?
 
-**Proposal only, not registered or executed.** The
+**Executed as a separately registered ablation; [audited result: FAIL 3/6](otto-readout-state-ablation-results.md).** The original rationale below is retained. The
 [closed Bayesian comparison](otto-residual-reanalysis-results.md) favors ordinary
 joint auxiliary training over the residual-memory candidate. It does not explain
 which part of joint training matters.

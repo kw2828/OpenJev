@@ -56,26 +56,22 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Research status
 
-The latest Bayesian-memory comparison **failed its development rule: 4/13
-conditions passed**. Its later decision-cost gap was **30.11% higher** than
-ordinary joint training in one setting and **3.35% higher** in the other.
-All 72 evaluations and the independent audit completed.
+The latest OTTO ablation trained **nine matched models** and audited all twelve
+evaluations. Updating the full recurrent model passed its consistency rule in
+only **3/6 paired cases**. Training just the action readout cost **46.4% less**,
+with mean decision-cost gaps **1.84% / 5.31% higher** than full joint training.
 
-[![Nine residual-memory methods and all three fit seeds](research/otto-residual-reanalysis-results/methods.png)](research/otto-residual-reanalysis-results.md)
+[![Readout and recurrent training: all fits, costs and paired checks](research/otto-readout-state-ablation-results/methods.png)](research/otto-readout-state-ablation-results.md)
 
-[Results and costs](research/otto-residual-reanalysis-results.md) ·
-[Every method and seed](research/otto-residual-reanalysis-results/README.md) ·
-[Complete evidence](https://github.com/kw2828/OpenJev/releases/tag/otto-residual-reanalysis-v1).
-This reanalysis uses prior development paths. It establishes no autonomous or
-architecture advantage; confirmation remains unused.
+[Results and limits](research/otto-readout-state-ablation-results.md) ·
+[Every fit and check](research/otto-readout-state-ablation-results/README.md) ·
+[Checkpoints and evidence](https://github.com/kw2828/OpenJev/releases/tag/otto-readout-state-ablation-v1).
+These reused development paths establish a cheaper training baseline, not a
+consistent recurrent-learning or autonomous-control advantage.
 
-The [earlier memory result](research/otto-query-memory-results.md) and
-[original environment-validation failure](research/otto-residual-runtime-repair.md)
-remain preserved.
-
-The [earlier protected-readout failure](research/otto-protected-readout-results.md),
-other comparisons and incomplete runs remain in the
-[experiment archive](research/experiment-index.md).
+The [Bayesian-memory failure](research/otto-residual-reanalysis-results.md),
+[earlier memory comparison](research/otto-query-memory-results.md), and other
+completed or failed runs remain in the [experiment archive](research/experiment-index.md).
 
 The separate [shared-prefix scoring experiment](research/shared-prefix-results.md)
 measured **2.08x** speedup on four-question synthetic workloads; single-question
