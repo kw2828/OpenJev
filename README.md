@@ -58,19 +58,21 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Research status
 
-The [latest recurrent experiment](research/finite-prefix-learning-results.md)
-compares **six identically sized models** with and without an added observation
-prediction loss. It lowers fresh-history prediction loss **19.56%** and
-eight-step decision regret **6.05%**, but four-step regret worsens and training
-cost rises **41.45%**. **Both versions fail all three learning criteria.**
+The [latest recurrent experiment](research/finite-cost-readout-results.md)
+compares **nine fits** with fixed or trainable decision readouts. Learning the
+readout lowers mean four- and eight-step regret **73.75% / 53.24%** against the
+exact fixed control, with every paired seed improving. It **passes two of three
+criteria**, but long-horizon forecasting without new observations still fails
+because results vary substantially across seeds.
 
-[![All six recurrent fits, prediction quality and training cost](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-prefix-learning-results/benchmark.png)](research/finite-prefix-learning-results.md)
+[![All nine recurrent fits, prediction quality and training cost](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-cost-readout-results/benchmark.png)](research/finite-cost-readout-results.md)
 
-[Open recurrent chart](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-prefix-learning-results/benchmark.png) ·
-[All six checkpoints and evidence](https://github.com/kw2828/OpenJev/releases/tag/finite-prefix-learning-v1).
+[Open recurrent chart](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-cost-readout-results/benchmark.png) ·
+[All nine checkpoints and evidence](https://github.com/kw2828/OpenJev/releases/tag/finite-cost-readout-v1).
 
-This is a synthetic study with a known cost readout. Better observation
-predictions have not yet produced reliable decisions. The preceding
+This is a small synthetic study with privileged starting readouts, not a
+calibrated text model or a new architecture. The preceding
+[observation-prediction comparison](research/finite-prefix-learning-results.md),
 [shared-filter comparison](research/finite-shared-filter-results.md),
 [factor diagnostic](research/finite-factor-learning-results.md) and every
 completed or failed study remain in the [experiment archive](research/experiment-index.md).
