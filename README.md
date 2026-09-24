@@ -56,20 +56,21 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Research status
 
-The latest OTTO ablation trained **nine matched models** and audited all twelve
-evaluations. Updating the full recurrent model passed its consistency rule in
-only **3/6 paired cases**. Training just the action readout cost **46.4% less**,
-with mean decision-cost gaps **1.84% / 5.31% higher** than full joint training.
+The latest OTTO experiment trained **six models** and evaluated them on **36
+fresh paths**. Full recurrent training passed only **1/6 paired seed/setting comparisons**.
+Training just the 116-parameter readout produced **3.01% / 12.82% lower mean
+later teacher-cost gaps** than full joint training, at comparable measured cost.
 
-[![Readout and recurrent training: all fits, costs and paired checks](research/otto-readout-state-ablation-results/methods.png)](research/otto-readout-state-ablation-results.md)
+[![Fresh-path comparison: all fits, training costs and paired checks](research/otto-readout-compute-results/methods.png)](research/otto-readout-compute-results.md)
 
-[Results and limits](research/otto-readout-state-ablation-results.md) ·
-[Every fit and check](research/otto-readout-state-ablation-results/README.md) ·
-[Checkpoints and evidence](https://github.com/kw2828/OpenJev/releases/tag/otto-readout-state-ablation-v1).
-These reused development paths establish a cheaper training baseline, not a
-consistent recurrent-learning or autonomous-control advantage.
+[Results and limits](research/otto-readout-compute-results.md) ·
+[Every fit and check](research/otto-readout-compute-results/README.md) ·
+[Checkpoints and evidence](https://github.com/kw2828/OpenJev/releases/tag/otto-readout-compute-v1).
+The readout wins only four of six later-gap comparisons. Both models still use
+recurrent memory; no inference speedup or autonomous-control gain is established.
 
-The [Bayesian-memory failure](research/otto-residual-reanalysis-results.md),
+The [earlier equal-update ablation](research/otto-readout-state-ablation-results.md),
+[Bayesian-memory failure](research/otto-residual-reanalysis-results.md),
 [earlier memory comparison](research/otto-query-memory-results.md), and other
 completed or failed runs remain in the [experiment archive](research/experiment-index.md).
 
