@@ -344,4 +344,3 @@ def test_main_rejects_unjoined_predecessor_before_any_run_and_preserves_failure(
     receipt = s.read(folder/'run.receipt.json')
     assert receipt['status'] == 'FAILED' and receipt['result'] is None
     assert 'predecessor' in receipt['error'] and receipt['files'] == {}
-
