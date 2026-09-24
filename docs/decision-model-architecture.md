@@ -57,3 +57,9 @@ trains nonlinear feature encoders with Bayesian prediction heads and tests their
 decisions against a known conditional law. All 15 fits complete, but the candidate
 fails its continuation rule. This is neither RLCD nor a calibration guarantee.
 Its synthetic results remain separate from the local Qwen API and browser demo.
+
+The subsequent [learned retention pilot](../research/retention-results.md) trains
+a small deletion policy with group-relative policy gradients. It improves on
+the same eight-slot analytic recurrence but loses to a stronger raw-observation control
+within the same storage cap. This is RL for memory management, not a replication
+of TypeSafe's proprietary RLCD training.

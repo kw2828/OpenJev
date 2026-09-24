@@ -60,22 +60,23 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Research status
 
-The latest experiment holds three learned kernels fixed and restores uncertainty
-discarded by their compact memories. The established correction lowers decision
-regret **72% under shift**, but raises it **14% on ordinary inputs and 21% with
-longer archives**. It fails the overall rule, **9/11 checks passed**.
+The latest experiment trains three small RL policies to choose what a recurrent
+Gaussian memory forgets. They lower decision regret **17-28%** versus the same
+eight-slot analytic memory. A simple 41-observation buffer has **3-7x lower regret**
+within the same storage cap and is faster in the recorded inference probe. The learned candidate fails
+the continuation rule, **12/42 checks passed**.
 
-[![Residual uncertainty: decision quality, identity weights and measured computation](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/residual-memory-results/benchmark.png)](research/residual-memory-results.md)
+[![Learned memory retention: decision regret, predictive quality, storage and measured computation](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/retention-results/benchmark.png)](research/retention-results.md)
 
-[Results, checkpoints and independent audit](research/residual-memory-results.md) ·
-[Protocol](research/residual-memory-protocol.md) ·
-[Memory research question](research/residual-memory-next.md) ·
+[Results, checkpoints and independent replay](research/retention-results.md) ·
+[Protocol](research/retention-protocol.md) ·
+[Next research question](research/retention-next.md) ·
 [All experiments](research/experiment-index.md).
 
-This is a conventional uncertainty diagnostic, not a new architecture. The
-earlier [query-centered model](research/query-feature-results.md) also failed;
-the [linear task](research/function-reuse-reference-results.md) was already
-solved by cached least squares. New memory models must beat these strong controls.
+These are controlled experiments on static synthetic fields, not learned world
+dynamics. The earlier [uncertainty correction](research/residual-memory-results.md)
+and [query-centered model](research/query-feature-results.md) also failed their
+rules. New memory models must beat strong conventional controls.
 
 Separate engineering studies measured [1.20-1.35x training throughput](research/finite-joint-reuse-throughput-results.md)
 from shared computation and [2.08x scoring speed](research/shared-prefix-results.md)
