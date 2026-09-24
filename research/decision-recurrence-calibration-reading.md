@@ -85,3 +85,16 @@ Compare both to the already disclosed private-noise-path reference. That could
 estimate how much improvement public evidence permits, without assuming that
 the privileged reference is attainable. It would require a new protocol and
 fresh evaluation episodes; it must not tune this failed recipe on its DEV set.
+
+Exactness would require an explicit, correctly supported schedule prior and
+correct physical, emission and cost laws. Supply the same declared schedule
+prior to the true-law and frozen-backbone references, without revealing an
+episode's stratum, realized noise path or switch time. A prior learned only on
+0.12/0.48 noise does not cover the 0.30 evaluation regime; adding that prior
+knowledge is a diagnostic assumption, not evidence of robustness to unknown
+distribution shift. Use a fixed-boundary or additive causal loss for a strict
+attainable-floor claim: the current per-episode late-boundary average has a
+denominator that depends on future survival. Keep that earlier metric
+descriptive. If the correctly specified public filter offers little headroom,
+stop this adaptation line. If only the true-law reference helps, investigate
+backbone mismatch before another learned gate.
