@@ -1,0 +1,205 @@
+.........................................F.........................FF... [ 93%]
+.....                                                                    [100%]
+=================================== FAILURES ===================================
+______ test_positive_subfloor_evidence_normalizes_and_zero_evidence_fails ______
+
+    def test_positive_subfloor_evidence_normalizes_and_zero_evidence_fails():
+        belief = np.array([.25, .25, .5], np.float64)
+        likelihood = np.array([[0., 0., 0., 0.], [1e-20, .5, 0., .5 - 1e-20],
+                               [2e-20, .5, 0., .5 - 2e-20]], np.float64)
+        result = m.observe(belief, likelihood, 0, 0)
+        assert 0 < result["evidence"] < 1e-10
+        np.testing.assert_allclose(result["belief"], [0., .2, .8], rtol=1e-15, atol=0)
+>       assert result["belief"].sum() == 1.
+E       assert np.float64(0.9999999999999999) == 1.0
+E        +  where np.float64(0.9999999999999999) = <built-in method sum of numpy.ndarray object at 0x108901170>()
+E        +    where <built-in method sum of numpy.ndarray object at 0x108901170> = array([0. , 0.2, 0.8]).sum
+
+tests/test_otto_predictive_belief.py:213: AssertionError
+__ test_fake_case_keeps_reconstructable_prefix_and_exact_oracle_work[train-4] __
+
+fabricated_collector = <function fabricated_collector.<locals>.build at 0x108ed60c0>
+split = 'train', horizon = 4
+
+    @pytest.mark.parametrize("split,horizon", [("train", 4), ("dev", 8)])
+    def test_fake_case_keeps_reconstructable_prefix_and_exact_oracle_work(fabricated_collector, split, horizon):
+        run = fabricated_collector()
+        identity = next(r for r in C.roster() if r["split"] == split)
+        row, arrays = run.case(identity)
+        assert row["excluded"] is None and row["native_steps"] == 8 + horizon
+        assert len(arrays) == 14  # plus case_ids and regimes in the saved aggregate
+        assert arrays["initial_belief"].shape == (2809,) and arrays["initial_belief"].dtype == np.float64
+        assert arrays["prefix_actions"].shape == arrays["prefix_outcomes"].shape == (8,)
+        np.testing.assert_array_equal(arrays["prefix_position"], [18, 26])
+        for name in ("gap_oracle", "normal_oracle", "opposite_oracle"):
+            assert arrays[name].shape == (horizon, 5)
+            np.testing.assert_allclose(arrays[name].sum(-1), 1., rtol=0, atol=1e-12)
+        np.testing.assert_array_equal(arrays["gap_oracle"][0], arrays["normal_oracle"][0])
+        assert run.ledger.calls["shadow_update"]["returned"] == 8 + horizon
+        assert run.ledger.calls["sampler_lookup"]["returned"] == 8 + 2 * horizon
+        assert run.ledger.calls["normal_oracle"]["returned"] == horizon
+        assert run.ledger.calls["gap_oracle"]["returned"] == run.ledger.calls["opposite_oracle"]["returned"] == 1
+        assert len(run.fake_calls) == horizon and not run.ledger.pending
+        run.ledger.flush()
+        with gzip.open(run.out / "shadow.jsonl.gz", "rt") as stream:
+>           shadows = [json.loads(line) for line in stream]
+                                                    ^^^^^^
+
+tests/test_collect_otto_belief_distillation.py:242: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../../../.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/gzip.py:351: in read1
+    return self._buffer.read1(size)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+../../../../.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/_compression.py:68: in readinto
+    data = self.read(len(byte_view))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <gzip._GzipReader object at 0x108ea78e0>, size = 8192
+
+    def read(self, size=-1):
+        if size < 0:
+            return self.readall()
+        # size=0 is special because decompress(max_length=0) is not supported
+        if not size:
+            return b""
+    
+        # For certain input data, a single
+        # call to decompress() may not return
+        # any data. In this case, retry until we get some data or reach EOF.
+        while True:
+            if self._decompressor.eof:
+                # Ending case: we've come to the end of a member in the file,
+                # so finish up this member, and read a new gzip header.
+                # Check the CRC and file size, and set the flag so we read
+                # a new member
+                self._read_eof()
+                self._new_member = True
+                self._decompressor = self._decomp_factory(
+                    **self._decomp_args)
+    
+            if self._new_member:
+                # If the _new_member flag is set, we have to
+                # jump to the next member, if there is one.
+                self._init_read()
+                if not self._read_gzip_header():
+                    self._size = self._pos
+                    return b""
+                self._new_member = False
+    
+            # Read a chunk of data from the file
+            if self._decompressor.needs_input:
+                buf = self._fp.read(READ_BUFFER_SIZE)
+                uncompress = self._decompressor.decompress(buf, size)
+            else:
+                uncompress = self._decompressor.decompress(b"", size)
+    
+            if self._decompressor.unused_data != b"":
+                # Prepend the already read bytes to the fileobj so they can
+                # be seen by _read_eof() and _read_gzip_header()
+                self._fp.prepend(self._decompressor.unused_data)
+    
+            if uncompress != b"":
+                break
+            if buf == b"":
+>               raise EOFError("Compressed file ended before the "
+                               "end-of-stream marker was reached")
+E               EOFError: Compressed file ended before the end-of-stream marker was reached
+
+../../../../.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/gzip.py:564: EOFError
+___ test_fake_case_keeps_reconstructable_prefix_and_exact_oracle_work[dev-8] ___
+
+fabricated_collector = <function fabricated_collector.<locals>.build at 0x108ed6e80>
+split = 'dev', horizon = 8
+
+    @pytest.mark.parametrize("split,horizon", [("train", 4), ("dev", 8)])
+    def test_fake_case_keeps_reconstructable_prefix_and_exact_oracle_work(fabricated_collector, split, horizon):
+        run = fabricated_collector()
+        identity = next(r for r in C.roster() if r["split"] == split)
+        row, arrays = run.case(identity)
+        assert row["excluded"] is None and row["native_steps"] == 8 + horizon
+        assert len(arrays) == 14  # plus case_ids and regimes in the saved aggregate
+        assert arrays["initial_belief"].shape == (2809,) and arrays["initial_belief"].dtype == np.float64
+        assert arrays["prefix_actions"].shape == arrays["prefix_outcomes"].shape == (8,)
+        np.testing.assert_array_equal(arrays["prefix_position"], [18, 26])
+        for name in ("gap_oracle", "normal_oracle", "opposite_oracle"):
+            assert arrays[name].shape == (horizon, 5)
+            np.testing.assert_allclose(arrays[name].sum(-1), 1., rtol=0, atol=1e-12)
+        np.testing.assert_array_equal(arrays["gap_oracle"][0], arrays["normal_oracle"][0])
+        assert run.ledger.calls["shadow_update"]["returned"] == 8 + horizon
+        assert run.ledger.calls["sampler_lookup"]["returned"] == 8 + 2 * horizon
+        assert run.ledger.calls["normal_oracle"]["returned"] == horizon
+        assert run.ledger.calls["gap_oracle"]["returned"] == run.ledger.calls["opposite_oracle"]["returned"] == 1
+        assert len(run.fake_calls) == horizon and not run.ledger.pending
+        run.ledger.flush()
+        with gzip.open(run.out / "shadow.jsonl.gz", "rt") as stream:
+>           shadows = [json.loads(line) for line in stream]
+                                                    ^^^^^^
+
+tests/test_collect_otto_belief_distillation.py:242: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../../../.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/gzip.py:351: in read1
+    return self._buffer.read1(size)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+../../../../.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/_compression.py:68: in readinto
+    data = self.read(len(byte_view))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <gzip._GzipReader object at 0x108ec8580>, size = 8192
+
+    def read(self, size=-1):
+        if size < 0:
+            return self.readall()
+        # size=0 is special because decompress(max_length=0) is not supported
+        if not size:
+            return b""
+    
+        # For certain input data, a single
+        # call to decompress() may not return
+        # any data. In this case, retry until we get some data or reach EOF.
+        while True:
+            if self._decompressor.eof:
+                # Ending case: we've come to the end of a member in the file,
+                # so finish up this member, and read a new gzip header.
+                # Check the CRC and file size, and set the flag so we read
+                # a new member
+                self._read_eof()
+                self._new_member = True
+                self._decompressor = self._decomp_factory(
+                    **self._decomp_args)
+    
+            if self._new_member:
+                # If the _new_member flag is set, we have to
+                # jump to the next member, if there is one.
+                self._init_read()
+                if not self._read_gzip_header():
+                    self._size = self._pos
+                    return b""
+                self._new_member = False
+    
+            # Read a chunk of data from the file
+            if self._decompressor.needs_input:
+                buf = self._fp.read(READ_BUFFER_SIZE)
+                uncompress = self._decompressor.decompress(buf, size)
+            else:
+                uncompress = self._decompressor.decompress(b"", size)
+    
+            if self._decompressor.unused_data != b"":
+                # Prepend the already read bytes to the fileobj so they can
+                # be seen by _read_eof() and _read_gzip_header()
+                self._fp.prepend(self._decompressor.unused_data)
+    
+            if uncompress != b"":
+                break
+            if buf == b"":
+>               raise EOFError("Compressed file ended before the "
+                               "end-of-stream marker was reached")
+E               EOFError: Compressed file ended before the end-of-stream marker was reached
+
+../../../../.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/gzip.py:564: EOFError
+=========================== short test summary info ============================
+FAILED tests/test_otto_predictive_belief.py::test_positive_subfloor_evidence_normalizes_and_zero_evidence_fails
+FAILED tests/test_collect_otto_belief_distillation.py::test_fake_case_keeps_reconstructable_prefix_and_exact_oracle_work[train-4]
+FAILED tests/test_collect_otto_belief_distillation.py::test_fake_case_keeps_reconstructable_prefix_and_exact_oracle_work[dev-8]
+3 failed, 74 passed in 0.58s

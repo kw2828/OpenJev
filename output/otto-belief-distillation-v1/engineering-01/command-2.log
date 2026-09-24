@@ -1,0 +1,37 @@
+RET501 [*] Do not explicitly `return None` in function if it is the only possible return value
+  --> scripts/qualify_otto_belief_distillation.py:33:13
+   |
+31 |             if fullname.split('.')[0] in FORBIDDEN:
+32 |                 raise ImportError('metadata-only preflight rejected ' + fullname)
+33 |             return None
+   |             ^^^^^^^^^^^
+34 |
+35 |     guard = Guard()
+   |
+help: Remove explicit `return None`
+   |
+32 |                 raise ImportError('metadata-only preflight rejected ' + fullname)
+   -             return None
+33 +             return
+34 |
+   |
+
+PLR1711 [*] Useless `return` statement at end of function
+  --> scripts/qualify_otto_belief_distillation.py:33:13
+   |
+31 |             if fullname.split('.')[0] in FORBIDDEN:
+32 |                 raise ImportError('metadata-only preflight rejected ' + fullname)
+33 |             return None
+   |             ^^^^^^^^^^^
+34 |
+35 |     guard = Guard()
+   |
+help: Remove useless `return` statement
+   |
+32 |                 raise ImportError('metadata-only preflight rejected ' + fullname)
+   -             return None
+33 |
+   |
+
+Found 2 errors.
+[*] 2 fixable with the `--fix` option.

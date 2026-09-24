@@ -1,0 +1,22 @@
+I001 [*] Import block is un-sorted or un-formatted
+  --> scripts/collect_otto_belief_distillation.py:95:9
+   |
+93 |           self.ledger = Ledger(self)
+94 |           self.runtime = self.reference.Run.setup(self)
+95 | /         from openjev.research.otto_query_gate import ReadOnlyBeliefView, _analytic, _features
+96 | |         from openjev.research import otto_predictive_belief, otto_sampler_law
+   | |_____________________________________________________________________________^
+97 |           self.view_class, self.analytic, self.features = ReadOnlyBeliefView, _analytic, _features
+98 |           self.bayes, self.sampler = otto_predictive_belief, otto_sampler_law
+   |
+help: Organize imports
+   |
+94 |         self.runtime = self.reference.Run.setup(self)
+95 +         from openjev.research import otto_predictive_belief, otto_sampler_law
+96 |         from openjev.research.otto_query_gate import ReadOnlyBeliefView, _analytic, _features
+   -         from openjev.research import otto_predictive_belief, otto_sampler_law
+97 |         self.view_class, self.analytic, self.features = ReadOnlyBeliefView, _analytic, _features
+   |
+
+Found 1 error.
+[*] 1 fixable with the `--fix` option.
