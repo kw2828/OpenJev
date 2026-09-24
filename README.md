@@ -58,28 +58,30 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Research status
 
-The [latest recurrent comparison](research/finite-rounded-learning-results.md)
-tests a constrained transition against two free controls: **nine fits, three
-seeds, equal 40-second training windows**. The constrained model passes the
-short- and long-horizon criteria, but mean decision regret is **11.09% / 17.88% worse**
-than the original free model at four/eight steps. **14/21 continuation conditions
-pass, so it does not advance.** Its large average gain against the second
-control is driven mainly by one poor control fit.
+The [latest recurrent comparison](research/finite-reuse-learning-results.md)
+passes **all 19 predeclared continuation conditions**: nine fits, three seeds,
+and exactly 1,024 history-learning plus 3,072 joint updates per fit. The constrained
+transition lowers mean four/eight-step decision regret by **99.13% / 99.53%**
+against the original free model and **99.11% / 99.51%** against the initially
+matched free model. Every paired seed improves; two weak fits in each control
+drive much of the large average gap.
 
-[![All nine recurrent fits, decision regret and complete training costs](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-rounded-learning-results/benchmark.png)](research/finite-rounded-learning-results.md)
+[![Every recurrent fit: four- and eight-step decision regret and full training time](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-reuse-learning-results/benchmark.png)](research/finite-reuse-learning-results.md)
 
-[Open recurrent chart](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-rounded-learning-results/benchmark.png) ·
-[All checkpoints and evidence](https://github.com/kw2828/OpenJev/releases/tag/finite-rounded-learning-v1) ·
-[Earlier training comparison](research/finite-training-allocation-results.md).
+[Open recurrent chart](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-reuse-learning-results/benchmark.png) ·
+[Complete evidence](research/finite-reuse-learning-results/evidence.tar.gz) ·
+[Protocol](research/finite-reuse-learning-protocol.md).
 
-Mean complete fitting time is 40.20 seconds for the constrained model and
-40.28 / 40.43 seconds for the controls. The independent audit agrees with all
-saved results; 216 qualification tests pass. These are small synthetic studies
-with task-derived structure and privileged starting readouts. Better observed
-prediction does not establish better decisions or calibrated confidence.
-The [equal-update follow-up stopped at engineering qualification](research/finite-update-learning-stop-results.md).
-All 273 tests passed, but conservative runtime projections exceeded its fixed
-90-second admission limit. No scientific run started.
+Mean fitting time is **23.86 seconds**, versus **22.35 / 22.14 seconds** for the
+controls. All 229 qualification tests pass and the independent saved-output
+audit agrees. This is a local result in a small synthetic world with task-derived
+constraints and privileged starting readouts. Untouched replication, a scenario
+shift and a second environment are still needed. It establishes neither
+biological-wiring benefits nor calibrated text probabilities.
+
+The [earlier equal-time comparison failed](research/finite-rounded-learning-results.md),
+and the [first equal-update attempt stopped before scientific training](research/finite-update-learning-stop-results.md).
+The new study uses fresh data and seeds; it does not isolate why those outcomes differ.
 The [integrated computation-sharing benchmark](research/finite-joint-reuse-throughput-results.md)
 now measures **1.20x / 1.20x / 1.35x median training throughput** across the
 three models. All nine measured pairs favor reuse; 78 tests and the independent
