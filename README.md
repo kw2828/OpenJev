@@ -65,8 +65,9 @@ headroom criterion passed in both settings, with an independent audit.
 **This is a target for learning, not a newly improved model.** All twelve existing
 models stayed frozen; the diagnostic used 23,557 teacher evaluations. It does
 not establish better autonomous control, calibrated probabilities or a novel
-architecture. The next experiment will isolate better training targets before
-changing the recurrent state.
+architecture. A [registered training pilot](research/otto-conditional-label-protocol.md)
+now compares sampled and averaged cost targets in the same recurrent model,
+using fresh data. Its results are pending.
 
 [![Frozen recurrent decisions and an independently evaluated reference](research/otto-cost-information-results/benchmark.png)](research/otto-cost-information-results.md)
 
