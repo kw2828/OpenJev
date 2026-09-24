@@ -1,0 +1,75 @@
+{
+  "admits_execution": false,
+  "counts": {
+    "array_decodes": 0,
+    "checkpoint_decodes": 0,
+    "empirical_array_decodes": 0,
+    "model_calls": 0,
+    "native_calls": 0,
+    "optimizer_calls": 0,
+    "project_module_imports": 0,
+    "random_draws": 0,
+    "teacher_calls": 0
+  },
+  "created_unix_ns": 1790235046973391000,
+  "files": {
+    "conversion": {
+      "bytes": 5046,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv-otto-released-native/lib/python3.12/site-packages/numpy/random/_common.pxd",
+      "sha256": "32c59e3ad7cffcc2b144ab621a6820780a8d043463ad5f8e3b902b43de646f55"
+    },
+    "package_metadata": {
+      "bytes": 6635,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv-otto-released-native/lib/python3.12/site-packages/numpy-2.5.3.dist-info/METADATA",
+      "sha256": "451a9b8028000588e66b0b415587b6aef0bbc51a96d8e8a0cba0dc23acf64f99"
+    },
+    "shipped_test": {
+      "bytes": 20852,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv-otto-released-native/lib/python3.12/site-packages/numpy/random/tests/test_direct.py",
+      "sha256": "179f4a5d033f2079c4cdb8873c4c523e6d608d0d07067044a742dff56f15ff4f"
+    }
+  },
+  "inherited_source_review": {
+    "bytes": 3456,
+    "path": "output/otto-cost-information-v1/source-review-01.json",
+    "sha256": "f1a5c24f9b889b34d3f038dc27cfc797433fb5be17b79cf9d418d385e7cd931f"
+  },
+  "law": {
+    "assumption": "Uniform 64-bit PRNG output converted to float64. This models the declared stochastic sampler, not independent randomness conditional on a disclosed fixed seed or its full past state.",
+    "bin_count": "ceil(2**53 * CDF[i]) - ceil(2**53 * CDF[i-1]); CDF[-1]=0 for the first lower boundary",
+    "categorical_search_side": "right",
+    "cdf": "cumsum(raw_probabilities) / cumsum(raw_probabilities)[-1]",
+    "grid": "j/2**53 for j=0,...,2**53-1",
+    "probability": "bin_count / 2**53",
+    "uniform_bits": 53
+  },
+  "numpy_version": "2.5.3",
+  "review_findings": [
+    "Installed primary conversion source defines the 53-bit float64 grid. Shipped PCG64 tests corroborate the 64-bit conversion route; no tests or random draws were executed for this source review.",
+    "Normalize the sequential CDF and quantize its boundaries before deriving categorical probabilities, rather than assuming raw kernel entries equal the sampling law.",
+    "Runtime/package/source pins and fabricated boundary tests must pass before future scientific admission.",
+    "For the separate cost-information diagnostic, unchanged installed source bytes were reverified against the prior source review. No random draws or numerical modules were used. Direct PCG64 uint64 output shifted right by 11 produces the same declared 53-bit uniform grid; replay and finite-grid boundary tests remain required before execution admission.",
+    "Endpoint-only Monte Carlo retains the same root/sensor grid and saved uint64 draws. No exact-H4 target is used.",
+    "TRAIN and DEV seeds are prospective and separately allocated; label averaging changes optimizer noise only."
+  ],
+  "runtime_interpreter": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv-otto-released-native/bin/python",
+  "source_locators": {
+    "conversion": {
+      "expression": "(rnd >> 11) * (1.0 / 9007199254740992.0)",
+      "lines": [
+        71,
+        72
+      ]
+    },
+    "shipped_test": {
+      "generator_random_test_line": 286,
+      "pcg64_class_line": 434,
+      "uniform_conversion_lines": [
+        101,
+        102
+      ]
+    }
+  },
+  "status": "unchanged_installed_source_reverified_before_qualification",
+  "version": "otto-conditional-label-source-review-v1"
+}

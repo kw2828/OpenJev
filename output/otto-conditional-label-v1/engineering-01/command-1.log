@@ -1,0 +1,29 @@
+........................................................................ [ 33%]
+..................F..................................................... [ 66%]
+........................................................................ [ 99%]
+.                                                                        [100%]
+=================================== FAILURES ===================================
+_ test_complete_balanced_cycle_equals_mean_target_gradient_plus_fixed_variance _
+
+    def test_complete_balanced_cycle_equals_mean_target_gradient_plus_fixed_variance():
+        bank = m.centered_bank(*raw_bank())
+        prediction = torch.linspace(-1., 1., 64).reshape(2, 8, 4).requires_grad_()
+        mean_loss = m.horizon8_loss(prediction, m.select_target(bank, 'mean32'), cost_scale=.3)
+        draw_losses = [m.horizon8_loss(prediction, m.select_target(bank, 'sampled',
+            indices=torch.tensor([i, (i + 7) % 32])), cost_scale=.3) for i in range(32)]
+        cycle_loss = torch.stack(draw_losses).mean()
+        variance = (bank - bank.mean(1, keepdim=True)).square().mean() / .3**2
+        torch.testing.assert_close(cycle_loss - mean_loss, variance, rtol=1e-12, atol=1e-12)
+        actual = torch.autograd.grad(cycle_loss, prediction, retain_graph=True)[0]
+        expected = torch.autograd.grad(mean_loss, prediction)[0]
+>       torch.testing.assert_close(actual, expected, rtol=2e-7, atol=2e-7)
+E       AssertionError: Tensor-likes are not close!
+E       
+E       Mismatched elements: 1 / 64 (1.6%)
+E       Greatest absolute difference: 1.9073486328125e-06 at index (0, 7, 3) (up to 2e-07 allowed)
+E       Greatest relative difference: 4.5297034034774697e-07 at index (0, 7, 3) (up to 2e-07 allowed)
+
+tests/test_otto_conditional_label.py:66: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_otto_conditional_label.py::test_complete_balanced_cycle_equals_mean_target_gradient_plus_fixed_variance
+1 failed, 216 passed in 2.65s

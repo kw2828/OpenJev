@@ -1,0 +1,7336 @@
+{
+  "bounds": {
+    "audit": 3600,
+    "collect": 3600,
+    "fit": 1800
+  },
+  "config": {
+    "base_first": 337000001,
+    "batch_size": 32,
+    "bootstrap_replicates": 2000,
+    "bootstrap_seed": 344000001,
+    "clip_norm": 5.0,
+    "dev_attempts_per_regime": 128,
+    "dev_draws": 128,
+    "dev_mc_first": 340000001,
+    "epochs": 96,
+    "families": [
+      "sampled",
+      "mean32"
+    ],
+    "fit_seeds": [
+      343000001,
+      343000002,
+      343000003
+    ],
+    "forecast_horizon": 8,
+    "learning_rate": 0.003,
+    "min_dev_per_regime": 64,
+    "min_train": 256,
+    "prefix_transitions": 8,
+    "quantile": 0.025,
+    "required_fraction": 0.05,
+    "root_grid_max_tv": 1e-10,
+    "shift_first": 338000001,
+    "train_attempts": 512,
+    "train_draws": 32,
+    "train_first": 336000001,
+    "train_mc_first": 339000001,
+    "uniform_bits": 53,
+    "variance_floor": 1e-06
+  },
+  "inputs": {
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv-otto-released-native/lib/python3.12/site-packages/numpy-2.5.3.dist-info/METADATA": {
+      "bytes": 6635,
+      "sha256": "451a9b8028000588e66b0b415587b6aef0bbc51a96d8e8a0cba0dc23acf64f99"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv-otto-released-native/lib/python3.12/site-packages/numpy/random/_common.pxd": {
+      "bytes": 5046,
+      "sha256": "32c59e3ad7cffcc2b144ab621a6820780a8d043463ad5f8e3b902b43de646f55"
+    },
+    "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv-otto-released-native/lib/python3.12/site-packages/numpy/random/tests/test_direct.py": {
+      "bytes": 20852,
+      "sha256": "179f4a5d033f2079c4cdb8873c4c523e6d608d0d07067044a742dff56f15ff4f"
+    },
+    "output/otto-conditional-label-v1/close-01.py": {
+      "bytes": 2481,
+      "sha256": "2ce1a834c83295a58b01986ea238d281749bc6f4d39c1fe449f0e0a473a08e68"
+    },
+    "output/otto-conditional-label-v1/engineering-01/command-1.log": {
+      "bytes": 2010,
+      "sha256": "6468145afd4ef273973ae864abea04fb4949c1da3c6060ea1981eddea1ed1a32"
+    },
+    "output/otto-conditional-label-v1/engineering-01/receipt.json": {
+      "bytes": 9187,
+      "sha256": "39dde34da938548b6572cdf1be81ba1579e57fa004acb67a82370b01b6d1309f"
+    },
+    "output/otto-conditional-label-v1/engineering-01/started.json": {
+      "bytes": 7001,
+      "sha256": "fce0dd758cee4e440be1912e468219485edab1821d650ce64e76e0924bdc8f9e"
+    },
+    "output/otto-conditional-label-v1/engineering-02/capacity.json": {
+      "bytes": 1424,
+      "sha256": "1a06a114dc8d56594705f4da82d50328205fd7f9b2428a061b50ba175f502b1b"
+    },
+    "output/otto-conditional-label-v1/engineering-02/command-1.log": {
+      "bytes": 340,
+      "sha256": "385eb1e031f258e4f5a9b2ff8809e43decf2a25c8899ceb03cec2854f6ce63b8"
+    },
+    "output/otto-conditional-label-v1/engineering-02/command-2.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "output/otto-conditional-label-v1/engineering-02/command-3.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "output/otto-conditional-label-v1/engineering-02/command-4.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "output/otto-conditional-label-v1/engineering-02/native-preflight.json": {
+      "bytes": 21717,
+      "sha256": "6d13dc3a8fec785d0e2ed8830fd51d74fcbc5c32aca3c2732e0ff32482be2fc0"
+    },
+    "output/otto-conditional-label-v1/engineering-02/receipt.json": {
+      "bytes": 12603,
+      "sha256": "5d7cdd899baa200cf39e2d0d8a74af4ff2e90f7e12af50f29d022bfaa1a2d739"
+    },
+    "output/otto-conditional-label-v1/engineering-02/started.json": {
+      "bytes": 7001,
+      "sha256": "1dcb767f604946b598b9bb643e8afd0f822e1cf264e063e42e60c45f3a55505e"
+    },
+    "output/otto-conditional-label-v1/register-01.py": {
+      "bytes": 4164,
+      "sha256": "0344753dbe419ed343e6860239259e5496a2dd29d053c2a999678558868cc4e2"
+    },
+    "output/otto-conditional-label-v1/review-inputs-01.py": {
+      "bytes": 4136,
+      "sha256": "8504b28c9442a534144d13d7052891934ba369274b49296d91806d707c49d28f"
+    },
+    "output/otto-conditional-label-v1/review-inputs-02.py": {
+      "bytes": 4405,
+      "sha256": "1b6629a2751386a00b8ff54ca9642be1bbb9f29c4a6c59d8e4428752fc875a15"
+    },
+    "output/otto-conditional-label-v1/seed-review-01.json": {
+      "bytes": 162709,
+      "sha256": "a823fe76da9eee651208fc656921b5949623b9b52e54d6b7328111126f858481"
+    },
+    "output/otto-conditional-label-v1/seed-review-02.json": {
+      "bytes": 159791,
+      "sha256": "47f214f4a96060e4e617567078efd220ed7f742eb854028b454fd544b07fd439"
+    },
+    "output/otto-conditional-label-v1/source-review-01.json": {
+      "bytes": 3694,
+      "sha256": "a4ded58e92643814e12955380946c88dd9fbab696d4ef0c45d5932422969b3b7"
+    },
+    "output/otto-cost-information-v1/closure-01.json": {
+      "bytes": 518065,
+      "sha256": "4e2aa1dc8dbe61f8c56722c0b547667c28b69bee504136b876ab13c3b8cf99b9"
+    },
+    "output/otto-cost-information-v1/collection-01/receipt.json": {
+      "bytes": 5873,
+      "sha256": "15243ac69a679f278b87924e7d223460041139c29274286714bcb2b9e109476d"
+    },
+    "output/otto-pretrained-reference-v1/extraction-01/tensor-metadata.json": {
+      "bytes": 3426,
+      "sha256": "5ca9e7f623965c737a1e82e8fe642593582cd375e697ed70d2fb58a8ad84125f"
+    },
+    "output/otto-pretrained-reference-v1/extraction-01/tensors.npz": {
+      "bytes": 53565386,
+      "sha256": "610dd348ebcff65dd655c3ac67f0cfe895225b0156771e6a4a2cd235272aaf26"
+    },
+    "output/otto-pretrained-reference-v2/qualification-01/original.weights-legacy.h5": {
+      "bytes": 53581916,
+      "sha256": "1efb73aa38e0fd8b08d6d03059c0db4664da3afb8eaff1d7ab9b363f8e7ad37d"
+    },
+    "output/otto-pretrained-reference-v2/qualification-01/receipt.json": {
+      "bytes": 10935,
+      "sha256": "30c1b7321787053820a5ebdd1194a2ff085d7c8d21f7e9a62d4e31ab15ac9457"
+    },
+    "output/otto-pretrained-reference-v2/qualification-plan-01.json": {
+      "bytes": 11467,
+      "sha256": "40d90544fd1d9a49f12275140f704d96c5dfae2c3ac1becc8aebf55ac19364f5"
+    },
+    "output/otto-pretrained-reference-v2/qualification-process-01.terminal.json": {
+      "bytes": 1856,
+      "sha256": "ff7747fa81fbc0ec8e264d2eebe6702b71c7f93f8fbdaf3467d8b0558f87df24"
+    },
+    "output/otto-spectral-control-v1/run-01/public-kernel-base.npz": {
+      "bytes": 87802,
+      "sha256": "3c8b578558db93040ff56b4f1c7cdd8f0f5b599225b6b80123aa431db6e04ff9"
+    },
+    "output/otto-spectral-control-v1/run-01/public-kernel-shift.npz": {
+      "bytes": 92487,
+      "sha256": "175eaef6995ff180ef49ac10358dd687f97e428ce3d312aa525fe1ad4591f53c"
+    },
+    "research/otto-cost-information-next.md": {
+      "bytes": 5545,
+      "sha256": "a51c5a2a2ee3ac22d6d0dde642ea4a5c4f3f8b2d490f0988ccc52b3ecb23e7c4"
+    },
+    "research/otto-cost-information-results.md": {
+      "bytes": 6907,
+      "sha256": "fe7e30acabc7051ced3a071af2adf467ec0867724bda5c895d3a59ba63f1810e"
+    },
+    "research/otto-cost-information-results/summary.json": {
+      "bytes": 138211,
+      "sha256": "4c83e72211d3f6f411d4becc7d0702a11cd83fec3c4ee1fb580c84ffe3097932"
+    }
+  },
+  "native_sources": {
+    "output/otto-boundary-control-v1/engineering-01/final-native-runtime-tests-01/pytest.log": {
+      "bytes": 179,
+      "sha256": "6eda8c7b455097980a3e72d0b2ffeadb45351a17dfa319c24a4637bc556114cc"
+    },
+    "output/otto-boundary-control-v1/engineering-01/final-native-runtime-tests-01/receipt.json": {
+      "bytes": 2341,
+      "sha256": "e0eb1d479b5287d9c32dbe42a26e05df95954a025c2864f4afb0422b686daa4f"
+    },
+    "output/otto-boundary-control-v1/engineering-01/final-native-runtime-tests-01/ruff.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "output/otto-boundary-control-v1/engineering-01/openjev-otto-boundary-audit-preflight-01/pytest.log": {
+      "bytes": 4093,
+      "sha256": "957e4120ec8eddcffbcd626509b870728f61d6fdf049cfb1ee51a71970f592be"
+    },
+    "output/otto-boundary-control-v1/engineering-01/openjev-otto-boundary-audit-preflight-01/receipt.json": {
+      "bytes": 743,
+      "sha256": "88fd3990ec3fe328ee87dbfda09233722514292d3c53e197cc8e0e57be9308ac"
+    },
+    "output/otto-boundary-control-v1/engineering-01/openjev-otto-boundary-audit-preflight-01/ruff.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "output/otto-boundary-control-v1/engineering-01/openjev-otto-boundary-audit-preflight-02/pytest.log": {
+      "bytes": 113,
+      "sha256": "64ddf8f23f0642bc50dbea3cba0b378d62f68681dcb4d71ebf6fb56e15e0a586"
+    },
+    "output/otto-boundary-control-v1/engineering-01/openjev-otto-boundary-audit-preflight-02/receipt.json": {
+      "bytes": 916,
+      "sha256": "25f17a37fca164339ab62c76106c6186a0d9491c4e5e4c32f442333428fea0ac"
+    },
+    "output/otto-boundary-control-v1/engineering-01/openjev-otto-boundary-audit-preflight-02/ruff.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "output/otto-boundary-control-v1/engineering-01/openjev-otto-restricted-policy-preflight-01/pytest.log": {
+      "bytes": 99,
+      "sha256": "3d415a29b1a43ec244fd5e71060810809524c59f9c5e00fd18f6c6433a8b0314"
+    },
+    "output/otto-boundary-control-v1/engineering-01/openjev-otto-restricted-policy-preflight-01/receipt.json": {
+      "bytes": 1155,
+      "sha256": "54c2a3f9acd44c864a5b5b2e428e2e159641b026b8a678d6f0fb6fefdea0f671"
+    },
+    "output/otto-boundary-control-v1/engineering-01/openjev-otto-restricted-policy-preflight-01/ruff.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "output/otto-boundary-control-v1/engineering-01/plan-assembly.py": {
+      "bytes": 9105,
+      "sha256": "dcb30ba771afe38781b0c840118413c050b6eeda49d3be7b0530d93d7b99aafe"
+    },
+    "output/otto-boundary-control-v1/engineering-01/runner-preflight.json": {
+      "bytes": 2088,
+      "sha256": "9eb58b7af5af23fe540f2d411761755f71c19554a3ba0a8c813c2507cd5ed986"
+    },
+    "output/otto-boundary-control-v1/engineering-01/selection-witness.json": {
+      "bytes": 475,
+      "sha256": "70f6d5dab84233b8c7297eb302cbf3962797b9447f861694e4cd98949fed7134"
+    },
+    "output/otto-boundary-control-v1/engineering-01/source-review-witness.json": {
+      "bytes": 1022,
+      "sha256": "acbfac4804a2f325d228b89a779f99422c84ed394c2f30f5ffc4baa720338345"
+    },
+    "output/otto-released-native-v1/actor-preflight-01/openjev-otto-released-policy-preflight-01-pytest.log": {
+      "bytes": 99,
+      "sha256": "93cbd6af997ab18295dc6e0af3358051220edbb2e4c2423f1d15f20d62c8ecbd"
+    },
+    "output/otto-released-native-v1/actor-preflight-01/openjev-otto-released-policy-preflight-01-ruff.log": {
+      "bytes": 1799,
+      "sha256": "a4efbacd5c046a1036167639c24d143444659881cba93c89f889333fca80d3a4"
+    },
+    "output/otto-released-native-v1/actor-preflight-01/openjev-otto-released-policy-preflight-01.json": {
+      "bytes": 1247,
+      "sha256": "89986b2ba044462c46ad33e548fdeee4a845ff1ee7730a8a0216428e7a68d8a2"
+    },
+    "output/otto-released-native-v1/actor-preflight-01/openjev-otto-released-policy-preflight-02-diff.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "output/otto-released-native-v1/actor-preflight-01/openjev-otto-released-policy-preflight-02-pytest.log": {
+      "bytes": 113,
+      "sha256": "4d5b1aefb970dfbde629ce8cfadfb63c8a010d4636a78ccc8891f40470965e6f"
+    },
+    "output/otto-released-native-v1/actor-preflight-01/openjev-otto-released-policy-preflight-02-ruff.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "output/otto-released-native-v1/actor-preflight-01/openjev-otto-released-policy-preflight-02.json": {
+      "bytes": 1906,
+      "sha256": "516fa622998ecc79d45817f7abfd023002e85e383708dc64e7364e8b019e70cc"
+    },
+    "output/otto-released-native-v1/audit-01/audit.py": {
+      "bytes": 29888,
+      "sha256": "7b405bccfcc6d6c4bf7412729801e37e8a2a80b027b0ad3d6d367ebb5a8559d1"
+    },
+    "output/otto-released-native-v1/runtime-preflight-01/command-0.log": {
+      "bytes": 253,
+      "sha256": "c06827650f999bd87b305313d15518f44b14b20698009958902fef22895aedfb"
+    },
+    "output/otto-released-native-v1/runtime-preflight-01/command-1.log": {
+      "bytes": 70,
+      "sha256": "564e0041adbc076905d4f2fe314f58fc0aac6aeee978e9704ccd586eaff67eab"
+    },
+    "output/otto-released-native-v1/runtime-preflight-01/numerical-configuration.txt": {
+      "bytes": 1637,
+      "sha256": "d602f95ba0b6fa2faf2f9ad1ead5e8c601400ede985db4a4a8b058efcb52fb26"
+    },
+    "output/otto-released-native-v1/runtime-preflight-01/preflight.py": {
+      "bytes": 1844,
+      "sha256": "0970f39c88a88632aa18dc9beba6b2668406c2dccf8139de9a3cf6903e4335a5"
+    },
+    "output/otto-released-native-v1/runtime-preflight-01/primitive-checks.jsonl": {
+      "bytes": 980,
+      "sha256": "9dc34292d69b674aac7c9be996ec1283d1e0b7a5ef7957b7c9993946df151156"
+    },
+    "output/otto-released-native-v1/runtime-preflight-01/receipt.json": {
+      "bytes": 1605,
+      "sha256": "74382257d199c5cc61a55be5be104c6cdf99a84493c072d258c324fd1837365f"
+    },
+    "output/otto-released-native-v1/runtime-preflight-01/runtime.json": {
+      "bytes": 488,
+      "sha256": "18fc8fe71fc70d7f3674208a598fd1f7f04ccc1f1a41bdab75ecb2e46c6407b3"
+    },
+    "output/otto-released-native-v1/runtime-setup-01/command-0.log": {
+      "bytes": 195,
+      "sha256": "51edd117e0f33767571a3b6a4802913feb345793a8379e7211fcd7cf63a93fe8"
+    },
+    "output/otto-released-native-v1/runtime-setup-01/command-1.log": {
+      "bytes": 975,
+      "sha256": "dd41efeb15eb5c380fed61d9b667cdaed431b3976407766c6f6e0950d6f0f151"
+    },
+    "output/otto-released-native-v1/runtime-setup-01/command-2.log": {
+      "bytes": 132,
+      "sha256": "cafe41a9590131207693690899d96f01c2b6379529c178c1356da4fe9ea17d7b"
+    },
+    "output/otto-released-native-v1/runtime-setup-01/installed-packages.json": {
+      "bytes": 1025,
+      "sha256": "024965b28139a9bfd64005ffdf55be084a35939c33039f028e8d45ed051a8eec"
+    },
+    "output/otto-released-native-v1/runtime-setup-01/receipt.json": {
+      "bytes": 1597,
+      "sha256": "620802e7e5777ee38a813c1488c353c072ff1eccd5258c4c3fd7095b2a645ea1"
+    },
+    "output/otto-released-native-v1/runtime-setup-01/requirements.txt": {
+      "bytes": 721,
+      "sha256": "edee083daa08ca7c7a82959ebcb57d08813af1344157dc2eec81acefd6eb0dc3"
+    },
+    "output/otto-released-native-v1/runtime-tests-01/receipt.json": {
+      "bytes": 1041,
+      "sha256": "168efe042ae1d23d63bcdc1c03ca333c42de730b537fd76350d538de1533f43c"
+    },
+    "output/otto-released-native-v1/runtime-tests-01/tests.log": {
+      "bytes": 99,
+      "sha256": "de4248f2bff0b3dc39c1d9348cf7218dcc0c16425e82b7e73a03dd2f8990f91e"
+    },
+    "output/otto-released-reference-v1/engineering-01/final-runtime-tests-02/pytest.log": {
+      "bytes": 179,
+      "sha256": "4552af24778bb3fa4560330ca4c863d9b8907283b409b120ae5761afde3350e7"
+    },
+    "output/otto-released-reference-v1/engineering-01/final-runtime-tests-02/receipt.json": {
+      "bytes": 919,
+      "sha256": "5e3b79a2ec09e36562fe23b26a010a734b532b20619190f8372b2825e3606eac"
+    },
+    "output/otto-released-reference-v1/engineering-01/final-runtime-tests/pytest.log": {
+      "bytes": 1797,
+      "sha256": "c824c96ef501779eeb2c4ca17e3d83ccdc57f80af3539547f592d751c9661c15"
+    },
+    "output/otto-released-reference-v1/engineering-01/final-runtime-tests/receipt.json": {
+      "bytes": 2238,
+      "sha256": "91cf19b74f10c667364d8f13ba70f47754b4cd43eea2b3d0e3e359ff03c08ab0"
+    },
+    "output/otto-released-reference-v1/engineering-01/final-runtime-tests/ruff.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "output/otto-released-reference-v1/engineering-01/history.json": {
+      "bytes": 1997,
+      "sha256": "d349fca6fc151a66ec48306b3fbceff9f15b057ea092260b478f17caf4b2d054"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-otto-reference-control-preflight-01-pytest.log": {
+      "bytes": 99,
+      "sha256": "a20368d3dd921d9ef1e9595decde4c3a53485604704f83246b078137418cdca0"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-otto-reference-control-preflight-01-ruff.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-otto-reference-control-preflight-01.json": {
+      "bytes": 1341,
+      "sha256": "c1529c71cdee7e587cd0f97875218284fc6467fb62803c002d34cb0cdfcf5298"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-otto-reference-control-preflight-02-pytest.log": {
+      "bytes": 114,
+      "sha256": "626f5b99571eb61eeec4d9e55433ab3c6a22e9eedf23c1eb0ab2610b86ba5401"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-otto-reference-control-preflight-02-ruff.log": {
+      "bytes": 395,
+      "sha256": "470aff9ca7445630fe0f2409e6039f693cbc725f80864276121f0ce6991ee3bf"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-otto-reference-control-preflight-02.json": {
+      "bytes": 1704,
+      "sha256": "16ac15268a7ed18c7d6c5768f1e2bb0a80cfa6d6aae054ccfb528e8a520cf493"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-otto-reference-control-preflight-03-ruff.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-otto-reference-control-preflight-03.json": {
+      "bytes": 1083,
+      "sha256": "ee6d84bb6baed4d2dc3f63a8c45e742f3c0b59bf56b3882e97f6168398c842e0"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-released-reference-audit-preflight-01/pytest.log": {
+      "bytes": 3706,
+      "sha256": "ccd1f3fa18f0b9407507917a73847168b11b10cbe1eb3acad008b3d0c73d4b05"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-released-reference-audit-preflight-01/receipt.json": {
+      "bytes": 1062,
+      "sha256": "76026f76f1e2c3866eddc972efe95e6bba65b66260283b0d8339ef0ca3a65cb5"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-released-reference-audit-preflight-01/ruff.log": {
+      "bytes": 3558,
+      "sha256": "fea3bccf64772af63d34be42116fbba86e14681353306c8c665c6e64759fbc03"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-released-reference-audit-preflight-02/pytest.log": {
+      "bytes": 7425,
+      "sha256": "d8ae29bb9beb2c660297c0e8e3f7ba1730f96be2a27f8dc901ba7fa2d281d3db"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-released-reference-audit-preflight-02/receipt.json": {
+      "bytes": 1149,
+      "sha256": "7b3c62974f1bcf7365170e9b35ec43b1d856cd0cddfcd2053015fa8e60d93575"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-released-reference-audit-preflight-02/ruff.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-released-reference-audit-preflight-03/pytest.log": {
+      "bytes": 98,
+      "sha256": "8989a153a4f265bdf8bf8abfcbf7ce96cf91c69ee66d543244ebf0fc2c9d041d"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-released-reference-audit-preflight-03/receipt.json": {
+      "bytes": 1400,
+      "sha256": "f7a10ff779f067a2188f28327a0e64b9fb23dc053ea999eba04a46b850370a0d"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-released-reference-audit-preflight-03/ruff.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-released-reference-plan-assembly.py": {
+      "bytes": 5931,
+      "sha256": "36043190a45dbbd8e2cc8a262dc4a117c497a8ba971023676a609a8e5b6f5d30"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-released-reference-runner-preflight-01.json": {
+      "bytes": 2060,
+      "sha256": "7b0969f28bcb2078b930951e620ee3836d49888cd7a408c2516b6ec86e9f01dd"
+    },
+    "output/otto-released-reference-v1/engineering-01/source-review.json": {
+      "bytes": 1540,
+      "sha256": "d14ed6ac31b630565dd9e017805f36ebf108a7a80a67f7cd4259f676bf058981"
+    },
+    "research/otto-boundary-control-protocol.md": {
+      "bytes": 10528,
+      "sha256": "9c86c160e51307c51df8b890fffc00914ea3a89093e83330cb1aef9491f6aef5"
+    },
+    "research/otto-query-gate-collection-protocol.md": {
+      "bytes": 3480,
+      "sha256": "5c14dba17de15336f11749fbaa304f2c3685eddbeb1142e7699c5e279dcd5c9b"
+    },
+    "research/otto-query-gate-evaluation-protocol.md": {
+      "bytes": 3862,
+      "sha256": "37804aa3538f46c607c417aec6717701d0c6319b16e525215f6955df2c92c50f"
+    },
+    "research/otto-query-gate-learning-design.md": {
+      "bytes": 7154,
+      "sha256": "0fd13e6c75f156aa77f2ac07c0af73b948d84e1f6f9a9d7be5036c0a834f8980"
+    },
+    "research/otto-query-gate-native-protocol.md": {
+      "bytes": 3611,
+      "sha256": "6ee6f4d003abc56fe19ae3c369ed771190e521611043b4fedf099015907d7d38"
+    },
+    "research/otto-query-gate-training-protocol.md": {
+      "bytes": 3154,
+      "sha256": "5d13c14fad33c4375a3aefb1e34474adc9881c5115f5d30381d473e95a1ae334"
+    },
+    "research/otto-released-native-qualification-protocol.md": {
+      "bytes": 6584,
+      "sha256": "bbb9cb0ea3e430e7312f8f544ec27ce379b52e4e0beffbe2f17c43f47e217f98"
+    },
+    "research/otto-released-reference-protocol.md": {
+      "bytes": 10056,
+      "sha256": "5160a125197e5b7c01c8d8b60fb61fd419c2a175fcdde46953be5e899fb0e9cd"
+    },
+    "scripts/audit_otto_boundary_control.py": {
+      "bytes": 36398,
+      "sha256": "9a1ab23570104a73c7700db3a43d0245fe0b3487f3233212884cd2ded34e35b2"
+    },
+    "scripts/audit_otto_released_reference.py": {
+      "bytes": 40716,
+      "sha256": "6f63cbc79107fc3046d28645fa4336fe04bfb91ee53368c78ba3971ced1942e1"
+    },
+    "scripts/collect_otto_query_gate.py": {
+      "bytes": 34021,
+      "sha256": "5e2b06fc0ff5b888122e733f12b20c881deab7f56b94908ed5a283f7a48c76df"
+    },
+    "scripts/qualify_otto_pretrained.py": {
+      "bytes": 36124,
+      "sha256": "7c6514831ea204938905bf36575d50bc9abb5365be19bcc4c396fdad672c035a"
+    },
+    "scripts/qualify_otto_query_gate_native.py": {
+      "bytes": 28577,
+      "sha256": "0ef5368a55dab615129602576300c3231d94fd28f7543d31354d9805ea8a5049"
+    },
+    "scripts/qualify_otto_reference_control.py": {
+      "bytes": 16608,
+      "sha256": "0b8591d2c92dd1c006e06d120b167eebfd350d483d2a61e6e933d2025a59bdb5"
+    },
+    "scripts/qualify_otto_released_native.py": {
+      "bytes": 31478,
+      "sha256": "96c68e94498c6b83eb2983c1183c444c5d1080eee06ff961562aeb56a845c65e"
+    },
+    "scripts/qualify_otto_restricted_policy.py": {
+      "bytes": 13370,
+      "sha256": "05a93d9260dcf483d208879bc0c2c922dd0e1c1d6ed7eb227778fb76ac7431d8"
+    },
+    "scripts/study_otto_boundary_control.py": {
+      "bytes": 31070,
+      "sha256": "f00af83597e9ecd4bf8e2354fad7e4c6e25f69a9e182fcdd12f0e47050081dd8"
+    },
+    "scripts/study_otto_released_reference.py": {
+      "bytes": 43949,
+      "sha256": "da2a7e418dd29819bddf190f46d1707f1163a22b01a048b33d3dedab875ad87e"
+    },
+    "scripts/supervise_dialogue_observation_v2.py": {
+      "bytes": 9715,
+      "sha256": "610a2fcd2d4d55eb35bce92e61942d5169491dee9d05e2f47f65e211fdf94144"
+    },
+    "src/openjev/research/otto_public.py": {
+      "bytes": 9214,
+      "sha256": "438631a18005493e0cafa0777315e2158cac97cc7d0e71ad9fd6402284615b3d"
+    },
+    "src/openjev/research/otto_query_gate.py": {
+      "bytes": 13613,
+      "sha256": "3ef019d408934dc5277378998713e6b38c35334eafcd9b17db163e3e5f8b124c"
+    },
+    "src/openjev/research/otto_reference_control.py": {
+      "bytes": 5955,
+      "sha256": "21e5f6ece09426d26c4a3214d95f0f4803a8efd4bacb9ca347c1d896407c5893"
+    },
+    "src/openjev/research/otto_released_policy.py": {
+      "bytes": 10245,
+      "sha256": "8abac34fef2a6517d43209d5ca27514633363248f66a249e2f4d6615aa0a0d45"
+    },
+    "src/openjev/research/otto_restricted_policy.py": {
+      "bytes": 3539,
+      "sha256": "3e63240b3502b4d4633f9c1671b4ad7ce34466f21c74a4d470bed91d77514630"
+    },
+    "src/openjev/research/suspend_clock.py": {
+      "bytes": 5919,
+      "sha256": "cac9077db3c66f5ef43d9412b732f5b869c1004c4bac98589816780c120f6124"
+    },
+    "tests/test_audit_otto_boundary_control.py": {
+      "bytes": 15872,
+      "sha256": "7fd1df56288c284b640eb5c2a2595ee9fbdf8fddfca6576a67214bd26fc9b92b"
+    },
+    "tests/test_audit_otto_released_reference.py": {
+      "bytes": 18594,
+      "sha256": "1fd498ebdf385746c8b5ea9b40982c14198ff1eb0390027ddeacc4a4385e2685"
+    },
+    "tests/test_collect_otto_query_gate.py": {
+      "bytes": 4506,
+      "sha256": "48aa343c6aaebdf02ba6f1377d3cd4feb8b1ec36b03505e4cbfc442a8da82ff7"
+    },
+    "tests/test_otto_boundary_control.py": {
+      "bytes": 11768,
+      "sha256": "b22187b411f439df10b2c5a89cc7f8314dbc41aa989cf5543768936249b94766"
+    },
+    "tests/test_otto_query_gate.py": {
+      "bytes": 11628,
+      "sha256": "fe77fd7fb5c1a853716236b93fb8734575fbada4d034224e03f05bb5bad1d889"
+    },
+    "tests/test_otto_reference_control.py": {
+      "bytes": 10033,
+      "sha256": "e989a18ad56f80bb412b62570bba649978ea171eccfdb2b8c404566a543ab37c"
+    },
+    "tests/test_otto_released_policy.py": {
+      "bytes": 11920,
+      "sha256": "cc2e7e543a8e8b7139dbcb974680e8af0213e81cbd089b475b14710dc8f8b6b7"
+    },
+    "tests/test_otto_released_reference.py": {
+      "bytes": 15856,
+      "sha256": "e7d7f5191134a9dfef0b84648a3b3cb6bf82628797c9455007898de1569050dc"
+    },
+    "tests/test_otto_restricted_policy.py": {
+      "bytes": 8876,
+      "sha256": "49132b1c8cf3e7891a88cb387f40f01e10afb946952a58463c129743b275c0eb"
+    },
+    "tests/test_qualify_otto_released_native.py": {
+      "bytes": 10091,
+      "sha256": "efb111da294f0e40ac3e1f60adc435b64e085083f1e27d5fd0da7fd672fd8072"
+    },
+    "tmp/otto-source-review-01/isotropic/classes/heuristicpolicy.py": {
+      "bytes": 29448,
+      "sha256": "e473c5c0e2908622e704012fc79dffc05172fe8b6f4036dcbf240a05c4e4b469"
+    },
+    "tmp/otto-source-review-01/isotropic/classes/policy.py": {
+      "bytes": 2236,
+      "sha256": "8fc915c86972a8be0ccd0a98d9522be4cd9c751d862a351d60221f8c7902976d"
+    },
+    "tmp/otto-source-review-01/isotropic/classes/rlpolicy.py": {
+      "bytes": 4482,
+      "sha256": "d32b98f903f90bfeed40111c9120a524442e31c0d28eb7cdac0d6db80c2af5fb"
+    },
+    "tmp/otto-source-review-01/isotropic/classes/sourcetracking.py": {
+      "bytes": 23646,
+      "sha256": "1057f129fa8a3249a7297a9ef2c15059d37430b12e42a2f1d43dfcdffe3e76f1"
+    },
+    "tmp/otto-source-review-01/isotropic/classes/valuemodel.py": {
+      "bytes": 10678,
+      "sha256": "151eae8b84c42a92691d6dd817fe5384f2feb806ae405088a5c57da03d067eb8"
+    }
+  },
+  "new_training": true,
+  "numerical_runtime": {
+    "executable": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/python",
+    "packages": {
+      "numpy": "2.5.3",
+      "pytest": "9.1.1",
+      "torch": "2.14.0"
+    },
+    "python": "3.12.13 (main, Jul 23 2026, 14:33:47) [Clang 22.1.3 ]"
+  },
+  "old_test_admitted": false,
+  "parent_checkpoint_decodes": 0,
+  "parent_reference": {
+    "closure": {
+      "bytes": 518065,
+      "sha256": "4e2aa1dc8dbe61f8c56722c0b547667c28b69bee504136b876ab13c3b8cf99b9"
+    },
+    "parent_arrays_decoded": 0,
+    "parent_checkpoints_decoded": 0,
+    "scientific_status": "HEADROOM_RESOLVED",
+    "scope": "Hypothesis evidence only. New models and labels use fresh data.",
+    "summary": {
+      "bytes": 138211,
+      "sha256": "4c83e72211d3f6f411d4becc7d0702a11cd83fec3c4ee1fb580c84ffe3097932"
+    }
+  },
+  "parent_training_or_development_array_decodes": 0,
+  "repeat_scientific_attempts": false,
+  "roster": [
+    {
+      "id": "train:lambda3:336000001",
+      "initial_hit": 1,
+      "mc_seed": 339000001,
+      "regime": "lambda3",
+      "seed": 336000001,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000002",
+      "initial_hit": 2,
+      "mc_seed": 339000002,
+      "regime": "lambda3",
+      "seed": 336000002,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000003",
+      "initial_hit": 3,
+      "mc_seed": 339000003,
+      "regime": "lambda3",
+      "seed": 336000003,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000004",
+      "initial_hit": 1,
+      "mc_seed": 339000004,
+      "regime": "lambda3",
+      "seed": 336000004,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000005",
+      "initial_hit": 2,
+      "mc_seed": 339000005,
+      "regime": "lambda3",
+      "seed": 336000005,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000006",
+      "initial_hit": 3,
+      "mc_seed": 339000006,
+      "regime": "lambda3",
+      "seed": 336000006,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000007",
+      "initial_hit": 1,
+      "mc_seed": 339000007,
+      "regime": "lambda3",
+      "seed": 336000007,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000008",
+      "initial_hit": 2,
+      "mc_seed": 339000008,
+      "regime": "lambda3",
+      "seed": 336000008,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000009",
+      "initial_hit": 3,
+      "mc_seed": 339000009,
+      "regime": "lambda3",
+      "seed": 336000009,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000010",
+      "initial_hit": 1,
+      "mc_seed": 339000010,
+      "regime": "lambda3",
+      "seed": 336000010,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000011",
+      "initial_hit": 2,
+      "mc_seed": 339000011,
+      "regime": "lambda3",
+      "seed": 336000011,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000012",
+      "initial_hit": 3,
+      "mc_seed": 339000012,
+      "regime": "lambda3",
+      "seed": 336000012,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000013",
+      "initial_hit": 1,
+      "mc_seed": 339000013,
+      "regime": "lambda3",
+      "seed": 336000013,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000014",
+      "initial_hit": 2,
+      "mc_seed": 339000014,
+      "regime": "lambda3",
+      "seed": 336000014,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000015",
+      "initial_hit": 3,
+      "mc_seed": 339000015,
+      "regime": "lambda3",
+      "seed": 336000015,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000016",
+      "initial_hit": 1,
+      "mc_seed": 339000016,
+      "regime": "lambda3",
+      "seed": 336000016,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000017",
+      "initial_hit": 2,
+      "mc_seed": 339000017,
+      "regime": "lambda3",
+      "seed": 336000017,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000018",
+      "initial_hit": 3,
+      "mc_seed": 339000018,
+      "regime": "lambda3",
+      "seed": 336000018,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000019",
+      "initial_hit": 1,
+      "mc_seed": 339000019,
+      "regime": "lambda3",
+      "seed": 336000019,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000020",
+      "initial_hit": 2,
+      "mc_seed": 339000020,
+      "regime": "lambda3",
+      "seed": 336000020,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000021",
+      "initial_hit": 3,
+      "mc_seed": 339000021,
+      "regime": "lambda3",
+      "seed": 336000021,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000022",
+      "initial_hit": 1,
+      "mc_seed": 339000022,
+      "regime": "lambda3",
+      "seed": 336000022,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000023",
+      "initial_hit": 2,
+      "mc_seed": 339000023,
+      "regime": "lambda3",
+      "seed": 336000023,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000024",
+      "initial_hit": 3,
+      "mc_seed": 339000024,
+      "regime": "lambda3",
+      "seed": 336000024,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000025",
+      "initial_hit": 1,
+      "mc_seed": 339000025,
+      "regime": "lambda3",
+      "seed": 336000025,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000026",
+      "initial_hit": 2,
+      "mc_seed": 339000026,
+      "regime": "lambda3",
+      "seed": 336000026,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000027",
+      "initial_hit": 3,
+      "mc_seed": 339000027,
+      "regime": "lambda3",
+      "seed": 336000027,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000028",
+      "initial_hit": 1,
+      "mc_seed": 339000028,
+      "regime": "lambda3",
+      "seed": 336000028,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000029",
+      "initial_hit": 2,
+      "mc_seed": 339000029,
+      "regime": "lambda3",
+      "seed": 336000029,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000030",
+      "initial_hit": 3,
+      "mc_seed": 339000030,
+      "regime": "lambda3",
+      "seed": 336000030,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000031",
+      "initial_hit": 1,
+      "mc_seed": 339000031,
+      "regime": "lambda3",
+      "seed": 336000031,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000032",
+      "initial_hit": 2,
+      "mc_seed": 339000032,
+      "regime": "lambda3",
+      "seed": 336000032,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000033",
+      "initial_hit": 3,
+      "mc_seed": 339000033,
+      "regime": "lambda3",
+      "seed": 336000033,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000034",
+      "initial_hit": 1,
+      "mc_seed": 339000034,
+      "regime": "lambda3",
+      "seed": 336000034,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000035",
+      "initial_hit": 2,
+      "mc_seed": 339000035,
+      "regime": "lambda3",
+      "seed": 336000035,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000036",
+      "initial_hit": 3,
+      "mc_seed": 339000036,
+      "regime": "lambda3",
+      "seed": 336000036,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000037",
+      "initial_hit": 1,
+      "mc_seed": 339000037,
+      "regime": "lambda3",
+      "seed": 336000037,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000038",
+      "initial_hit": 2,
+      "mc_seed": 339000038,
+      "regime": "lambda3",
+      "seed": 336000038,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000039",
+      "initial_hit": 3,
+      "mc_seed": 339000039,
+      "regime": "lambda3",
+      "seed": 336000039,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000040",
+      "initial_hit": 1,
+      "mc_seed": 339000040,
+      "regime": "lambda3",
+      "seed": 336000040,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000041",
+      "initial_hit": 2,
+      "mc_seed": 339000041,
+      "regime": "lambda3",
+      "seed": 336000041,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000042",
+      "initial_hit": 3,
+      "mc_seed": 339000042,
+      "regime": "lambda3",
+      "seed": 336000042,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000043",
+      "initial_hit": 1,
+      "mc_seed": 339000043,
+      "regime": "lambda3",
+      "seed": 336000043,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000044",
+      "initial_hit": 2,
+      "mc_seed": 339000044,
+      "regime": "lambda3",
+      "seed": 336000044,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000045",
+      "initial_hit": 3,
+      "mc_seed": 339000045,
+      "regime": "lambda3",
+      "seed": 336000045,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000046",
+      "initial_hit": 1,
+      "mc_seed": 339000046,
+      "regime": "lambda3",
+      "seed": 336000046,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000047",
+      "initial_hit": 2,
+      "mc_seed": 339000047,
+      "regime": "lambda3",
+      "seed": 336000047,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000048",
+      "initial_hit": 3,
+      "mc_seed": 339000048,
+      "regime": "lambda3",
+      "seed": 336000048,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000049",
+      "initial_hit": 1,
+      "mc_seed": 339000049,
+      "regime": "lambda3",
+      "seed": 336000049,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000050",
+      "initial_hit": 2,
+      "mc_seed": 339000050,
+      "regime": "lambda3",
+      "seed": 336000050,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000051",
+      "initial_hit": 3,
+      "mc_seed": 339000051,
+      "regime": "lambda3",
+      "seed": 336000051,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000052",
+      "initial_hit": 1,
+      "mc_seed": 339000052,
+      "regime": "lambda3",
+      "seed": 336000052,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000053",
+      "initial_hit": 2,
+      "mc_seed": 339000053,
+      "regime": "lambda3",
+      "seed": 336000053,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000054",
+      "initial_hit": 3,
+      "mc_seed": 339000054,
+      "regime": "lambda3",
+      "seed": 336000054,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000055",
+      "initial_hit": 1,
+      "mc_seed": 339000055,
+      "regime": "lambda3",
+      "seed": 336000055,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000056",
+      "initial_hit": 2,
+      "mc_seed": 339000056,
+      "regime": "lambda3",
+      "seed": 336000056,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000057",
+      "initial_hit": 3,
+      "mc_seed": 339000057,
+      "regime": "lambda3",
+      "seed": 336000057,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000058",
+      "initial_hit": 1,
+      "mc_seed": 339000058,
+      "regime": "lambda3",
+      "seed": 336000058,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000059",
+      "initial_hit": 2,
+      "mc_seed": 339000059,
+      "regime": "lambda3",
+      "seed": 336000059,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000060",
+      "initial_hit": 3,
+      "mc_seed": 339000060,
+      "regime": "lambda3",
+      "seed": 336000060,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000061",
+      "initial_hit": 1,
+      "mc_seed": 339000061,
+      "regime": "lambda3",
+      "seed": 336000061,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000062",
+      "initial_hit": 2,
+      "mc_seed": 339000062,
+      "regime": "lambda3",
+      "seed": 336000062,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000063",
+      "initial_hit": 3,
+      "mc_seed": 339000063,
+      "regime": "lambda3",
+      "seed": 336000063,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000064",
+      "initial_hit": 1,
+      "mc_seed": 339000064,
+      "regime": "lambda3",
+      "seed": 336000064,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000065",
+      "initial_hit": 2,
+      "mc_seed": 339000065,
+      "regime": "lambda3",
+      "seed": 336000065,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000066",
+      "initial_hit": 3,
+      "mc_seed": 339000066,
+      "regime": "lambda3",
+      "seed": 336000066,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000067",
+      "initial_hit": 1,
+      "mc_seed": 339000067,
+      "regime": "lambda3",
+      "seed": 336000067,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000068",
+      "initial_hit": 2,
+      "mc_seed": 339000068,
+      "regime": "lambda3",
+      "seed": 336000068,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000069",
+      "initial_hit": 3,
+      "mc_seed": 339000069,
+      "regime": "lambda3",
+      "seed": 336000069,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000070",
+      "initial_hit": 1,
+      "mc_seed": 339000070,
+      "regime": "lambda3",
+      "seed": 336000070,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000071",
+      "initial_hit": 2,
+      "mc_seed": 339000071,
+      "regime": "lambda3",
+      "seed": 336000071,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000072",
+      "initial_hit": 3,
+      "mc_seed": 339000072,
+      "regime": "lambda3",
+      "seed": 336000072,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000073",
+      "initial_hit": 1,
+      "mc_seed": 339000073,
+      "regime": "lambda3",
+      "seed": 336000073,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000074",
+      "initial_hit": 2,
+      "mc_seed": 339000074,
+      "regime": "lambda3",
+      "seed": 336000074,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000075",
+      "initial_hit": 3,
+      "mc_seed": 339000075,
+      "regime": "lambda3",
+      "seed": 336000075,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000076",
+      "initial_hit": 1,
+      "mc_seed": 339000076,
+      "regime": "lambda3",
+      "seed": 336000076,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000077",
+      "initial_hit": 2,
+      "mc_seed": 339000077,
+      "regime": "lambda3",
+      "seed": 336000077,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000078",
+      "initial_hit": 3,
+      "mc_seed": 339000078,
+      "regime": "lambda3",
+      "seed": 336000078,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000079",
+      "initial_hit": 1,
+      "mc_seed": 339000079,
+      "regime": "lambda3",
+      "seed": 336000079,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000080",
+      "initial_hit": 2,
+      "mc_seed": 339000080,
+      "regime": "lambda3",
+      "seed": 336000080,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000081",
+      "initial_hit": 3,
+      "mc_seed": 339000081,
+      "regime": "lambda3",
+      "seed": 336000081,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000082",
+      "initial_hit": 1,
+      "mc_seed": 339000082,
+      "regime": "lambda3",
+      "seed": 336000082,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000083",
+      "initial_hit": 2,
+      "mc_seed": 339000083,
+      "regime": "lambda3",
+      "seed": 336000083,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000084",
+      "initial_hit": 3,
+      "mc_seed": 339000084,
+      "regime": "lambda3",
+      "seed": 336000084,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000085",
+      "initial_hit": 1,
+      "mc_seed": 339000085,
+      "regime": "lambda3",
+      "seed": 336000085,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000086",
+      "initial_hit": 2,
+      "mc_seed": 339000086,
+      "regime": "lambda3",
+      "seed": 336000086,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000087",
+      "initial_hit": 3,
+      "mc_seed": 339000087,
+      "regime": "lambda3",
+      "seed": 336000087,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000088",
+      "initial_hit": 1,
+      "mc_seed": 339000088,
+      "regime": "lambda3",
+      "seed": 336000088,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000089",
+      "initial_hit": 2,
+      "mc_seed": 339000089,
+      "regime": "lambda3",
+      "seed": 336000089,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000090",
+      "initial_hit": 3,
+      "mc_seed": 339000090,
+      "regime": "lambda3",
+      "seed": 336000090,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000091",
+      "initial_hit": 1,
+      "mc_seed": 339000091,
+      "regime": "lambda3",
+      "seed": 336000091,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000092",
+      "initial_hit": 2,
+      "mc_seed": 339000092,
+      "regime": "lambda3",
+      "seed": 336000092,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000093",
+      "initial_hit": 3,
+      "mc_seed": 339000093,
+      "regime": "lambda3",
+      "seed": 336000093,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000094",
+      "initial_hit": 1,
+      "mc_seed": 339000094,
+      "regime": "lambda3",
+      "seed": 336000094,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000095",
+      "initial_hit": 2,
+      "mc_seed": 339000095,
+      "regime": "lambda3",
+      "seed": 336000095,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000096",
+      "initial_hit": 3,
+      "mc_seed": 339000096,
+      "regime": "lambda3",
+      "seed": 336000096,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000097",
+      "initial_hit": 1,
+      "mc_seed": 339000097,
+      "regime": "lambda3",
+      "seed": 336000097,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000098",
+      "initial_hit": 2,
+      "mc_seed": 339000098,
+      "regime": "lambda3",
+      "seed": 336000098,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000099",
+      "initial_hit": 3,
+      "mc_seed": 339000099,
+      "regime": "lambda3",
+      "seed": 336000099,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000100",
+      "initial_hit": 1,
+      "mc_seed": 339000100,
+      "regime": "lambda3",
+      "seed": 336000100,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000101",
+      "initial_hit": 2,
+      "mc_seed": 339000101,
+      "regime": "lambda3",
+      "seed": 336000101,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000102",
+      "initial_hit": 3,
+      "mc_seed": 339000102,
+      "regime": "lambda3",
+      "seed": 336000102,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000103",
+      "initial_hit": 1,
+      "mc_seed": 339000103,
+      "regime": "lambda3",
+      "seed": 336000103,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000104",
+      "initial_hit": 2,
+      "mc_seed": 339000104,
+      "regime": "lambda3",
+      "seed": 336000104,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000105",
+      "initial_hit": 3,
+      "mc_seed": 339000105,
+      "regime": "lambda3",
+      "seed": 336000105,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000106",
+      "initial_hit": 1,
+      "mc_seed": 339000106,
+      "regime": "lambda3",
+      "seed": 336000106,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000107",
+      "initial_hit": 2,
+      "mc_seed": 339000107,
+      "regime": "lambda3",
+      "seed": 336000107,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000108",
+      "initial_hit": 3,
+      "mc_seed": 339000108,
+      "regime": "lambda3",
+      "seed": 336000108,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000109",
+      "initial_hit": 1,
+      "mc_seed": 339000109,
+      "regime": "lambda3",
+      "seed": 336000109,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000110",
+      "initial_hit": 2,
+      "mc_seed": 339000110,
+      "regime": "lambda3",
+      "seed": 336000110,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000111",
+      "initial_hit": 3,
+      "mc_seed": 339000111,
+      "regime": "lambda3",
+      "seed": 336000111,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000112",
+      "initial_hit": 1,
+      "mc_seed": 339000112,
+      "regime": "lambda3",
+      "seed": 336000112,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000113",
+      "initial_hit": 2,
+      "mc_seed": 339000113,
+      "regime": "lambda3",
+      "seed": 336000113,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000114",
+      "initial_hit": 3,
+      "mc_seed": 339000114,
+      "regime": "lambda3",
+      "seed": 336000114,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000115",
+      "initial_hit": 1,
+      "mc_seed": 339000115,
+      "regime": "lambda3",
+      "seed": 336000115,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000116",
+      "initial_hit": 2,
+      "mc_seed": 339000116,
+      "regime": "lambda3",
+      "seed": 336000116,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000117",
+      "initial_hit": 3,
+      "mc_seed": 339000117,
+      "regime": "lambda3",
+      "seed": 336000117,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000118",
+      "initial_hit": 1,
+      "mc_seed": 339000118,
+      "regime": "lambda3",
+      "seed": 336000118,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000119",
+      "initial_hit": 2,
+      "mc_seed": 339000119,
+      "regime": "lambda3",
+      "seed": 336000119,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000120",
+      "initial_hit": 3,
+      "mc_seed": 339000120,
+      "regime": "lambda3",
+      "seed": 336000120,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000121",
+      "initial_hit": 1,
+      "mc_seed": 339000121,
+      "regime": "lambda3",
+      "seed": 336000121,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000122",
+      "initial_hit": 2,
+      "mc_seed": 339000122,
+      "regime": "lambda3",
+      "seed": 336000122,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000123",
+      "initial_hit": 3,
+      "mc_seed": 339000123,
+      "regime": "lambda3",
+      "seed": 336000123,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000124",
+      "initial_hit": 1,
+      "mc_seed": 339000124,
+      "regime": "lambda3",
+      "seed": 336000124,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000125",
+      "initial_hit": 2,
+      "mc_seed": 339000125,
+      "regime": "lambda3",
+      "seed": 336000125,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000126",
+      "initial_hit": 3,
+      "mc_seed": 339000126,
+      "regime": "lambda3",
+      "seed": 336000126,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000127",
+      "initial_hit": 1,
+      "mc_seed": 339000127,
+      "regime": "lambda3",
+      "seed": 336000127,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000128",
+      "initial_hit": 2,
+      "mc_seed": 339000128,
+      "regime": "lambda3",
+      "seed": 336000128,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000129",
+      "initial_hit": 3,
+      "mc_seed": 339000129,
+      "regime": "lambda3",
+      "seed": 336000129,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000130",
+      "initial_hit": 1,
+      "mc_seed": 339000130,
+      "regime": "lambda3",
+      "seed": 336000130,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000131",
+      "initial_hit": 2,
+      "mc_seed": 339000131,
+      "regime": "lambda3",
+      "seed": 336000131,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000132",
+      "initial_hit": 3,
+      "mc_seed": 339000132,
+      "regime": "lambda3",
+      "seed": 336000132,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000133",
+      "initial_hit": 1,
+      "mc_seed": 339000133,
+      "regime": "lambda3",
+      "seed": 336000133,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000134",
+      "initial_hit": 2,
+      "mc_seed": 339000134,
+      "regime": "lambda3",
+      "seed": 336000134,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000135",
+      "initial_hit": 3,
+      "mc_seed": 339000135,
+      "regime": "lambda3",
+      "seed": 336000135,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000136",
+      "initial_hit": 1,
+      "mc_seed": 339000136,
+      "regime": "lambda3",
+      "seed": 336000136,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000137",
+      "initial_hit": 2,
+      "mc_seed": 339000137,
+      "regime": "lambda3",
+      "seed": 336000137,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000138",
+      "initial_hit": 3,
+      "mc_seed": 339000138,
+      "regime": "lambda3",
+      "seed": 336000138,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000139",
+      "initial_hit": 1,
+      "mc_seed": 339000139,
+      "regime": "lambda3",
+      "seed": 336000139,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000140",
+      "initial_hit": 2,
+      "mc_seed": 339000140,
+      "regime": "lambda3",
+      "seed": 336000140,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000141",
+      "initial_hit": 3,
+      "mc_seed": 339000141,
+      "regime": "lambda3",
+      "seed": 336000141,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000142",
+      "initial_hit": 1,
+      "mc_seed": 339000142,
+      "regime": "lambda3",
+      "seed": 336000142,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000143",
+      "initial_hit": 2,
+      "mc_seed": 339000143,
+      "regime": "lambda3",
+      "seed": 336000143,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000144",
+      "initial_hit": 3,
+      "mc_seed": 339000144,
+      "regime": "lambda3",
+      "seed": 336000144,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000145",
+      "initial_hit": 1,
+      "mc_seed": 339000145,
+      "regime": "lambda3",
+      "seed": 336000145,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000146",
+      "initial_hit": 2,
+      "mc_seed": 339000146,
+      "regime": "lambda3",
+      "seed": 336000146,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000147",
+      "initial_hit": 3,
+      "mc_seed": 339000147,
+      "regime": "lambda3",
+      "seed": 336000147,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000148",
+      "initial_hit": 1,
+      "mc_seed": 339000148,
+      "regime": "lambda3",
+      "seed": 336000148,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000149",
+      "initial_hit": 2,
+      "mc_seed": 339000149,
+      "regime": "lambda3",
+      "seed": 336000149,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000150",
+      "initial_hit": 3,
+      "mc_seed": 339000150,
+      "regime": "lambda3",
+      "seed": 336000150,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000151",
+      "initial_hit": 1,
+      "mc_seed": 339000151,
+      "regime": "lambda3",
+      "seed": 336000151,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000152",
+      "initial_hit": 2,
+      "mc_seed": 339000152,
+      "regime": "lambda3",
+      "seed": 336000152,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000153",
+      "initial_hit": 3,
+      "mc_seed": 339000153,
+      "regime": "lambda3",
+      "seed": 336000153,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000154",
+      "initial_hit": 1,
+      "mc_seed": 339000154,
+      "regime": "lambda3",
+      "seed": 336000154,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000155",
+      "initial_hit": 2,
+      "mc_seed": 339000155,
+      "regime": "lambda3",
+      "seed": 336000155,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000156",
+      "initial_hit": 3,
+      "mc_seed": 339000156,
+      "regime": "lambda3",
+      "seed": 336000156,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000157",
+      "initial_hit": 1,
+      "mc_seed": 339000157,
+      "regime": "lambda3",
+      "seed": 336000157,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000158",
+      "initial_hit": 2,
+      "mc_seed": 339000158,
+      "regime": "lambda3",
+      "seed": 336000158,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000159",
+      "initial_hit": 3,
+      "mc_seed": 339000159,
+      "regime": "lambda3",
+      "seed": 336000159,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000160",
+      "initial_hit": 1,
+      "mc_seed": 339000160,
+      "regime": "lambda3",
+      "seed": 336000160,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000161",
+      "initial_hit": 2,
+      "mc_seed": 339000161,
+      "regime": "lambda3",
+      "seed": 336000161,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000162",
+      "initial_hit": 3,
+      "mc_seed": 339000162,
+      "regime": "lambda3",
+      "seed": 336000162,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000163",
+      "initial_hit": 1,
+      "mc_seed": 339000163,
+      "regime": "lambda3",
+      "seed": 336000163,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000164",
+      "initial_hit": 2,
+      "mc_seed": 339000164,
+      "regime": "lambda3",
+      "seed": 336000164,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000165",
+      "initial_hit": 3,
+      "mc_seed": 339000165,
+      "regime": "lambda3",
+      "seed": 336000165,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000166",
+      "initial_hit": 1,
+      "mc_seed": 339000166,
+      "regime": "lambda3",
+      "seed": 336000166,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000167",
+      "initial_hit": 2,
+      "mc_seed": 339000167,
+      "regime": "lambda3",
+      "seed": 336000167,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000168",
+      "initial_hit": 3,
+      "mc_seed": 339000168,
+      "regime": "lambda3",
+      "seed": 336000168,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000169",
+      "initial_hit": 1,
+      "mc_seed": 339000169,
+      "regime": "lambda3",
+      "seed": 336000169,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000170",
+      "initial_hit": 2,
+      "mc_seed": 339000170,
+      "regime": "lambda3",
+      "seed": 336000170,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000171",
+      "initial_hit": 3,
+      "mc_seed": 339000171,
+      "regime": "lambda3",
+      "seed": 336000171,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000172",
+      "initial_hit": 1,
+      "mc_seed": 339000172,
+      "regime": "lambda3",
+      "seed": 336000172,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000173",
+      "initial_hit": 2,
+      "mc_seed": 339000173,
+      "regime": "lambda3",
+      "seed": 336000173,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000174",
+      "initial_hit": 3,
+      "mc_seed": 339000174,
+      "regime": "lambda3",
+      "seed": 336000174,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000175",
+      "initial_hit": 1,
+      "mc_seed": 339000175,
+      "regime": "lambda3",
+      "seed": 336000175,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000176",
+      "initial_hit": 2,
+      "mc_seed": 339000176,
+      "regime": "lambda3",
+      "seed": 336000176,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000177",
+      "initial_hit": 3,
+      "mc_seed": 339000177,
+      "regime": "lambda3",
+      "seed": 336000177,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000178",
+      "initial_hit": 1,
+      "mc_seed": 339000178,
+      "regime": "lambda3",
+      "seed": 336000178,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000179",
+      "initial_hit": 2,
+      "mc_seed": 339000179,
+      "regime": "lambda3",
+      "seed": 336000179,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000180",
+      "initial_hit": 3,
+      "mc_seed": 339000180,
+      "regime": "lambda3",
+      "seed": 336000180,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000181",
+      "initial_hit": 1,
+      "mc_seed": 339000181,
+      "regime": "lambda3",
+      "seed": 336000181,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000182",
+      "initial_hit": 2,
+      "mc_seed": 339000182,
+      "regime": "lambda3",
+      "seed": 336000182,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000183",
+      "initial_hit": 3,
+      "mc_seed": 339000183,
+      "regime": "lambda3",
+      "seed": 336000183,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000184",
+      "initial_hit": 1,
+      "mc_seed": 339000184,
+      "regime": "lambda3",
+      "seed": 336000184,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000185",
+      "initial_hit": 2,
+      "mc_seed": 339000185,
+      "regime": "lambda3",
+      "seed": 336000185,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000186",
+      "initial_hit": 3,
+      "mc_seed": 339000186,
+      "regime": "lambda3",
+      "seed": 336000186,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000187",
+      "initial_hit": 1,
+      "mc_seed": 339000187,
+      "regime": "lambda3",
+      "seed": 336000187,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000188",
+      "initial_hit": 2,
+      "mc_seed": 339000188,
+      "regime": "lambda3",
+      "seed": 336000188,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000189",
+      "initial_hit": 3,
+      "mc_seed": 339000189,
+      "regime": "lambda3",
+      "seed": 336000189,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000190",
+      "initial_hit": 1,
+      "mc_seed": 339000190,
+      "regime": "lambda3",
+      "seed": 336000190,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000191",
+      "initial_hit": 2,
+      "mc_seed": 339000191,
+      "regime": "lambda3",
+      "seed": 336000191,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000192",
+      "initial_hit": 3,
+      "mc_seed": 339000192,
+      "regime": "lambda3",
+      "seed": 336000192,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000193",
+      "initial_hit": 1,
+      "mc_seed": 339000193,
+      "regime": "lambda3",
+      "seed": 336000193,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000194",
+      "initial_hit": 2,
+      "mc_seed": 339000194,
+      "regime": "lambda3",
+      "seed": 336000194,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000195",
+      "initial_hit": 3,
+      "mc_seed": 339000195,
+      "regime": "lambda3",
+      "seed": 336000195,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000196",
+      "initial_hit": 1,
+      "mc_seed": 339000196,
+      "regime": "lambda3",
+      "seed": 336000196,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000197",
+      "initial_hit": 2,
+      "mc_seed": 339000197,
+      "regime": "lambda3",
+      "seed": 336000197,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000198",
+      "initial_hit": 3,
+      "mc_seed": 339000198,
+      "regime": "lambda3",
+      "seed": 336000198,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000199",
+      "initial_hit": 1,
+      "mc_seed": 339000199,
+      "regime": "lambda3",
+      "seed": 336000199,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000200",
+      "initial_hit": 2,
+      "mc_seed": 339000200,
+      "regime": "lambda3",
+      "seed": 336000200,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000201",
+      "initial_hit": 3,
+      "mc_seed": 339000201,
+      "regime": "lambda3",
+      "seed": 336000201,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000202",
+      "initial_hit": 1,
+      "mc_seed": 339000202,
+      "regime": "lambda3",
+      "seed": 336000202,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000203",
+      "initial_hit": 2,
+      "mc_seed": 339000203,
+      "regime": "lambda3",
+      "seed": 336000203,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000204",
+      "initial_hit": 3,
+      "mc_seed": 339000204,
+      "regime": "lambda3",
+      "seed": 336000204,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000205",
+      "initial_hit": 1,
+      "mc_seed": 339000205,
+      "regime": "lambda3",
+      "seed": 336000205,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000206",
+      "initial_hit": 2,
+      "mc_seed": 339000206,
+      "regime": "lambda3",
+      "seed": 336000206,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000207",
+      "initial_hit": 3,
+      "mc_seed": 339000207,
+      "regime": "lambda3",
+      "seed": 336000207,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000208",
+      "initial_hit": 1,
+      "mc_seed": 339000208,
+      "regime": "lambda3",
+      "seed": 336000208,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000209",
+      "initial_hit": 2,
+      "mc_seed": 339000209,
+      "regime": "lambda3",
+      "seed": 336000209,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000210",
+      "initial_hit": 3,
+      "mc_seed": 339000210,
+      "regime": "lambda3",
+      "seed": 336000210,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000211",
+      "initial_hit": 1,
+      "mc_seed": 339000211,
+      "regime": "lambda3",
+      "seed": 336000211,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000212",
+      "initial_hit": 2,
+      "mc_seed": 339000212,
+      "regime": "lambda3",
+      "seed": 336000212,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000213",
+      "initial_hit": 3,
+      "mc_seed": 339000213,
+      "regime": "lambda3",
+      "seed": 336000213,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000214",
+      "initial_hit": 1,
+      "mc_seed": 339000214,
+      "regime": "lambda3",
+      "seed": 336000214,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000215",
+      "initial_hit": 2,
+      "mc_seed": 339000215,
+      "regime": "lambda3",
+      "seed": 336000215,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000216",
+      "initial_hit": 3,
+      "mc_seed": 339000216,
+      "regime": "lambda3",
+      "seed": 336000216,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000217",
+      "initial_hit": 1,
+      "mc_seed": 339000217,
+      "regime": "lambda3",
+      "seed": 336000217,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000218",
+      "initial_hit": 2,
+      "mc_seed": 339000218,
+      "regime": "lambda3",
+      "seed": 336000218,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000219",
+      "initial_hit": 3,
+      "mc_seed": 339000219,
+      "regime": "lambda3",
+      "seed": 336000219,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000220",
+      "initial_hit": 1,
+      "mc_seed": 339000220,
+      "regime": "lambda3",
+      "seed": 336000220,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000221",
+      "initial_hit": 2,
+      "mc_seed": 339000221,
+      "regime": "lambda3",
+      "seed": 336000221,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000222",
+      "initial_hit": 3,
+      "mc_seed": 339000222,
+      "regime": "lambda3",
+      "seed": 336000222,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000223",
+      "initial_hit": 1,
+      "mc_seed": 339000223,
+      "regime": "lambda3",
+      "seed": 336000223,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000224",
+      "initial_hit": 2,
+      "mc_seed": 339000224,
+      "regime": "lambda3",
+      "seed": 336000224,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000225",
+      "initial_hit": 3,
+      "mc_seed": 339000225,
+      "regime": "lambda3",
+      "seed": 336000225,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000226",
+      "initial_hit": 1,
+      "mc_seed": 339000226,
+      "regime": "lambda3",
+      "seed": 336000226,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000227",
+      "initial_hit": 2,
+      "mc_seed": 339000227,
+      "regime": "lambda3",
+      "seed": 336000227,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000228",
+      "initial_hit": 3,
+      "mc_seed": 339000228,
+      "regime": "lambda3",
+      "seed": 336000228,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000229",
+      "initial_hit": 1,
+      "mc_seed": 339000229,
+      "regime": "lambda3",
+      "seed": 336000229,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000230",
+      "initial_hit": 2,
+      "mc_seed": 339000230,
+      "regime": "lambda3",
+      "seed": 336000230,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000231",
+      "initial_hit": 3,
+      "mc_seed": 339000231,
+      "regime": "lambda3",
+      "seed": 336000231,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000232",
+      "initial_hit": 1,
+      "mc_seed": 339000232,
+      "regime": "lambda3",
+      "seed": 336000232,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000233",
+      "initial_hit": 2,
+      "mc_seed": 339000233,
+      "regime": "lambda3",
+      "seed": 336000233,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000234",
+      "initial_hit": 3,
+      "mc_seed": 339000234,
+      "regime": "lambda3",
+      "seed": 336000234,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000235",
+      "initial_hit": 1,
+      "mc_seed": 339000235,
+      "regime": "lambda3",
+      "seed": 336000235,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000236",
+      "initial_hit": 2,
+      "mc_seed": 339000236,
+      "regime": "lambda3",
+      "seed": 336000236,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000237",
+      "initial_hit": 3,
+      "mc_seed": 339000237,
+      "regime": "lambda3",
+      "seed": 336000237,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000238",
+      "initial_hit": 1,
+      "mc_seed": 339000238,
+      "regime": "lambda3",
+      "seed": 336000238,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000239",
+      "initial_hit": 2,
+      "mc_seed": 339000239,
+      "regime": "lambda3",
+      "seed": 336000239,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000240",
+      "initial_hit": 3,
+      "mc_seed": 339000240,
+      "regime": "lambda3",
+      "seed": 336000240,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000241",
+      "initial_hit": 1,
+      "mc_seed": 339000241,
+      "regime": "lambda3",
+      "seed": 336000241,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000242",
+      "initial_hit": 2,
+      "mc_seed": 339000242,
+      "regime": "lambda3",
+      "seed": 336000242,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000243",
+      "initial_hit": 3,
+      "mc_seed": 339000243,
+      "regime": "lambda3",
+      "seed": 336000243,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000244",
+      "initial_hit": 1,
+      "mc_seed": 339000244,
+      "regime": "lambda3",
+      "seed": 336000244,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000245",
+      "initial_hit": 2,
+      "mc_seed": 339000245,
+      "regime": "lambda3",
+      "seed": 336000245,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000246",
+      "initial_hit": 3,
+      "mc_seed": 339000246,
+      "regime": "lambda3",
+      "seed": 336000246,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000247",
+      "initial_hit": 1,
+      "mc_seed": 339000247,
+      "regime": "lambda3",
+      "seed": 336000247,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000248",
+      "initial_hit": 2,
+      "mc_seed": 339000248,
+      "regime": "lambda3",
+      "seed": 336000248,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000249",
+      "initial_hit": 3,
+      "mc_seed": 339000249,
+      "regime": "lambda3",
+      "seed": 336000249,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000250",
+      "initial_hit": 1,
+      "mc_seed": 339000250,
+      "regime": "lambda3",
+      "seed": 336000250,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000251",
+      "initial_hit": 2,
+      "mc_seed": 339000251,
+      "regime": "lambda3",
+      "seed": 336000251,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000252",
+      "initial_hit": 3,
+      "mc_seed": 339000252,
+      "regime": "lambda3",
+      "seed": 336000252,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000253",
+      "initial_hit": 1,
+      "mc_seed": 339000253,
+      "regime": "lambda3",
+      "seed": 336000253,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000254",
+      "initial_hit": 2,
+      "mc_seed": 339000254,
+      "regime": "lambda3",
+      "seed": 336000254,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000255",
+      "initial_hit": 3,
+      "mc_seed": 339000255,
+      "regime": "lambda3",
+      "seed": 336000255,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000256",
+      "initial_hit": 1,
+      "mc_seed": 339000256,
+      "regime": "lambda3",
+      "seed": 336000256,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000257",
+      "initial_hit": 2,
+      "mc_seed": 339000257,
+      "regime": "lambda3",
+      "seed": 336000257,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000258",
+      "initial_hit": 3,
+      "mc_seed": 339000258,
+      "regime": "lambda3",
+      "seed": 336000258,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000259",
+      "initial_hit": 1,
+      "mc_seed": 339000259,
+      "regime": "lambda3",
+      "seed": 336000259,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000260",
+      "initial_hit": 2,
+      "mc_seed": 339000260,
+      "regime": "lambda3",
+      "seed": 336000260,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000261",
+      "initial_hit": 3,
+      "mc_seed": 339000261,
+      "regime": "lambda3",
+      "seed": 336000261,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000262",
+      "initial_hit": 1,
+      "mc_seed": 339000262,
+      "regime": "lambda3",
+      "seed": 336000262,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000263",
+      "initial_hit": 2,
+      "mc_seed": 339000263,
+      "regime": "lambda3",
+      "seed": 336000263,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000264",
+      "initial_hit": 3,
+      "mc_seed": 339000264,
+      "regime": "lambda3",
+      "seed": 336000264,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000265",
+      "initial_hit": 1,
+      "mc_seed": 339000265,
+      "regime": "lambda3",
+      "seed": 336000265,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000266",
+      "initial_hit": 2,
+      "mc_seed": 339000266,
+      "regime": "lambda3",
+      "seed": 336000266,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000267",
+      "initial_hit": 3,
+      "mc_seed": 339000267,
+      "regime": "lambda3",
+      "seed": 336000267,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000268",
+      "initial_hit": 1,
+      "mc_seed": 339000268,
+      "regime": "lambda3",
+      "seed": 336000268,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000269",
+      "initial_hit": 2,
+      "mc_seed": 339000269,
+      "regime": "lambda3",
+      "seed": 336000269,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000270",
+      "initial_hit": 3,
+      "mc_seed": 339000270,
+      "regime": "lambda3",
+      "seed": 336000270,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000271",
+      "initial_hit": 1,
+      "mc_seed": 339000271,
+      "regime": "lambda3",
+      "seed": 336000271,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000272",
+      "initial_hit": 2,
+      "mc_seed": 339000272,
+      "regime": "lambda3",
+      "seed": 336000272,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000273",
+      "initial_hit": 3,
+      "mc_seed": 339000273,
+      "regime": "lambda3",
+      "seed": 336000273,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000274",
+      "initial_hit": 1,
+      "mc_seed": 339000274,
+      "regime": "lambda3",
+      "seed": 336000274,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000275",
+      "initial_hit": 2,
+      "mc_seed": 339000275,
+      "regime": "lambda3",
+      "seed": 336000275,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000276",
+      "initial_hit": 3,
+      "mc_seed": 339000276,
+      "regime": "lambda3",
+      "seed": 336000276,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000277",
+      "initial_hit": 1,
+      "mc_seed": 339000277,
+      "regime": "lambda3",
+      "seed": 336000277,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000278",
+      "initial_hit": 2,
+      "mc_seed": 339000278,
+      "regime": "lambda3",
+      "seed": 336000278,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000279",
+      "initial_hit": 3,
+      "mc_seed": 339000279,
+      "regime": "lambda3",
+      "seed": 336000279,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000280",
+      "initial_hit": 1,
+      "mc_seed": 339000280,
+      "regime": "lambda3",
+      "seed": 336000280,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000281",
+      "initial_hit": 2,
+      "mc_seed": 339000281,
+      "regime": "lambda3",
+      "seed": 336000281,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000282",
+      "initial_hit": 3,
+      "mc_seed": 339000282,
+      "regime": "lambda3",
+      "seed": 336000282,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000283",
+      "initial_hit": 1,
+      "mc_seed": 339000283,
+      "regime": "lambda3",
+      "seed": 336000283,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000284",
+      "initial_hit": 2,
+      "mc_seed": 339000284,
+      "regime": "lambda3",
+      "seed": 336000284,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000285",
+      "initial_hit": 3,
+      "mc_seed": 339000285,
+      "regime": "lambda3",
+      "seed": 336000285,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000286",
+      "initial_hit": 1,
+      "mc_seed": 339000286,
+      "regime": "lambda3",
+      "seed": 336000286,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000287",
+      "initial_hit": 2,
+      "mc_seed": 339000287,
+      "regime": "lambda3",
+      "seed": 336000287,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000288",
+      "initial_hit": 3,
+      "mc_seed": 339000288,
+      "regime": "lambda3",
+      "seed": 336000288,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000289",
+      "initial_hit": 1,
+      "mc_seed": 339000289,
+      "regime": "lambda3",
+      "seed": 336000289,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000290",
+      "initial_hit": 2,
+      "mc_seed": 339000290,
+      "regime": "lambda3",
+      "seed": 336000290,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000291",
+      "initial_hit": 3,
+      "mc_seed": 339000291,
+      "regime": "lambda3",
+      "seed": 336000291,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000292",
+      "initial_hit": 1,
+      "mc_seed": 339000292,
+      "regime": "lambda3",
+      "seed": 336000292,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000293",
+      "initial_hit": 2,
+      "mc_seed": 339000293,
+      "regime": "lambda3",
+      "seed": 336000293,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000294",
+      "initial_hit": 3,
+      "mc_seed": 339000294,
+      "regime": "lambda3",
+      "seed": 336000294,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000295",
+      "initial_hit": 1,
+      "mc_seed": 339000295,
+      "regime": "lambda3",
+      "seed": 336000295,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000296",
+      "initial_hit": 2,
+      "mc_seed": 339000296,
+      "regime": "lambda3",
+      "seed": 336000296,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000297",
+      "initial_hit": 3,
+      "mc_seed": 339000297,
+      "regime": "lambda3",
+      "seed": 336000297,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000298",
+      "initial_hit": 1,
+      "mc_seed": 339000298,
+      "regime": "lambda3",
+      "seed": 336000298,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000299",
+      "initial_hit": 2,
+      "mc_seed": 339000299,
+      "regime": "lambda3",
+      "seed": 336000299,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000300",
+      "initial_hit": 3,
+      "mc_seed": 339000300,
+      "regime": "lambda3",
+      "seed": 336000300,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000301",
+      "initial_hit": 1,
+      "mc_seed": 339000301,
+      "regime": "lambda3",
+      "seed": 336000301,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000302",
+      "initial_hit": 2,
+      "mc_seed": 339000302,
+      "regime": "lambda3",
+      "seed": 336000302,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000303",
+      "initial_hit": 3,
+      "mc_seed": 339000303,
+      "regime": "lambda3",
+      "seed": 336000303,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000304",
+      "initial_hit": 1,
+      "mc_seed": 339000304,
+      "regime": "lambda3",
+      "seed": 336000304,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000305",
+      "initial_hit": 2,
+      "mc_seed": 339000305,
+      "regime": "lambda3",
+      "seed": 336000305,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000306",
+      "initial_hit": 3,
+      "mc_seed": 339000306,
+      "regime": "lambda3",
+      "seed": 336000306,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000307",
+      "initial_hit": 1,
+      "mc_seed": 339000307,
+      "regime": "lambda3",
+      "seed": 336000307,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000308",
+      "initial_hit": 2,
+      "mc_seed": 339000308,
+      "regime": "lambda3",
+      "seed": 336000308,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000309",
+      "initial_hit": 3,
+      "mc_seed": 339000309,
+      "regime": "lambda3",
+      "seed": 336000309,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000310",
+      "initial_hit": 1,
+      "mc_seed": 339000310,
+      "regime": "lambda3",
+      "seed": 336000310,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000311",
+      "initial_hit": 2,
+      "mc_seed": 339000311,
+      "regime": "lambda3",
+      "seed": 336000311,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000312",
+      "initial_hit": 3,
+      "mc_seed": 339000312,
+      "regime": "lambda3",
+      "seed": 336000312,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000313",
+      "initial_hit": 1,
+      "mc_seed": 339000313,
+      "regime": "lambda3",
+      "seed": 336000313,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000314",
+      "initial_hit": 2,
+      "mc_seed": 339000314,
+      "regime": "lambda3",
+      "seed": 336000314,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000315",
+      "initial_hit": 3,
+      "mc_seed": 339000315,
+      "regime": "lambda3",
+      "seed": 336000315,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000316",
+      "initial_hit": 1,
+      "mc_seed": 339000316,
+      "regime": "lambda3",
+      "seed": 336000316,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000317",
+      "initial_hit": 2,
+      "mc_seed": 339000317,
+      "regime": "lambda3",
+      "seed": 336000317,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000318",
+      "initial_hit": 3,
+      "mc_seed": 339000318,
+      "regime": "lambda3",
+      "seed": 336000318,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000319",
+      "initial_hit": 1,
+      "mc_seed": 339000319,
+      "regime": "lambda3",
+      "seed": 336000319,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000320",
+      "initial_hit": 2,
+      "mc_seed": 339000320,
+      "regime": "lambda3",
+      "seed": 336000320,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000321",
+      "initial_hit": 3,
+      "mc_seed": 339000321,
+      "regime": "lambda3",
+      "seed": 336000321,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000322",
+      "initial_hit": 1,
+      "mc_seed": 339000322,
+      "regime": "lambda3",
+      "seed": 336000322,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000323",
+      "initial_hit": 2,
+      "mc_seed": 339000323,
+      "regime": "lambda3",
+      "seed": 336000323,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000324",
+      "initial_hit": 3,
+      "mc_seed": 339000324,
+      "regime": "lambda3",
+      "seed": 336000324,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000325",
+      "initial_hit": 1,
+      "mc_seed": 339000325,
+      "regime": "lambda3",
+      "seed": 336000325,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000326",
+      "initial_hit": 2,
+      "mc_seed": 339000326,
+      "regime": "lambda3",
+      "seed": 336000326,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000327",
+      "initial_hit": 3,
+      "mc_seed": 339000327,
+      "regime": "lambda3",
+      "seed": 336000327,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000328",
+      "initial_hit": 1,
+      "mc_seed": 339000328,
+      "regime": "lambda3",
+      "seed": 336000328,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000329",
+      "initial_hit": 2,
+      "mc_seed": 339000329,
+      "regime": "lambda3",
+      "seed": 336000329,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000330",
+      "initial_hit": 3,
+      "mc_seed": 339000330,
+      "regime": "lambda3",
+      "seed": 336000330,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000331",
+      "initial_hit": 1,
+      "mc_seed": 339000331,
+      "regime": "lambda3",
+      "seed": 336000331,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000332",
+      "initial_hit": 2,
+      "mc_seed": 339000332,
+      "regime": "lambda3",
+      "seed": 336000332,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000333",
+      "initial_hit": 3,
+      "mc_seed": 339000333,
+      "regime": "lambda3",
+      "seed": 336000333,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000334",
+      "initial_hit": 1,
+      "mc_seed": 339000334,
+      "regime": "lambda3",
+      "seed": 336000334,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000335",
+      "initial_hit": 2,
+      "mc_seed": 339000335,
+      "regime": "lambda3",
+      "seed": 336000335,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000336",
+      "initial_hit": 3,
+      "mc_seed": 339000336,
+      "regime": "lambda3",
+      "seed": 336000336,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000337",
+      "initial_hit": 1,
+      "mc_seed": 339000337,
+      "regime": "lambda3",
+      "seed": 336000337,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000338",
+      "initial_hit": 2,
+      "mc_seed": 339000338,
+      "regime": "lambda3",
+      "seed": 336000338,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000339",
+      "initial_hit": 3,
+      "mc_seed": 339000339,
+      "regime": "lambda3",
+      "seed": 336000339,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000340",
+      "initial_hit": 1,
+      "mc_seed": 339000340,
+      "regime": "lambda3",
+      "seed": 336000340,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000341",
+      "initial_hit": 2,
+      "mc_seed": 339000341,
+      "regime": "lambda3",
+      "seed": 336000341,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000342",
+      "initial_hit": 3,
+      "mc_seed": 339000342,
+      "regime": "lambda3",
+      "seed": 336000342,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000343",
+      "initial_hit": 1,
+      "mc_seed": 339000343,
+      "regime": "lambda3",
+      "seed": 336000343,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000344",
+      "initial_hit": 2,
+      "mc_seed": 339000344,
+      "regime": "lambda3",
+      "seed": 336000344,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000345",
+      "initial_hit": 3,
+      "mc_seed": 339000345,
+      "regime": "lambda3",
+      "seed": 336000345,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000346",
+      "initial_hit": 1,
+      "mc_seed": 339000346,
+      "regime": "lambda3",
+      "seed": 336000346,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000347",
+      "initial_hit": 2,
+      "mc_seed": 339000347,
+      "regime": "lambda3",
+      "seed": 336000347,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000348",
+      "initial_hit": 3,
+      "mc_seed": 339000348,
+      "regime": "lambda3",
+      "seed": 336000348,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000349",
+      "initial_hit": 1,
+      "mc_seed": 339000349,
+      "regime": "lambda3",
+      "seed": 336000349,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000350",
+      "initial_hit": 2,
+      "mc_seed": 339000350,
+      "regime": "lambda3",
+      "seed": 336000350,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000351",
+      "initial_hit": 3,
+      "mc_seed": 339000351,
+      "regime": "lambda3",
+      "seed": 336000351,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000352",
+      "initial_hit": 1,
+      "mc_seed": 339000352,
+      "regime": "lambda3",
+      "seed": 336000352,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000353",
+      "initial_hit": 2,
+      "mc_seed": 339000353,
+      "regime": "lambda3",
+      "seed": 336000353,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000354",
+      "initial_hit": 3,
+      "mc_seed": 339000354,
+      "regime": "lambda3",
+      "seed": 336000354,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000355",
+      "initial_hit": 1,
+      "mc_seed": 339000355,
+      "regime": "lambda3",
+      "seed": 336000355,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000356",
+      "initial_hit": 2,
+      "mc_seed": 339000356,
+      "regime": "lambda3",
+      "seed": 336000356,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000357",
+      "initial_hit": 3,
+      "mc_seed": 339000357,
+      "regime": "lambda3",
+      "seed": 336000357,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000358",
+      "initial_hit": 1,
+      "mc_seed": 339000358,
+      "regime": "lambda3",
+      "seed": 336000358,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000359",
+      "initial_hit": 2,
+      "mc_seed": 339000359,
+      "regime": "lambda3",
+      "seed": 336000359,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000360",
+      "initial_hit": 3,
+      "mc_seed": 339000360,
+      "regime": "lambda3",
+      "seed": 336000360,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000361",
+      "initial_hit": 1,
+      "mc_seed": 339000361,
+      "regime": "lambda3",
+      "seed": 336000361,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000362",
+      "initial_hit": 2,
+      "mc_seed": 339000362,
+      "regime": "lambda3",
+      "seed": 336000362,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000363",
+      "initial_hit": 3,
+      "mc_seed": 339000363,
+      "regime": "lambda3",
+      "seed": 336000363,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000364",
+      "initial_hit": 1,
+      "mc_seed": 339000364,
+      "regime": "lambda3",
+      "seed": 336000364,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000365",
+      "initial_hit": 2,
+      "mc_seed": 339000365,
+      "regime": "lambda3",
+      "seed": 336000365,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000366",
+      "initial_hit": 3,
+      "mc_seed": 339000366,
+      "regime": "lambda3",
+      "seed": 336000366,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000367",
+      "initial_hit": 1,
+      "mc_seed": 339000367,
+      "regime": "lambda3",
+      "seed": 336000367,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000368",
+      "initial_hit": 2,
+      "mc_seed": 339000368,
+      "regime": "lambda3",
+      "seed": 336000368,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000369",
+      "initial_hit": 3,
+      "mc_seed": 339000369,
+      "regime": "lambda3",
+      "seed": 336000369,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000370",
+      "initial_hit": 1,
+      "mc_seed": 339000370,
+      "regime": "lambda3",
+      "seed": 336000370,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000371",
+      "initial_hit": 2,
+      "mc_seed": 339000371,
+      "regime": "lambda3",
+      "seed": 336000371,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000372",
+      "initial_hit": 3,
+      "mc_seed": 339000372,
+      "regime": "lambda3",
+      "seed": 336000372,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000373",
+      "initial_hit": 1,
+      "mc_seed": 339000373,
+      "regime": "lambda3",
+      "seed": 336000373,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000374",
+      "initial_hit": 2,
+      "mc_seed": 339000374,
+      "regime": "lambda3",
+      "seed": 336000374,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000375",
+      "initial_hit": 3,
+      "mc_seed": 339000375,
+      "regime": "lambda3",
+      "seed": 336000375,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000376",
+      "initial_hit": 1,
+      "mc_seed": 339000376,
+      "regime": "lambda3",
+      "seed": 336000376,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000377",
+      "initial_hit": 2,
+      "mc_seed": 339000377,
+      "regime": "lambda3",
+      "seed": 336000377,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000378",
+      "initial_hit": 3,
+      "mc_seed": 339000378,
+      "regime": "lambda3",
+      "seed": 336000378,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000379",
+      "initial_hit": 1,
+      "mc_seed": 339000379,
+      "regime": "lambda3",
+      "seed": 336000379,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000380",
+      "initial_hit": 2,
+      "mc_seed": 339000380,
+      "regime": "lambda3",
+      "seed": 336000380,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000381",
+      "initial_hit": 3,
+      "mc_seed": 339000381,
+      "regime": "lambda3",
+      "seed": 336000381,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000382",
+      "initial_hit": 1,
+      "mc_seed": 339000382,
+      "regime": "lambda3",
+      "seed": 336000382,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000383",
+      "initial_hit": 2,
+      "mc_seed": 339000383,
+      "regime": "lambda3",
+      "seed": 336000383,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000384",
+      "initial_hit": 3,
+      "mc_seed": 339000384,
+      "regime": "lambda3",
+      "seed": 336000384,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000385",
+      "initial_hit": 1,
+      "mc_seed": 339000385,
+      "regime": "lambda3",
+      "seed": 336000385,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000386",
+      "initial_hit": 2,
+      "mc_seed": 339000386,
+      "regime": "lambda3",
+      "seed": 336000386,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000387",
+      "initial_hit": 3,
+      "mc_seed": 339000387,
+      "regime": "lambda3",
+      "seed": 336000387,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000388",
+      "initial_hit": 1,
+      "mc_seed": 339000388,
+      "regime": "lambda3",
+      "seed": 336000388,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000389",
+      "initial_hit": 2,
+      "mc_seed": 339000389,
+      "regime": "lambda3",
+      "seed": 336000389,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000390",
+      "initial_hit": 3,
+      "mc_seed": 339000390,
+      "regime": "lambda3",
+      "seed": 336000390,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000391",
+      "initial_hit": 1,
+      "mc_seed": 339000391,
+      "regime": "lambda3",
+      "seed": 336000391,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000392",
+      "initial_hit": 2,
+      "mc_seed": 339000392,
+      "regime": "lambda3",
+      "seed": 336000392,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000393",
+      "initial_hit": 3,
+      "mc_seed": 339000393,
+      "regime": "lambda3",
+      "seed": 336000393,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000394",
+      "initial_hit": 1,
+      "mc_seed": 339000394,
+      "regime": "lambda3",
+      "seed": 336000394,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000395",
+      "initial_hit": 2,
+      "mc_seed": 339000395,
+      "regime": "lambda3",
+      "seed": 336000395,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000396",
+      "initial_hit": 3,
+      "mc_seed": 339000396,
+      "regime": "lambda3",
+      "seed": 336000396,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000397",
+      "initial_hit": 1,
+      "mc_seed": 339000397,
+      "regime": "lambda3",
+      "seed": 336000397,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000398",
+      "initial_hit": 2,
+      "mc_seed": 339000398,
+      "regime": "lambda3",
+      "seed": 336000398,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000399",
+      "initial_hit": 3,
+      "mc_seed": 339000399,
+      "regime": "lambda3",
+      "seed": 336000399,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000400",
+      "initial_hit": 1,
+      "mc_seed": 339000400,
+      "regime": "lambda3",
+      "seed": 336000400,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000401",
+      "initial_hit": 2,
+      "mc_seed": 339000401,
+      "regime": "lambda3",
+      "seed": 336000401,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000402",
+      "initial_hit": 3,
+      "mc_seed": 339000402,
+      "regime": "lambda3",
+      "seed": 336000402,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000403",
+      "initial_hit": 1,
+      "mc_seed": 339000403,
+      "regime": "lambda3",
+      "seed": 336000403,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000404",
+      "initial_hit": 2,
+      "mc_seed": 339000404,
+      "regime": "lambda3",
+      "seed": 336000404,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000405",
+      "initial_hit": 3,
+      "mc_seed": 339000405,
+      "regime": "lambda3",
+      "seed": 336000405,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000406",
+      "initial_hit": 1,
+      "mc_seed": 339000406,
+      "regime": "lambda3",
+      "seed": 336000406,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000407",
+      "initial_hit": 2,
+      "mc_seed": 339000407,
+      "regime": "lambda3",
+      "seed": 336000407,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000408",
+      "initial_hit": 3,
+      "mc_seed": 339000408,
+      "regime": "lambda3",
+      "seed": 336000408,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000409",
+      "initial_hit": 1,
+      "mc_seed": 339000409,
+      "regime": "lambda3",
+      "seed": 336000409,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000410",
+      "initial_hit": 2,
+      "mc_seed": 339000410,
+      "regime": "lambda3",
+      "seed": 336000410,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000411",
+      "initial_hit": 3,
+      "mc_seed": 339000411,
+      "regime": "lambda3",
+      "seed": 336000411,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000412",
+      "initial_hit": 1,
+      "mc_seed": 339000412,
+      "regime": "lambda3",
+      "seed": 336000412,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000413",
+      "initial_hit": 2,
+      "mc_seed": 339000413,
+      "regime": "lambda3",
+      "seed": 336000413,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000414",
+      "initial_hit": 3,
+      "mc_seed": 339000414,
+      "regime": "lambda3",
+      "seed": 336000414,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000415",
+      "initial_hit": 1,
+      "mc_seed": 339000415,
+      "regime": "lambda3",
+      "seed": 336000415,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000416",
+      "initial_hit": 2,
+      "mc_seed": 339000416,
+      "regime": "lambda3",
+      "seed": 336000416,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000417",
+      "initial_hit": 3,
+      "mc_seed": 339000417,
+      "regime": "lambda3",
+      "seed": 336000417,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000418",
+      "initial_hit": 1,
+      "mc_seed": 339000418,
+      "regime": "lambda3",
+      "seed": 336000418,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000419",
+      "initial_hit": 2,
+      "mc_seed": 339000419,
+      "regime": "lambda3",
+      "seed": 336000419,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000420",
+      "initial_hit": 3,
+      "mc_seed": 339000420,
+      "regime": "lambda3",
+      "seed": 336000420,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000421",
+      "initial_hit": 1,
+      "mc_seed": 339000421,
+      "regime": "lambda3",
+      "seed": 336000421,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000422",
+      "initial_hit": 2,
+      "mc_seed": 339000422,
+      "regime": "lambda3",
+      "seed": 336000422,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000423",
+      "initial_hit": 3,
+      "mc_seed": 339000423,
+      "regime": "lambda3",
+      "seed": 336000423,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000424",
+      "initial_hit": 1,
+      "mc_seed": 339000424,
+      "regime": "lambda3",
+      "seed": 336000424,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000425",
+      "initial_hit": 2,
+      "mc_seed": 339000425,
+      "regime": "lambda3",
+      "seed": 336000425,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000426",
+      "initial_hit": 3,
+      "mc_seed": 339000426,
+      "regime": "lambda3",
+      "seed": 336000426,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000427",
+      "initial_hit": 1,
+      "mc_seed": 339000427,
+      "regime": "lambda3",
+      "seed": 336000427,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000428",
+      "initial_hit": 2,
+      "mc_seed": 339000428,
+      "regime": "lambda3",
+      "seed": 336000428,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000429",
+      "initial_hit": 3,
+      "mc_seed": 339000429,
+      "regime": "lambda3",
+      "seed": 336000429,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000430",
+      "initial_hit": 1,
+      "mc_seed": 339000430,
+      "regime": "lambda3",
+      "seed": 336000430,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000431",
+      "initial_hit": 2,
+      "mc_seed": 339000431,
+      "regime": "lambda3",
+      "seed": 336000431,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000432",
+      "initial_hit": 3,
+      "mc_seed": 339000432,
+      "regime": "lambda3",
+      "seed": 336000432,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000433",
+      "initial_hit": 1,
+      "mc_seed": 339000433,
+      "regime": "lambda3",
+      "seed": 336000433,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000434",
+      "initial_hit": 2,
+      "mc_seed": 339000434,
+      "regime": "lambda3",
+      "seed": 336000434,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000435",
+      "initial_hit": 3,
+      "mc_seed": 339000435,
+      "regime": "lambda3",
+      "seed": 336000435,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000436",
+      "initial_hit": 1,
+      "mc_seed": 339000436,
+      "regime": "lambda3",
+      "seed": 336000436,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000437",
+      "initial_hit": 2,
+      "mc_seed": 339000437,
+      "regime": "lambda3",
+      "seed": 336000437,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000438",
+      "initial_hit": 3,
+      "mc_seed": 339000438,
+      "regime": "lambda3",
+      "seed": 336000438,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000439",
+      "initial_hit": 1,
+      "mc_seed": 339000439,
+      "regime": "lambda3",
+      "seed": 336000439,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000440",
+      "initial_hit": 2,
+      "mc_seed": 339000440,
+      "regime": "lambda3",
+      "seed": 336000440,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000441",
+      "initial_hit": 3,
+      "mc_seed": 339000441,
+      "regime": "lambda3",
+      "seed": 336000441,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000442",
+      "initial_hit": 1,
+      "mc_seed": 339000442,
+      "regime": "lambda3",
+      "seed": 336000442,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000443",
+      "initial_hit": 2,
+      "mc_seed": 339000443,
+      "regime": "lambda3",
+      "seed": 336000443,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000444",
+      "initial_hit": 3,
+      "mc_seed": 339000444,
+      "regime": "lambda3",
+      "seed": 336000444,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000445",
+      "initial_hit": 1,
+      "mc_seed": 339000445,
+      "regime": "lambda3",
+      "seed": 336000445,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000446",
+      "initial_hit": 2,
+      "mc_seed": 339000446,
+      "regime": "lambda3",
+      "seed": 336000446,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000447",
+      "initial_hit": 3,
+      "mc_seed": 339000447,
+      "regime": "lambda3",
+      "seed": 336000447,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000448",
+      "initial_hit": 1,
+      "mc_seed": 339000448,
+      "regime": "lambda3",
+      "seed": 336000448,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000449",
+      "initial_hit": 2,
+      "mc_seed": 339000449,
+      "regime": "lambda3",
+      "seed": 336000449,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000450",
+      "initial_hit": 3,
+      "mc_seed": 339000450,
+      "regime": "lambda3",
+      "seed": 336000450,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000451",
+      "initial_hit": 1,
+      "mc_seed": 339000451,
+      "regime": "lambda3",
+      "seed": 336000451,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000452",
+      "initial_hit": 2,
+      "mc_seed": 339000452,
+      "regime": "lambda3",
+      "seed": 336000452,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000453",
+      "initial_hit": 3,
+      "mc_seed": 339000453,
+      "regime": "lambda3",
+      "seed": 336000453,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000454",
+      "initial_hit": 1,
+      "mc_seed": 339000454,
+      "regime": "lambda3",
+      "seed": 336000454,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000455",
+      "initial_hit": 2,
+      "mc_seed": 339000455,
+      "regime": "lambda3",
+      "seed": 336000455,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000456",
+      "initial_hit": 3,
+      "mc_seed": 339000456,
+      "regime": "lambda3",
+      "seed": 336000456,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000457",
+      "initial_hit": 1,
+      "mc_seed": 339000457,
+      "regime": "lambda3",
+      "seed": 336000457,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000458",
+      "initial_hit": 2,
+      "mc_seed": 339000458,
+      "regime": "lambda3",
+      "seed": 336000458,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000459",
+      "initial_hit": 3,
+      "mc_seed": 339000459,
+      "regime": "lambda3",
+      "seed": 336000459,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000460",
+      "initial_hit": 1,
+      "mc_seed": 339000460,
+      "regime": "lambda3",
+      "seed": 336000460,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000461",
+      "initial_hit": 2,
+      "mc_seed": 339000461,
+      "regime": "lambda3",
+      "seed": 336000461,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000462",
+      "initial_hit": 3,
+      "mc_seed": 339000462,
+      "regime": "lambda3",
+      "seed": 336000462,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000463",
+      "initial_hit": 1,
+      "mc_seed": 339000463,
+      "regime": "lambda3",
+      "seed": 336000463,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000464",
+      "initial_hit": 2,
+      "mc_seed": 339000464,
+      "regime": "lambda3",
+      "seed": 336000464,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000465",
+      "initial_hit": 3,
+      "mc_seed": 339000465,
+      "regime": "lambda3",
+      "seed": 336000465,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000466",
+      "initial_hit": 1,
+      "mc_seed": 339000466,
+      "regime": "lambda3",
+      "seed": 336000466,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000467",
+      "initial_hit": 2,
+      "mc_seed": 339000467,
+      "regime": "lambda3",
+      "seed": 336000467,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000468",
+      "initial_hit": 3,
+      "mc_seed": 339000468,
+      "regime": "lambda3",
+      "seed": 336000468,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000469",
+      "initial_hit": 1,
+      "mc_seed": 339000469,
+      "regime": "lambda3",
+      "seed": 336000469,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000470",
+      "initial_hit": 2,
+      "mc_seed": 339000470,
+      "regime": "lambda3",
+      "seed": 336000470,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000471",
+      "initial_hit": 3,
+      "mc_seed": 339000471,
+      "regime": "lambda3",
+      "seed": 336000471,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000472",
+      "initial_hit": 1,
+      "mc_seed": 339000472,
+      "regime": "lambda3",
+      "seed": 336000472,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000473",
+      "initial_hit": 2,
+      "mc_seed": 339000473,
+      "regime": "lambda3",
+      "seed": 336000473,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000474",
+      "initial_hit": 3,
+      "mc_seed": 339000474,
+      "regime": "lambda3",
+      "seed": 336000474,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000475",
+      "initial_hit": 1,
+      "mc_seed": 339000475,
+      "regime": "lambda3",
+      "seed": 336000475,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000476",
+      "initial_hit": 2,
+      "mc_seed": 339000476,
+      "regime": "lambda3",
+      "seed": 336000476,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000477",
+      "initial_hit": 3,
+      "mc_seed": 339000477,
+      "regime": "lambda3",
+      "seed": 336000477,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000478",
+      "initial_hit": 1,
+      "mc_seed": 339000478,
+      "regime": "lambda3",
+      "seed": 336000478,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000479",
+      "initial_hit": 2,
+      "mc_seed": 339000479,
+      "regime": "lambda3",
+      "seed": 336000479,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000480",
+      "initial_hit": 3,
+      "mc_seed": 339000480,
+      "regime": "lambda3",
+      "seed": 336000480,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000481",
+      "initial_hit": 1,
+      "mc_seed": 339000481,
+      "regime": "lambda3",
+      "seed": 336000481,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000482",
+      "initial_hit": 2,
+      "mc_seed": 339000482,
+      "regime": "lambda3",
+      "seed": 336000482,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000483",
+      "initial_hit": 3,
+      "mc_seed": 339000483,
+      "regime": "lambda3",
+      "seed": 336000483,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000484",
+      "initial_hit": 1,
+      "mc_seed": 339000484,
+      "regime": "lambda3",
+      "seed": 336000484,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000485",
+      "initial_hit": 2,
+      "mc_seed": 339000485,
+      "regime": "lambda3",
+      "seed": 336000485,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000486",
+      "initial_hit": 3,
+      "mc_seed": 339000486,
+      "regime": "lambda3",
+      "seed": 336000486,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000487",
+      "initial_hit": 1,
+      "mc_seed": 339000487,
+      "regime": "lambda3",
+      "seed": 336000487,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000488",
+      "initial_hit": 2,
+      "mc_seed": 339000488,
+      "regime": "lambda3",
+      "seed": 336000488,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000489",
+      "initial_hit": 3,
+      "mc_seed": 339000489,
+      "regime": "lambda3",
+      "seed": 336000489,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000490",
+      "initial_hit": 1,
+      "mc_seed": 339000490,
+      "regime": "lambda3",
+      "seed": 336000490,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000491",
+      "initial_hit": 2,
+      "mc_seed": 339000491,
+      "regime": "lambda3",
+      "seed": 336000491,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000492",
+      "initial_hit": 3,
+      "mc_seed": 339000492,
+      "regime": "lambda3",
+      "seed": 336000492,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000493",
+      "initial_hit": 1,
+      "mc_seed": 339000493,
+      "regime": "lambda3",
+      "seed": 336000493,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000494",
+      "initial_hit": 2,
+      "mc_seed": 339000494,
+      "regime": "lambda3",
+      "seed": 336000494,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000495",
+      "initial_hit": 3,
+      "mc_seed": 339000495,
+      "regime": "lambda3",
+      "seed": 336000495,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000496",
+      "initial_hit": 1,
+      "mc_seed": 339000496,
+      "regime": "lambda3",
+      "seed": 336000496,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000497",
+      "initial_hit": 2,
+      "mc_seed": 339000497,
+      "regime": "lambda3",
+      "seed": 336000497,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000498",
+      "initial_hit": 3,
+      "mc_seed": 339000498,
+      "regime": "lambda3",
+      "seed": 336000498,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000499",
+      "initial_hit": 1,
+      "mc_seed": 339000499,
+      "regime": "lambda3",
+      "seed": 336000499,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000500",
+      "initial_hit": 2,
+      "mc_seed": 339000500,
+      "regime": "lambda3",
+      "seed": 336000500,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000501",
+      "initial_hit": 3,
+      "mc_seed": 339000501,
+      "regime": "lambda3",
+      "seed": 336000501,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000502",
+      "initial_hit": 1,
+      "mc_seed": 339000502,
+      "regime": "lambda3",
+      "seed": 336000502,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000503",
+      "initial_hit": 2,
+      "mc_seed": 339000503,
+      "regime": "lambda3",
+      "seed": 336000503,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000504",
+      "initial_hit": 3,
+      "mc_seed": 339000504,
+      "regime": "lambda3",
+      "seed": 336000504,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000505",
+      "initial_hit": 1,
+      "mc_seed": 339000505,
+      "regime": "lambda3",
+      "seed": 336000505,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000506",
+      "initial_hit": 2,
+      "mc_seed": 339000506,
+      "regime": "lambda3",
+      "seed": 336000506,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000507",
+      "initial_hit": 3,
+      "mc_seed": 339000507,
+      "regime": "lambda3",
+      "seed": 336000507,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000508",
+      "initial_hit": 1,
+      "mc_seed": 339000508,
+      "regime": "lambda3",
+      "seed": 336000508,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000509",
+      "initial_hit": 2,
+      "mc_seed": 339000509,
+      "regime": "lambda3",
+      "seed": 336000509,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000510",
+      "initial_hit": 3,
+      "mc_seed": 339000510,
+      "regime": "lambda3",
+      "seed": 336000510,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000511",
+      "initial_hit": 1,
+      "mc_seed": 339000511,
+      "regime": "lambda3",
+      "seed": 336000511,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:336000512",
+      "initial_hit": 2,
+      "mc_seed": 339000512,
+      "regime": "lambda3",
+      "seed": 336000512,
+      "split": "train"
+    },
+    {
+      "id": "dev:lambda3:337000001",
+      "initial_hit": 1,
+      "mc_seed": 340000001,
+      "regime": "lambda3",
+      "seed": 337000001,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000002",
+      "initial_hit": 2,
+      "mc_seed": 340000002,
+      "regime": "lambda3",
+      "seed": 337000002,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000003",
+      "initial_hit": 3,
+      "mc_seed": 340000003,
+      "regime": "lambda3",
+      "seed": 337000003,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000004",
+      "initial_hit": 1,
+      "mc_seed": 340000004,
+      "regime": "lambda3",
+      "seed": 337000004,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000005",
+      "initial_hit": 2,
+      "mc_seed": 340000005,
+      "regime": "lambda3",
+      "seed": 337000005,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000006",
+      "initial_hit": 3,
+      "mc_seed": 340000006,
+      "regime": "lambda3",
+      "seed": 337000006,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000007",
+      "initial_hit": 1,
+      "mc_seed": 340000007,
+      "regime": "lambda3",
+      "seed": 337000007,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000008",
+      "initial_hit": 2,
+      "mc_seed": 340000008,
+      "regime": "lambda3",
+      "seed": 337000008,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000009",
+      "initial_hit": 3,
+      "mc_seed": 340000009,
+      "regime": "lambda3",
+      "seed": 337000009,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000010",
+      "initial_hit": 1,
+      "mc_seed": 340000010,
+      "regime": "lambda3",
+      "seed": 337000010,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000011",
+      "initial_hit": 2,
+      "mc_seed": 340000011,
+      "regime": "lambda3",
+      "seed": 337000011,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000012",
+      "initial_hit": 3,
+      "mc_seed": 340000012,
+      "regime": "lambda3",
+      "seed": 337000012,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000013",
+      "initial_hit": 1,
+      "mc_seed": 340000013,
+      "regime": "lambda3",
+      "seed": 337000013,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000014",
+      "initial_hit": 2,
+      "mc_seed": 340000014,
+      "regime": "lambda3",
+      "seed": 337000014,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000015",
+      "initial_hit": 3,
+      "mc_seed": 340000015,
+      "regime": "lambda3",
+      "seed": 337000015,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000016",
+      "initial_hit": 1,
+      "mc_seed": 340000016,
+      "regime": "lambda3",
+      "seed": 337000016,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000017",
+      "initial_hit": 2,
+      "mc_seed": 340000017,
+      "regime": "lambda3",
+      "seed": 337000017,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000018",
+      "initial_hit": 3,
+      "mc_seed": 340000018,
+      "regime": "lambda3",
+      "seed": 337000018,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000019",
+      "initial_hit": 1,
+      "mc_seed": 340000019,
+      "regime": "lambda3",
+      "seed": 337000019,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000020",
+      "initial_hit": 2,
+      "mc_seed": 340000020,
+      "regime": "lambda3",
+      "seed": 337000020,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000021",
+      "initial_hit": 3,
+      "mc_seed": 340000021,
+      "regime": "lambda3",
+      "seed": 337000021,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000022",
+      "initial_hit": 1,
+      "mc_seed": 340000022,
+      "regime": "lambda3",
+      "seed": 337000022,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000023",
+      "initial_hit": 2,
+      "mc_seed": 340000023,
+      "regime": "lambda3",
+      "seed": 337000023,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000024",
+      "initial_hit": 3,
+      "mc_seed": 340000024,
+      "regime": "lambda3",
+      "seed": 337000024,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000025",
+      "initial_hit": 1,
+      "mc_seed": 340000025,
+      "regime": "lambda3",
+      "seed": 337000025,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000026",
+      "initial_hit": 2,
+      "mc_seed": 340000026,
+      "regime": "lambda3",
+      "seed": 337000026,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000027",
+      "initial_hit": 3,
+      "mc_seed": 340000027,
+      "regime": "lambda3",
+      "seed": 337000027,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000028",
+      "initial_hit": 1,
+      "mc_seed": 340000028,
+      "regime": "lambda3",
+      "seed": 337000028,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000029",
+      "initial_hit": 2,
+      "mc_seed": 340000029,
+      "regime": "lambda3",
+      "seed": 337000029,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000030",
+      "initial_hit": 3,
+      "mc_seed": 340000030,
+      "regime": "lambda3",
+      "seed": 337000030,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000031",
+      "initial_hit": 1,
+      "mc_seed": 340000031,
+      "regime": "lambda3",
+      "seed": 337000031,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000032",
+      "initial_hit": 2,
+      "mc_seed": 340000032,
+      "regime": "lambda3",
+      "seed": 337000032,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000033",
+      "initial_hit": 3,
+      "mc_seed": 340000033,
+      "regime": "lambda3",
+      "seed": 337000033,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000034",
+      "initial_hit": 1,
+      "mc_seed": 340000034,
+      "regime": "lambda3",
+      "seed": 337000034,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000035",
+      "initial_hit": 2,
+      "mc_seed": 340000035,
+      "regime": "lambda3",
+      "seed": 337000035,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000036",
+      "initial_hit": 3,
+      "mc_seed": 340000036,
+      "regime": "lambda3",
+      "seed": 337000036,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000037",
+      "initial_hit": 1,
+      "mc_seed": 340000037,
+      "regime": "lambda3",
+      "seed": 337000037,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000038",
+      "initial_hit": 2,
+      "mc_seed": 340000038,
+      "regime": "lambda3",
+      "seed": 337000038,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000039",
+      "initial_hit": 3,
+      "mc_seed": 340000039,
+      "regime": "lambda3",
+      "seed": 337000039,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000040",
+      "initial_hit": 1,
+      "mc_seed": 340000040,
+      "regime": "lambda3",
+      "seed": 337000040,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000041",
+      "initial_hit": 2,
+      "mc_seed": 340000041,
+      "regime": "lambda3",
+      "seed": 337000041,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000042",
+      "initial_hit": 3,
+      "mc_seed": 340000042,
+      "regime": "lambda3",
+      "seed": 337000042,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000043",
+      "initial_hit": 1,
+      "mc_seed": 340000043,
+      "regime": "lambda3",
+      "seed": 337000043,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000044",
+      "initial_hit": 2,
+      "mc_seed": 340000044,
+      "regime": "lambda3",
+      "seed": 337000044,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000045",
+      "initial_hit": 3,
+      "mc_seed": 340000045,
+      "regime": "lambda3",
+      "seed": 337000045,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000046",
+      "initial_hit": 1,
+      "mc_seed": 340000046,
+      "regime": "lambda3",
+      "seed": 337000046,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000047",
+      "initial_hit": 2,
+      "mc_seed": 340000047,
+      "regime": "lambda3",
+      "seed": 337000047,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000048",
+      "initial_hit": 3,
+      "mc_seed": 340000048,
+      "regime": "lambda3",
+      "seed": 337000048,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000049",
+      "initial_hit": 1,
+      "mc_seed": 340000049,
+      "regime": "lambda3",
+      "seed": 337000049,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000050",
+      "initial_hit": 2,
+      "mc_seed": 340000050,
+      "regime": "lambda3",
+      "seed": 337000050,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000051",
+      "initial_hit": 3,
+      "mc_seed": 340000051,
+      "regime": "lambda3",
+      "seed": 337000051,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000052",
+      "initial_hit": 1,
+      "mc_seed": 340000052,
+      "regime": "lambda3",
+      "seed": 337000052,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000053",
+      "initial_hit": 2,
+      "mc_seed": 340000053,
+      "regime": "lambda3",
+      "seed": 337000053,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000054",
+      "initial_hit": 3,
+      "mc_seed": 340000054,
+      "regime": "lambda3",
+      "seed": 337000054,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000055",
+      "initial_hit": 1,
+      "mc_seed": 340000055,
+      "regime": "lambda3",
+      "seed": 337000055,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000056",
+      "initial_hit": 2,
+      "mc_seed": 340000056,
+      "regime": "lambda3",
+      "seed": 337000056,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000057",
+      "initial_hit": 3,
+      "mc_seed": 340000057,
+      "regime": "lambda3",
+      "seed": 337000057,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000058",
+      "initial_hit": 1,
+      "mc_seed": 340000058,
+      "regime": "lambda3",
+      "seed": 337000058,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000059",
+      "initial_hit": 2,
+      "mc_seed": 340000059,
+      "regime": "lambda3",
+      "seed": 337000059,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000060",
+      "initial_hit": 3,
+      "mc_seed": 340000060,
+      "regime": "lambda3",
+      "seed": 337000060,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000061",
+      "initial_hit": 1,
+      "mc_seed": 340000061,
+      "regime": "lambda3",
+      "seed": 337000061,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000062",
+      "initial_hit": 2,
+      "mc_seed": 340000062,
+      "regime": "lambda3",
+      "seed": 337000062,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000063",
+      "initial_hit": 3,
+      "mc_seed": 340000063,
+      "regime": "lambda3",
+      "seed": 337000063,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000064",
+      "initial_hit": 1,
+      "mc_seed": 340000064,
+      "regime": "lambda3",
+      "seed": 337000064,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000065",
+      "initial_hit": 2,
+      "mc_seed": 340000065,
+      "regime": "lambda3",
+      "seed": 337000065,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000066",
+      "initial_hit": 3,
+      "mc_seed": 340000066,
+      "regime": "lambda3",
+      "seed": 337000066,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000067",
+      "initial_hit": 1,
+      "mc_seed": 340000067,
+      "regime": "lambda3",
+      "seed": 337000067,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000068",
+      "initial_hit": 2,
+      "mc_seed": 340000068,
+      "regime": "lambda3",
+      "seed": 337000068,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000069",
+      "initial_hit": 3,
+      "mc_seed": 340000069,
+      "regime": "lambda3",
+      "seed": 337000069,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000070",
+      "initial_hit": 1,
+      "mc_seed": 340000070,
+      "regime": "lambda3",
+      "seed": 337000070,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000071",
+      "initial_hit": 2,
+      "mc_seed": 340000071,
+      "regime": "lambda3",
+      "seed": 337000071,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000072",
+      "initial_hit": 3,
+      "mc_seed": 340000072,
+      "regime": "lambda3",
+      "seed": 337000072,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000073",
+      "initial_hit": 1,
+      "mc_seed": 340000073,
+      "regime": "lambda3",
+      "seed": 337000073,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000074",
+      "initial_hit": 2,
+      "mc_seed": 340000074,
+      "regime": "lambda3",
+      "seed": 337000074,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000075",
+      "initial_hit": 3,
+      "mc_seed": 340000075,
+      "regime": "lambda3",
+      "seed": 337000075,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000076",
+      "initial_hit": 1,
+      "mc_seed": 340000076,
+      "regime": "lambda3",
+      "seed": 337000076,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000077",
+      "initial_hit": 2,
+      "mc_seed": 340000077,
+      "regime": "lambda3",
+      "seed": 337000077,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000078",
+      "initial_hit": 3,
+      "mc_seed": 340000078,
+      "regime": "lambda3",
+      "seed": 337000078,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000079",
+      "initial_hit": 1,
+      "mc_seed": 340000079,
+      "regime": "lambda3",
+      "seed": 337000079,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000080",
+      "initial_hit": 2,
+      "mc_seed": 340000080,
+      "regime": "lambda3",
+      "seed": 337000080,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000081",
+      "initial_hit": 3,
+      "mc_seed": 340000081,
+      "regime": "lambda3",
+      "seed": 337000081,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000082",
+      "initial_hit": 1,
+      "mc_seed": 340000082,
+      "regime": "lambda3",
+      "seed": 337000082,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000083",
+      "initial_hit": 2,
+      "mc_seed": 340000083,
+      "regime": "lambda3",
+      "seed": 337000083,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000084",
+      "initial_hit": 3,
+      "mc_seed": 340000084,
+      "regime": "lambda3",
+      "seed": 337000084,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000085",
+      "initial_hit": 1,
+      "mc_seed": 340000085,
+      "regime": "lambda3",
+      "seed": 337000085,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000086",
+      "initial_hit": 2,
+      "mc_seed": 340000086,
+      "regime": "lambda3",
+      "seed": 337000086,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000087",
+      "initial_hit": 3,
+      "mc_seed": 340000087,
+      "regime": "lambda3",
+      "seed": 337000087,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000088",
+      "initial_hit": 1,
+      "mc_seed": 340000088,
+      "regime": "lambda3",
+      "seed": 337000088,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000089",
+      "initial_hit": 2,
+      "mc_seed": 340000089,
+      "regime": "lambda3",
+      "seed": 337000089,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000090",
+      "initial_hit": 3,
+      "mc_seed": 340000090,
+      "regime": "lambda3",
+      "seed": 337000090,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000091",
+      "initial_hit": 1,
+      "mc_seed": 340000091,
+      "regime": "lambda3",
+      "seed": 337000091,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000092",
+      "initial_hit": 2,
+      "mc_seed": 340000092,
+      "regime": "lambda3",
+      "seed": 337000092,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000093",
+      "initial_hit": 3,
+      "mc_seed": 340000093,
+      "regime": "lambda3",
+      "seed": 337000093,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000094",
+      "initial_hit": 1,
+      "mc_seed": 340000094,
+      "regime": "lambda3",
+      "seed": 337000094,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000095",
+      "initial_hit": 2,
+      "mc_seed": 340000095,
+      "regime": "lambda3",
+      "seed": 337000095,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000096",
+      "initial_hit": 3,
+      "mc_seed": 340000096,
+      "regime": "lambda3",
+      "seed": 337000096,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000097",
+      "initial_hit": 1,
+      "mc_seed": 340000097,
+      "regime": "lambda3",
+      "seed": 337000097,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000098",
+      "initial_hit": 2,
+      "mc_seed": 340000098,
+      "regime": "lambda3",
+      "seed": 337000098,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000099",
+      "initial_hit": 3,
+      "mc_seed": 340000099,
+      "regime": "lambda3",
+      "seed": 337000099,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000100",
+      "initial_hit": 1,
+      "mc_seed": 340000100,
+      "regime": "lambda3",
+      "seed": 337000100,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000101",
+      "initial_hit": 2,
+      "mc_seed": 340000101,
+      "regime": "lambda3",
+      "seed": 337000101,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000102",
+      "initial_hit": 3,
+      "mc_seed": 340000102,
+      "regime": "lambda3",
+      "seed": 337000102,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000103",
+      "initial_hit": 1,
+      "mc_seed": 340000103,
+      "regime": "lambda3",
+      "seed": 337000103,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000104",
+      "initial_hit": 2,
+      "mc_seed": 340000104,
+      "regime": "lambda3",
+      "seed": 337000104,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000105",
+      "initial_hit": 3,
+      "mc_seed": 340000105,
+      "regime": "lambda3",
+      "seed": 337000105,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000106",
+      "initial_hit": 1,
+      "mc_seed": 340000106,
+      "regime": "lambda3",
+      "seed": 337000106,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000107",
+      "initial_hit": 2,
+      "mc_seed": 340000107,
+      "regime": "lambda3",
+      "seed": 337000107,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000108",
+      "initial_hit": 3,
+      "mc_seed": 340000108,
+      "regime": "lambda3",
+      "seed": 337000108,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000109",
+      "initial_hit": 1,
+      "mc_seed": 340000109,
+      "regime": "lambda3",
+      "seed": 337000109,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000110",
+      "initial_hit": 2,
+      "mc_seed": 340000110,
+      "regime": "lambda3",
+      "seed": 337000110,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000111",
+      "initial_hit": 3,
+      "mc_seed": 340000111,
+      "regime": "lambda3",
+      "seed": 337000111,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000112",
+      "initial_hit": 1,
+      "mc_seed": 340000112,
+      "regime": "lambda3",
+      "seed": 337000112,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000113",
+      "initial_hit": 2,
+      "mc_seed": 340000113,
+      "regime": "lambda3",
+      "seed": 337000113,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000114",
+      "initial_hit": 3,
+      "mc_seed": 340000114,
+      "regime": "lambda3",
+      "seed": 337000114,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000115",
+      "initial_hit": 1,
+      "mc_seed": 340000115,
+      "regime": "lambda3",
+      "seed": 337000115,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000116",
+      "initial_hit": 2,
+      "mc_seed": 340000116,
+      "regime": "lambda3",
+      "seed": 337000116,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000117",
+      "initial_hit": 3,
+      "mc_seed": 340000117,
+      "regime": "lambda3",
+      "seed": 337000117,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000118",
+      "initial_hit": 1,
+      "mc_seed": 340000118,
+      "regime": "lambda3",
+      "seed": 337000118,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000119",
+      "initial_hit": 2,
+      "mc_seed": 340000119,
+      "regime": "lambda3",
+      "seed": 337000119,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000120",
+      "initial_hit": 3,
+      "mc_seed": 340000120,
+      "regime": "lambda3",
+      "seed": 337000120,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000121",
+      "initial_hit": 1,
+      "mc_seed": 340000121,
+      "regime": "lambda3",
+      "seed": 337000121,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000122",
+      "initial_hit": 2,
+      "mc_seed": 340000122,
+      "regime": "lambda3",
+      "seed": 337000122,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000123",
+      "initial_hit": 3,
+      "mc_seed": 340000123,
+      "regime": "lambda3",
+      "seed": 337000123,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000124",
+      "initial_hit": 1,
+      "mc_seed": 340000124,
+      "regime": "lambda3",
+      "seed": 337000124,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000125",
+      "initial_hit": 2,
+      "mc_seed": 340000125,
+      "regime": "lambda3",
+      "seed": 337000125,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000126",
+      "initial_hit": 3,
+      "mc_seed": 340000126,
+      "regime": "lambda3",
+      "seed": 337000126,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000127",
+      "initial_hit": 1,
+      "mc_seed": 340000127,
+      "regime": "lambda3",
+      "seed": 337000127,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:337000128",
+      "initial_hit": 2,
+      "mc_seed": 340000128,
+      "regime": "lambda3",
+      "seed": 337000128,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000001",
+      "initial_hit": 1,
+      "mc_seed": 340000129,
+      "regime": "lambda4",
+      "seed": 338000001,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000002",
+      "initial_hit": 2,
+      "mc_seed": 340000130,
+      "regime": "lambda4",
+      "seed": 338000002,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000003",
+      "initial_hit": 3,
+      "mc_seed": 340000131,
+      "regime": "lambda4",
+      "seed": 338000003,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000004",
+      "initial_hit": 1,
+      "mc_seed": 340000132,
+      "regime": "lambda4",
+      "seed": 338000004,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000005",
+      "initial_hit": 2,
+      "mc_seed": 340000133,
+      "regime": "lambda4",
+      "seed": 338000005,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000006",
+      "initial_hit": 3,
+      "mc_seed": 340000134,
+      "regime": "lambda4",
+      "seed": 338000006,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000007",
+      "initial_hit": 1,
+      "mc_seed": 340000135,
+      "regime": "lambda4",
+      "seed": 338000007,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000008",
+      "initial_hit": 2,
+      "mc_seed": 340000136,
+      "regime": "lambda4",
+      "seed": 338000008,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000009",
+      "initial_hit": 3,
+      "mc_seed": 340000137,
+      "regime": "lambda4",
+      "seed": 338000009,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000010",
+      "initial_hit": 1,
+      "mc_seed": 340000138,
+      "regime": "lambda4",
+      "seed": 338000010,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000011",
+      "initial_hit": 2,
+      "mc_seed": 340000139,
+      "regime": "lambda4",
+      "seed": 338000011,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000012",
+      "initial_hit": 3,
+      "mc_seed": 340000140,
+      "regime": "lambda4",
+      "seed": 338000012,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000013",
+      "initial_hit": 1,
+      "mc_seed": 340000141,
+      "regime": "lambda4",
+      "seed": 338000013,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000014",
+      "initial_hit": 2,
+      "mc_seed": 340000142,
+      "regime": "lambda4",
+      "seed": 338000014,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000015",
+      "initial_hit": 3,
+      "mc_seed": 340000143,
+      "regime": "lambda4",
+      "seed": 338000015,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000016",
+      "initial_hit": 1,
+      "mc_seed": 340000144,
+      "regime": "lambda4",
+      "seed": 338000016,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000017",
+      "initial_hit": 2,
+      "mc_seed": 340000145,
+      "regime": "lambda4",
+      "seed": 338000017,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000018",
+      "initial_hit": 3,
+      "mc_seed": 340000146,
+      "regime": "lambda4",
+      "seed": 338000018,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000019",
+      "initial_hit": 1,
+      "mc_seed": 340000147,
+      "regime": "lambda4",
+      "seed": 338000019,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000020",
+      "initial_hit": 2,
+      "mc_seed": 340000148,
+      "regime": "lambda4",
+      "seed": 338000020,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000021",
+      "initial_hit": 3,
+      "mc_seed": 340000149,
+      "regime": "lambda4",
+      "seed": 338000021,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000022",
+      "initial_hit": 1,
+      "mc_seed": 340000150,
+      "regime": "lambda4",
+      "seed": 338000022,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000023",
+      "initial_hit": 2,
+      "mc_seed": 340000151,
+      "regime": "lambda4",
+      "seed": 338000023,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000024",
+      "initial_hit": 3,
+      "mc_seed": 340000152,
+      "regime": "lambda4",
+      "seed": 338000024,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000025",
+      "initial_hit": 1,
+      "mc_seed": 340000153,
+      "regime": "lambda4",
+      "seed": 338000025,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000026",
+      "initial_hit": 2,
+      "mc_seed": 340000154,
+      "regime": "lambda4",
+      "seed": 338000026,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000027",
+      "initial_hit": 3,
+      "mc_seed": 340000155,
+      "regime": "lambda4",
+      "seed": 338000027,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000028",
+      "initial_hit": 1,
+      "mc_seed": 340000156,
+      "regime": "lambda4",
+      "seed": 338000028,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000029",
+      "initial_hit": 2,
+      "mc_seed": 340000157,
+      "regime": "lambda4",
+      "seed": 338000029,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000030",
+      "initial_hit": 3,
+      "mc_seed": 340000158,
+      "regime": "lambda4",
+      "seed": 338000030,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000031",
+      "initial_hit": 1,
+      "mc_seed": 340000159,
+      "regime": "lambda4",
+      "seed": 338000031,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000032",
+      "initial_hit": 2,
+      "mc_seed": 340000160,
+      "regime": "lambda4",
+      "seed": 338000032,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000033",
+      "initial_hit": 3,
+      "mc_seed": 340000161,
+      "regime": "lambda4",
+      "seed": 338000033,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000034",
+      "initial_hit": 1,
+      "mc_seed": 340000162,
+      "regime": "lambda4",
+      "seed": 338000034,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000035",
+      "initial_hit": 2,
+      "mc_seed": 340000163,
+      "regime": "lambda4",
+      "seed": 338000035,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000036",
+      "initial_hit": 3,
+      "mc_seed": 340000164,
+      "regime": "lambda4",
+      "seed": 338000036,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000037",
+      "initial_hit": 1,
+      "mc_seed": 340000165,
+      "regime": "lambda4",
+      "seed": 338000037,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000038",
+      "initial_hit": 2,
+      "mc_seed": 340000166,
+      "regime": "lambda4",
+      "seed": 338000038,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000039",
+      "initial_hit": 3,
+      "mc_seed": 340000167,
+      "regime": "lambda4",
+      "seed": 338000039,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000040",
+      "initial_hit": 1,
+      "mc_seed": 340000168,
+      "regime": "lambda4",
+      "seed": 338000040,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000041",
+      "initial_hit": 2,
+      "mc_seed": 340000169,
+      "regime": "lambda4",
+      "seed": 338000041,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000042",
+      "initial_hit": 3,
+      "mc_seed": 340000170,
+      "regime": "lambda4",
+      "seed": 338000042,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000043",
+      "initial_hit": 1,
+      "mc_seed": 340000171,
+      "regime": "lambda4",
+      "seed": 338000043,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000044",
+      "initial_hit": 2,
+      "mc_seed": 340000172,
+      "regime": "lambda4",
+      "seed": 338000044,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000045",
+      "initial_hit": 3,
+      "mc_seed": 340000173,
+      "regime": "lambda4",
+      "seed": 338000045,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000046",
+      "initial_hit": 1,
+      "mc_seed": 340000174,
+      "regime": "lambda4",
+      "seed": 338000046,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000047",
+      "initial_hit": 2,
+      "mc_seed": 340000175,
+      "regime": "lambda4",
+      "seed": 338000047,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000048",
+      "initial_hit": 3,
+      "mc_seed": 340000176,
+      "regime": "lambda4",
+      "seed": 338000048,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000049",
+      "initial_hit": 1,
+      "mc_seed": 340000177,
+      "regime": "lambda4",
+      "seed": 338000049,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000050",
+      "initial_hit": 2,
+      "mc_seed": 340000178,
+      "regime": "lambda4",
+      "seed": 338000050,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000051",
+      "initial_hit": 3,
+      "mc_seed": 340000179,
+      "regime": "lambda4",
+      "seed": 338000051,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000052",
+      "initial_hit": 1,
+      "mc_seed": 340000180,
+      "regime": "lambda4",
+      "seed": 338000052,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000053",
+      "initial_hit": 2,
+      "mc_seed": 340000181,
+      "regime": "lambda4",
+      "seed": 338000053,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000054",
+      "initial_hit": 3,
+      "mc_seed": 340000182,
+      "regime": "lambda4",
+      "seed": 338000054,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000055",
+      "initial_hit": 1,
+      "mc_seed": 340000183,
+      "regime": "lambda4",
+      "seed": 338000055,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000056",
+      "initial_hit": 2,
+      "mc_seed": 340000184,
+      "regime": "lambda4",
+      "seed": 338000056,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000057",
+      "initial_hit": 3,
+      "mc_seed": 340000185,
+      "regime": "lambda4",
+      "seed": 338000057,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000058",
+      "initial_hit": 1,
+      "mc_seed": 340000186,
+      "regime": "lambda4",
+      "seed": 338000058,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000059",
+      "initial_hit": 2,
+      "mc_seed": 340000187,
+      "regime": "lambda4",
+      "seed": 338000059,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000060",
+      "initial_hit": 3,
+      "mc_seed": 340000188,
+      "regime": "lambda4",
+      "seed": 338000060,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000061",
+      "initial_hit": 1,
+      "mc_seed": 340000189,
+      "regime": "lambda4",
+      "seed": 338000061,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000062",
+      "initial_hit": 2,
+      "mc_seed": 340000190,
+      "regime": "lambda4",
+      "seed": 338000062,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000063",
+      "initial_hit": 3,
+      "mc_seed": 340000191,
+      "regime": "lambda4",
+      "seed": 338000063,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000064",
+      "initial_hit": 1,
+      "mc_seed": 340000192,
+      "regime": "lambda4",
+      "seed": 338000064,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000065",
+      "initial_hit": 2,
+      "mc_seed": 340000193,
+      "regime": "lambda4",
+      "seed": 338000065,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000066",
+      "initial_hit": 3,
+      "mc_seed": 340000194,
+      "regime": "lambda4",
+      "seed": 338000066,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000067",
+      "initial_hit": 1,
+      "mc_seed": 340000195,
+      "regime": "lambda4",
+      "seed": 338000067,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000068",
+      "initial_hit": 2,
+      "mc_seed": 340000196,
+      "regime": "lambda4",
+      "seed": 338000068,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000069",
+      "initial_hit": 3,
+      "mc_seed": 340000197,
+      "regime": "lambda4",
+      "seed": 338000069,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000070",
+      "initial_hit": 1,
+      "mc_seed": 340000198,
+      "regime": "lambda4",
+      "seed": 338000070,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000071",
+      "initial_hit": 2,
+      "mc_seed": 340000199,
+      "regime": "lambda4",
+      "seed": 338000071,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000072",
+      "initial_hit": 3,
+      "mc_seed": 340000200,
+      "regime": "lambda4",
+      "seed": 338000072,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000073",
+      "initial_hit": 1,
+      "mc_seed": 340000201,
+      "regime": "lambda4",
+      "seed": 338000073,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000074",
+      "initial_hit": 2,
+      "mc_seed": 340000202,
+      "regime": "lambda4",
+      "seed": 338000074,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000075",
+      "initial_hit": 3,
+      "mc_seed": 340000203,
+      "regime": "lambda4",
+      "seed": 338000075,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000076",
+      "initial_hit": 1,
+      "mc_seed": 340000204,
+      "regime": "lambda4",
+      "seed": 338000076,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000077",
+      "initial_hit": 2,
+      "mc_seed": 340000205,
+      "regime": "lambda4",
+      "seed": 338000077,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000078",
+      "initial_hit": 3,
+      "mc_seed": 340000206,
+      "regime": "lambda4",
+      "seed": 338000078,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000079",
+      "initial_hit": 1,
+      "mc_seed": 340000207,
+      "regime": "lambda4",
+      "seed": 338000079,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000080",
+      "initial_hit": 2,
+      "mc_seed": 340000208,
+      "regime": "lambda4",
+      "seed": 338000080,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000081",
+      "initial_hit": 3,
+      "mc_seed": 340000209,
+      "regime": "lambda4",
+      "seed": 338000081,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000082",
+      "initial_hit": 1,
+      "mc_seed": 340000210,
+      "regime": "lambda4",
+      "seed": 338000082,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000083",
+      "initial_hit": 2,
+      "mc_seed": 340000211,
+      "regime": "lambda4",
+      "seed": 338000083,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000084",
+      "initial_hit": 3,
+      "mc_seed": 340000212,
+      "regime": "lambda4",
+      "seed": 338000084,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000085",
+      "initial_hit": 1,
+      "mc_seed": 340000213,
+      "regime": "lambda4",
+      "seed": 338000085,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000086",
+      "initial_hit": 2,
+      "mc_seed": 340000214,
+      "regime": "lambda4",
+      "seed": 338000086,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000087",
+      "initial_hit": 3,
+      "mc_seed": 340000215,
+      "regime": "lambda4",
+      "seed": 338000087,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000088",
+      "initial_hit": 1,
+      "mc_seed": 340000216,
+      "regime": "lambda4",
+      "seed": 338000088,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000089",
+      "initial_hit": 2,
+      "mc_seed": 340000217,
+      "regime": "lambda4",
+      "seed": 338000089,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000090",
+      "initial_hit": 3,
+      "mc_seed": 340000218,
+      "regime": "lambda4",
+      "seed": 338000090,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000091",
+      "initial_hit": 1,
+      "mc_seed": 340000219,
+      "regime": "lambda4",
+      "seed": 338000091,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000092",
+      "initial_hit": 2,
+      "mc_seed": 340000220,
+      "regime": "lambda4",
+      "seed": 338000092,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000093",
+      "initial_hit": 3,
+      "mc_seed": 340000221,
+      "regime": "lambda4",
+      "seed": 338000093,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000094",
+      "initial_hit": 1,
+      "mc_seed": 340000222,
+      "regime": "lambda4",
+      "seed": 338000094,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000095",
+      "initial_hit": 2,
+      "mc_seed": 340000223,
+      "regime": "lambda4",
+      "seed": 338000095,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000096",
+      "initial_hit": 3,
+      "mc_seed": 340000224,
+      "regime": "lambda4",
+      "seed": 338000096,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000097",
+      "initial_hit": 1,
+      "mc_seed": 340000225,
+      "regime": "lambda4",
+      "seed": 338000097,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000098",
+      "initial_hit": 2,
+      "mc_seed": 340000226,
+      "regime": "lambda4",
+      "seed": 338000098,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000099",
+      "initial_hit": 3,
+      "mc_seed": 340000227,
+      "regime": "lambda4",
+      "seed": 338000099,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000100",
+      "initial_hit": 1,
+      "mc_seed": 340000228,
+      "regime": "lambda4",
+      "seed": 338000100,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000101",
+      "initial_hit": 2,
+      "mc_seed": 340000229,
+      "regime": "lambda4",
+      "seed": 338000101,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000102",
+      "initial_hit": 3,
+      "mc_seed": 340000230,
+      "regime": "lambda4",
+      "seed": 338000102,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000103",
+      "initial_hit": 1,
+      "mc_seed": 340000231,
+      "regime": "lambda4",
+      "seed": 338000103,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000104",
+      "initial_hit": 2,
+      "mc_seed": 340000232,
+      "regime": "lambda4",
+      "seed": 338000104,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000105",
+      "initial_hit": 3,
+      "mc_seed": 340000233,
+      "regime": "lambda4",
+      "seed": 338000105,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000106",
+      "initial_hit": 1,
+      "mc_seed": 340000234,
+      "regime": "lambda4",
+      "seed": 338000106,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000107",
+      "initial_hit": 2,
+      "mc_seed": 340000235,
+      "regime": "lambda4",
+      "seed": 338000107,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000108",
+      "initial_hit": 3,
+      "mc_seed": 340000236,
+      "regime": "lambda4",
+      "seed": 338000108,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000109",
+      "initial_hit": 1,
+      "mc_seed": 340000237,
+      "regime": "lambda4",
+      "seed": 338000109,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000110",
+      "initial_hit": 2,
+      "mc_seed": 340000238,
+      "regime": "lambda4",
+      "seed": 338000110,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000111",
+      "initial_hit": 3,
+      "mc_seed": 340000239,
+      "regime": "lambda4",
+      "seed": 338000111,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000112",
+      "initial_hit": 1,
+      "mc_seed": 340000240,
+      "regime": "lambda4",
+      "seed": 338000112,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000113",
+      "initial_hit": 2,
+      "mc_seed": 340000241,
+      "regime": "lambda4",
+      "seed": 338000113,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000114",
+      "initial_hit": 3,
+      "mc_seed": 340000242,
+      "regime": "lambda4",
+      "seed": 338000114,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000115",
+      "initial_hit": 1,
+      "mc_seed": 340000243,
+      "regime": "lambda4",
+      "seed": 338000115,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000116",
+      "initial_hit": 2,
+      "mc_seed": 340000244,
+      "regime": "lambda4",
+      "seed": 338000116,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000117",
+      "initial_hit": 3,
+      "mc_seed": 340000245,
+      "regime": "lambda4",
+      "seed": 338000117,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000118",
+      "initial_hit": 1,
+      "mc_seed": 340000246,
+      "regime": "lambda4",
+      "seed": 338000118,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000119",
+      "initial_hit": 2,
+      "mc_seed": 340000247,
+      "regime": "lambda4",
+      "seed": 338000119,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000120",
+      "initial_hit": 3,
+      "mc_seed": 340000248,
+      "regime": "lambda4",
+      "seed": 338000120,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000121",
+      "initial_hit": 1,
+      "mc_seed": 340000249,
+      "regime": "lambda4",
+      "seed": 338000121,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000122",
+      "initial_hit": 2,
+      "mc_seed": 340000250,
+      "regime": "lambda4",
+      "seed": 338000122,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000123",
+      "initial_hit": 3,
+      "mc_seed": 340000251,
+      "regime": "lambda4",
+      "seed": 338000123,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000124",
+      "initial_hit": 1,
+      "mc_seed": 340000252,
+      "regime": "lambda4",
+      "seed": 338000124,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000125",
+      "initial_hit": 2,
+      "mc_seed": 340000253,
+      "regime": "lambda4",
+      "seed": 338000125,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000126",
+      "initial_hit": 3,
+      "mc_seed": 340000254,
+      "regime": "lambda4",
+      "seed": 338000126,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000127",
+      "initial_hit": 1,
+      "mc_seed": 340000255,
+      "regime": "lambda4",
+      "seed": 338000127,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:338000128",
+      "initial_hit": 2,
+      "mc_seed": 340000256,
+      "regime": "lambda4",
+      "seed": 338000128,
+      "split": "dev"
+    }
+  ],
+  "runtime": {
+    "all_distributions": {
+      "Markdown": "3.10.3",
+      "MarkupSafe": "3.0.3",
+      "Pygments": "2.21.0",
+      "Werkzeug": "3.1.8",
+      "absl-py": "2.5.0",
+      "astunparse": "1.6.3",
+      "certifi": "2026.7.22",
+      "charset-normalizer": "3.5.1",
+      "flatbuffers": "25.12.19",
+      "gast": "0.7.0",
+      "google-pasta": "0.2.0",
+      "grpcio": "1.84.0",
+      "h5py": "3.14.0",
+      "idna": "3.20",
+      "iniconfig": "2.3.0",
+      "keras": "3.15.1",
+      "libclang": "18.1.1",
+      "markdown-it-py": "4.2.0",
+      "mdurl": "0.1.2",
+      "ml_dtypes": "0.6.0",
+      "namex": "0.1.0",
+      "numpy": "2.5.3",
+      "opt_einsum": "3.4.0",
+      "optree": "0.20.0",
+      "packaging": "26.3",
+      "pillow": "12.3.0",
+      "pluggy": "1.6.0",
+      "protobuf": "7.36.2",
+      "pytest": "8.4.2",
+      "requests": "2.34.2",
+      "rich": "15.0.0",
+      "scipy": "1.18.1",
+      "setuptools": "84.0.0",
+      "six": "1.17.0",
+      "tensorboard": "2.20.0",
+      "tensorboard-data-server": "0.7.2",
+      "tensorflow": "2.20.0",
+      "termcolor": "3.3.0",
+      "tf_keras": "2.20.1",
+      "typing_extensions": "4.16.0",
+      "urllib3": "2.8.0",
+      "wheel": "0.48.0",
+      "wrapt": "2.4.1"
+    },
+    "cpu_only": true,
+    "legacy_keras": true,
+    "numerical_threads": 1,
+    "python_executable": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv-otto-released-native/bin/python",
+    "python_version": "3.12.13",
+    "versions": {
+      "h5py": "3.14.0",
+      "numpy": "2.5.3",
+      "scipy": "1.18.1",
+      "tensorflow": "2.20.0",
+      "tf_keras": "2.20.1"
+    }
+  },
+  "scope": "Six fresh fixed-H8 cost-only GRU fits. Shared data bank and updates; conditional-target gradient noise intervention, no architecture claim.",
+  "sources": {
+    "output/otto-boundary-control-v1/engineering-01/final-native-runtime-tests-01/pytest.log": {
+      "bytes": 179,
+      "sha256": "6eda8c7b455097980a3e72d0b2ffeadb45351a17dfa319c24a4637bc556114cc"
+    },
+    "output/otto-boundary-control-v1/engineering-01/final-native-runtime-tests-01/receipt.json": {
+      "bytes": 2341,
+      "sha256": "e0eb1d479b5287d9c32dbe42a26e05df95954a025c2864f4afb0422b686daa4f"
+    },
+    "output/otto-boundary-control-v1/engineering-01/final-native-runtime-tests-01/ruff.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "output/otto-boundary-control-v1/engineering-01/openjev-otto-boundary-audit-preflight-01/pytest.log": {
+      "bytes": 4093,
+      "sha256": "957e4120ec8eddcffbcd626509b870728f61d6fdf049cfb1ee51a71970f592be"
+    },
+    "output/otto-boundary-control-v1/engineering-01/openjev-otto-boundary-audit-preflight-01/receipt.json": {
+      "bytes": 743,
+      "sha256": "88fd3990ec3fe328ee87dbfda09233722514292d3c53e197cc8e0e57be9308ac"
+    },
+    "output/otto-boundary-control-v1/engineering-01/openjev-otto-boundary-audit-preflight-01/ruff.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "output/otto-boundary-control-v1/engineering-01/openjev-otto-boundary-audit-preflight-02/pytest.log": {
+      "bytes": 113,
+      "sha256": "64ddf8f23f0642bc50dbea3cba0b378d62f68681dcb4d71ebf6fb56e15e0a586"
+    },
+    "output/otto-boundary-control-v1/engineering-01/openjev-otto-boundary-audit-preflight-02/receipt.json": {
+      "bytes": 916,
+      "sha256": "25f17a37fca164339ab62c76106c6186a0d9491c4e5e4c32f442333428fea0ac"
+    },
+    "output/otto-boundary-control-v1/engineering-01/openjev-otto-boundary-audit-preflight-02/ruff.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "output/otto-boundary-control-v1/engineering-01/openjev-otto-restricted-policy-preflight-01/pytest.log": {
+      "bytes": 99,
+      "sha256": "3d415a29b1a43ec244fd5e71060810809524c59f9c5e00fd18f6c6433a8b0314"
+    },
+    "output/otto-boundary-control-v1/engineering-01/openjev-otto-restricted-policy-preflight-01/receipt.json": {
+      "bytes": 1155,
+      "sha256": "54c2a3f9acd44c864a5b5b2e428e2e159641b026b8a678d6f0fb6fefdea0f671"
+    },
+    "output/otto-boundary-control-v1/engineering-01/openjev-otto-restricted-policy-preflight-01/ruff.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "output/otto-boundary-control-v1/engineering-01/plan-assembly.py": {
+      "bytes": 9105,
+      "sha256": "dcb30ba771afe38781b0c840118413c050b6eeda49d3be7b0530d93d7b99aafe"
+    },
+    "output/otto-boundary-control-v1/engineering-01/runner-preflight.json": {
+      "bytes": 2088,
+      "sha256": "9eb58b7af5af23fe540f2d411761755f71c19554a3ba0a8c813c2507cd5ed986"
+    },
+    "output/otto-boundary-control-v1/engineering-01/selection-witness.json": {
+      "bytes": 475,
+      "sha256": "70f6d5dab84233b8c7297eb302cbf3962797b9447f861694e4cd98949fed7134"
+    },
+    "output/otto-boundary-control-v1/engineering-01/source-review-witness.json": {
+      "bytes": 1022,
+      "sha256": "acbfac4804a2f325d228b89a779f99422c84ed394c2f30f5ffc4baa720338345"
+    },
+    "output/otto-conditional-label-v1/seed-review-02.json": {
+      "bytes": 159791,
+      "sha256": "47f214f4a96060e4e617567078efd220ed7f742eb854028b454fd544b07fd439"
+    },
+    "output/otto-conditional-label-v1/source-review-01.json": {
+      "bytes": 3694,
+      "sha256": "a4ded58e92643814e12955380946c88dd9fbab696d4ef0c45d5932422969b3b7"
+    },
+    "output/otto-released-native-v1/actor-preflight-01/openjev-otto-released-policy-preflight-01-pytest.log": {
+      "bytes": 99,
+      "sha256": "93cbd6af997ab18295dc6e0af3358051220edbb2e4c2423f1d15f20d62c8ecbd"
+    },
+    "output/otto-released-native-v1/actor-preflight-01/openjev-otto-released-policy-preflight-01-ruff.log": {
+      "bytes": 1799,
+      "sha256": "a4efbacd5c046a1036167639c24d143444659881cba93c89f889333fca80d3a4"
+    },
+    "output/otto-released-native-v1/actor-preflight-01/openjev-otto-released-policy-preflight-01.json": {
+      "bytes": 1247,
+      "sha256": "89986b2ba044462c46ad33e548fdeee4a845ff1ee7730a8a0216428e7a68d8a2"
+    },
+    "output/otto-released-native-v1/actor-preflight-01/openjev-otto-released-policy-preflight-02-diff.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "output/otto-released-native-v1/actor-preflight-01/openjev-otto-released-policy-preflight-02-pytest.log": {
+      "bytes": 113,
+      "sha256": "4d5b1aefb970dfbde629ce8cfadfb63c8a010d4636a78ccc8891f40470965e6f"
+    },
+    "output/otto-released-native-v1/actor-preflight-01/openjev-otto-released-policy-preflight-02-ruff.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "output/otto-released-native-v1/actor-preflight-01/openjev-otto-released-policy-preflight-02.json": {
+      "bytes": 1906,
+      "sha256": "516fa622998ecc79d45817f7abfd023002e85e383708dc64e7364e8b019e70cc"
+    },
+    "output/otto-released-native-v1/audit-01/audit.py": {
+      "bytes": 29888,
+      "sha256": "7b405bccfcc6d6c4bf7412729801e37e8a2a80b027b0ad3d6d367ebb5a8559d1"
+    },
+    "output/otto-released-native-v1/runtime-preflight-01/command-0.log": {
+      "bytes": 253,
+      "sha256": "c06827650f999bd87b305313d15518f44b14b20698009958902fef22895aedfb"
+    },
+    "output/otto-released-native-v1/runtime-preflight-01/command-1.log": {
+      "bytes": 70,
+      "sha256": "564e0041adbc076905d4f2fe314f58fc0aac6aeee978e9704ccd586eaff67eab"
+    },
+    "output/otto-released-native-v1/runtime-preflight-01/numerical-configuration.txt": {
+      "bytes": 1637,
+      "sha256": "d602f95ba0b6fa2faf2f9ad1ead5e8c601400ede985db4a4a8b058efcb52fb26"
+    },
+    "output/otto-released-native-v1/runtime-preflight-01/preflight.py": {
+      "bytes": 1844,
+      "sha256": "0970f39c88a88632aa18dc9beba6b2668406c2dccf8139de9a3cf6903e4335a5"
+    },
+    "output/otto-released-native-v1/runtime-preflight-01/primitive-checks.jsonl": {
+      "bytes": 980,
+      "sha256": "9dc34292d69b674aac7c9be996ec1283d1e0b7a5ef7957b7c9993946df151156"
+    },
+    "output/otto-released-native-v1/runtime-preflight-01/receipt.json": {
+      "bytes": 1605,
+      "sha256": "74382257d199c5cc61a55be5be104c6cdf99a84493c072d258c324fd1837365f"
+    },
+    "output/otto-released-native-v1/runtime-preflight-01/runtime.json": {
+      "bytes": 488,
+      "sha256": "18fc8fe71fc70d7f3674208a598fd1f7f04ccc1f1a41bdab75ecb2e46c6407b3"
+    },
+    "output/otto-released-native-v1/runtime-setup-01/command-0.log": {
+      "bytes": 195,
+      "sha256": "51edd117e0f33767571a3b6a4802913feb345793a8379e7211fcd7cf63a93fe8"
+    },
+    "output/otto-released-native-v1/runtime-setup-01/command-1.log": {
+      "bytes": 975,
+      "sha256": "dd41efeb15eb5c380fed61d9b667cdaed431b3976407766c6f6e0950d6f0f151"
+    },
+    "output/otto-released-native-v1/runtime-setup-01/command-2.log": {
+      "bytes": 132,
+      "sha256": "cafe41a9590131207693690899d96f01c2b6379529c178c1356da4fe9ea17d7b"
+    },
+    "output/otto-released-native-v1/runtime-setup-01/installed-packages.json": {
+      "bytes": 1025,
+      "sha256": "024965b28139a9bfd64005ffdf55be084a35939c33039f028e8d45ed051a8eec"
+    },
+    "output/otto-released-native-v1/runtime-setup-01/receipt.json": {
+      "bytes": 1597,
+      "sha256": "620802e7e5777ee38a813c1488c353c072ff1eccd5258c4c3fd7095b2a645ea1"
+    },
+    "output/otto-released-native-v1/runtime-setup-01/requirements.txt": {
+      "bytes": 721,
+      "sha256": "edee083daa08ca7c7a82959ebcb57d08813af1344157dc2eec81acefd6eb0dc3"
+    },
+    "output/otto-released-native-v1/runtime-tests-01/receipt.json": {
+      "bytes": 1041,
+      "sha256": "168efe042ae1d23d63bcdc1c03ca333c42de730b537fd76350d538de1533f43c"
+    },
+    "output/otto-released-native-v1/runtime-tests-01/tests.log": {
+      "bytes": 99,
+      "sha256": "de4248f2bff0b3dc39c1d9348cf7218dcc0c16425e82b7e73a03dd2f8990f91e"
+    },
+    "output/otto-released-reference-v1/engineering-01/final-runtime-tests-02/pytest.log": {
+      "bytes": 179,
+      "sha256": "4552af24778bb3fa4560330ca4c863d9b8907283b409b120ae5761afde3350e7"
+    },
+    "output/otto-released-reference-v1/engineering-01/final-runtime-tests-02/receipt.json": {
+      "bytes": 919,
+      "sha256": "5e3b79a2ec09e36562fe23b26a010a734b532b20619190f8372b2825e3606eac"
+    },
+    "output/otto-released-reference-v1/engineering-01/final-runtime-tests/pytest.log": {
+      "bytes": 1797,
+      "sha256": "c824c96ef501779eeb2c4ca17e3d83ccdc57f80af3539547f592d751c9661c15"
+    },
+    "output/otto-released-reference-v1/engineering-01/final-runtime-tests/receipt.json": {
+      "bytes": 2238,
+      "sha256": "91cf19b74f10c667364d8f13ba70f47754b4cd43eea2b3d0e3e359ff03c08ab0"
+    },
+    "output/otto-released-reference-v1/engineering-01/final-runtime-tests/ruff.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "output/otto-released-reference-v1/engineering-01/history.json": {
+      "bytes": 1997,
+      "sha256": "d349fca6fc151a66ec48306b3fbceff9f15b057ea092260b478f17caf4b2d054"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-otto-reference-control-preflight-01-pytest.log": {
+      "bytes": 99,
+      "sha256": "a20368d3dd921d9ef1e9595decde4c3a53485604704f83246b078137418cdca0"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-otto-reference-control-preflight-01-ruff.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-otto-reference-control-preflight-01.json": {
+      "bytes": 1341,
+      "sha256": "c1529c71cdee7e587cd0f97875218284fc6467fb62803c002d34cb0cdfcf5298"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-otto-reference-control-preflight-02-pytest.log": {
+      "bytes": 114,
+      "sha256": "626f5b99571eb61eeec4d9e55433ab3c6a22e9eedf23c1eb0ab2610b86ba5401"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-otto-reference-control-preflight-02-ruff.log": {
+      "bytes": 395,
+      "sha256": "470aff9ca7445630fe0f2409e6039f693cbc725f80864276121f0ce6991ee3bf"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-otto-reference-control-preflight-02.json": {
+      "bytes": 1704,
+      "sha256": "16ac15268a7ed18c7d6c5768f1e2bb0a80cfa6d6aae054ccfb528e8a520cf493"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-otto-reference-control-preflight-03-ruff.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-otto-reference-control-preflight-03.json": {
+      "bytes": 1083,
+      "sha256": "ee6d84bb6baed4d2dc3f63a8c45e742f3c0b59bf56b3882e97f6168398c842e0"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-released-reference-audit-preflight-01/pytest.log": {
+      "bytes": 3706,
+      "sha256": "ccd1f3fa18f0b9407507917a73847168b11b10cbe1eb3acad008b3d0c73d4b05"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-released-reference-audit-preflight-01/receipt.json": {
+      "bytes": 1062,
+      "sha256": "76026f76f1e2c3866eddc972efe95e6bba65b66260283b0d8339ef0ca3a65cb5"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-released-reference-audit-preflight-01/ruff.log": {
+      "bytes": 3558,
+      "sha256": "fea3bccf64772af63d34be42116fbba86e14681353306c8c665c6e64759fbc03"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-released-reference-audit-preflight-02/pytest.log": {
+      "bytes": 7425,
+      "sha256": "d8ae29bb9beb2c660297c0e8e3f7ba1730f96be2a27f8dc901ba7fa2d281d3db"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-released-reference-audit-preflight-02/receipt.json": {
+      "bytes": 1149,
+      "sha256": "7b3c62974f1bcf7365170e9b35ec43b1d856cd0cddfcd2053015fa8e60d93575"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-released-reference-audit-preflight-02/ruff.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-released-reference-audit-preflight-03/pytest.log": {
+      "bytes": 98,
+      "sha256": "8989a153a4f265bdf8bf8abfcbf7ce96cf91c69ee66d543244ebf0fc2c9d041d"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-released-reference-audit-preflight-03/receipt.json": {
+      "bytes": 1400,
+      "sha256": "f7a10ff779f067a2188f28327a0e64b9fb23dc053ea999eba04a46b850370a0d"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-released-reference-audit-preflight-03/ruff.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-released-reference-plan-assembly.py": {
+      "bytes": 5931,
+      "sha256": "36043190a45dbbd8e2cc8a262dc4a117c497a8ba971023676a609a8e5b6f5d30"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-released-reference-runner-preflight-01.json": {
+      "bytes": 2060,
+      "sha256": "7b0969f28bcb2078b930951e620ee3836d49888cd7a408c2516b6ec86e9f01dd"
+    },
+    "output/otto-released-reference-v1/engineering-01/source-review.json": {
+      "bytes": 1540,
+      "sha256": "d14ed6ac31b630565dd9e017805f36ebf108a7a80a67f7cd4259f676bf058981"
+    },
+    "research/otto-boundary-control-protocol.md": {
+      "bytes": 10528,
+      "sha256": "9c86c160e51307c51df8b890fffc00914ea3a89093e83330cb1aef9491f6aef5"
+    },
+    "research/otto-conditional-label-protocol.md": {
+      "bytes": 8755,
+      "sha256": "478fbd9335e55c26ed1a224c3c5db7b914e43741c255bfe946f6a06b124ffaa1"
+    },
+    "research/otto-query-gate-collection-protocol.md": {
+      "bytes": 3480,
+      "sha256": "5c14dba17de15336f11749fbaa304f2c3685eddbeb1142e7699c5e279dcd5c9b"
+    },
+    "research/otto-query-gate-evaluation-protocol.md": {
+      "bytes": 3862,
+      "sha256": "37804aa3538f46c607c417aec6717701d0c6319b16e525215f6955df2c92c50f"
+    },
+    "research/otto-query-gate-learning-design.md": {
+      "bytes": 7154,
+      "sha256": "0fd13e6c75f156aa77f2ac07c0af73b948d84e1f6f9a9d7be5036c0a834f8980"
+    },
+    "research/otto-query-gate-native-protocol.md": {
+      "bytes": 3611,
+      "sha256": "6ee6f4d003abc56fe19ae3c369ed771190e521611043b4fedf099015907d7d38"
+    },
+    "research/otto-query-gate-training-protocol.md": {
+      "bytes": 3154,
+      "sha256": "5d13c14fad33c4375a3aefb1e34474adc9881c5115f5d30381d473e95a1ae334"
+    },
+    "research/otto-released-native-qualification-protocol.md": {
+      "bytes": 6584,
+      "sha256": "bbb9cb0ea3e430e7312f8f544ec27ce379b52e4e0beffbe2f17c43f47e217f98"
+    },
+    "research/otto-released-reference-protocol.md": {
+      "bytes": 10056,
+      "sha256": "5160a125197e5b7c01c8d8b60fb61fd419c2a175fcdde46953be5e899fb0e9cd"
+    },
+    "scripts/audit_otto_boundary_control.py": {
+      "bytes": 36398,
+      "sha256": "9a1ab23570104a73c7700db3a43d0245fe0b3487f3233212884cd2ded34e35b2"
+    },
+    "scripts/audit_otto_conditional_label.py": {
+      "bytes": 49372,
+      "sha256": "b94709679946e54951c41c4c8b595f9a1a8bbe48814a3dcb6ff03b4e11db83ce"
+    },
+    "scripts/audit_otto_released_reference.py": {
+      "bytes": 40716,
+      "sha256": "6f63cbc79107fc3046d28645fa4336fe04bfb91ee53368c78ba3971ced1942e1"
+    },
+    "scripts/collect_otto_conditional_label.py": {
+      "bytes": 19820,
+      "sha256": "5bbe2d5e0ff1355f6de33347fc2c5723624d5981c9901216e307d52f4e5a1d5a"
+    },
+    "scripts/collect_otto_query_gate.py": {
+      "bytes": 34021,
+      "sha256": "5e2b06fc0ff5b888122e733f12b20c881deab7f56b94908ed5a283f7a48c76df"
+    },
+    "scripts/otto_conditional_label_common.py": {
+      "bytes": 12672,
+      "sha256": "98adcbe249ebb00910963194bcbb38d99194e98f8b76840f34303e819aaf6c18"
+    },
+    "scripts/qualify_otto_conditional_label.py": {
+      "bytes": 16692,
+      "sha256": "ecc04d14da63e7feabcb04bdba52c2a53a2875d5c5b970013f6dcfefe4f5f2a7"
+    },
+    "scripts/qualify_otto_pretrained.py": {
+      "bytes": 36124,
+      "sha256": "7c6514831ea204938905bf36575d50bc9abb5365be19bcc4c396fdad672c035a"
+    },
+    "scripts/qualify_otto_query_gate_native.py": {
+      "bytes": 28577,
+      "sha256": "0ef5368a55dab615129602576300c3231d94fd28f7543d31354d9805ea8a5049"
+    },
+    "scripts/qualify_otto_reference_control.py": {
+      "bytes": 16608,
+      "sha256": "0b8591d2c92dd1c006e06d120b167eebfd350d483d2a61e6e933d2025a59bdb5"
+    },
+    "scripts/qualify_otto_released_native.py": {
+      "bytes": 31478,
+      "sha256": "96c68e94498c6b83eb2983c1183c444c5d1080eee06ff961562aeb56a845c65e"
+    },
+    "scripts/qualify_otto_restricted_policy.py": {
+      "bytes": 13370,
+      "sha256": "05a93d9260dcf483d208879bc0c2c922dd0e1c1d6ed7eb227778fb76ac7431d8"
+    },
+    "scripts/run_otto_conditional_label.py": {
+      "bytes": 23527,
+      "sha256": "ed2ca4040895e2b509e16163d8fd7a9715713a260fa34c5e07c2815d1468575b"
+    },
+    "scripts/study_otto_boundary_control.py": {
+      "bytes": 31070,
+      "sha256": "f00af83597e9ecd4bf8e2354fad7e4c6e25f69a9e182fcdd12f0e47050081dd8"
+    },
+    "scripts/study_otto_released_reference.py": {
+      "bytes": 43949,
+      "sha256": "da2a7e418dd29819bddf190f46d1707f1163a22b01a048b33d3dedab875ad87e"
+    },
+    "scripts/supervise_dialogue_observation_v2.py": {
+      "bytes": 9715,
+      "sha256": "610a2fcd2d4d55eb35bce92e61942d5169491dee9d05e2f47f65e211fdf94144"
+    },
+    "src/openjev/research/otto_action_latent_model.py": {
+      "bytes": 15998,
+      "sha256": "2aee36e787d81b794bf7eaf0435c57a25c52c792f6447e3748ea8c9a1bb6a7d2"
+    },
+    "src/openjev/research/otto_conditional_label.py": {
+      "bytes": 5793,
+      "sha256": "d1802ee82448a06e88d81b620d8e8057e4bc4a8841b0d100f3ddfb11265946ba"
+    },
+    "src/openjev/research/otto_conditional_label_sampling.py": {
+      "bytes": 5259,
+      "sha256": "e305cf54200d8e65d0ff005808f01aa9c0ce1703b7c6f23c398cca96fe446003"
+    },
+    "src/openjev/research/otto_predictive_belief.py": {
+      "bytes": 11847,
+      "sha256": "fcf1ad2ed7618d22cef32d21e3bb25707cab0c4d4e0b78092b37e69a721f13a0"
+    },
+    "src/openjev/research/otto_public.py": {
+      "bytes": 9214,
+      "sha256": "438631a18005493e0cafa0777315e2158cac97cc7d0e71ad9fd6402284615b3d"
+    },
+    "src/openjev/research/otto_query_gate.py": {
+      "bytes": 13613,
+      "sha256": "3ef019d408934dc5277378998713e6b38c35334eafcd9b17db163e3e5f8b124c"
+    },
+    "src/openjev/research/otto_reference_control.py": {
+      "bytes": 5955,
+      "sha256": "21e5f6ece09426d26c4a3214d95f0f4803a8efd4bacb9ca347c1d896407c5893"
+    },
+    "src/openjev/research/otto_released_policy.py": {
+      "bytes": 10245,
+      "sha256": "8abac34fef2a6517d43209d5ca27514633363248f66a249e2f4d6615aa0a0d45"
+    },
+    "src/openjev/research/otto_restricted_policy.py": {
+      "bytes": 3539,
+      "sha256": "3e63240b3502b4d4633f9c1671b4ad7ce34466f21c74a4d470bed91d77514630"
+    },
+    "src/openjev/research/otto_sampler_law.py": {
+      "bytes": 5429,
+      "sha256": "c7e6c665a4a04f6f86d4bd07c202fd6e92e4c984d4f8cdf0e61280fae1e9c970"
+    },
+    "src/openjev/research/suspend_clock.py": {
+      "bytes": 5919,
+      "sha256": "cac9077db3c66f5ef43d9412b732f5b869c1004c4bac98589816780c120f6124"
+    },
+    "tests/test_audit_otto_boundary_control.py": {
+      "bytes": 15872,
+      "sha256": "7fd1df56288c284b640eb5c2a2595ee9fbdf8fddfca6576a67214bd26fc9b92b"
+    },
+    "tests/test_audit_otto_conditional_label.py": {
+      "bytes": 16693,
+      "sha256": "9589ddd44e83db0e4a034aeb6a101b814a788b67931522934d7f155a3fe1145a"
+    },
+    "tests/test_audit_otto_released_reference.py": {
+      "bytes": 18594,
+      "sha256": "1fd498ebdf385746c8b5ea9b40982c14198ff1eb0390027ddeacc4a4385e2685"
+    },
+    "tests/test_collect_otto_query_gate.py": {
+      "bytes": 4506,
+      "sha256": "48aa343c6aaebdf02ba6f1377d3cd4feb8b1ec36b03505e4cbfc442a8da82ff7"
+    },
+    "tests/test_otto_action_latent_model.py": {
+      "bytes": 16670,
+      "sha256": "6e9c465c49dd93f3ff986395e7076df881b1cb9bd3d084dabdcd69efeaedbad6"
+    },
+    "tests/test_otto_boundary_control.py": {
+      "bytes": 11768,
+      "sha256": "b22187b411f439df10b2c5a89cc7f8314dbc41aa989cf5543768936249b94766"
+    },
+    "tests/test_otto_conditional_label.py": {
+      "bytes": 8743,
+      "sha256": "2db54087974f19be7143782b743e17727f9fe78b7920f01ab29a74e4c4f407ed"
+    },
+    "tests/test_otto_conditional_label_sampling.py": {
+      "bytes": 17858,
+      "sha256": "f2e38cf947954f9ff59216aa12b0e9f947f8ff57aec4144995e3912229f437b2"
+    },
+    "tests/test_otto_predictive_belief.py": {
+      "bytes": 14444,
+      "sha256": "85bbf9431cc81f4f8b82945f4be0a642d6f5cba7cddacdcb23ba1eb16c5c7c9a"
+    },
+    "tests/test_otto_query_gate.py": {
+      "bytes": 11628,
+      "sha256": "fe77fd7fb5c1a853716236b93fb8734575fbada4d034224e03f05bb5bad1d889"
+    },
+    "tests/test_otto_reference_control.py": {
+      "bytes": 10033,
+      "sha256": "e989a18ad56f80bb412b62570bba649978ea171eccfdb2b8c404566a543ab37c"
+    },
+    "tests/test_otto_released_policy.py": {
+      "bytes": 11920,
+      "sha256": "cc2e7e543a8e8b7139dbcb974680e8af0213e81cbd089b475b14710dc8f8b6b7"
+    },
+    "tests/test_otto_released_reference.py": {
+      "bytes": 15856,
+      "sha256": "e7d7f5191134a9dfef0b84648a3b3cb6bf82628797c9455007898de1569050dc"
+    },
+    "tests/test_otto_restricted_policy.py": {
+      "bytes": 8876,
+      "sha256": "49132b1c8cf3e7891a88cb387f40f01e10afb946952a58463c129743b275c0eb"
+    },
+    "tests/test_qualify_otto_released_native.py": {
+      "bytes": 10091,
+      "sha256": "efb111da294f0e40ac3e1f60adc435b64e085083f1e27d5fd0da7fd672fd8072"
+    },
+    "tests/test_run_otto_conditional_label.py": {
+      "bytes": 10141,
+      "sha256": "c715e111f8585b233a62c936c89d643fa6e3eee76d676f1ed713da5f48d7703c"
+    },
+    "tmp/otto-source-review-01/isotropic/classes/heuristicpolicy.py": {
+      "bytes": 29448,
+      "sha256": "e473c5c0e2908622e704012fc79dffc05172fe8b6f4036dcbf240a05c4e4b469"
+    },
+    "tmp/otto-source-review-01/isotropic/classes/policy.py": {
+      "bytes": 2236,
+      "sha256": "8fc915c86972a8be0ccd0a98d9522be4cd9c751d862a351d60221f8c7902976d"
+    },
+    "tmp/otto-source-review-01/isotropic/classes/rlpolicy.py": {
+      "bytes": 4482,
+      "sha256": "d32b98f903f90bfeed40111c9120a524442e31c0d28eb7cdac0d6db80c2af5fb"
+    },
+    "tmp/otto-source-review-01/isotropic/classes/sourcetracking.py": {
+      "bytes": 23646,
+      "sha256": "1057f129fa8a3249a7297a9ef2c15059d37430b12e42a2f1d43dfcdffe3e76f1"
+    },
+    "tmp/otto-source-review-01/isotropic/classes/valuemodel.py": {
+      "bytes": 10678,
+      "sha256": "151eae8b84c42a92691d6dd817fe5384f2feb806ae405088a5c57da03d067eb8"
+    }
+  },
+  "status": "frozen_before_collection",
+  "version": "otto-conditional-label-v1"
+}
