@@ -68,8 +68,9 @@ other. The independent audit completed; the held-out test remains unused.
 [All models and evidence](https://github.com/kw2828/OpenJev/releases/tag/otto-query-memory-dev-v1).
 This fixed-path comparison establishes no autonomous or architecture advantage.
 
-The next [Bayesian memory comparison](research/otto-residual-estimator-engineering.md)
-passes 278 implementation tests; its fresh-data experiment has not run yet.
+The next [Bayesian memory comparison](research/otto-residual-estimator-status.md)
+passes 531 implementation tests and its capacity check. Fresh-data evaluation
+is registered; no new performance gain is established yet.
 
 The [earlier protected-readout failure](research/otto-protected-readout-results.md),
 other comparisons and incomplete runs remain in the
