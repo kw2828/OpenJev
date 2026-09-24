@@ -92,18 +92,35 @@ def archive_name(path):
     return name
 
 
+def repository_image_path(reference):
+    """Map a local or exact public raw URL to one unambiguous repository path."""
+    prefix = 'https://raw.githubusercontent.com/kw2828/OpenJev/main/'
+    require(reference == reference.strip() and not any(ord(c) < 32 for c in reference)
+            and '?' not in reference and '#' not in reference, 'plain README image reference')
+    parsed = urlsplit(reference)
+    if parsed.scheme or parsed.netloc:
+        require(reference.startswith(prefix) and parsed.scheme == 'https'
+                and parsed.netloc == 'raw.githubusercontent.com', 'exact repository raw image URL')
+        path = reference[len(prefix):]
+    else:
+        path = parsed.path
+    decoded = unquote(path, errors='strict')
+    require(decoded and not any(c in decoded for c in ('\\', '%', '?', '#'))
+            and not any(ord(c) < 32 for c in decoded)
+            and all(part not in ('', '.', '..') for part in decoded.split('/')),
+            'safe unambiguous README media path')
+    relative = PurePosixPath(decoded)
+    require(not relative.is_absolute(), 'repository-relative README media path')
+    return relative
+
+
 def embedded_images(text):
     references = re.findall(r'!\[[^\]]*\]\(\s*(?:<([^>]+)>|([^\s)]+))', text)
     references = [left or right for left, right in references]
     references += re.findall(r'<img\b[^>]*\bsrc=[\'"]([^\'"]+)[\'"]', text)
     paths = []
     for reference in references:
-        parsed = urlsplit(reference)
-        require(not parsed.scheme and not parsed.netloc and not parsed.query and not parsed.fragment,
-                'repository-local embedded README media: ' + reference)
-        relative = PurePosixPath(unquote(parsed.path))
-        require(not relative.is_absolute() and '..' not in relative.parts, 'safe README media path')
-        paths.append(regular(ROOT / relative))
+        paths.append(regular(ROOT / repository_image_path(reference)))
     require(paths, 'README contains embedded media')
     return paths
 
@@ -212,6 +229,12 @@ def main(closure_sha, commit):
         'third_party/otto/LICENSE', 'third_party/otto/LICENSE-zoo', 'models/chess-candidate-v2/LICENSE',
         'output/otto-conditional-label-v1/close-01.py',
         'output/otto-conditional-label-publication-v1/render-01.py',
+        'output/otto-conditional-label-publication-v1/render-02.log',
+        'output/otto-conditional-label-publication-v1/render-03.log',
+        'output/otto-conditional-label-publication-v1/render-correction.json',
+        *('output/otto-conditional-label-publication-v1/render-attempt-01/' + name for name in
+          ('render-01.py', 'render-01.log', 'otto-conditional-label-results.md',
+           'benchmark.png', 'summary.json', 'receipt.json')),
         'output/otto-conditional-label-publication-v1/release-notes.md',
         'output/otto-conditional-label-publication-v1/archive.py',
         'output/otto-conditional-label-publication-v1/verify-remote-01.py',

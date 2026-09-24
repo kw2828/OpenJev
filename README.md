@@ -36,7 +36,7 @@ The free [browser demo](https://kw2828.github.io/OpenJev/) runs Qwen3-0.6B throu
 
 Four small policies score legal moves across **twelve fits and 288 games**. Exact next-board differences raise ordinary move agreement from **31.75% to 33.15%**, but cost more computation and fail the engine-loss and game-score criteria. The GIF is the first scheduled game, not a selected win. No learned world model or Elo rating is established.
 
-[Results, all checkpoints and controls](docs/chess-candidate.md) · [ChessBench transfer](docs/chessbench-transfer.md) · [Connectome comparison](docs/chess-connectome.md) · [Graph-quality comparison](docs/chess-pin-quality.md).
+[Open chess GIF](https://raw.githubusercontent.com/kw2828/OpenJev/main/docs/assets/chess-candidate-game-001.gif) · [Results, all checkpoints and controls](docs/chess-candidate.md) · [ChessBench transfer](docs/chessbench-transfer.md) · [Connectome comparison](docs/chess-connectome.md) · [Graph-quality comparison](docs/chess-pin-quality.md).
 
 ## Doom
 
@@ -44,11 +44,13 @@ Four small policies score legal moves across **twelve fits and 288 games**. Exac
 
 **13 kills in 19.26 game seconds**, from the first fit and first evaluation seed. JEPA supplies training rewards; a small policy plays this recording. The full nine-method comparison did **not** establish a reliable JEPA advantage. This is one illustrative episode, not an inference-speed benchmark.
 
-[Results and limits](docs/jepa-rl-study.md) · [Recording receipt](docs/assets/jepa-policy-181000.json) · [Other Doom controllers](docs/project-reference.md).
+[Open Doom GIF](https://raw.githubusercontent.com/kw2828/OpenJev/main/docs/assets/jepa-policy-181000-preview.gif) · [Results and limits](docs/jepa-rl-study.md) · [Recording receipt](docs/assets/jepa-policy-181000.json) · [Other Doom controllers](docs/project-reference.md).
 
 ## Robot reaching
 
 [![Preselected first robot case with persistent memory and trained reset controls](https://raw.githubusercontent.com/kw2828/OpenJev/main/evidence/reacher-geometry-memory-v1/report/fixed-case-replay.gif)](research/reacher-geometry-memory.md)
+
+[Open robot GIF](https://raw.githubusercontent.com/kw2828/OpenJev/main/evidence/reacher-geometry-memory-v1/report/fixed-case-replay.gif).
 
 The stronger memory comparison **failed its rule: 24/25 checks passed**. Persistent GRU lowers control cost by **4.44% / 2.94%** versus a separately trained two-observation controller; the rule requires at least 3% on both sensing-gap panels. Supplied-physics controllers still perform better.
 
@@ -64,6 +66,7 @@ Both settings failed the predeclared rule; the independent audit passed.
 [![All six matched fits and uncertainty intervals](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/otto-conditional-label-results/benchmark.png)](research/otto-conditional-label-results.md)
 
 [Results and controls](research/otto-conditional-label-results.md) ·
+[Open chart](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/otto-conditional-label-results/benchmark.png) ·
 [All six checkpoints and evidence](https://github.com/kw2828/OpenJev/releases/tag/otto-conditional-label-v1).
 The earlier [expensive-reference diagnostic](research/otto-cost-information-results.md)
 found headroom, but this training recipe did not reliably capture it.

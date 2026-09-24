@@ -44,16 +44,34 @@ def descriptor(path):
     return {'sha256': digest.hexdigest(), 'bytes': path.stat().st_size}
 
 
+def repository_image_path(reference):
+    """Map a local or exact public raw URL to one unambiguous repository path."""
+    prefix = 'https://raw.githubusercontent.com/kw2828/OpenJev/main/'
+    require(reference == reference.strip() and not any(ord(c) < 32 for c in reference)
+            and '?' not in reference and '#' not in reference, 'plain README image reference')
+    parsed = urlsplit(reference)
+    if parsed.scheme or parsed.netloc:
+        require(reference.startswith(prefix) and parsed.scheme == 'https'
+                and parsed.netloc == 'raw.githubusercontent.com', 'exact repository raw image URL')
+        path = reference[len(prefix):]
+    else:
+        path = parsed.path
+    decoded = unquote(path, errors='strict')
+    require(decoded and not any(c in decoded for c in ('\\', '%', '?', '#'))
+            and not any(ord(c) < 32 for c in decoded)
+            and all(part not in ('', '.', '..') for part in decoded.split('/')),
+            'safe unambiguous README media path')
+    relative = PurePosixPath(decoded)
+    require(not relative.is_absolute(), 'repository-relative README media path')
+    return relative
+
+
 def images(readme):
     references = [a or b for a, b in re.findall(r'!\[[^\]]*\]\(\s*(?:<([^>]+)>|([^\s)]+))', readme)]
     references += re.findall(r'<img\b[^>]*\bsrc=[\'"]([^\'"]+)[\'"]', readme)
     names = []
     for reference in references:
-        parsed = urlsplit(reference)
-        require(not parsed.scheme and not parsed.netloc and not parsed.query and not parsed.fragment,
-                'repository-local embedded image: ' + reference)
-        name = PurePosixPath(unquote(parsed.path))
-        require(not name.is_absolute() and '..' not in name.parts, 'safe image path')
+        name = repository_image_path(reference)
         if name.as_posix() not in names:
             names.append(name.as_posix())
     require('research/otto-conditional-label-results/benchmark.png' in names, 'new benchmark embedded in README')
