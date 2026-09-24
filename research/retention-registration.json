@@ -1,0 +1,122 @@
+{
+  "config": {
+    "batch_contexts": 8,
+    "cohorts": 3,
+    "entropy_coefficient": 0.002,
+    "epochs": 16,
+    "evaluation_contexts": 128,
+    "fit_seeds": [
+      11,
+      23,
+      37
+    ],
+    "gradient_clip": 1.0,
+    "group_size": 4,
+    "learning_rate": 0.01,
+    "methods": [
+      "learned-11",
+      "learned-23",
+      "learned-37",
+      "kl8",
+      "kl9",
+      "fifo9",
+      "fic9",
+      "coverage41",
+      "recent41",
+      "full",
+      "diagonal"
+    ],
+    "namespace": 443260924,
+    "populations": {
+      "base": {
+        "geometry": "axial",
+        "observations": 64,
+        "offset": 100
+      },
+      "long": {
+        "geometry": "axial",
+        "observations": 192,
+        "offset": 300
+      },
+      "shift": {
+        "geometry": "diagonal",
+        "observations": 64,
+        "offset": 200
+      }
+    },
+    "queries": 4,
+    "state_budget_bytes": 1024,
+    "timing_repeats": 10,
+    "train_contexts": 256,
+    "train_observations": 64,
+    "version": "retention-v1",
+    "wall_cap_seconds": 1800,
+    "warmups": 3
+  },
+  "environment": {
+    "numpy": "2.5.3",
+    "platform": "macOS-26.6.1-arm64-arm-64bit",
+    "python": "3.12.13 (main, Jul 23 2026, 14:33:47) [Clang 22.1.3 ]",
+    "scipy": "1.18.1",
+    "threads": 1,
+    "torch": "2.14.0"
+  },
+  "parent_result": {
+    "bytes": 6119,
+    "sha256": "e5993e769bb593f582042287b00811220086090575f5f20c2ef5171aac01bacc"
+  },
+  "sources": {
+    "research/retention-protocol.md": {
+      "bytes": 11386,
+      "sha256": "025d32fd12de8ab4f04992df02c307e963cbf3b3c4d27b60aec8b806274778f1"
+    },
+    "scripts/audit_retention_study.py": {
+      "bytes": 34588,
+      "sha256": "7397691ae15a2d0ff24897b9553bbce2fb613455f1fb7462a0b0ec130d737327"
+    },
+    "scripts/retention_study.py": {
+      "bytes": 20304,
+      "sha256": "f33232cb3f254a416ae10d58aaaa28da0653599b053dc13016db8fc167f34117"
+    },
+    "src/openjev/research/retention_controls.py": {
+      "bytes": 10387,
+      "sha256": "ec517af5f63c540ec552809dc3bf274330d11fb4e904a72ec60ca3bc8fcb8f81"
+    },
+    "src/openjev/research/retention_data.py": {
+      "bytes": 8651,
+      "sha256": "1c598bf6ea211d160c701be41660c4e522d4327ce120ea377e8bf4a5bcf54a03"
+    },
+    "src/openjev/research/retention_memory.py": {
+      "bytes": 11280,
+      "sha256": "216706ea48767d1f3f594b6655b178c25c688ebc7fb2a5fd6152bfb2e65c86f4"
+    },
+    "src/openjev/research/retention_policy.py": {
+      "bytes": 2146,
+      "sha256": "d7045e8965db3dc3bd79e952cb51be737b5e6139f737b58a98877440ef8271f6"
+    },
+    "tests/test_audit_retention_study.py": {
+      "bytes": 17170,
+      "sha256": "716ecbce890bd58f985a9dba7339df8b82c1d784aa374351a74f41efa3603cf7"
+    },
+    "tests/test_retention_controls.py": {
+      "bytes": 11181,
+      "sha256": "7d0fdc85e04fe1cd1312c838ed5b1e78ba1c053c06995a7945a433d7c9225b3e"
+    },
+    "tests/test_retention_data.py": {
+      "bytes": 11791,
+      "sha256": "e7e1e1999af9ef97b9ec4945e74d5c13cf02c217c5a3cb1d713e3af190ca698e"
+    },
+    "tests/test_retention_memory.py": {
+      "bytes": 13018,
+      "sha256": "33e18522f670c39a8566d9aa9528fe8df13ba50464e5e1c07a809ae2e27204da"
+    },
+    "tests/test_retention_policy.py": {
+      "bytes": 2007,
+      "sha256": "ac8896ded1aab4c6928c505506aa16e7b26641ff94d935b6ef57a17d8a792464"
+    },
+    "tests/test_retention_study.py": {
+      "bytes": 12848,
+      "sha256": "1e63d8ec54a906e329e2bc83db4a4612ddb2797ff61c5b97c55baf32d458cf29"
+    }
+  }
+}
