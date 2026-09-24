@@ -1,0 +1,121 @@
+{
+  "config": {
+    "adam_betas": [
+      0.9,
+      0.999
+    ],
+    "adam_eps": 1e-08,
+    "adam_lr": 0.003,
+    "ar2_adam_lr": 0.0001,
+    "arms": [
+      "fixed_phase",
+      "energy_phase",
+      "nonlinear_readout",
+      "gru16",
+      "cubic_ar2"
+    ],
+    "baseline_noninferiority_ratio": 1.05,
+    "batch_size": 32,
+    "competence_fit_std_fraction": 0.1,
+    "evaluation_burn": 512,
+    "fit_cap_seconds": 600,
+    "gradient_clip": 1.0,
+    "min_control_reduction": 0.1,
+    "official_test_access": false,
+    "partitions": {
+      "dev_a": [
+        84446,
+        92638
+      ],
+      "dev_b": [
+        93138,
+        101330
+      ],
+      "fit": [
+        40650,
+        83946
+      ]
+    },
+    "prediction_storage_dtype": "float64",
+    "references": [
+      "static_cubic",
+      "fir128",
+      "fir512",
+      "cubic_ar2_frozen"
+    ],
+    "ridge": 1e-06,
+    "ridge_dtype": "float64",
+    "scored_units": "mV",
+    "seeds": [
+      7301,
+      7302,
+      7303
+    ],
+    "sequence_length": 256,
+    "simulation_dtype": "float32",
+    "train_burn": 64,
+    "updates": 2048,
+    "version": "phase-study-v1",
+    "wall_cap_seconds": 2400,
+    "window_seed_offset": 410000
+  },
+  "csv": {
+    "bytes": 2649634,
+    "sha256": "ae62d5a91230c10f76e6dd02c8a4fac3c9d4d8a95fbf50e87cb0c4885003e0f1"
+  },
+  "environment": {
+    "device": "cpu",
+    "numpy": "2.5.3",
+    "python": "3.12.13 (main, Jul 23 2026, 14:33:47) [Clang 22.1.3 ]",
+    "threads": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    },
+    "torch": "2.14.0"
+  },
+  "qualification": {
+    "bytes": 3532,
+    "sha256": "0f3ed5cf55ae5f717452f730b76427f3dc97031028cac8392f1f7e529c1246db"
+  },
+  "sources": {
+    "research/phase-protocol.md": {
+      "bytes": 14938,
+      "sha256": "d172560c0fe2b1f30b9f184440f4a7f58f3fe8a92e3e8e5ec60378aa63684f0c"
+    },
+    "scripts/audit_phase_study.py": {
+      "bytes": 38417,
+      "sha256": "00ed13b0f6434bf37f2b2b17292c315234e6dd20856b084e462ff6fdfed239dd"
+    },
+    "scripts/phase_study.py": {
+      "bytes": 20518,
+      "sha256": "9b883868f159166e18c98b8ba5bcd8dd8de7a2e528e4aa06f09ff71762506c7b"
+    },
+    "src/openjev/research/phase_memory.py": {
+      "bytes": 8616,
+      "sha256": "72c71209204f7108817b90da2073f4cef5dc0fa9426e8cd76b3bf0d872bb7c78"
+    },
+    "src/openjev/research/silverbox_data.py": {
+      "bytes": 4603,
+      "sha256": "858e6eeb57fe749b0ffafa4bd120d627876367daa7fec351605c95b0da25fd97"
+    },
+    "tests/test_audit_phase_study.py": {
+      "bytes": 20148,
+      "sha256": "693e908c82bc460c944e85ebdb8c7f35d98a692c84247e4a771309461bd89b7c"
+    },
+    "tests/test_phase_memory.py": {
+      "bytes": 11515,
+      "sha256": "baeadc032c1a5b355c97beeca0a36db40932b9b9abe86479778a7bfd8f553d16"
+    },
+    "tests/test_phase_study.py": {
+      "bytes": 5088,
+      "sha256": "f84202e167afd01f1474bc0595b0bdf0a9a35acdc7079dff1bff6075bc489289"
+    },
+    "tests/test_silverbox_data.py": {
+      "bytes": 5433,
+      "sha256": "87c54a19e8f5a691cc077833997ddc761e1fdacf91ff39642322ce0d095d36f4"
+    }
+  }
+}
