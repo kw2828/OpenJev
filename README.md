@@ -60,17 +60,21 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Research status
 
-The latest [recurrent dynamics experiment](research/phase-results.md) trains
-15 small models on measured Silverbox hardware data. The energy-dependent
-phase model **fails its rule: 3/21 conditions pass**. GRU16 and a seven-parameter
-cubic dynamics model perform substantially better. Official TEST remains unused.
+The latest [measured robot experiment](research/robot-coupling-results.md) tests
+small recurrent models across 30 training attempts. Joint-chain memory
+**fails its rule: 20/55 conditions pass**. It trails the GRU and rewired control;
+six polynomial fits are unstable. Confirmation and official TEST remain unused.
 
-[![Every model seed and reference in the Silverbox recurrent dynamics comparison](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/phase-results/benchmark.png)](research/phase-results.md)
+[![Robot forecast errors, failed models and measured CPU latency](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/robot-coupling-results/benchmark.png)](research/robot-coupling-results.md)
 
-[Results, checkpoints and independent audit](research/phase-results.md) ·
-[Protocol](research/phase-protocol.md) ·
-[Next research question](research/phase-next.md) ·
+[Results and checkpoints](research/robot-coupling-results.md) ·
+[Protocol](research/robot-coupling-protocol.md) ·
+[Next research question](research/robot-coupling-next.md) ·
 [All experiments](research/experiment-index.md).
+
+The preceding [Silverbox comparison](research/phase-results.md) also rejected
+the phase-memory candidate. GRU16 and a seven-parameter cubic model performed
+substantially better there.
 
 The preceding [sensor-memory screen](research/sensor-screen-results.md) rejected
 its target because static calibration already left too little headroom.

@@ -1,0 +1,73 @@
+{
+  "runs": [
+    {
+      "command": [
+        ".venv/bin/ruff",
+        "check",
+        "src/openjev/research/joint_coupling.py",
+        "src/openjev/research/industrial_robot_data.py",
+        "scripts/robot_coupling_study.py",
+        "tests/test_joint_coupling.py",
+        "tests/test_industrial_robot_data.py",
+        "tests/test_robot_coupling_study.py"
+      ],
+      "elapsed_seconds": 0.04095666599459946,
+      "log": "output/robot-coupling-engineering-v1/qualification-01-0.txt",
+      "log_pin": {
+        "bytes": 19,
+        "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+      },
+      "returncode": 0
+    },
+    {
+      "command": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_joint_coupling.py",
+        "tests/test_industrial_robot_data.py",
+        "tests/test_robot_coupling_study.py"
+      ],
+      "elapsed_seconds": 4.737552041886374,
+      "log": "output/robot-coupling-engineering-v1/qualification-01-1.txt",
+      "log_pin": {
+        "bytes": 179,
+        "sha256": "1c76a9bd50bc497e3e1279a50bc9700c03cc0b1811aa2798782711443cf818aa"
+      },
+      "returncode": 0
+    }
+  ],
+  "scope": "Fabricated test arrays only; no measured numerical decoding",
+  "sources": {
+    "research/robot-coupling-protocol.md": {
+      "bytes": 12433,
+      "sha256": "bf9501470701d25eee3d1c6915a55cd773ed6cd7f9476f5d7d75fb51c7f7fe3e"
+    },
+    "scripts/robot_coupling_study.py": {
+      "bytes": 40922,
+      "sha256": "99560155d920d02e66b1f470f0f6a33f0d6ed52417de35e7f93840b3d9e191f1"
+    },
+    "src/openjev/research/industrial_robot_data.py": {
+      "bytes": 7533,
+      "sha256": "3109b46e14323f8f9bc8246776eba3b132d62868a7d890394bb6b45b3822b5aa"
+    },
+    "src/openjev/research/joint_coupling.py": {
+      "bytes": 13528,
+      "sha256": "d6084988938d11f5f7458c454ba336928b2ee93f3c433700b6a28d0bd493b951"
+    },
+    "tests/test_industrial_robot_data.py": {
+      "bytes": 9362,
+      "sha256": "5f1a7178e180369ec7863eef6e2a89f9f89d8a890e0392a61083f4470724d670"
+    },
+    "tests/test_joint_coupling.py": {
+      "bytes": 16006,
+      "sha256": "4ee6d93912273914e6dad72dd87e8863f4f335f5845e572eb5cedf68e0f97d5f"
+    },
+    "tests/test_robot_coupling_study.py": {
+      "bytes": 27901,
+      "sha256": "84877060d1461e017bc1c0ef94ac345d7981a1bc53644f0718144ff11e262b5c"
+    }
+  },
+  "status": "PASS"
+}

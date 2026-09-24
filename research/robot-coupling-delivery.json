@@ -1,0 +1,125 @@
+{
+  "artifacts": {
+    "research/robot-coupling-next.md": {
+      "bytes": 2462,
+      "sha256": "5ddff630fb3ca137febf8f2533b8b9b90345f641f28f78cd0e09e34af9cee674"
+    },
+    "research/robot-coupling-results.md": {
+      "bytes": 6007,
+      "sha256": "6559c23b8e095335e9289a301a6e2620a041c53fd498b07790e9e093e47df48e"
+    },
+    "research/robot-coupling-results/audit.json": {
+      "bytes": 140535,
+      "sha256": "3a7bbd28bdd3f740c61162792bf37102a21ffaf8b966be600d15c28b7af28ae6"
+    },
+    "research/robot-coupling-results/benchmark.pdf": {
+      "bytes": 32862,
+      "sha256": "4f311cf1db3f0e638b8447905a0f3e4f98a8fc66477c297250e3474dca3275ce"
+    },
+    "research/robot-coupling-results/benchmark.png": {
+      "bytes": 202524,
+      "sha256": "119cf0ef3d17b7e52e7986ea3640a19816770821eb6111310202f184e2246359"
+    },
+    "research/robot-coupling-results/manifest.json": {
+      "bytes": 50475,
+      "sha256": "d4baa28a7d4a8664a408eae819a28ec677abd746777c8c89b42186583369eea5"
+    }
+  },
+  "conditions": 55,
+  "passed_conditions": 20,
+  "prefit_commit": "bf499540b1c98f55213c67ec4d65cf56fe6a6411",
+  "processes": {
+    "audit-process-01": {
+      "auditor_sha256": "6be263b8a49bc5d7bed0392a46b65684a218609bc22772a002d5ab75c17f8690",
+      "command": [
+        ".venv/bin/python",
+        "scripts/audit_robot_coupling.py",
+        "--study",
+        "output/robot-coupling-study-v1",
+        "--run-receipt",
+        "output/robot-coupling-engineering-v1/run-process-01.json",
+        "--output",
+        "output/robot-coupling-audit-v1/audit.json"
+      ],
+      "elapsed_seconds": 1.600724457995966,
+      "returncode": 1
+    },
+    "audit-process-02": {
+      "auditor_sha256": "37ed0706d8a2134b894910597171a54c2c0579abdc12a1a75c19b1d3a16cacee",
+      "command": [
+        ".venv/bin/python",
+        "scripts/audit_robot_coupling.py",
+        "--study",
+        "output/robot-coupling-study-v1",
+        "--run-receipt",
+        "output/robot-coupling-engineering-v1/run-process-01.json",
+        "--output",
+        "output/robot-coupling-audit-v1/audit.json"
+      ],
+      "elapsed_seconds": 1.8044292081613094,
+      "returncode": 0,
+      "scope": "Corrected auditor preserves saved array memory layout; original predictions, model weights and equality criterion unchanged."
+    },
+    "package-process-01": {
+      "command": [
+        ".venv/bin/python",
+        "scripts/package_robot_coupling.py",
+        "--study",
+        "output/robot-coupling-study-v1",
+        "--audit",
+        "output/robot-coupling-audit-v1/audit.json",
+        "--plot",
+        "output/robot-coupling-delivery-v1",
+        "--output",
+        "research/robot-coupling-results"
+      ],
+      "elapsed_seconds": 0.17001550015993416,
+      "returncode": 0
+    },
+    "plot-process-01": {
+      "audit_sha256": "3a7bbd28bdd3f740c61162792bf37102a21ffaf8b966be600d15c28b7af28ae6",
+      "command": [
+        ".venv/bin/python",
+        "scripts/plot_robot_coupling.py",
+        "--study",
+        "output/robot-coupling-study-v1",
+        "--output",
+        "output/robot-coupling-delivery-v1"
+      ],
+      "elapsed_seconds": 0.7426027909386903,
+      "returncode": 0
+    },
+    "run-process-01": {
+      "command": [
+        ".venv/bin/python",
+        "-u",
+        "scripts/robot_coupling_study.py",
+        "--registration",
+        "research/robot-coupling-registration.json",
+        "--output",
+        "output/robot-coupling-study-v1"
+      ],
+      "elapsed_seconds": 193.64545954205096,
+      "prefit_commit": "bf499540b1c98f55213c67ec4d65cf56fe6a6411",
+      "registration_sha256": "7bf116569bc141bf949b04b5bd79d465b2cd0acda098ffcf63cc26553725c4de",
+      "returncode": 0,
+      "scope": "One original measured-data campaign, no retries",
+      "started_utc": "2026-09-24T23:10:16.331443+00:00"
+    }
+  },
+  "publication": {
+    "audit_status": "PASS",
+    "figure_visual_check": "PASS: source values, failed rows, input distinction and latency caption visible",
+    "frozen_sources": 7,
+    "local_links": 444,
+    "original_measurement_arrays_excluded": 11,
+    "public_bytes": 20765935,
+    "public_files_with_manifest": 292,
+    "public_payload_files": 291,
+    "scope": "Local publication verification only, before push",
+    "status": "PASS"
+  },
+  "publication_scope": "Derived checkpoints, predictions, receipts and charts; original measurement arrays remain local. Original failed auditor and one-line layout repair retained.",
+  "scientific_result": "DO_NOT_ADVANCE_COUPLING",
+  "status": "PASS"
+}
