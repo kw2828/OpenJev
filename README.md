@@ -58,17 +58,18 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Research status
 
-The [latest recurrent diagnostic](research/finite-gap-readout-study-results.md)
-refits the decision heads of **nine frozen models**. All nine meet the numerical
-accuracy requirement, but **every family still fails short-horizon learning
-and forecasting without new observations**. Better linear-head fitting does
-not resolve the reliability problem.
+The [latest recurrent comparison](research/finite-expected-count-learning-results.md)
+tests **nine fits of the same small model**. Gradient pretraining lowers mean
+four/eight-step decision regret **45.42% / 35.63%** versus joint training alone,
+with **34.61% more training time**. It passes short-horizon learning, but all
+three methods still fail the longer-horizon criterion. Expected-count
+pretraining improves averages less, with mixed effects across seeds.
 
-[![Every frozen model before and after refitting its decision head](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-gap-readout-study-results/benchmark.png)](research/finite-gap-readout-study-results.md)
+[![All nine recurrent fits, decision regret and complete training costs](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-expected-count-learning-results/benchmark.png)](research/finite-expected-count-learning-results.md)
 
-[Open recurrent chart](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-gap-readout-study-results/benchmark.png) ·
-[All checkpoints and evidence](https://github.com/kw2828/OpenJev/releases/tag/finite-gap-readout-study-v1) ·
-[Next learning experiment](research/finite-gap-readout-study-next.md).
+[Open recurrent chart](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-expected-count-learning-results/benchmark.png) ·
+[All checkpoints and evidence](https://github.com/kw2828/OpenJev/releases/tag/finite-expected-count-learning-v1) ·
+[Earlier decision-head diagnostic](research/finite-gap-readout-study-results.md).
 
 These small synthetic studies use task-derived structure and privileged
 starting readouts. The [earlier structured model](research/finite-factorized-dynamics-results.md)
