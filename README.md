@@ -58,43 +58,39 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Research status
 
-The [five-seed recurrent replication](research/finite-reuse-replication-results.md)
-**fails its continuation rule: 45/54 conditions pass**. Fifteen fresh fits receive
-the same 1,024 history-learning and 3,072 joint updates, then face ordinary and
-noisier observations without further training.
+The latest [recurrent-model diagnostic](research/finite-head-learning-results.md)
+**fails its continuation rule: 14/15 conditions pass**. Fifteen fresh fits test
+whether performance depends on a task-specific starting decision head. The
+random-head candidate passes all three absolute criteria and wins 9/10 paired
+four/eight-step comparisons, but loses one eight-step comparison.
 
-| Evaluation | Conditions passed | Outcome |
-|---|---:|---|
-| Original observation noise | 24/27 | Three paired comparisons lose |
-| Higher observation noise | 21/27 | Four paired comparisons lose; short-horizon and observed-filtering criteria fail |
+| Random-head comparison | Four steps | Eight steps |
+|---|---:|---:|
+| Rounded model mean regret | 0.002477 | 0.002656 |
+| Initially matched free model mean regret | 0.121260 | 0.133666 |
+| Relative reduction | 97.96% | 98.01% |
 
-[![All five seeds: both observation settings and complete training time](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-reuse-replication-results/benchmark.png)](research/finite-reuse-replication-results.md)
+[![All five seeds: task-derived and random heads, decision regret and full training time](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-head-learning-results/benchmark.png)](research/finite-head-learning-results.md)
 
-[Open recurrent chart](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-reuse-replication-results/benchmark.png) ·
-[Complete evidence](research/finite-reuse-replication-results/evidence.tar.gz) ·
-[Protocol](research/finite-reuse-replication-protocol.md).
+[Open recurrent chart](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-head-learning-results/benchmark.png) ·
+[Complete evidence](research/finite-head-learning-results/evidence.tar.gz) ·
+[Protocol](research/finite-head-learning-protocol-v2.md).
 
-Mean four/eight-step regret falls **99.50-99.82%** across the two controls at
-original noise and **92.92-95.58%** at higher noise, but weak control fits drive
-much of these averages. Seed 435261005 causes all seven paired losses.
-Rounded mean fitting time is **25.46 seconds**, versus **23.89 / 24.19 seconds**
-for the controls. All 336 qualification tests pass; the independent audit agrees.
+Two weak control fits drive much of the average improvement. Candidate fitting
+averages **26.48 seconds**, versus **24.95 seconds** for the control. All 375
+qualification tests pass, and the independent audit agrees. The original
+qualification's test-only failure is preserved alongside the corrected attempt.
 
-The [earlier three-seed study passed](research/finite-reuse-learning-results.md),
-but this stronger test does not establish reliable transfer. Both retain favorable
-transition assumptions and task-derived head initialization. The
-[next proposed diagnostic](research/finite-recurrent-next-direction.md) isolates
-dependence on that initialization before changing the transition architecture.
-A second environment and evidence of novelty are still needed.
+This supports learning without the task-specific head in this synthetic world.
+It does not establish a consistent comparative advantage or fix the
+[previous observation-noise shift failure](research/finite-reuse-replication-results.md).
+Known transition structure remains favorable. A second environment and evidence
+of novelty are still needed; no further architecture experiment is admitted by
+this failed continuation rule.
 
-The [earlier equal-time comparison failed](research/finite-rounded-learning-results.md),
-and the [first equal-update attempt stopped before scientific training](research/finite-update-learning-stop-results.md).
-The new study uses fresh data and seeds; it does not isolate why those outcomes differ.
-The [integrated computation-sharing benchmark](research/finite-joint-reuse-throughput-results.md)
-now measures **1.20x / 1.20x / 1.35x median training throughput** across the
-three models. All nine measured pairs favor reuse; 78 tests and the independent
-saved-state audit pass. This is a training-speed result on one machine, with
-no new task-performance claim.
+The separate [computation-sharing benchmark](research/finite-joint-reuse-throughput-results.md)
+measures **1.20x / 1.20x / 1.35x median training throughput** across three models
+on one machine. It establishes no new task-performance result.
 
 [![All nine measured training-throughput ratios](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-joint-reuse-throughput-results/benchmark.png)](research/finite-joint-reuse-throughput-results.md)
 
