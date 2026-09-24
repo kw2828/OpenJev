@@ -58,7 +58,7 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Research status
 
-The [latest recurrent comparison](research/finite-training-allocation-results.md)
+The [latest completed recurrent comparison](research/finite-training-allocation-results.md)
 gives **nine fits of the same small model equal 40-second training windows**.
 Prefix learning lowers mean four/eight-step decision regret **40.68% / 44.17%**
 versus continuous joint training, at almost identical measured training time.
@@ -75,10 +75,9 @@ still fail long-horizon forecasting.
 The [saved-model diagnostic](research/finite-transport-diagnostic-results.md)
 examines all 27 checkpoints. Accurate fits preserve state differences much
 better than poor fits, despite similar maximum contraction scores. This is
-a descriptive finding. The [next proposed test](research/balanced-transport-next.md)
-compares balanced transitions with matched initialization and training time.
-Its [balancing component passes 42 numerical checks](research/finite-balanced-transition-qualification-results.md);
-model integration and the learning comparison remain ahead.
+a descriptive finding. The follow-up [balanced-transition integration stopped](research/finite-balanced-learning-stop-results.md):
+204 tests passed, but a training smoke test exceeded its fixed normalization
+tolerance. No scientific comparison or development evaluation ran.
 
 These small synthetic studies use task-derived structure and privileged
 starting readouts. The [earlier structured model](research/finite-factorized-dynamics-results.md)
