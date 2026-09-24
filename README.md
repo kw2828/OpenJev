@@ -58,35 +58,28 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Research status
 
-The [latest completed recurrent comparison](research/finite-training-allocation-results.md)
-gives **nine fits of the same small model equal 40-second training windows**.
-Prefix learning lowers mean four/eight-step decision regret **40.68% / 44.17%**
-versus continuous joint training, at almost identical measured training time.
-One seed worsens at both horizons: **16/21 conditions pass, so the method does not advance**.
-All three methods pass short-horizon and observed-filtering criteria but
-still fail long-horizon forecasting.
+The [latest recurrent comparison](research/finite-rounded-learning-results.md)
+tests a constrained transition against two free controls: **nine fits, three
+seeds, equal 40-second training windows**. The constrained model passes the
+short- and long-horizon criteria, but mean decision regret is **11.09% / 17.88% worse**
+than the original free model at four/eight steps. **14/21 continuation conditions
+pass, so it does not advance.** Its large average gain against the second
+control is driven mainly by one poor control fit.
 
-[![All nine recurrent fits, decision regret and complete training costs](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-training-allocation-results/benchmark.png)](research/finite-training-allocation-results.md)
+[![All nine recurrent fits, decision regret and complete training costs](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-rounded-learning-results/benchmark.png)](research/finite-rounded-learning-results.md)
 
-[Open recurrent chart](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-training-allocation-results/benchmark.png) ·
-[All checkpoints and evidence](https://github.com/kw2828/OpenJev/releases/tag/finite-training-allocation-v1) ·
-[Earlier pretraining comparison](research/finite-expected-count-learning-results.md).
+[Open recurrent chart](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-rounded-learning-results/benchmark.png) ·
+[All checkpoints and evidence](https://github.com/kw2828/OpenJev/releases/tag/finite-rounded-learning-v1) ·
+[Earlier training comparison](research/finite-training-allocation-results.md).
 
-The [saved-model diagnostic](research/finite-transport-diagnostic-results.md)
-examines all 27 checkpoints. Accurate fits preserve state differences much
-better than poor fits, despite similar maximum contraction scores. This is
-a descriptive finding. The follow-up [balanced-transition integration stopped](research/finite-balanced-learning-stop-results.md):
-204 tests passed, but a training smoke test exceeded its fixed normalization
-tolerance. No scientific comparison or development evaluation ran.
-A separate [rounded probability construction passes 36 numerical checks](research/finite-rounded-transition-qualification-results.md).
-Its model integration and fresh learning comparison are next.
-
-These small synthetic studies use task-derived structure and privileged
-starting readouts. The [earlier structured model](research/finite-factorized-dynamics-results.md)
-improves averages with fewer parameters, but is not reliable across seeds. The
-[earlier readout replication](research/finite-cost-readout-replication-results.md)
-remains failed, and its longer-horizon training follow-up remains closed.
-Every completed or failed study stays in the [experiment archive](research/experiment-index.md).
+Mean complete fitting time is 40.20 seconds for the constrained model and
+40.28 / 40.43 seconds for the controls. The independent audit agrees with all
+saved results; 216 qualification tests pass. These are small synthetic studies
+with task-derived structure and privileged starting readouts. Better observed
+prediction does not establish better decisions or calibrated confidence.
+The [next proposed comparison](research/finite-rounded-learning-followup.md)
+would match training updates and measure the additional time. Every completed
+or failed study stays in the [experiment archive](research/experiment-index.md).
 
 The separate [shared-prefix scoring experiment](research/shared-prefix-results.md)
 measured **2.08x** speedup on four-question synthetic workloads; single-question
