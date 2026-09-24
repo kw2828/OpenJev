@@ -1,0 +1,185 @@
+{
+  "annotation_only": 10520,
+  "by_stage_arm": [
+    {
+      "annotation_only": 490,
+      "arm": "analytic",
+      "deployed_queries": 0,
+      "episodes": 12,
+      "rows": 490,
+      "stage": "dev"
+    },
+    {
+      "annotation_only": 0,
+      "arm": "neural",
+      "deployed_queries": 470,
+      "episodes": 12,
+      "rows": 470,
+      "stage": "dev"
+    },
+    {
+      "annotation_only": 10030,
+      "arm": "period4_hold",
+      "deployed_queries": 3348,
+      "episodes": 12,
+      "rows": 13378,
+      "stage": "dev"
+    }
+  ],
+  "censored": 6,
+  "complete": true,
+  "confirm_episodes": 0,
+  "corrections": 3593,
+  "costs": {
+    "dev_collection_seconds": 602.4638443749864,
+    "dev_serialization_seconds": 0.09443624992854893,
+    "feature_module_seconds": 0.0020305421203374863,
+    "journal_io_seconds": 3.118451069574803,
+    "operation_seconds": {
+      "actor_construction": {
+        "attempted": 36,
+        "returned": 36,
+        "seconds": 0.004884627647697926
+      },
+      "actor_update": {
+        "attempted": 14338,
+        "returned": 14338,
+        "seconds": 0.6529922555200756
+      },
+      "analytic_score": {
+        "attempted": 14338,
+        "returned": 14338,
+        "seconds": 4.55357780167833
+      },
+      "annotation_public_reset": {
+        "attempted": 0,
+        "returned": 0,
+        "seconds": 0.0
+      },
+      "annotation_public_update": {
+        "attempted": 0,
+        "returned": 0,
+        "seconds": 0.0
+      },
+      "backend_binding": {
+        "attempted": 36,
+        "returned": 36,
+        "seconds": 0.00033112592063844204
+      },
+      "feature_build": {
+        "attempted": 14338,
+        "returned": 14338,
+        "seconds": 0.9311232280451804
+      },
+      "native_reset": {
+        "attempted": 36,
+        "returned": 36,
+        "seconds": 0.1973055370617658
+      },
+      "native_step": {
+        "attempted": 14338,
+        "returned": 14338,
+        "seconds": 32.44911219761707
+      },
+      "teacher_score": {
+        "attempted": 14338,
+        "returned": 14338,
+        "seconds": 545.7852481398731
+      },
+      "tensorflow_build": {
+        "attempted": 1,
+        "returned": 1,
+        "seconds": 0.07651154091581702
+      },
+      "tensorflow_construction": {
+        "attempted": 1,
+        "returned": 1,
+        "seconds": 0.015518000116571784
+      },
+      "tensorflow_load": {
+        "attempted": 1,
+        "returned": 1,
+        "seconds": 0.012220958014950156
+      },
+      "tensorflow_value": {
+        "attempted": 14338,
+        "returned": 14338,
+        "seconds": 528.5785060359631
+      }
+    },
+    "original_setup_wall_seconds": 4.459558832924813,
+    "scope": "Setup and DEV collection and serialization are disjoint physical intervals. Operation timers overlap; I/O timer is partial and overlaps those intervals. Source authentication, final hashing and process overhead remain paid in original worker/parent time. Physical teacher annotations are included; these are collection costs, not deployed-controller cost measurements."
+  },
+  "datasets": {
+    "dev": {
+      "arrays": {
+        "actions": {
+          "bytes": 114704,
+          "dtype": "int64",
+          "sha256": "b79a6878a7519970bd37a26745a887d8d60c49c880ac1171e3842a8bb67f9c86",
+          "shape": [
+            14338
+          ]
+        },
+        "correction": {
+          "bytes": 14338,
+          "dtype": "bool",
+          "sha256": "8c0b23b6e5d4077d1955d1931619c503465d547d7db96952272caa231318fb4d",
+          "shape": [
+            14338
+          ]
+        },
+        "episode_offsets": {
+          "bytes": 296,
+          "dtype": "int64",
+          "sha256": "e1e2de5d70fd006741b62102e5bff16daabfe47b340b8ff0355c862af85dc076",
+          "shape": [
+            37
+          ]
+        },
+        "features": {
+          "bytes": 1777912,
+          "dtype": "float32",
+          "sha256": "ec89b672b31c2c26147f710c77718e4dec032259e85b964a7c7bf50eb39379cc",
+          "shape": [
+            14338,
+            31
+          ]
+        },
+        "legal": {
+          "bytes": 57352,
+          "dtype": "bool",
+          "sha256": "5218b3065db825ff125dd9dda0f842ffdf2a41a1b3a699f4dac347fa0de7e186",
+          "shape": [
+            14338,
+            4
+          ]
+        },
+        "raw_q": {
+          "bytes": 229408,
+          "dtype": "float32",
+          "sha256": "4dbf4b32b81fea432a508f11a9b3bed9b84876f2e67e71adf08527034d5ca249",
+          "shape": [
+            14338,
+            4
+          ]
+        }
+      },
+      "bytes": 577103,
+      "episodes": 36,
+      "path": "dev.npz",
+      "rows": 14338,
+      "sha256": "a9ee3eb0351e9be7001cc68958461663862bbe5ae15be6135b6706fe3535b4f7"
+    }
+  },
+  "deployed_queries": 3818,
+  "efficacy_claim": false,
+  "episodes": 36,
+  "found": 30,
+  "master_episodes": 36,
+  "phase": "dev",
+  "rows": 14338,
+  "teacher_calls": 14338,
+  "training_updates": 0,
+  "version": "otto-readout-compute-collection-v1"
+}
