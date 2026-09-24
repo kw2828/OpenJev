@@ -41,6 +41,8 @@ predictions against simpler controls. Neither replacing the output head nor
 adding a calibration loss establishes architectural novelty.
 
 The current [action-error study protocol](../research/finite-action-range-study-protocol.md)
-tests a narrower loss hypothesis in a synthetic recurrent world. It does not
-implement RLCD or test text-probability calibration. Treat its result separately
-from the local Qwen decision API and the browser demo.
+tests whether squared action-error range improves long-horizon decision regret
+over both MSE and twice-MSE, using unchanged recurrent models in a synthetic
+world. It changes neither the state architecture nor probability calibration.
+It does not implement RLCD. Treat its result separately from the local Qwen
+decision API and the browser demo.

@@ -60,55 +60,43 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Research status
 
-The latest [recurrent-model diagnostic](research/finite-head-learning-results.md)
-**fails its continuation rule: 14/15 conditions pass**. Fifteen fresh fits test
-whether performance depends on a task-specific starting decision head. The
-random-head candidate passes all three absolute criteria and wins 9/10 paired
-four/eight-step comparisons, but loses one eight-step comparison.
+The latest [loss comparison](research/finite-action-range-results.md) **fails its
+continuation rule: 17/54 conditions pass**. Thirty fits across five independent
+data cohorts test an action-error-range loss against ordinary MSE and twice-MSE
+on the same recurrent models. The candidate wins **13/40 paired comparisons**
+and meets **0/8 required mean improvements**.
 
-| Random-head comparison | Four steps | Eight steps |
-|---|---:|---:|
-| Rounded model mean regret | 0.002477 | 0.002656 |
-| Initially matched free model mean regret | 0.121260 | 0.133666 |
-| Relative reduction | 97.96% | 98.01% |
+| Mean decision regret, lower is better | MSE | Twice-MSE | Range loss |
+|---|---:|---:|---:|
+| Original noise, four steps | 0.001310 | 0.001271 | 0.001362 |
+| Original noise, eight steps | 0.001292 | 0.001256 | 0.001261 |
+| Higher noise, four steps | 0.011030 | 0.011355 | 0.011400 |
+| Higher noise, eight steps | 0.010399 | 0.009980 | 0.010106 |
 
-[![All five seeds: task-derived and random heads, decision regret and full training time](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-head-learning-results/benchmark.png)](research/finite-head-learning-results.md)
+Twice-MSE has lower mean regret than range loss in all four settings. Every
+rounded loss variant also fails the filtering criterion in four of five cohorts
+under higher observation noise. Changing this decision loss does not resolve
+that weakness. Mean recorded fit times are **26.41 / 25.47 / 25.88 seconds** for
+MSE / twice-MSE / range; these are recorded training costs, not an inference-speed benchmark.
 
-[Open recurrent chart](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-head-learning-results/benchmark.png) ·
-[Complete evidence](research/finite-head-learning-results/evidence.tar.gz) ·
-[Protocol](research/finite-head-learning-protocol-v2.md).
+[![All thirty models: decision regret and fitting time across five independent cohorts](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-action-range-results/benchmark.png)](research/finite-action-range-results.md)
 
-Two weak control fits drive much of the average improvement. Candidate fitting
-averages **26.48 seconds**, versus **24.95 seconds** for the control. All 375
-qualification tests pass, and the independent audit agrees. The original
-qualification's test-only failure is preserved alongside the corrected attempt.
+[Open chart](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-action-range-results/benchmark.png) ·
+[All results and evidence](research/finite-action-range-results.md) ·
+[Protocol](research/finite-action-range-study-protocol.md) ·
+[Research directions and papers](research/decision-recurrence-calibration-reading.md).
 
-This supports learning without the task-specific head in this synthetic world.
-It does not establish a consistent comparative advantage or fix the
-[previous observation-noise shift failure](research/finite-reuse-replication-results.md).
-Known transition structure remains favorable. A second environment and evidence
-of novelty are still needed; no further architecture experiment is admitted by
-this failed continuation rule.
+All 46 primitive and 120 integration tests pass, and the independent audit
+agrees with the saved results. This is one synthetic world with favorable
+transition structure. It establishes no new architecture or calibrated
+probabilities. The earlier [head comparison](research/finite-head-learning-results.md)
+remains FAIL at 14/15; every outcome stays in the [experiment archive](research/experiment-index.md).
 
-The [saved-prediction audit](research/finite-decision-error-results.md) traces
-the losing comparison to nine differing decisions, including one costly error
-with a large true action gap. All 29,160 records reconcile independently.
-The [next hypothesis](research/finite-decision-error-next.md) tests action-error
-contrast losses against stronger loss-weight controls; no new training has run.
-
-The separate [computation-sharing benchmark](research/finite-joint-reuse-throughput-results.md)
-measures **1.20x / 1.20x / 1.35x median training throughput** across three models
-on one machine. It establishes no new task-performance result.
-
-[![All nine measured training-throughput ratios](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-joint-reuse-throughput-results/benchmark.png)](research/finite-joint-reuse-throughput-results.md)
-
-Every completed or failed study stays in the [experiment archive](research/experiment-index.md).
-
-The separate [shared-prefix scoring experiment](research/shared-prefix-results.md)
-measured **2.08x** speedup on four-question synthetic workloads; single-question
-caching was slower. This does not reproduce a proprietary RLCD system.
-[Public Qwen RLCD code review](research/rlcd-public-implementation-review.md) ·
-[Jev architecture claims, SemIf and Jevlike](research/jev-architecture-source-review.md).
+Separate engineering studies measured [1.20-1.35x training throughput](research/finite-joint-reuse-throughput-results.md)
+from shared computation and [2.08x scoring speed](research/shared-prefix-results.md)
+on four-question synthetic workloads. Neither reproduces proprietary RLCD.
+[Public Qwen RLCD review](research/rlcd-public-implementation-review.md) ·
+[Jev architecture claims](docs/decision-model-architecture.md).
 
 ## Limits and provenance
 
