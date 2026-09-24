@@ -58,26 +58,21 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Research status
 
-The [latest diagnostic stopped before evaluation](research/finite-convex-readout-results.md):
-only **3 of 9** frozen-model action readouts met the registered numerical
-accuracy requirement. All failures are retained; no new decision-performance
-result is available.
+The [latest recurrent diagnostic](research/finite-gap-readout-study-results.md)
+refits the decision heads of **nine frozen models**. All nine meet the numerical
+accuracy requirement, but **every family still fails short-horizon learning
+and forecasting without new observations**. Better linear-head fitting does
+not resolve the reliability problem.
 
-The [last completed recurrent comparison](research/finite-factorized-dynamics-results.md)
-tests **nine fits**. A structured 352-parameter model lowers mean four- and
-eight-step decision regret **35.15% / 19.39%** versus a 1,120-parameter control
-that starts with the same predictions. It passes the criterion that receives
-new observations, but **fails short-horizon learning and forecasting without
-new observations across seeds**. The smaller model also takes slightly longer
-to train. It does not advance as a reliable candidate.
+[![Every frozen model before and after refitting its decision head](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-gap-readout-study-results/benchmark.png)](research/finite-gap-readout-study-results.md)
 
-[![All nine recurrent fits, showing seed variation and measured training costs](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-factorized-dynamics-results/benchmark.png)](research/finite-factorized-dynamics-results.md)
+[Open recurrent chart](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-gap-readout-study-results/benchmark.png) ·
+[All checkpoints and evidence](https://github.com/kw2828/OpenJev/releases/tag/finite-gap-readout-study-v1) ·
+[Next learning experiment](research/finite-gap-readout-study-next.md).
 
-[Open recurrent chart](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-factorized-dynamics-results/benchmark.png) ·
-[All nine checkpoints and evidence](https://github.com/kw2828/OpenJev/releases/tag/finite-factorized-dynamics-v1).
-
-This is a small synthetic study with task-derived structure and privileged
-starting readouts, not a calibrated text model or a new architecture. The
+These small synthetic studies use task-derived structure and privileged
+starting readouts. The [earlier structured model](research/finite-factorized-dynamics-results.md)
+improves averages with fewer parameters, but is not reliable across seeds. The
 [earlier readout replication](research/finite-cost-readout-replication-results.md)
 remains failed, and its longer-horizon training follow-up remains closed.
 Every completed or failed study stays in the [experiment archive](research/experiment-index.md).
