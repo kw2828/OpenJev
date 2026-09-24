@@ -77,9 +77,10 @@ Mean complete fitting time is 40.20 seconds for the constrained model and
 saved results; 216 qualification tests pass. These are small synthetic studies
 with task-derived structure and privileged starting readouts. Better observed
 prediction does not establish better decisions or calibrated confidence.
-The [next proposed comparison](research/finite-rounded-learning-followup.md)
-would match training updates and measure the additional time. Every completed
-or failed study stays in the [experiment archive](research/experiment-index.md).
+The [equal-update follow-up stopped at engineering qualification](research/finite-update-learning-stop-results.md).
+All 273 tests passed, but conservative runtime projections exceeded its fixed
+90-second admission limit. No scientific run started. Every completed or
+failed study stays in the [experiment archive](research/experiment-index.md).
 
 The separate [shared-prefix scoring experiment](research/shared-prefix-results.md)
 measured **2.08x** speedup on four-question synthetic workloads; single-question

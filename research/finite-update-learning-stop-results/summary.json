@@ -1,0 +1,302 @@
+{
+  "advancement_eligible": false,
+  "child_study_files": 128,
+  "commands": [
+    {
+      "command": [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/ruff",
+        "check",
+        "scripts/register_finite_expected_count_qualification.py",
+        "scripts/qualify_finite_expected_count.py",
+        "scripts/supervise_dialogue_observation_v2.py",
+        "src/openjev/research/suspend_clock.py",
+        "src/openjev/research/finite_expected_count.py",
+        "src/openjev/research/finite_expected_count_bridge.py",
+        "src/openjev/research/finite_factorized_dynamics_models.py",
+        "src/openjev/research/finite_factor_models.py",
+        "src/openjev/research/finite_cost_readout_models.py",
+        "src/openjev/research/finite_shared_filter_models.py",
+        "src/openjev/research/finite_observation_world.py",
+        "src/openjev/research/otto_observation_operator_model.py",
+        "src/openjev/__init__.py",
+        "src/openjev/research/__init__.py",
+        "tests/test_finite_expected_count.py",
+        "tests/test_finite_expected_count_oracle.py",
+        "tests/test_finite_expected_count_bridge.py",
+        "scripts/register_finite_expected_count_learning.py",
+        "scripts/finite_expected_count_learning_worker.py",
+        "scripts/run_finite_expected_count_learning.py",
+        "scripts/audit_finite_expected_count_learning.py",
+        "scripts/run_finite_observation_learning.py",
+        "scripts/audit_finite_observation_learning.py",
+        "src/openjev/research/finite_observation_models.py",
+        "src/openjev/research/finite_prefix_learning.py",
+        "src/openjev/research/finite_timed_prefix.py",
+        "tests/test_finite_timed_prefix.py",
+        "tests/test_finite_expected_count_learning_worker.py",
+        "tests/test_finite_expected_count_learning_runner.py",
+        "tests/test_finite_expected_count_learning_audit.py",
+        "scripts/register_finite_training_allocation.py",
+        "scripts/finite_training_allocation_worker.py",
+        "scripts/run_finite_training_allocation.py",
+        "scripts/audit_finite_training_allocation.py",
+        "src/openjev/research/finite_training_allocation.py",
+        "tests/test_finite_training_allocation.py",
+        "tests/test_finite_training_allocation_runner.py",
+        "tests/test_finite_training_allocation_worker.py",
+        "tests/test_finite_training_allocation_audit.py",
+        "src/openjev/research/finite_rounded_transition.py",
+        "src/openjev/research/finite_rounded_models.py",
+        "scripts/qualify_finite_rounded_transition.py",
+        "scripts/publish_finite_rounded_transition_qualification.py",
+        "scripts/register_finite_rounded_learning.py",
+        "scripts/finite_rounded_learning_worker.py",
+        "scripts/run_finite_rounded_learning.py",
+        "scripts/audit_finite_rounded_learning.py",
+        "tests/test_finite_rounded_transition.py",
+        "tests/test_finite_rounded_models.py",
+        "tests/test_finite_rounded_learning_runner.py",
+        "tests/test_finite_rounded_learning_audit.py",
+        "tests/test_finite_rounded_learning_worker.py",
+        "src/openjev/research/finite_update_allocation.py",
+        "scripts/run_finite_update_learning.py",
+        "scripts/audit_finite_update_learning.py",
+        "scripts/register_finite_update_learning.py",
+        "scripts/finite_update_learning_worker.py",
+        "scripts/qualify_finite_update_exposure.py",
+        "tests/test_finite_update_allocation.py",
+        "tests/test_finite_update_learning_runner.py",
+        "tests/test_finite_update_learning_audit.py",
+        "tests/test_finite_update_learning_worker.py"
+      ],
+      "returncode": 0,
+      "seconds": 0.072565209
+    },
+    {
+      "command": [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "--noconftest",
+        "tests/test_finite_rounded_transition.py",
+        "tests/test_finite_rounded_models.py",
+        "tests/test_finite_update_allocation.py",
+        "tests/test_finite_update_learning_runner.py",
+        "tests/test_finite_update_learning_audit.py",
+        "tests/test_finite_update_learning_worker.py"
+      ],
+      "returncode": 0,
+      "seconds": 5.060073208
+    },
+    {
+      "command": [
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/python",
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/qualify_finite_update_exposure.py",
+        "--output",
+        "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/finite-update-learning-v1/engineering-01/exposure"
+      ],
+      "returncode": 1,
+      "seconds": 5.932906708
+    }
+  ],
+  "engineering_audit": {
+    "agreement": true,
+    "counts": {
+      "array_decodes": 21,
+      "checkpoint_decodes": 9,
+      "model_calls": 0,
+      "native_calls": 0,
+      "optimizer_calls": 0,
+      "optimizer_json_decodes": 9,
+      "world_or_generator_calls": 0
+    },
+    "data_cases": {
+      "base": 7,
+      "train": 471
+    },
+    "paired_batch_checks": [
+      {
+        "arms": [
+          "original_free",
+          "matched_free",
+          "rounded"
+        ],
+        "identical_batch_indices_orders_and_support": true,
+        "joint_updates": 64,
+        "schedule_sha256": "9429cc1e20fc48a84b6b144db9ba74a4a56c7d711cf1ec6ba66e0227c88dc1be",
+        "seed": 942301
+      }
+    ],
+    "profile": "engineering-942201",
+    "qualification_supervisor_status": "failed",
+    "requires_original_supervisor_closure": true,
+    "technical_complete": false
+  },
+  "engineering_producer_counts": {
+    "accepted_joint_steps": 192,
+    "accepted_optimizer_steps": 288,
+    "accepted_prefix_steps": 96,
+    "array_decodes": 0,
+    "checkpoint_decodes": 0,
+    "checkpoint_writes": 9,
+    "dev_generation_count": 1,
+    "dynamics_snapshot_evaluations": 0,
+    "epoch_order_generations": 24,
+    "evaluation_blind_rollouts": 3,
+    "evaluation_case_views": 21,
+    "evaluation_observed_rollouts": 3,
+    "evaluation_prefix_event_views": 216,
+    "evaluation_prefix_rollouts": 3,
+    "evaluation_shuffled_rollouts": 3,
+    "external_model_calls": 0,
+    "fit_count": 3,
+    "model_constructions": 3,
+    "native_calls": 0,
+    "optimizer_attempts": 288,
+    "optimizer_checkpoint_writes": 9,
+    "optimizer_steps": 288,
+    "oracle_blind_rollouts": 9,
+    "oracle_model_constructions": 1,
+    "oracle_observed_rollouts": 9,
+    "readout_snapshot_evaluations": 0,
+    "readout_snapshot_softmax_evaluations": 0,
+    "teacher_calls": 0,
+    "train_generation_count": 1,
+    "training_attempt_exposures": 12288,
+    "training_blind_rollouts": 192,
+    "training_case_exposures": 11304,
+    "training_observed_rollouts": 192,
+    "training_prefix_event_exposures": 536640,
+    "training_prefix_rollouts": 288,
+    "zero_endpoint_batches": 0
+  },
+  "interpretation": "The preselected update counts failed their frozen conservative feasibility rule. This is not a task-performance result, a failure of the completed engineering arithmetic audit, or evidence that a full fit would exceed its separate 120-second safety cap.",
+  "limitations": [
+    "The three projections are extrapolations from one engineering seed, not measured full scientific fits or runtime guarantees.",
+    "Stage timings and historical execution are authenticated saved records, not replayed by this publisher.",
+    "The original arithmetic audit completed inside the engineering command; the enclosing qualification failed on the subsequent cost rule.",
+    "System-temporary pytest fixture outputs are not included or claimed preserved. Authoritative test logs and the complete original retained exposure probe are included.",
+    "No scientific seed data were generated, no scientific run was admitted, and no threshold change, smaller schedule or retry is authorized by this report.",
+    "Installed interpreter and packages remain external; the archive is evidence, not a bundled portable runtime."
+  ],
+  "lint_passed": true,
+  "maximum_projected_seconds": 90.0,
+  "original_process_returncode": 1,
+  "original_timing_scope": "native elapsed from before Popen through child exit and group cleanup; terminal JSON publication follows the final reading",
+  "original_wall_seconds": 11.249260417,
+  "probe_config": {
+    "batch_size": 64,
+    "dev_attempts": 8,
+    "dev_horizon": 8,
+    "fit_cap_seconds": 30.0,
+    "fit_seeds": [
+      942301
+    ],
+    "gradient_clip": 5.0,
+    "joint_updates": 64,
+    "learning_rate": 0.003,
+    "prefix_updates": 32,
+    "seed_namespace": 942201,
+    "train_attempts": 512,
+    "train_horizon": 2
+  },
+  "probe_seconds": 5.4725028751417994,
+  "projection_formula": "2 * (prefix_stage_seconds * 1024/32 + joint_stage_seconds * 3072/64) + measured_nonstage_fit_seconds",
+  "projections": [
+    {
+      "accepted_joint_updates": 64,
+      "accepted_prefix_updates": 32,
+      "arm": "original_free",
+      "meets_feasibility_bound": false,
+      "nonstage_seconds": 0.752956791780889,
+      "probe_fit_seconds": 1.85971804196015,
+      "projected_seconds": 97.13036080356687,
+      "safety_multiplier": 2.0,
+      "seed": 942301,
+      "stage_seconds": [
+        0.3084898751694709,
+        0.7982713750097901
+      ]
+    },
+    {
+      "accepted_joint_updates": 64,
+      "accepted_prefix_updates": 32,
+      "arm": "matched_free",
+      "meets_feasibility_bound": false,
+      "nonstage_seconds": 0.02865275088697672,
+      "probe_fit_seconds": 1.175202334066853,
+      "projected_seconds": 99.390699387528,
+      "safety_multiplier": 2.0,
+      "seed": 942301,
+      "stage_seconds": [
+        0.3345847921445966,
+        0.8119647910352796
+      ]
+    },
+    {
+      "accepted_joint_updates": 64,
+      "accepted_prefix_updates": 32,
+      "arm": "rounded",
+      "meets_feasibility_bound": false,
+      "nonstage_seconds": 0.017805624986067414,
+      "probe_fit_seconds": 1.179414541926235,
+      "projected_seconds": 102.53082830854692,
+      "safety_multiplier": 2.0,
+      "seed": 942301,
+      "stage_seconds": [
+        0.28129479195922613,
+        0.8803141249809414
+      ]
+    }
+  ],
+  "proposed_scientific_config": {
+    "batch_size": 64,
+    "dev_attempts": 128,
+    "dev_horizon": 8,
+    "fit_cap_seconds": 120.0,
+    "fit_seeds": [
+      433261001,
+      433261002,
+      433261003
+    ],
+    "gradient_clip": 5.0,
+    "joint_updates": 3072,
+    "learning_rate": 0.003,
+    "prefix_updates": 1024,
+    "seed_namespace": 433260924,
+    "train_attempts": 512,
+    "train_horizon": 2
+  },
+  "publication_counts": {
+    "array_decodes": 0,
+    "checkpoint_decodes": 0,
+    "generator_calls": 0,
+    "model_calls": 0,
+    "native_calls": 0,
+    "optimizer_calls": 0,
+    "qualification_reruns": 0
+  },
+  "pytest_seconds": 4.29,
+  "qualification_payload_files": 47,
+  "reason": "PRESELECTED_EXPOSURE_COST_BOUND_FAILED",
+  "registered_sources": 75,
+  "registration": {
+    "bytes": 23350,
+    "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/finite-update-learning-v1/engineering-registration-01.json",
+    "sha256": "df564a228c92291b7a3149037ee1bf94d3f03f6f289564dc21d40a6e9681bec5"
+  },
+  "retained_probe_run_files": 41,
+  "scientific_registered": false,
+  "scientific_result": null,
+  "scientific_started": false,
+  "status": "QUALIFICATION_FAILED",
+  "strict_projection_rule": "projected_seconds < 90.0",
+  "study": "finite-update-learning-v1",
+  "test_warnings": 1,
+  "tests_failed": 0,
+  "tests_passed": 273,
+  "version": "finite-update-learning-stopped-publication-v1"
+}
