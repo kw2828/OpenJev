@@ -58,7 +58,12 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Research status
 
-The [latest recurrent comparison](research/finite-factorized-dynamics-results.md)
+The [latest diagnostic stopped before evaluation](research/finite-convex-readout-results.md):
+only **3 of 9** frozen-model action readouts met the registered numerical
+accuracy requirement. All failures are retained; no new decision-performance
+result is available.
+
+The [last completed recurrent comparison](research/finite-factorized-dynamics-results.md)
 tests **nine fits**. A structured 352-parameter model lowers mean four- and
 eight-step decision regret **35.15% / 19.39%** versus a 1,120-parameter control
 that starts with the same predictions. It passes the criterion that receives
