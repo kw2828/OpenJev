@@ -1,0 +1,185 @@
+{
+  "annotation_only": 3553,
+  "by_stage_arm": [
+    {
+      "annotation_only": 164,
+      "arm": "analytic",
+      "deployed_queries": 0,
+      "episodes": 6,
+      "rows": 164,
+      "stage": "dev"
+    },
+    {
+      "annotation_only": 0,
+      "arm": "neural",
+      "deployed_queries": 130,
+      "episodes": 6,
+      "rows": 130,
+      "stage": "dev"
+    },
+    {
+      "annotation_only": 3389,
+      "arm": "period4_hold",
+      "deployed_queries": 1133,
+      "episodes": 6,
+      "rows": 4522,
+      "stage": "dev"
+    }
+  ],
+  "censored": 2,
+  "complete": true,
+  "confirm_episodes": 0,
+  "corrections": 1210,
+  "costs": {
+    "dev_collection_seconds": 191.9423259589821,
+    "dev_serialization_seconds": 0.015178791945800185,
+    "feature_module_seconds": 0.0021820419933646917,
+    "journal_io_seconds": 0.9838987144175917,
+    "operation_seconds": {
+      "actor_construction": {
+        "attempted": 18,
+        "returned": 18,
+        "seconds": 0.0021893333178013563
+      },
+      "actor_update": {
+        "attempted": 4816,
+        "returned": 4816,
+        "seconds": 0.1983825988136232
+      },
+      "analytic_score": {
+        "attempted": 4816,
+        "returned": 4816,
+        "seconds": 1.4337186610791832
+      },
+      "annotation_public_reset": {
+        "attempted": 0,
+        "returned": 0,
+        "seconds": 0.0
+      },
+      "annotation_public_update": {
+        "attempted": 0,
+        "returned": 0,
+        "seconds": 0.0
+      },
+      "backend_binding": {
+        "attempted": 18,
+        "returned": 18,
+        "seconds": 0.00011041597463190556
+      },
+      "feature_build": {
+        "attempted": 4816,
+        "returned": 4816,
+        "seconds": 0.29258436313830316
+      },
+      "native_reset": {
+        "attempted": 18,
+        "returned": 18,
+        "seconds": 0.09483078983612359
+      },
+      "native_step": {
+        "attempted": 4816,
+        "returned": 4816,
+        "seconds": 10.193481252528727
+      },
+      "teacher_score": {
+        "attempted": 4816,
+        "returned": 4816,
+        "seconds": 174.1714235295076
+      },
+      "tensorflow_build": {
+        "attempted": 1,
+        "returned": 1,
+        "seconds": 0.07393958396278322
+      },
+      "tensorflow_construction": {
+        "attempted": 1,
+        "returned": 1,
+        "seconds": 0.015516417101025581
+      },
+      "tensorflow_load": {
+        "attempted": 1,
+        "returned": 1,
+        "seconds": 0.012537374859675765
+      },
+      "tensorflow_value": {
+        "attempted": 4816,
+        "returned": 4816,
+        "seconds": 168.73692087712698
+      }
+    },
+    "original_setup_wall_seconds": 4.404578417073935,
+    "scope": "Setup and DEV collection and serialization are disjoint physical intervals. Operation timers overlap; I/O timer is partial and overlaps those intervals. Source authentication, final hashing and process overhead remain paid in original worker/parent time. Physical teacher annotations are included; these are collection costs, not deployed-controller cost measurements."
+  },
+  "datasets": {
+    "dev": {
+      "arrays": {
+        "actions": {
+          "bytes": 38528,
+          "dtype": "int64",
+          "sha256": "e4bedf3d1919baa07721a4e05db30e7393a12dc52a3ac44a2c2ccaf1ad2dbfc7",
+          "shape": [
+            4816
+          ]
+        },
+        "correction": {
+          "bytes": 4816,
+          "dtype": "bool",
+          "sha256": "1eac06958f64386703c620f43a61dc84375d4c554718c0942289090e34fcb6fb",
+          "shape": [
+            4816
+          ]
+        },
+        "episode_offsets": {
+          "bytes": 152,
+          "dtype": "int64",
+          "sha256": "170e6285723388df8324d15ef84501f15477f00070929b0c4da473afde616474",
+          "shape": [
+            19
+          ]
+        },
+        "features": {
+          "bytes": 597184,
+          "dtype": "float32",
+          "sha256": "71ea52b3f52a331788bb7226fbbf479ec6ee644131d319c9b60cc18b8f6f0cb5",
+          "shape": [
+            4816,
+            31
+          ]
+        },
+        "legal": {
+          "bytes": 19264,
+          "dtype": "bool",
+          "sha256": "71c6583933155d6aae8fd336c6e70aa8c665c5dc41fcfa203a894b102c125d41",
+          "shape": [
+            4816,
+            4
+          ]
+        },
+        "raw_q": {
+          "bytes": 77056,
+          "dtype": "float32",
+          "sha256": "0c70a7e90ab533de5be4f658e77e9cfa9d6a232334f6778171d61170ab6110f0",
+          "shape": [
+            4816,
+            4
+          ]
+        }
+      },
+      "bytes": 104901,
+      "episodes": 18,
+      "path": "dev.npz",
+      "rows": 4816,
+      "sha256": "2bc1150574ac74e66d3823a147f768b33361c4178202e1fd244c184579d06883"
+    }
+  },
+  "deployed_queries": 1263,
+  "efficacy_claim": false,
+  "episodes": 18,
+  "found": 16,
+  "master_episodes": 54,
+  "phase": "dev",
+  "rows": 4816,
+  "teacher_calls": 4816,
+  "training_updates": 0,
+  "version": "otto-residual-collection-v1"
+}

@@ -1,6 +1,15 @@
 # Bayesian residual comparison status
 
-**Registered for development collection. No new empirical performance result.**
+**Closed with an evaluation-planning failure. No new performance result.**
+All 18 development paths were collected successfully: 4,816 native steps and
+teacher calls in 197.31 seconds, including the original supervisor's cleanup.
+Evaluation stopped during metadata authentication, before its worker started or
+any checkpoint or evaluation array was decoded. This is a harness failure, not
+evidence for or against Bayesian memory.
+
+[Failure and repair plan](otto-residual-runtime-repair.md) ·
+[Recorded planning failure](../output/otto-residual-estimator-v1/dev-evaluation-plan-failure-01.json)
+
 The [protocol](otto-residual-estimator-protocol.md) and
 [registration](../output/otto-residual-estimator-v1/registration-01.json) bind
 177 source/evidence files, all nine original checkpoint files and the complete
@@ -29,7 +38,17 @@ scientific **DEV FAIL 6/13**. The
 [native collection plan](../output/otto-residual-estimator-v1/dev-collection-plan-01.json)
 was generated with the required native interpreter, before any collection call.
 
-Development still needs its original collection closure, 72-view evaluation,
-independent saved-output audit and final original-process closure. A technical
-failure or any failed usefulness condition closes the screen and leaves
-confirmation unused. The prior study's TEST is never an input to this experiment.
+The evaluator correctly uses its training environment, but its collection
+authentication recursively requires the different native collection environment
+to be the current interpreter. Both requirements cannot hold in one process.
+The 531 fabricated tests and capacity probe missed this integration boundary.
+
+The registered screen is closed under its technical-failure rule. No 72-view
+evaluation, independent numerical audit, candidate selection or usefulness
+decision was produced. Confirmation was not collected, and the prior study's
+TEST remains unused. A separately registered repair can retain these paths as
+prior development data; it cannot relabel this attempt as successful.
+
+The original collection source scans resources on every callback. Evaluation
+and audit were designed to scan every 250 milliseconds, as described by the
+protocol. The collector's more frequent enforcement did not relax any cap.

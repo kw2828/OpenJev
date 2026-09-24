@@ -1,0 +1,770 @@
+{
+  "configuration": {
+    "Ngrid": 53,
+    "Nhits": 4,
+    "R_dt": 2.0,
+    "action_boundary": "skip action fixed before annotation; annotation never refreshes held cache",
+    "annotation": "complete DEV census; one score per retained state",
+    "arms": [
+      "analytic",
+      "neural",
+      "period4_hold"
+    ],
+    "cases": {
+      "confirm": 6,
+      "dev": 3
+    },
+    "collector_period": 4,
+    "confirm_collected_episodes": 0,
+    "confirm_reserved_episodes": 36,
+    "confirmation_boundary": "not supported; requires separately admitted future collection phase after DEV pass",
+    "deferred_annotation": false,
+    "dev_episodes": 18,
+    "features": "virtual last_query=step-step%4, age=step%4, has_queried=1, including correction rows",
+    "first_seeds": {
+      "confirm": {
+        "lambda3": 316000001,
+        "lambda4": 317000001
+      },
+      "dev": {
+        "lambda3": 314000001,
+        "lambda4": 315000001
+      }
+    },
+    "horizon": 2188,
+    "initial_hit": "1 + case % 3",
+    "master_episodes": 54,
+    "norm_Poisson": "Euclidean",
+    "old_test_access": false,
+    "phase": "dev",
+    "rotation": "global master case index modulo three; indices continue across phases",
+    "training_updates": 0,
+    "warmup_forwards": 0,
+    "window_sampling": false
+  },
+  "episodes": [
+    {
+      "arm": "analytic",
+      "case": 0,
+      "episode_id": "dev:lambda3:314000001:analytic",
+      "episode_index": 0,
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 314000001,
+      "stage": "dev"
+    },
+    {
+      "arm": "neural",
+      "case": 0,
+      "episode_id": "dev:lambda3:314000001:neural",
+      "episode_index": 1,
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 314000001,
+      "stage": "dev"
+    },
+    {
+      "arm": "period4_hold",
+      "case": 0,
+      "episode_id": "dev:lambda3:314000001:period4_hold",
+      "episode_index": 2,
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 314000001,
+      "stage": "dev"
+    },
+    {
+      "arm": "neural",
+      "case": 1,
+      "episode_id": "dev:lambda3:314000002:neural",
+      "episode_index": 3,
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 314000002,
+      "stage": "dev"
+    },
+    {
+      "arm": "period4_hold",
+      "case": 1,
+      "episode_id": "dev:lambda3:314000002:period4_hold",
+      "episode_index": 4,
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 314000002,
+      "stage": "dev"
+    },
+    {
+      "arm": "analytic",
+      "case": 1,
+      "episode_id": "dev:lambda3:314000002:analytic",
+      "episode_index": 5,
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 314000002,
+      "stage": "dev"
+    },
+    {
+      "arm": "period4_hold",
+      "case": 2,
+      "episode_id": "dev:lambda3:314000003:period4_hold",
+      "episode_index": 6,
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 314000003,
+      "stage": "dev"
+    },
+    {
+      "arm": "analytic",
+      "case": 2,
+      "episode_id": "dev:lambda3:314000003:analytic",
+      "episode_index": 7,
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 314000003,
+      "stage": "dev"
+    },
+    {
+      "arm": "neural",
+      "case": 2,
+      "episode_id": "dev:lambda3:314000003:neural",
+      "episode_index": 8,
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 314000003,
+      "stage": "dev"
+    },
+    {
+      "arm": "analytic",
+      "case": 0,
+      "episode_id": "dev:lambda4:315000001:analytic",
+      "episode_index": 9,
+      "initial_hit": 1,
+      "regime": "lambda4",
+      "seed": 315000001,
+      "stage": "dev"
+    },
+    {
+      "arm": "neural",
+      "case": 0,
+      "episode_id": "dev:lambda4:315000001:neural",
+      "episode_index": 10,
+      "initial_hit": 1,
+      "regime": "lambda4",
+      "seed": 315000001,
+      "stage": "dev"
+    },
+    {
+      "arm": "period4_hold",
+      "case": 0,
+      "episode_id": "dev:lambda4:315000001:period4_hold",
+      "episode_index": 11,
+      "initial_hit": 1,
+      "regime": "lambda4",
+      "seed": 315000001,
+      "stage": "dev"
+    },
+    {
+      "arm": "neural",
+      "case": 1,
+      "episode_id": "dev:lambda4:315000002:neural",
+      "episode_index": 12,
+      "initial_hit": 2,
+      "regime": "lambda4",
+      "seed": 315000002,
+      "stage": "dev"
+    },
+    {
+      "arm": "period4_hold",
+      "case": 1,
+      "episode_id": "dev:lambda4:315000002:period4_hold",
+      "episode_index": 13,
+      "initial_hit": 2,
+      "regime": "lambda4",
+      "seed": 315000002,
+      "stage": "dev"
+    },
+    {
+      "arm": "analytic",
+      "case": 1,
+      "episode_id": "dev:lambda4:315000002:analytic",
+      "episode_index": 14,
+      "initial_hit": 2,
+      "regime": "lambda4",
+      "seed": 315000002,
+      "stage": "dev"
+    },
+    {
+      "arm": "period4_hold",
+      "case": 2,
+      "episode_id": "dev:lambda4:315000003:period4_hold",
+      "episode_index": 15,
+      "initial_hit": 3,
+      "regime": "lambda4",
+      "seed": 315000003,
+      "stage": "dev"
+    },
+    {
+      "arm": "analytic",
+      "case": 2,
+      "episode_id": "dev:lambda4:315000003:analytic",
+      "episode_index": 16,
+      "initial_hit": 3,
+      "regime": "lambda4",
+      "seed": 315000003,
+      "stage": "dev"
+    },
+    {
+      "arm": "neural",
+      "case": 2,
+      "episode_id": "dev:lambda4:315000003:neural",
+      "episode_index": 17,
+      "initial_hit": 3,
+      "regime": "lambda4",
+      "seed": 315000003,
+      "stage": "dev"
+    },
+    {
+      "arm": "analytic",
+      "case": 0,
+      "episode_id": "confirm:lambda3:316000001:analytic",
+      "episode_index": 18,
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 316000001,
+      "stage": "confirm"
+    },
+    {
+      "arm": "neural",
+      "case": 0,
+      "episode_id": "confirm:lambda3:316000001:neural",
+      "episode_index": 19,
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 316000001,
+      "stage": "confirm"
+    },
+    {
+      "arm": "period4_hold",
+      "case": 0,
+      "episode_id": "confirm:lambda3:316000001:period4_hold",
+      "episode_index": 20,
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 316000001,
+      "stage": "confirm"
+    },
+    {
+      "arm": "neural",
+      "case": 1,
+      "episode_id": "confirm:lambda3:316000002:neural",
+      "episode_index": 21,
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 316000002,
+      "stage": "confirm"
+    },
+    {
+      "arm": "period4_hold",
+      "case": 1,
+      "episode_id": "confirm:lambda3:316000002:period4_hold",
+      "episode_index": 22,
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 316000002,
+      "stage": "confirm"
+    },
+    {
+      "arm": "analytic",
+      "case": 1,
+      "episode_id": "confirm:lambda3:316000002:analytic",
+      "episode_index": 23,
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 316000002,
+      "stage": "confirm"
+    },
+    {
+      "arm": "period4_hold",
+      "case": 2,
+      "episode_id": "confirm:lambda3:316000003:period4_hold",
+      "episode_index": 24,
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 316000003,
+      "stage": "confirm"
+    },
+    {
+      "arm": "analytic",
+      "case": 2,
+      "episode_id": "confirm:lambda3:316000003:analytic",
+      "episode_index": 25,
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 316000003,
+      "stage": "confirm"
+    },
+    {
+      "arm": "neural",
+      "case": 2,
+      "episode_id": "confirm:lambda3:316000003:neural",
+      "episode_index": 26,
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 316000003,
+      "stage": "confirm"
+    },
+    {
+      "arm": "analytic",
+      "case": 3,
+      "episode_id": "confirm:lambda3:316000004:analytic",
+      "episode_index": 27,
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 316000004,
+      "stage": "confirm"
+    },
+    {
+      "arm": "neural",
+      "case": 3,
+      "episode_id": "confirm:lambda3:316000004:neural",
+      "episode_index": 28,
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 316000004,
+      "stage": "confirm"
+    },
+    {
+      "arm": "period4_hold",
+      "case": 3,
+      "episode_id": "confirm:lambda3:316000004:period4_hold",
+      "episode_index": 29,
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 316000004,
+      "stage": "confirm"
+    },
+    {
+      "arm": "neural",
+      "case": 4,
+      "episode_id": "confirm:lambda3:316000005:neural",
+      "episode_index": 30,
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 316000005,
+      "stage": "confirm"
+    },
+    {
+      "arm": "period4_hold",
+      "case": 4,
+      "episode_id": "confirm:lambda3:316000005:period4_hold",
+      "episode_index": 31,
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 316000005,
+      "stage": "confirm"
+    },
+    {
+      "arm": "analytic",
+      "case": 4,
+      "episode_id": "confirm:lambda3:316000005:analytic",
+      "episode_index": 32,
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 316000005,
+      "stage": "confirm"
+    },
+    {
+      "arm": "period4_hold",
+      "case": 5,
+      "episode_id": "confirm:lambda3:316000006:period4_hold",
+      "episode_index": 33,
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 316000006,
+      "stage": "confirm"
+    },
+    {
+      "arm": "analytic",
+      "case": 5,
+      "episode_id": "confirm:lambda3:316000006:analytic",
+      "episode_index": 34,
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 316000006,
+      "stage": "confirm"
+    },
+    {
+      "arm": "neural",
+      "case": 5,
+      "episode_id": "confirm:lambda3:316000006:neural",
+      "episode_index": 35,
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 316000006,
+      "stage": "confirm"
+    },
+    {
+      "arm": "analytic",
+      "case": 0,
+      "episode_id": "confirm:lambda4:317000001:analytic",
+      "episode_index": 36,
+      "initial_hit": 1,
+      "regime": "lambda4",
+      "seed": 317000001,
+      "stage": "confirm"
+    },
+    {
+      "arm": "neural",
+      "case": 0,
+      "episode_id": "confirm:lambda4:317000001:neural",
+      "episode_index": 37,
+      "initial_hit": 1,
+      "regime": "lambda4",
+      "seed": 317000001,
+      "stage": "confirm"
+    },
+    {
+      "arm": "period4_hold",
+      "case": 0,
+      "episode_id": "confirm:lambda4:317000001:period4_hold",
+      "episode_index": 38,
+      "initial_hit": 1,
+      "regime": "lambda4",
+      "seed": 317000001,
+      "stage": "confirm"
+    },
+    {
+      "arm": "neural",
+      "case": 1,
+      "episode_id": "confirm:lambda4:317000002:neural",
+      "episode_index": 39,
+      "initial_hit": 2,
+      "regime": "lambda4",
+      "seed": 317000002,
+      "stage": "confirm"
+    },
+    {
+      "arm": "period4_hold",
+      "case": 1,
+      "episode_id": "confirm:lambda4:317000002:period4_hold",
+      "episode_index": 40,
+      "initial_hit": 2,
+      "regime": "lambda4",
+      "seed": 317000002,
+      "stage": "confirm"
+    },
+    {
+      "arm": "analytic",
+      "case": 1,
+      "episode_id": "confirm:lambda4:317000002:analytic",
+      "episode_index": 41,
+      "initial_hit": 2,
+      "regime": "lambda4",
+      "seed": 317000002,
+      "stage": "confirm"
+    },
+    {
+      "arm": "period4_hold",
+      "case": 2,
+      "episode_id": "confirm:lambda4:317000003:period4_hold",
+      "episode_index": 42,
+      "initial_hit": 3,
+      "regime": "lambda4",
+      "seed": 317000003,
+      "stage": "confirm"
+    },
+    {
+      "arm": "analytic",
+      "case": 2,
+      "episode_id": "confirm:lambda4:317000003:analytic",
+      "episode_index": 43,
+      "initial_hit": 3,
+      "regime": "lambda4",
+      "seed": 317000003,
+      "stage": "confirm"
+    },
+    {
+      "arm": "neural",
+      "case": 2,
+      "episode_id": "confirm:lambda4:317000003:neural",
+      "episode_index": 44,
+      "initial_hit": 3,
+      "regime": "lambda4",
+      "seed": 317000003,
+      "stage": "confirm"
+    },
+    {
+      "arm": "analytic",
+      "case": 3,
+      "episode_id": "confirm:lambda4:317000004:analytic",
+      "episode_index": 45,
+      "initial_hit": 1,
+      "regime": "lambda4",
+      "seed": 317000004,
+      "stage": "confirm"
+    },
+    {
+      "arm": "neural",
+      "case": 3,
+      "episode_id": "confirm:lambda4:317000004:neural",
+      "episode_index": 46,
+      "initial_hit": 1,
+      "regime": "lambda4",
+      "seed": 317000004,
+      "stage": "confirm"
+    },
+    {
+      "arm": "period4_hold",
+      "case": 3,
+      "episode_id": "confirm:lambda4:317000004:period4_hold",
+      "episode_index": 47,
+      "initial_hit": 1,
+      "regime": "lambda4",
+      "seed": 317000004,
+      "stage": "confirm"
+    },
+    {
+      "arm": "neural",
+      "case": 4,
+      "episode_id": "confirm:lambda4:317000005:neural",
+      "episode_index": 48,
+      "initial_hit": 2,
+      "regime": "lambda4",
+      "seed": 317000005,
+      "stage": "confirm"
+    },
+    {
+      "arm": "period4_hold",
+      "case": 4,
+      "episode_id": "confirm:lambda4:317000005:period4_hold",
+      "episode_index": 49,
+      "initial_hit": 2,
+      "regime": "lambda4",
+      "seed": 317000005,
+      "stage": "confirm"
+    },
+    {
+      "arm": "analytic",
+      "case": 4,
+      "episode_id": "confirm:lambda4:317000005:analytic",
+      "episode_index": 50,
+      "initial_hit": 2,
+      "regime": "lambda4",
+      "seed": 317000005,
+      "stage": "confirm"
+    },
+    {
+      "arm": "period4_hold",
+      "case": 5,
+      "episode_id": "confirm:lambda4:317000006:period4_hold",
+      "episode_index": 51,
+      "initial_hit": 3,
+      "regime": "lambda4",
+      "seed": 317000006,
+      "stage": "confirm"
+    },
+    {
+      "arm": "analytic",
+      "case": 5,
+      "episode_id": "confirm:lambda4:317000006:analytic",
+      "episode_index": 52,
+      "initial_hit": 3,
+      "regime": "lambda4",
+      "seed": 317000006,
+      "stage": "confirm"
+    },
+    {
+      "arm": "neural",
+      "case": 5,
+      "episode_id": "confirm:lambda4:317000006:neural",
+      "episode_index": 53,
+      "initial_hit": 3,
+      "regime": "lambda4",
+      "seed": 317000006,
+      "stage": "confirm"
+    }
+  ],
+  "execution_episodes": [
+    {
+      "arm": "analytic",
+      "case": 0,
+      "episode_id": "dev:lambda3:314000001:analytic",
+      "episode_index": 0,
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 314000001,
+      "stage": "dev"
+    },
+    {
+      "arm": "neural",
+      "case": 0,
+      "episode_id": "dev:lambda3:314000001:neural",
+      "episode_index": 1,
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 314000001,
+      "stage": "dev"
+    },
+    {
+      "arm": "period4_hold",
+      "case": 0,
+      "episode_id": "dev:lambda3:314000001:period4_hold",
+      "episode_index": 2,
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 314000001,
+      "stage": "dev"
+    },
+    {
+      "arm": "neural",
+      "case": 1,
+      "episode_id": "dev:lambda3:314000002:neural",
+      "episode_index": 3,
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 314000002,
+      "stage": "dev"
+    },
+    {
+      "arm": "period4_hold",
+      "case": 1,
+      "episode_id": "dev:lambda3:314000002:period4_hold",
+      "episode_index": 4,
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 314000002,
+      "stage": "dev"
+    },
+    {
+      "arm": "analytic",
+      "case": 1,
+      "episode_id": "dev:lambda3:314000002:analytic",
+      "episode_index": 5,
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 314000002,
+      "stage": "dev"
+    },
+    {
+      "arm": "period4_hold",
+      "case": 2,
+      "episode_id": "dev:lambda3:314000003:period4_hold",
+      "episode_index": 6,
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 314000003,
+      "stage": "dev"
+    },
+    {
+      "arm": "analytic",
+      "case": 2,
+      "episode_id": "dev:lambda3:314000003:analytic",
+      "episode_index": 7,
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 314000003,
+      "stage": "dev"
+    },
+    {
+      "arm": "neural",
+      "case": 2,
+      "episode_id": "dev:lambda3:314000003:neural",
+      "episode_index": 8,
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 314000003,
+      "stage": "dev"
+    },
+    {
+      "arm": "analytic",
+      "case": 0,
+      "episode_id": "dev:lambda4:315000001:analytic",
+      "episode_index": 9,
+      "initial_hit": 1,
+      "regime": "lambda4",
+      "seed": 315000001,
+      "stage": "dev"
+    },
+    {
+      "arm": "neural",
+      "case": 0,
+      "episode_id": "dev:lambda4:315000001:neural",
+      "episode_index": 10,
+      "initial_hit": 1,
+      "regime": "lambda4",
+      "seed": 315000001,
+      "stage": "dev"
+    },
+    {
+      "arm": "period4_hold",
+      "case": 0,
+      "episode_id": "dev:lambda4:315000001:period4_hold",
+      "episode_index": 11,
+      "initial_hit": 1,
+      "regime": "lambda4",
+      "seed": 315000001,
+      "stage": "dev"
+    },
+    {
+      "arm": "neural",
+      "case": 1,
+      "episode_id": "dev:lambda4:315000002:neural",
+      "episode_index": 12,
+      "initial_hit": 2,
+      "regime": "lambda4",
+      "seed": 315000002,
+      "stage": "dev"
+    },
+    {
+      "arm": "period4_hold",
+      "case": 1,
+      "episode_id": "dev:lambda4:315000002:period4_hold",
+      "episode_index": 13,
+      "initial_hit": 2,
+      "regime": "lambda4",
+      "seed": 315000002,
+      "stage": "dev"
+    },
+    {
+      "arm": "analytic",
+      "case": 1,
+      "episode_id": "dev:lambda4:315000002:analytic",
+      "episode_index": 14,
+      "initial_hit": 2,
+      "regime": "lambda4",
+      "seed": 315000002,
+      "stage": "dev"
+    },
+    {
+      "arm": "period4_hold",
+      "case": 2,
+      "episode_id": "dev:lambda4:315000003:period4_hold",
+      "episode_index": 15,
+      "initial_hit": 3,
+      "regime": "lambda4",
+      "seed": 315000003,
+      "stage": "dev"
+    },
+    {
+      "arm": "analytic",
+      "case": 2,
+      "episode_id": "dev:lambda4:315000003:analytic",
+      "episode_index": 16,
+      "initial_hit": 3,
+      "regime": "lambda4",
+      "seed": 315000003,
+      "stage": "dev"
+    },
+    {
+      "arm": "neural",
+      "case": 2,
+      "episode_id": "dev:lambda4:315000003:neural",
+      "episode_index": 17,
+      "initial_hit": 3,
+      "regime": "lambda4",
+      "seed": 315000003,
+      "stage": "dev"
+    }
+  ],
+  "phase": "dev"
+}
