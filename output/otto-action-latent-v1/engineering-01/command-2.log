@@ -1,0 +1,14 @@
+RUF024 Do not pass mutable objects as values to `dict.fromkeys`
+   --> tests/test_audit_otto_action_latent.py:160:74
+    |
+158 |                      f'{family}-{seed}.npz' for family in audit.FAMILIES[:3] for seed in cfg['fit_seeds']}
+159 |     receipts = {phase: {'version': audit.c.VERSION, 'phase': phase, 'plan_sha256': 'fixed',
+160 |                        'old_test_decodes': 0, 'astra_calls': 0, 'files': dict.fromkeys(files, {})}
+    |                                                                          ^^^^^^^^^^^^^^^^^^^^^^^^
+161 |                 for phase, files in (('collect', {'dev.npz', 'summary.json'}), ('fit', fit_files))}
+162 |     terminals = {'collection-native-01.terminal.json': {'started_ns': 0, 'finished_ns': 10},
+    |
+help: Replace with comprehension
+
+Found 1 error.
+No fixes available (1 hidden fix can be enabled with the `--unsafe-fixes` option).

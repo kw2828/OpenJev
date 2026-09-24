@@ -1,0 +1,3123 @@
+{
+  "bounds": {
+    "audit": 180,
+    "collect": 1800,
+    "fit": 1800
+  },
+  "config": {
+    "aux_weight": 0.1,
+    "batch": 32,
+    "candidate": "action_recurrent",
+    "clip": 5.0,
+    "controls": [
+      "action_blind",
+      "direct_horizon",
+      "ridge"
+    ],
+    "cost_weight": 1.0,
+    "dev_base_first": 321000001,
+    "dev_cases_per_regime": 48,
+    "dev_horizon": 8,
+    "dev_shift_first": 322000001,
+    "epochs": 80,
+    "fit_seeds": [
+      323000001,
+      323000002,
+      323000003
+    ],
+    "long_gap_improvement": 0.05,
+    "long_logscore_improvement": 0.01,
+    "lr": 0.003,
+    "min_dev_per_regime": 24,
+    "min_train": 120,
+    "minimum_supported_cases": 16,
+    "normal_relative_tolerance": 0.01,
+    "prefix_transitions": 8,
+    "ridge_lambda": 0.0001,
+    "ridge_probability_smoothing": 1e-06,
+    "train_cases": 192,
+    "train_first": 320000001,
+    "train_horizon": 4
+  },
+  "inputs": {
+    "output/otto-action-latent-v1/engineering-01/command-1.log": {
+      "bytes": 260,
+      "sha256": "3f1b5006876be16406e7f32b8d34dada3a6bf7fe6f908d8717f566e5b5180579"
+    },
+    "output/otto-action-latent-v1/engineering-01/command-2.log": {
+      "bytes": 886,
+      "sha256": "2567027d86b65237b65887d152f48c986751bc3a2598c84173ef5a5df6caf2ed"
+    },
+    "output/otto-action-latent-v1/engineering-01/receipt.json": {
+      "bytes": 8100,
+      "sha256": "3d2490e6cdf06b31fbf1033b67423b67efffffff39d05df16de7fea3d82b6172"
+    },
+    "output/otto-action-latent-v1/engineering-01/started.json": {
+      "bytes": 4762,
+      "sha256": "767414751c4d4cb16e56988ff809f46a87cdfa6a6d5b419e8a2ad5a3f0dc2666"
+    },
+    "output/otto-action-latent-v1/engineering-02/capacity.json": {
+      "bytes": 337,
+      "sha256": "223b27dbc9618d35345288fa396e8f0701c4a2e339230f16d31a7c4d02625019"
+    },
+    "output/otto-action-latent-v1/engineering-02/command-1.log": {
+      "bytes": 260,
+      "sha256": "12e099f03f4696b1b8f087722c39d35ed20cae9d211a6433b97a33da1ebd8352"
+    },
+    "output/otto-action-latent-v1/engineering-02/command-2.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "output/otto-action-latent-v1/engineering-02/command-3.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "output/otto-action-latent-v1/engineering-02/receipt.json": {
+      "bytes": 9026,
+      "sha256": "981efa4458a24b64b372e2aeb7fca4691903a8d4557732c8f8627188f4ff1bf5"
+    },
+    "output/otto-action-latent-v1/engineering-02/started.json": {
+      "bytes": 4762,
+      "sha256": "56399bb719ab545c0af055245c6a69e6f17e8b4dd6e1b7c1579d28de0993a85e"
+    },
+    "output/otto-action-latent-v1/native-preflight-01.json": {
+      "bytes": 23250,
+      "sha256": "25ba8c96eb59d6ffabfb89c155e32fff65bfded0e0157ae18985fdd3ba6dfa0e"
+    },
+    "output/otto-action-latent-v1/register-01.py": {
+      "bytes": 2687,
+      "sha256": "f9b88ba39cf825f8e601eb0813ef097a1f3d4a24a9fc2dd5289e963ef0b5c34f"
+    },
+    "output/otto-action-latent-v1/seed-review-01.json": {
+      "bytes": 145302,
+      "sha256": "2477cdf8eb22c06eeec4d2b35d8409e5150e9b5af04b30c3e6f7691b200fc0da"
+    },
+    "output/otto-pretrained-reference-v1/extraction-01/tensor-metadata.json": {
+      "bytes": 3426,
+      "sha256": "5ca9e7f623965c737a1e82e8fe642593582cd375e697ed70d2fb58a8ad84125f"
+    },
+    "output/otto-pretrained-reference-v1/extraction-01/tensors.npz": {
+      "bytes": 53565386,
+      "sha256": "610dd348ebcff65dd655c3ac67f0cfe895225b0156771e6a4a2cd235272aaf26"
+    },
+    "output/otto-pretrained-reference-v2/qualification-01/original.weights-legacy.h5": {
+      "bytes": 53581916,
+      "sha256": "1efb73aa38e0fd8b08d6d03059c0db4664da3afb8eaff1d7ab9b363f8e7ad37d"
+    },
+    "output/otto-pretrained-reference-v2/qualification-01/receipt.json": {
+      "bytes": 10935,
+      "sha256": "30c1b7321787053820a5ebdd1194a2ff085d7c8d21f7e9a62d4e31ab15ac9457"
+    },
+    "output/otto-pretrained-reference-v2/qualification-plan-01.json": {
+      "bytes": 11467,
+      "sha256": "40d90544fd1d9a49f12275140f704d96c5dfae2c3ac1becc8aebf55ac19364f5"
+    },
+    "output/otto-pretrained-reference-v2/qualification-process-01.terminal.json": {
+      "bytes": 1856,
+      "sha256": "ff7747fa81fbc0ec8e264d2eebe6702b71c7f93f8fbdaf3467d8b0558f87df24"
+    },
+    "output/otto-spectral-control-v1/run-01/public-kernel-base.npz": {
+      "bytes": 87802,
+      "sha256": "3c8b578558db93040ff56b4f1c7cdd8f0f5b599225b6b80123aa431db6e04ff9"
+    },
+    "output/otto-spectral-control-v1/run-01/public-kernel-shift.npz": {
+      "bytes": 92487,
+      "sha256": "175eaef6995ff180ef49ac10358dd687f97e428ce3d312aa525fe1ad4591f53c"
+    }
+  },
+  "native_sources": {
+    "output/otto-boundary-control-v1/engineering-01/final-native-runtime-tests-01/pytest.log": {
+      "bytes": 179,
+      "sha256": "6eda8c7b455097980a3e72d0b2ffeadb45351a17dfa319c24a4637bc556114cc"
+    },
+    "output/otto-boundary-control-v1/engineering-01/final-native-runtime-tests-01/receipt.json": {
+      "bytes": 2341,
+      "sha256": "e0eb1d479b5287d9c32dbe42a26e05df95954a025c2864f4afb0422b686daa4f"
+    },
+    "output/otto-boundary-control-v1/engineering-01/final-native-runtime-tests-01/ruff.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "output/otto-boundary-control-v1/engineering-01/openjev-otto-boundary-audit-preflight-01/pytest.log": {
+      "bytes": 4093,
+      "sha256": "957e4120ec8eddcffbcd626509b870728f61d6fdf049cfb1ee51a71970f592be"
+    },
+    "output/otto-boundary-control-v1/engineering-01/openjev-otto-boundary-audit-preflight-01/receipt.json": {
+      "bytes": 743,
+      "sha256": "88fd3990ec3fe328ee87dbfda09233722514292d3c53e197cc8e0e57be9308ac"
+    },
+    "output/otto-boundary-control-v1/engineering-01/openjev-otto-boundary-audit-preflight-01/ruff.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "output/otto-boundary-control-v1/engineering-01/openjev-otto-boundary-audit-preflight-02/pytest.log": {
+      "bytes": 113,
+      "sha256": "64ddf8f23f0642bc50dbea3cba0b378d62f68681dcb4d71ebf6fb56e15e0a586"
+    },
+    "output/otto-boundary-control-v1/engineering-01/openjev-otto-boundary-audit-preflight-02/receipt.json": {
+      "bytes": 916,
+      "sha256": "25f17a37fca164339ab62c76106c6186a0d9491c4e5e4c32f442333428fea0ac"
+    },
+    "output/otto-boundary-control-v1/engineering-01/openjev-otto-boundary-audit-preflight-02/ruff.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "output/otto-boundary-control-v1/engineering-01/openjev-otto-restricted-policy-preflight-01/pytest.log": {
+      "bytes": 99,
+      "sha256": "3d415a29b1a43ec244fd5e71060810809524c59f9c5e00fd18f6c6433a8b0314"
+    },
+    "output/otto-boundary-control-v1/engineering-01/openjev-otto-restricted-policy-preflight-01/receipt.json": {
+      "bytes": 1155,
+      "sha256": "54c2a3f9acd44c864a5b5b2e428e2e159641b026b8a678d6f0fb6fefdea0f671"
+    },
+    "output/otto-boundary-control-v1/engineering-01/openjev-otto-restricted-policy-preflight-01/ruff.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "output/otto-boundary-control-v1/engineering-01/plan-assembly.py": {
+      "bytes": 9105,
+      "sha256": "dcb30ba771afe38781b0c840118413c050b6eeda49d3be7b0530d93d7b99aafe"
+    },
+    "output/otto-boundary-control-v1/engineering-01/runner-preflight.json": {
+      "bytes": 2088,
+      "sha256": "9eb58b7af5af23fe540f2d411761755f71c19554a3ba0a8c813c2507cd5ed986"
+    },
+    "output/otto-boundary-control-v1/engineering-01/selection-witness.json": {
+      "bytes": 475,
+      "sha256": "70f6d5dab84233b8c7297eb302cbf3962797b9447f861694e4cd98949fed7134"
+    },
+    "output/otto-boundary-control-v1/engineering-01/source-review-witness.json": {
+      "bytes": 1022,
+      "sha256": "acbfac4804a2f325d228b89a779f99422c84ed394c2f30f5ffc4baa720338345"
+    },
+    "output/otto-released-native-v1/actor-preflight-01/openjev-otto-released-policy-preflight-01-pytest.log": {
+      "bytes": 99,
+      "sha256": "93cbd6af997ab18295dc6e0af3358051220edbb2e4c2423f1d15f20d62c8ecbd"
+    },
+    "output/otto-released-native-v1/actor-preflight-01/openjev-otto-released-policy-preflight-01-ruff.log": {
+      "bytes": 1799,
+      "sha256": "a4efbacd5c046a1036167639c24d143444659881cba93c89f889333fca80d3a4"
+    },
+    "output/otto-released-native-v1/actor-preflight-01/openjev-otto-released-policy-preflight-01.json": {
+      "bytes": 1247,
+      "sha256": "89986b2ba044462c46ad33e548fdeee4a845ff1ee7730a8a0216428e7a68d8a2"
+    },
+    "output/otto-released-native-v1/actor-preflight-01/openjev-otto-released-policy-preflight-02-diff.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "output/otto-released-native-v1/actor-preflight-01/openjev-otto-released-policy-preflight-02-pytest.log": {
+      "bytes": 113,
+      "sha256": "4d5b1aefb970dfbde629ce8cfadfb63c8a010d4636a78ccc8891f40470965e6f"
+    },
+    "output/otto-released-native-v1/actor-preflight-01/openjev-otto-released-policy-preflight-02-ruff.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "output/otto-released-native-v1/actor-preflight-01/openjev-otto-released-policy-preflight-02.json": {
+      "bytes": 1906,
+      "sha256": "516fa622998ecc79d45817f7abfd023002e85e383708dc64e7364e8b019e70cc"
+    },
+    "output/otto-released-native-v1/audit-01/audit.py": {
+      "bytes": 29888,
+      "sha256": "7b405bccfcc6d6c4bf7412729801e37e8a2a80b027b0ad3d6d367ebb5a8559d1"
+    },
+    "output/otto-released-native-v1/runtime-preflight-01/command-0.log": {
+      "bytes": 253,
+      "sha256": "c06827650f999bd87b305313d15518f44b14b20698009958902fef22895aedfb"
+    },
+    "output/otto-released-native-v1/runtime-preflight-01/command-1.log": {
+      "bytes": 70,
+      "sha256": "564e0041adbc076905d4f2fe314f58fc0aac6aeee978e9704ccd586eaff67eab"
+    },
+    "output/otto-released-native-v1/runtime-preflight-01/numerical-configuration.txt": {
+      "bytes": 1637,
+      "sha256": "d602f95ba0b6fa2faf2f9ad1ead5e8c601400ede985db4a4a8b058efcb52fb26"
+    },
+    "output/otto-released-native-v1/runtime-preflight-01/preflight.py": {
+      "bytes": 1844,
+      "sha256": "0970f39c88a88632aa18dc9beba6b2668406c2dccf8139de9a3cf6903e4335a5"
+    },
+    "output/otto-released-native-v1/runtime-preflight-01/primitive-checks.jsonl": {
+      "bytes": 980,
+      "sha256": "9dc34292d69b674aac7c9be996ec1283d1e0b7a5ef7957b7c9993946df151156"
+    },
+    "output/otto-released-native-v1/runtime-preflight-01/receipt.json": {
+      "bytes": 1605,
+      "sha256": "74382257d199c5cc61a55be5be104c6cdf99a84493c072d258c324fd1837365f"
+    },
+    "output/otto-released-native-v1/runtime-preflight-01/runtime.json": {
+      "bytes": 488,
+      "sha256": "18fc8fe71fc70d7f3674208a598fd1f7f04ccc1f1a41bdab75ecb2e46c6407b3"
+    },
+    "output/otto-released-native-v1/runtime-setup-01/command-0.log": {
+      "bytes": 195,
+      "sha256": "51edd117e0f33767571a3b6a4802913feb345793a8379e7211fcd7cf63a93fe8"
+    },
+    "output/otto-released-native-v1/runtime-setup-01/command-1.log": {
+      "bytes": 975,
+      "sha256": "dd41efeb15eb5c380fed61d9b667cdaed431b3976407766c6f6e0950d6f0f151"
+    },
+    "output/otto-released-native-v1/runtime-setup-01/command-2.log": {
+      "bytes": 132,
+      "sha256": "cafe41a9590131207693690899d96f01c2b6379529c178c1356da4fe9ea17d7b"
+    },
+    "output/otto-released-native-v1/runtime-setup-01/installed-packages.json": {
+      "bytes": 1025,
+      "sha256": "024965b28139a9bfd64005ffdf55be084a35939c33039f028e8d45ed051a8eec"
+    },
+    "output/otto-released-native-v1/runtime-setup-01/receipt.json": {
+      "bytes": 1597,
+      "sha256": "620802e7e5777ee38a813c1488c353c072ff1eccd5258c4c3fd7095b2a645ea1"
+    },
+    "output/otto-released-native-v1/runtime-setup-01/requirements.txt": {
+      "bytes": 721,
+      "sha256": "edee083daa08ca7c7a82959ebcb57d08813af1344157dc2eec81acefd6eb0dc3"
+    },
+    "output/otto-released-native-v1/runtime-tests-01/receipt.json": {
+      "bytes": 1041,
+      "sha256": "168efe042ae1d23d63bcdc1c03ca333c42de730b537fd76350d538de1533f43c"
+    },
+    "output/otto-released-native-v1/runtime-tests-01/tests.log": {
+      "bytes": 99,
+      "sha256": "de4248f2bff0b3dc39c1d9348cf7218dcc0c16425e82b7e73a03dd2f8990f91e"
+    },
+    "output/otto-released-reference-v1/engineering-01/final-runtime-tests-02/pytest.log": {
+      "bytes": 179,
+      "sha256": "4552af24778bb3fa4560330ca4c863d9b8907283b409b120ae5761afde3350e7"
+    },
+    "output/otto-released-reference-v1/engineering-01/final-runtime-tests-02/receipt.json": {
+      "bytes": 919,
+      "sha256": "5e3b79a2ec09e36562fe23b26a010a734b532b20619190f8372b2825e3606eac"
+    },
+    "output/otto-released-reference-v1/engineering-01/final-runtime-tests/pytest.log": {
+      "bytes": 1797,
+      "sha256": "c824c96ef501779eeb2c4ca17e3d83ccdc57f80af3539547f592d751c9661c15"
+    },
+    "output/otto-released-reference-v1/engineering-01/final-runtime-tests/receipt.json": {
+      "bytes": 2238,
+      "sha256": "91cf19b74f10c667364d8f13ba70f47754b4cd43eea2b3d0e3e359ff03c08ab0"
+    },
+    "output/otto-released-reference-v1/engineering-01/final-runtime-tests/ruff.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "output/otto-released-reference-v1/engineering-01/history.json": {
+      "bytes": 1997,
+      "sha256": "d349fca6fc151a66ec48306b3fbceff9f15b057ea092260b478f17caf4b2d054"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-otto-reference-control-preflight-01-pytest.log": {
+      "bytes": 99,
+      "sha256": "a20368d3dd921d9ef1e9595decde4c3a53485604704f83246b078137418cdca0"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-otto-reference-control-preflight-01-ruff.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-otto-reference-control-preflight-01.json": {
+      "bytes": 1341,
+      "sha256": "c1529c71cdee7e587cd0f97875218284fc6467fb62803c002d34cb0cdfcf5298"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-otto-reference-control-preflight-02-pytest.log": {
+      "bytes": 114,
+      "sha256": "626f5b99571eb61eeec4d9e55433ab3c6a22e9eedf23c1eb0ab2610b86ba5401"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-otto-reference-control-preflight-02-ruff.log": {
+      "bytes": 395,
+      "sha256": "470aff9ca7445630fe0f2409e6039f693cbc725f80864276121f0ce6991ee3bf"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-otto-reference-control-preflight-02.json": {
+      "bytes": 1704,
+      "sha256": "16ac15268a7ed18c7d6c5768f1e2bb0a80cfa6d6aae054ccfb528e8a520cf493"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-otto-reference-control-preflight-03-ruff.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-otto-reference-control-preflight-03.json": {
+      "bytes": 1083,
+      "sha256": "ee6d84bb6baed4d2dc3f63a8c45e742f3c0b59bf56b3882e97f6168398c842e0"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-released-reference-audit-preflight-01/pytest.log": {
+      "bytes": 3706,
+      "sha256": "ccd1f3fa18f0b9407507917a73847168b11b10cbe1eb3acad008b3d0c73d4b05"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-released-reference-audit-preflight-01/receipt.json": {
+      "bytes": 1062,
+      "sha256": "76026f76f1e2c3866eddc972efe95e6bba65b66260283b0d8339ef0ca3a65cb5"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-released-reference-audit-preflight-01/ruff.log": {
+      "bytes": 3558,
+      "sha256": "fea3bccf64772af63d34be42116fbba86e14681353306c8c665c6e64759fbc03"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-released-reference-audit-preflight-02/pytest.log": {
+      "bytes": 7425,
+      "sha256": "d8ae29bb9beb2c660297c0e8e3f7ba1730f96be2a27f8dc901ba7fa2d281d3db"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-released-reference-audit-preflight-02/receipt.json": {
+      "bytes": 1149,
+      "sha256": "7b3c62974f1bcf7365170e9b35ec43b1d856cd0cddfcd2053015fa8e60d93575"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-released-reference-audit-preflight-02/ruff.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-released-reference-audit-preflight-03/pytest.log": {
+      "bytes": 98,
+      "sha256": "8989a153a4f265bdf8bf8abfcbf7ce96cf91c69ee66d543244ebf0fc2c9d041d"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-released-reference-audit-preflight-03/receipt.json": {
+      "bytes": 1400,
+      "sha256": "f7a10ff779f067a2188f28327a0e64b9fb23dc053ea999eba04a46b850370a0d"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-released-reference-audit-preflight-03/ruff.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-released-reference-plan-assembly.py": {
+      "bytes": 5931,
+      "sha256": "36043190a45dbbd8e2cc8a262dc4a117c497a8ba971023676a609a8e5b6f5d30"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-released-reference-runner-preflight-01.json": {
+      "bytes": 2060,
+      "sha256": "7b0969f28bcb2078b930951e620ee3836d49888cd7a408c2516b6ec86e9f01dd"
+    },
+    "output/otto-released-reference-v1/engineering-01/source-review.json": {
+      "bytes": 1540,
+      "sha256": "d14ed6ac31b630565dd9e017805f36ebf108a7a80a67f7cd4259f676bf058981"
+    },
+    "research/otto-boundary-control-protocol.md": {
+      "bytes": 10528,
+      "sha256": "9c86c160e51307c51df8b890fffc00914ea3a89093e83330cb1aef9491f6aef5"
+    },
+    "research/otto-query-gate-collection-protocol.md": {
+      "bytes": 3480,
+      "sha256": "5c14dba17de15336f11749fbaa304f2c3685eddbeb1142e7699c5e279dcd5c9b"
+    },
+    "research/otto-query-gate-evaluation-protocol.md": {
+      "bytes": 3862,
+      "sha256": "37804aa3538f46c607c417aec6717701d0c6319b16e525215f6955df2c92c50f"
+    },
+    "research/otto-query-gate-learning-design.md": {
+      "bytes": 7154,
+      "sha256": "0fd13e6c75f156aa77f2ac07c0af73b948d84e1f6f9a9d7be5036c0a834f8980"
+    },
+    "research/otto-query-gate-native-protocol.md": {
+      "bytes": 3611,
+      "sha256": "6ee6f4d003abc56fe19ae3c369ed771190e521611043b4fedf099015907d7d38"
+    },
+    "research/otto-query-gate-training-protocol.md": {
+      "bytes": 3154,
+      "sha256": "5d13c14fad33c4375a3aefb1e34474adc9881c5115f5d30381d473e95a1ae334"
+    },
+    "research/otto-released-native-qualification-protocol.md": {
+      "bytes": 6584,
+      "sha256": "bbb9cb0ea3e430e7312f8f544ec27ce379b52e4e0beffbe2f17c43f47e217f98"
+    },
+    "research/otto-released-reference-protocol.md": {
+      "bytes": 10056,
+      "sha256": "5160a125197e5b7c01c8d8b60fb61fd419c2a175fcdde46953be5e899fb0e9cd"
+    },
+    "scripts/audit_otto_boundary_control.py": {
+      "bytes": 36398,
+      "sha256": "9a1ab23570104a73c7700db3a43d0245fe0b3487f3233212884cd2ded34e35b2"
+    },
+    "scripts/audit_otto_released_reference.py": {
+      "bytes": 40716,
+      "sha256": "6f63cbc79107fc3046d28645fa4336fe04bfb91ee53368c78ba3971ced1942e1"
+    },
+    "scripts/collect_otto_query_gate.py": {
+      "bytes": 34021,
+      "sha256": "5e2b06fc0ff5b888122e733f12b20c881deab7f56b94908ed5a283f7a48c76df"
+    },
+    "scripts/qualify_otto_pretrained.py": {
+      "bytes": 36124,
+      "sha256": "7c6514831ea204938905bf36575d50bc9abb5365be19bcc4c396fdad672c035a"
+    },
+    "scripts/qualify_otto_query_gate_native.py": {
+      "bytes": 28577,
+      "sha256": "0ef5368a55dab615129602576300c3231d94fd28f7543d31354d9805ea8a5049"
+    },
+    "scripts/qualify_otto_reference_control.py": {
+      "bytes": 16608,
+      "sha256": "0b8591d2c92dd1c006e06d120b167eebfd350d483d2a61e6e933d2025a59bdb5"
+    },
+    "scripts/qualify_otto_released_native.py": {
+      "bytes": 31478,
+      "sha256": "96c68e94498c6b83eb2983c1183c444c5d1080eee06ff961562aeb56a845c65e"
+    },
+    "scripts/qualify_otto_restricted_policy.py": {
+      "bytes": 13370,
+      "sha256": "05a93d9260dcf483d208879bc0c2c922dd0e1c1d6ed7eb227778fb76ac7431d8"
+    },
+    "scripts/study_otto_boundary_control.py": {
+      "bytes": 31070,
+      "sha256": "f00af83597e9ecd4bf8e2354fad7e4c6e25f69a9e182fcdd12f0e47050081dd8"
+    },
+    "scripts/study_otto_released_reference.py": {
+      "bytes": 43949,
+      "sha256": "da2a7e418dd29819bddf190f46d1707f1163a22b01a048b33d3dedab875ad87e"
+    },
+    "scripts/supervise_dialogue_observation_v2.py": {
+      "bytes": 9715,
+      "sha256": "610a2fcd2d4d55eb35bce92e61942d5169491dee9d05e2f47f65e211fdf94144"
+    },
+    "src/openjev/research/otto_public.py": {
+      "bytes": 9214,
+      "sha256": "438631a18005493e0cafa0777315e2158cac97cc7d0e71ad9fd6402284615b3d"
+    },
+    "src/openjev/research/otto_query_gate.py": {
+      "bytes": 13613,
+      "sha256": "3ef019d408934dc5277378998713e6b38c35334eafcd9b17db163e3e5f8b124c"
+    },
+    "src/openjev/research/otto_reference_control.py": {
+      "bytes": 5955,
+      "sha256": "21e5f6ece09426d26c4a3214d95f0f4803a8efd4bacb9ca347c1d896407c5893"
+    },
+    "src/openjev/research/otto_released_policy.py": {
+      "bytes": 10245,
+      "sha256": "8abac34fef2a6517d43209d5ca27514633363248f66a249e2f4d6615aa0a0d45"
+    },
+    "src/openjev/research/otto_restricted_policy.py": {
+      "bytes": 3539,
+      "sha256": "3e63240b3502b4d4633f9c1671b4ad7ce34466f21c74a4d470bed91d77514630"
+    },
+    "src/openjev/research/suspend_clock.py": {
+      "bytes": 5919,
+      "sha256": "cac9077db3c66f5ef43d9412b732f5b869c1004c4bac98589816780c120f6124"
+    },
+    "tests/test_audit_otto_boundary_control.py": {
+      "bytes": 15872,
+      "sha256": "7fd1df56288c284b640eb5c2a2595ee9fbdf8fddfca6576a67214bd26fc9b92b"
+    },
+    "tests/test_audit_otto_released_reference.py": {
+      "bytes": 18594,
+      "sha256": "1fd498ebdf385746c8b5ea9b40982c14198ff1eb0390027ddeacc4a4385e2685"
+    },
+    "tests/test_collect_otto_query_gate.py": {
+      "bytes": 4506,
+      "sha256": "48aa343c6aaebdf02ba6f1377d3cd4feb8b1ec36b03505e4cbfc442a8da82ff7"
+    },
+    "tests/test_otto_boundary_control.py": {
+      "bytes": 11768,
+      "sha256": "b22187b411f439df10b2c5a89cc7f8314dbc41aa989cf5543768936249b94766"
+    },
+    "tests/test_otto_query_gate.py": {
+      "bytes": 11628,
+      "sha256": "fe77fd7fb5c1a853716236b93fb8734575fbada4d034224e03f05bb5bad1d889"
+    },
+    "tests/test_otto_reference_control.py": {
+      "bytes": 10033,
+      "sha256": "e989a18ad56f80bb412b62570bba649978ea171eccfdb2b8c404566a543ab37c"
+    },
+    "tests/test_otto_released_policy.py": {
+      "bytes": 11920,
+      "sha256": "cc2e7e543a8e8b7139dbcb974680e8af0213e81cbd089b475b14710dc8f8b6b7"
+    },
+    "tests/test_otto_released_reference.py": {
+      "bytes": 15856,
+      "sha256": "e7d7f5191134a9dfef0b84648a3b3cb6bf82628797c9455007898de1569050dc"
+    },
+    "tests/test_otto_restricted_policy.py": {
+      "bytes": 8876,
+      "sha256": "49132b1c8cf3e7891a88cb387f40f01e10afb946952a58463c129743b275c0eb"
+    },
+    "tests/test_qualify_otto_released_native.py": {
+      "bytes": 10091,
+      "sha256": "efb111da294f0e40ac3e1f60adc435b64e085083f1e27d5fd0da7fd672fd8072"
+    },
+    "tmp/otto-source-review-01/isotropic/classes/heuristicpolicy.py": {
+      "bytes": 29448,
+      "sha256": "e473c5c0e2908622e704012fc79dffc05172fe8b6f4036dcbf240a05c4e4b469"
+    },
+    "tmp/otto-source-review-01/isotropic/classes/policy.py": {
+      "bytes": 2236,
+      "sha256": "8fc915c86972a8be0ccd0a98d9522be4cd9c751d862a351d60221f8c7902976d"
+    },
+    "tmp/otto-source-review-01/isotropic/classes/rlpolicy.py": {
+      "bytes": 4482,
+      "sha256": "d32b98f903f90bfeed40111c9120a524442e31c0d28eb7cdac0d6db80c2af5fb"
+    },
+    "tmp/otto-source-review-01/isotropic/classes/sourcetracking.py": {
+      "bytes": 23646,
+      "sha256": "1057f129fa8a3249a7297a9ef2c15059d37430b12e42a2f1d43dfcdffe3e76f1"
+    },
+    "tmp/otto-source-review-01/isotropic/classes/valuemodel.py": {
+      "bytes": 10678,
+      "sha256": "151eae8b84c42a92691d6dd817fe5384f2feb806ae405088a5c57da03d067eb8"
+    }
+  },
+  "numerical_runtime": {
+    "executable": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv/bin/python",
+    "packages": {
+      "numpy": "2.5.3",
+      "pytest": "9.1.1",
+      "torch": "2.14.0"
+    },
+    "python": "3.12.13 (main, Jul 23 2026, 14:33:47) [Clang 22.1.3 ]"
+  },
+  "old_test_admitted": false,
+  "repeat_scientific_attempts": false,
+  "roster": [
+    {
+      "id": "train:lambda3:320000001",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000001,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000002",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000002,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000003",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000003,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000004",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000004,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000005",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000005,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000006",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000006,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000007",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000007,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000008",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000008,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000009",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000009,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000010",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000010,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000011",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000011,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000012",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000012,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000013",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000013,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000014",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000014,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000015",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000015,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000016",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000016,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000017",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000017,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000018",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000018,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000019",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000019,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000020",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000020,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000021",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000021,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000022",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000022,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000023",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000023,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000024",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000024,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000025",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000025,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000026",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000026,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000027",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000027,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000028",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000028,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000029",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000029,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000030",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000030,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000031",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000031,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000032",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000032,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000033",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000033,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000034",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000034,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000035",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000035,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000036",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000036,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000037",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000037,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000038",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000038,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000039",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000039,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000040",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000040,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000041",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000041,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000042",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000042,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000043",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000043,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000044",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000044,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000045",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000045,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000046",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000046,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000047",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000047,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000048",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000048,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000049",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000049,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000050",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000050,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000051",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000051,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000052",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000052,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000053",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000053,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000054",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000054,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000055",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000055,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000056",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000056,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000057",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000057,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000058",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000058,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000059",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000059,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000060",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000060,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000061",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000061,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000062",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000062,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000063",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000063,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000064",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000064,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000065",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000065,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000066",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000066,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000067",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000067,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000068",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000068,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000069",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000069,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000070",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000070,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000071",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000071,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000072",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000072,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000073",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000073,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000074",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000074,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000075",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000075,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000076",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000076,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000077",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000077,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000078",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000078,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000079",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000079,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000080",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000080,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000081",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000081,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000082",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000082,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000083",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000083,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000084",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000084,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000085",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000085,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000086",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000086,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000087",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000087,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000088",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000088,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000089",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000089,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000090",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000090,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000091",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000091,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000092",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000092,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000093",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000093,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000094",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000094,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000095",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000095,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000096",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000096,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000097",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000097,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000098",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000098,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000099",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000099,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000100",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000100,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000101",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000101,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000102",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000102,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000103",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000103,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000104",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000104,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000105",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000105,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000106",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000106,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000107",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000107,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000108",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000108,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000109",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000109,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000110",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000110,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000111",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000111,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000112",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000112,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000113",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000113,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000114",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000114,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000115",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000115,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000116",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000116,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000117",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000117,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000118",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000118,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000119",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000119,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000120",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000120,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000121",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000121,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000122",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000122,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000123",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000123,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000124",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000124,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000125",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000125,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000126",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000126,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000127",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000127,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000128",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000128,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000129",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000129,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000130",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000130,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000131",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000131,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000132",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000132,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000133",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000133,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000134",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000134,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000135",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000135,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000136",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000136,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000137",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000137,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000138",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000138,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000139",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000139,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000140",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000140,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000141",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000141,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000142",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000142,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000143",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000143,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000144",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000144,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000145",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000145,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000146",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000146,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000147",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000147,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000148",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000148,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000149",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000149,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000150",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000150,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000151",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000151,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000152",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000152,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000153",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000153,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000154",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000154,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000155",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000155,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000156",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000156,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000157",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000157,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000158",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000158,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000159",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000159,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000160",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000160,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000161",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000161,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000162",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000162,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000163",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000163,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000164",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000164,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000165",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000165,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000166",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000166,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000167",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000167,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000168",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000168,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000169",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000169,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000170",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000170,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000171",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000171,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000172",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000172,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000173",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000173,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000174",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000174,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000175",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000175,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000176",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000176,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000177",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000177,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000178",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000178,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000179",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000179,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000180",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000180,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000181",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000181,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000182",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000182,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000183",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000183,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000184",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000184,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000185",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000185,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000186",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000186,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000187",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000187,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000188",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000188,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000189",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000189,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000190",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 320000190,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000191",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 320000191,
+      "split": "train"
+    },
+    {
+      "id": "train:lambda3:320000192",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 320000192,
+      "split": "train"
+    },
+    {
+      "id": "dev:lambda3:321000001",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 321000001,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:321000002",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 321000002,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:321000003",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 321000003,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:321000004",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 321000004,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:321000005",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 321000005,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:321000006",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 321000006,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:321000007",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 321000007,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:321000008",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 321000008,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:321000009",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 321000009,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:321000010",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 321000010,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:321000011",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 321000011,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:321000012",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 321000012,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:321000013",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 321000013,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:321000014",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 321000014,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:321000015",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 321000015,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:321000016",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 321000016,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:321000017",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 321000017,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:321000018",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 321000018,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:321000019",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 321000019,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:321000020",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 321000020,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:321000021",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 321000021,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:321000022",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 321000022,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:321000023",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 321000023,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:321000024",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 321000024,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:321000025",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 321000025,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:321000026",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 321000026,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:321000027",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 321000027,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:321000028",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 321000028,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:321000029",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 321000029,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:321000030",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 321000030,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:321000031",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 321000031,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:321000032",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 321000032,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:321000033",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 321000033,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:321000034",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 321000034,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:321000035",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 321000035,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:321000036",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 321000036,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:321000037",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 321000037,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:321000038",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 321000038,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:321000039",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 321000039,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:321000040",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 321000040,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:321000041",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 321000041,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:321000042",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 321000042,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:321000043",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 321000043,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:321000044",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 321000044,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:321000045",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 321000045,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:321000046",
+      "initial_hit": 1,
+      "regime": "lambda3",
+      "seed": 321000046,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:321000047",
+      "initial_hit": 2,
+      "regime": "lambda3",
+      "seed": 321000047,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda3:321000048",
+      "initial_hit": 3,
+      "regime": "lambda3",
+      "seed": 321000048,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:322000001",
+      "initial_hit": 1,
+      "regime": "lambda4",
+      "seed": 322000001,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:322000002",
+      "initial_hit": 2,
+      "regime": "lambda4",
+      "seed": 322000002,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:322000003",
+      "initial_hit": 3,
+      "regime": "lambda4",
+      "seed": 322000003,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:322000004",
+      "initial_hit": 1,
+      "regime": "lambda4",
+      "seed": 322000004,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:322000005",
+      "initial_hit": 2,
+      "regime": "lambda4",
+      "seed": 322000005,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:322000006",
+      "initial_hit": 3,
+      "regime": "lambda4",
+      "seed": 322000006,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:322000007",
+      "initial_hit": 1,
+      "regime": "lambda4",
+      "seed": 322000007,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:322000008",
+      "initial_hit": 2,
+      "regime": "lambda4",
+      "seed": 322000008,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:322000009",
+      "initial_hit": 3,
+      "regime": "lambda4",
+      "seed": 322000009,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:322000010",
+      "initial_hit": 1,
+      "regime": "lambda4",
+      "seed": 322000010,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:322000011",
+      "initial_hit": 2,
+      "regime": "lambda4",
+      "seed": 322000011,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:322000012",
+      "initial_hit": 3,
+      "regime": "lambda4",
+      "seed": 322000012,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:322000013",
+      "initial_hit": 1,
+      "regime": "lambda4",
+      "seed": 322000013,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:322000014",
+      "initial_hit": 2,
+      "regime": "lambda4",
+      "seed": 322000014,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:322000015",
+      "initial_hit": 3,
+      "regime": "lambda4",
+      "seed": 322000015,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:322000016",
+      "initial_hit": 1,
+      "regime": "lambda4",
+      "seed": 322000016,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:322000017",
+      "initial_hit": 2,
+      "regime": "lambda4",
+      "seed": 322000017,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:322000018",
+      "initial_hit": 3,
+      "regime": "lambda4",
+      "seed": 322000018,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:322000019",
+      "initial_hit": 1,
+      "regime": "lambda4",
+      "seed": 322000019,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:322000020",
+      "initial_hit": 2,
+      "regime": "lambda4",
+      "seed": 322000020,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:322000021",
+      "initial_hit": 3,
+      "regime": "lambda4",
+      "seed": 322000021,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:322000022",
+      "initial_hit": 1,
+      "regime": "lambda4",
+      "seed": 322000022,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:322000023",
+      "initial_hit": 2,
+      "regime": "lambda4",
+      "seed": 322000023,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:322000024",
+      "initial_hit": 3,
+      "regime": "lambda4",
+      "seed": 322000024,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:322000025",
+      "initial_hit": 1,
+      "regime": "lambda4",
+      "seed": 322000025,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:322000026",
+      "initial_hit": 2,
+      "regime": "lambda4",
+      "seed": 322000026,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:322000027",
+      "initial_hit": 3,
+      "regime": "lambda4",
+      "seed": 322000027,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:322000028",
+      "initial_hit": 1,
+      "regime": "lambda4",
+      "seed": 322000028,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:322000029",
+      "initial_hit": 2,
+      "regime": "lambda4",
+      "seed": 322000029,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:322000030",
+      "initial_hit": 3,
+      "regime": "lambda4",
+      "seed": 322000030,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:322000031",
+      "initial_hit": 1,
+      "regime": "lambda4",
+      "seed": 322000031,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:322000032",
+      "initial_hit": 2,
+      "regime": "lambda4",
+      "seed": 322000032,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:322000033",
+      "initial_hit": 3,
+      "regime": "lambda4",
+      "seed": 322000033,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:322000034",
+      "initial_hit": 1,
+      "regime": "lambda4",
+      "seed": 322000034,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:322000035",
+      "initial_hit": 2,
+      "regime": "lambda4",
+      "seed": 322000035,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:322000036",
+      "initial_hit": 3,
+      "regime": "lambda4",
+      "seed": 322000036,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:322000037",
+      "initial_hit": 1,
+      "regime": "lambda4",
+      "seed": 322000037,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:322000038",
+      "initial_hit": 2,
+      "regime": "lambda4",
+      "seed": 322000038,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:322000039",
+      "initial_hit": 3,
+      "regime": "lambda4",
+      "seed": 322000039,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:322000040",
+      "initial_hit": 1,
+      "regime": "lambda4",
+      "seed": 322000040,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:322000041",
+      "initial_hit": 2,
+      "regime": "lambda4",
+      "seed": 322000041,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:322000042",
+      "initial_hit": 3,
+      "regime": "lambda4",
+      "seed": 322000042,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:322000043",
+      "initial_hit": 1,
+      "regime": "lambda4",
+      "seed": 322000043,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:322000044",
+      "initial_hit": 2,
+      "regime": "lambda4",
+      "seed": 322000044,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:322000045",
+      "initial_hit": 3,
+      "regime": "lambda4",
+      "seed": 322000045,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:322000046",
+      "initial_hit": 1,
+      "regime": "lambda4",
+      "seed": 322000046,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:322000047",
+      "initial_hit": 2,
+      "regime": "lambda4",
+      "seed": 322000047,
+      "split": "dev"
+    },
+    {
+      "id": "dev:lambda4:322000048",
+      "initial_hit": 3,
+      "regime": "lambda4",
+      "seed": 322000048,
+      "split": "dev"
+    }
+  ],
+  "runtime": {
+    "all_distributions": {
+      "Markdown": "3.10.3",
+      "MarkupSafe": "3.0.3",
+      "Pygments": "2.21.0",
+      "Werkzeug": "3.1.8",
+      "absl-py": "2.5.0",
+      "astunparse": "1.6.3",
+      "certifi": "2026.7.22",
+      "charset-normalizer": "3.5.1",
+      "flatbuffers": "25.12.19",
+      "gast": "0.7.0",
+      "google-pasta": "0.2.0",
+      "grpcio": "1.84.0",
+      "h5py": "3.14.0",
+      "idna": "3.20",
+      "iniconfig": "2.3.0",
+      "keras": "3.15.1",
+      "libclang": "18.1.1",
+      "markdown-it-py": "4.2.0",
+      "mdurl": "0.1.2",
+      "ml_dtypes": "0.6.0",
+      "namex": "0.1.0",
+      "numpy": "2.5.3",
+      "opt_einsum": "3.4.0",
+      "optree": "0.20.0",
+      "packaging": "26.3",
+      "pillow": "12.3.0",
+      "pluggy": "1.6.0",
+      "protobuf": "7.36.2",
+      "pytest": "8.4.2",
+      "requests": "2.34.2",
+      "rich": "15.0.0",
+      "scipy": "1.18.1",
+      "setuptools": "84.0.0",
+      "six": "1.17.0",
+      "tensorboard": "2.20.0",
+      "tensorboard-data-server": "0.7.2",
+      "tensorflow": "2.20.0",
+      "termcolor": "3.3.0",
+      "tf_keras": "2.20.1",
+      "typing_extensions": "4.16.0",
+      "urllib3": "2.8.0",
+      "wheel": "0.48.0",
+      "wrapt": "2.4.1"
+    },
+    "cpu_only": true,
+    "legacy_keras": true,
+    "numerical_threads": 1,
+    "python_executable": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/.venv-otto-released-native/bin/python",
+    "python_version": "3.12.13",
+    "versions": {
+      "h5py": "3.14.0",
+      "numpy": "2.5.3",
+      "scipy": "1.18.1",
+      "tensorflow": "2.20.0",
+      "tf_keras": "2.20.1"
+    }
+  },
+  "scope": "single prospective development pilot, no architecture or autonomous control claim",
+  "sources": {
+    "output/otto-boundary-control-v1/engineering-01/final-native-runtime-tests-01/pytest.log": {
+      "bytes": 179,
+      "sha256": "6eda8c7b455097980a3e72d0b2ffeadb45351a17dfa319c24a4637bc556114cc"
+    },
+    "output/otto-boundary-control-v1/engineering-01/final-native-runtime-tests-01/receipt.json": {
+      "bytes": 2341,
+      "sha256": "e0eb1d479b5287d9c32dbe42a26e05df95954a025c2864f4afb0422b686daa4f"
+    },
+    "output/otto-boundary-control-v1/engineering-01/final-native-runtime-tests-01/ruff.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "output/otto-boundary-control-v1/engineering-01/openjev-otto-boundary-audit-preflight-01/pytest.log": {
+      "bytes": 4093,
+      "sha256": "957e4120ec8eddcffbcd626509b870728f61d6fdf049cfb1ee51a71970f592be"
+    },
+    "output/otto-boundary-control-v1/engineering-01/openjev-otto-boundary-audit-preflight-01/receipt.json": {
+      "bytes": 743,
+      "sha256": "88fd3990ec3fe328ee87dbfda09233722514292d3c53e197cc8e0e57be9308ac"
+    },
+    "output/otto-boundary-control-v1/engineering-01/openjev-otto-boundary-audit-preflight-01/ruff.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "output/otto-boundary-control-v1/engineering-01/openjev-otto-boundary-audit-preflight-02/pytest.log": {
+      "bytes": 113,
+      "sha256": "64ddf8f23f0642bc50dbea3cba0b378d62f68681dcb4d71ebf6fb56e15e0a586"
+    },
+    "output/otto-boundary-control-v1/engineering-01/openjev-otto-boundary-audit-preflight-02/receipt.json": {
+      "bytes": 916,
+      "sha256": "25f17a37fca164339ab62c76106c6186a0d9491c4e5e4c32f442333428fea0ac"
+    },
+    "output/otto-boundary-control-v1/engineering-01/openjev-otto-boundary-audit-preflight-02/ruff.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "output/otto-boundary-control-v1/engineering-01/openjev-otto-restricted-policy-preflight-01/pytest.log": {
+      "bytes": 99,
+      "sha256": "3d415a29b1a43ec244fd5e71060810809524c59f9c5e00fd18f6c6433a8b0314"
+    },
+    "output/otto-boundary-control-v1/engineering-01/openjev-otto-restricted-policy-preflight-01/receipt.json": {
+      "bytes": 1155,
+      "sha256": "54c2a3f9acd44c864a5b5b2e428e2e159641b026b8a678d6f0fb6fefdea0f671"
+    },
+    "output/otto-boundary-control-v1/engineering-01/openjev-otto-restricted-policy-preflight-01/ruff.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "output/otto-boundary-control-v1/engineering-01/plan-assembly.py": {
+      "bytes": 9105,
+      "sha256": "dcb30ba771afe38781b0c840118413c050b6eeda49d3be7b0530d93d7b99aafe"
+    },
+    "output/otto-boundary-control-v1/engineering-01/runner-preflight.json": {
+      "bytes": 2088,
+      "sha256": "9eb58b7af5af23fe540f2d411761755f71c19554a3ba0a8c813c2507cd5ed986"
+    },
+    "output/otto-boundary-control-v1/engineering-01/selection-witness.json": {
+      "bytes": 475,
+      "sha256": "70f6d5dab84233b8c7297eb302cbf3962797b9447f861694e4cd98949fed7134"
+    },
+    "output/otto-boundary-control-v1/engineering-01/source-review-witness.json": {
+      "bytes": 1022,
+      "sha256": "acbfac4804a2f325d228b89a779f99422c84ed394c2f30f5ffc4baa720338345"
+    },
+    "output/otto-released-native-v1/actor-preflight-01/openjev-otto-released-policy-preflight-01-pytest.log": {
+      "bytes": 99,
+      "sha256": "93cbd6af997ab18295dc6e0af3358051220edbb2e4c2423f1d15f20d62c8ecbd"
+    },
+    "output/otto-released-native-v1/actor-preflight-01/openjev-otto-released-policy-preflight-01-ruff.log": {
+      "bytes": 1799,
+      "sha256": "a4efbacd5c046a1036167639c24d143444659881cba93c89f889333fca80d3a4"
+    },
+    "output/otto-released-native-v1/actor-preflight-01/openjev-otto-released-policy-preflight-01.json": {
+      "bytes": 1247,
+      "sha256": "89986b2ba044462c46ad33e548fdeee4a845ff1ee7730a8a0216428e7a68d8a2"
+    },
+    "output/otto-released-native-v1/actor-preflight-01/openjev-otto-released-policy-preflight-02-diff.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "output/otto-released-native-v1/actor-preflight-01/openjev-otto-released-policy-preflight-02-pytest.log": {
+      "bytes": 113,
+      "sha256": "4d5b1aefb970dfbde629ce8cfadfb63c8a010d4636a78ccc8891f40470965e6f"
+    },
+    "output/otto-released-native-v1/actor-preflight-01/openjev-otto-released-policy-preflight-02-ruff.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "output/otto-released-native-v1/actor-preflight-01/openjev-otto-released-policy-preflight-02.json": {
+      "bytes": 1906,
+      "sha256": "516fa622998ecc79d45817f7abfd023002e85e383708dc64e7364e8b019e70cc"
+    },
+    "output/otto-released-native-v1/audit-01/audit.py": {
+      "bytes": 29888,
+      "sha256": "7b405bccfcc6d6c4bf7412729801e37e8a2a80b027b0ad3d6d367ebb5a8559d1"
+    },
+    "output/otto-released-native-v1/runtime-preflight-01/command-0.log": {
+      "bytes": 253,
+      "sha256": "c06827650f999bd87b305313d15518f44b14b20698009958902fef22895aedfb"
+    },
+    "output/otto-released-native-v1/runtime-preflight-01/command-1.log": {
+      "bytes": 70,
+      "sha256": "564e0041adbc076905d4f2fe314f58fc0aac6aeee978e9704ccd586eaff67eab"
+    },
+    "output/otto-released-native-v1/runtime-preflight-01/numerical-configuration.txt": {
+      "bytes": 1637,
+      "sha256": "d602f95ba0b6fa2faf2f9ad1ead5e8c601400ede985db4a4a8b058efcb52fb26"
+    },
+    "output/otto-released-native-v1/runtime-preflight-01/preflight.py": {
+      "bytes": 1844,
+      "sha256": "0970f39c88a88632aa18dc9beba6b2668406c2dccf8139de9a3cf6903e4335a5"
+    },
+    "output/otto-released-native-v1/runtime-preflight-01/primitive-checks.jsonl": {
+      "bytes": 980,
+      "sha256": "9dc34292d69b674aac7c9be996ec1283d1e0b7a5ef7957b7c9993946df151156"
+    },
+    "output/otto-released-native-v1/runtime-preflight-01/receipt.json": {
+      "bytes": 1605,
+      "sha256": "74382257d199c5cc61a55be5be104c6cdf99a84493c072d258c324fd1837365f"
+    },
+    "output/otto-released-native-v1/runtime-preflight-01/runtime.json": {
+      "bytes": 488,
+      "sha256": "18fc8fe71fc70d7f3674208a598fd1f7f04ccc1f1a41bdab75ecb2e46c6407b3"
+    },
+    "output/otto-released-native-v1/runtime-setup-01/command-0.log": {
+      "bytes": 195,
+      "sha256": "51edd117e0f33767571a3b6a4802913feb345793a8379e7211fcd7cf63a93fe8"
+    },
+    "output/otto-released-native-v1/runtime-setup-01/command-1.log": {
+      "bytes": 975,
+      "sha256": "dd41efeb15eb5c380fed61d9b667cdaed431b3976407766c6f6e0950d6f0f151"
+    },
+    "output/otto-released-native-v1/runtime-setup-01/command-2.log": {
+      "bytes": 132,
+      "sha256": "cafe41a9590131207693690899d96f01c2b6379529c178c1356da4fe9ea17d7b"
+    },
+    "output/otto-released-native-v1/runtime-setup-01/installed-packages.json": {
+      "bytes": 1025,
+      "sha256": "024965b28139a9bfd64005ffdf55be084a35939c33039f028e8d45ed051a8eec"
+    },
+    "output/otto-released-native-v1/runtime-setup-01/receipt.json": {
+      "bytes": 1597,
+      "sha256": "620802e7e5777ee38a813c1488c353c072ff1eccd5258c4c3fd7095b2a645ea1"
+    },
+    "output/otto-released-native-v1/runtime-setup-01/requirements.txt": {
+      "bytes": 721,
+      "sha256": "edee083daa08ca7c7a82959ebcb57d08813af1344157dc2eec81acefd6eb0dc3"
+    },
+    "output/otto-released-native-v1/runtime-tests-01/receipt.json": {
+      "bytes": 1041,
+      "sha256": "168efe042ae1d23d63bcdc1c03ca333c42de730b537fd76350d538de1533f43c"
+    },
+    "output/otto-released-native-v1/runtime-tests-01/tests.log": {
+      "bytes": 99,
+      "sha256": "de4248f2bff0b3dc39c1d9348cf7218dcc0c16425e82b7e73a03dd2f8990f91e"
+    },
+    "output/otto-released-reference-v1/engineering-01/final-runtime-tests-02/pytest.log": {
+      "bytes": 179,
+      "sha256": "4552af24778bb3fa4560330ca4c863d9b8907283b409b120ae5761afde3350e7"
+    },
+    "output/otto-released-reference-v1/engineering-01/final-runtime-tests-02/receipt.json": {
+      "bytes": 919,
+      "sha256": "5e3b79a2ec09e36562fe23b26a010a734b532b20619190f8372b2825e3606eac"
+    },
+    "output/otto-released-reference-v1/engineering-01/final-runtime-tests/pytest.log": {
+      "bytes": 1797,
+      "sha256": "c824c96ef501779eeb2c4ca17e3d83ccdc57f80af3539547f592d751c9661c15"
+    },
+    "output/otto-released-reference-v1/engineering-01/final-runtime-tests/receipt.json": {
+      "bytes": 2238,
+      "sha256": "91cf19b74f10c667364d8f13ba70f47754b4cd43eea2b3d0e3e359ff03c08ab0"
+    },
+    "output/otto-released-reference-v1/engineering-01/final-runtime-tests/ruff.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "output/otto-released-reference-v1/engineering-01/history.json": {
+      "bytes": 1997,
+      "sha256": "d349fca6fc151a66ec48306b3fbceff9f15b057ea092260b478f17caf4b2d054"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-otto-reference-control-preflight-01-pytest.log": {
+      "bytes": 99,
+      "sha256": "a20368d3dd921d9ef1e9595decde4c3a53485604704f83246b078137418cdca0"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-otto-reference-control-preflight-01-ruff.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-otto-reference-control-preflight-01.json": {
+      "bytes": 1341,
+      "sha256": "c1529c71cdee7e587cd0f97875218284fc6467fb62803c002d34cb0cdfcf5298"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-otto-reference-control-preflight-02-pytest.log": {
+      "bytes": 114,
+      "sha256": "626f5b99571eb61eeec4d9e55433ab3c6a22e9eedf23c1eb0ab2610b86ba5401"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-otto-reference-control-preflight-02-ruff.log": {
+      "bytes": 395,
+      "sha256": "470aff9ca7445630fe0f2409e6039f693cbc725f80864276121f0ce6991ee3bf"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-otto-reference-control-preflight-02.json": {
+      "bytes": 1704,
+      "sha256": "16ac15268a7ed18c7d6c5768f1e2bb0a80cfa6d6aae054ccfb528e8a520cf493"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-otto-reference-control-preflight-03-ruff.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-otto-reference-control-preflight-03.json": {
+      "bytes": 1083,
+      "sha256": "ee6d84bb6baed4d2dc3f63a8c45e742f3c0b59bf56b3882e97f6168398c842e0"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-released-reference-audit-preflight-01/pytest.log": {
+      "bytes": 3706,
+      "sha256": "ccd1f3fa18f0b9407507917a73847168b11b10cbe1eb3acad008b3d0c73d4b05"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-released-reference-audit-preflight-01/receipt.json": {
+      "bytes": 1062,
+      "sha256": "76026f76f1e2c3866eddc972efe95e6bba65b66260283b0d8339ef0ca3a65cb5"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-released-reference-audit-preflight-01/ruff.log": {
+      "bytes": 3558,
+      "sha256": "fea3bccf64772af63d34be42116fbba86e14681353306c8c665c6e64759fbc03"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-released-reference-audit-preflight-02/pytest.log": {
+      "bytes": 7425,
+      "sha256": "d8ae29bb9beb2c660297c0e8e3f7ba1730f96be2a27f8dc901ba7fa2d281d3db"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-released-reference-audit-preflight-02/receipt.json": {
+      "bytes": 1149,
+      "sha256": "7b3c62974f1bcf7365170e9b35ec43b1d856cd0cddfcd2053015fa8e60d93575"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-released-reference-audit-preflight-02/ruff.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-released-reference-audit-preflight-03/pytest.log": {
+      "bytes": 98,
+      "sha256": "8989a153a4f265bdf8bf8abfcbf7ce96cf91c69ee66d543244ebf0fc2c9d041d"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-released-reference-audit-preflight-03/receipt.json": {
+      "bytes": 1400,
+      "sha256": "f7a10ff779f067a2188f28327a0e64b9fb23dc053ea999eba04a46b850370a0d"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-released-reference-audit-preflight-03/ruff.log": {
+      "bytes": 19,
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-released-reference-plan-assembly.py": {
+      "bytes": 5931,
+      "sha256": "36043190a45dbbd8e2cc8a262dc4a117c497a8ba971023676a609a8e5b6f5d30"
+    },
+    "output/otto-released-reference-v1/engineering-01/openjev-released-reference-runner-preflight-01.json": {
+      "bytes": 2060,
+      "sha256": "7b0969f28bcb2078b930951e620ee3836d49888cd7a408c2516b6ec86e9f01dd"
+    },
+    "output/otto-released-reference-v1/engineering-01/source-review.json": {
+      "bytes": 1540,
+      "sha256": "d14ed6ac31b630565dd9e017805f36ebf108a7a80a67f7cd4259f676bf058981"
+    },
+    "research/otto-action-latent-protocol.md": {
+      "bytes": 8419,
+      "sha256": "cac01a33d8c464223fdc8e50b3eae626e2d59cb00b636d36776fdaad8e502c1c"
+    },
+    "research/otto-boundary-control-protocol.md": {
+      "bytes": 10528,
+      "sha256": "9c86c160e51307c51df8b890fffc00914ea3a89093e83330cb1aef9491f6aef5"
+    },
+    "research/otto-query-gate-collection-protocol.md": {
+      "bytes": 3480,
+      "sha256": "5c14dba17de15336f11749fbaa304f2c3685eddbeb1142e7699c5e279dcd5c9b"
+    },
+    "research/otto-query-gate-evaluation-protocol.md": {
+      "bytes": 3862,
+      "sha256": "37804aa3538f46c607c417aec6717701d0c6319b16e525215f6955df2c92c50f"
+    },
+    "research/otto-query-gate-learning-design.md": {
+      "bytes": 7154,
+      "sha256": "0fd13e6c75f156aa77f2ac07c0af73b948d84e1f6f9a9d7be5036c0a834f8980"
+    },
+    "research/otto-query-gate-native-protocol.md": {
+      "bytes": 3611,
+      "sha256": "6ee6f4d003abc56fe19ae3c369ed771190e521611043b4fedf099015907d7d38"
+    },
+    "research/otto-query-gate-training-protocol.md": {
+      "bytes": 3154,
+      "sha256": "5d13c14fad33c4375a3aefb1e34474adc9881c5115f5d30381d473e95a1ae334"
+    },
+    "research/otto-released-native-qualification-protocol.md": {
+      "bytes": 6584,
+      "sha256": "bbb9cb0ea3e430e7312f8f544ec27ce379b52e4e0beffbe2f17c43f47e217f98"
+    },
+    "research/otto-released-reference-protocol.md": {
+      "bytes": 10056,
+      "sha256": "5160a125197e5b7c01c8d8b60fb61fd419c2a175fcdde46953be5e899fb0e9cd"
+    },
+    "scripts/audit_otto_action_latent.py": {
+      "bytes": 24308,
+      "sha256": "df5f901a205105cb29033b5b56d1ede8caac78f7b8084badbfa35341cfb0c09f"
+    },
+    "scripts/audit_otto_boundary_control.py": {
+      "bytes": 36398,
+      "sha256": "9a1ab23570104a73c7700db3a43d0245fe0b3487f3233212884cd2ded34e35b2"
+    },
+    "scripts/audit_otto_released_reference.py": {
+      "bytes": 40716,
+      "sha256": "6f63cbc79107fc3046d28645fa4336fe04bfb91ee53368c78ba3971ced1942e1"
+    },
+    "scripts/collect_otto_action_latent.py": {
+      "bytes": 11889,
+      "sha256": "116421549815bb093042cd35e5e02ab0ca8b9aaaea6b3b91a14282f986bdaa06"
+    },
+    "scripts/collect_otto_query_gate.py": {
+      "bytes": 34021,
+      "sha256": "5e2b06fc0ff5b888122e733f12b20c881deab7f56b94908ed5a283f7a48c76df"
+    },
+    "scripts/otto_action_latent_common.py": {
+      "bytes": 10142,
+      "sha256": "9678d415ea4e23a08c757c9c17173d788fd7ec80095fd6277b51e67c2d963668"
+    },
+    "scripts/qualify_otto_action_latent.py": {
+      "bytes": 5389,
+      "sha256": "e7b37513e64d1d5d072c29f0b13156d15a30037c8e10d0222b333233cc598692"
+    },
+    "scripts/qualify_otto_pretrained.py": {
+      "bytes": 36124,
+      "sha256": "7c6514831ea204938905bf36575d50bc9abb5365be19bcc4c396fdad672c035a"
+    },
+    "scripts/qualify_otto_query_gate_native.py": {
+      "bytes": 28577,
+      "sha256": "0ef5368a55dab615129602576300c3231d94fd28f7543d31354d9805ea8a5049"
+    },
+    "scripts/qualify_otto_reference_control.py": {
+      "bytes": 16608,
+      "sha256": "0b8591d2c92dd1c006e06d120b167eebfd350d483d2a61e6e933d2025a59bdb5"
+    },
+    "scripts/qualify_otto_released_native.py": {
+      "bytes": 31478,
+      "sha256": "96c68e94498c6b83eb2983c1183c444c5d1080eee06ff961562aeb56a845c65e"
+    },
+    "scripts/qualify_otto_restricted_policy.py": {
+      "bytes": 13370,
+      "sha256": "05a93d9260dcf483d208879bc0c2c922dd0e1c1d6ed7eb227778fb76ac7431d8"
+    },
+    "scripts/run_otto_action_latent.py": {
+      "bytes": 14336,
+      "sha256": "3e723b580d77fe8f1f0070d332ff1de66bb885f339aa8381838436bda7153485"
+    },
+    "scripts/study_otto_boundary_control.py": {
+      "bytes": 31070,
+      "sha256": "f00af83597e9ecd4bf8e2354fad7e4c6e25f69a9e182fcdd12f0e47050081dd8"
+    },
+    "scripts/study_otto_released_reference.py": {
+      "bytes": 43949,
+      "sha256": "da2a7e418dd29819bddf190f46d1707f1163a22b01a048b33d3dedab875ad87e"
+    },
+    "scripts/supervise_dialogue_observation_v2.py": {
+      "bytes": 9715,
+      "sha256": "610a2fcd2d4d55eb35bce92e61942d5169491dee9d05e2f47f65e211fdf94144"
+    },
+    "src/openjev/research/otto_action_latent_metrics.py": {
+      "bytes": 19112,
+      "sha256": "71f162ed0d10f6465a933dc0006fe6e8d83ec401cdc1785803ad0a5875ec351b"
+    },
+    "src/openjev/research/otto_action_latent_model.py": {
+      "bytes": 15998,
+      "sha256": "2aee36e787d81b794bf7eaf0435c57a25c52c792f6447e3748ea8c9a1bb6a7d2"
+    },
+    "src/openjev/research/otto_action_latent_ridge.py": {
+      "bytes": 3824,
+      "sha256": "597501e62c768a3caf7206f910b122d917d6043d67faa7a7277cf30889cb2c29"
+    },
+    "src/openjev/research/otto_public.py": {
+      "bytes": 9214,
+      "sha256": "438631a18005493e0cafa0777315e2158cac97cc7d0e71ad9fd6402284615b3d"
+    },
+    "src/openjev/research/otto_query_gate.py": {
+      "bytes": 13613,
+      "sha256": "3ef019d408934dc5277378998713e6b38c35334eafcd9b17db163e3e5f8b124c"
+    },
+    "src/openjev/research/otto_reference_control.py": {
+      "bytes": 5955,
+      "sha256": "21e5f6ece09426d26c4a3214d95f0f4803a8efd4bacb9ca347c1d896407c5893"
+    },
+    "src/openjev/research/otto_released_policy.py": {
+      "bytes": 10245,
+      "sha256": "8abac34fef2a6517d43209d5ca27514633363248f66a249e2f4d6615aa0a0d45"
+    },
+    "src/openjev/research/otto_restricted_policy.py": {
+      "bytes": 3539,
+      "sha256": "3e63240b3502b4d4633f9c1671b4ad7ce34466f21c74a4d470bed91d77514630"
+    },
+    "src/openjev/research/suspend_clock.py": {
+      "bytes": 5919,
+      "sha256": "cac9077db3c66f5ef43d9412b732f5b869c1004c4bac98589816780c120f6124"
+    },
+    "tests/test_audit_otto_action_latent.py": {
+      "bytes": 14635,
+      "sha256": "8a0f2b5fc6e322290085a855218eb49f795c59caac64f8f9d0858e7d0d1b0e19"
+    },
+    "tests/test_audit_otto_boundary_control.py": {
+      "bytes": 15872,
+      "sha256": "7fd1df56288c284b640eb5c2a2595ee9fbdf8fddfca6576a67214bd26fc9b92b"
+    },
+    "tests/test_audit_otto_released_reference.py": {
+      "bytes": 18594,
+      "sha256": "1fd498ebdf385746c8b5ea9b40982c14198ff1eb0390027ddeacc4a4385e2685"
+    },
+    "tests/test_collect_otto_action_latent.py": {
+      "bytes": 16426,
+      "sha256": "29cfefa5f430a169dd8fe6c2e1bdc1e94e22e88f1f1477456383db9c77c5571e"
+    },
+    "tests/test_collect_otto_query_gate.py": {
+      "bytes": 4506,
+      "sha256": "48aa343c6aaebdf02ba6f1377d3cd4feb8b1ec36b03505e4cbfc442a8da82ff7"
+    },
+    "tests/test_otto_action_latent_metrics.py": {
+      "bytes": 11454,
+      "sha256": "ae41b9282e4960743ceaff361d3ce09eb05824de469b8d8c325623d666fbc46c"
+    },
+    "tests/test_otto_action_latent_model.py": {
+      "bytes": 16670,
+      "sha256": "6e9c465c49dd93f3ff986395e7076df881b1cb9bd3d084dabdcd69efeaedbad6"
+    },
+    "tests/test_otto_action_latent_ridge.py": {
+      "bytes": 1601,
+      "sha256": "76a7d5faa323a42100c4d5ef9d251739615dd1282747ce3295574581c4aa3fc4"
+    },
+    "tests/test_otto_boundary_control.py": {
+      "bytes": 11768,
+      "sha256": "b22187b411f439df10b2c5a89cc7f8314dbc41aa989cf5543768936249b94766"
+    },
+    "tests/test_otto_query_gate.py": {
+      "bytes": 11628,
+      "sha256": "fe77fd7fb5c1a853716236b93fb8734575fbada4d034224e03f05bb5bad1d889"
+    },
+    "tests/test_otto_reference_control.py": {
+      "bytes": 10033,
+      "sha256": "e989a18ad56f80bb412b62570bba649978ea171eccfdb2b8c404566a543ab37c"
+    },
+    "tests/test_otto_released_policy.py": {
+      "bytes": 11920,
+      "sha256": "cc2e7e543a8e8b7139dbcb974680e8af0213e81cbd089b475b14710dc8f8b6b7"
+    },
+    "tests/test_otto_released_reference.py": {
+      "bytes": 15856,
+      "sha256": "e7d7f5191134a9dfef0b84648a3b3cb6bf82628797c9455007898de1569050dc"
+    },
+    "tests/test_otto_restricted_policy.py": {
+      "bytes": 8876,
+      "sha256": "49132b1c8cf3e7891a88cb387f40f01e10afb946952a58463c129743b275c0eb"
+    },
+    "tests/test_qualify_otto_released_native.py": {
+      "bytes": 10091,
+      "sha256": "efb111da294f0e40ac3e1f60adc435b64e085083f1e27d5fd0da7fd672fd8072"
+    },
+    "tests/test_run_otto_action_latent.py": {
+      "bytes": 10792,
+      "sha256": "8602d632ad6eedcf287be22fc2c347786789cd7c49e8bbe53b545183cdc63a27"
+    },
+    "tmp/otto-source-review-01/isotropic/classes/heuristicpolicy.py": {
+      "bytes": 29448,
+      "sha256": "e473c5c0e2908622e704012fc79dffc05172fe8b6f4036dcbf240a05c4e4b469"
+    },
+    "tmp/otto-source-review-01/isotropic/classes/policy.py": {
+      "bytes": 2236,
+      "sha256": "8fc915c86972a8be0ccd0a98d9522be4cd9c751d862a351d60221f8c7902976d"
+    },
+    "tmp/otto-source-review-01/isotropic/classes/rlpolicy.py": {
+      "bytes": 4482,
+      "sha256": "d32b98f903f90bfeed40111c9120a524442e31c0d28eb7cdac0d6db80c2af5fb"
+    },
+    "tmp/otto-source-review-01/isotropic/classes/sourcetracking.py": {
+      "bytes": 23646,
+      "sha256": "1057f129fa8a3249a7297a9ef2c15059d37430b12e42a2f1d43dfcdffe3e76f1"
+    },
+    "tmp/otto-source-review-01/isotropic/classes/valuemodel.py": {
+      "bytes": 10678,
+      "sha256": "151eae8b84c42a92691d6dd817fe5384f2feb806ae405088a5c57da03d067eb8"
+    }
+  },
+  "status": "frozen_before_collection",
+  "version": "otto-action-latent-v1"
+}
