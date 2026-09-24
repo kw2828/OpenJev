@@ -78,6 +78,8 @@ better than poor fits, despite similar maximum contraction scores. This is
 a descriptive finding. The follow-up [balanced-transition integration stopped](research/finite-balanced-learning-stop-results.md):
 204 tests passed, but a training smoke test exceeded its fixed normalization
 tolerance. No scientific comparison or development evaluation ran.
+A separate [rounded probability construction passes 36 numerical checks](research/finite-rounded-transition-qualification-results.md).
+Its model integration and fresh learning comparison are next.
 
 These small synthetic studies use task-derived structure and privileged
 starting readouts. The [earlier structured model](research/finite-factorized-dynamics-results.md)
