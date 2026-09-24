@@ -88,6 +88,12 @@ Known transition structure remains favorable. A second environment and evidence
 of novelty are still needed; no further architecture experiment is admitted by
 this failed continuation rule.
 
+The [saved-prediction audit](research/finite-decision-error-results.md) traces
+the losing comparison to nine differing decisions, including one costly error
+with a large true action gap. All 29,160 records reconcile independently.
+The [next hypothesis](research/finite-decision-error-next.md) tests action-error
+contrast losses against stronger loss-weight controls; no new training has run.
+
 The separate [computation-sharing benchmark](research/finite-joint-reuse-throughput-results.md)
 measures **1.20x / 1.20x / 1.35x median training throughput** across three models
 on one machine. It establishes no new task-performance result.
