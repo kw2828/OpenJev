@@ -117,4 +117,6 @@ is tested engineering for a future hypothesis. It was not part of this study
 and supplies no empirical improvement or novelty claim. The
 [next mechanism-screen design](otto-residual-estimator-design.md) specifies fresh
 development/confirmation data and retains ordinary joint training as a control;
-integration and source-bound registration are still required before execution.
+its [numerical integration](otto-residual-estimator-engineering.md) now passes
+278 fabricated tests and lint. Collection/evaluation runners and source-bound
+registration are still required before execution.

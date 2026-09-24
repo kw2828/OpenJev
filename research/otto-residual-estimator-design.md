@@ -73,6 +73,14 @@ fabricated examples before registration. Confirmation cache generation and
 numerical decoding require the completed development decision and its original
 independent audit closure.
 
+The cache builder uses one complete episode at a time, physical batch size one,
+with chronological 32-step chunks and poisoned final padding. Both recurrent
+forwards use that same geometry. Projection remains a `[1,28]` to `[1,8]` linear
+call on every eligible key step. Carry the unnormalized float32 trace between
+chunks and normalize only its read/write cue, matching the original kernel.
+The comparison does not claim bitwise parity with a prior run that used a
+different physical batch geometry.
+
 ## Exact methods and numerical convention
 
 All residual estimators consume the identical per-seed cache and P4 answer

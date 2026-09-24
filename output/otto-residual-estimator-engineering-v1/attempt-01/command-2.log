@@ -1,0 +1,93 @@
+RUF007 Prefer `itertools.pairwise()` over `zip()` when iterating over successive pairs
+  --> src/openjev/research/otto_residual_contract.py:51:22
+   |
+49 |     prior = np.zeros(rows, dtype=np.bool_)
+50 |     key = np.ones(rows, dtype=np.bool_)
+51 |     for low, high in zip(episode_offsets[:-1], episode_offsets[1:], strict=True):
+   |                      ^^^
+52 |         steps = np.arange(int(high - low))
+53 |         query[low:high] = steps % QUERY_PERIOD == 0
+   |
+help: Replace `zip()` with `itertools.pairwise()`
+
+RUF007 Prefer `itertools.pairwise()` over `zip()` when iterating over successive pairs
+  --> src/openjev/research/otto_residual_contract.py:70:22
+   |
+68 |     require(np.array_equal(visible / np.float32(64) * np.float32(64), visible),
+69 |             "visible scores must survive exact power-of-two scaling")
+70 |     for low, high in zip(episode_offsets[:-1], episode_offsets[1:], strict=True):
+   |                      ^^^
+71 |         steps = np.arange(int(high - low), dtype=np.int64)
+72 |         require(np.array_equal(features[low:high, 15], (steps / HORIZON).astype(np.float32))
+   |
+help: Replace `zip()` with `itertools.pairwise()`
+
+C408 Unnecessary `dict()` call (rewrite as a literal)
+  --> tests/test_otto_residual_contract.py:25:13
+   |
+23 |       cue[:, 0] = 1.
+24 |       cue[step == 0] = np.nan
+25 |       cache = dict(version=contract.CACHE_VERSION, query_period=4, base_action=base,
+   |  _____________^
+26 | |                  joint_action=base.copy(), shadow_prior=shadow, cues=cue, query_scores=scores,
+27 | |                  query_mask=query, prior_mask=prior, key_mask=step > 0, episode_offsets=offsets,
+28 | |                  work_counts={"some_actual_work": 2})
+   | |_____________________________________________________^
+29 |       features = np.zeros((10, 31), np.float32)
+30 |       features[:, 15] = (step / 2188).astype(np.float32)
+   |
+help: Rewrite as a literal
+
+RUF007 Prefer `itertools.pairwise()` over `zip()` when iterating over successive pairs
+  --> tests/test_otto_residual_features.py:22:22
+   |
+20 |     features = np.linspace(-.35, .55, int(offsets[-1]) * 31, dtype=np.float32).reshape(-1, 31)
+21 |     scores = np.full((int(offsets[-1]), 4), np.nan, dtype=np.float32)
+22 |     for low, high in zip(offsets[:-1], offsets[1:], strict=True):
+   |                      ^^^
+23 |         steps = np.arange(high - low)
+24 |         features[low:high, 15] = (steps / 2188).astype(np.float32)
+   |
+help: Replace `zip()` with `itertools.pairwise()`
+
+RUF007 Prefer `itertools.pairwise()` over `zip()` when iterating over successive pairs
+  --> tests/test_otto_residual_features.py:86:30
+   |
+84 |     try:
+85 |         with torch.no_grad():
+86 |             for low, high in zip(offsets[:-1], offsets[1:], strict=True):
+   |                              ^^^
+87 |                 carry = joint_carry = None
+88 |                 trace = torch.zeros((1, 8), dtype=torch.float32)
+   |
+help: Replace `zip()` with `itertools.pairwise()`
+
+C408 Unnecessary `dict()` call (rewrite as a literal)
+  --> tests/test_otto_residual_gate.py:20:35
+   |
+18 |           for case in range(cases):
+19 |               for arm in ("analytic", "neural", "period4_hold"):
+20 |                   identities.append(dict(stage=metric_stage, episode_id=f"fabricated:{regime}:{case}:{arm}",
+   |  ___________________________________^
+21 | |                                        episode_index=len(identities), seed=10 + regime_index * 100 + case,
+22 | |                                        case=case, regime=regime, arm=arm))
+   | |_________________________________________________________________________^
+23 |       manifest = [{**row, "length": 9 if row["case"] < support else 1, "target_sha256": "0" * 64}
+24 |                   for row in identities]
+   |
+help: Rewrite as a literal
+
+RUF007 Prefer `itertools.pairwise()` over `zip()` when iterating over successive pairs
+  --> tests/test_otto_residual_replay.py:24:43
+   |
+22 |     base = rng.normal(size=(rows, 4)).astype(np.float32)
+23 |     joint = (rng.normal(size=(rows, 4)) + .75).astype(np.float32)
+24 |     for episode, (low, high) in enumerate(zip(offsets[:-1], offsets[1:], strict=True)):
+   |                                           ^^^
+25 |         steps = np.arange(high - low)
+26 |         masks["query_mask"][low:high] = steps % 4 == 0
+   |
+help: Replace `zip()` with `itertools.pairwise()`
+
+Found 7 errors.
+No fixes available (7 hidden fixes can be enabled with the `--unsafe-fixes` option).
