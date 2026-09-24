@@ -58,21 +58,22 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Research status
 
-The [new recurrent learning diagnostic](research/finite-observation-learning-results.md)
-compares **15 models in an exact eight-state world**. Dense and memory-retaining
-initializations, tied and untied transitions, and an ordinary GRU all remain in
-the report. The proposed recurrent method **fails both prespecified criteria**;
-this is a synthetic training diagnosis, not a native-environment gain.
+The [latest recurrent diagnostic](research/finite-factor-learning-results.md)
+separates learning a starting state from learning dynamics across **12 fits**.
+With the correct starting state supplied, learned dynamics pass all three
+criteria, including eight-step forecasts. Models that must infer the starting
+state from history fail. This identifies a useful training bottleneck;
+the successful models still depend on privileged state information.
 
-[![All recurrent models and forecast horizons](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-observation-learning-results/benchmark.png)](research/finite-observation-learning-results.md)
+[![Every fit in the starting-state and dynamics comparison](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-factor-learning-results/benchmark.png)](research/finite-factor-learning-results.md)
 
-[Open recurrent chart](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-observation-learning-results/benchmark.png) ·
-[All 15 checkpoints and evidence](https://github.com/kw2828/OpenJev/releases/tag/finite-observation-learning-v1).
+[Open recurrent chart](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-factor-learning-results/benchmark.png) ·
+[All 12 checkpoints and evidence](https://github.com/kw2828/OpenJev/releases/tag/finite-factor-learning-v1).
 
-The earlier [six-model conditional-label comparison](research/otto-conditional-label-results.md)
-also failed: regret fell **4.9%** in the base setting and rose **6.1%** under a
-sensing shift. Its full evidence and [headroom diagnostic](research/otto-cost-information-results.md) remain available.
-All completed and failed studies remain in the [experiment archive](research/experiment-index.md).
+The earlier [15-model learning study](research/finite-observation-learning-results.md)
+and [conditional-label comparison](research/otto-conditional-label-results.md)
+failed their criteria. All completed and failed studies remain in the
+[experiment archive](research/experiment-index.md).
 
 The separate [shared-prefix scoring experiment](research/shared-prefix-results.md)
 measured **2.08x** speedup on four-question synthetic workloads; single-question

@@ -1,0 +1,2318 @@
+{
+  "architecture_claim": false,
+  "audit_counts": {
+    "array_decodes": 7,
+    "checkpoint_decodes": 0,
+    "model_calls": 0,
+    "native_calls": 0,
+    "optimizer_calls": 0,
+    "world_or_generator_calls": 0
+  },
+  "audit_limitations": [
+    "Original process/source/payload admission belongs to the external caller.",
+    "The exact prefix is a privileged posterior input and the exact operators are privileged known dynamics.",
+    "Checkpoint bytes and saved work records do not replay training or prove historical execution order.",
+    "Shuffled outputs are scored as saved; corresponding public/oracle prefix routing remains source-reviewed.",
+    "The fixed cost readout identifies four decision signatures, not every coordinate of the eight-state posterior.",
+    "Observed filtering has intervening observations and is separate from blind extrapolation.",
+    "Uniform-state known dynamics is a history-ignorant reference, not an optimal history-ignorant policy.",
+    "This synthetic diagnostic establishes neither convergence nor native-environment transfer or architectural novelty."
+  ],
+  "baseline_rows": [
+    {
+      "blind_cost_mse": 0.14735000834716336,
+      "blind_regret": 0.6397884015220671,
+      "cases": 120,
+      "horizon": 1,
+      "regime": "base"
+    },
+    {
+      "blind_cost_mse": 0.13899145442639568,
+      "blind_regret": 0.588710383581868,
+      "cases": 120,
+      "horizon": 2,
+      "regime": "base"
+    },
+    {
+      "blind_cost_mse": 0.1252680938346091,
+      "blind_regret": 0.5840176926210622,
+      "cases": 120,
+      "horizon": 4,
+      "regime": "base"
+    },
+    {
+      "blind_cost_mse": 0.10217984031186798,
+      "blind_regret": 0.5978917664941427,
+      "cases": 120,
+      "horizon": 8,
+      "regime": "base"
+    }
+  ],
+  "config": {
+    "batch_size": 64,
+    "dev_attempts": 128,
+    "dev_horizon": 8,
+    "epochs": 480,
+    "fit_seeds": [
+      421261001,
+      421261002,
+      421261003
+    ],
+    "gradient_clip": 5.0,
+    "learning_rate": 0.003,
+    "seed_namespace": 421260924,
+    "train_attempts": 512,
+    "train_horizon": 2
+  },
+  "counts": {
+    "array_decodes": 0,
+    "checkpoint_decodes": 0,
+    "checkpoint_writes": 12,
+    "dev_generation_count": 1,
+    "evaluation_blind_rollouts": 24,
+    "evaluation_case_views": 1440,
+    "evaluation_observed_rollouts": 24,
+    "evaluation_shuffled_rollouts": 24,
+    "external_model_calls": 0,
+    "fit_count": 12,
+    "model_constructions": 12,
+    "native_calls": 0,
+    "optimizer_attempts": 46080,
+    "optimizer_steps": 46080,
+    "oracle_blind_rollouts": 10,
+    "oracle_model_constructions": 1,
+    "oracle_observed_rollouts": 10,
+    "teacher_calls": 0,
+    "train_generation_count": 1,
+    "training_blind_rollouts": 46080,
+    "training_case_exposures": 2787840,
+    "training_observed_rollouts": 46080
+  },
+  "data_cases": {
+    "base": 120,
+    "train": 484
+  },
+  "dataset_counts": {
+    "base": {
+      "attempts": 128,
+      "epsilon": 0.12,
+      "excluded_found": 8,
+      "forecast_action_draws": 960,
+      "forecast_event_draws": 946,
+      "forecast_found_cases": 4,
+      "horizon": 8,
+      "initial_odor_draws": 128,
+      "prefix_action_draws": 1024,
+      "prefix_event_draws": 1001,
+      "prefix_found_by_step": [
+        0,
+        2,
+        0,
+        0,
+        2,
+        2,
+        1,
+        1
+      ],
+      "retained": 120,
+      "seed_namespace": 421260924,
+      "split_id": 1,
+      "version": "finite-observation-world-v1"
+    },
+    "train": {
+      "attempts": 512,
+      "epsilon": 0.12,
+      "excluded_found": 28,
+      "forecast_action_draws": 968,
+      "forecast_event_draws": 967,
+      "forecast_found_cases": 4,
+      "horizon": 2,
+      "initial_odor_draws": 512,
+      "prefix_action_draws": 4096,
+      "prefix_event_draws": 3993,
+      "prefix_found_by_step": [
+        6,
+        1,
+        4,
+        5,
+        3,
+        1,
+        4,
+        4
+      ],
+      "retained": 484,
+      "seed_namespace": 421260924,
+      "split_id": 0,
+      "version": "finite-observation-world-v1"
+    }
+  },
+  "fits": [
+    {
+      "arm": "learned_exact",
+      "case_order_sha256": "2c24ecab4ce6cf5ec45ebd938da6a101d0124e1895cb61f0fedaeb3229ab5029",
+      "checkpoint": {
+        "bytes": 23388,
+        "path": "learned_exact-421261001.npz",
+        "sha256": "8d02673a794f37824779fb2f2dd645437fdc7589a6a0434c038473557697104f"
+      },
+      "epochs": 480,
+      "final_state_sha256": "3bf68bf496ad024e075b1ba167d37680edd478d02b7f9cefe3724783ef941dea",
+      "fixed_buffers_sha256": "e047509dc78a378027d00e95a53527cd035eee00229ff620ad461c2136ce0e6e",
+      "initial_state_sha256": "5dce0a106612f56f6e0b1dae7042450f3c40376bae54ee0f8e5e4430d9ad4912",
+      "operator_initial_sha256": null,
+      "oracle_prefix_input": false,
+      "parameter_metadata": {
+        "buffer_bytes": 8704,
+        "parameter_bytes": 22352,
+        "parameter_count": 5356,
+        "parameters": {
+          "assimilation.bias_hh": {
+            "bytes": 336,
+            "count": 84,
+            "dtype": "torch.float32"
+          },
+          "assimilation.bias_ih": {
+            "bytes": 336,
+            "count": 84,
+            "dtype": "torch.float32"
+          },
+          "assimilation.weight_hh": {
+            "bytes": 9408,
+            "count": 2352,
+            "dtype": "torch.float32"
+          },
+          "assimilation.weight_ih": {
+            "bytes": 10416,
+            "count": 2604,
+            "dtype": "torch.float32"
+          },
+          "projection.bias": {
+            "bytes": 64,
+            "count": 8,
+            "dtype": "torch.float64"
+          },
+          "projection.weight": {
+            "bytes": 1792,
+            "count": 224,
+            "dtype": "torch.float64"
+          }
+        },
+        "scope": "Parameter storage only; activations, validation products and optimizer storage are additional. No matched compute claim."
+      },
+      "prefix_initial_sha256": "d93ec0253e368765547900ac18a9a86983037204c8a6f4db39c668bc8ea7661e",
+      "seconds": 17.52541358396411,
+      "seed": 421261001,
+      "timing_scope": "Adam construction, all training, durable journals, buffer checks and final checkpoint write",
+      "training_case_exposures": 232320,
+      "training_cases": 484,
+      "updates": 3840
+    },
+    {
+      "arm": "exact_learned",
+      "case_order_sha256": "2c24ecab4ce6cf5ec45ebd938da6a101d0124e1895cb61f0fedaeb3229ab5029",
+      "checkpoint": {
+        "bytes": 8588,
+        "path": "exact_learned-421261001.npz",
+        "sha256": "501d9d2918393f33b991dad5628dce550b7ca5a8f38a477480a855535c4632c2"
+      },
+      "epochs": 480,
+      "final_state_sha256": "aefee78c37d941d1d6be8fbb4101aab7d1128a98e97562ad525d79ee99612d61",
+      "fixed_buffers_sha256": "79c855ce6dfd3238164ab0f190bbe0dcdd4b9da838b0ce8241ad5f51e73a9e69",
+      "initial_state_sha256": "6ea6d18b6c8d50ad530af3e9c1e5ed12be81ab3e7b78b226dd91c703c6631d40",
+      "operator_initial_sha256": "af8420fab5d58410c95055b375038a49f95e85983a3031cd15caf5e928f544d3",
+      "oracle_prefix_input": true,
+      "parameter_metadata": {
+        "buffer_bytes": 256,
+        "parameter_bytes": 8448,
+        "parameter_count": 1056,
+        "parameters": {
+          "observed_logits": {
+            "bytes": 8448,
+            "count": 1056,
+            "dtype": "torch.float64"
+          }
+        },
+        "scope": "Parameter storage only; activations, validation products and optimizer storage are additional. No matched compute claim."
+      },
+      "prefix_initial_sha256": null,
+      "seconds": 7.211376708000898,
+      "seed": 421261001,
+      "timing_scope": "Adam construction, all training, durable journals, buffer checks and final checkpoint write",
+      "training_case_exposures": 232320,
+      "training_cases": 484,
+      "updates": 3840
+    },
+    {
+      "arm": "learned_learned",
+      "case_order_sha256": "2c24ecab4ce6cf5ec45ebd938da6a101d0124e1895cb61f0fedaeb3229ab5029",
+      "checkpoint": {
+        "bytes": 30984,
+        "path": "learned_learned-421261001.npz",
+        "sha256": "717cb7f0c65d9d4c384a6149c89703b0b6fec88f1da3afc90ce4dc1ee07f9311"
+      },
+      "epochs": 480,
+      "final_state_sha256": "215beb74aea559f7618119a8b735661ac286596cb2bf817982247da826f56f49",
+      "fixed_buffers_sha256": "79c855ce6dfd3238164ab0f190bbe0dcdd4b9da838b0ce8241ad5f51e73a9e69",
+      "initial_state_sha256": "38431d7ad19637e88725a2a209cebbd2c34e44a3e727759861a607a0cf124743",
+      "operator_initial_sha256": "af8420fab5d58410c95055b375038a49f95e85983a3031cd15caf5e928f544d3",
+      "oracle_prefix_input": false,
+      "parameter_metadata": {
+        "buffer_bytes": 256,
+        "parameter_bytes": 30800,
+        "parameter_count": 6412,
+        "parameters": {
+          "assimilation.bias_hh": {
+            "bytes": 336,
+            "count": 84,
+            "dtype": "torch.float32"
+          },
+          "assimilation.bias_ih": {
+            "bytes": 336,
+            "count": 84,
+            "dtype": "torch.float32"
+          },
+          "assimilation.weight_hh": {
+            "bytes": 9408,
+            "count": 2352,
+            "dtype": "torch.float32"
+          },
+          "assimilation.weight_ih": {
+            "bytes": 10416,
+            "count": 2604,
+            "dtype": "torch.float32"
+          },
+          "observed_logits": {
+            "bytes": 8448,
+            "count": 1056,
+            "dtype": "torch.float64"
+          },
+          "projection.bias": {
+            "bytes": 64,
+            "count": 8,
+            "dtype": "torch.float64"
+          },
+          "projection.weight": {
+            "bytes": 1792,
+            "count": 224,
+            "dtype": "torch.float64"
+          }
+        },
+        "scope": "Parameter storage only; activations, validation products and optimizer storage are additional. No matched compute claim."
+      },
+      "prefix_initial_sha256": "d93ec0253e368765547900ac18a9a86983037204c8a6f4db39c668bc8ea7661e",
+      "seconds": 17.10461345780641,
+      "seed": 421261001,
+      "timing_scope": "Adam construction, all training, durable journals, buffer checks and final checkpoint write",
+      "training_case_exposures": 232320,
+      "training_cases": 484,
+      "updates": 3840
+    },
+    {
+      "arm": "gru",
+      "case_order_sha256": "2c24ecab4ce6cf5ec45ebd938da6a101d0124e1895cb61f0fedaeb3229ab5029",
+      "checkpoint": {
+        "bytes": 45652,
+        "path": "gru-421261001.npz",
+        "sha256": "60866280177be37b7c044dbb71ea75a6384ace43fb0ea188b60e078202b9ed29"
+      },
+      "epochs": 480,
+      "final_state_sha256": "cc1d57300bc9c6fabc2dc31b72e3e0259621dc59f07081062f81054e8d49ff16",
+      "fixed_buffers_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "initial_state_sha256": "ea242917b28eeb450d30755a2ed46610e1d280026d8f7811458a5be4550b7d60",
+      "operator_initial_sha256": null,
+      "oracle_prefix_input": false,
+      "parameter_metadata": {
+        "buffer_bytes": 0,
+        "parameter_bytes": 44724,
+        "parameter_count": 11181,
+        "parameters": {
+          "action_update.bias_hh": {
+            "bytes": 336,
+            "count": 84,
+            "dtype": "torch.float32"
+          },
+          "action_update.bias_ih": {
+            "bytes": 336,
+            "count": 84,
+            "dtype": "torch.float32"
+          },
+          "action_update.weight_hh": {
+            "bytes": 9408,
+            "count": 2352,
+            "dtype": "torch.float32"
+          },
+          "action_update.weight_ih": {
+            "bytes": 1344,
+            "count": 336,
+            "dtype": "torch.float32"
+          },
+          "cost_head.bias": {
+            "bytes": 16,
+            "count": 4,
+            "dtype": "torch.float32"
+          },
+          "cost_head.weight": {
+            "bytes": 448,
+            "count": 112,
+            "dtype": "torch.float32"
+          },
+          "encoder.bias_hh": {
+            "bytes": 336,
+            "count": 84,
+            "dtype": "torch.float32"
+          },
+          "encoder.bias_ih": {
+            "bytes": 336,
+            "count": 84,
+            "dtype": "torch.float32"
+          },
+          "encoder.weight_hh": {
+            "bytes": 9408,
+            "count": 2352,
+            "dtype": "torch.float32"
+          },
+          "encoder.weight_ih": {
+            "bytes": 10416,
+            "count": 2604,
+            "dtype": "torch.float32"
+          },
+          "event_head.bias": {
+            "bytes": 20,
+            "count": 5,
+            "dtype": "torch.float32"
+          },
+          "event_head.weight": {
+            "bytes": 560,
+            "count": 140,
+            "dtype": "torch.float32"
+          },
+          "observation_update.bias_hh": {
+            "bytes": 336,
+            "count": 84,
+            "dtype": "torch.float32"
+          },
+          "observation_update.bias_ih": {
+            "bytes": 336,
+            "count": 84,
+            "dtype": "torch.float32"
+          },
+          "observation_update.weight_hh": {
+            "bytes": 9408,
+            "count": 2352,
+            "dtype": "torch.float32"
+          },
+          "observation_update.weight_ih": {
+            "bytes": 1680,
+            "count": 420,
+            "dtype": "torch.float32"
+          }
+        },
+        "scope": "Parameter storage only; activations, validation products and optimizer storage are additional. No matched compute claim."
+      },
+      "prefix_initial_sha256": null,
+      "seconds": 13.494720041984692,
+      "seed": 421261001,
+      "timing_scope": "Adam construction, all training, durable journals, buffer checks and final checkpoint write",
+      "training_case_exposures": 232320,
+      "training_cases": 484,
+      "updates": 3840
+    },
+    {
+      "arm": "exact_learned",
+      "case_order_sha256": "07fdd14b26517bed3ad5a88dc56cf50a79a28f31313f3423fe984624147a71dd",
+      "checkpoint": {
+        "bytes": 8582,
+        "path": "exact_learned-421261002.npz",
+        "sha256": "fa5feb8a48beb7baf0e703c8ce5c00911f941966c9c92009cda32115501a9b90"
+      },
+      "epochs": 480,
+      "final_state_sha256": "6a68fdfc5e4ed414fffda4e49b787b22ff5aa371521b25f193ca75aeb74467d5",
+      "fixed_buffers_sha256": "79c855ce6dfd3238164ab0f190bbe0dcdd4b9da838b0ce8241ad5f51e73a9e69",
+      "initial_state_sha256": "b150c5ca9b3d0a5f570e18144384a1b94b82bec190d964c505854b0302e29b18",
+      "operator_initial_sha256": "de51364779517760c6188d2cbb244589a96e849889041e13ba52ade82415b12c",
+      "oracle_prefix_input": true,
+      "parameter_metadata": {
+        "buffer_bytes": 256,
+        "parameter_bytes": 8448,
+        "parameter_count": 1056,
+        "parameters": {
+          "observed_logits": {
+            "bytes": 8448,
+            "count": 1056,
+            "dtype": "torch.float64"
+          }
+        },
+        "scope": "Parameter storage only; activations, validation products and optimizer storage are additional. No matched compute claim."
+      },
+      "prefix_initial_sha256": null,
+      "seconds": 7.1143411251250654,
+      "seed": 421261002,
+      "timing_scope": "Adam construction, all training, durable journals, buffer checks and final checkpoint write",
+      "training_case_exposures": 232320,
+      "training_cases": 484,
+      "updates": 3840
+    },
+    {
+      "arm": "learned_learned",
+      "case_order_sha256": "07fdd14b26517bed3ad5a88dc56cf50a79a28f31313f3423fe984624147a71dd",
+      "checkpoint": {
+        "bytes": 30984,
+        "path": "learned_learned-421261002.npz",
+        "sha256": "d46b0cc4956f14d2f25d3b726362b3c2ff22beb39f4fead3c77c7cf55d35e2fc"
+      },
+      "epochs": 480,
+      "final_state_sha256": "48d321eeef0b30a82ed7627d313851693e7f9ef12b2239ebeb8a633fc3f9575e",
+      "fixed_buffers_sha256": "79c855ce6dfd3238164ab0f190bbe0dcdd4b9da838b0ce8241ad5f51e73a9e69",
+      "initial_state_sha256": "1457c7409ccba393e41b6d213d111b29074d2744442c30ce6a4ef1b91cab8005",
+      "operator_initial_sha256": "de51364779517760c6188d2cbb244589a96e849889041e13ba52ade82415b12c",
+      "oracle_prefix_input": false,
+      "parameter_metadata": {
+        "buffer_bytes": 256,
+        "parameter_bytes": 30800,
+        "parameter_count": 6412,
+        "parameters": {
+          "assimilation.bias_hh": {
+            "bytes": 336,
+            "count": 84,
+            "dtype": "torch.float32"
+          },
+          "assimilation.bias_ih": {
+            "bytes": 336,
+            "count": 84,
+            "dtype": "torch.float32"
+          },
+          "assimilation.weight_hh": {
+            "bytes": 9408,
+            "count": 2352,
+            "dtype": "torch.float32"
+          },
+          "assimilation.weight_ih": {
+            "bytes": 10416,
+            "count": 2604,
+            "dtype": "torch.float32"
+          },
+          "observed_logits": {
+            "bytes": 8448,
+            "count": 1056,
+            "dtype": "torch.float64"
+          },
+          "projection.bias": {
+            "bytes": 64,
+            "count": 8,
+            "dtype": "torch.float64"
+          },
+          "projection.weight": {
+            "bytes": 1792,
+            "count": 224,
+            "dtype": "torch.float64"
+          }
+        },
+        "scope": "Parameter storage only; activations, validation products and optimizer storage are additional. No matched compute claim."
+      },
+      "prefix_initial_sha256": "aca7cc54456a4cf28740e2c8ddc7bf61f2794adf65ccc23af65b92d97043bec0",
+      "seconds": 16.635276916902512,
+      "seed": 421261002,
+      "timing_scope": "Adam construction, all training, durable journals, buffer checks and final checkpoint write",
+      "training_case_exposures": 232320,
+      "training_cases": 484,
+      "updates": 3840
+    },
+    {
+      "arm": "gru",
+      "case_order_sha256": "07fdd14b26517bed3ad5a88dc56cf50a79a28f31313f3423fe984624147a71dd",
+      "checkpoint": {
+        "bytes": 45646,
+        "path": "gru-421261002.npz",
+        "sha256": "5c374e5e0c6cfd893fee5c693e851edb36c1bbb121d711d415269671cba0fa67"
+      },
+      "epochs": 480,
+      "final_state_sha256": "91b00640bc488eef591f94f2f406251a4bc2ec53b53269b249003d43c20e2e21",
+      "fixed_buffers_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "initial_state_sha256": "e24c37ebc8453f4e930a3ccd6524dea5b584c31b71702b7b1524c6508f7bf1f6",
+      "operator_initial_sha256": null,
+      "oracle_prefix_input": false,
+      "parameter_metadata": {
+        "buffer_bytes": 0,
+        "parameter_bytes": 44724,
+        "parameter_count": 11181,
+        "parameters": {
+          "action_update.bias_hh": {
+            "bytes": 336,
+            "count": 84,
+            "dtype": "torch.float32"
+          },
+          "action_update.bias_ih": {
+            "bytes": 336,
+            "count": 84,
+            "dtype": "torch.float32"
+          },
+          "action_update.weight_hh": {
+            "bytes": 9408,
+            "count": 2352,
+            "dtype": "torch.float32"
+          },
+          "action_update.weight_ih": {
+            "bytes": 1344,
+            "count": 336,
+            "dtype": "torch.float32"
+          },
+          "cost_head.bias": {
+            "bytes": 16,
+            "count": 4,
+            "dtype": "torch.float32"
+          },
+          "cost_head.weight": {
+            "bytes": 448,
+            "count": 112,
+            "dtype": "torch.float32"
+          },
+          "encoder.bias_hh": {
+            "bytes": 336,
+            "count": 84,
+            "dtype": "torch.float32"
+          },
+          "encoder.bias_ih": {
+            "bytes": 336,
+            "count": 84,
+            "dtype": "torch.float32"
+          },
+          "encoder.weight_hh": {
+            "bytes": 9408,
+            "count": 2352,
+            "dtype": "torch.float32"
+          },
+          "encoder.weight_ih": {
+            "bytes": 10416,
+            "count": 2604,
+            "dtype": "torch.float32"
+          },
+          "event_head.bias": {
+            "bytes": 20,
+            "count": 5,
+            "dtype": "torch.float32"
+          },
+          "event_head.weight": {
+            "bytes": 560,
+            "count": 140,
+            "dtype": "torch.float32"
+          },
+          "observation_update.bias_hh": {
+            "bytes": 336,
+            "count": 84,
+            "dtype": "torch.float32"
+          },
+          "observation_update.bias_ih": {
+            "bytes": 336,
+            "count": 84,
+            "dtype": "torch.float32"
+          },
+          "observation_update.weight_hh": {
+            "bytes": 9408,
+            "count": 2352,
+            "dtype": "torch.float32"
+          },
+          "observation_update.weight_ih": {
+            "bytes": 1680,
+            "count": 420,
+            "dtype": "torch.float32"
+          }
+        },
+        "scope": "Parameter storage only; activations, validation products and optimizer storage are additional. No matched compute claim."
+      },
+      "prefix_initial_sha256": null,
+      "seconds": 13.679539666045457,
+      "seed": 421261002,
+      "timing_scope": "Adam construction, all training, durable journals, buffer checks and final checkpoint write",
+      "training_case_exposures": 232320,
+      "training_cases": 484,
+      "updates": 3840
+    },
+    {
+      "arm": "learned_exact",
+      "case_order_sha256": "07fdd14b26517bed3ad5a88dc56cf50a79a28f31313f3423fe984624147a71dd",
+      "checkpoint": {
+        "bytes": 23404,
+        "path": "learned_exact-421261002.npz",
+        "sha256": "4c3e5884653a9b3fd18924a768d3030d9b5cfab10d52904c518d840b5c6e452c"
+      },
+      "epochs": 480,
+      "final_state_sha256": "12baaf02787b650057748a7cd1951e18fb67a13cf570fd674e29e04f9543fa73",
+      "fixed_buffers_sha256": "e047509dc78a378027d00e95a53527cd035eee00229ff620ad461c2136ce0e6e",
+      "initial_state_sha256": "b181c85e7cc38e627738350bd74af2b95a0976cfb82298fb9f2596dbce123859",
+      "operator_initial_sha256": null,
+      "oracle_prefix_input": false,
+      "parameter_metadata": {
+        "buffer_bytes": 8704,
+        "parameter_bytes": 22352,
+        "parameter_count": 5356,
+        "parameters": {
+          "assimilation.bias_hh": {
+            "bytes": 336,
+            "count": 84,
+            "dtype": "torch.float32"
+          },
+          "assimilation.bias_ih": {
+            "bytes": 336,
+            "count": 84,
+            "dtype": "torch.float32"
+          },
+          "assimilation.weight_hh": {
+            "bytes": 9408,
+            "count": 2352,
+            "dtype": "torch.float32"
+          },
+          "assimilation.weight_ih": {
+            "bytes": 10416,
+            "count": 2604,
+            "dtype": "torch.float32"
+          },
+          "projection.bias": {
+            "bytes": 64,
+            "count": 8,
+            "dtype": "torch.float64"
+          },
+          "projection.weight": {
+            "bytes": 1792,
+            "count": 224,
+            "dtype": "torch.float64"
+          }
+        },
+        "scope": "Parameter storage only; activations, validation products and optimizer storage are additional. No matched compute claim."
+      },
+      "prefix_initial_sha256": "aca7cc54456a4cf28740e2c8ddc7bf61f2794adf65ccc23af65b92d97043bec0",
+      "seconds": 16.445599207887426,
+      "seed": 421261002,
+      "timing_scope": "Adam construction, all training, durable journals, buffer checks and final checkpoint write",
+      "training_case_exposures": 232320,
+      "training_cases": 484,
+      "updates": 3840
+    },
+    {
+      "arm": "learned_learned",
+      "case_order_sha256": "9a343e3b51d212128958468cd09b1d2fe9302b8032cf74a9d9c0ad7d022189b3",
+      "checkpoint": {
+        "bytes": 30986,
+        "path": "learned_learned-421261003.npz",
+        "sha256": "0065af9e4f45e4c265a41593197301122b9747dfca24d1b3eec45f9089abfa69"
+      },
+      "epochs": 480,
+      "final_state_sha256": "8b15257920b38b22dbfb944b4b04eb130f2fc10baba4d84d764bf5fff4e6e281",
+      "fixed_buffers_sha256": "79c855ce6dfd3238164ab0f190bbe0dcdd4b9da838b0ce8241ad5f51e73a9e69",
+      "initial_state_sha256": "e0a73b1973f9922d49ea069f83f4f51a4eac649e328f446d7abb4e6379600b99",
+      "operator_initial_sha256": "3192ddc10ae1c2d7a1ec3e753e956d765dae5dd9a8eb64ec809c3253ea2e1495",
+      "oracle_prefix_input": false,
+      "parameter_metadata": {
+        "buffer_bytes": 256,
+        "parameter_bytes": 30800,
+        "parameter_count": 6412,
+        "parameters": {
+          "assimilation.bias_hh": {
+            "bytes": 336,
+            "count": 84,
+            "dtype": "torch.float32"
+          },
+          "assimilation.bias_ih": {
+            "bytes": 336,
+            "count": 84,
+            "dtype": "torch.float32"
+          },
+          "assimilation.weight_hh": {
+            "bytes": 9408,
+            "count": 2352,
+            "dtype": "torch.float32"
+          },
+          "assimilation.weight_ih": {
+            "bytes": 10416,
+            "count": 2604,
+            "dtype": "torch.float32"
+          },
+          "observed_logits": {
+            "bytes": 8448,
+            "count": 1056,
+            "dtype": "torch.float64"
+          },
+          "projection.bias": {
+            "bytes": 64,
+            "count": 8,
+            "dtype": "torch.float64"
+          },
+          "projection.weight": {
+            "bytes": 1792,
+            "count": 224,
+            "dtype": "torch.float64"
+          }
+        },
+        "scope": "Parameter storage only; activations, validation products and optimizer storage are additional. No matched compute claim."
+      },
+      "prefix_initial_sha256": "06a1e68c031a7c23378096215e9e63b02ddffa17cc7b71708d6412f2d6ae780d",
+      "seconds": 17.29182533407584,
+      "seed": 421261003,
+      "timing_scope": "Adam construction, all training, durable journals, buffer checks and final checkpoint write",
+      "training_case_exposures": 232320,
+      "training_cases": 484,
+      "updates": 3840
+    },
+    {
+      "arm": "gru",
+      "case_order_sha256": "9a343e3b51d212128958468cd09b1d2fe9302b8032cf74a9d9c0ad7d022189b3",
+      "checkpoint": {
+        "bytes": 45619,
+        "path": "gru-421261003.npz",
+        "sha256": "29a96ba1a88f6442649a6c87100f9955ac6293bfb9676999a2ee1833750882da"
+      },
+      "epochs": 480,
+      "final_state_sha256": "829b26ed5d68eca3418de25d6cb0952cb396e709e89d41eef6c9ecdedce7d054",
+      "fixed_buffers_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "initial_state_sha256": "239d45b07deeb73df063c6395d778ac45a0def286c75313366c5809ab39b95a7",
+      "operator_initial_sha256": null,
+      "oracle_prefix_input": false,
+      "parameter_metadata": {
+        "buffer_bytes": 0,
+        "parameter_bytes": 44724,
+        "parameter_count": 11181,
+        "parameters": {
+          "action_update.bias_hh": {
+            "bytes": 336,
+            "count": 84,
+            "dtype": "torch.float32"
+          },
+          "action_update.bias_ih": {
+            "bytes": 336,
+            "count": 84,
+            "dtype": "torch.float32"
+          },
+          "action_update.weight_hh": {
+            "bytes": 9408,
+            "count": 2352,
+            "dtype": "torch.float32"
+          },
+          "action_update.weight_ih": {
+            "bytes": 1344,
+            "count": 336,
+            "dtype": "torch.float32"
+          },
+          "cost_head.bias": {
+            "bytes": 16,
+            "count": 4,
+            "dtype": "torch.float32"
+          },
+          "cost_head.weight": {
+            "bytes": 448,
+            "count": 112,
+            "dtype": "torch.float32"
+          },
+          "encoder.bias_hh": {
+            "bytes": 336,
+            "count": 84,
+            "dtype": "torch.float32"
+          },
+          "encoder.bias_ih": {
+            "bytes": 336,
+            "count": 84,
+            "dtype": "torch.float32"
+          },
+          "encoder.weight_hh": {
+            "bytes": 9408,
+            "count": 2352,
+            "dtype": "torch.float32"
+          },
+          "encoder.weight_ih": {
+            "bytes": 10416,
+            "count": 2604,
+            "dtype": "torch.float32"
+          },
+          "event_head.bias": {
+            "bytes": 20,
+            "count": 5,
+            "dtype": "torch.float32"
+          },
+          "event_head.weight": {
+            "bytes": 560,
+            "count": 140,
+            "dtype": "torch.float32"
+          },
+          "observation_update.bias_hh": {
+            "bytes": 336,
+            "count": 84,
+            "dtype": "torch.float32"
+          },
+          "observation_update.bias_ih": {
+            "bytes": 336,
+            "count": 84,
+            "dtype": "torch.float32"
+          },
+          "observation_update.weight_hh": {
+            "bytes": 9408,
+            "count": 2352,
+            "dtype": "torch.float32"
+          },
+          "observation_update.weight_ih": {
+            "bytes": 1680,
+            "count": 420,
+            "dtype": "torch.float32"
+          }
+        },
+        "scope": "Parameter storage only; activations, validation products and optimizer storage are additional. No matched compute claim."
+      },
+      "prefix_initial_sha256": null,
+      "seconds": 14.975885582854971,
+      "seed": 421261003,
+      "timing_scope": "Adam construction, all training, durable journals, buffer checks and final checkpoint write",
+      "training_case_exposures": 232320,
+      "training_cases": 484,
+      "updates": 3840
+    },
+    {
+      "arm": "learned_exact",
+      "case_order_sha256": "9a343e3b51d212128958468cd09b1d2fe9302b8032cf74a9d9c0ad7d022189b3",
+      "checkpoint": {
+        "bytes": 23396,
+        "path": "learned_exact-421261003.npz",
+        "sha256": "3149388e7ffb327ce65513645183d1c1f1fafb511b68af83f33e2b24bfb59e0b"
+      },
+      "epochs": 480,
+      "final_state_sha256": "a8c713a85a8590f288031d4c7158df2ada6b584b47dedc8e4dbbac8d8aa98a8b",
+      "fixed_buffers_sha256": "e047509dc78a378027d00e95a53527cd035eee00229ff620ad461c2136ce0e6e",
+      "initial_state_sha256": "280cb580ab3053ac2cb9ab6234c90acd2d415c476a0eb68025cb0a388db696ab",
+      "operator_initial_sha256": null,
+      "oracle_prefix_input": false,
+      "parameter_metadata": {
+        "buffer_bytes": 8704,
+        "parameter_bytes": 22352,
+        "parameter_count": 5356,
+        "parameters": {
+          "assimilation.bias_hh": {
+            "bytes": 336,
+            "count": 84,
+            "dtype": "torch.float32"
+          },
+          "assimilation.bias_ih": {
+            "bytes": 336,
+            "count": 84,
+            "dtype": "torch.float32"
+          },
+          "assimilation.weight_hh": {
+            "bytes": 9408,
+            "count": 2352,
+            "dtype": "torch.float32"
+          },
+          "assimilation.weight_ih": {
+            "bytes": 10416,
+            "count": 2604,
+            "dtype": "torch.float32"
+          },
+          "projection.bias": {
+            "bytes": 64,
+            "count": 8,
+            "dtype": "torch.float64"
+          },
+          "projection.weight": {
+            "bytes": 1792,
+            "count": 224,
+            "dtype": "torch.float64"
+          }
+        },
+        "scope": "Parameter storage only; activations, validation products and optimizer storage are additional. No matched compute claim."
+      },
+      "prefix_initial_sha256": "06a1e68c031a7c23378096215e9e63b02ddffa17cc7b71708d6412f2d6ae780d",
+      "seconds": 16.924288999987766,
+      "seed": 421261003,
+      "timing_scope": "Adam construction, all training, durable journals, buffer checks and final checkpoint write",
+      "training_case_exposures": 232320,
+      "training_cases": 484,
+      "updates": 3840
+    },
+    {
+      "arm": "exact_learned",
+      "case_order_sha256": "9a343e3b51d212128958468cd09b1d2fe9302b8032cf74a9d9c0ad7d022189b3",
+      "checkpoint": {
+        "bytes": 8576,
+        "path": "exact_learned-421261003.npz",
+        "sha256": "6fa09f7116306a183e9a00547c39bad779fd52f6a2e436ef4934f8934c8aa86c"
+      },
+      "epochs": 480,
+      "final_state_sha256": "0c0a36206b66f2ff84a1db3509255f30a798cfabd3342d4c3dc55413cd5551c4",
+      "fixed_buffers_sha256": "79c855ce6dfd3238164ab0f190bbe0dcdd4b9da838b0ce8241ad5f51e73a9e69",
+      "initial_state_sha256": "16f3c95293f1b6cd45f08c466f36f655c22fb9ba01249b4f4d91b179e4b16022",
+      "operator_initial_sha256": "3192ddc10ae1c2d7a1ec3e753e956d765dae5dd9a8eb64ec809c3253ea2e1495",
+      "oracle_prefix_input": true,
+      "parameter_metadata": {
+        "buffer_bytes": 256,
+        "parameter_bytes": 8448,
+        "parameter_count": 1056,
+        "parameters": {
+          "observed_logits": {
+            "bytes": 8448,
+            "count": 1056,
+            "dtype": "torch.float64"
+          }
+        },
+        "scope": "Parameter storage only; activations, validation products and optimizer storage are additional. No matched compute claim."
+      },
+      "prefix_initial_sha256": null,
+      "seconds": 7.725531709147617,
+      "seed": 421261003,
+      "timing_scope": "Adam construction, all training, durable journals, buffer checks and final checkpoint write",
+      "training_case_exposures": 232320,
+      "training_cases": 484,
+      "updates": 3840
+    }
+  ],
+  "gates": {
+    "exact_learned": {
+      "BLIND_EXTRAPOLATION": {
+        "conditions": {
+          "421261001_h4_half_mse": true,
+          "421261001_h4_half_regret": true,
+          "421261001_h8_half_mse": true,
+          "421261001_h8_half_regret": true,
+          "421261001_h8_survival": true,
+          "421261002_h4_half_mse": true,
+          "421261002_h4_half_regret": true,
+          "421261002_h8_half_mse": true,
+          "421261002_h8_half_regret": true,
+          "421261002_h8_survival": true,
+          "421261003_h4_half_mse": true,
+          "421261003_h4_half_regret": true,
+          "421261003_h8_half_mse": true,
+          "421261003_h8_half_regret": true,
+          "421261003_h8_survival": true,
+          "h4_positive_reference_mse": true,
+          "h4_positive_reference_regret": true,
+          "h8_positive_reference_mse": true,
+          "h8_positive_reference_regret": true,
+          "minimum_development": true,
+          "minimum_train": true
+        },
+        "passed": true,
+        "status": "BLIND_EXTRAPOLATION_PASS"
+      },
+      "OBSERVED_FILTERING_EXTRAPOLATION": {
+        "conditions": {
+          "421261001_h4_observed_kl": true,
+          "421261001_h8_observed_kl": true,
+          "421261002_h4_observed_kl": true,
+          "421261002_h8_observed_kl": true,
+          "421261003_h4_observed_kl": true,
+          "421261003_h8_observed_kl": true,
+          "minimum_development": true,
+          "minimum_train": true
+        },
+        "passed": true,
+        "status": "OBSERVED_FILTERING_EXTRAPOLATION_PASS"
+      },
+      "SHORT_HORIZON_LEARNING": {
+        "conditions": {
+          "421261001_h1_half_mse": true,
+          "421261001_h1_half_regret": true,
+          "421261001_h1_observed_kl": true,
+          "421261001_h2_half_mse": true,
+          "421261001_h2_half_regret": true,
+          "421261001_h2_observed_kl": true,
+          "421261002_h1_half_mse": true,
+          "421261002_h1_half_regret": true,
+          "421261002_h1_observed_kl": true,
+          "421261002_h2_half_mse": true,
+          "421261002_h2_half_regret": true,
+          "421261002_h2_observed_kl": true,
+          "421261003_h1_half_mse": true,
+          "421261003_h1_half_regret": true,
+          "421261003_h1_observed_kl": true,
+          "421261003_h2_half_mse": true,
+          "421261003_h2_half_regret": true,
+          "421261003_h2_observed_kl": true,
+          "h1_positive_reference_mse": true,
+          "h1_positive_reference_regret": true,
+          "h2_positive_reference_mse": true,
+          "h2_positive_reference_regret": true,
+          "minimum_development": true,
+          "minimum_train": true
+        },
+        "passed": true,
+        "status": "SHORT_HORIZON_LEARNING_PASS"
+      }
+    },
+    "learned_exact": {
+      "BLIND_EXTRAPOLATION": {
+        "conditions": {
+          "421261001_h4_half_mse": false,
+          "421261001_h4_half_regret": true,
+          "421261001_h8_half_mse": false,
+          "421261001_h8_half_regret": true,
+          "421261001_h8_survival": true,
+          "421261002_h4_half_mse": false,
+          "421261002_h4_half_regret": true,
+          "421261002_h8_half_mse": false,
+          "421261002_h8_half_regret": true,
+          "421261002_h8_survival": true,
+          "421261003_h4_half_mse": false,
+          "421261003_h4_half_regret": true,
+          "421261003_h8_half_mse": false,
+          "421261003_h8_half_regret": true,
+          "421261003_h8_survival": true,
+          "h4_positive_reference_mse": true,
+          "h4_positive_reference_regret": true,
+          "h8_positive_reference_mse": true,
+          "h8_positive_reference_regret": true,
+          "minimum_development": true,
+          "minimum_train": true
+        },
+        "passed": false,
+        "status": "BLIND_EXTRAPOLATION_FAIL"
+      },
+      "OBSERVED_FILTERING_EXTRAPOLATION": {
+        "conditions": {
+          "421261001_h4_observed_kl": true,
+          "421261001_h8_observed_kl": true,
+          "421261002_h4_observed_kl": false,
+          "421261002_h8_observed_kl": true,
+          "421261003_h4_observed_kl": true,
+          "421261003_h8_observed_kl": true,
+          "minimum_development": true,
+          "minimum_train": true
+        },
+        "passed": false,
+        "status": "OBSERVED_FILTERING_EXTRAPOLATION_FAIL"
+      },
+      "SHORT_HORIZON_LEARNING": {
+        "conditions": {
+          "421261001_h1_half_mse": false,
+          "421261001_h1_half_regret": false,
+          "421261001_h1_observed_kl": false,
+          "421261001_h2_half_mse": false,
+          "421261001_h2_half_regret": false,
+          "421261001_h2_observed_kl": false,
+          "421261002_h1_half_mse": false,
+          "421261002_h1_half_regret": false,
+          "421261002_h1_observed_kl": false,
+          "421261002_h2_half_mse": false,
+          "421261002_h2_half_regret": false,
+          "421261002_h2_observed_kl": false,
+          "421261003_h1_half_mse": false,
+          "421261003_h1_half_regret": true,
+          "421261003_h1_observed_kl": false,
+          "421261003_h2_half_mse": false,
+          "421261003_h2_half_regret": true,
+          "421261003_h2_observed_kl": false,
+          "h1_positive_reference_mse": true,
+          "h1_positive_reference_regret": true,
+          "h2_positive_reference_mse": true,
+          "h2_positive_reference_regret": true,
+          "minimum_development": true,
+          "minimum_train": true
+        },
+        "passed": false,
+        "status": "SHORT_HORIZON_LEARNING_FAIL"
+      }
+    },
+    "learned_learned": {
+      "BLIND_EXTRAPOLATION": {
+        "conditions": {
+          "421261001_h4_half_mse": false,
+          "421261001_h4_half_regret": false,
+          "421261001_h8_half_mse": false,
+          "421261001_h8_half_regret": false,
+          "421261001_h8_survival": true,
+          "421261002_h4_half_mse": false,
+          "421261002_h4_half_regret": false,
+          "421261002_h8_half_mse": false,
+          "421261002_h8_half_regret": false,
+          "421261002_h8_survival": true,
+          "421261003_h4_half_mse": false,
+          "421261003_h4_half_regret": false,
+          "421261003_h8_half_mse": false,
+          "421261003_h8_half_regret": false,
+          "421261003_h8_survival": true,
+          "h4_positive_reference_mse": true,
+          "h4_positive_reference_regret": true,
+          "h8_positive_reference_mse": true,
+          "h8_positive_reference_regret": true,
+          "minimum_development": true,
+          "minimum_train": true
+        },
+        "passed": false,
+        "status": "BLIND_EXTRAPOLATION_FAIL"
+      },
+      "OBSERVED_FILTERING_EXTRAPOLATION": {
+        "conditions": {
+          "421261001_h4_observed_kl": false,
+          "421261001_h8_observed_kl": false,
+          "421261002_h4_observed_kl": false,
+          "421261002_h8_observed_kl": false,
+          "421261003_h4_observed_kl": false,
+          "421261003_h8_observed_kl": false,
+          "minimum_development": true,
+          "minimum_train": true
+        },
+        "passed": false,
+        "status": "OBSERVED_FILTERING_EXTRAPOLATION_FAIL"
+      },
+      "SHORT_HORIZON_LEARNING": {
+        "conditions": {
+          "421261001_h1_half_mse": false,
+          "421261001_h1_half_regret": false,
+          "421261001_h1_observed_kl": false,
+          "421261001_h2_half_mse": false,
+          "421261001_h2_half_regret": false,
+          "421261001_h2_observed_kl": false,
+          "421261002_h1_half_mse": false,
+          "421261002_h1_half_regret": false,
+          "421261002_h1_observed_kl": false,
+          "421261002_h2_half_mse": false,
+          "421261002_h2_half_regret": false,
+          "421261002_h2_observed_kl": false,
+          "421261003_h1_half_mse": false,
+          "421261003_h1_half_regret": false,
+          "421261003_h1_observed_kl": false,
+          "421261003_h2_half_mse": false,
+          "421261003_h2_half_regret": false,
+          "421261003_h2_observed_kl": false,
+          "h1_positive_reference_mse": true,
+          "h1_positive_reference_regret": true,
+          "h2_positive_reference_mse": true,
+          "h2_positive_reference_regret": true,
+          "minimum_development": true,
+          "minimum_train": true
+        },
+        "passed": false,
+        "status": "SHORT_HORIZON_LEARNING_FAIL"
+      }
+    }
+  },
+  "generation_seconds": {
+    "base": 0.05832583294250071,
+    "train": 0.14572954177856445
+  },
+  "independent_reconstruction": {
+    "base": {
+      "cases": 120,
+      "horizon": 8,
+      "oracle_maximum_absolute_errors": {
+        "blind_costs": 8.881784197001252e-16,
+        "blind_survival": 1.2212453270876722e-15,
+        "observed_costs": 4.440892098500626e-16,
+        "observed_probabilities": 4.440892098500626e-16,
+        "observed_survival": 5.551115123125783e-16
+      },
+      "prefix_maximum_absolute_error": 2.220446049250313e-16,
+      "target_maximum_absolute_errors": {
+        "blind_costs": 8.881784197001252e-16,
+        "blind_survival": 1.1102230246251565e-15,
+        "observed_costs": 4.440892098500626e-16,
+        "observed_probabilities": 3.3306690738754696e-16,
+        "observed_survival": 5.551115123125783e-16
+      }
+    },
+    "train": {
+      "cases": 484,
+      "horizon": 2,
+      "oracle_maximum_absolute_errors": {
+        "blind_costs": 7.771561172376096e-16,
+        "blind_survival": 9.992007221626409e-16,
+        "observed_costs": 4.440892098500626e-16,
+        "observed_probabilities": 4.440892098500626e-16,
+        "observed_survival": 5.551115123125783e-16
+      },
+      "prefix_maximum_absolute_error": 3.3306690738754696e-16,
+      "target_maximum_absolute_errors": {
+        "blind_costs": 7.771561172376096e-16,
+        "blind_survival": 8.881784197001252e-16,
+        "observed_costs": 4.440892098500626e-16,
+        "observed_probabilities": 4.440892098500626e-16,
+        "observed_survival": 5.551115123125783e-16
+      }
+    }
+  },
+  "latent_identification_claim": false,
+  "mean_scope": "Arithmetic mean of three separately fitted policies, not an ensemble or independent-case confidence interval.",
+  "model_selection": false,
+  "native_environment_claim": false,
+  "oracle_checks": {
+    "base": {
+      "blind_costs": 3.3306690738754696e-16,
+      "blind_survival": 4.440892098500626e-16,
+      "observed_costs": 4.440892098500626e-16,
+      "observed_probabilities": 5.551115123125783e-16,
+      "observed_survival": 6.661338147750939e-16
+    },
+    "train": {
+      "blind_costs": 2.220446049250313e-16,
+      "blind_survival": 3.3306690738754696e-16,
+      "observed_costs": 4.440892098500626e-16,
+      "observed_probabilities": 5.551115123125783e-16,
+      "observed_survival": 5.551115123125783e-16
+    }
+  },
+  "oracle_metadata": {
+    "buffer_bytes": 8704,
+    "parameter_bytes": 0,
+    "parameter_count": 0,
+    "parameters": {},
+    "scope": "Parameter storage only; activations, validation products and optimizer storage are additional. No matched compute claim."
+  },
+  "oracle_state_sha256": "e047509dc78a378027d00e95a53527cd035eee00229ff620ad461c2136ce0e6e",
+  "phase_seconds": {
+    "audit": 0.779476542,
+    "fit": 167.768210583,
+    "qualify": 3.052650375
+  },
+  "phase_timing_scope": "Original supervisor durations, including launch, execution and process cleanup; qualification includes engineering tests.",
+  "prediction_times": [
+    {
+      "arm": "learned_exact",
+      "batch_size": 64,
+      "cases": 120,
+      "model_state_after": "3bf68bf496ad024e075b1ba167d37680edd478d02b7f9cefe3724783ef941dea",
+      "model_state_before": "3bf68bf496ad024e075b1ba167d37680edd478d02b7f9cefe3724783ef941dea",
+      "oracle_prefix_input": false,
+      "regime": "base",
+      "seconds": 0.011881583137437701,
+      "seed": 421261001,
+      "shuffle_offset": 1,
+      "timing_scope": "input copies, all three forwards, guards and prediction copies; excludes state hashes and scalar metrics"
+    },
+    {
+      "arm": "learned_exact",
+      "batch_size": 64,
+      "cases": 120,
+      "model_state_after": "12baaf02787b650057748a7cd1951e18fb67a13cf570fd674e29e04f9543fa73",
+      "model_state_before": "12baaf02787b650057748a7cd1951e18fb67a13cf570fd674e29e04f9543fa73",
+      "oracle_prefix_input": false,
+      "regime": "base",
+      "seconds": 0.012908375123515725,
+      "seed": 421261002,
+      "shuffle_offset": 1,
+      "timing_scope": "input copies, all three forwards, guards and prediction copies; excludes state hashes and scalar metrics"
+    },
+    {
+      "arm": "learned_exact",
+      "batch_size": 64,
+      "cases": 120,
+      "model_state_after": "a8c713a85a8590f288031d4c7158df2ada6b584b47dedc8e4dbbac8d8aa98a8b",
+      "model_state_before": "a8c713a85a8590f288031d4c7158df2ada6b584b47dedc8e4dbbac8d8aa98a8b",
+      "oracle_prefix_input": false,
+      "regime": "base",
+      "seconds": 0.014304749900475144,
+      "seed": 421261003,
+      "shuffle_offset": 1,
+      "timing_scope": "input copies, all three forwards, guards and prediction copies; excludes state hashes and scalar metrics"
+    },
+    {
+      "arm": "exact_learned",
+      "batch_size": 64,
+      "cases": 120,
+      "model_state_after": "aefee78c37d941d1d6be8fbb4101aab7d1128a98e97562ad525d79ee99612d61",
+      "model_state_before": "aefee78c37d941d1d6be8fbb4101aab7d1128a98e97562ad525d79ee99612d61",
+      "oracle_prefix_input": true,
+      "regime": "base",
+      "seconds": 0.00886883307248354,
+      "seed": 421261001,
+      "shuffle_offset": 1,
+      "timing_scope": "input copies, all three forwards, guards and prediction copies; excludes state hashes and scalar metrics"
+    },
+    {
+      "arm": "exact_learned",
+      "batch_size": 64,
+      "cases": 120,
+      "model_state_after": "6a68fdfc5e4ed414fffda4e49b787b22ff5aa371521b25f193ca75aeb74467d5",
+      "model_state_before": "6a68fdfc5e4ed414fffda4e49b787b22ff5aa371521b25f193ca75aeb74467d5",
+      "oracle_prefix_input": true,
+      "regime": "base",
+      "seconds": 0.008154999930411577,
+      "seed": 421261002,
+      "shuffle_offset": 1,
+      "timing_scope": "input copies, all three forwards, guards and prediction copies; excludes state hashes and scalar metrics"
+    },
+    {
+      "arm": "exact_learned",
+      "batch_size": 64,
+      "cases": 120,
+      "model_state_after": "0c0a36206b66f2ff84a1db3509255f30a798cfabd3342d4c3dc55413cd5551c4",
+      "model_state_before": "0c0a36206b66f2ff84a1db3509255f30a798cfabd3342d4c3dc55413cd5551c4",
+      "oracle_prefix_input": true,
+      "regime": "base",
+      "seconds": 0.008156584110110998,
+      "seed": 421261003,
+      "shuffle_offset": 1,
+      "timing_scope": "input copies, all three forwards, guards and prediction copies; excludes state hashes and scalar metrics"
+    },
+    {
+      "arm": "learned_learned",
+      "batch_size": 64,
+      "cases": 120,
+      "model_state_after": "215beb74aea559f7618119a8b735661ac286596cb2bf817982247da826f56f49",
+      "model_state_before": "215beb74aea559f7618119a8b735661ac286596cb2bf817982247da826f56f49",
+      "oracle_prefix_input": false,
+      "regime": "base",
+      "seconds": 0.011725082993507385,
+      "seed": 421261001,
+      "shuffle_offset": 1,
+      "timing_scope": "input copies, all three forwards, guards and prediction copies; excludes state hashes and scalar metrics"
+    },
+    {
+      "arm": "learned_learned",
+      "batch_size": 64,
+      "cases": 120,
+      "model_state_after": "48d321eeef0b30a82ed7627d313851693e7f9ef12b2239ebeb8a633fc3f9575e",
+      "model_state_before": "48d321eeef0b30a82ed7627d313851693e7f9ef12b2239ebeb8a633fc3f9575e",
+      "oracle_prefix_input": false,
+      "regime": "base",
+      "seconds": 0.010822916869074106,
+      "seed": 421261002,
+      "shuffle_offset": 1,
+      "timing_scope": "input copies, all three forwards, guards and prediction copies; excludes state hashes and scalar metrics"
+    },
+    {
+      "arm": "learned_learned",
+      "batch_size": 64,
+      "cases": 120,
+      "model_state_after": "8b15257920b38b22dbfb944b4b04eb130f2fc10baba4d84d764bf5fff4e6e281",
+      "model_state_before": "8b15257920b38b22dbfb944b4b04eb130f2fc10baba4d84d764bf5fff4e6e281",
+      "oracle_prefix_input": false,
+      "regime": "base",
+      "seconds": 0.010905792005360126,
+      "seed": 421261003,
+      "shuffle_offset": 1,
+      "timing_scope": "input copies, all three forwards, guards and prediction copies; excludes state hashes and scalar metrics"
+    },
+    {
+      "arm": "gru",
+      "batch_size": 64,
+      "cases": 120,
+      "model_state_after": "cc1d57300bc9c6fabc2dc31b72e3e0259621dc59f07081062f81054e8d49ff16",
+      "model_state_before": "cc1d57300bc9c6fabc2dc31b72e3e0259621dc59f07081062f81054e8d49ff16",
+      "oracle_prefix_input": false,
+      "regime": "base",
+      "seconds": 0.006305207964032888,
+      "seed": 421261001,
+      "shuffle_offset": 1,
+      "timing_scope": "input copies, all three forwards, guards and prediction copies; excludes state hashes and scalar metrics"
+    },
+    {
+      "arm": "gru",
+      "batch_size": 64,
+      "cases": 120,
+      "model_state_after": "91b00640bc488eef591f94f2f406251a4bc2ec53b53269b249003d43c20e2e21",
+      "model_state_before": "91b00640bc488eef591f94f2f406251a4bc2ec53b53269b249003d43c20e2e21",
+      "oracle_prefix_input": false,
+      "regime": "base",
+      "seconds": 0.006333958124741912,
+      "seed": 421261002,
+      "shuffle_offset": 1,
+      "timing_scope": "input copies, all three forwards, guards and prediction copies; excludes state hashes and scalar metrics"
+    },
+    {
+      "arm": "gru",
+      "batch_size": 64,
+      "cases": 120,
+      "model_state_after": "829b26ed5d68eca3418de25d6cb0952cb396e709e89d41eef6c9ecdedce7d054",
+      "model_state_before": "829b26ed5d68eca3418de25d6cb0952cb396e709e89d41eef6c9ecdedce7d054",
+      "oracle_prefix_input": false,
+      "regime": "base",
+      "seconds": 0.006400292040780187,
+      "seed": 421261003,
+      "shuffle_offset": 1,
+      "timing_scope": "input copies, all three forwards, guards and prediction copies; excludes state hashes and scalar metrics"
+    }
+  ],
+  "rows": [
+    {
+      "arm": "learned_exact",
+      "blind_cost_mse": 0.13887261283179736,
+      "blind_regret": 0.3529487732268049,
+      "blind_survival_mae": 0.001369421241372314,
+      "cases": 120,
+      "horizon": 1,
+      "observed_cost_mse": 0.13887261283179736,
+      "observed_kl": 0.3178695401914694,
+      "observed_survival_mae": 0.0013694212413722716,
+      "regime": "base",
+      "seed": 421261001,
+      "shuffled_blind_regret": 0.6564316491443096
+    },
+    {
+      "arm": "learned_exact",
+      "blind_cost_mse": 0.12153927986667269,
+      "blind_regret": 0.3187342027489025,
+      "blind_survival_mae": 0.0015566880755661428,
+      "cases": 120,
+      "horizon": 2,
+      "observed_cost_mse": 0.10387096994866152,
+      "observed_kl": 0.23626552099045217,
+      "observed_survival_mae": 0.0011011061015989392,
+      "regime": "base",
+      "seed": 421261001,
+      "shuffled_blind_regret": 0.6254432964638267
+    },
+    {
+      "arm": "learned_exact",
+      "blind_cost_mse": 0.10289815108541076,
+      "blind_regret": 0.27790614191143703,
+      "blind_survival_mae": 0.001962450835418898,
+      "cases": 120,
+      "horizon": 4,
+      "observed_cost_mse": 0.054371733629140336,
+      "observed_kl": 0.09275799729081818,
+      "observed_survival_mae": 0.0006065158026017342,
+      "regime": "base",
+      "seed": 421261001,
+      "shuffled_blind_regret": 0.6163889547652772
+    },
+    {
+      "arm": "learned_exact",
+      "blind_cost_mse": 0.08153446026625169,
+      "blind_regret": 0.2513096951816203,
+      "blind_survival_mae": 0.0029838412806966097,
+      "cases": 120,
+      "horizon": 8,
+      "observed_cost_mse": 0.015205376004044285,
+      "observed_kl": 0.01257366425550302,
+      "observed_survival_mae": 0.00022764401918840457,
+      "regime": "base",
+      "seed": 421261001,
+      "shuffled_blind_regret": 0.5569696535437216
+    },
+    {
+      "arm": "learned_exact",
+      "blind_cost_mse": 0.1353429612082379,
+      "blind_regret": 0.340190108323812,
+      "blind_survival_mae": 0.001530881950494877,
+      "cases": 120,
+      "horizon": 1,
+      "observed_cost_mse": 0.1353429612082379,
+      "observed_kl": 0.18545051887886882,
+      "observed_survival_mae": 0.0015308819504948343,
+      "regime": "base",
+      "seed": 421261002,
+      "shuffled_blind_regret": 0.6453457819380845
+    },
+    {
+      "arm": "learned_exact",
+      "blind_cost_mse": 0.12639501450841908,
+      "blind_regret": 0.32877897434129816,
+      "blind_survival_mae": 0.0016422478462727716,
+      "cases": 120,
+      "horizon": 2,
+      "observed_cost_mse": 0.11262882760423462,
+      "observed_kl": 0.1782628914671635,
+      "observed_survival_mae": 0.001194864323599106,
+      "regime": "base",
+      "seed": 421261002,
+      "shuffled_blind_regret": 0.6026762557371784
+    },
+    {
+      "arm": "learned_exact",
+      "blind_cost_mse": 0.10596772912913055,
+      "blind_regret": 0.28971502363738566,
+      "blind_survival_mae": 0.0020538202404613236,
+      "cases": 120,
+      "horizon": 4,
+      "observed_cost_mse": 0.057919330873923716,
+      "observed_kl": 0.10725520147804997,
+      "observed_survival_mae": 0.0006509555286960845,
+      "regime": "base",
+      "seed": 421261002,
+      "shuffled_blind_regret": 0.5744057825456818
+    },
+    {
+      "arm": "learned_exact",
+      "blind_cost_mse": 0.0859134471927486,
+      "blind_regret": 0.2616363648847735,
+      "blind_survival_mae": 0.002681393188854972,
+      "cases": 120,
+      "horizon": 8,
+      "observed_cost_mse": 0.01927462948146457,
+      "observed_kl": 0.019758495350719753,
+      "observed_survival_mae": 0.00023886181327432792,
+      "regime": "base",
+      "seed": 421261002,
+      "shuffled_blind_regret": 0.5595563216824806
+    },
+    {
+      "arm": "learned_exact",
+      "blind_cost_mse": 0.11257252090183717,
+      "blind_regret": 0.2969433194018123,
+      "blind_survival_mae": 0.0011899534390664426,
+      "cases": 120,
+      "horizon": 1,
+      "observed_cost_mse": 0.11257252090183717,
+      "observed_kl": 0.26785850682731654,
+      "observed_survival_mae": 0.001189953439066426,
+      "regime": "base",
+      "seed": 421261003,
+      "shuffled_blind_regret": 0.6723311994260611
+    },
+    {
+      "arm": "learned_exact",
+      "blind_cost_mse": 0.09967695954039418,
+      "blind_regret": 0.26460235598954224,
+      "blind_survival_mae": 0.0014561182390189803,
+      "cases": 120,
+      "horizon": 2,
+      "observed_cost_mse": 0.08717986253741732,
+      "observed_kl": 0.1521914168086581,
+      "observed_survival_mae": 0.000974579959727237,
+      "regime": "base",
+      "seed": 421261003,
+      "shuffled_blind_regret": 0.6568579086502452
+    },
+    {
+      "arm": "learned_exact",
+      "blind_cost_mse": 0.08872777072726877,
+      "blind_regret": 0.25458504210432975,
+      "blind_survival_mae": 0.0015174226612020743,
+      "cases": 120,
+      "horizon": 4,
+      "observed_cost_mse": 0.041316150034909405,
+      "observed_kl": 0.0804450568884394,
+      "observed_survival_mae": 0.00047092146023049267,
+      "regime": "base",
+      "seed": 421261003,
+      "shuffled_blind_regret": 0.6477248569266293
+    },
+    {
+      "arm": "learned_exact",
+      "blind_cost_mse": 0.068481779278855,
+      "blind_regret": 0.21717585067490972,
+      "blind_survival_mae": 0.002406646265369337,
+      "cases": 120,
+      "horizon": 8,
+      "observed_cost_mse": 0.008459930546450183,
+      "observed_kl": 0.01861082539663206,
+      "observed_survival_mae": 0.00012397656239808522,
+      "regime": "base",
+      "seed": 421261003,
+      "shuffled_blind_regret": 0.5827505235349981
+    },
+    {
+      "arm": "exact_learned",
+      "blind_cost_mse": 0.00017865106452467824,
+      "blind_regret": 4.0084038658291796e-05,
+      "blind_survival_mae": 0.00036168522289850845,
+      "cases": 120,
+      "horizon": 1,
+      "observed_cost_mse": 0.00017865106452467816,
+      "observed_kl": 0.0004360249855990831,
+      "observed_survival_mae": 0.0003616852228985307,
+      "regime": "base",
+      "seed": 421261001,
+      "shuffled_blind_regret": 0.6154209417670142
+    },
+    {
+      "arm": "exact_learned",
+      "blind_cost_mse": 0.0007436870120313423,
+      "blind_regret": 9.744216760242801e-05,
+      "blind_survival_mae": 0.0007338921069124223,
+      "cases": 120,
+      "horizon": 2,
+      "observed_cost_mse": 0.0008876275347120588,
+      "observed_kl": 0.009494620509574512,
+      "observed_survival_mae": 0.0004199291979416838,
+      "regime": "base",
+      "seed": 421261001,
+      "shuffled_blind_regret": 0.610358642316838
+    },
+    {
+      "arm": "exact_learned",
+      "blind_cost_mse": 0.003049597257744811,
+      "blind_regret": 9.136616786438387e-05,
+      "blind_survival_mae": 0.0014325926606049478,
+      "cases": 120,
+      "horizon": 4,
+      "observed_cost_mse": 0.0031349287349485017,
+      "observed_kl": 0.010952649346065718,
+      "observed_survival_mae": 0.0003984543648777437,
+      "regime": "base",
+      "seed": 421261001,
+      "shuffled_blind_regret": 0.5843367786419117
+    },
+    {
+      "arm": "exact_learned",
+      "blind_cost_mse": 0.010070175086487788,
+      "blind_regret": 0.00026949878231612585,
+      "blind_survival_mae": 0.002832099283031682,
+      "cases": 120,
+      "horizon": 8,
+      "observed_cost_mse": 0.00786691434190972,
+      "observed_kl": 0.029116453087171652,
+      "observed_survival_mae": 0.0004556205256400362,
+      "regime": "base",
+      "seed": 421261001,
+      "shuffled_blind_regret": 0.5295090066650523
+    },
+    {
+      "arm": "exact_learned",
+      "blind_cost_mse": 0.00017851059856239352,
+      "blind_regret": 4.0084038658291796e-05,
+      "blind_survival_mae": 0.0003617663671619827,
+      "cases": 120,
+      "horizon": 1,
+      "observed_cost_mse": 0.00017851059856239344,
+      "observed_kl": 0.00043676890730045957,
+      "observed_survival_mae": 0.0003617663671620049,
+      "regime": "base",
+      "seed": 421261002,
+      "shuffled_blind_regret": 0.6157633767342617
+    },
+    {
+      "arm": "exact_learned",
+      "blind_cost_mse": 0.0007432594372198328,
+      "blind_regret": 9.744216760242801e-05,
+      "blind_survival_mae": 0.0007346582103098881,
+      "cases": 120,
+      "horizon": 2,
+      "observed_cost_mse": 0.0008885495772137746,
+      "observed_kl": 0.009241718814466815,
+      "observed_survival_mae": 0.0004203229380286851,
+      "regime": "base",
+      "seed": 421261002,
+      "shuffled_blind_regret": 0.617197009742249
+    },
+    {
+      "arm": "exact_learned",
+      "blind_cost_mse": 0.0030431175364466936,
+      "blind_regret": 0.00011011912961701083,
+      "blind_survival_mae": 0.0014322033018151724,
+      "cases": 120,
+      "horizon": 4,
+      "observed_cost_mse": 0.003122447027618945,
+      "observed_kl": 0.010849626736656888,
+      "observed_survival_mae": 0.00039756523510940667,
+      "regime": "base",
+      "seed": 421261002,
+      "shuffled_blind_regret": 0.5843367786419117
+    },
+    {
+      "arm": "exact_learned",
+      "blind_cost_mse": 0.01003943298796712,
+      "blind_regret": 0.00020422852846764666,
+      "blind_survival_mae": 0.0028314179553838082,
+      "cases": 120,
+      "horizon": 8,
+      "observed_cost_mse": 0.007819466721590335,
+      "observed_kl": 0.029285641505210964,
+      "observed_survival_mae": 0.0004514746290961963,
+      "regime": "base",
+      "seed": 421261002,
+      "shuffled_blind_regret": 0.5295090066650523
+    },
+    {
+      "arm": "exact_learned",
+      "blind_cost_mse": 0.00018067667421510562,
+      "blind_regret": 4.0084038658291796e-05,
+      "blind_survival_mae": 0.00036446491020767263,
+      "cases": 120,
+      "horizon": 1,
+      "observed_cost_mse": 0.00018067667421510551,
+      "observed_kl": 0.0004377116176267576,
+      "observed_survival_mae": 0.00036446491020769486,
+      "regime": "base",
+      "seed": 421261003,
+      "shuffled_blind_regret": 0.6154209417670142
+    },
+    {
+      "arm": "exact_learned",
+      "blind_cost_mse": 0.0007493733901339713,
+      "blind_regret": 9.744216760242801e-05,
+      "blind_survival_mae": 0.0007381106798574224,
+      "cases": 120,
+      "horizon": 2,
+      "observed_cost_mse": 0.0008965414916214382,
+      "observed_kl": 0.009593966058208052,
+      "observed_survival_mae": 0.0004219381394725108,
+      "regime": "base",
+      "seed": 421261003,
+      "shuffled_blind_regret": 0.617197009742249
+    },
+    {
+      "arm": "exact_learned",
+      "blind_cost_mse": 0.003052127003155862,
+      "blind_regret": 0.00011011912961701083,
+      "blind_survival_mae": 0.0014385808539481802,
+      "cases": 120,
+      "horizon": 4,
+      "observed_cost_mse": 0.003213703533222732,
+      "observed_kl": 0.010970199221032989,
+      "observed_survival_mae": 0.00039881148449882143,
+      "regime": "base",
+      "seed": 421261003,
+      "shuffled_blind_regret": 0.5843367786419117
+    },
+    {
+      "arm": "exact_learned",
+      "blind_cost_mse": 0.01006592868476191,
+      "blind_regret": 0.00026949878231612585,
+      "blind_survival_mae": 0.0028451141722096052,
+      "cases": 120,
+      "horizon": 8,
+      "observed_cost_mse": 0.007824674323326444,
+      "observed_kl": 0.029865375818586018,
+      "observed_survival_mae": 0.000456640457119592,
+      "regime": "base",
+      "seed": 421261003,
+      "shuffled_blind_regret": 0.529509010772877
+    },
+    {
+      "arm": "learned_learned",
+      "blind_cost_mse": 0.1484695747963548,
+      "blind_regret": 0.505204134003342,
+      "blind_survival_mae": 0.0017385728333623516,
+      "cases": 120,
+      "horizon": 1,
+      "observed_cost_mse": 0.1484695747963548,
+      "observed_kl": 0.4221674896282873,
+      "observed_survival_mae": 0.0017385728333623109,
+      "regime": "base",
+      "seed": 421261001,
+      "shuffled_blind_regret": 0.6186119640738698
+    },
+    {
+      "arm": "learned_learned",
+      "blind_cost_mse": 0.12340256785260872,
+      "blind_regret": 0.4673255640519168,
+      "blind_survival_mae": 0.002567688439907462,
+      "cases": 120,
+      "horizon": 2,
+      "observed_cost_mse": 0.1222755516096295,
+      "observed_kl": 0.3144631937644908,
+      "observed_survival_mae": 0.0019377556106038205,
+      "regime": "base",
+      "seed": 421261001,
+      "shuffled_blind_regret": 0.5868046344797802
+    },
+    {
+      "arm": "learned_learned",
+      "blind_cost_mse": 0.12420206821342679,
+      "blind_regret": 0.574009051328678,
+      "blind_survival_mae": 0.0033621174608266507,
+      "cases": 120,
+      "horizon": 4,
+      "observed_cost_mse": 0.14225401292494547,
+      "observed_kl": 0.4567071956663445,
+      "observed_survival_mae": 0.0020229071529151645,
+      "regime": "base",
+      "seed": 421261001,
+      "shuffled_blind_regret": 0.6022308936140479
+    },
+    {
+      "arm": "learned_learned",
+      "blind_cost_mse": 0.1009584549241685,
+      "blind_regret": 0.4883018882825488,
+      "blind_survival_mae": 0.005008467457953274,
+      "cases": 120,
+      "horizon": 8,
+      "observed_cost_mse": 0.11531541620901861,
+      "observed_kl": 0.44215229747043755,
+      "observed_survival_mae": 0.0018343507640896613,
+      "regime": "base",
+      "seed": 421261001,
+      "shuffled_blind_regret": 0.48846081248855333
+    },
+    {
+      "arm": "learned_learned",
+      "blind_cost_mse": 0.1548207895366474,
+      "blind_regret": 0.5436542523038591,
+      "blind_survival_mae": 0.002126890958788171,
+      "cases": 120,
+      "horizon": 1,
+      "observed_cost_mse": 0.1548207895366474,
+      "observed_kl": 0.4751747740525211,
+      "observed_survival_mae": 0.0021268909587881133,
+      "regime": "base",
+      "seed": 421261002,
+      "shuffled_blind_regret": 0.6434083084076357
+    },
+    {
+      "arm": "learned_learned",
+      "blind_cost_mse": 0.13340835624984854,
+      "blind_regret": 0.5020216933454892,
+      "blind_survival_mae": 0.002685510745300948,
+      "cases": 120,
+      "horizon": 2,
+      "observed_cost_mse": 0.12248355863298896,
+      "observed_kl": 0.30446025445703934,
+      "observed_survival_mae": 0.0017395639335881304,
+      "regime": "base",
+      "seed": 421261002,
+      "shuffled_blind_regret": 0.597543541250107
+    },
+    {
+      "arm": "learned_learned",
+      "blind_cost_mse": 0.1288642004737955,
+      "blind_regret": 0.6117732472769355,
+      "blind_survival_mae": 0.003658025679943165,
+      "cases": 120,
+      "horizon": 4,
+      "observed_cost_mse": 0.14513152886236672,
+      "observed_kl": 0.5051005706893321,
+      "observed_survival_mae": 0.00195565460316481,
+      "regime": "base",
+      "seed": 421261002,
+      "shuffled_blind_regret": 0.5684608259053417
+    },
+    {
+      "arm": "learned_learned",
+      "blind_cost_mse": 0.10284764781578151,
+      "blind_regret": 0.5425207309448177,
+      "blind_survival_mae": 0.005279980244506991,
+      "cases": 120,
+      "horizon": 8,
+      "observed_cost_mse": 0.13188853782481738,
+      "observed_kl": 0.5154055274580871,
+      "observed_survival_mae": 0.0018853785163278718,
+      "regime": "base",
+      "seed": 421261002,
+      "shuffled_blind_regret": 0.5334357297191805
+    },
+    {
+      "arm": "learned_learned",
+      "blind_cost_mse": 0.14712780178737286,
+      "blind_regret": 0.49379271926659674,
+      "blind_survival_mae": 0.001991583394697009,
+      "cases": 120,
+      "horizon": 1,
+      "observed_cost_mse": 0.14712780178737286,
+      "observed_kl": 0.3499875691806155,
+      "observed_survival_mae": 0.0019915833946969534,
+      "regime": "base",
+      "seed": 421261003,
+      "shuffled_blind_regret": 0.6290050432400933
+    },
+    {
+      "arm": "learned_learned",
+      "blind_cost_mse": 0.12607597084412278,
+      "blind_regret": 0.46696816104467903,
+      "blind_survival_mae": 0.002408118533783839,
+      "cases": 120,
+      "horizon": 2,
+      "observed_cost_mse": 0.11985047675822853,
+      "observed_kl": 0.30253019897966366,
+      "observed_survival_mae": 0.0018378838188639539,
+      "regime": "base",
+      "seed": 421261003,
+      "shuffled_blind_regret": 0.6109185921340345
+    },
+    {
+      "arm": "learned_learned",
+      "blind_cost_mse": 0.12485578467799777,
+      "blind_regret": 0.5223286032753827,
+      "blind_survival_mae": 0.0033085464922768724,
+      "cases": 120,
+      "horizon": 4,
+      "observed_cost_mse": 0.13817745704707596,
+      "observed_kl": 0.5577894853043651,
+      "observed_survival_mae": 0.0021480704245508426,
+      "regime": "base",
+      "seed": 421261003,
+      "shuffled_blind_regret": 0.5994374804287719
+    },
+    {
+      "arm": "learned_learned",
+      "blind_cost_mse": 0.10200776784724934,
+      "blind_regret": 0.5133083320313803,
+      "blind_survival_mae": 0.00469145344780107,
+      "cases": 120,
+      "horizon": 8,
+      "observed_cost_mse": 0.11416113808204192,
+      "observed_kl": 0.4635702905084514,
+      "observed_survival_mae": 0.0019745368819219845,
+      "regime": "base",
+      "seed": 421261003,
+      "shuffled_blind_regret": 0.5078102300124472
+    },
+    {
+      "arm": "gru",
+      "blind_cost_mse": 0.15421010625119894,
+      "blind_regret": 0.37354450280954254,
+      "blind_survival_mae": 0.0037232643926780025,
+      "cases": 120,
+      "horizon": 1,
+      "observed_cost_mse": 0.15421010625119894,
+      "observed_kl": 0.3460206146756359,
+      "observed_survival_mae": 0.0037232643926779748,
+      "regime": "base",
+      "seed": 421261001,
+      "shuffled_blind_regret": 0.6708369252799388
+    },
+    {
+      "arm": "gru",
+      "blind_cost_mse": 0.13060091189433,
+      "blind_regret": 0.3331315161225048,
+      "blind_survival_mae": 0.006630253695075556,
+      "cases": 120,
+      "horizon": 2,
+      "observed_cost_mse": 0.10482671926875746,
+      "observed_kl": 0.20597186354202707,
+      "observed_survival_mae": 0.002949026894901696,
+      "regime": "base",
+      "seed": 421261001,
+      "shuffled_blind_regret": 0.6409020042865431
+    },
+    {
+      "arm": "gru",
+      "blind_cost_mse": 0.17616468014241932,
+      "blind_regret": 0.48619112358719835,
+      "blind_survival_mae": 0.017304879415091685,
+      "cases": 120,
+      "horizon": 4,
+      "observed_cost_mse": 0.08632942094158662,
+      "observed_kl": 0.17302606230844272,
+      "observed_survival_mae": 0.0027705801830290133,
+      "regime": "base",
+      "seed": 421261001,
+      "shuffled_blind_regret": 0.5830388675482373
+    },
+    {
+      "arm": "gru",
+      "blind_cost_mse": 0.1654719106107735,
+      "blind_regret": 0.5429590133079981,
+      "blind_survival_mae": 0.04762313683135011,
+      "cases": 120,
+      "horizon": 8,
+      "observed_cost_mse": 0.07964287369840517,
+      "observed_kl": 0.1325685377858305,
+      "observed_survival_mae": 0.002954036080354964,
+      "regime": "base",
+      "seed": 421261001,
+      "shuffled_blind_regret": 0.5460013897634364
+    },
+    {
+      "arm": "gru",
+      "blind_cost_mse": 0.19451028460346767,
+      "blind_regret": 0.3799264626131417,
+      "blind_survival_mae": 0.004555313973044577,
+      "cases": 120,
+      "horizon": 1,
+      "observed_cost_mse": 0.19451028460346767,
+      "observed_kl": 0.37959705323008286,
+      "observed_survival_mae": 0.004555313973044555,
+      "regime": "base",
+      "seed": 421261002,
+      "shuffled_blind_regret": 0.669442985475755
+    },
+    {
+      "arm": "gru",
+      "blind_cost_mse": 0.15157423698745565,
+      "blind_regret": 0.35300224463393964,
+      "blind_survival_mae": 0.00935926746117107,
+      "cases": 120,
+      "horizon": 2,
+      "observed_cost_mse": 0.13491594057138118,
+      "observed_kl": 0.277588155948087,
+      "observed_survival_mae": 0.0032296198093559416,
+      "regime": "base",
+      "seed": 421261002,
+      "shuffled_blind_regret": 0.627293683609935
+    },
+    {
+      "arm": "gru",
+      "blind_cost_mse": 0.18067532577085788,
+      "blind_regret": 0.49381993968325844,
+      "blind_survival_mae": 0.03321325758154016,
+      "cases": 120,
+      "horizon": 4,
+      "observed_cost_mse": 0.09980854417596323,
+      "observed_kl": 0.20069112262950337,
+      "observed_survival_mae": 0.003372214222164163,
+      "regime": "base",
+      "seed": 421261002,
+      "shuffled_blind_regret": 0.6053813238955237
+    },
+    {
+      "arm": "gru",
+      "blind_cost_mse": 0.1586593282296766,
+      "blind_regret": 0.5389394296858636,
+      "blind_survival_mae": 0.08898543407330184,
+      "cases": 120,
+      "horizon": 8,
+      "observed_cost_mse": 0.09398626107386135,
+      "observed_kl": 0.15167078420932728,
+      "observed_survival_mae": 0.0034901069601655527,
+      "regime": "base",
+      "seed": 421261002,
+      "shuffled_blind_regret": 0.5388009908277404
+    },
+    {
+      "arm": "gru",
+      "blind_cost_mse": 0.19604686923714265,
+      "blind_regret": 0.3828430782730574,
+      "blind_survival_mae": 0.004574748534909589,
+      "cases": 120,
+      "horizon": 1,
+      "observed_cost_mse": 0.19604686923714265,
+      "observed_kl": 0.36155702555749003,
+      "observed_survival_mae": 0.004574748534909563,
+      "regime": "base",
+      "seed": 421261003,
+      "shuffled_blind_regret": 0.6144103214309541
+    },
+    {
+      "arm": "gru",
+      "blind_cost_mse": 0.15450278923443833,
+      "blind_regret": 0.41381568419281606,
+      "blind_survival_mae": 0.008733111553875602,
+      "cases": 120,
+      "horizon": 2,
+      "observed_cost_mse": 0.13098229934530195,
+      "observed_kl": 0.2455211240336889,
+      "observed_survival_mae": 0.0032736308126397867,
+      "regime": "base",
+      "seed": 421261003,
+      "shuffled_blind_regret": 0.589563012701412
+    },
+    {
+      "arm": "gru",
+      "blind_cost_mse": 0.20106065706356363,
+      "blind_regret": 0.5078594847690356,
+      "blind_survival_mae": 0.020086192817718763,
+      "cases": 120,
+      "horizon": 4,
+      "observed_cost_mse": 0.12440698288533464,
+      "observed_kl": 0.24287872979184225,
+      "observed_survival_mae": 0.00270941638745099,
+      "regime": "base",
+      "seed": 421261003,
+      "shuffled_blind_regret": 0.623316120147874
+    },
+    {
+      "arm": "gru",
+      "blind_cost_mse": 0.18620498759800785,
+      "blind_regret": 0.5105332538836743,
+      "blind_survival_mae": 0.05139071612903276,
+      "cases": 120,
+      "horizon": 8,
+      "observed_cost_mse": 0.07771098839136138,
+      "observed_kl": 0.16017123559100824,
+      "observed_survival_mae": 0.002478791341372494,
+      "regime": "base",
+      "seed": 421261003,
+      "shuffled_blind_regret": 0.5020277453563607
+    }
+  ],
+  "sources": {
+    "pyproject.toml": {
+      "bytes": 894,
+      "sha256": "64436d48af2351450b9dc774f601091fa2a8b6c87d743088a3d26baa5d459aba"
+    },
+    "research/finite-factor-learning-protocol.md": {
+      "bytes": 11541,
+      "sha256": "ba865b4f355ef6f88ebd1e3b22344853843db3d651071a0c974655ef2dae6d73"
+    },
+    "scripts/audit_finite_factor_learning.py": {
+      "bytes": 27520,
+      "sha256": "3620297d9b04ec810d5ede49187feefc9d4c01d66b7ab0491e40129ca1869759"
+    },
+    "scripts/audit_finite_observation_learning.py": {
+      "bytes": 28386,
+      "sha256": "73cdb1541d52d71acd37deb0cda10cf2023b500e61c906a86f47bf0a31d13ea5"
+    },
+    "scripts/finite_factor_worker.py": {
+      "bytes": 10250,
+      "sha256": "fa94fec92b5745a6b5335348eecaf87e3f5c403228a00acc8b3cf019fc4aca79"
+    },
+    "scripts/register_finite_factor_learning.py": {
+      "bytes": 4053,
+      "sha256": "067565094d1a0d8324f322737afcfd42ef1c12b5138e271a4d702a9d5cae3929"
+    },
+    "scripts/run_finite_factor_learning.py": {
+      "bytes": 14715,
+      "sha256": "874b3cbb4fe8435c16418f335451a26661b9d944e600923dce911e06cd8a8c91"
+    },
+    "scripts/run_finite_observation_learning.py": {
+      "bytes": 20403,
+      "sha256": "10a5df365b43088b4613c829600c1a2587d485da679e0cb041c890c89a885669"
+    },
+    "scripts/supervise_dialogue_observation_v2.py": {
+      "bytes": 9715,
+      "sha256": "610a2fcd2d4d55eb35bce92e61942d5169491dee9d05e2f47f65e211fdf94144"
+    },
+    "src/openjev/__init__.py": {
+      "bytes": 91,
+      "sha256": "07c32263c02ef437fa5b3ad3b37a5750de6379f5eae1d58262aedcc7a0e0eef9"
+    },
+    "src/openjev/research/__init__.py": {
+      "bytes": 75,
+      "sha256": "5ef355243927221b3b2d7f205b726f292efc192935fda538bbee70f608e12139"
+    },
+    "src/openjev/research/finite_factor_models.py": {
+      "bytes": 11862,
+      "sha256": "1e42e04249dbdd8b18c4acb1a3e4a63c8c0fd9b5832c0d5deaaf4e56216c0f11"
+    },
+    "src/openjev/research/finite_observation_models.py": {
+      "bytes": 9162,
+      "sha256": "8d30f419370ad8ec900d27e551bf4aadc4ceec97eed4ec6b6cefbc2a161c58fc"
+    },
+    "src/openjev/research/finite_observation_world.py": {
+      "bytes": 13251,
+      "sha256": "37179a94903125b41edc1f2ecbce2c99c0852e7e94ba79e81665b73179a4b857"
+    },
+    "src/openjev/research/otto_observation_operator_model.py": {
+      "bytes": 19671,
+      "sha256": "48fab64aea4a7d787a14c4ca973f14b230f6d6226c9480660a4b609384fef35a"
+    },
+    "src/openjev/research/suspend_clock.py": {
+      "bytes": 5919,
+      "sha256": "cac9077db3c66f5ef43d9412b732f5b869c1004c4bac98589816780c120f6124"
+    },
+    "tests/test_finite_factor_learning.py": {
+      "bytes": 17084,
+      "sha256": "0f8f15b280a0adcf876d99ddf2d3c40d83fb58084fec45a5ad628fd803d96828"
+    },
+    "tests/test_finite_factor_models.py": {
+      "bytes": 11779,
+      "sha256": "d388ffe84910bcaff155f95934b100a86eb851a3ef7d4d849b25e0da6021e5a7"
+    },
+    "tests/test_finite_factor_runner.py": {
+      "bytes": 10917,
+      "sha256": "3d48adbbd6e0287f47461e93add498d34819b7d78e0911d1ccbc1c0e43c50616"
+    },
+    "tests/test_finite_factor_worker.py": {
+      "bytes": 2474,
+      "sha256": "87a070ff5a0bef86d764fe9ddc7535362188156e4052331f4bf781f893ba8c0d"
+    },
+    "uv.lock": {
+      "bytes": 197092,
+      "sha256": "833d01b398f7dae71fd3c565c3dbb05c87b337aac7917d7f0ccf3eef01ba1e0e"
+    }
+  },
+  "three_seed_means_h4_h8": [
+    {
+      "arm": "learned_exact",
+      "blind_cost_mse": 0.09919788364727002,
+      "blind_regret": 0.27406873588438413,
+      "blind_survival_mae": 0.0018445645790274318,
+      "fit_seeds": [
+        421261001,
+        421261002,
+        421261003
+      ],
+      "horizon": 4,
+      "observed_cost_mse": 0.05120240484599115,
+      "observed_kl": 0.09348608521910251,
+      "observed_survival_mae": 0.0005761309305094371,
+      "regime": "base",
+      "shuffled_blind_regret": 0.6128398647458627
+    },
+    {
+      "arm": "learned_exact",
+      "blind_cost_mse": 0.07864322891261843,
+      "blind_regret": 0.24337397024710117,
+      "blind_survival_mae": 0.0026906269116403064,
+      "fit_seeds": [
+        421261001,
+        421261002,
+        421261003
+      ],
+      "horizon": 8,
+      "observed_cost_mse": 0.014313312010653013,
+      "observed_kl": 0.016980995000951613,
+      "observed_survival_mae": 0.0001968274649536059,
+      "regime": "base",
+      "shuffled_blind_regret": 0.5664254995870668
+    },
+    {
+      "arm": "exact_learned",
+      "blind_cost_mse": 0.0030482805991157887,
+      "blind_regret": 0.00010386814236613517,
+      "blind_survival_mae": 0.0014344589387894336,
+      "fit_seeds": [
+        421261001,
+        421261002,
+        421261003
+      ],
+      "horizon": 4,
+      "observed_cost_mse": 0.0031570264319300597,
+      "observed_kl": 0.010924158434585197,
+      "observed_survival_mae": 0.0003982770281619906,
+      "regime": "base",
+      "shuffled_blind_regret": 0.5843367786419117
+    },
+    {
+      "arm": "exact_learned",
+      "blind_cost_mse": 0.010058512253072272,
+      "blind_regret": 0.0002477420310332995,
+      "blind_survival_mae": 0.0028362104702083653,
+      "fit_seeds": [
+        421261001,
+        421261002,
+        421261003
+      ],
+      "horizon": 8,
+      "observed_cost_mse": 0.007837018462275499,
+      "observed_kl": 0.029422490136989544,
+      "observed_survival_mae": 0.00045457853728527483,
+      "regime": "base",
+      "shuffled_blind_regret": 0.5295090080343272
+    },
+    {
+      "arm": "learned_learned",
+      "blind_cost_mse": 0.1259740177884067,
+      "blind_regret": 0.5693703006269987,
+      "blind_survival_mae": 0.0034428965443488962,
+      "fit_seeds": [
+        421261001,
+        421261002,
+        421261003
+      ],
+      "horizon": 4,
+      "observed_cost_mse": 0.14185433294479605,
+      "observed_kl": 0.506532417220014,
+      "observed_survival_mae": 0.0020422107268769393,
+      "regime": "base",
+      "shuffled_blind_regret": 0.5900430666493871
+    },
+    {
+      "arm": "learned_learned",
+      "blind_cost_mse": 0.10193795686239977,
+      "blind_regret": 0.5147103170862489,
+      "blind_survival_mae": 0.004993300383420445,
+      "fit_seeds": [
+        421261001,
+        421261002,
+        421261003
+      ],
+      "horizon": 8,
+      "observed_cost_mse": 0.12045503070529263,
+      "observed_kl": 0.4737093718123253,
+      "observed_survival_mae": 0.0018980887207798393,
+      "regime": "base",
+      "shuffled_blind_regret": 0.509902257406727
+    },
+    {
+      "arm": "gru",
+      "blind_cost_mse": 0.18596688765894695,
+      "blind_regret": 0.4959568493464975,
+      "blind_survival_mae": 0.023534776604783536,
+      "fit_seeds": [
+        421261001,
+        421261002,
+        421261003
+      ],
+      "horizon": 4,
+      "observed_cost_mse": 0.10351498266762815,
+      "observed_kl": 0.2055319715765961,
+      "observed_survival_mae": 0.0029507369308813887,
+      "regime": "base",
+      "shuffled_blind_regret": 0.6039121038638783
+    },
+    {
+      "arm": "gru",
+      "blind_cost_mse": 0.17011207547948595,
+      "blind_regret": 0.5308105656258454,
+      "blind_survival_mae": 0.06266642901122824,
+      "fit_seeds": [
+        421261001,
+        421261002,
+        421261003
+      ],
+      "horizon": 8,
+      "observed_cost_mse": 0.08378004105454263,
+      "observed_kl": 0.148136852528722,
+      "observed_survival_mae": 0.0029743114606310037,
+      "regime": "base",
+      "shuffled_blind_regret": 0.5289433753158458
+    }
+  ],
+  "total_phase_seconds": 171.60033750000002,
+  "version": "finite-factor-learning-report-v1"
+}

@@ -1,5 +1,9 @@
 # Separate history encoding from transition learning
 
+**Executed follow-up:** the [separate factor diagnostic](finite-factor-learning-results.md)
+has now completed. The proposal below records the reasoning before that study;
+the earlier failed results remain unchanged.
+
 The [completed finite-world study](finite-observation-learning-results.md)
 does not justify scaling this recipe or adding RL to it. Exact targets and a
 representable world were insufficient under the registered budget. That does
@@ -38,6 +42,6 @@ would support a coupled-training explanation. If either isolated component
 fails, investigate that training path first. The current result does not tell
 us which explanation is correct.
 
-This proposal has not been executed. The prior failed criteria remain closed.
+This proposal was subsequently executed under its own frozen protocol. The prior failed criteria remain closed.
 Calibration and conformal prediction can be investigated after the underlying
 forecasts and decisions show useful held-out performance.
