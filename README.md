@@ -12,6 +12,8 @@ Supply English context, your questions, and candidate IDs with descriptions. Ope
 
 The local scorer uses a pinned Qwen model, maps candidates to single-token labels, and scores those labels without generating an explanation. Questions are independent. Stable IDs constrain the response format, not whether the choice is correct.
 
+[Architecture and calibration notes](docs/decision-model-architecture.md) explain what public Jev-inspired implementations establish and which claims still need evidence.
+
 Use `POST /api/decide` with the `X-OpenJev: 1` header, or `openjev decide request.json`. The [complete example](examples/support.json) and [API reference](docs/decision-api.md) cover request limits, errors, model metadata and execution boundaries.
 
 ## Run locally
