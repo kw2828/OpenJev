@@ -60,35 +60,22 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Research status
 
-The latest [public-history diagnostic](research/schedule-headroom-results.md)
-finds larger average gains, but **does not admit a new model experiment**.
-Ten fixed references face five fresh datasets. No model is retrained.
+Before training another recurrent model, we tested a strong conventional
+reference on a recent paper's linear function-reuse task. Cached least squares
+achieved **100% function recovery and zero decision regret on 10,240 fresh
+requests**, with an independent audit and 69 passing tests. This establishes a
+baseline the next architecture must take seriously, not a new neural result.
 
-| Exact schedule tracking with the learned model | Lower mean regret |
-|---|---:|
-| Compared with the GRU filter | 40.95% |
-| Compared with the global adapter | 21.86% |
-| Compared with a two-mode static filter | 12.18% |
+[![Function-reuse diagnostic: all cohorts, prediction error, decisions, storage and computation](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/function-reuse-reference-results/benchmark.png)](research/function-reuse-reference-results.md)
 
-Every dataset favors exact tracking in those comparisons. However, normal-noise
-regret rises to **2.55x the unchanged model's**. Even the reference supplied with
-true world laws worsens normal-noise regret to **1.89x**. Each passes 14/15
-conditions and fails the preservation requirement, so this adaptation direction
-is closed for the tested setting.
+[Results and evidence](research/function-reuse-reference-results.md) ·
+[Next: query-time memory](research/query-time-memory-next.md) ·
+[All experiments](research/experiment-index.md).
 
-[![All ten references across five fresh datasets, with all noise families and inference costs](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/schedule-headroom-results/benchmark.png)](research/schedule-headroom-results.md)
-
-[Open chart](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/schedule-headroom-results/benchmark.png) ·
-[All results and evidence](research/schedule-headroom-results.md) ·
-[Protocol](research/schedule-headroom-protocol.md) ·
-[Research directions and papers](research/decision-recurrence-calibration-reading.md).
-
-Exact tracking receives the correct schedule prior and stores 288 probability
-entries, versus the GRU's 28 state entries. Its measured inference takes **4.28x
-as long**. These are diagnostic advantages and costs, not a new architecture.
-All **123 tests** pass; the independent audit agrees with all 50 result rows.
-The earlier [GRU comparison](research/reliability-memory-results.md) remains FAIL
-at 8/13. Every outcome stays in the [experiment archive](research/experiment-index.md).
+The earlier [observation-reliability direction](research/schedule-headroom-results.md)
+remains closed: average gains came with worse normal-noise decisions. The next
+research target is a meaningful quality-versus-compute improvement over strong
+retrieval and statistical controls.
 
 Separate engineering studies measured [1.20-1.35x training throughput](research/finite-joint-reuse-throughput-results.md)
 from shared computation and [2.08x scoring speed](research/shared-prefix-results.md)
