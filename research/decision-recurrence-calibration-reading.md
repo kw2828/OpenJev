@@ -64,3 +64,24 @@ global softening, adaptation has not earned its cost. If it improves KL alone,
 that is not evidence of better decisions. The oracle diagnoses the potential cost of noise
 mismatch; it is not a deployment baseline with equal information. This is a
 prospective hypothesis, not a demonstrated cause or an admitted new run.
+
+## Completed reliability-memory follow-up
+
+The separately registered [reliability-memory study](reliability-memory-results.md)
+now tests part of that hypothesis with public-event likelihood training. It
+fails its rule at 8/13 conditions. The recurrent model has 1.83-3.59% lower regret
+than the two prespecified bank controls, consistently across all five datasets, but falls
+short of the required 10%. Normal-noise regret is 3.80x the unchanged model's.
+The one-parameter global adapter beats recurrent on every higher-noise and
+changing-noise dataset. These results support a modest descriptive difference
+between gates, not continuation or a new architecture claim. The static bank,
+with no added trainable parameters, has lower mean regret in all four settings.
+
+Any follow-up needs to explain that tradeoff before adding biological wiring.
+A useful next diagnostic would separate imperfect backbone learning from
+uncertainty about the observation process, using a supplied-physics reference
+and an exact public-history mixture over the specified noise schedules.
+Compare both to the already disclosed private-noise-path reference. That could
+estimate how much improvement public evidence permits, without assuming that
+the privileged reference is attainable. It would require a new protocol and
+fresh evaluation episodes; it must not tune this failed recipe on its DEV set.

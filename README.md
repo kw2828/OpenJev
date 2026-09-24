@@ -60,37 +60,35 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Research status
 
-The latest [loss comparison](research/finite-action-range-results.md) **fails its
-continuation rule: 17/54 conditions pass**. Thirty fits across five independent
-data cohorts test an action-error-range loss against ordinary MSE and twice-MSE
-on the same recurrent models. The candidate wins **13/40 paired comparisons**
-and meets **0/8 required mean improvements**.
+The latest [reliability-memory experiment](research/reliability-memory-results.md)
+**fails its continuation rule: 8/13 conditions pass**. Twenty fits across five
+independent datasets test whether a small GRU can infer changing observation
+reliability better than simpler filters.
 
-| Mean decision regret, lower is better | MSE | Twice-MSE | Range loss |
-|---|---:|---:|---:|
-| Original noise, four steps | 0.001310 | 0.001271 | 0.001362 |
-| Original noise, eight steps | 0.001292 | 0.001256 | 0.001261 |
-| Higher noise, four steps | 0.011030 | 0.011355 | 0.011400 |
-| Higher noise, eight steps | 0.010399 | 0.009980 | 0.010106 |
+| Lower decision regret vs control | Higher noise | Noise changes mid-episode |
+|---|---:|---:|
+| Recurrent vs Markov filter | 3.59% | 2.86% |
+| Recurrent vs GRU-reset control | 3.43% | 1.83% |
 
-Twice-MSE has lower mean regret than range loss in all four settings. Every
-rounded loss variant also fails the filtering criterion in four of five cohorts
-under higher observation noise. Changing this decision loss does not resolve
-that weakness. Mean recorded fit times are **26.41 / 25.47 / 25.88 seconds** for
-MSE / twice-MSE / range; these are recorded training costs, not an inference-speed benchmark.
+All five datasets favor recurrent in each comparison, but every gain falls short
+of the required 10%. At normal noise, its regret is **3.80x the unchanged model's**.
+A one-parameter global adapter also beats recurrent in every dataset under higher
+and changing noise. The static bank, with no added trainable parameters, has
+lower mean regret than recurrent in all four settings. Recurrent inference takes
+**18.5% longer** than Markov.
 
-[![All thirty models: decision regret and fitting time across five independent cohorts](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-action-range-results/benchmark.png)](research/finite-action-range-results.md)
+[![All six reliability filters across five datasets, including normal-noise regressions and inference costs](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/reliability-memory-results/benchmark.png)](research/reliability-memory-results.md)
 
-[Open chart](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-action-range-results/benchmark.png) ·
-[All results and evidence](research/finite-action-range-results.md) ·
-[Protocol](research/finite-action-range-study-protocol.md) ·
+[Open chart](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/reliability-memory-results/benchmark.png) ·
+[All results and evidence](research/reliability-memory-results.md) ·
+[Protocol](research/reliability-memory-protocol.md) ·
 [Research directions and papers](research/decision-recurrence-calibration-reading.md).
 
-All 46 primitive and 120 integration tests pass, and the independent audit
-agrees with the saved results. This is one synthetic world with favorable
-transition structure. It establishes no new architecture or calibrated
-probabilities. The earlier [head comparison](research/finite-head-learning-results.md)
-remains FAIL at 14/15; every outcome stays in the [experiment archive](research/experiment-index.md).
+All **141 tests** pass and the independent audit agrees with all 120 result rows.
+This synthetic test scores decisions against a reference given the private noise
+path. It establishes no gameplay improvement, calibrated probabilities or new
+architecture. The earlier [loss comparison](research/finite-action-range-results.md)
+remains FAIL at 17/54; every outcome stays in the [experiment archive](research/experiment-index.md).
 
 Separate engineering studies measured [1.20-1.35x training throughput](research/finite-joint-reuse-throughput-results.md)
 from shared computation and [2.08x scoring speed](research/shared-prefix-results.md)
