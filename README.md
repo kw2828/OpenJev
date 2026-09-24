@@ -58,24 +58,22 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Research status
 
-The [latest recurrent comparison](research/finite-shared-filter-results.md)
-trains **nine models using public histories**. Sharing learned dynamics between
-history processing and forecasting lowers mean eight-step regret **10.27%**
-versus separate dynamics and **6.43%** versus a GRU history encoder. Every paired
-seed improves at that horizon, but **all three absolute learning criteria fail**.
-This is partial progress in a synthetic world with a known cost readout.
+The [latest recurrent experiment](research/finite-prefix-learning-results.md)
+compares **six identically sized models** with and without an added observation
+prediction loss. It lowers fresh-history prediction loss **19.56%** and
+eight-step decision regret **6.05%**, but four-step regret worsens and training
+cost rises **41.45%**. **Both versions fail all three learning criteria.**
 
-[![Every shared-filter, untied-filter and GRU-prefix fit](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-shared-filter-results/benchmark.png)](research/finite-shared-filter-results.md)
+[![All six recurrent fits, prediction quality and training cost](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-prefix-learning-results/benchmark.png)](research/finite-prefix-learning-results.md)
 
-[Open recurrent chart](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-shared-filter-results/benchmark.png) ·
-[All nine checkpoints and evidence](https://github.com/kw2828/OpenJev/releases/tag/finite-shared-filter-v1).
+[Open recurrent chart](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-prefix-learning-results/benchmark.png) ·
+[All six checkpoints and evidence](https://github.com/kw2828/OpenJev/releases/tag/finite-prefix-learning-v1).
 
-The preceding [factor diagnostic](research/finite-factor-learning-results.md)
-passed only when the correct starting state was supplied. The
-[15-model learning study](research/finite-observation-learning-results.md) and
-[conditional-label comparison](research/otto-conditional-label-results.md)
-failed. All completed and failed studies remain in the
-[experiment archive](research/experiment-index.md).
+This is a synthetic study with a known cost readout. Better observation
+predictions have not yet produced reliable decisions. The preceding
+[shared-filter comparison](research/finite-shared-filter-results.md),
+[factor diagnostic](research/finite-factor-learning-results.md) and every
+completed or failed study remain in the [experiment archive](research/experiment-index.md).
 
 The separate [shared-prefix scoring experiment](research/shared-prefix-results.md)
 measured **2.08x** speedup on four-question synthetic workloads; single-question

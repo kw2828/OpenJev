@@ -1,6 +1,6 @@
 # Proposal: supervise the learned filter on its public prefix predictions
 
-**Proposal only, not registered or executed.** The [completed shared-filter study](finite-shared-filter-results/report.md) failed all three criteria for the shared model: 6/24, 9/21 and 2/8 conditions passed. Its lower mean H8 regret and observed KL than the two controls are descriptive differences, not a passing result. The next question is whether direct observable prediction during prefix filtering improves held-out decisions under the same fixed training budget.
+**Executed as [finite-prefix-learning-v1](finite-prefix-learning-results.md).** The original prospective design is retained below. The [completed shared-filter study](finite-shared-filter-results/report.md) failed all three criteria for the shared model: 6/24, 9/21 and 2/8 conditions passed. Its lower mean H8 regret and observed KL than the two controls are descriptive differences, not a passing result. The next question is whether direct observable prediction during prefix filtering improves held-out decisions under the same fixed training budget.
 
 ## One intervention, two arms
 

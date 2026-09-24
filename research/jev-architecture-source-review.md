@@ -106,12 +106,10 @@ scaling preserves argmax; any utility gain must come from a declared
 probability-dependent decision rule. This is a proposal, not an admitted study.
 Teacher agreement and softmax-transformed costs are not outcome calibration.
 
-Our closed [belief-distillation study](otto-belief-distillation-results.md) and
-[paired action-effect study](otto-action-effect-results.md) failed their
-continuation rules, at 7/18 and 6/18 comparisons respectively. Their gates and
-data differ, so those counts do not measure progress against each other. They
-test supervised recurrent forecasting and an additional action-effect loss,
-not TypeSafe RLCD, probability calibration or connectome wiring. The separate
-[cost-information diagnostic](otto-cost-information-protocol.md) investigates
-whether forecast and decision targets condition on the same available
-information; its protocol alone establishes no result.
+Our recurrent forecasting and control experiments are separate from TypeSafe
+RLCD and from the text scorer. They test learning mechanisms under explicit
+protocols; they do not establish calibrated text probabilities or biological
+wiring benefits. Current results and continuation rules are in the
+[experiment archive](experiment-index.md). The [prefix-likelihood protocol](finite-prefix-learning-protocol.md)
+tests one supervised prediction loss on an unchanged recurrent filter, not a
+recovered proprietary training algorithm.
