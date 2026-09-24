@@ -72,6 +72,12 @@ still fail long-horizon forecasting.
 [All checkpoints and evidence](https://github.com/kw2828/OpenJev/releases/tag/finite-training-allocation-v1) ·
 [Earlier pretraining comparison](research/finite-expected-count-learning-results.md).
 
+The [saved-model diagnostic](research/finite-transport-diagnostic-results.md)
+examines all 27 checkpoints. Accurate fits preserve state differences much
+better than poor fits, despite similar maximum contraction scores. This is
+a descriptive finding. The [next proposed test](research/balanced-transport-next.md)
+compares balanced transitions with matched initialization and training time.
+
 These small synthetic studies use task-derived structure and privileged
 starting readouts. The [earlier structured model](research/finite-factorized-dynamics-results.md)
 improves averages with fewer parameters, but is not reliable across seeds. The
