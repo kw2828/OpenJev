@@ -1,0 +1,139 @@
+RET501 [*] Do not explicitly `return None` in function if it is the only possible return value
+   --> scripts/otto_residual_native_bridge.py:139:13
+    |
+137 |             require(fullname.split(".")[0] not in BLOCKED_IMPORTS,
+138 |                     "forbidden numerical import: " + fullname)
+139 |             return None
+    |             ^^^^^^^^^^^
+140 |
+141 |     blocker = Blocker()
+    |
+help: Remove explicit `return None`
+    |
+138 |                     "forbidden numerical import: " + fullname)
+    -             return None
+139 +             return
+140 |
+    |
+
+PLR1711 [*] Useless `return` statement at end of function
+   --> scripts/otto_residual_native_bridge.py:139:13
+    |
+137 |             require(fullname.split(".")[0] not in BLOCKED_IMPORTS,
+138 |                     "forbidden numerical import: " + fullname)
+139 |             return None
+    |             ^^^^^^^^^^^
+140 |
+141 |     blocker = Blocker()
+    |
+help: Remove useless `return` statement
+    |
+138 |                     "forbidden numerical import: " + fullname)
+    -             return None
+139 |
+    |
+
+BLE001 Do not catch blind exception: `BaseException`
+   --> scripts/otto_residual_native_bridge.py:359:20
+    |
+357 |             try:
+358 |                 receipt["finished_ns"] = clock.now_ns()
+359 |             except BaseException as error:
+    |                    ^^^^^^^^^^^^^
+360 |                 receipt.update(status="failed", complete=False, clock_error=repr(error))
+361 |         receipt["files"] = {path.name: descriptor(path) for path in out.iterdir() if path.is_file()}
+    |
+
+RET501 [*] Do not explicitly `return None` in function if it is the only possible return value
+   --> scripts/qualify_otto_residual_handoff.py:118:13
+    |
+116 |         def find_spec(self, fullname, path=None, target=None):
+117 |             require(fullname.split(".")[0] not in BLOCKED, "forbidden numerical import: " + fullname)
+118 |             return None
+    |             ^^^^^^^^^^^
+119 |
+120 |     blocker = Blocker()
+    |
+help: Remove explicit `return None`
+    |
+117 |             require(fullname.split(".")[0] not in BLOCKED, "forbidden numerical import: " + fullname)
+    -             return None
+118 +             return
+119 |
+    |
+
+PLR1711 [*] Useless `return` statement at end of function
+   --> scripts/qualify_otto_residual_handoff.py:118:13
+    |
+116 |         def find_spec(self, fullname, path=None, target=None):
+117 |             require(fullname.split(".")[0] not in BLOCKED, "forbidden numerical import: " + fullname)
+118 |             return None
+    |             ^^^^^^^^^^^
+119 |
+120 |     blocker = Blocker()
+    |
+help: Remove useless `return` statement
+    |
+117 |             require(fullname.split(".")[0] not in BLOCKED, "forbidden numerical import: " + fullname)
+    -             return None
+118 |
+    |
+
+PLR1711 [*] Useless `return` statement at end of function
+   --> scripts/run_otto_residual_reanalysis.py:727:17
+    |
+725 |                 if fullname.split(".")[0] in {"numpy", "torch", "tensorflow", "jax", "mlx", "scipy"}:
+726 |                     raise ImportError("Numerical import forbidden during metadata admission: " + fullname)
+727 |                 return None
+    |                 ^^^^^^^^^^^
+728 |         require(not ({"numpy", "torch", "tensorflow", "jax", "mlx", "scipy"} & set(sys.modules)),
+729 |                 "fresh metadata-only process")
+    |
+help: Remove useless `return` statement
+    |
+726 |                     raise ImportError("Numerical import forbidden during metadata admission: " + fullname)
+    -                 return None
+727 |         require(not ({"numpy", "torch", "tensorflow", "jax", "mlx", "scipy"} & set(sys.modules)),
+    |
+
+RET501 [*] Do not explicitly `return None` in function if it is the only possible return value
+   --> scripts/run_otto_residual_reanalysis.py:727:17
+    |
+725 |                 if fullname.split(".")[0] in {"numpy", "torch", "tensorflow", "jax", "mlx", "scipy"}:
+726 |                     raise ImportError("Numerical import forbidden during metadata admission: " + fullname)
+727 |                 return None
+    |                 ^^^^^^^^^^^
+728 |         require(not ({"numpy", "torch", "tensorflow", "jax", "mlx", "scipy"} & set(sys.modules)),
+729 |                 "fresh metadata-only process")
+    |
+help: Remove explicit `return None`
+    |
+726 |                     raise ImportError("Numerical import forbidden during metadata admission: " + fullname)
+    -                 return None
+727 +                 return
+728 |         require(not ({"numpy", "torch", "tensorflow", "jax", "mlx", "scipy"} & set(sys.modules)),
+    |
+
+SIM117 [*] Use a single `with` statement with multiple contexts instead of nested `with` statements
+   --> tests/test_otto_residual_native_bridge.py:226:5
+    |
+224 |       assert sys.meta_path == meta
+225 |       monkeypatch.setitem(sys.modules, forbidden, SimpleNamespace())
+226 | /     with pytest.raises(ValueError, match="clean metadata-only"):
+227 | |         with M.metadata_imports_only():
+    | |_______________________________________^
+228 |               pytest.fail("loaded numerical module crossed worker boundary")
+    |
+help: Combine `with` statements
+    |
+225 |     monkeypatch.setitem(sys.modules, forbidden, SimpleNamespace())
+    -     with pytest.raises(ValueError, match="clean metadata-only"):
+    -         with M.metadata_imports_only():
+    -             pytest.fail("loaded numerical module crossed worker boundary")
+226 +     with pytest.raises(ValueError, match="clean metadata-only"), M.metadata_imports_only():
+227 +         pytest.fail("loaded numerical module crossed worker boundary")
+228 |
+    |
+
+Found 8 errors.
+[*] 7 fixable with the `--fix` option.

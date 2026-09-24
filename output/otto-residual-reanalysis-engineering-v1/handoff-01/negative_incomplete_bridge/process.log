@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/run_otto_residual_reanalysis.py", line 740, in <module>
+    main()
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/run_otto_residual_reanalysis.py", line 731, in main
+    freeze(args)
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/run_otto_residual_reanalysis.py", line 255, in freeze
+    bound = authenticate(args.phase, inputs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/run_otto_residual_reanalysis.py", line 210, in authenticate
+    collection = authenticate_collection(inputs, sources)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/run_otto_residual_reanalysis.py", line 196, in authenticate_collection
+    collection = bridge.verify_bridge(bridge_inputs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/otto_residual_native_bridge.py", line 263, in verify_bridge
+    require(receipt["version"] == VERSION and receipt["status"] == "completed" and receipt["complete"] is True
+  File "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/otto_residual_native_bridge.py", line 47, in require
+    raise ValueError(message)
+ValueError: complete source-bound metadata bridge
