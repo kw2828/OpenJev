@@ -58,18 +58,19 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Research status
 
-The [latest recurrent comparison](research/finite-expected-count-learning-results.md)
-tests **nine fits of the same small model**. Gradient pretraining lowers mean
-four/eight-step decision regret **45.42% / 35.63%** versus joint training alone,
-with **34.61% more training time**. It passes short-horizon learning, but all
-three methods still fail the longer-horizon criterion. Expected-count
-pretraining improves averages less, with mixed effects across seeds.
+The [latest recurrent comparison](research/finite-training-allocation-results.md)
+gives **nine fits of the same small model equal 40-second training windows**.
+Prefix learning lowers mean four/eight-step decision regret **40.68% / 44.17%**
+versus continuous joint training, at almost identical measured training time.
+One seed worsens at both horizons: **16/21 conditions pass, so the method does not advance**.
+All three methods pass short-horizon and observed-filtering criteria but
+still fail long-horizon forecasting.
 
-[![All nine recurrent fits, decision regret and complete training costs](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-expected-count-learning-results/benchmark.png)](research/finite-expected-count-learning-results.md)
+[![All nine recurrent fits, decision regret and complete training costs](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-training-allocation-results/benchmark.png)](research/finite-training-allocation-results.md)
 
-[Open recurrent chart](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-expected-count-learning-results/benchmark.png) ·
-[All checkpoints and evidence](https://github.com/kw2828/OpenJev/releases/tag/finite-expected-count-learning-v1) ·
-[Earlier decision-head diagnostic](research/finite-gap-readout-study-results.md).
+[Open recurrent chart](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-training-allocation-results/benchmark.png) ·
+[All checkpoints and evidence](https://github.com/kw2828/OpenJev/releases/tag/finite-training-allocation-v1) ·
+[Earlier pretraining comparison](research/finite-expected-count-learning-results.md).
 
 These small synthetic studies use task-derived structure and privileged
 starting readouts. The [earlier structured model](research/finite-factorized-dynamics-results.md)
