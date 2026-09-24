@@ -77,6 +77,8 @@ examines all 27 checkpoints. Accurate fits preserve state differences much
 better than poor fits, despite similar maximum contraction scores. This is
 a descriptive finding. The [next proposed test](research/balanced-transport-next.md)
 compares balanced transitions with matched initialization and training time.
+Its [balancing component passes 42 numerical checks](research/finite-balanced-transition-qualification-results.md);
+model integration and the learning comparison remain ahead.
 
 These small synthetic studies use task-derived structure and privileged
 starting readouts. The [earlier structured model](research/finite-factorized-dynamics-results.md)

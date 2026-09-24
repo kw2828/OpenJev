@@ -6,6 +6,10 @@ accurate fits with more balanced transitions and stronger weak directions.
 It does not establish why the fits differ. This note specifies the next
 engineering question; no new learning run is registered or admitted here.
 
+The first numerical step is now [qualified on 42 fabricated-input checks](finite-balanced-transition-qualification-results.md):
+a fixed 64-sweep log-domain primitive with verified finite-computation gradients.
+Model integration and the learning comparison below remain prospective.
+
 ## Hypothesis and comparison
 
 Would constraining each action's learned transition T to be doubly stochastic
@@ -39,10 +43,12 @@ balancing, residual checks, backward passes and discarded late updates to the
 same eligibility window. Record complete elapsed time and executed normalization
 work; equal wall-time allowance does not mean equal updates or FLOPs.
 
-All arms store **352 raw parameters**, but they do not have equal effective
+All arms store **352 raw parameters**; that does not establish equal effective
 capacity. Four unconstrained column-stochastic 8x8 matrices have 224 degrees
-of freedom; four doubly stochastic matrices have 196. The candidate supplies
-28 extra constraints. A comparison must state this difference.
+of freedom; under exact doubly stochastic constraints they have 196. The
+finite numerical implementation enforces the additional balance constraints
+to a residual tolerance, not as an exact symbolic projection. A comparison
+must state this structural difference.
 
 ## Numerical qualification before learning
 
@@ -60,6 +66,13 @@ logit offsets, row/column residuals, strict positivity, finite-difference
 gradients, state relabeling, unchanged input storage, and explicit cap failure.
 The probability readout and hazard mass accounting must remain unchanged.
 First qualify this primitive; then qualify model integration independently.
+
+Integration must also replace the prefix bridge's direct column-softmax
+calculation: its transition log prior must use the same balanced log
+probabilities as the forward filter. Preserve the existing 0.001 prefix-only
+prior and the absence of that prior from joint minibatch training. Reusing the
+old helper unchanged would optimize a different transition from the one used
+for inference.
 
 A subsequent learning protocol must freeze fresh data and seeds, all three
 arms, the schedule, resource bounds and a decision-based continuation rule.
