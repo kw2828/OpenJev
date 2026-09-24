@@ -98,3 +98,28 @@ denominator that depends on future survival. Keep that earlier metric
 descriptive. If the correctly specified public filter offers little headroom,
 stop this adaptation line. If only the true-law reference helps, investigate
 backbone mismatch before another learned gate.
+
+## Completed exact-reference diagnostic
+
+The [separately registered diagnostic](schedule-headroom-results.md) now closes
+that proposal. On five fresh datasets, exact schedule tracking with learned
+fields reduces mean additive regret by 40.95% versus recurrent, 21.86% versus
+global, and 12.18% versus learned static-two, with all five cohorts improving
+in every one of seven control comparisons. The true-law exact filter has
+40.57% lower mean regret than learned exact; this combines T/O/h/C mismatch,
+not just transition error. True exact also improves 17.54% over true static-two
+and passes both registered history conditions.
+
+Both candidates nevertheless pass only 14/15 conditions. Normal-noise regret
+is 2.55x unchanged for learned exact and 1.89x for true exact. The ordered
+classification is therefore `NO_REGISTERED_HEADROOM`: no continuation under
+the specified preservation requirement. It does not mean that exact history
+tracking has zero benefit, prove that the tradeoff is unavoidable for every
+controller, or make the privileged reference attainable. The exact references
+also receive a correct episode prior and retain 288 joint probabilities;
+learned exact inference takes 4.28x as long as the GRU. No new model was trained.
+
+Stop this observation-reliability adaptation line for this population, history
+length and requirements. Further architecture work needs a separately justified
+task and evaluation, not another gate tuned against these evaluation episodes.
+The earlier 8/13 and 17/54 failures remain unchanged.

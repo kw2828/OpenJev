@@ -60,35 +60,35 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Research status
 
-The latest [reliability-memory experiment](research/reliability-memory-results.md)
-**fails its continuation rule: 8/13 conditions pass**. Twenty fits across five
-independent datasets test whether a small GRU can infer changing observation
-reliability better than simpler filters.
+The latest [public-history diagnostic](research/schedule-headroom-results.md)
+finds larger average gains, but **does not admit a new model experiment**.
+Ten fixed references face five fresh datasets. No model is retrained.
 
-| Lower decision regret vs control | Higher noise | Noise changes mid-episode |
-|---|---:|---:|
-| Recurrent vs Markov filter | 3.59% | 2.86% |
-| Recurrent vs GRU-reset control | 3.43% | 1.83% |
+| Exact schedule tracking with the learned model | Lower mean regret |
+|---|---:|
+| Compared with the GRU filter | 40.95% |
+| Compared with the global adapter | 21.86% |
+| Compared with a two-mode static filter | 12.18% |
 
-All five datasets favor recurrent in each comparison, but every gain falls short
-of the required 10%. At normal noise, its regret is **3.80x the unchanged model's**.
-A one-parameter global adapter also beats recurrent in every dataset under higher
-and changing noise. The static bank, with no added trainable parameters, has
-lower mean regret than recurrent in all four settings. Recurrent inference takes
-**18.5% longer** than Markov.
+Every dataset favors exact tracking in those comparisons. However, normal-noise
+regret rises to **2.55x the unchanged model's**. Even the reference supplied with
+true world laws worsens normal-noise regret to **1.89x**. Each passes 14/15
+conditions and fails the preservation requirement, so this adaptation direction
+is closed for the tested setting.
 
-[![All six reliability filters across five datasets, including normal-noise regressions and inference costs](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/reliability-memory-results/benchmark.png)](research/reliability-memory-results.md)
+[![All ten references across five fresh datasets, with all noise families and inference costs](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/schedule-headroom-results/benchmark.png)](research/schedule-headroom-results.md)
 
-[Open chart](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/reliability-memory-results/benchmark.png) ·
-[All results and evidence](research/reliability-memory-results.md) ·
-[Protocol](research/reliability-memory-protocol.md) ·
+[Open chart](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/schedule-headroom-results/benchmark.png) ·
+[All results and evidence](research/schedule-headroom-results.md) ·
+[Protocol](research/schedule-headroom-protocol.md) ·
 [Research directions and papers](research/decision-recurrence-calibration-reading.md).
 
-All **141 tests** pass and the independent audit agrees with all 120 result rows.
-This synthetic test scores decisions against a reference given the private noise
-path. It establishes no gameplay improvement, calibrated probabilities or new
-architecture. The earlier [loss comparison](research/finite-action-range-results.md)
-remains FAIL at 17/54; every outcome stays in the [experiment archive](research/experiment-index.md).
+Exact tracking receives the correct schedule prior and stores 288 probability
+entries, versus the GRU's 28 state entries. Its measured inference takes **4.28x
+as long**. These are diagnostic advantages and costs, not a new architecture.
+All **123 tests** pass; the independent audit agrees with all 50 result rows.
+The earlier [GRU comparison](research/reliability-memory-results.md) remains FAIL
+at 8/13. Every outcome stays in the [experiment archive](research/experiment-index.md).
 
 Separate engineering studies measured [1.20-1.35x training throughput](research/finite-joint-reuse-throughput-results.md)
 from shared computation and [2.08x scoring speed](research/shared-prefix-results.md)
