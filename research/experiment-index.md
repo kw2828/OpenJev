@@ -1,5 +1,7 @@
 # OpenJev experiment archive
 
+- [Exact finite-world recurrent learning](finite-observation-learning-results.md): **audited BASE_TRAINABLE_FAIL and SHIFT_TRANSFER_FAIL**, all 15 fits complete, 485 TRAIN and 239 DEV prefixes. Tied/untied transitions, dense/retentive initialization and an ordinary GRU trained on two-step targets and faced four/eight-step gaps. Retentive initialization did not solve learning; no native-environment or architecture gain. [Complete evidence](https://github.com/kw2828/OpenJev/releases/tag/finite-observation-learning-v1) · [Next: isolate history encoding from dynamics](finite-observation-learning-next.md).
+
 - [Same GRU, conditional cost labels](otto-conditional-label-results.md): **audited DEV_FAIL in both settings**, six matched fits, 329 fresh TRAIN and 173 DEV prefixes. Averaging the same 32-label bank lowers mean teacher-cost regret 4.9% in lambda3 but raises it 6.1% in the unseen sensing regime. Both margin and paired-seed consistency checks fail; no architecture or autonomous-control claim. [All checkpoints and evidence](https://github.com/kw2828/OpenJev/releases/tag/otto-conditional-label-v1). [Interpretation and next qualification](otto-conditional-label-next.md).
 
 - [Observation-operator component](otto-observation-operator-status.md): **24 fabricated tests and 16 geometry rollouts pass**. Tied observation marginals and an independently learned blind-transition control have explicit probability accounting, causal forecasts and verified optimizer paths. No empirical training or architecture advantage established.

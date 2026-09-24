@@ -58,21 +58,20 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Research status
 
-The latest six-model comparison tested **averaging possible-future cost targets
-in the same GRU**. On 173 fresh evaluation prefixes, it lowered teacher-cost
-regret **4.9%** in the base setting but raised it **6.1%** under a sensing shift.
-Both settings failed the predeclared rule; the independent audit passed.
+The [new recurrent learning diagnostic](research/finite-observation-learning-results.md)
+compares **15 models in an exact eight-state world**. Dense and memory-retaining
+initializations, tied and untied transitions, and an ordinary GRU all remain in
+the report. The proposed recurrent method **fails both prespecified criteria**;
+this is a synthetic training diagnosis, not a native-environment gain.
 
-[![All six matched fits and uncertainty intervals](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/otto-conditional-label-results/benchmark.png)](research/otto-conditional-label-results.md)
+[![All recurrent models and forecast horizons](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-observation-learning-results/benchmark.png)](research/finite-observation-learning-results.md)
 
-[Results and controls](research/otto-conditional-label-results.md) ·
-[Open chart](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/otto-conditional-label-results/benchmark.png) ·
-[All six checkpoints and evidence](https://github.com/kw2828/OpenJev/releases/tag/otto-conditional-label-v1).
-The earlier [expensive-reference diagnostic](research/otto-cost-information-results.md)
-found headroom, but this training recipe did not reliably capture it.
+[Open recurrent chart](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/finite-observation-learning-results/benchmark.png) ·
+[All 15 checkpoints and evidence](https://github.com/kw2828/OpenJev/releases/tag/finite-observation-learning-v1).
 
-A separate [observation-operator recurrent component](research/otto-observation-operator-status.md)
-passes 24 fabricated tests. It has **no empirical architecture result yet**.
+The earlier [six-model conditional-label comparison](research/otto-conditional-label-results.md)
+also failed: regret fell **4.9%** in the base setting and rose **6.1%** under a
+sensing shift. Its full evidence and [headroom diagnostic](research/otto-cost-information-results.md) remain available.
 All completed and failed studies remain in the [experiment archive](research/experiment-index.md).
 
 The separate [shared-prefix scoring experiment](research/shared-prefix-results.md)
