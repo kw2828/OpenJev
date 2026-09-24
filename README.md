@@ -56,20 +56,22 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Research status
 
-The latest OTTO experiment directly solved **six small readout heads**. Fixed
-ridge lowers mean later decision gap **16.49%** versus Adam in one setting but
-is **3.71% worse** in the other. It passed **4/6 comparisons**, failing the overall
-rule. These are reused development paths, not fresh confirmation.
+The latest OTTO pilot trained a small **action-conditioned recurrent model** to
+forecast through missing observations. It passed **2/18 comparisons**, failing
+the overall rule. Mean long-gap log loss improved over a direct predictor,
+but decision gap was **16.31% worse** after a sensing shift. Action conditioning
+did not consistently beat an action-blind control.
 
-[![Solved readouts: every method, seed, adaptation cost and paired check](research/otto-direct-readout-results/methods.png)](research/otto-direct-readout-results.md)
+[![Action-gap prediction across four methods and two sensing settings](research/otto-action-latent-results/horizons.png)](research/otto-action-latent-results.md)
 
-[Results and limits](research/otto-direct-readout-results.md) ·
-[Every fit and check](research/otto-direct-readout-results/README.md) ·
-[Checkpoints and evidence](https://github.com/kw2828/OpenJev/releases/tag/otto-direct-readout-v1).
-Adaptation took **4.8 to 5.2 seconds**, including features and export validation.
-This strengthens a conventional baseline; it establishes no novel architecture,
-inference speedup or autonomous-control gain.
+[Results and limits](research/otto-action-latent-results.md) ·
+[Every fit and comparison](research/otto-action-latent-results/README.md) ·
+[Checkpoints and evidence](https://github.com/kw2828/OpenJev/releases/tag/otto-action-latent-v1).
+All nine neural fits and the independent audit completed. This is a prediction
+experiment on fixed paths; it establishes no autonomous-control gain or new
+architecture.
 
+The [solved-readout comparison](research/otto-direct-readout-results.md),
 The [fresh-path compute comparison](research/otto-readout-compute-results.md),
 [earlier equal-update ablation](research/otto-readout-state-ablation-results.md),
 [Bayesian-memory failure](research/otto-residual-reanalysis-results.md),
