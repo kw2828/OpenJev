@@ -1,6 +1,8 @@
 # Author FSM baseline: engineering qualification
 
-**Engineering PASS; no empirical author-baseline result.** The pinned author runtime and our causal state initializer passed fabricated qualification. No FSM measurements or supplied trained weights were numerically loaded for these checks. The real pooled FIT-only BLA28 fit remains forthcoming in this report's scope.
+**Engineering PASS.** The pinned author runtime and our causal state initializer passed fabricated qualification. No FSM measurements or supplied trained weights were numerically loaded for these checks. A subsequent [pooled FIT-only BLA28 study](fsm-author-bla-results.md) has now completed; its empirical results are reported separately.
+
+The final isolated benchmark qualification passed **109 fabricated tests**, including the native-shape four-member reader boundary. The supervisor passed five fabricated terminal-state cases. The later independent saved-output auditor passed 26 fabricated tests before auditing the measured run. All qualification receipts and earlier lint failures are included in the [evidence release](https://github.com/kw2828/OpenJev/releases/tag/fsm-author-bla-study-v1).
 
 ## Recorded outcomes
 

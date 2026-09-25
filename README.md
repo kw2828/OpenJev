@@ -60,24 +60,24 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Research status
 
-The [recurrent residual model](research/fsm-linear-controls-results.md) survives
-nine stronger linear controls with its weights unchanged: **26.41% lower error
-than the best longer-memory linear model** and **22.31% lower than output-only
-correction**. All **9/9 development conditions pass**, with independent audit
-agreement. The candidate takes **2.06 ms versus 0.70 ms** for the best linear
-control, so the quality gain still costs more computation.
+The [recurrent residual model](research/fsm-author-bla-results.md) keeps its
+**26.41% lower error than the best longer-memory linear model** and **22.31%
+lower error than output-only correction**, with its weights unchanged.
+Adding the authors' FIT-only BLA28 reference leaves the strongest comparison
+unchanged. All **4/4 latest continuation checks pass**, with independent audit
+agreement. Better accuracy still costs more computation than VARX96.
 
-[![All fifteen stronger-control families: forecast error and full-request latency](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/fsm-linear-controls-results/benchmark.png)](research/fsm-linear-controls-results.md)
+[![Author BLA28, VARX96 and recurrent controls: forecast error and descriptive latency](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/fsm-author-bla-results/benchmark.png)](research/fsm-author-bla-results.md)
 
-[Results and checkpoints](research/fsm-linear-controls-results.md) ·
+[Latest results and checkpoints](research/fsm-author-bla-results.md) ·
+[All fifteen prior control families](research/fsm-linear-controls-results.md) ·
 [Original 36-fit comparison](research/fsm-residual-results.md) ·
-[Protocol](research/fsm-linear-controls-protocol.md) ·
 [Next comparison](research/fsm-residual-next.md) ·
 [All experiments](research/experiment-index.md).
 
 Selection and these checks use the same exposed development data. This is a
 promising lead, not untouched validation or a novel architecture. The
-[authors' reference methods](research/fsm-author-reference-qualification.md)
+[authors' nonlinear NL-LFR reference](research/fsm-author-reference-qualification.md)
 and an untouched amplitude shift remain to be tested. Earlier
 [selective correction](research/fsm-correction-results.md) and
 [robot observer](research/robot-joint-observer-results.md) experiments failed
@@ -101,4 +101,4 @@ These demos use different models and protocols. Replays illustrate preserved epi
 
 OpenJev is independent of [TypeSafe Jev](https://typesafe.ai/blog/introducing-system-one-models-and-jev), [zhihz/openjev](https://github.com/zhihz/openjev) and [openjev.com](https://openjev.com/). It does not reproduce proprietary Jev architecture or weights.
 
-The root MIT license applies except where component notices specify other terms, including GPL-3.0-only chess research files. Third-party data and model licenses apply separately.
+The root MIT license applies except where component notices specify other terms, including GPL-3.0-only chess research files and the [GPL-3.0-or-later author-baseline adapter](research/fsm_author/THIRD_PARTY.md). Third-party data and model licenses apply separately.

@@ -3,8 +3,10 @@
 **PARTIALLY EXECUTED.** The longer-VARX and folded-affine checks below were
 subsequently [registered](fsm-linear-controls-protocol.md) and
 [passed their development rule](fsm-linear-controls-results.md), with independent
-audit agreement. The author BLA28/NL-LFR adaptation and 300 mV shift remain
-unregistered and unexecuted. No reserved measurements have been read under
+audit agreement. The subsequent [FIT-only author BLA28 adaptation](fsm-author-bla-results.md)
+also completed, with 4/4 continuation checks and independent audit agreement.
+The nonlinear NL-LFR adaptation and 300 mV shift remain unregistered and
+unexecuted. No reserved measurements have been read under
 this proposal. The remaining steps below are prospective; exposed-DEV selection
 remains development.
 See the [frozen protocol](fsm-residual-protocol.md) and
@@ -23,9 +25,9 @@ See the [frozen protocol](fsm-residual-protocol.md) and
   All orders fit inside the supplied C100 context. Retain failures without pole
   repair, and select one recipe on exposed DEV before any reserve is opened.
   This asks whether the nonlinear gain survives stronger linear memory.
-- **Qualify the authors' BLA28 and NL-LFR procedures using FIT data only.**
-  These are respectively linear and nonlinear references, not methods already
-  reproduced here. Do not use supplied weights fitted with all three amplitudes.
+- **Qualify the authors' NL-LFR procedure using FIT data only.**
+  BLA28 is now fitted and evaluated under the causal contract; the nonlinear
+  reference remains unexecuted. Do not use supplied weights fitted with all three amplitudes.
   Freeze any adaptation, initialization and optimization budget in advance;
   record unsupported dependencies or incomplete reproduction honestly.
   The [authors' pinned repository](https://github.com/merijnfloren/fsm-benchmark-data/tree/539a12fef384b086a8562b500498b2fa3899ef70)
