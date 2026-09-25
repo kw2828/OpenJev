@@ -1,0 +1,99 @@
+{
+  "version": "fsm-residual-study-v1",
+  "created_utc": "2026-09-25T06:07:33.774685+00:00",
+  "purpose": "Pooled exposed-DEV search over residual shape and propagation; no novel architecture or confirmation claim",
+  "source_sha256": {
+    "src/openjev/research/fsm_residual_study.py": "29a4eb8d99c643c90ab88c82381b03032ea6a4d72cb3225d1e3dd0a5915f7a99",
+    "src/openjev/research/fsm_residual.py": "a39efea7086904f248f8afc58771fd29ecbd33cd323b584e2ba0b203a3a2e541",
+    "src/openjev/research/fsm_study.py": "8ec26ffefedaa4b212fc7eb8b1cb794ce2b4e2106d1f487b49acc9a5ae6e2df5",
+    "src/openjev/research/fsm_data.py": "4edad31e866ba88ed3c1e43b92f0cbc37d23fa454c2fab39cb8cf8cd8e5b6d90",
+    "src/openjev/research/fsm_linear.py": "4486e7a28ddcdaafba0f5a9ce05d64738648ebf4a88c36497e8fef0bed816c20",
+    "src/openjev/research/fsm_gru.py": "708ae7c7ffe7297b5317ee70b81d3f50b780c15961863890081a1061161b33a7",
+    "src/openjev/research/predictive_state_correction.py": "74b11349aed85dcbb70d102eb9d99581f5c0c602277acf5f97f2cf6c1e95c9a7"
+  },
+  "protocol_markdown_path": "research/fsm-residual-protocol.md",
+  "protocol_markdown_sha256": "74a9be12a26d9e2c0d206810f8ccf928387190b574ea34916d55f56a5dd2cc2c",
+  "parent_artifacts": {
+    "coefficients": {
+      "path": "output/fsm-correction-study-v1/varx32-ridge1e-06/model.npz",
+      "sha256": "b5790fb407e229229a47043b494d9e6a3ba01f957d483b0886ac211ccd6a76cc"
+    },
+    "fit_receipt": {
+      "path": "output/fsm-correction-study-v1/varx32-ridge1e-06/receipt.json",
+      "sha256": "870452ba4d138cfd1dec47897382bfc313cfb11fb946b4ed32e365ad2946f3be"
+    },
+    "normalizer": {
+      "path": "output/fsm-correction-study-v1/normalizer.npz",
+      "sha256": "46cf8fdc80747a5c701f86d92531839bf18a5ac67d94f91537bdb6b8ded601f9"
+    },
+    "registration": {
+      "path": "research/fsm-correction-registration.json",
+      "sha256": "6369c3121380bd98ef109c4b6aea2c1f7c1b9c9110fdd7f0b2327a41845f1af1"
+    },
+    "audit": {
+      "path": "output/fsm-correction-audit-v1/audit.json",
+      "sha256": "3fdb4fc8af66b5f7734327359099c618a0b5a3db92b62f52f9ae80f650430fb2"
+    },
+    "closure": {
+      "path": "output/fsm-correction-study-v1/closure.json",
+      "sha256": "9a1031f3a554bd300d724d535adb49ede1ddd72ed7a80d915140293ded755714"
+    },
+    "summary": {
+      "path": "output/fsm-correction-study-v1/summary.json",
+      "sha256": "6daf4c506c3a5e3f7fa154a97634499c0eb9b3fa8998422279394dbd656143a1"
+    },
+    "process": {
+      "path": "output/fsm-correction-engineering-v1/original-process.json",
+      "sha256": "967bc2ed0461267095f4be6fe690637a6d9307c15239094343c404b6e93b6fdd"
+    }
+  },
+  "data_sha256": "bdf6004da1342a8746e51580a57b5ddb8ac400ac5caa48368719c33cbb0ef505",
+  "experiment": {
+    "architectures": [
+      "affine_output_only",
+      "affine_feedback",
+      "tanh_output_only",
+      "tanh_feedback"
+    ],
+    "learning_rates": [
+      0.0001,
+      0.0003,
+      0.001
+    ],
+    "seeds": [
+      9201,
+      9202,
+      9203
+    ],
+    "order": 32,
+    "hidden_width": 24,
+    "context": 100,
+    "horizon": 128,
+    "batch": 16,
+    "updates": 2048,
+    "gradient_clip": 1.0,
+    "fit_timeout_seconds": 240,
+    "evaluation_stride": 256,
+    "identity_atol": 1e-09,
+    "identity_rtol": 1e-09
+  },
+  "qualifications": {
+    "core_current_tests": 95,
+    "harness_current_tests": 23,
+    "core_receipt": "output/fsm-residual-core-engineering-v1/qualification-01/receipt.json",
+    "harness_receipts": [
+      "output/fsm-residual-engineering-v1/qualification-01/receipt.json",
+      "output/fsm-residual-engineering-v1/qualification-02/receipt.json",
+      "output/fsm-residual-engineering-v1/qualification-03/receipt.json",
+      "output/fsm-residual-engineering-v1/qualification-04/receipt.json"
+    ],
+    "notes": "Initial21harnesschecksPASS;score-onlyselectionaddedand15affectedchecksPASS;fourmodifiednative-unitchecksPASS;oneaddednative-overflowcheckPASS. Total23currentharness tests. Uncommittedregistrationdraftretainedbeforeoverflowfix; no new empirical fit/data/model decoding."
+  },
+  "scope_limits": [
+    "Same exposedDEV used for LRselection and report; no unbiasedselected-modelclaim",
+    "No officialtest/300mV decoded",
+    "Affinefeedback unfused runtime is not minimum deployablelinear cost",
+    "HistoricalGRU notfresh matched training/runtime comparison",
+    "No pretrainedBLA28/NL-LFR reused orreproduced"
+  ]
+}
