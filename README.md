@@ -78,6 +78,11 @@ also remains unchanged.
 [Protocol](research/robot-joint-observer-protocol.md) ·
 [All experiments](research/experiment-index.md).
 
+The next [recurrent correction prototype](research/predictive-state-qualification.md)
+passes 139 fabricated checks. Those checks also expose a limitation: on a
+single-output task its routing is fixed, so it cannot demonstrate adaptive
+memory correction there. No new forecasting gain is claimed.
+
 The [Rust inference path](rust/robot_transition/README.md) passes 110 synthetic
 checks, but its [trained-model comparison](research/robot-native-results.md)
 stops at physical-output parity before timing. **No Rust speedup is established.**

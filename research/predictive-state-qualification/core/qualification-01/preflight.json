@@ -1,0 +1,41 @@
+{
+  "sources": {
+    "src/openjev/research/predictive_state_correction.py": {
+      "sha256": "5e5142939f1e98410e7fd53c88e88cbbe0d0dddad6f91acdf6644a9c9738808e",
+      "bytes": 13918
+    },
+    "tests/test_predictive_state_correction.py": {
+      "sha256": "79a40082b143ef65882b2a3cf0993375c0bc6e2313f1549baecc3e1c017c2855",
+      "bytes": 18891
+    }
+  },
+  "helper": {
+    "sha256": "da1388b3b820220babade6586821a1864856045dd8566f6487b9a9b8d96918e2",
+    "bytes": 3406
+  },
+  "commands": [
+    [
+      ".venv/bin/python",
+      "-m",
+      "pytest",
+      "--noconftest",
+      "-q",
+      "tests/test_predictive_state_correction.py"
+    ],
+    [
+      ".venv/bin/ruff",
+      "check",
+      "src/openjev/research/predictive_state_correction.py",
+      "tests/test_predictive_state_correction.py"
+    ]
+  ],
+  "thread_env": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1"
+  },
+  "scope": "Fabricated mathematical and causal fixtures only. No dataset reads, empirical fits, microbenchmarks or scientific outcomes.",
+  "per_command_timeout_seconds": 180
+}

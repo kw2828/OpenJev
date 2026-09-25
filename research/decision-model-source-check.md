@@ -2,6 +2,10 @@
 
 Primary sources checked 24 September 2026 after screenshots described public projects as reconstructions of Jev. This is a source review, not a new experiment or verification of proprietary internals.
 
+Rechecked 25 September against the additional screenshots: the assessment below
+is unchanged. The public Qwen upload remains at revision `2af8684`; its name and
+calibration flag do not establish RL training or measured calibration.
+
 The names matter: **SemIf** (capital I, not SemLF) is TheoLeeCJ's project, formerly OpenJev and currently hosted as [SemIf-OpenJev](https://github.com/TheoLeeCJ/SemIf-OpenJev). [zhihz/openjev](https://github.com/zhihz/openjev) is separate. This repository, [kw2828/OpenJev](https://github.com/kw2828/OpenJev), is another independent research project. Shared naming does not establish shared implementations or affiliation with TypeSafe.
 
 | Screenshot claim | What the primary sources support |

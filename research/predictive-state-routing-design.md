@@ -1,25 +1,101 @@
-# Proposed predictive-state routing investigation
+# Predictive-state correction: implementation and a failed benchmark match
 
-**Prospective, unregistered, and not ready to launch. No architectural novelty is established.** This note changes no completed study or admission criterion. No experiment or transfer was run for this note.
+**Engineering reference, not an empirical improvement or established novelty.**
+The correction core and estimation-only ParWH adapter are implemented. No
+measured data were decoded, no model was trained, and no empirical evaluation
+was run for this extension. Its proposed single-output benchmark cannot test
+adaptive routing with this equation; the reason below was found before training.
 
-The [joint-observer study](robot-joint-observer-results.md) failed its development gate: 4/5 criteria passed. Long conditioning improved mean error by only 0.750% over continued last-two and 0.319% over continued temporal, remained 4.682% worse than historical temporal, and cost 1.41482 times last-two latency. The failed gate does not admit the [proposed transfer](robot-observer-transfer-plan.md). The earlier [chain-connectivity comparison](robot-coupling-results.md) also lost to rewiring. These results motivate a different question; they do not establish that state representation or connectivity caused the failures.
+The [joint-observer study](robot-joint-observer-results.md) still fails its
+development rule. Longer conditioning did not beat the strongest historical
+control. Neither this work nor the earlier connectivity comparisons establish
+a biological wiring advantage. The previously proposed observer transfer
+remains unlaunched.
 
-## Hypothesis and causal contract
+## Implemented mechanism
 
-Investigate whether **routing arrived-observation errors between explicitly predictive state modules** preserves useful information better than an equally supervised dense recurrent model. Modules would represent features of output responses at different horizons. An action-conditioned decoder would read those features from the recurrent state. The experimental ingredient would be a sparse directed correction circuit between modules, not joint observer training, a longer prefix, or a biological name for an ordinary gain matrix.
+[PredictiveStateCorrection](../src/openjev/research/predictive_state_correction.py)
+has three equal state blocks, a GRU transition, a linear observation decoder
+`C z + b`, and explicit caller-owned state. Every block advances through the
+transition. When an observation arrives, the model computes:
 
-At time `t`, predict the observation from the previous corrected state and already applied input `u[t-1]`. Form innovation `e[t] = y[t] - predicted_y[t]` only when `y[t]` arrives, then update memory. Autonomous forecasting receives no later observations and consumes supplied future inputs causally: output at horizon `h` cannot use inputs after that horizon.
+```text
+prior = GRU(input, previous_state)
+error = observation - (C prior + b)
+gradient = error @ C
+block = argmax_m sum(gradient[m] ** 2)
+state = prior + mask * gradient / (sum(C ** 2) + 1e-6)
+```
 
-During training, a decoder may receive a logged future input prefix and predict features of its corresponding observed future outputs. Those outputs are training targets only. Logged data do not supply outcomes under arbitrary reference actions or unexecuted counterfactual input sequences. Such targets must not be fabricated, nor may future inputs enter the online state update. Realized-torque forecasting alone cannot establish command-driven control performance.
+Lowest-index ties are deterministic. Dense correction updates every coordinate.
+Selective correction updates the largest-gradient block. The rewired control
+updates its cyclic successor, using that destination block's own gradient.
+All modes have exactly the same parameters, initialization and auxiliary heads.
+The transition is dense: unselected coordinates are preserved by the correction
+itself, but subsequent transitions can mix information across all blocks.
 
-## Prior art and the necessary control
+Three training-only heads read their corresponding state blocks and the logged
+input prefixes of lengths 1, 8 and 32 to predict their endpoint observations.
+Their targets must come from those executed inputs. No counterfactual outcomes
+are supplied by ordinary trajectory data. No target enters online correction;
+autonomous rollout accepts future inputs and state only.
 
-[PSIM (2016)](https://arxiv.org/abs/1512.08836) learns filters in predictive coordinates. [Predictive-State Decoders (2017)](https://proceedings.neurips.cc/paper_files/paper/2017/file/61b4a64be663682e8cb037d9719ad8cd-Paper.pdf) already supervises ordinary recurrent states with future-feature targets. [PSRNN (2017)](https://proceedings.neurips.cc/paper/2017/file/2bb0502c80b7432eee4c5847a5fd077b-Paper.pdf) already combines predictive states with bilinear observation gating. None of those ingredients is a novelty claim here; sparse routing itself still needs a closer prior-art review once specified.
+For fixed `C`, the step size is at most `1 / ||C||_2^2`. Thus any of these
+coordinate masks gives a nonincreasing current squared observation residual
+in exact arithmetic. This says nothing about subsequent forecast accuracy,
+global recurrent stability, probability calibration or closed-loop control.
 
-The strong control is a dense recurrent model with **identical auxiliary predictive supervision**, decoder, available observations/inputs, optimization exposure, and matched state/parameter budgets. Otherwise auxiliary supervision could explain any gain. Degree-matched rewiring is additionally required before attributing improvement to connectivity. A learned graph is not evidence of a biological connectome. Stability would require analysis of the complete correction and transition dynamics, not just bounded component matrices; [contracting implicit RNNs](https://proceedings.mlr.press/v120/revay20a.html) provide relevant established machinery.
+## Why ParWH cannot establish adaptive routing
 
-## Cheap falsifier and unresolved choices
+For a single output, `error` is a scalar. Each block score is
+`error**2 * sum(C[m]**2)`. With frozen weights, every nonzero residual therefore
+chooses the same block, regardless of observation, input or residual sign.
+Zero residual gives zero correction. A rank-one multivariate decoder has the
+same limitation away from zero projected residual.
 
-Propose one three-seed, single-budget candidate-versus-dense comparison on newly designated TRAIN/DEV data. Candidate stopping margins to freeze before data access: at least 5% lower equal-recording autonomous forecast error, no recording more than 2% worse, and no more than 10% higher complete-request latency or persistent numeric storage. If the dense control matches the candidate or these margins fail, stop this routing proposal. Lower auxiliary loss alone is insufficient.
+Consequently, a win on the single-output Parallel Wiener-Hammerstein circuit
+could support fixed block correction, but **could not support adaptive routing**.
+Its [adapter contract](parwh-data-contract.md) remains useful for a future
+identification comparison. It is not admitted as the primary test of this
+mechanism. This is an analytic limitation, not a failed empirical fit.
 
-Before implementation, decide the actual routing equation, module semantics, sparsity construction, horizons, decoder, loss weights, and fair budget matching. Select the benchmark, causal input interpretation, whole-recording splits, untouched confirmation set, and final stopping margins prospectively. Do not recycle exposed robot recordings as fresh confirmation. No efficacy, stability, control, or publication-readiness claim follows from this note.
+The corrected question is whether selective correction improves later forecasts
+when innovations contain multiple independent directions. Multivariate output
+alone is insufficient: the learned decoder and observed residuals must actually
+produce different selections. A future comparison must include a fixed-block
+control in addition to dense and rewired correction and a conventional recurrent
+predictor. Route occupancy and unchanged-component forecast error are diagnostics,
+not substitutes for an overall utility-versus-compute improvement.
+
+## Prior art and candidate benchmark
+
+[RIMs](https://arxiv.org/abs/1909.10893) already selects recurrent modules;
+[dynamic predictive coding](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1011801)
+already uses prediction errors for state correction;
+[KalmanNet](https://arxiv.org/abs/2107.10043) learns innovation-dependent gains.
+[Predictive-State Decoders](https://proceedings.neurips.cc/paper_files/paper/2017/file/61b4a64be663682e8cb037d9719ad8cd-Paper.pdf)
+supplies auxiliary prediction targets, and
+[RPSP](https://arxiv.org/abs/1803.01489) conditions predictive representations on
+future actions. Decoder-tied block selection is recognizable block-coordinate
+predictive inference. These ingredients do not establish a novel architecture.
+
+The [CubeSpec Fine Steering Mirror](https://github.com/merijnfloren/fsm-benchmark-data)
+is a possible multivariate benchmark: three applied voltages and three measured
+displacements. Its authors provide linear state-space and nonlinear LFR references.
+Those strong controls matter because the platform is mostly linear. Only source
+metadata were inspected here. No measurement access, baseline execution, fitting
+or automatic transfer is implied by this candidate.
+
+## What must precede a measured comparison
+
+Freeze an appropriate multivariate dataset, input timing, whole-record splits,
+model/control rosters, loss, fit budget, seeds and stopping rule. Keep predictive
+supervision and available information matched. Measure complete request latency
+including routing and correction preparation, and report model/state storage.
+Compare to a strong identification reference, not only a small weak GRU.
+
+The proposed development margins remain at least 5% lower equal-record forecast
+error, no record more than 2% worse, and at most 10% higher latency or persistent
+numeric storage than the declared matched control. They are **not a registered
+study** until the full protocol and comparator are fixed. No ICLR-readiness,
+control performance or biological interpretation follows from qualification.
