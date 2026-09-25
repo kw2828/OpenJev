@@ -1,0 +1,67 @@
+{
+  "version": "fsm-correction-study-v1",
+  "created_utc": "2026-09-25T05:33:56.212739+00:00",
+  "purpose": "New multivariate correction development screen; no transfer of failed robot observer",
+  "data_repository_commit": "539a12fef384b086a8562b500498b2fa3899ef70",
+  "data_sha256": "bdf6004da1342a8746e51580a57b5ddb8ac400ac5caa48368719c33cbb0ef505",
+  "data_license": "CC-BY-4.0",
+  "source_sha256": {
+    "src/openjev/research/fsm_study.py": "8ec26ffefedaa4b212fc7eb8b1cb794ce2b4e2106d1f487b49acc9a5ae6e2df5",
+    "src/openjev/research/fsm_data.py": "4edad31e866ba88ed3c1e43b92f0cbc37d23fa454c2fab39cb8cf8cd8e5b6d90",
+    "src/openjev/research/fsm_linear.py": "4486e7a28ddcdaafba0f5a9ce05d64738648ebf4a88c36497e8fef0bed816c20",
+    "src/openjev/research/fsm_gru.py": "708ae7c7ffe7297b5317ee70b81d3f50b780c15961863890081a1061161b33a7",
+    "src/openjev/research/predictive_state_correction.py": "74b11349aed85dcbb70d102eb9d99581f5c0c602277acf5f97f2cf6c1e95c9a7"
+  },
+  "protocol_markdown_sha256": "052feeb6dd58d9b2b6db71e0b9f3c0c5607467b423145cdc9626a3ddfe889378",
+  "experiment": {
+    "families": [
+      "dense",
+      "selective",
+      "rewired",
+      "fixed0",
+      "fixed1",
+      "fixed2",
+      "autoregressive"
+    ],
+    "seeds": [
+      9101,
+      9102,
+      9103
+    ],
+    "context": 100,
+    "horizon": 128,
+    "latent": 72,
+    "aux_width": 96,
+    "batch": 8,
+    "updates": 1024,
+    "learning_rate": 0.001,
+    "gradient_clip": 1.0,
+    "auxiliary_weight": 0.1,
+    "fit_timeout_seconds": 180,
+    "evaluation_stride": 256,
+    "linear_orders": [
+      8,
+      16,
+      32
+    ],
+    "linear_alphas": [
+      1e-06,
+      0.001,
+      0.1
+    ]
+  },
+  "qualifications": {
+    "correction_core": 111,
+    "fsm_data": 58,
+    "autoregressive_gru": 40,
+    "varx": 44,
+    "study_integration": 14,
+    "total_current_tests": 267,
+    "retained_failure": "First study qualification:57 passed,1 failed on duplicate family seeds; fixed and all14 affected integration tests passed on qualification02"
+  },
+  "scope_limits": [
+    "Development only, no official test or300mV member decoded",
+    "VARX is not a reproduction of published BLA28 or NL-LFR",
+    "No biological wiring, architectural novelty, calibration or closed-loop claim"
+  ]
+}

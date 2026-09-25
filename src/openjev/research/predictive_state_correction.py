@@ -14,11 +14,11 @@ import torch
 from torch import nn
 from torch.nn import functional as F
 
-MODES = ('dense', 'selective', 'rewired')
+MODES = ('dense', 'selective', 'rewired', 'fixed0', 'fixed1', 'fixed2')
 HORIZONS = (1, 8, 32)
 EPSILON = 1e-6
 ETA = 1.0
-VERSION = 'predictive-state-correction-v1'
+VERSION = 'predictive-state-correction-v2'
 
 
 def _require(condition, message):
@@ -40,6 +40,8 @@ class PredictiveStateCorrection(nn.Module):
     future input predicts the next observation. These are positional indices;
     dataset adapters define physical timing. The state is [B,latent_dim];
     no observations, inputs, trajectories or prepared tensors persist internally.
+    Fixed modes correct only their declared block and skip gradient-energy scoring.
+    They retain every parameter and advance the full GRU state, like other modes.
     """
 
     def __init__(self, obs_dim, input_dim, *, mode='dense', latent_dim=60,
@@ -115,7 +117,12 @@ class PredictiveStateCorrection(nn.Module):
         gradient = error @ prepared.matrix
         _require(bool(torch.isfinite(error).all()) and bool(torch.isfinite(gradient).all()),
                  'nonfinite correction residual or gradient; no repair')
-        if self.mode != 'dense':
+        if self.mode.startswith('fixed'):
+            block = int(self.mode[-1])
+            mask = gradient.new_zeros(self.latent_dim)
+            mask[block*self.block_dim:(block+1)*self.block_dim] = 1
+            gradient = gradient * mask
+        elif self.mode != 'dense':
             energies = gradient.reshape(len(prior), 3, self.block_dim).square().sum(-1)
             _require(bool(torch.isfinite(energies).all()), 'nonfinite correction block energy; no repair')
             block = energies.argmax(-1)  # First maximal index gives deterministic lowest-index ties.
@@ -130,7 +137,7 @@ class PredictiveStateCorrection(nn.Module):
     def correct(self, prior, observed):
         """One differentiable masked gradient step for the fixed linear decoder.
 
-        All three masks use eta=1 and denominator ||C||_F^2+1e-6. In exact
+        All modes use eta=1 and denominator ||C||_F^2+1e-6. In exact
         arithmetic this cannot increase the current squared observation residual.
         This local property is not a guarantee about subsequent recurrent steps.
         """
@@ -218,6 +225,9 @@ class PredictiveStateCorrection(nn.Module):
         dtype = self._validate_parameters()
         total, deployed = self.parameter_count(), self.parameter_count(include_aux=False)
         item_bytes = self.observation.weight.element_size()
+        selection = ('all blocks' if self.mode == 'dense' else 'largest own gradient block; lowest-index tie'
+                     if self.mode == 'selective' else 'cyclic successor of largest block; destination own gradient'
+                     if self.mode == 'rewired' else f'fixed block {self.mode[-1]}; own gradient; no energy scoring')
         return {'version': VERSION, 'mode': self.mode, 'obs_dim': self.obs_dim, 'input_dim': self.input_dim,
                 'latent_dim': self.latent_dim, 'blocks': 3, 'block_dim': self.block_dim,
                 'auxiliary_horizons': list(HORIZONS), 'auxiliary_width': self.aux_width,
@@ -228,8 +238,8 @@ class PredictiveStateCorrection(nn.Module):
                 'dtype': str(dtype).removeprefix('torch.'), 'initialization_seed': self.initialization_seed,
                 'eta': ETA, 'epsilon': EPSILON, 'persistent_cache': False, 'retained_trajectory': False,
                 'context_inputs': 'exactly C-1 inputs; input index t-1 pairs with observation index t; physical timing is dataset-specific',
-                'selection': 'all blocks' if self.mode == 'dense' else 'largest own gradient block; lowest-index tie'
-                             if self.mode == 'selective' else 'cyclic successor of largest block; destination own gradient',
+                'selection': selection, 'block_energy_scoring': self.mode in ('selective', 'rewired'),
+                'fixed_block': int(self.mode[-1]) if self.mode.startswith('fixed') else None,
                 'routing_limitation': 'Scalar-output and rank-one decoders give a fixed block winner whenever the correction gradient is nonzero; multivariate output alone does not guarantee adaptive routing.',
                 'guarantee': 'nonincrease of current fixed-linear-decoder squared residual in exact arithmetic only',
                 'limitations': 'No global recurrence stability, predictive calibration, physical-state or novelty guarantee.',

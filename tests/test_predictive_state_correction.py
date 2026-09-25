@@ -37,6 +37,8 @@ def correction_oracle(prior, observed, matrix, bias, mode):
     for row in range(len(prior)):
         if mode == 'dense':
             selected.append([0,1,2])
+        elif mode in ('fixed0','fixed1','fixed2'):
+            selected.append([int(mode[-1])])
         else:
             blocks = np.split(gradient[row], 3)
             k = max(range(3), key=lambda i: float(sum(v*v for v in blocks[i])))
@@ -88,7 +90,8 @@ def test_fixed_linear_observation_residual_cannot_increase(mode,dtype):
     assert bool((after<before).any())
 
 
-@pytest.mark.parametrize('mode,expected_block', [('dense',None),('selective',0),('rewired',1)])
+@pytest.mark.parametrize('mode,expected_block', [('dense',None),('selective',0),('rewired',1),
+                                                   ('fixed0',0),('fixed1',1),('fixed2',2)])
 def test_lowest_tie_and_dense_mask(mode,expected_block):
     cell = PredictiveStateCorrection(1,1,mode=mode,latent_dim=6,aux_width=3,dtype=torch.float64)
     with torch.no_grad():
@@ -142,6 +145,40 @@ def test_non_rank_one_decoder_can_route_distinct_residual_directions_differently
     result=cell.correct(torch.zeros(2,6,dtype=torch.float64),torch.eye(2,dtype=torch.float64))
     active=result.reshape(2,3,2).ne(0).any(-1)
     torch.testing.assert_close(active,torch.tensor([[False,False,True],[True,False,False]]),rtol=0,atol=0)
+
+
+@pytest.mark.parametrize('mode,block',[('fixed0',0),('fixed1',1),('fixed2',2)])
+def test_fixed_modes_ignore_argmax_and_zero_own_gradient_despite_other_blocks(monkeypatch,mode,block):
+    cell=model(mode)
+    def forbidden_argmax(*args,**kwargs):
+        raise AssertionError('fixed correction must not score/choose another block')
+    monkeypatch.setattr(torch.Tensor,'argmax',forbidden_argmax)
+    with torch.no_grad():
+        cell.observation.weight.fill_(2.)
+        cell.observation.weight[:,block*2:(block+1)*2].zero_()
+        cell.observation.bias.zero_()
+    prior=torch.zeros(2,6,dtype=torch.float64)
+    result=cell.correct(prior,torch.tensor([[1.,2.],[-3.,1.]],dtype=torch.float64))
+    torch.testing.assert_close(result,prior,rtol=0,atol=0)
+    spec=cell.model_spec()
+    assert spec['fixed_block']==block and spec['block_energy_scoring'] is False
+    assert spec['buffer_bytes']==0 and not dict(cell.named_buffers())
+
+
+@pytest.mark.parametrize('mode,block',[('fixed0',0),('fixed1',1),('fixed2',2)])
+def test_fixed_modes_do_not_compute_overflowing_gradient_energies(mode,block):
+    cell=PredictiveStateCorrection(1,1,mode=mode,latent_dim=6,aux_width=3)
+    with torch.no_grad():
+        cell.observation.weight.fill_(1.);cell.observation.bias.zero_()
+    prior=torch.zeros(1,6);observed=torch.full((1,1),1e20)
+    result=cell.correct(prior,observed)
+    expected=torch.zeros_like(result);expected[:,block*2:(block+1)*2]=observed/(6.+1e-6)
+    torch.testing.assert_close(result,expected,rtol=0,atol=0)
+    assert torch.isfinite(result).all()
+    # Scored controls still reject their genuinely overflowing energies.
+    cell.mode='selective'
+    with pytest.raises(ValueError,match='block energy'):
+        cell.correct(prior,observed)
 
 
 @pytest.mark.parametrize('mode',MODES)
