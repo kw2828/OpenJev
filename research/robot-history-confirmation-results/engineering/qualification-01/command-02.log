@@ -1,0 +1,30 @@
+........................................................................ [ 44%]
+.........................................FF............................. [ 88%]
+...................                                                      [100%]
+=================================== FAILURES ===================================
+_____ test_complete_control_frontier_and_strict_dominance[causal_ridge_1] ______
+
+control = 'causal_ridge_1'
+
+    @pytest.mark.parametrize('control', ['gru10', 'causal_ridge_1', 'causal_ridge_100'])
+    def test_complete_control_frontier_and_strict_dominance(control):
+        rows, costs, cfg = fixture(); set_error(rows, control, .8)
+>       assert control not in decide(rows, costs, cfg)['dominators']
+E       AssertionError: assert 'causal_ridge_1' not in ['causal_ridge_1']
+
+tests/test_audit_robot_history_confirmation.py:106: AssertionError
+____ test_complete_control_frontier_and_strict_dominance[causal_ridge_100] _____
+
+control = 'causal_ridge_100'
+
+    @pytest.mark.parametrize('control', ['gru10', 'causal_ridge_1', 'causal_ridge_100'])
+    def test_complete_control_frontier_and_strict_dominance(control):
+        rows, costs, cfg = fixture(); set_error(rows, control, .8)
+>       assert control not in decide(rows, costs, cfg)['dominators']
+E       AssertionError: assert 'causal_ridge_100' not in ['causal_ridge_100']
+
+tests/test_audit_robot_history_confirmation.py:106: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_audit_robot_history_confirmation.py::test_complete_control_frontier_and_strict_dominance[causal_ridge_1]
+FAILED tests/test_audit_robot_history_confirmation.py::test_complete_control_frontier_and_strict_dominance[causal_ridge_100]
+2 failed, 161 passed in 3.65s
