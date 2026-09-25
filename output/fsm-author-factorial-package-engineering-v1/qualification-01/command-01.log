@@ -1,0 +1,34 @@
+UP012 [*] Unnecessary call to `encode` as UTF-8
+  --> output/fsm-author-factorial-package-engineering-v1/test_package.py:40:20
+   |
+38 |       for name in p.HELD:
+39 |           save(name, b'# fabricated source\n')
+40 |       fake_auditor = (
+   |  ____________________^
+41 | |         'import json\nfrom pathlib import Path\n'
+42 | |         'def authenticate(study, process, freeze):\n'
+43 | |         '    d=json.loads((Path(__file__).resolve().parents[1]/"admitted.json").read_text())\n'
+44 | |         '    return d["plan"],d["inputs"],{k:Path(v) for k,v in d["paths"].items()},{},{},{}\n'
+45 | |     ).encode()
+   | |______________^
+46 |       save(p.AUDITOR, fake_auditor)
+47 |       p.HELD = {name: p.descriptor(root/name)['sha256'] for name in p.HELD}
+   |
+help: Rewrite as bytes literal
+   |
+40 |     fake_auditor = (
+   -         'import json\nfrom pathlib import Path\n'
+   -         'def authenticate(study, process, freeze):\n'
+   -         '    d=json.loads((Path(__file__).resolve().parents[1]/"admitted.json").read_text())\n'
+   -         '    return d["plan"],d["inputs"],{k:Path(v) for k,v in d["paths"].items()},{},{},{}\n'
+   -     ).encode()
+41 +         b'import json\nfrom pathlib import Path\n'
+42 +         b'def authenticate(study, process, freeze):\n'
+43 +         b'    d=json.loads((Path(__file__).resolve().parents[1]/"admitted.json").read_text())\n'
+44 +         b'    return d["plan"],d["inputs"],{k:Path(v) for k,v in d["paths"].items()},{},{},{}\n'
+45 +     )
+46 |     save(p.AUDITOR, fake_auditor)
+   |
+
+Found 1 error.
+[*] 1 fixable with the `--fix` option.

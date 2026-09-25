@@ -1,5 +1,10 @@
 # Larger-budget reference: training complete
 
+The [subsequent forecast comparison](fsm-author-nllfr-factorial-results.md) is now
+complete and independently audited. Longer training worsens forecast RMSE;
+the fixed candidate passes all four development continuation checks. The
+FIT-only result and pre-evaluation registration described below are preserved.
+
 The original fresh NL-LFR fit reached the author's small-change stopping rule at
 **51,065 iterations**, within its registered 100,000-iteration limit. The process
 finished in **8,014.90 seconds**. The [independent FIT audit](../output/fsm-author-nllfr-budget-audit-v1/audit.json)

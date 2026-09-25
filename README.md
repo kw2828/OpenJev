@@ -60,29 +60,28 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Research status
 
-The latest [nonlinear reference check](research/fsm-author-nllfr-results.md) is
-**incomplete**: training reached its 10,000-iteration limit. Its diagnostic error
-was **0.05146**, versus **0.04290** for our unchanged recurrent residual model.
-All 384 diagnostic forecasts replayed exactly, but the frozen continuation rule
-does not pass with an incomplete reference.
+The [completed nonlinear reference check](research/fsm-author-nllfr-factorial-results.md)
+passes all **4/4 development continuation checks**. Our unchanged recurrent
+residual model keeps **22.31% lower forecast error** than the strongest eligible
+completed control. All **1,536 forecasts** replay correctly in the independent audit.
 
-[![Incomplete nonlinear reference and fixed controls: forecast error and descriptive latency](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/fsm-author-nllfr-results/benchmark.png)](research/fsm-author-nllfr-results.md)
+[![Four-condition nonlinear reference: forecast error and current-host latency](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/fsm-author-nllfr-factorial-results/benchmark.png)](research/fsm-author-nllfr-factorial-results.md)
 
-[Latest results and checkpoints](research/fsm-author-nllfr-results.md) ·
-[Earlier completed linear reference](research/fsm-author-bla-results.md) ·
-[All fifteen prior control families](research/fsm-linear-controls-results.md) ·
-[Original 36-fit comparison](research/fsm-residual-results.md) ·
-[Next comparison](research/fsm-residual-next.md) ·
+More training did not help the reference: its training loss fell, but forecast
+error rose about **175%**. Extra state-estimation steps barely changed accuracy
+and increased latency. The older capped checkpoint remains a diagnostic result.
+
+[Results, chart and checkpoints](research/fsm-author-nllfr-factorial-results.md) ·
+[All control scores](research/fsm-author-nllfr-factorial-results/table.md) ·
+[Proposed scenario-shift check](research/fsm-amplitude-shift-proposal.md) ·
 [All experiments](research/experiment-index.md).
 
-Selection and these checks use the same exposed development data. The stronger
-reference, scenario shift and architectural novelty remain unresolved. A
-[publication correction](research/fsm-author-publication-correction.md) records
-upstream example data inadvertently included in the earlier evidence bundle.
-Earlier
-[selective correction](research/fsm-correction-results.md) and
-[robot observer](research/robot-joint-observer-results.md) experiments failed
-their rules; their complete results remain available.
+These checks use exposed development data. Scenario-shift confirmation,
+a second measured system and architectural novelty remain unresolved.
+The next priority is evaluating frozen models at 300 mV before adding more
+learning techniques; that comparison is not yet registered or run.
+The [publication correction](research/fsm-author-publication-correction.md)
+remains available, as do earlier negative experiments.
 
 The [Rust inference path](rust/robot_transition/README.md) passes 110 synthetic
 checks, but its [trained-model comparison](research/robot-native-results.md)
