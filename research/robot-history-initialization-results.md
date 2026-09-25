@@ -1,5 +1,7 @@
 # Observed history improves initialization on development recordings
 
+**Update:** the subsequent [reserved-recording confirmation](robot-history-confirmation-results.md) fails confirmation, with 3/5 criteria passing. The development result below remains development evidence.
+
 **The temporal initializer passes all five predeclared criteria.** It lowers average H128 forecast error by **6.48% versus the original last-two initializer** and **5.21% versus an equally sized local initializer**, with **4.18% more request latency** than last-two. The independent audit agrees. This qualifies a separately registered confirmation experiment; it does not establish a novel architecture.
 
 ![Forecast error, full-request CPU latency and storage for every selected seed](robot-history-initialization-results/benchmark.png)
@@ -53,4 +55,4 @@ The pre-run qualification passes 145 fabricated checks. The independent auditor 
 
 The public package contains **593 files**, including its manifest: all initial/final checkpoints, Adam states, traces, batches, derived forecasts, source snapshots, qualifications and original execution records. Exactly two measured DEV target-window files remain local under published hashes. Raw measurements and eleven inherited input payloads remain external under the [dataset's own terms](https://doi.org/10.26204/data/5).
 
-**CONFIRM and official TEST remain unopened.** The next step is to register a fixed-checkpoint confirmation comparison before reading the reserved recordings, with these selected recipes and the complete controls. No further DEV search is needed to justify that step. A positive confirmation would still need an independent environment and stronger mechanistic evidence before an ICLR novelty claim. The earlier [reflection-capacity failure](robot-reflection-capacity-results.md) and [Rust parity failure](robot-native-results.md) remain unchanged.
+At development-study closure, both CONFIRM recordings and official TEST were unopened. The subsequent [fixed-checkpoint confirmation](robot-history-confirmation-results.md) is now complete and **fails confirmation, with 3/5 criteria passing**: mean gains fall to 4.16% versus last-two and 0.38% versus local affine, with 3.19% harm on the first recording. The reserved recordings are now exposed; official TEST remains closed. The development gain cannot be promoted to a confirmed benefit. The earlier [reflection-capacity failure](robot-reflection-capacity-results.md) and [Rust parity failure](robot-native-results.md) remain unchanged.

@@ -60,18 +60,18 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Research status
 
-The latest [history-initialization experiment](research/robot-history-initialization-results.md)
-passes **all five predeclared criteria**. With the same recurrent transition,
-older observations lower mean forecast error **6.48% versus last-two initialization**
-and **5.21% versus an equally sized local initializer**, at **4.18% more request time**.
-All eighteen fresh fits complete and the independent audit agrees. These are
-exposed-development results; untouched-data confirmation comes next.
+The latest [reserved-recording confirmation](research/robot-history-confirmation-results.md)
+**fails its rule: 3/5 criteria pass**. Using older observations lowers average
+forecast error **4.16% versus last-two initialization**, but only **0.38% versus
+an equally sized local model**, and increases error **3.19% on one recording**.
+The independent audit agrees. The earlier development gain did not hold up
+under the required margins; no new architecture advantage is established.
 
-[![Robot forecast errors, CPU latency and storage, with every selected seed](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/robot-history-initialization-results/benchmark.png)](research/robot-history-initialization-results.md)
+[![Reserved robot recordings: all selected seeds, forecast errors, CPU latency and storage](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/robot-history-confirmation-results/benchmark.png)](research/robot-history-confirmation-results.md)
 
-[Results and checkpoints](research/robot-history-initialization-results.md) ·
-[Protocol](research/robot-history-initialization-protocol.md) ·
-[Earlier capacity failure](research/robot-reflection-capacity-results.md) ·
+[Results and checkpoints](research/robot-history-confirmation-results.md) ·
+[Protocol](research/robot-history-confirmation-protocol.md) ·
+[Earlier development result](research/robot-history-initialization-results.md) ·
 [All experiments](research/experiment-index.md).
 
 The [Rust inference path](rust/robot_transition/README.md) passes 110 synthetic
