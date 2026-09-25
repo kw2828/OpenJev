@@ -27,7 +27,8 @@ and `5f73c1897bd8f1f10839c6ade88f9c88173b003680448d3ebe5d440100dd1d84`.
 
 No real measurement archive, model, training or empirical shift evaluation was
 used for this qualification. The [28-instance proposal](fsm-amplitude-shift-proposal.md)
-still needs qualified inference adapters, a complete evaluator and independent
-replay, fixed checkpoint identities, timing order, resource limits and published
+now has separately [qualified inference adapters and forecast replay](fsm-amplitude-shift-inference-qualification.md).
+It still needs a complete evaluator and evidence auditor, finalized checkpoint
+identities, timing order, resource limits and published
 registration before numerical access. The prior publication-copy caveat remains
 in that proposal. Passing reader tests does not open the reserve.

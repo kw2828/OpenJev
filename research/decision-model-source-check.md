@@ -6,6 +6,16 @@ Rechecked 25 September against the additional screenshots: the assessment below
 is unchanged. The public Qwen upload remains at revision `2af8684`; its name and
 calibration flag do not establish RL training or measured calibration.
 
+The additional code check pins SemIf to `23cf1f39fc9534fe81437200959b6dfc7106e45a`
+and jevlike to `94f5fd1b0b11d52bbdfdf4e0ee6aa96b568f8452`. SemIf's
+[direct scorer](https://github.com/TheoLeeCJ/SemIf-OpenJev/blob/23cf1f39fc9534fe81437200959b6dfc7106e45a/src/semif_phase1/direct.py)
+reads full-vocabulary final-position logits before selecting answer-token entries.
+Its lack of a decoding loop does not imply that the vocabulary projection was
+removed. Jevlike's
+[small option scorer](https://github.com/vinnylarouge/jevlike/blob/94f5fd1b0b11d52bbdfdf4e0ee6aa96b568f8452/jevlike/model.py)
+and [supervised trainer](https://github.com/vinnylarouge/jevlike/blob/94f5fd1b0b11d52bbdfdf4e0ee6aa96b568f8452/jevlike/train.py)
+are a different design.
+
 The names matter: **SemIf** (capital I, not SemLF) is TheoLeeCJ's project, formerly OpenJev and currently hosted as [SemIf-OpenJev](https://github.com/TheoLeeCJ/SemIf-OpenJev). [zhihz/openjev](https://github.com/zhihz/openjev) is separate. This repository, [kw2828/OpenJev](https://github.com/kw2828/OpenJev), is another independent research project. Shared naming does not establish shared implementations or affiliation with TypeSafe.
 
 | Screenshot claim | What the primary sources support |
@@ -16,6 +26,7 @@ The names matter: **SemIf** (capital I, not SemLF) is TheoLeeCJ's project, forme
 | Jevlike implements the same fixed head. | Its [model](https://github.com/vinnylarouge/jevlike/blob/main/jevlike/model.py) lets each option attend to context and produces one shared dot-product score per option. Option count varies; `rank` specifies representation width. Its [ordinary trainer](https://github.com/vinnylarouge/jevlike/blob/main/jevlike/train.py) uses supervised cross-entropy. |
 | RL is necessary to calibrate confidence. | [TypeSafe](https://typesafe.ai/blog/introducing-system-one-models-and-jev) names its method Reinforcement Learning for Calibrated Decisions. That is its stated approach, not a necessity theorem. [Temperature scaling](https://arxiv.org/abs/1706.04599) is established without RL; [SemIf](https://github.com/TheoLeeCJ/SemIf-OpenJev/blob/master/docs/CALIBRATION.md) implements a separately fitted, labeled calibration step. |
 | The Qwen RLCD upload reproduces that training. | The [model card](https://huggingface.co/harshatheg/Qwen-2.5-1B-RLCD) describes parallel constrained decoding. Its [inspected engine](https://huggingface.co/harshatheg/Qwen-2.5-1B-RLCD/blob/main/core/engine_torch.py) loads Qwen2.5-1.5B, broadcasts a prefix cache and softmaxes candidate-token logits. Its calibrated-probability flag supplies no calibration evidence. These sources do not establish TypeSafe's training recipe. |
+| These implementations establish CPU training of a broadly capable Jev equivalent. | [Jevlike](https://github.com/vinnylarouge/jevlike/blob/94f5fd1b0b11d52bbdfdf4e0ee6aa96b568f8452/README.md) supports CPU training for a small scorer and game examples. [SemIf](https://github.com/TheoLeeCJ/SemIf-OpenJev/blob/23cf1f39fc9534fe81437200959b6dfc7106e45a/README.md) supports CPU inference and fitting a temperature to saved predictions. Neither establishes training a foundation model with Jev-level capabilities from scratch on CPU. |
 
 ## What we can borrow and test
 

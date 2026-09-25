@@ -15,6 +15,11 @@ The 300 mV comparison remains unregistered and unexecuted. See the separate
 [publication correction](fsm-author-publication-correction.md) for upstream example
 bytes copied into the earlier evidence bundle; documented numerical processing
 used admitted FIT/DEV slices.
+The [new reader](fsm-amplitude-shift-qualification.md) and
+[inference adapters with independent replay](fsm-amplitude-shift-inference-qualification.md)
+are qualified on fabricated inputs. A metadata-only roster and
+[draft confirmation protocol](fsm-amplitude-shift-protocol.md) are prepared;
+the complete evaluator, evidence audit and resource caps remain prerequisites.
 The remaining steps below are prospective; exposed-DEV selection
 remains development.
 See the [frozen protocol](fsm-residual-protocol.md) and
