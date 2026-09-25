@@ -1,6 +1,13 @@
 # Next comparison: learn only what the linear model misses
 
-**Prospective, not registered or executed.** The
+**Historical design note, subsequently registered and executed.** The
+[frozen comparison](fsm-residual-protocol.md) passes its development rule,
+9/9 conditions; see the [complete results](fsm-residual-results.md). The
+[current prospective design](fsm-residual-next.md) prioritizes stronger
+references and untouched transfer. The original proposal below is retained
+as design history; the frozen protocol governs what actually ran.
+
+The
 [multivariate correction pilot](fsm-correction-results.md) fails its rule.
 Selective routing loses to dense correction in all three seeds; the best
 FIT-fitted VARX control is much more accurate and faster. The current routing

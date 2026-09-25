@@ -1,0 +1,146 @@
+{
+  "status": "DEVELOPMENT_PASS",
+  "families": {
+    "affine_output_only-lr0.0001": {
+      "eligible": true,
+      "score_eligible": true,
+      "latency_eligible": true,
+      "storage_eligible": true,
+      "mean_rmse": 0.06395548651694193,
+      "mean_seed_median_ms": 1.554694298344354,
+      "persistent_numeric_bytes": 11056
+    },
+    "affine_output_only-lr0.0003": {
+      "eligible": true,
+      "score_eligible": true,
+      "latency_eligible": true,
+      "storage_eligible": true,
+      "mean_rmse": 0.06430009228618608,
+      "mean_seed_median_ms": 1.5107499978815515,
+      "persistent_numeric_bytes": 11056
+    },
+    "affine_output_only-lr0.001": {
+      "eligible": true,
+      "score_eligible": true,
+      "latency_eligible": true,
+      "storage_eligible": true,
+      "mean_rmse": 0.06463828454439222,
+      "mean_seed_median_ms": 1.548541709780693,
+      "persistent_numeric_bytes": 11056
+    },
+    "affine_feedback-lr0.0001": {
+      "eligible": true,
+      "score_eligible": true,
+      "latency_eligible": true,
+      "storage_eligible": true,
+      "mean_rmse": 0.06458827196400516,
+      "mean_seed_median_ms": 1.555027828241388,
+      "persistent_numeric_bytes": 11056
+    },
+    "affine_feedback-lr0.0003": {
+      "eligible": true,
+      "score_eligible": true,
+      "latency_eligible": true,
+      "storage_eligible": true,
+      "mean_rmse": 0.06830288432724317,
+      "mean_seed_median_ms": 1.540861208923161,
+      "persistent_numeric_bytes": 11056
+    },
+    "affine_feedback-lr0.001": {
+      "eligible": true,
+      "score_eligible": true,
+      "latency_eligible": true,
+      "storage_eligible": true,
+      "mean_rmse": 0.07636686326679654,
+      "mean_seed_median_ms": 1.5792153620471556,
+      "persistent_numeric_bytes": 11056
+    },
+    "tanh_output_only-lr0.0001": {
+      "eligible": true,
+      "score_eligible": true,
+      "latency_eligible": true,
+      "storage_eligible": true,
+      "mean_rmse": 0.05945516559254971,
+      "mean_seed_median_ms": 2.11181933991611,
+      "persistent_numeric_bytes": 44592
+    },
+    "tanh_output_only-lr0.0003": {
+      "eligible": true,
+      "score_eligible": true,
+      "latency_eligible": true,
+      "storage_eligible": true,
+      "mean_rmse": 0.055744993827699346,
+      "mean_seed_median_ms": 2.1790554746985435,
+      "persistent_numeric_bytes": 44592
+    },
+    "tanh_output_only-lr0.001": {
+      "eligible": true,
+      "score_eligible": true,
+      "latency_eligible": true,
+      "storage_eligible": true,
+      "mean_rmse": 0.05522223941878765,
+      "mean_seed_median_ms": 2.077111159451306,
+      "persistent_numeric_bytes": 44592
+    },
+    "tanh_feedback-lr0.0001": {
+      "eligible": true,
+      "score_eligible": true,
+      "latency_eligible": true,
+      "storage_eligible": true,
+      "mean_rmse": 0.04860888602898396,
+      "mean_seed_median_ms": 2.2565069375559688,
+      "persistent_numeric_bytes": 44592
+    },
+    "tanh_feedback-lr0.0003": {
+      "eligible": true,
+      "score_eligible": true,
+      "latency_eligible": true,
+      "storage_eligible": true,
+      "mean_rmse": 0.0429011662795467,
+      "mean_seed_median_ms": 2.1255486644804478,
+      "persistent_numeric_bytes": 44592
+    },
+    "tanh_feedback-lr0.001": {
+      "eligible": true,
+      "score_eligible": true,
+      "latency_eligible": true,
+      "storage_eligible": true,
+      "mean_rmse": 0.0432106797326933,
+      "mean_seed_median_ms": 2.1022569853812456,
+      "persistent_numeric_bytes": 44592
+    },
+    "native_varx": {
+      "eligible": true,
+      "score_eligible": true,
+      "latency_eligible": true,
+      "storage_eligible": true,
+      "mean_rmse": 0.06462956696929562,
+      "mean_seed_median_ms": 0.521187437698245,
+      "persistent_numeric_bytes": 6360
+    }
+  },
+  "selected_by_architecture": {
+    "affine_output_only": "affine_output_only-lr0.0001",
+    "affine_feedback": "affine_feedback-lr0.0001",
+    "tanh_output_only": "tanh_output_only-lr0.001",
+    "tanh_feedback": "tanh_feedback-lr0.0003"
+  },
+  "candidate": "tanh_feedback-lr0.0003",
+  "strongest_affine": "affine_output_only-lr0.0001",
+  "strongest_control": "tanh_output_only-lr0.001",
+  "conditions": {
+    "all_36_fits_complete": true,
+    "all_37_evaluations_complete": true,
+    "initial_identity_and_frozen_backbone": true,
+    "five_percent_below_strongest_control": true,
+    "every_seed_below_three_selected_controls": true,
+    "no_record_over_two_percent_strongest_control": true,
+    "both_amplitudes_below_strongest_control": true,
+    "latency_within_ten_percent_tanh_output": true,
+    "storage_no_more_than_tanh_output": true
+  },
+  "passed": 9,
+  "total": 9,
+  "selection": "One rate per architecture selected on pooled exposed DEV accuracy; lower rate breaks ties. All recipes retained; no confirmation or convergence claim.",
+  "elapsed_seconds": 567.3839950000402
+}

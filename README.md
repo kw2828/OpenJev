@@ -60,22 +60,26 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Research status
 
-The latest [multivariate world-model pilot](research/fsm-correction-results.md)
-completes all 30 fits but **fails its rule: 5/9 conditions pass**. Selective memory
-correction has **2.46% higher error and 21.69% higher latency** than dense
-correction. The best linear control is substantially more accurate and faster.
-The independent audit agrees; no new architecture advantage is established.
+The latest [recurrent residual comparison](research/fsm-residual-results.md)
+**passes its development rule: 9/9 conditions**. Across 36 fits, feeding a small
+nonlinear correction back into a linear forecast lowers selected-model error
+**22.31% versus output-only correction**, with **2.33% higher latency** and equal
+storage. An independent audit agrees. Every tested learning rate favors nonlinear
+feedback; the linear baseline remains **4.08 times faster**.
 
-[![All sixteen model families: forecast error and full-request latency](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/fsm-correction-results/benchmark.png)](research/fsm-correction-results.md)
+[![All thirteen residual and linear recipes: forecast error and full-request latency](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/fsm-residual-results/benchmark.png)](research/fsm-residual-results.md)
 
-[Results and checkpoints](research/fsm-correction-results.md) ·
-[Routing visualization](research/fsm-correction-results/routing.png) ·
-[Protocol](research/fsm-correction-protocol.md) ·
+[Results and checkpoints](research/fsm-residual-results.md) ·
+[Protocol](research/fsm-residual-protocol.md) ·
+[Next comparison](research/fsm-residual-next.md) ·
 [All experiments](research/experiment-index.md).
 
-The [earlier robot observer experiment](research/robot-joint-observer-results.md)
-also failed its continuation rule. The [next proposed comparison](research/fsm-linear-residual-next.md)
-adds learned nonlinear corrections to the stronger linear predictor.
+Rates were selected on the same exposed development data. This is a promising
+lead, not untouched validation or a novel architecture. Stronger references and
+an untouched amplitude shift come next. Earlier
+[selective correction](research/fsm-correction-results.md) and
+[robot observer](research/robot-joint-observer-results.md) experiments failed
+their rules; their complete results remain available.
 
 The [Rust inference path](rust/robot_transition/README.md) passes 110 synthetic
 checks, but its [trained-model comparison](research/robot-native-results.md)

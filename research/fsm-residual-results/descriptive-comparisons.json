@@ -1,0 +1,85 @@
+{
+  "scope": "Descriptive arithmetic from independently audited scalar outputs; no new data, models, selection or statistical inference",
+  "candidate": "tanh_feedback-lr0.0003",
+  "comparisons": {
+    "tanh_output_only-lr0.001": {
+      "error_reduction_percent": 22.31179551738549,
+      "latency_ratio": 1.0233196498939119,
+      "storage_ratio": 1.0
+    },
+    "affine_output_only-lr0.0001": {
+      "error_reduction_percent": 32.92027218308766,
+      "latency_ratio": 1.3671811022552895,
+      "storage_ratio": 4.03328509406657
+    },
+    "native_varx": {
+      "error_reduction_percent": 33.61990758822766,
+      "latency_ratio": 4.078280692772739,
+      "storage_ratio": 7.011320754716981
+    }
+  },
+  "by_seed": {
+    "9201": {
+      "tanh_feedback-lr0.0003": 0.04349335553345839,
+      "tanh_output_only-lr0.001": 0.05470887942826284,
+      "affine_output_only-lr0.0001": 0.06362373056402737
+    },
+    "9202": {
+      "tanh_feedback-lr0.0003": 0.042293332724353185,
+      "tanh_output_only-lr0.001": 0.05574050016433862,
+      "affine_output_only-lr0.0001": 0.0640490516357213
+    },
+    "9203": {
+      "tanh_feedback-lr0.0003": 0.04291681058082855,
+      "tanh_output_only-lr0.001": 0.055217338663761516,
+      "affine_output_only-lr0.0001": 0.06419367735107712
+    }
+  },
+  "by_amplitude": {
+    "100mV": {
+      "candidate_rmse": 0.03726198779382067,
+      "strongest_control_rmse": 0.05397464091836384,
+      "error_reduction_percent": 30.96389867571496
+    },
+    "200mV": {
+      "candidate_rmse": 0.04854034476527275,
+      "strongest_control_rmse": 0.05646983791921148,
+      "error_reduction_percent": 14.041997367307935
+    }
+  },
+  "matched_rate": {
+    "0.0001": {
+      "output_rmse": 0.05945516559254971,
+      "feedback_rmse": 0.048608886028983944,
+      "error_reduction_percent": 18.242787578620256,
+      "paired_seed_wins": 3
+    },
+    "0.0003": {
+      "output_rmse": 0.055744993827699346,
+      "feedback_rmse": 0.04290116627954671,
+      "error_reduction_percent": 23.040324639466757,
+      "paired_seed_wins": 3
+    },
+    "0.001": {
+      "output_rmse": 0.05522223941878766,
+      "feedback_rmse": 0.04321067973269329,
+      "error_reduction_percent": 21.751308553430025,
+      "paired_seed_wins": 3
+    }
+  },
+  "record_error_reduction_percent": {
+    "100mV-realization-3-period-0": 31.47285383589612,
+    "100mV-realization-3-period-1": 32.22320532795282,
+    "100mV-realization-4-period-0": 29.872503640297687,
+    "100mV-realization-4-period-1": 29.7392973066254,
+    "100mV-realization-5-period-0": 31.29134653177482,
+    "100mV-realization-5-period-1": 31.179971905724646,
+    "200mV-realization-3-period-0": 9.925457401235139,
+    "200mV-realization-3-period-1": 11.494245798505476,
+    "200mV-realization-4-period-0": 15.557921974322042,
+    "200mV-realization-4-period-1": 16.37532432466452,
+    "200mV-realization-5-period-0": 14.848548465142619,
+    "200mV-realization-5-period-1": 15.584367977165869
+  },
+  "worst_record_error_reduction_percent": 9.925457401235139
+}
