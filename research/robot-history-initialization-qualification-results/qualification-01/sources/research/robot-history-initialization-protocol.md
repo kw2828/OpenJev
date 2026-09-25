@@ -1,6 +1,6 @@
 # Robot history initialization: prospective development protocol
 
-Pre-fit protocol, version1. Current execution status is tracked in the [experiment archive](experiment-index.md). Its three-arm design was written before the reflection-capacity campaign closed; no partial outcomes were used to choose the initializer features or five admission criteria. The [capacity result](robot-reflection-capacity-results.md) is now closed and negative. The inherited reference roster, deadlines and diagnostic permutation below were finalized afterward. A separate committed source, data and qualification registration is required before fitting.
+Draft implementation protocol. This study has not been registered or run. Its three-arm design was written before the reflection-capacity campaign closed; no partial outcomes were used to choose the initializer features or five admission criteria. The [capacity result](robot-reflection-capacity-results.md) is now closed and negative. The inherited reference roster, deadlines and diagnostic permutation below were finalized afterward. A separate committed source, data and qualification registration is required before fitting.
 
 ## Question and models
 
