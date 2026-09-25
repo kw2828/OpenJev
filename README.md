@@ -60,18 +60,19 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Research status
 
-The latest [reserved-recording confirmation](research/robot-history-confirmation-results.md)
-**fails its rule: 3/5 criteria pass**. Using older observations lowers average
-forecast error **4.16% versus last-two initialization**, but only **0.38% versus
-an equally sized local model**, and increases error **3.19% on one recording**.
-The independent audit agrees. The earlier development gain did not hold up
-under the required margins; no new architecture advantage is established.
+The latest [recurrent observer experiment](research/robot-observer-results.md)
+**fails its rule: 0/5 criteria pass**. Three of six learned-observer fits fail
+with nonfinite gradient norms, leaving no complete three-seed recipe.
+The independent audit agrees. This identifies a numerical training failure to investigate;
+it establishes no architecture advantage. The
+[earlier confirmation failure](research/robot-history-confirmation-results.md)
+also remains unchanged.
 
-[![Reserved robot recordings: all selected seeds, forecast errors, CPU latency and storage](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/robot-history-confirmation-results/benchmark.png)](research/robot-history-confirmation-results.md)
+[![Observer development: complete error range, all families, CPU latency and storage](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/robot-observer-results/benchmark.png)](research/robot-observer-results.md)
 
-[Results and checkpoints](research/robot-history-confirmation-results.md) ·
-[Protocol](research/robot-history-confirmation-protocol.md) ·
-[Earlier development result](research/robot-history-initialization-results.md) ·
+[Results and checkpoints](research/robot-observer-results.md) ·
+[Detail chart](research/robot-observer-results/benchmark-detail.png) ·
+[Protocol](research/robot-observer-protocol.md) ·
 [All experiments](research/experiment-index.md).
 
 The [Rust inference path](rust/robot_transition/README.md) passes 110 synthetic

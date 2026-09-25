@@ -1,0 +1,550 @@
+{
+  "config": {
+    "adam_betas": [
+      0.9,
+      0.999
+    ],
+    "adam_eps": 1e-08,
+    "all_evaluation_data_exposed": true,
+    "batch_size": 16,
+    "cached": [
+      "joint_local_affine",
+      "joint_temporal_affine",
+      "dense_bounded",
+      "dense_unbounded",
+      "gru32",
+      "legacy_instant",
+      "gru10"
+    ],
+    "cached_rates": {
+      "dense_bounded": 0.001,
+      "dense_unbounded": 0.003,
+      "gru10": 0.003,
+      "gru32": 0.003,
+      "joint_local_affine": 0.003,
+      "joint_temporal_affine": 0.003,
+      "legacy_instant": 0.001
+    },
+    "context": 32,
+    "dev_horizon": 128,
+    "dev_stride": 160,
+    "families": [
+      "local_affine",
+      "temporal_affine",
+      "observer_learned",
+      "last_two",
+      "observer_fixed",
+      "observer_zero",
+      "joint_local_affine",
+      "joint_temporal_affine",
+      "dense_bounded",
+      "dense_unbounded",
+      "gru32",
+      "legacy_instant",
+      "gru10",
+      "causal_ridge_1",
+      "causal_ridge_100",
+      "linear_frozen",
+      "persistence"
+    ],
+    "file_harm_ratio": 1.02,
+    "fit_cap_seconds": 1800.0,
+    "fixed": [
+      "last_two",
+      "observer_fixed",
+      "observer_zero"
+    ],
+    "gradient_clip": 1.0,
+    "horizons": [
+      64,
+      128
+    ],
+    "latency_ratio": 1.5,
+    "learned": [
+      "local_affine",
+      "temporal_affine",
+      "observer_learned"
+    ],
+    "learning_rates": [
+      0.001,
+      0.003
+    ],
+    "mean_reduction": 0.05,
+    "normalizer_refits": 0,
+    "official_test_access": false,
+    "partitions": {
+      "dev": [
+        "recording_2021_12_15_21H_54M.mat",
+        "recording_2021_12_15_22H_10M.mat"
+      ],
+      "exposed": [
+        "recording_2021_12_15_21H_54M.mat",
+        "recording_2021_12_15_22H_10M.mat",
+        "recording_2021_12_15_22H_41M.mat",
+        "recording_2021_12_15_22H_50M.mat"
+      ],
+      "fit": [
+        "recording_2021_12_15_20H_29M.mat",
+        "recording_2021_12_15_20H_38M.mat",
+        "recording_2021_12_15_20H_45M.mat",
+        "recording_2021_12_15_21H_11M.mat",
+        "recording_2021_12_15_21H_32M.mat",
+        "recording_2021_12_15_21H_3M.mat",
+        "recording_2021_12_15_21H_41M.mat"
+      ]
+    },
+    "preprocessing_sha256": "d2f5c8480075c9e18a039e080deaa6c8ddd0b67313166bbfac37bd699474a274",
+    "raw_mat_access": false,
+    "reference_refits": 0,
+    "references": [
+      "causal_ridge_1",
+      "causal_ridge_100",
+      "linear_frozen",
+      "persistence"
+    ],
+    "seeds": [
+      8101,
+      8102,
+      8103
+    ],
+    "selection_scope": "pooled H128 SSE on original two DEV files only; lower rate wins exact ties",
+    "skip": 64,
+    "timing_repeats": 20,
+    "timing_warmups": 3,
+    "train_horizon": 128,
+    "updates": 4096,
+    "version": "robot-observer-study-v1",
+    "wall_cap_seconds": 14400.0,
+    "window_seed_offset": 520000
+  },
+  "created_utc": "2026-09-25T03:27:19.655330+00:00",
+  "inputs": {
+    "data/recording_2021_12_15_20H_29M.mat": {
+      "bytes": 344120,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-coupling-study-v1/fit-data-recording_2021_12_15_20H_29M.mat.npz",
+      "sha256": "67df15c8dc33cd164fce27d9e13b6b95795ea2dd577397e3fa90a2dae329a431"
+    },
+    "data/recording_2021_12_15_20H_38M.mat": {
+      "bytes": 344392,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-coupling-study-v1/fit-data-recording_2021_12_15_20H_38M.mat.npz",
+      "sha256": "f00509a3f9c622b861994af042eb944cd141dd04cdf4387d20dd660906105ea0"
+    },
+    "data/recording_2021_12_15_20H_45M.mat": {
+      "bytes": 343866,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-coupling-study-v1/fit-data-recording_2021_12_15_20H_45M.mat.npz",
+      "sha256": "8cf79416d1b1f3569938f49dbec9b2ad7e092496e75013d7be8a8df2b24ed51c"
+    },
+    "data/recording_2021_12_15_21H_11M.mat": {
+      "bytes": 344248,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-coupling-study-v1/fit-data-recording_2021_12_15_21H_11M.mat.npz",
+      "sha256": "211fabbbd385cc14d0963a9208968b30f4204558145364df1eb0f6afe71cabdf"
+    },
+    "data/recording_2021_12_15_21H_32M.mat": {
+      "bytes": 344040,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-coupling-study-v1/fit-data-recording_2021_12_15_21H_32M.mat.npz",
+      "sha256": "35f4e6b63f37f547b5b66b4129938930d174d8bb3e27151c50f38b33cc303037"
+    },
+    "data/recording_2021_12_15_21H_3M.mat": {
+      "bytes": 344318,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-coupling-study-v1/fit-data-recording_2021_12_15_21H_3M.mat.npz",
+      "sha256": "9281f9be13b90a8cd98d554356ce3cc6387d156f3b80382969f16b63cb0bbd39"
+    },
+    "data/recording_2021_12_15_21H_41M.mat": {
+      "bytes": 344196,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-coupling-study-v1/fit-data-recording_2021_12_15_21H_41M.mat.npz",
+      "sha256": "c5410e3823d5c2c57ccee221e5784e5dc978909f18ebb078d7884ad6bdc5bf64"
+    },
+    "data/recording_2021_12_15_21H_54M.mat": {
+      "bytes": 344282,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-coupling-study-v1/dev-data-recording_2021_12_15_21H_54M.mat.npz",
+      "sha256": "3912ccc5c4f93cac40e5ddf03ff9755ba3f22ac710281e0d159f330cacced8c7"
+    },
+    "data/recording_2021_12_15_22H_10M.mat": {
+      "bytes": 344360,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-coupling-study-v1/dev-data-recording_2021_12_15_22H_10M.mat.npz",
+      "sha256": "d7c3d8d70edc80f7f96ec122495431bb3fc8e3c91eb1f79bac03ffb246c1b91f"
+    },
+    "data/recording_2021_12_15_22H_41M.mat": {
+      "bytes": 344073,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-history-confirmation-v1/confirm-data-recording_2021_12_15_22H_41M.mat.npz",
+      "sha256": "7acdc759b99a87aee5d80da65309c57d0130c8fffd8717f1d012422d0bed31f1"
+    },
+    "data/recording_2021_12_15_22H_50M.mat": {
+      "bytes": 344126,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-history-confirmation-v1/confirm-data-recording_2021_12_15_22H_50M.mat.npz",
+      "sha256": "47e1bd1a7b2c886440dd25b9db4ebb7902457c3e7c60b696d9217b29d62f53fc"
+    },
+    "parent/batches-8101.npz": {
+      "bytes": 188993,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-history-initialization-study-v1/batches-8101.npz",
+      "sha256": "3c82d5b9703599b7711e135265aca2c461e68f2574bbf501a05805438f487254"
+    },
+    "parent/batches-8102.npz": {
+      "bytes": 189027,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-history-initialization-study-v1/batches-8102.npz",
+      "sha256": "a2c209bd56c018a5faeaeacf90b6f5cd85fab8550850b94828523548acca6506"
+    },
+    "parent/batches-8103.npz": {
+      "bytes": 188917,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-history-initialization-study-v1/batches-8103.npz",
+      "sha256": "d59ea6f544acd762edc9b21f1201eeb4aa0fc7b23c5bbddb969fffcad0660957"
+    },
+    "parent/causal_ridge_1.json": {
+      "bytes": 733,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-history-initialization-study-v1/causal_ridge_1.json",
+      "sha256": "743771fe90154462287c332d741d41dea5d292c79e1ae52001aa49b851bfc826"
+    },
+    "parent/causal_ridge_1.npz": {
+      "bytes": 3439520,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-history-initialization-study-v1/causal_ridge_1.npz",
+      "sha256": "3e2da14f1ba1152374feb4c01ea4950c2dff15a3a1b3c2b73193f0cd059aebf5"
+    },
+    "parent/causal_ridge_100.json": {
+      "bytes": 735,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-history-initialization-study-v1/causal_ridge_100.json",
+      "sha256": "3a7b25be5f890889b89b32afa8c289e6c082bdcbdc3e1cfca9e45baf227e544c"
+    },
+    "parent/causal_ridge_100.npz": {
+      "bytes": 3441910,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-history-initialization-study-v1/causal_ridge_100.npz",
+      "sha256": "ebc0512cb5d61e55e156a1043fdeaffb343c0d411356fedb5d343cf87c81fb29"
+    },
+    "parent/dense_bounded-8101-lr0/final.npz": {
+      "bytes": 5419,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-history-initialization-study-v1/dense_bounded-8101-lr0/final.npz",
+      "sha256": "42a9dd4a2e7049c0c508f11c20334411eeeb05af92710112ad351c7dd144f2de"
+    },
+    "parent/dense_bounded-8102-lr0/final.npz": {
+      "bytes": 5415,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-history-initialization-study-v1/dense_bounded-8102-lr0/final.npz",
+      "sha256": "18cd931ed3a4564f3cd17aeeb64b54a3a7e5c9f062f0d24c15757b8da427b7de"
+    },
+    "parent/dense_bounded-8103-lr0/final.npz": {
+      "bytes": 5418,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-history-initialization-study-v1/dense_bounded-8103-lr0/final.npz",
+      "sha256": "f09914c51e9d2e930931acb51fecf0db06d4c8fa12b1e4d4dde553286dc9420e"
+    },
+    "parent/dense_unbounded-8101-lr1/final.npz": {
+      "bytes": 5406,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-history-initialization-study-v1/dense_unbounded-8101-lr1/final.npz",
+      "sha256": "a379a6cf7a5e3dc0eacfd1016123e5ae163a06e040171f0eb533583234ac9481"
+    },
+    "parent/dense_unbounded-8102-lr1/final.npz": {
+      "bytes": 5412,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-history-initialization-study-v1/dense_unbounded-8102-lr1/final.npz",
+      "sha256": "ec3b45b55cebee901c6d61fb88c9604cd45c853e5181cd13e2a4e7c5ad610921"
+    },
+    "parent/dense_unbounded-8103-lr1/final.npz": {
+      "bytes": 5406,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-history-initialization-study-v1/dense_unbounded-8103-lr1/final.npz",
+      "sha256": "0af9deb4bd0ed5dbe8fed6032e66eac2987259ad283bf7d4022fa8ec48949905"
+    },
+    "parent/fits.json": {
+      "bytes": 191971,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-history-initialization-study-v1/fits.json",
+      "sha256": "9b19cf95c7ff7e65674c3a4812c067eb2dd133829044a365ebf722bfaa3f2c5a"
+    },
+    "parent/gru10-8101-lr1/final.npz": {
+      "bytes": 6459,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-history-initialization-study-v1/gru10-8101-lr1/final.npz",
+      "sha256": "72b27e4599c38b982a2ccb9bc5c9f7fe8da0c1a82625d5268628ddd82d3aa216"
+    },
+    "parent/gru10-8102-lr1/final.npz": {
+      "bytes": 6462,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-history-initialization-study-v1/gru10-8102-lr1/final.npz",
+      "sha256": "8d030977a0eeb0c3c93c8985cd6ce19cd23a069e7e6c4d29831bd964bb9cc0c4"
+    },
+    "parent/gru10-8103-lr1/final.npz": {
+      "bytes": 6450,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-history-initialization-study-v1/gru10-8103-lr1/final.npz",
+      "sha256": "b86c50013e329193dc8e75e07eeb4d1e8e13366002892aacc7362165026f4aa8"
+    },
+    "parent/gru32-8101-lr1/final.npz": {
+      "bytes": 23665,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-history-initialization-study-v1/gru32-8101-lr1/final.npz",
+      "sha256": "a4abc93e28c9ac65236692025cbe06d6ef1a22f6e91f38694618e0c5031019be"
+    },
+    "parent/gru32-8102-lr1/final.npz": {
+      "bytes": 23668,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-history-initialization-study-v1/gru32-8102-lr1/final.npz",
+      "sha256": "3eedaddef49d78ab6ccaca4149077eb41ce850b925d72fa6e48bb994be4808e4"
+    },
+    "parent/gru32-8103-lr1/final.npz": {
+      "bytes": 23660,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-history-initialization-study-v1/gru32-8103-lr1/final.npz",
+      "sha256": "e4bd06ca5ba5d9f4ef53371a9e7298ec73e07a049dbf6f0295987aecf5308442"
+    },
+    "parent/last_two-8101-lr0/final.npz": {
+      "bytes": 4078,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-history-initialization-study-v1/last_two-8101-lr0/final.npz",
+      "sha256": "4a96aab79ac38258c80368af380aa5e609c2f5b148ade4c825168dd6e7840246"
+    },
+    "parent/last_two-8102-lr0/final.npz": {
+      "bytes": 4079,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-history-initialization-study-v1/last_two-8102-lr0/final.npz",
+      "sha256": "e20c3e66591a78f8c720b10ba97c3e8bc479190371e662b06c1107f8425e05f1"
+    },
+    "parent/last_two-8103-lr0/final.npz": {
+      "bytes": 4094,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-history-initialization-study-v1/last_two-8103-lr0/final.npz",
+      "sha256": "c92411580de609e52986562e9fb8ae37121cd0ae428d56d1aafa139b91aa17da"
+    },
+    "parent/legacy_instant-8101-lr0/final.npz": {
+      "bytes": 6187,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-history-initialization-study-v1/legacy_instant-8101-lr0/final.npz",
+      "sha256": "acfe4e66c01e02423b86f3be6e5a2dfc0cb0aea13dbb88899a727eef40ca6145"
+    },
+    "parent/legacy_instant-8102-lr0/final.npz": {
+      "bytes": 6200,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-history-initialization-study-v1/legacy_instant-8102-lr0/final.npz",
+      "sha256": "bacb87356f6b970e0999152278aa66201e314b848dd023714b17d8c404db436f"
+    },
+    "parent/legacy_instant-8103-lr0/final.npz": {
+      "bytes": 6209,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-history-initialization-study-v1/legacy_instant-8103-lr0/final.npz",
+      "sha256": "755ac4a2f2c74d0fc7af8770e49ebd631b6d901613c07872ee51f470b81bf93f"
+    },
+    "parent/linear.npz": {
+      "bytes": 1423,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-history-initialization-study-v1/linear.npz",
+      "sha256": "248db5bd0ee09eb3b5eff3c4ea52ea83e9002f90b1e46405493897833448a8c5"
+    },
+    "parent/local_affine-8101-lr1/final.npz": {
+      "bytes": 5906,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-history-initialization-study-v1/local_affine-8101-lr1/final.npz",
+      "sha256": "fe88ec500e40965a581f581113800f6d35ee6566f1dc83c14f01d43a12165ff0"
+    },
+    "parent/local_affine-8102-lr1/final.npz": {
+      "bytes": 5936,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-history-initialization-study-v1/local_affine-8102-lr1/final.npz",
+      "sha256": "382a498958907f9e9812e39b1d82d700c9d46c08f2c210b2f7e099b5d3d39824"
+    },
+    "parent/local_affine-8103-lr1/final.npz": {
+      "bytes": 5933,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-history-initialization-study-v1/local_affine-8103-lr1/final.npz",
+      "sha256": "bf7525c66012969681bc8c7cccb44c2a019ffaa121341a979f2b37bc18b91009"
+    },
+    "parent/normalizers.npz": {
+      "bytes": 956,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-history-initialization-study-v1/normalizers.npz",
+      "sha256": "8725bf3bb17e03fcd7e689ec5fd7a285dfc58f3b067e1379ef5170ab45fe4d2b"
+    },
+    "parent/temporal_affine-8101-lr1/final.npz": {
+      "bytes": 5944,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-history-initialization-study-v1/temporal_affine-8101-lr1/final.npz",
+      "sha256": "dbdf1f861ddc1ea26fe7313c375d86c5e38bc287752cb53d9a07bf768e7c5cf4"
+    },
+    "parent/temporal_affine-8102-lr1/final.npz": {
+      "bytes": 5923,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-history-initialization-study-v1/temporal_affine-8102-lr1/final.npz",
+      "sha256": "86b4d1ba0912f41f0f074ee7e3d1044543777c08dc23fabc2da0cee63cfaf57c"
+    },
+    "parent/temporal_affine-8103-lr1/final.npz": {
+      "bytes": 5931,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-history-initialization-study-v1/temporal_affine-8103-lr1/final.npz",
+      "sha256": "faef52799f0794ca5ed50d71748f186fa18e74c3ea99cd19aeb9d32c0db788ca"
+    }
+  },
+  "launcher": {
+    "bytes": 4497,
+    "sha256": "f92638a7d668d2e67a8d9da5879ee0396b012e14c81b3b6dcb8e47e8e3ec1576"
+  },
+  "parent_audit": {
+    "bytes": 366306,
+    "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-history-confirmation-audit-v1/audit.json",
+    "sha256": "44d85c681eb498f0ed9371534fa94b67ab9e6e3eca2f142c7ec1bd9d83ca5629"
+  },
+  "parent_publication_manifest": {
+    "bytes": 364526,
+    "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/research/robot-history-confirmation-results/manifest.json",
+    "sha256": "6fab6584cd45fbba3663363cb93c05b35216f6a920d2d7dedb42bbd8fab8ef8c"
+  },
+  "qualification": {
+    "bytes": 9104,
+    "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-observer-engineering-v1/qualification-01/receipt.json",
+    "sha256": "cf8c2b1185942f3617f2cd29859650981d84ae3e75049641d836adb4eb762bce"
+  },
+  "sources": {
+    "research/robot-coupling-protocol.md": {
+      "bytes": 12433,
+      "sha256": "bf9501470701d25eee3d1c6915a55cd773ed6cd7f9476f5d7d75fb51c7f7fe3e"
+    },
+    "research/robot-history-confirmation-protocol.md": {
+      "bytes": 9621,
+      "sha256": "4e6a1aaecd62d34faded05b23cf4fc0060bc525779df6f6042df5e2c6e2e4902"
+    },
+    "research/robot-history-initialization-protocol.md": {
+      "bytes": 10894,
+      "sha256": "ffb1e5a4e7af1e8a35665caf1b1ae77ff94f9a119a0b29bc0688e79268bc87de"
+    },
+    "research/robot-observer-protocol.md": {
+      "bytes": 9356,
+      "sha256": "f0085c666bbf68c2053391d9e075d07860694f23e56163196a695113601f9028"
+    },
+    "research/robot-structured-protocol.md": {
+      "bytes": 10749,
+      "sha256": "d649dff76a9202e016fbfd322b5a9a7d9ac68887346cedb07a1af1a498c6ef86"
+    },
+    "research/robot-transition-protocol.md": {
+      "bytes": 9586,
+      "sha256": "80a836a3c62be85e864f9b785086ee2fe86ce4b9af3beb88665617969d15fe13"
+    },
+    "scripts/audit_robot_history_confirmation.py": {
+      "bytes": 48460,
+      "sha256": "3eb13db8ed331b6d110393bfb630f56d066c442c0550ad3cf70d6e3c7c882795"
+    },
+    "scripts/audit_robot_history_initialization.py": {
+      "bytes": 56987,
+      "sha256": "db1c065dbee3ee57b8875923643ccad9c5f4f56cf0b4631b12b6f9a4aa65d1a1"
+    },
+    "scripts/audit_robot_observer_study.py": {
+      "bytes": 52768,
+      "sha256": "742b242958c4272f5d783b2def01145d624342088f10a702b49f6ec4ff1a8ac8"
+    },
+    "scripts/audit_robot_structured.py": {
+      "bytes": 44059,
+      "sha256": "71258605d3b7ee10a65f280a4f8bbfd173f66856beb4c4c6cb380e0894a7e798"
+    },
+    "scripts/plot_robot_history_initialization.py": {
+      "bytes": 30367,
+      "sha256": "8cfe732029da76c9a12b01293aacae913ec49216331b9ad931f6da33abff82bb"
+    },
+    "scripts/plot_robot_structured.py": {
+      "bytes": 27984,
+      "sha256": "29d637c85b4323a434bd6d77f57b35021b928690d7f170dcf91b1f93c3cf2d65"
+    },
+    "scripts/publish_robot_history_confirmation.py": {
+      "bytes": 27214,
+      "sha256": "821be55f19f5cd5c62a510a39e628f5a187e6bf27442f496778a8e7d0ded48e2"
+    },
+    "scripts/robot_coupling_study.py": {
+      "bytes": 40922,
+      "sha256": "99560155d920d02e66b1f470f0f6a33f0d6ed52417de35e7f93840b3d9e191f1"
+    },
+    "scripts/robot_history_confirmation.py": {
+      "bytes": 30721,
+      "sha256": "cd7370e887a10d577acee46e606c9510a4ee89284606194664337db94d2d7420"
+    },
+    "scripts/robot_history_initialization_study.py": {
+      "bytes": 35562,
+      "sha256": "62a8dc558b6d4d7a0ee4e9f84a286a07d134c2658eb55957915edcc4b5962710"
+    },
+    "scripts/robot_observer_study.py": {
+      "bytes": 31474,
+      "sha256": "bc6c83a41fc9a9d6b1d0c77063da9e2de55d48a827f8ca218e3407840b37a179"
+    },
+    "scripts/robot_structured_study.py": {
+      "bytes": 27309,
+      "sha256": "12ac0fbf8baa2b615a8399ef8e0343f99b0822d9b5182464f6ac44a645b24ebc"
+    },
+    "scripts/robot_transition_study.py": {
+      "bytes": 21464,
+      "sha256": "4b2c95a5c66dd8cf0b7e9b13d3237772735adda4b243752cbd19681fc4992265"
+    },
+    "src/openjev/research/bounded_robot_transition.py": {
+      "bytes": 12548,
+      "sha256": "a9b147a8cc4ac2d156982fe458a74b961df1649336646c65f0672074db9fe3f2"
+    },
+    "src/openjev/research/causal_robot_ridge.py": {
+      "bytes": 7161,
+      "sha256": "2cbbf4841fafee32a0febb90ccad1e13539ecfc2bfeeee5fea599f404bbbe1d3"
+    },
+    "src/openjev/research/compact_robot_gate.py": {
+      "bytes": 7525,
+      "sha256": "dd1b62429ae8a1da723631d941dda1cd657130756eff4c993866e108ed203780"
+    },
+    "src/openjev/research/industrial_robot_data.py": {
+      "bytes": 7533,
+      "sha256": "3109b46e14323f8f9bc8246776eba3b132d62868a7d890394bb6b45b3822b5aa"
+    },
+    "src/openjev/research/joint_coupling.py": {
+      "bytes": 13528,
+      "sha256": "d6084988938d11f5f7458c454ba336928b2ee93f3c433700b6a28d0bd493b951"
+    },
+    "src/openjev/research/robot_history_initializer.py": {
+      "bytes": 7234,
+      "sha256": "a99a463504e9f7baacccdcd62105fca134f5692bffea182e4699d487e5b76a93"
+    },
+    "src/openjev/research/robot_observer_initializer.py": {
+      "bytes": 7820,
+      "sha256": "608e0f7dfd626b389694d77d198240112e43749be8f1e12344692414636d7470"
+    },
+    "src/openjev/research/structured_robot_transition.py": {
+      "bytes": 12209,
+      "sha256": "6119a0b57331cfff183acb2f553f45730073bace8cfaff5588cf4c5d520267bf"
+    },
+    "src/openjev/research/suspend_clock.py": {
+      "bytes": 5919,
+      "sha256": "cac9077db3c66f5ef43d9412b732f5b869c1004c4bac98589816780c120f6124"
+    },
+    "tests/test_audit_robot_history_confirmation.py": {
+      "bytes": 16796,
+      "sha256": "62b94c29ff8f6015e25ec3924e592d950a4793f7e21dd0a7299f4545974a6f3f"
+    },
+    "tests/test_audit_robot_observer_study.py": {
+      "bytes": 18271,
+      "sha256": "0a5058ffba62f27967efcfdc7d05f9ebee344f98671e47f3717e31f564994d67"
+    },
+    "tests/test_bounded_robot_transition.py": {
+      "bytes": 14962,
+      "sha256": "e8b9f33319561dab14879756d253d498ec4721ca51430119f905fdf534cf3c28"
+    },
+    "tests/test_causal_robot_ridge.py": {
+      "bytes": 7517,
+      "sha256": "4e3b0f1eb7604c6d2a2723dac0b8f7004b6d00eb7d90b288d98d41a7dc814859"
+    },
+    "tests/test_compact_robot_gate.py": {
+      "bytes": 9341,
+      "sha256": "8df909676009b9cece4446e76acb9ea33f1fcf4dae7c1ba41e55512fe9317e48"
+    },
+    "tests/test_industrial_robot_data.py": {
+      "bytes": 9362,
+      "sha256": "5f1a7178e180369ec7863eef6e2a89f9f89d8a890e0392a61083f4470724d670"
+    },
+    "tests/test_joint_coupling.py": {
+      "bytes": 16006,
+      "sha256": "4ee6d93912273914e6dad72dd87e8863f4f335f5845e572eb5cedf68e0f97d5f"
+    },
+    "tests/test_publish_robot_history_confirmation.py": {
+      "bytes": 23587,
+      "sha256": "44cfa3011db285096b19a6d3dbc8de6b909f47d9ed4af0063a5e2d3f8bd3f8de"
+    },
+    "tests/test_robot_coupling_study.py": {
+      "bytes": 27901,
+      "sha256": "84877060d1461e017bc1c0ef94ac345d7981a1bc53644f0718144ff11e262b5c"
+    },
+    "tests/test_robot_history_confirmation.py": {
+      "bytes": 31464,
+      "sha256": "52e48fd9d5d0ff6e3e614fb2faabd59c2f18cb4da55634c825e3f0cfeffc3efa"
+    },
+    "tests/test_robot_history_initialization_study.py": {
+      "bytes": 35873,
+      "sha256": "066e617e344acb46f2143a479ef6beb8375fbc085b378bf5259bb2e9dd533a6f"
+    },
+    "tests/test_robot_history_initializer.py": {
+      "bytes": 18132,
+      "sha256": "2a9d349264d68b94c7057d1a6a7ab8001500d6ea9e4fc20da63dcb063e86f995"
+    },
+    "tests/test_robot_observer_initializer.py": {
+      "bytes": 14127,
+      "sha256": "3cc024f5bd9be2bec8736233d9d08d61b4e87ad86cf75284400f07163ce1acb5"
+    },
+    "tests/test_robot_observer_study.py": {
+      "bytes": 27698,
+      "sha256": "1b23950e2da73255907c1812829eda2979c212c0cbaa998535ae5c3e087518b4"
+    },
+    "tests/test_robot_structured_study.py": {
+      "bytes": 14161,
+      "sha256": "94fd529464cdbb439fda8d036abfd5b2a5b93b92b7ff6d371b1c94ce3707e9fe"
+    },
+    "tests/test_robot_transition_study.py": {
+      "bytes": 12635,
+      "sha256": "d8d2f69928ad00b25156cb969fdd61726df473c6ed233be3986277932f21ac5d"
+    },
+    "tests/test_structured_robot_transition.py": {
+      "bytes": 13102,
+      "sha256": "6b01008ab72a22b64ab543ff3e52c28c6a4b8d1cd13b98a7fed7b04929b9c58d"
+    }
+  },
+  "version": "robot-observer-study-v1"
+}
