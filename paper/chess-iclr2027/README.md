@@ -103,6 +103,12 @@ unchanged.
 - An anonymous, reproducible supplementary package with external data terms
   resolved. Local biological graph derivatives are not an MIT release.
 
-The official call checked September 18, 2026 gives September 18 at 23:59 AoE for
-abstract registration and September 25 at 23:59 AoE for the full paper. Building
-or reviewing this draft does not register an abstract or submit a paper.
+The [official call](https://www.iclr.cc/Conferences/2027/CallForPapers), checked
+September 25, 2026, gives September 18 at 23:59 AoE for abstract registration
+and September 25 at 23:59 AoE for the full paper. The abstract deadline has
+passed. Eligibility for this main-conference cycle now depends on an abstract
+having been registered on time; external registration has not been verified
+here. The [author guidelines](https://www.iclr.cc/Conferences/2027/AuthorGuidelines)
+also require the final paper to remain consistent with that abstract. Building
+or reviewing this draft does not register an abstract or submit a paper, and
+the current FSM forecasting study is separate from this chess manuscript.

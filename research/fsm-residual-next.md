@@ -81,3 +81,10 @@ established. Only after useful prediction survives these controls should a new
 mechanism, such as sensitivity-aware residual regularization, receive its own
 matched ablation against ordinary regularization and existing hybrid methods.
 Neither biological inspiration nor a development pass supplies that evidence.
+
+The [four-paper sensitivity review](fsm-sensitivity-prior-art.md) identifies
+the closest established mechanisms. A separate [six-arm experiment draft](fsm-sensitivity-experiment-draft.md)
+tests a penalty on sensitivity added beyond the frozen linear model against
+ordinary shrinkage and matched sensitivity controls. It is unregistered and
+unrun; deciding whether to pursue it follows closure and independent audit of
+the current nonlinear reference. It does not alter the frozen comparisons above.
