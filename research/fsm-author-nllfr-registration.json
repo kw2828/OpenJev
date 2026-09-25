@@ -1,0 +1,226 @@
+{
+  "version": "fsm-author-nllfr-study-v1",
+  "created_utc": "2026-09-25T07:38:55.471622+00:00",
+  "purpose": "One FIT-only author NL-LFR conventional control; exposed DEV; no new candidate weights or reserve access.",
+  "author_source_revision": "a79e8c567b018a6c9462528fc1e10b77fd19b3e2",
+  "source_sha256": {
+    "research/fsm_author/scripts/fit_nllfr.py": "e9307c6a2a70f43f1ef54da1a284ddfcf4da3cec1fd292b16e86a8f7c4cb8094",
+    "research/fsm_author/scripts/run_nllfr_study.py": "7f4b35e8245a5e8b6a6fbf644a5252e2f834c7d43fa34441c8ee3ec172104f3f",
+    "research/fsm_author/scripts/evaluate_nllfr.py": "a27a799e4c218bba65dbdd603dd9b3f71f054e19d4f0f26f1677c5b6334395d3",
+    "research/fsm_author/scripts/qualify_nllfr_runtime.py": "e56e12ab00d502ebd7da0ecbcb63467f277f22bec4c02e8b65938cae5f5bea68",
+    "research/fsm_author/src/openjev_fsm_author/nllfr.py": "095cfc63a842efb491be226c8167174adf37f01eb32c8f514834dccce33e7b62",
+    "research/fsm_author/src/openjev_fsm_author/nllfr_context.py": "202dd78cb5981495fde026d21a2cb66552c488038d2532e455cd3535cb2dbdf1",
+    "research/fsm_author/src/openjev_fsm_author/benchmark.py": "29a0b47219908830088718858551670464d4f3daeef15cf68410569c61fc5569",
+    "research/fsm_author/src/openjev_fsm_author/linear_context.py": "342f0656de39f84fb0070f9253c05ac767a8d348519ff608c130bdbdeeb62267",
+    "src/openjev/research/fsm_data.py": "4edad31e866ba88ed3c1e43b92f0cbc37d23fa454c2fab39cb8cf8cd8e5b6d90",
+    "research/fsm_author/tests/test_nllfr.py": "732dc9b72545d55ebb0084f2ba29a5bef8bf9a504ce85deabbb63dd62da31ab9",
+    "research/fsm_author/tests/test_nllfr_context.py": "c6d7ce1951daf46b925b3a07dc0b0e860007ca800d07cd16df7c2d7131a91c16",
+    "research/fsm_author/tests/test_fit_nllfr.py": "c23bb7e2685a8556fdbc35efdba3335ed28cb482c82bed91128899482f642972",
+    "research/fsm_author/tests/test_nllfr_evaluation.py": "9666bcaeec58e6a721e76226e13ea4372e4b8dc77b86fb716f950e2cc397de6a",
+    "research/fsm-author-nllfr-protocol.md": "bca3b9866d4e106d9aada503f3eea18bf292b0ef282978dc6d51fc89443f75b7",
+    "research/fsm-nllfr-runtime-contract.md": "c8cacdccc7813e5eb7abe0d5ef5d6ae774352a03b1f6468359d2e44dfd23d007",
+    "research/fsm-nllfr-causal-contract.md": "f377b6fe3bb0a0e5b2e63803e741ed058b63ec70a50f80b48c180e7294f79495",
+    "research/fsm-nllfr-evaluation-contract.md": "28318bc807b70c870eaab111c6a7c0b99791fef6a6db9d3babd59c0dbdaed844",
+    "research/fsm-nllfr-audit-contract.md": "b061bd35f887eae6b5a63d3361fb7042e0c27bdf05e9ae46062b9e50089a4996",
+    "research/fsm_author/uv.lock": "d7d1c8c38bbcf910bcede299277a21cd58b9da0ad56c7ae9ec75d85dbadcb2a3",
+    "research/fsm_author/pyproject.toml": "12b938f4364ceaf77345fd221a10d568ded42141fbb16d5f9753b0d671daf57f",
+    "research/fsm_author/src/openjev_fsm_author/__init__.py": "d7a63072f49e13d53b1e66ede35a667aa9a6625c00b0a0ab80b65a534b092574"
+  },
+  "prerequisites": {
+    "runtime_preflight": {
+      "path": "output/fsm-author-engineering-v1/runtime-preflight-01/receipt.json",
+      "sha256": "4ee148d93eb39c41e2edd3ded97134398f6bc03d991375ff8cb5124a20a6ecc0"
+    },
+    "common_normalizer": {
+      "path": "output/fsm-correction-study-v1/normalizer.npz",
+      "sha256": "46cf8fdc80747a5c701f86d92531839bf18a5ac67d94f91537bdb6b8ded601f9"
+    },
+    "parent_summary": {
+      "path": "output/fsm-linear-controls-study-v1/summary.json",
+      "sha256": "068f429a9102dcb00b56b05f09989e58f35a68480051bb62479be11d352cec3d"
+    },
+    "parent_evaluations": {
+      "path": "output/fsm-linear-controls-study-v1/evaluations.json",
+      "sha256": "cc0e9c412b53ee1bc4af9ca06d1d8a6139381668a69b648e2414bba32da05512"
+    },
+    "parent_audit": {
+      "path": "output/fsm-linear-controls-audit-v1/audit.json",
+      "sha256": "c136601ef8bc52fb570f5858a7b49e8b5194d8d43d81b0696f375c760f38f3a2"
+    },
+    "parent_process": {
+      "path": "output/fsm-linear-controls-engineering-v1/original-process.json",
+      "sha256": "4bc0e8a057ebe80ab4cf5dd4201d5732487e0ae8defbe6424a5aba33d6e1b72a"
+    },
+    "parent_closure": {
+      "path": "output/fsm-linear-controls-study-v1/closure.json",
+      "sha256": "6b6abf82d5c21483fce358c6b82fa5666a4ad69e3c910bc7eeea27b2a99bf751"
+    },
+    "parent_registration": {
+      "path": "research/fsm-linear-controls-registration.json",
+      "sha256": "996e492b7db79754fec9ac79239563431076673fe378ca696d240ca07d53c364"
+    },
+    "nllfr_runtime_receipt": {
+      "path": "output/fsm-author-engineering-v1/nllfr-runtime-qualification-01/execution-receipt.json",
+      "sha256": "85a63e703f919a0267684d0ff7226fd4c937b4791fc4939d922e63479f04ba4c"
+    },
+    "nllfr_runtime_process": {
+      "path": "output/fsm-author-engineering-v1/nllfr-runtime-qualification-01/process.json",
+      "sha256": "ddd603996985fb7b5675604a7cb8b10f0db29335b7f0304b872c7367a3cb7a7d"
+    },
+    "nllfr_runtime_observation": {
+      "path": "output/fsm-author-engineering-v1/nllfr-runtime-qualification-01/process-observation.json",
+      "sha256": "a6e47c6a5f2e1dd180017532f7dc7e1aed32b3ae2d50f397131c2d6a6d108f09"
+    },
+    "nllfr_runtime_definition": {
+      "path": "output/fsm-author-engineering-v1/nllfr-runtime-qualification-01/definition.json",
+      "sha256": "0f6d4ef582763e8cdd2103d3ba36409a4319f023b991a3be9bccbf52b5c4b5f5"
+    },
+    "nllfr_runtime_initialization": {
+      "path": "output/fsm-author-engineering-v1/nllfr-runtime-qualification-01/fresh-initialization.json",
+      "sha256": "ad1e8f923592f7a097b0d819e613ff693f2de396f6566b7f1e4ede32028e39e7"
+    },
+    "nllfr_runtime_initial_export": {
+      "path": "output/fsm-author-engineering-v1/nllfr-runtime-qualification-01/initial.npz",
+      "sha256": "23c3e708326020cbab1d804cc6fc4e712d3d775f15e2054292850126ddb9e606"
+    },
+    "nllfr_context_qualification": {
+      "path": "output/fsm-author-engineering-v1/nllfr-qualification-01/receipt.json",
+      "sha256": "ae9e26fcf3220bb20fac1d7751f596e8e2420417de540871e08101500e5e55a6"
+    },
+    "producer_qualification": {
+      "path": "output/fsm-author-engineering-v1/nllfr-producer-qualification-01/receipt.json",
+      "sha256": "cf1ec46e44d09da9dd130cff69346f6c94eea7f801a0f83899f21526fae8738c"
+    },
+    "producer_qualification_definition": {
+      "path": "output/fsm-author-engineering-v1/nllfr-producer-qualification-01/definition.json",
+      "sha256": "2adce46e444b0efe24a6efeecd93faa9edd360af3639702b2af3e122e204d4b3"
+    },
+    "producer_qualification_observation": {
+      "path": "output/fsm-author-engineering-v1/nllfr-producer-qualification-01/process-observation.json",
+      "sha256": "fbcdc4da07f2c2637bdbcd3dfefc9f1ceea2167e6ec607e38708b4bc4dda4b31"
+    },
+    "source_review": {
+      "path": "output/fsm-author-engineering-v1/nllfr-measured-source-review.json",
+      "sha256": "bf385f2ffc732f961fdaaf7a38d9061c2fcdf010e1f5a5765fde56d02fdc1bc5"
+    },
+    "bla_final_zip": {
+      "path": "output/fsm-author-bla-study-v1/final.zip",
+      "sha256": "b381c69e4bc4306310b7b65cdf2f57b4e4e4ba0c5fc446a2326b5325c2a93115"
+    },
+    "bla_final_npz": {
+      "path": "output/fsm-author-bla-study-v1/final.npz",
+      "sha256": "32612d4f29fea9e29735c8100e2e6815a647604a88697bd6f948dcb78e188957"
+    },
+    "bla_fit": {
+      "path": "output/fsm-author-bla-study-v1/fit.json",
+      "sha256": "cdcc0f04505c8092f4bfe494b1e3b34d533e364c38375305ddcc2684380f4e24"
+    },
+    "bla_summary": {
+      "path": "output/fsm-author-bla-study-v1/summary.json",
+      "sha256": "74e0dd42115c83fd67f770fa453148595519c2e85593fd685913a65e0504e7c9"
+    },
+    "bla_registration": {
+      "path": "research/fsm-author-bla-registration.json",
+      "sha256": "03e01bf97630d4555338fbaa63ca15f749fd96df64e268940bbc8511d302c0a4"
+    },
+    "bla_process": {
+      "path": "output/fsm-author-engineering-v1/original-process-01/process.json",
+      "sha256": "e6648332d5fc7a67b7b4e14007d939b6310f898c7a37e10ff13275e0b6ce52a4"
+    },
+    "bla_audit": {
+      "path": "output/fsm-author-bla-audit-v1/audit.json",
+      "sha256": "9854b3e92ae8f333598a4204e4eb92b8447a07952cc77137ea9bd24c7e363022"
+    },
+    "bla_audit_process": {
+      "path": "output/fsm-author-engineering-v1/audit-process.json",
+      "sha256": "4c8a9a2c46fab367df9d8414a078a27e8f373057e150ddafd6a4eb94beadd092"
+    }
+  },
+  "data_path": "output/fsm-correction-engineering-v1/admission-01/combined_data.npz",
+  "data_sha256": "bdf6004da1342a8746e51580a57b5ddb8ac400ac5caa48368719c33cbb0ef505",
+  "experiment": {
+    "order": 28,
+    "nz": 16,
+    "nw": 8,
+    "hidden_layers": 2,
+    "width": 64,
+    "activation": "relu",
+    "seed": 42,
+    "sigma": 0.0001,
+    "samples": 8192,
+    "realizations": 6,
+    "periods": 2,
+    "fs": 6400.0,
+    "offset": 820,
+    "frequency_bins": 4097,
+    "max_iter": 10000,
+    "rtol": 0.001,
+    "atol": 1e-05,
+    "frequency_weighting": false,
+    "print_every": -1,
+    "outer_timeout_seconds": 18000,
+    "rss_cap_bytes": 34359738368,
+    "pythonhashseed": "0"
+  },
+  "evaluation": {
+    "context": 100,
+    "horizon": 128,
+    "stride": 256,
+    "requests_per_record": 32,
+    "records": 12,
+    "warmup_requests": 1,
+    "timed_requests": 24,
+    "outer_timeout_seconds": 3600,
+    "rss_cap_bytes": 34359738368
+  },
+  "context_policy": {
+    "iterations": 16,
+    "trials": 8,
+    "damping": 0.001,
+    "armijo": 0.0001,
+    "gradient_tol": 1e-08,
+    "scale_floor": 1e-08,
+    "rcond": 1e-12
+  },
+  "audit_tolerances": {
+    "objective": {
+      "atol": 1e-07,
+      "rtol": 1e-08
+    },
+    "replay": {
+      "atol": 1e-08,
+      "rtol": 1e-08
+    },
+    "context": {
+      "atol": 1e-10,
+      "rtol": 1e-08
+    },
+    "preprocessing": {
+      "atol": 1e-10,
+      "rtol": 1e-10
+    }
+  },
+  "comparison_seed_rule": "Each fixed candidate seed versus matching strongest-control seed if neural; same control for all seeds if deterministic.",
+  "comparison": {
+    "candidate": "tanh_feedback-lr0.0003",
+    "seeds": [
+      9201,
+      9202,
+      9203
+    ],
+    "selection": "minimum equal-record/equal-seed error among every complete noncandidate old control, BLA and NL-LFR; lexical tie break",
+    "rules": {
+      "relative_mean_improvement": 0.05,
+      "each_seed_improves": true,
+      "record_ratio_max": 1.02,
+      "both_amplitudes_improve": true
+    },
+    "incomplete_reference_blocks_survival_claim": true
+  },
+  "output": "output/fsm-author-nllfr-study-v1",
+  "process_directory": "output/fsm-author-engineering-v1/nllfr-original-process-01",
+  "evaluation_output": "output/fsm-author-nllfr-evaluation-v1",
+  "evaluation_process_directory": "output/fsm-author-engineering-v1/nllfr-evaluation-process-01",
+  "audit_output": "output/fsm-author-nllfr-audit-v1",
+  "audit_source_freeze": "Independent implementation and fabricated audit qualification frozen separately before audit numerical reads; these tolerances cannot change."
+}

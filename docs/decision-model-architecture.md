@@ -4,8 +4,9 @@ A decision API can encode context once and score supplied options without
 generating an explanation. This is useful for OpenJev, but speed, decision
 quality and probability calibration are separate measurements.
 
-The [24 September source check](../research/decision-model-source-check.md)
-maps the shared screenshots' claims to the actual public implementations.
+The [25 September source check](../research/decision-model-source-check-2026-09-25.md)
+maps the shared screenshots' claims to pinned public implementations, including
+the earlier [24 September review](../research/decision-model-source-check.md).
 
 The widely shared three-step diagram is a possible implementation, not a
 verified specification of TypeSafe Jev. Archer Hume's
@@ -19,7 +20,8 @@ but does not provide a reproducible training algorithm on that page.
 [Jevlike's model](https://github.com/vinnylarouge/jevlike/blob/main/jevlike/model.py)
 implements option queries that attend to context, followed by shared scoring and
 softmax. Its [trainer](https://github.com/vinnylarouge/jevlike/blob/main/jevlike/train.py)
-uses supervised cross-entropy. It identifies itself as an independent starter,
+uses supervised cross-entropy; its separate Doom examples also include PPO.
+It identifies itself as an independent starter,
 not a reproduction. Its reported 100x comparison
 forces a small decoder to generate 400 tokens; that is not an equal-quality
 comparison against a direct one-token classifier. The separate
@@ -38,6 +40,8 @@ describes a Qwen2.5-1.5B inference engine with shared KV cache, candidate-logit
 slicing and token-tree continuation. Its name alone does not establish that
 RL training occurred. The card's normalized softmax formula also does not
 establish empirical calibration; that requires predictions and held-out labels.
+The pinned source review found application code rather than a trained checkpoint,
+and a hardcoded calibration flag. Neither is evidence of calibrated predictions.
 
 Softmax normalizes scores; it does not establish calibration. RL is not a
 prerequisite for calibration either: supervised proper losses and held-out
