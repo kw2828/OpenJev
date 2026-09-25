@@ -60,6 +60,14 @@ created. Its [preparation record](../output/fsm-author-budget-factorial-engineer
 records the reviewed source and checks. Successful assembly remains conditional
 on both original parent processes closing successfully.
 
+The [factorial audit launcher](../output/fsm-author-budget-factorial-engineering-v1/audit-original.py)
+passes [14 focused guard and subprocess checks](../output/fsm-author-budget-factorial-engineering-v1/audit-wrapper-qualification-01/receipt.json).
+It runs one audit child with a one-hour limit, retains failures and rejects a
+second attempt. Closed incomplete evaluator outcomes remain auditable, while
+missing or live prerequisites prevent launch. A successful audit of incomplete
+evidence remains scientifically incomplete. These checks use fabricated metadata
+and tiny stub children; the empirical factorial audit has not run.
+
 No new development or reserved-data evaluation, training restart, candidate
 selection or performance claim is part of this qualification.
 
