@@ -60,22 +60,22 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Research status
 
-The latest [position-only observer experiment](research/robot-position-observer-results.md)
-completes all six fits but **fails its rule: 3/5 criteria pass**.
-Error is only **0.023% lower** than the simple two-observation baseline,
-at **1.37x its latency**, and **5.59% higher** than the strongest control.
-The independent audit agrees. Seven diagnostic probes identify float32 norm
-overflow in two examined cases; the new initialization does not establish a useful accuracy gain.
-All four recordings are exposed development data. The
+The latest [joint observer experiment](research/robot-joint-observer-results.md)
+completes all twelve fits but **fails its rule: 4/5 criteria pass**.
+The long observer lowers error only **0.75% versus the freshly trained
+two-observation control**, at **1.41x its latency**, and remains **4.68% worse
+than the strongest historical control**. The independent audit agrees.
+All four recordings are exposed development data; no new confirmation or
+architecture advantage is established. The
 [earlier confirmation failure](research/robot-history-confirmation-results.md)
 also remains unchanged.
 
-[![Position-only observer: error detail from 0 to 2 with larger values marked, CPU latency and storage](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/robot-position-observer-results/benchmark-detail.png)](research/robot-position-observer-results.md)
+[![Joint observer: all 24 families, error detail from 0 to 2 with larger values marked, CPU latency and storage](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/robot-joint-observer-results/benchmark-detail.png)](research/robot-joint-observer-results.md)
 
-[Results and checkpoints](research/robot-position-observer-results.md) ·
-[Full-range chart](research/robot-position-observer-results/benchmark.png) ·
-[Diagnostic chart](research/robot-position-observer-results/diagnostic-probes.png) ·
-[Protocol](research/robot-position-observer-protocol.md) ·
+[Results and checkpoints](research/robot-joint-observer-results.md) ·
+[Full-range chart](research/robot-joint-observer-results/benchmark.png) ·
+[Earlier numerical diagnosis](research/robot-position-observer-results.md) ·
+[Protocol](research/robot-joint-observer-protocol.md) ·
 [All experiments](research/experiment-index.md).
 
 The [Rust inference path](rust/robot_transition/README.md) passes 110 synthetic

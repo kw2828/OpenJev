@@ -1,0 +1,29 @@
+........................................................................ [ 33%]
+...............F........................................................ [ 66%]
+........................................................................ [ 99%]
+..                                                                       [100%]
+=================================== FAILURES ===================================
+______________ test_cost_omission_or_invalidity_cannot_pass[rate] ______________
+
+damage = 'rate'
+
+    @pytest.mark.parametrize('damage', ['missing', 'duplicate', 'rate', 'failed', 'unavailable', 'nan', 'zero', 'negative_bytes'])
+    def test_cost_omission_or_invalidity_cannot_pass(damage):
+        resources = fixture_resources()
+        if damage == 'missing': resources.pop()
+        elif damage == 'duplicate': resources[-1] = copy.deepcopy(resources[0])
+        elif damage == 'rate': resources[0]['learning_rate'] = .003
+        elif damage == 'failed': resources[0]['status'] = 'FAILED'; resources[0]['error'] = {'type': 'bad'}
+        elif damage == 'unavailable': resources[0].update(status='UNAVAILABLE', error={'type': 'FailedTrainingAttempt'}, timing=None)
+        elif damage == 'nan': resources[0]['timing']['median_seconds'] = float('nan')
+        elif damage == 'zero': resources[0]['timing']['median_seconds'] = 0.
+        else: resources[0]['parameter_bytes'] = -1
+        if damage in ('missing', 'duplicate', 'rate'):
+>           with pytest.raises(ValueError): rule(resources=resources)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+E           Failed: DID NOT RAISE ValueError
+
+tests/test_robot_joint_observer_study.py:191: Failed
+=========================== short test summary info ============================
+FAILED tests/test_robot_joint_observer_study.py::test_cost_omission_or_invalidity_cannot_pass[rate]
+1 failed, 217 passed in 7.00s

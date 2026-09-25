@@ -1,6 +1,6 @@
 # Proposed next direction: jointly learn the prefix observer and transition
 
-**Proposed, unregistered and unrun.** This note recommends one performance experiment, not an automatic norm-precision factorial, a changed result, or a new architecture claim. No models, numerical arrays, training or tests were executed to prepare it.
+**Completed as `robot-joint-observer-study-v1`: development FAIL, 4/5 criteria pass.** The [audited results](robot-joint-observer-results.md) show only small gains over fresh simple controls and higher error than the strongest historical control. The [frozen protocol](robot-joint-observer-protocol.md) and [registration](robot-joint-observer-registration.json) implemented this proposal, committed before fitting at `649b4c031a4184c177702dd849b13a4ebbf463e3`. The rest of this note preserves the pre-experiment rationale. No models, numerical arrays, training or tests were executed to prepare the original proposal.
 
 ## Why this is the next useful question
 

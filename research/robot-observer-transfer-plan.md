@@ -4,7 +4,9 @@ Prospective design only, prepared from primary documentation on 2026-09-24. This
 
 ## Launch condition
 
-The current [frozen-dynamics observer study](robot-observer-protocol.md) must pass **all five development criteria**, with its original process closed and independent audit agreeing. Otherwise, diagnose the exposed development result before proposing confirmation. A positive average or selected favorable recording cannot substitute for the five-criterion rule.
+**Not met.** The [completed joint study](robot-joint-observer-results.md) passes four of five criteria and fails the required accuracy advantage. No transfer dataset measurements have been opened and no transfer experiment has been launched for this plan.
+
+The [joint observer and dynamics study](robot-joint-observer-protocol.md), registered as `robot-joint-observer-study-v1`, must pass **all five development criteria**, with its original process closed and independent audit agreeing. The earlier [frozen-dynamics observer](robot-observer-results.md) and [position-only observer](robot-position-observer-results.md) failed their criteria and do not authorize transfer. This updated launch condition refers to the current registered candidate; it changes none of those studies' criteria or results. A positive average or selected favorable recording cannot substitute for the five-criterion rule.
 
 Even a pass establishes only eligibility to design a fresh experiment. The four robot evaluation recordings are exposed development data and cannot become untouched confirmation again.
 
