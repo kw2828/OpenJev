@@ -1,0 +1,22 @@
+.....F.................................................                  [100%]
+=================================== FAILURES ===================================
+_________ test_five_percent_boundary_and_paired_seed_rule_are_distinct _________
+
+    def test_five_percent_boundary_and_paired_seed_rule_are_distinct():
+        refs, bla, cells = decision_fixture()
+        for entry in refs:
+            if entry['family'] == audit.old.CANDIDATE:
+                entry['rows'] = rows(.95)
+        result = audit.decisions(refs, bla, cells, fit_complete=True, matrix_complete=True)
+        assert result['passed'] == 4
+        for entry in refs:
+            if entry['family'] == audit.old.CANDIDATE:
+                entry['rows'] = rows(np.nextafter(.95, 1.))
+        result = audit.decisions(refs, bla, cells, fit_complete=True, matrix_complete=True)
+>       assert result['conditions']['five_percent_below_strongest_control'] is False
+E       assert True is False
+
+tests/test_audit_fsm_author_factorial.py:77: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_audit_fsm_author_factorial.py::test_five_percent_boundary_and_paired_seed_rule_are_distinct
+1 failed, 54 passed in 0.48s

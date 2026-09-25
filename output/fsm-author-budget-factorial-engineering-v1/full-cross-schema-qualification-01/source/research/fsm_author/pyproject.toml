@@ -1,0 +1,30 @@
+[project]
+name = "openjev-fsm-author"
+version = "0.1.0"
+description = "Isolated qualification of published FSM identification baselines"
+requires-python = ">=3.12,<3.13"
+license = "GPL-3.0-or-later"
+dependencies = [
+  "freq-statespace",
+  "numpy==2.5.3",
+  "scipy==1.18.1",
+]
+
+[dependency-groups]
+dev = ["pytest>=8,<10", "ruff>=0.12"]
+
+[tool.uv.sources]
+freq-statespace = { git = "https://github.com/merijnfloren/freq-statespace.git", rev = "a79e8c567b018a6c9462528fc1e10b77fd19b3e2" }
+
+[build-system]
+requires = ["hatchling>=1.26"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/openjev_fsm_author"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]

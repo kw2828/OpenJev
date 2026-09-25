@@ -3,8 +3,10 @@
 The separate 16/64-step state estimator and its independent replay passed
 **71 fabricated tests plus lint**. This prepares the [four-condition comparison](fsm-author-budget-factorial-draft.md)
 of training budget and inference budget. No new DEV evaluation or performance
-result is available. The full evaluator and its process/audit admission still
-need implementation and qualification.
+result is available from this arithmetic qualification. The [full evaluator,
+supervisor and auditor are now separately qualified](fsm-author-factorial-harness-qualification.md);
+exact checkpoint registration and empirical evaluation still await the original
+larger-budget fit and its audit.
 
 | Original qualification | Tests | Evidence |
 | --- | ---: | --- |

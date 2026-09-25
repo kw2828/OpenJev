@@ -1,0 +1,39 @@
+{
+  "status": "PASS",
+  "observed_utc": "2026-09-25T09:01:59.343104+00:00",
+  "observed_original_exec_exit_code": 0,
+  "qualification": {
+    "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/fsm-author-budget-factorial-engineering-v1/full-auditor-qualification-02/receipt.json",
+    "bytes": 2830,
+    "sha256": "00a520dfacdf9eb99f0741a611243dd431df5dce2d79f67b3706d8ee0d22195a"
+  },
+  "source_review": {
+    "reviewer": "/root/query_memory_audit_review",
+    "verdict": "CLEAR",
+    "sources": {
+      "scripts/audit_fsm_author_factorial.py": {
+        "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/scripts/audit_fsm_author_factorial.py",
+        "bytes": 51915,
+        "sha256": "450aeb0112d8931bd92527ae1d40eb55161b3fe2f0b65a20dda628fa49da248b"
+      },
+      "tests/test_audit_fsm_author_factorial.py": {
+        "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/tests/test_audit_fsm_author_factorial.py",
+        "bytes": 24270,
+        "sha256": "15923277d7853df840f65ee08d95f94f6c01a4c41583472aefeafbe829f0087a"
+      }
+    }
+  },
+  "pytest_log_text": ".......................................................                  [100%]\n55 passed in 0.32s\n",
+  "prior_attempt": {
+    "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/fsm-author-budget-factorial-engineering-v1/full-auditor-qualification-01/receipt.json",
+    "bytes": 2830,
+    "sha256": "1279bf027651337535a8a11444b80e25894bbf13eb1de6de1d6c41399c5186d6"
+  },
+  "correction": {
+    "original_outcome": "54 passed, 1 failed",
+    "cause": "The negative boundary fixture used a one-ULP increase over 0.95, which equal-record/seed floating-point averaging rounded back to the threshold.",
+    "change": "Only the fabricated test changes to 0.950001 and asserts the actually reduced mean exceeds the gate cutoff before expecting rejection. Production auditor and scientific threshold unchanged.",
+    "failed_sources_and_logs_preserved": true
+  },
+  "scope": "Independent auditor fabricated qualification; separate cross-serialization validation pending. No empirical audit/model or optimizer calls."
+}
