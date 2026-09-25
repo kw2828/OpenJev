@@ -1,0 +1,236 @@
+{
+  "command": [
+    ".venv/bin/python",
+    "scripts/benchmark_robot_native.py",
+    "--study",
+    "output/robot-structured-study-v1",
+    "--audit",
+    "output/robot-structured-audit-v1/audit.json",
+    "--engineering",
+    "output/robot-structured-engineering-v1",
+    "--qualification",
+    "output/native-robot-transition-engineering-v1/attempt-02/qualification.json",
+    "--output",
+    "output/robot-native-benchmark-v1"
+  ],
+  "config": {
+    "arms": [
+      "householder",
+      "dense_bounded",
+      "dense_unbounded",
+      "dense_mlp",
+      "gru32"
+    ],
+    "atol": 1e-05,
+    "batch_sizes": [
+      22,
+      1
+    ],
+    "cap_seconds": 900,
+    "parity_records": 30,
+    "repeats": 30,
+    "rtol": 1e-05,
+    "seeds": [
+      8101,
+      8102,
+      8103
+    ],
+    "warmups": 3
+  },
+  "created_utc": "2026-09-25T01:05:08.615887+00:00",
+  "helper_qualification": {
+    "definition": {
+      "bytes": 554,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-native-benchmark-engineering-v1/fixture-01/definition.json",
+      "sha256": "3211b1e32f6ad0e9ca21c5d15b87cf5ec565db16353229ac028fd76293ccfad6"
+    },
+    "log": {
+      "bytes": 99,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-native-benchmark-engineering-v1/fixture-01/pytest.log",
+      "sha256": "647f250cad6dc10d1c2147747c0c30111060e43f2802bac26eef0f37b9890ae9"
+    },
+    "process": {
+      "bytes": 535,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-native-benchmark-engineering-v1/fixture-01/process.json",
+      "sha256": "046a5309073627108bdf3c15ff404bf1bb087b50199f19193570fd26a93d0baa"
+    }
+  },
+  "native_qualification": {
+    "bytes": 10883,
+    "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/native-robot-transition-engineering-v1/attempt-02/qualification.json",
+    "sha256": "7bcdd4a41316b086ac494e50832266fb4aae461f9f6a132b4afce1af38338113"
+  },
+  "original_audit": {
+    "bytes": 192278,
+    "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-structured-audit-v1/audit.json",
+    "sha256": "c46b92d0cc0f8862320bc6f66d121757e0692cfc21638501f140f95b00efa60e"
+  },
+  "original_manifest": {
+    "bytes": 54193,
+    "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-structured-study-v1/manifest.json",
+    "sha256": "ae52a4f3ec9fade304320d186db02e4ab1f2dd290958a78994f205b78a500e6e"
+  },
+  "original_receipt": {
+    "bytes": 476,
+    "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-structured-study-v1/receipt.json",
+    "sha256": "17fc084b4daa142e9f579a93d6bdb84790cf514834e79be53c7bbf19b8460599"
+  },
+  "original_run_receipt": {
+    "bytes": 1055,
+    "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-structured-engineering-v1/run-process-01.json",
+    "sha256": "61ca24181a8ca48307a30c277d4038362b35c5a00ec29bb08a45745c1f3b57a0"
+  },
+  "original_study": {
+    "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-structured-study-v1"
+  },
+  "protocol": {
+    "bytes": 6325,
+    "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/research/robot-native-protocol.md",
+    "sha256": "b6fed22e187dc08b90931484279ec49ee9da22946b8b3ea48d1cb65be0f8ba1c"
+  },
+  "scope": "Immutable-weight engineering only; does not revise failed original 23/61 result; no target scoring or confirmation.",
+  "source_commit": "f768afa4a737387e517696a80825ca9cb6c10f99",
+  "sources": {
+    "pyproject.toml": {
+      "bytes": 894,
+      "sha256": "64436d48af2351450b9dc774f601091fa2a8b6c87d743088a3d26baa5d459aba"
+    },
+    "research/robot-coupling-protocol.md": {
+      "bytes": 12433,
+      "sha256": "bf9501470701d25eee3d1c6915a55cd773ed6cd7f9476f5d7d75fb51c7f7fe3e"
+    },
+    "research/robot-native-protocol.md": {
+      "bytes": 6325,
+      "sha256": "b6fed22e187dc08b90931484279ec49ee9da22946b8b3ea48d1cb65be0f8ba1c"
+    },
+    "research/robot-structured-protocol.md": {
+      "bytes": 10749,
+      "sha256": "d649dff76a9202e016fbfd322b5a9a7d9ac68887346cedb07a1af1a498c6ef86"
+    },
+    "research/robot-transition-protocol.md": {
+      "bytes": 9586,
+      "sha256": "80a836a3c62be85e864f9b785086ee2fe86ce4b9af3beb88665617969d15fe13"
+    },
+    "rust/robot_transition/src/gru_reference.rs": {
+      "bytes": 9437,
+      "sha256": "e0cb356f250c60d6d7a7b38182e2151627dc39bb647b5d07522b5a9f6a542d6e"
+    },
+    "rust/robot_transition/src/lib.rs": {
+      "bytes": 10598,
+      "sha256": "fb458ebec322d9a551b2693aaa95c5c58c048bf9925c31b077f1fc51da5b858b"
+    },
+    "scripts/audit_robot_structured.py": {
+      "bytes": 44059,
+      "sha256": "71258605d3b7ee10a65f280a4f8bbfd173f66856beb4c4c6cb380e0894a7e798"
+    },
+    "scripts/benchmark_robot_native.py": {
+      "bytes": 24940,
+      "sha256": "60fe142383178a44046b3b6ace2611aad61e2d9243ae712263e2400249198843"
+    },
+    "scripts/build_robot_native.py": {
+      "bytes": 4180,
+      "sha256": "eff6325d3ac8f21a556b93a72017eea9e1d8ce2f2bfa51beef0a0c5e045f9a39"
+    },
+    "scripts/plot_robot_structured.py": {
+      "bytes": 27984,
+      "sha256": "29d637c85b4323a434bd6d77f57b35021b928690d7f170dcf91b1f93c3cf2d65"
+    },
+    "scripts/robot_coupling_study.py": {
+      "bytes": 40922,
+      "sha256": "99560155d920d02e66b1f470f0f6a33f0d6ed52417de35e7f93840b3d9e191f1"
+    },
+    "scripts/robot_structured_study.py": {
+      "bytes": 27309,
+      "sha256": "12ac0fbf8baa2b615a8399ef8e0343f99b0822d9b5182464f6ac44a645b24ebc"
+    },
+    "scripts/robot_transition_study.py": {
+      "bytes": 21464,
+      "sha256": "4b2c95a5c66dd8cf0b7e9b13d3237772735adda4b243752cbd19681fc4992265"
+    },
+    "src/openjev/research/bounded_robot_transition.py": {
+      "bytes": 12548,
+      "sha256": "a9b147a8cc4ac2d156982fe458a74b961df1649336646c65f0672074db9fe3f2"
+    },
+    "src/openjev/research/causal_robot_ridge.py": {
+      "bytes": 7161,
+      "sha256": "2cbbf4841fafee32a0febb90ccad1e13539ecfc2bfeeee5fea599f404bbbe1d3"
+    },
+    "src/openjev/research/compact_robot_gate.py": {
+      "bytes": 7525,
+      "sha256": "dd1b62429ae8a1da723631d941dda1cd657130756eff4c993866e108ed203780"
+    },
+    "src/openjev/research/industrial_robot_data.py": {
+      "bytes": 7533,
+      "sha256": "3109b46e14323f8f9bc8246776eba3b132d62868a7d890394bb6b45b3822b5aa"
+    },
+    "src/openjev/research/joint_coupling.py": {
+      "bytes": 13528,
+      "sha256": "d6084988938d11f5f7458c454ba336928b2ee93f3c433700b6a28d0bd493b951"
+    },
+    "src/openjev/research/native_robot_gru.py": {
+      "bytes": 12337,
+      "sha256": "4145c786c3df6f0e9093ee294397b2c91fa47f2dbd87e28630cfa0d8b0395d50"
+    },
+    "src/openjev/research/native_robot_transition.py": {
+      "bytes": 12596,
+      "sha256": "89a6093414d45762c2cd1c8644ba6f04be5350104c4ef053ceb83ad958ec1d03"
+    },
+    "src/openjev/research/structured_robot_transition.py": {
+      "bytes": 12209,
+      "sha256": "6119a0b57331cfff183acb2f553f45730073bace8cfaff5588cf4c5d520267bf"
+    },
+    "src/openjev/research/suspend_clock.py": {
+      "bytes": 5919,
+      "sha256": "cac9077db3c66f5ef43d9412b732f5b869c1004c4bac98589816780c120f6124"
+    },
+    "tests/test_benchmark_robot_native.py": {
+      "bytes": 9457,
+      "sha256": "2285fbc7280ef311f92873cd71fb05b62839b4809c7badff4171b5b81bdcf279"
+    },
+    "tests/test_bounded_robot_transition.py": {
+      "bytes": 14962,
+      "sha256": "e8b9f33319561dab14879756d253d498ec4721ca51430119f905fdf534cf3c28"
+    },
+    "tests/test_causal_robot_ridge.py": {
+      "bytes": 7517,
+      "sha256": "4e3b0f1eb7604c6d2a2723dac0b8f7004b6d00eb7d90b288d98d41a7dc814859"
+    },
+    "tests/test_compact_robot_gate.py": {
+      "bytes": 9341,
+      "sha256": "8df909676009b9cece4446e76acb9ea33f1fcf4dae7c1ba41e55512fe9317e48"
+    },
+    "tests/test_industrial_robot_data.py": {
+      "bytes": 9362,
+      "sha256": "5f1a7178e180369ec7863eef6e2a89f9f89d8a890e0392a61083f4470724d670"
+    },
+    "tests/test_joint_coupling.py": {
+      "bytes": 16006,
+      "sha256": "4ee6d93912273914e6dad72dd87e8863f4f335f5845e572eb5cedf68e0f97d5f"
+    },
+    "tests/test_native_robot_gru.py": {
+      "bytes": 9380,
+      "sha256": "b65ae9333cdd59cecd455d5d3f06e2bf669ad265aca0e80704b7edea34ace2cc"
+    },
+    "tests/test_native_robot_transition.py": {
+      "bytes": 19096,
+      "sha256": "cd9b9d4d058773709b7015a4c6749131d1dadc96159e81f5489dd3c8953f13c1"
+    },
+    "tests/test_robot_coupling_study.py": {
+      "bytes": 27901,
+      "sha256": "84877060d1461e017bc1c0ef94ac345d7981a1bc53644f0718144ff11e262b5c"
+    },
+    "tests/test_robot_structured_study.py": {
+      "bytes": 14161,
+      "sha256": "94fd529464cdbb439fda8d036abfd5b2a5b93b92b7ff6d371b1c94ce3707e9fe"
+    },
+    "tests/test_robot_transition_study.py": {
+      "bytes": 12635,
+      "sha256": "d8d2f69928ad00b25156cb969fdd61726df473c6ed233be3986277932f21ac5d"
+    },
+    "tests/test_structured_robot_transition.py": {
+      "bytes": 13102,
+      "sha256": "6b01008ab72a22b64ab543ff3e52c28c6a4b8d1cd13b98a7fed7b04929b9c58d"
+    }
+  },
+  "version": "robot-native-benchmark-v1"
+}
