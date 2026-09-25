@@ -52,6 +52,14 @@ rejects an active training process. Its [qualification record](../output/fsm-aut
 also retains a [correction to an earlier premature lint claim](../output/fsm-author-nllfr-budget-engineering-v1/audit-wrapper-prefit-check-correction.json).
 No empirical audit was launched by that check.
 
+The [registration helper](../output/fsm-author-budget-factorial-engineering-v1/prepare-registration.py)
+is also ready. It binds the exact audited checkpoints, the 37 qualified producer
+sources and a separate four-source auditor freeze. Four fabricated guard tests
+and an actual rejection of the still-running fit passed; no registration was
+created. Its [preparation record](../output/fsm-author-budget-factorial-engineering-v1/registration-preparation.json)
+records the reviewed source and checks. Successful assembly remains conditional
+on both original parent processes closing successfully.
+
 No new development or reserved-data evaluation, training restart, candidate
 selection or performance claim is part of this qualification.
 
