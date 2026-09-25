@@ -58,6 +58,37 @@ retains commands, logs and source snapshots. The [source review and closure](../
 bind the unchanged model source and runtime. Test duration is not a training or
 inference benchmark.
 
+## One-update learning path
+
+The [learning-step primitive](../src/openjev/research/fsm_sensitivity_learning.py)
+now applies the selected penalty to the actual supervised objective, propagates
+its gradient through the recurrence, clips with the native norm policy and takes
+one ordinary Adam step. It accepts caller-supplied context, future inputs, targets
+and paired directions. It does not load data, schedule a study or select a
+checkpoint. Simple arms use the primal path; all three sensitivity arms use the
+same learned and frozen-linear tangent propagation.
+
+Its [16 fabricated tests](../tests/test_fsm_sensitivity_learning.py) pass with lint:
+
+- H128 unregularized updates match the native model bitwise, including existing
+  Adam moments, step counters and frozen coefficients.
+- Both excess penalties preserve the first zero-head update bitwise. Active L2,
+  relative and max-envelope penalties contribute the independently assembled
+  gradients and produce the expected clipped Adam update.
+- Branch witnesses verify reported work and the absence of tangent work for
+  simple controls. Targets change the loss and update without changing the
+  preceding prediction or mutating caller inputs.
+- Invalid gradients, overflowing native norms and mismatched optimizer ownership
+  fail before an optimizer update. Returned diagnostics contain scalars rather
+  than graphs or a persistent trajectory cache.
+
+The [qualification receipt](../output/fsm-sensitivity-engineering-v1/learning-qualification-01/receipt.json)
+and [source review](../output/fsm-sensitivity-engineering-v1/learning-qualification-closure.json)
+retain this evidence separately from the 43 arithmetic tests. These are short
+updates on fabricated tensors, not the proposed 18 empirical fits. Full training
+schedules, recovery-free failure retention, paired directions across arms,
+runtime qualification and independent result checks still need a study runner.
+
 ## Conditions for a useful result
 
 The [conventional-reference comparison](fsm-author-nllfr-factorial-protocol.md)
