@@ -2,6 +2,8 @@
 
 Status: unregistered design, written while the six-fit reflection-capacity experiment is running. No outputs from that experiment informed this note. It does not authorize another fit, open confirmation data or change a continuation rule.
 
+The [three-arm initializer prototype](../src/openjev/research/robot_history_initializer.py) now passes 59 fabricated component tests. The [draft implementation protocol](robot-history-initialization-protocol.md) specifies the local-versus-history comparison. It has not been trained or evaluated on measured data.
+
 The next useful question is whether the transition model starts with enough information. The current structured models receive a 32-sample context but initialize their twelve-value state from only the final two positions. Their dynamics are recurrent; their initialization does not assimilate the earlier observations or torques. Increasing the number of reflections does not address this distinction.
 
 ## Prior art that changes the comparison
