@@ -60,28 +60,22 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Research status
 
-The latest [joint observer experiment](research/robot-joint-observer-results.md)
-completes all twelve fits but **fails its rule: 4/5 criteria pass**.
-The long observer lowers error only **0.75% versus the freshly trained
-two-observation control**, at **1.41x its latency**, and remains **4.68% worse
-than the strongest historical control**. The independent audit agrees.
-All four recordings are exposed development data; no new confirmation or
-architecture advantage is established. The
-[earlier confirmation failure](research/robot-history-confirmation-results.md)
-also remains unchanged.
+The latest [multivariate world-model pilot](research/fsm-correction-results.md)
+completes all 30 fits but **fails its rule: 5/9 conditions pass**. Selective memory
+correction has **2.46% higher error and 21.69% higher latency** than dense
+correction. The best linear control is substantially more accurate and faster.
+The independent audit agrees; no new architecture advantage is established.
 
-[![Joint observer: all 24 families, error detail from 0 to 2 with larger values marked, CPU latency and storage](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/robot-joint-observer-results/benchmark-detail.png)](research/robot-joint-observer-results.md)
+[![All sixteen model families: forecast error and full-request latency](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/fsm-correction-results/benchmark.png)](research/fsm-correction-results.md)
 
-[Results and checkpoints](research/robot-joint-observer-results.md) ·
-[Full-range chart](research/robot-joint-observer-results/benchmark.png) ·
-[Earlier numerical diagnosis](research/robot-position-observer-results.md) ·
-[Protocol](research/robot-joint-observer-protocol.md) ·
+[Results and checkpoints](research/fsm-correction-results.md) ·
+[Routing visualization](research/fsm-correction-results/routing.png) ·
+[Protocol](research/fsm-correction-protocol.md) ·
 [All experiments](research/experiment-index.md).
 
-The next [recurrent correction prototype](research/predictive-state-qualification.md)
-passes 139 fabricated checks. Those checks also expose a limitation: on a
-single-output task its routing is fixed, so it cannot demonstrate adaptive
-memory correction there. No new forecasting gain is claimed.
+The [earlier robot observer experiment](research/robot-joint-observer-results.md)
+also failed its continuation rule. The [next proposed comparison](research/fsm-linear-residual-next.md)
+adds learned nonlinear corrections to the stronger linear predictor.
 
 The [Rust inference path](rust/robot_transition/README.md) passes 110 synthetic
 checks, but its [trained-model comparison](research/robot-native-results.md)

@@ -1,5 +1,9 @@
 # Predictive-state correction qualification
 
+Historical qualification at commit `1991c965`. The later
+[measured multivariate comparison](fsm-correction-results.md) completes all fits
+but fails its continuation rule. The original qualification record follows.
+
 **139 fabricated tests passed. No new empirical performance result.** The core
 and data adapter are implemented, but the proposed single-output benchmark
 cannot test adaptive routing under the implemented equation. This limitation

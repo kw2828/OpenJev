@@ -1,10 +1,15 @@
 # Predictive-state correction: implementation and a failed benchmark match
 
-**Engineering reference, not an empirical improvement or established novelty.**
-The correction core and estimation-only ParWH adapter are implemented. No
-measured data were decoded, no model was trained, and no empirical evaluation
-was run for this extension. Its proposed single-output benchmark cannot test
-adaptive routing with this equation; the reason below was found before training.
+**The subsequent [multivariate pilot](fsm-correction-results.md) fails its rule,
+5/9 conditions pass.** All 30 fits complete, but selective correction is less
+accurate and slower than dense correction. The registered routing candidate
+stops here; no architectural novelty or efficacy is established.
+
+The initial [fabricated qualification](predictive-state-qualification.md)
+implemented the correction core and ParWH adapter without measured-data access.
+It found that a single-output benchmark cannot test adaptive routing with this
+equation. The later multivariate experiment addresses that limitation and still
+finds no advantage. The original derivation and design rationale follow.
 
 The [joint-observer study](robot-joint-observer-results.md) still fails its
 development rule. Longer conditioning did not beat the strongest historical
@@ -82,11 +87,13 @@ predictive inference. These ingredients do not establish a novel architecture.
 The [CubeSpec Fine Steering Mirror](https://github.com/merijnfloren/fsm-benchmark-data)
 is a possible multivariate benchmark: three applied voltages and three measured
 displacements. Its authors provide linear state-space and nonlinear LFR references.
-Those strong controls matter because the platform is mostly linear. Only source
-metadata were inspected here. No measurement access, baseline execution, fitting
-or automatic transfer is implied by this candidate.
+Those controls matter because the platform is mostly linear. The subsequent
+registered study uses a custom subset of its estimation data; its official-test
+and 300 mV arrays remain undecoded.
 
-## What must precede a measured comparison
+## Original pre-comparison requirements
+
+This checklist preceded the subsequent [frozen protocol](fsm-correction-protocol.md).
 
 Freeze an appropriate multivariate dataset, input timing, whole-record splits,
 model/control rosters, loss, fit budget, seeds and stopping rule. Keep predictive
@@ -94,8 +101,9 @@ supervision and available information matched. Measure complete request latency
 including routing and correction preparation, and report model/state storage.
 Compare to a strong identification reference, not only a small weak GRU.
 
-The proposed development margins remain at least 5% lower equal-record forecast
+The initial proposed development margins were at least 5% lower equal-record forecast
 error, no record more than 2% worse, and at most 10% higher latency or persistent
-numeric storage than the declared matched control. They are **not a registered
-study** until the full protocol and comparator are fixed. No ICLR-readiness,
+numeric storage than the declared matched control. These were **not yet a
+registered study** at qualification; the later protocol fixed the full comparator
+and rule. No ICLR-readiness,
 control performance or biological interpretation follows from qualification.
