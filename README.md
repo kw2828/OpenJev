@@ -60,19 +60,22 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Research status
 
-The latest [recurrent observer experiment](research/robot-observer-results.md)
-**fails its rule: 0/5 criteria pass**. Three of six learned-observer fits fail
-with nonfinite gradient norms, leaving no complete three-seed recipe.
-The independent audit agrees. This identifies a numerical training failure to investigate;
-it establishes no architecture advantage. The
+The latest [position-only observer experiment](research/robot-position-observer-results.md)
+completes all six fits but **fails its rule: 3/5 criteria pass**.
+Error is only **0.023% lower** than the simple two-observation baseline,
+at **1.37x its latency**, and **5.59% higher** than the strongest control.
+The independent audit agrees. Seven diagnostic probes identify float32 norm
+overflow in two examined cases; the new initialization does not establish a useful accuracy gain.
+All four recordings are exposed development data. The
 [earlier confirmation failure](research/robot-history-confirmation-results.md)
 also remains unchanged.
 
-[![Observer development: complete error range, all families, CPU latency and storage](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/robot-observer-results/benchmark.png)](research/robot-observer-results.md)
+[![Position-only observer: error detail from 0 to 2 with larger values marked, CPU latency and storage](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/robot-position-observer-results/benchmark-detail.png)](research/robot-position-observer-results.md)
 
-[Results and checkpoints](research/robot-observer-results.md) ·
-[Detail chart](research/robot-observer-results/benchmark-detail.png) ·
-[Protocol](research/robot-observer-protocol.md) ·
+[Results and checkpoints](research/robot-position-observer-results.md) ·
+[Full-range chart](research/robot-position-observer-results/benchmark.png) ·
+[Diagnostic chart](research/robot-position-observer-results/diagnostic-probes.png) ·
+[Protocol](research/robot-position-observer-protocol.md) ·
 [All experiments](research/experiment-index.md).
 
 The [Rust inference path](rust/robot_transition/README.md) passes 110 synthetic
