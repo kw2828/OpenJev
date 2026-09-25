@@ -1,0 +1,111 @@
+{
+  "version": "fsm-author-nllfr-budget-study-v1",
+  "experiment": {
+    "order": 28,
+    "nz": 16,
+    "nw": 8,
+    "hidden_layers": 2,
+    "width": 64,
+    "activation": "relu",
+    "seed": 42,
+    "sigma": 0.0001,
+    "samples": 8192,
+    "realizations": 6,
+    "periods": 2,
+    "fs": 6400.0,
+    "offset": 820,
+    "frequency_bins": 4097,
+    "max_iter": 100000,
+    "rtol": 0.001,
+    "atol": 1e-05,
+    "frequency_weighting": false,
+    "print_every": -1,
+    "outer_timeout_seconds": 18000,
+    "rss_cap_bytes": 34359738368,
+    "pythonhashseed": "0"
+  },
+  "source_sha256": {
+    "research/fsm_author/scripts/fit_nllfr.py": "e9307c6a2a70f43f1ef54da1a284ddfcf4da3cec1fd292b16e86a8f7c4cb8094",
+    "research/fsm_author/scripts/run_nllfr_study.py": "7f4b35e8245a5e8b6a6fbf644a5252e2f834c7d43fa34441c8ee3ec172104f3f",
+    "research/fsm_author/scripts/evaluate_nllfr.py": "a27a799e4c218bba65dbdd603dd9b3f71f054e19d4f0f26f1677c5b6334395d3",
+    "research/fsm_author/scripts/qualify_nllfr_runtime.py": "e56e12ab00d502ebd7da0ecbcb63467f277f22bec4c02e8b65938cae5f5bea68",
+    "research/fsm_author/src/openjev_fsm_author/nllfr.py": "095cfc63a842efb491be226c8167174adf37f01eb32c8f514834dccce33e7b62",
+    "research/fsm_author/src/openjev_fsm_author/nllfr_context.py": "202dd78cb5981495fde026d21a2cb66552c488038d2532e455cd3535cb2dbdf1",
+    "research/fsm_author/src/openjev_fsm_author/benchmark.py": "29a0b47219908830088718858551670464d4f3daeef15cf68410569c61fc5569",
+    "research/fsm_author/src/openjev_fsm_author/linear_context.py": "342f0656de39f84fb0070f9253c05ac767a8d348519ff608c130bdbdeeb62267",
+    "src/openjev/research/fsm_data.py": "4edad31e866ba88ed3c1e43b92f0cbc37d23fa454c2fab39cb8cf8cd8e5b6d90",
+    "research/fsm_author/tests/test_nllfr.py": "732dc9b72545d55ebb0084f2ba29a5bef8bf9a504ce85deabbb63dd62da31ab9",
+    "research/fsm_author/tests/test_nllfr_context.py": "c6d7ce1951daf46b925b3a07dc0b0e860007ca800d07cd16df7c2d7131a91c16",
+    "research/fsm_author/tests/test_fit_nllfr.py": "c23bb7e2685a8556fdbc35efdba3335ed28cb482c82bed91128899482f642972",
+    "research/fsm_author/tests/test_nllfr_evaluation.py": "9666bcaeec58e6a721e76226e13ea4372e4b8dc77b86fb716f950e2cc397de6a",
+    "research/fsm-author-nllfr-protocol.md": "bca3b9866d4e106d9aada503f3eea18bf292b0ef282978dc6d51fc89443f75b7",
+    "research/fsm-nllfr-runtime-contract.md": "c8cacdccc7813e5eb7abe0d5ef5d6ae774352a03b1f6468359d2e44dfd23d007",
+    "research/fsm-nllfr-causal-contract.md": "f377b6fe3bb0a0e5b2e63803e741ed058b63ec70a50f80b48c180e7294f79495",
+    "research/fsm-nllfr-evaluation-contract.md": "28318bc807b70c870eaab111c6a7c0b99791fef6a6db9d3babd59c0dbdaed844",
+    "research/fsm-nllfr-audit-contract.md": "b061bd35f887eae6b5a63d3361fb7042e0c27bdf05e9ae46062b9e50089a4996",
+    "research/fsm_author/uv.lock": "d7d1c8c38bbcf910bcede299277a21cd58b9da0ad56c7ae9ec75d85dbadcb2a3",
+    "research/fsm_author/pyproject.toml": "12b938f4364ceaf77345fd221a10d568ded42141fbb16d5f9753b0d671daf57f",
+    "research/fsm_author/src/openjev_fsm_author/__init__.py": "d7a63072f49e13d53b1e66ede35a667aa9a6625c00b0a0ab80b65a534b092574",
+    "research/fsm-author-nllfr-budget-protocol.md": "0bd2864fd101b891fc1886ccd994a9b089fe8da3db7019ff4d5005b20c0fdf25",
+    "research/fsm_author/scripts/fit_nllfr_budget.py": "993c8fa297384898584af16a14dc5f39046367d59b60923ad7bb0dffd81b8ff4",
+    "research/fsm_author/scripts/run_nllfr_budget_study.py": "3bb9c5c34e9114a70df3201d34933440c80a6907274431bbbdbb1ee2185f474c",
+    "research/fsm_author/tests/test_fit_nllfr_budget.py": "391e1e261ca9d4c013ac226ec3055e8054dd7a13135c5a0ecf060eef8e577d9e",
+    "scripts/audit_fsm_author_nllfr.py": "43c4787e316bc5c0a89653fece0c0694cd9f88041628b798c02382feb09dfa32"
+  },
+  "prerequisites": {
+    "runtime_preflight": {
+      "path": "output/fsm-author-engineering-v1/runtime-preflight-01/receipt.json",
+      "sha256": "4ee148d93eb39c41e2edd3ded97134398f6bc03d991375ff8cb5124a20a6ecc0"
+    },
+    "parent_registration": {
+      "path": "research/fsm-author-nllfr-registration.json",
+      "sha256": "b1202af6803c20e0f689eaadb35a1b3c93bf91a70ee11cf33a41806c4599190c"
+    },
+    "parent_process": {
+      "path": "output/fsm-author-engineering-v1/nllfr-original-process-01/process.json",
+      "sha256": "58d2641a49b33e57b0ffa3687ae34fc1ac44044c6c8cba5c206bba295b4e18f5"
+    },
+    "parent_evaluation_process": {
+      "path": "output/fsm-author-engineering-v1/nllfr-evaluation-process-01/process.json",
+      "sha256": "9947cbd421c236cb75a2755528499ce7dab9ffe826ab9aec46bab27b645a1f5b"
+    },
+    "parent_audit": {
+      "path": "output/fsm-author-nllfr-audit-v1/audit.json",
+      "sha256": "18b9babbbac4deaec7367d3301b39422cb609d8e678a34d857b29b08dba8bbe6"
+    },
+    "parent_audit_process": {
+      "path": "output/fsm-author-engineering-v1/nllfr-audit-process.json",
+      "sha256": "f5790a0e4a8a588eec18fa75ad3114e75821f7e510e86162436ac5551f8fced9"
+    },
+    "producer_qualification": {
+      "path": "output/fsm-author-nllfr-budget-engineering-v1/producer-qualification-01/receipt.json",
+      "sha256": "a4bdc13e97ee9ff84ead22e0e9a6a9ee93b946ed3f7a39adda3d7846ee544e1e"
+    },
+    "source_review": {
+      "path": "output/fsm-author-nllfr-budget-engineering-v1/source-review.json",
+      "sha256": "f81236a9dd0de27a57d93d6600266088aa53ed846d360a91c939af24715912f4"
+    },
+    "parent_initial_zip": {
+      "path": "output/fsm-author-nllfr-study-v1/initial.zip",
+      "sha256": "5ce88d6bdf0c943a2c7393e1bdc54a79c797c62603191a76e377c26ce35d58fe"
+    },
+    "parent_initial_npz": {
+      "path": "output/fsm-author-nllfr-study-v1/initial.npz",
+      "sha256": "c55081db6a545a706b060f4bc12742998b06ac1546627a693564bdd45ba79353"
+    },
+    "parent_original_bla": {
+      "path": "output/fsm-author-nllfr-study-v1/original-bla.npz",
+      "sha256": "32612d4f29fea9e29735c8100e2e6815a647604a88697bd6f948dcb78e188957"
+    },
+    "parent_fit_data": {
+      "path": "output/fsm-author-nllfr-study-v1/fit-data.npz",
+      "sha256": "d964bc7cbf2fdec8d0f166c01edd50dd9f8026598949e272afe432ce749add10"
+    },
+    "parent_solver_trace": {
+      "path": "output/fsm-author-nllfr-study-v1/solver-trace.npz",
+      "sha256": "8723efaf8a1ec2ec50ab9a80ef5fd4c14b63f2d9309c5d09402127adefda0438"
+    }
+  },
+  "output": "output/fsm-author-nllfr-budget-study-v1",
+  "process_directory": "output/fsm-author-nllfr-budget-engineering-v1/original-process-01"
+}
