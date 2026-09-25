@@ -60,18 +60,18 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Research status
 
-The latest [compact robot comparison](research/robot-structured-results.md)
-completes all **30 fresh fits**. The four-reflection candidate fails its rule:
-**23/61 conditions pass**. A simpler 590-parameter dense model lowers mean error
-**16.7% / 14.3% versus GRU32**, but takes **1.69× the inference time**. This is a
-development lead, not an established architecture advantage. Confirmation and
-official TEST remain unused.
+The latest [robot capacity comparison](research/robot-reflection-capacity-results.md)
+completes all **six fresh fits** and retains 36 earlier fits. Twelve reflections
+improve error **3.47% / 4.64%** over four, but fail the rule: **38/69 conditions pass**.
+A simpler 590-parameter dense model remains more accurate and runs **3.14× faster**.
+The next proposed experiment tests whether observed history improves initialization.
+Confirmation and official TEST remain unused.
 
-[![Compact robot forecast errors and measured CPU latency, with every selected seed](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/robot-structured-results/benchmark.png)](research/robot-structured-results.md)
+[![Robot forecast errors, CPU latency and storage, with every selected seed](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/robot-reflection-capacity-results/benchmark.png)](research/robot-reflection-capacity-results.md)
 
-[Results and checkpoints](research/robot-structured-results.md) ·
-[Protocol](research/robot-structured-protocol.md) ·
-[Previous memory comparison](research/robot-transition-results.md) ·
+[Results and checkpoints](research/robot-reflection-capacity-results.md) ·
+[Protocol](research/robot-reflection-capacity-protocol.md) ·
+[Proposed history comparison](research/robot-history-initialization-protocol.md) ·
 [All experiments](research/experiment-index.md).
 
 The [Rust inference path](rust/robot_transition/README.md) passes 110 synthetic

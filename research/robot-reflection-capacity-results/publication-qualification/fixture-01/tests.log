@@ -1,0 +1,25 @@
+F...............................                                         [100%]
+=================================== FAILURES ===================================
+________ test_complete_negative_fixture_preserves_184_42_25_and_centers ________
+
+    def test_complete_negative_fixture_preserves_184_42_25_and_centers():
+        results, resources, fits = fixture()
+        values = plotter.extract(results, resources, fits)
+        assert len(values['all_rows']) == 184 and len(values['fits']) == 42
+        assert len(values['resources']) == 25 and len(values['result']['conditions']) == 69
+        assert values['result']['status'] == 'DO_NOT_ADVANCE_REFLECTION_CAPACITY'
+        assert values['panels'][0]['entries'][0]['center'] == 4.
+        assert values['latency_ms'][0]['center'] == 3.
+        assert [p['seed'] for p in values['panels'][0]['entries'][0]['points']] == [8101, 8102, 8103]
+        assert values['all_rows'] is results['rows'] and values['fits'] is fits
+        table = plotter.tables(values)
+        assert table.count('fabricated-condition-') == 69
+        assert 'Legacy instant (cached)' in table and 'historical' in table
+        assert 'DO_NOT_ADVANCE_REFLECTION_CAPACITY' in table
+>       assert 'CONFIRM' in table and 'not an ensemble' in table
+E       AssertionError: assert ('CONFIRM' in '# Robot reflection capacity: complete saved results\n\nSame previously exposed DEV2, with one pooled rate selected pe.... A pass only qualifies a separately designed confirmation protocol; the current recordings remain development data.\n' and 'not an ensemble' in '# Robot reflection capacity: complete saved results\n\nSame previously exposed DEV2, with one pooled rate selected pe.... A pass only qualifies a separately designed confirmation protocol; the current recordings remain development data.\n')
+
+tests/test_robot_reflection_capacity_publication.py:82: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_robot_reflection_capacity_publication.py::test_complete_negative_fixture_preserves_184_42_25_and_centers
+1 failed, 31 passed in 0.50s
