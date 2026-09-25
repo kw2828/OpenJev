@@ -1,0 +1,37 @@
+{
+  "scope": "Descriptive scalar comparisons and saved coefficient equality; no training or selection change",
+  "best_new_linear": "varx96-ridge1e-06",
+  "comparisons": {
+    "varx96-ridge1e-06": {
+      "error_reduction_percent": 26.407782038147765,
+      "latency_ratio": 2.941092693908937,
+      "storage_ratio": 2.391248391248391
+    },
+    "tanh_output_only-lr0.001": {
+      "error_reduction_percent": 22.31179551738549,
+      "latency_ratio": 0.9612565573592814,
+      "storage_ratio": 1.0
+    },
+    "native_varx": {
+      "error_reduction_percent": 33.61990758822769,
+      "latency_ratio": 3.098032177617563,
+      "storage_ratio": 7.011320754716981
+    },
+    "folded_affine_feedback": {
+      "error_reduction_percent": 33.577466968840106,
+      "latency_ratio": 4.514163402635372,
+      "storage_ratio": 7.011320754716981
+    }
+  },
+  "folding": {
+    "speed_ratio_unfused_over_folded": 3.5614641252224626,
+    "storage_reduction_percent": 42.47467438494935,
+    "max_abs_parity_difference": 1.9984014443252818e-14
+  },
+  "native_and_refit32": {
+    "coefficient_arrays_exactly_equal": true,
+    "native_ms": 0.6648754933848977,
+    "refit32_ms": 0.6002499721944332,
+    "interpretation": "Same coefficients and prediction code with differing timing order; timing variation is not model improvement."
+  }
+}

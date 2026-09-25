@@ -1,0 +1,157 @@
+{
+  "status": "DEVELOPMENT_PASS",
+  "families": {
+    "varx32-ridge1e-06": {
+      "eligible": true,
+      "score_eligible": true,
+      "latency_eligible": true,
+      "storage_eligible": true,
+      "mean_rmse": 0.06462956696929562,
+      "mean_seed_median_ms": 0.6002499721944332,
+      "persistent_numeric_bytes": 6360
+    },
+    "varx32-ridge0.001": {
+      "eligible": true,
+      "score_eligible": true,
+      "latency_eligible": true,
+      "storage_eligible": true,
+      "mean_rmse": 0.07032310625135915,
+      "mean_seed_median_ms": 0.562104512937367,
+      "persistent_numeric_bytes": 6360
+    },
+    "varx32-ridge0.1": {
+      "eligible": true,
+      "score_eligible": true,
+      "latency_eligible": true,
+      "storage_eligible": true,
+      "mean_rmse": 0.12752273821194213,
+      "mean_seed_median_ms": 0.5181456217542291,
+      "persistent_numeric_bytes": 6360
+    },
+    "varx64-ridge1e-06": {
+      "eligible": true,
+      "score_eligible": true,
+      "latency_eligible": true,
+      "storage_eligible": true,
+      "mean_rmse": 0.05937229218820655,
+      "mean_seed_median_ms": 0.6175831658765674,
+      "persistent_numeric_bytes": 12504
+    },
+    "varx64-ridge0.001": {
+      "eligible": true,
+      "score_eligible": true,
+      "latency_eligible": true,
+      "storage_eligible": true,
+      "mean_rmse": 0.06215268032882396,
+      "mean_seed_median_ms": 0.6699995137751102,
+      "persistent_numeric_bytes": 12504
+    },
+    "varx64-ridge0.1": {
+      "eligible": true,
+      "score_eligible": true,
+      "latency_eligible": true,
+      "storage_eligible": true,
+      "mean_rmse": 0.10538896778395601,
+      "mean_seed_median_ms": 0.575312995351851,
+      "persistent_numeric_bytes": 12504
+    },
+    "varx96-ridge1e-06": {
+      "eligible": true,
+      "score_eligible": true,
+      "latency_eligible": true,
+      "storage_eligible": true,
+      "mean_rmse": 0.05829579195695018,
+      "mean_seed_median_ms": 0.7003538776189089,
+      "persistent_numeric_bytes": 18648
+    },
+    "varx96-ridge0.001": {
+      "eligible": true,
+      "score_eligible": true,
+      "latency_eligible": true,
+      "storage_eligible": true,
+      "mean_rmse": 0.06051796745925156,
+      "mean_seed_median_ms": 0.6457921117544174,
+      "persistent_numeric_bytes": 18648
+    },
+    "varx96-ridge0.1": {
+      "eligible": true,
+      "score_eligible": true,
+      "latency_eligible": true,
+      "storage_eligible": true,
+      "mean_rmse": 0.10116070003298595,
+      "mean_seed_median_ms": 0.6667495472356677,
+      "persistent_numeric_bytes": 18648
+    },
+    "affine_output_only-lr0.0001": {
+      "eligible": true,
+      "score_eligible": true,
+      "latency_eligible": true,
+      "storage_eligible": true,
+      "mean_rmse": 0.06395548651694193,
+      "mean_seed_median_ms": 1.6634098331754406,
+      "persistent_numeric_bytes": 11056
+    },
+    "affine_feedback-lr0.0001": {
+      "eligible": true,
+      "score_eligible": true,
+      "latency_eligible": true,
+      "storage_eligible": true,
+      "mean_rmse": 0.06458827196400516,
+      "mean_seed_median_ms": 1.6250904882326722,
+      "persistent_numeric_bytes": 11056
+    },
+    "tanh_output_only-lr0.001": {
+      "eligible": true,
+      "score_eligible": true,
+      "latency_eligible": true,
+      "storage_eligible": true,
+      "mean_rmse": 0.05522223941878765,
+      "mean_seed_median_ms": 2.142826134028534,
+      "persistent_numeric_bytes": 44592
+    },
+    "tanh_feedback-lr0.0003": {
+      "eligible": true,
+      "score_eligible": true,
+      "latency_eligible": true,
+      "storage_eligible": true,
+      "mean_rmse": 0.0429011662795467,
+      "mean_seed_median_ms": 2.0598056726157665,
+      "persistent_numeric_bytes": 44592
+    },
+    "folded_affine_feedback": {
+      "eligible": true,
+      "score_eligible": true,
+      "latency_eligible": true,
+      "storage_eligible": true,
+      "mean_rmse": 0.06458827196400514,
+      "mean_seed_median_ms": 0.4562984298293789,
+      "persistent_numeric_bytes": 6360
+    },
+    "native_varx": {
+      "eligible": true,
+      "score_eligible": true,
+      "latency_eligible": true,
+      "storage_eligible": true,
+      "mean_rmse": 0.06462956696929562,
+      "mean_seed_median_ms": 0.6648754933848977,
+      "persistent_numeric_bytes": 6360
+    }
+  },
+  "candidate": "tanh_feedback-lr0.0003",
+  "strongest_control": "tanh_output_only-lr0.001",
+  "conditions": {
+    "all_9_fits_complete": true,
+    "all_25_evaluations_complete": true,
+    "all_3_folds_equivalent": true,
+    "five_percent_below_strongest_control": true,
+    "every_seed_below_strongest_control": true,
+    "no_record_over_two_percent_strongest_control": true,
+    "both_amplitudes_below_strongest_control": true,
+    "latency_within_ten_percent_tanh_output": true,
+    "storage_no_more_than_tanh_output": true
+  },
+  "passed": 9,
+  "total": 9,
+  "selection": "Fixed parent candidate; globally strongest complete control by exposed DEV error, then lexical name. Timing failure never replaces it.",
+  "elapsed_seconds": 4.338611416053027
+}

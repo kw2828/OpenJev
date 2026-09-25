@@ -60,23 +60,25 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Research status
 
-The latest [recurrent residual comparison](research/fsm-residual-results.md)
-**passes its development rule: 9/9 conditions**. Across 36 fits, feeding a small
-nonlinear correction back into a linear forecast lowers selected-model error
-**22.31% versus output-only correction**, with **2.33% higher latency** and equal
-storage. An independent audit agrees. Every tested learning rate favors nonlinear
-feedback; the linear baseline remains **4.08 times faster**.
+The [recurrent residual model](research/fsm-linear-controls-results.md) survives
+nine stronger linear controls with its weights unchanged: **26.41% lower error
+than the best longer-memory linear model** and **22.31% lower than output-only
+correction**. All **9/9 development conditions pass**, with independent audit
+agreement. The candidate takes **2.06 ms versus 0.70 ms** for the best linear
+control, so the quality gain still costs more computation.
 
-[![All thirteen residual and linear recipes: forecast error and full-request latency](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/fsm-residual-results/benchmark.png)](research/fsm-residual-results.md)
+[![All fifteen stronger-control families: forecast error and full-request latency](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/fsm-linear-controls-results/benchmark.png)](research/fsm-linear-controls-results.md)
 
-[Results and checkpoints](research/fsm-residual-results.md) ·
-[Protocol](research/fsm-residual-protocol.md) ·
+[Results and checkpoints](research/fsm-linear-controls-results.md) ·
+[Original 36-fit comparison](research/fsm-residual-results.md) ·
+[Protocol](research/fsm-linear-controls-protocol.md) ·
 [Next comparison](research/fsm-residual-next.md) ·
 [All experiments](research/experiment-index.md).
 
-Rates were selected on the same exposed development data. This is a promising
-lead, not untouched validation or a novel architecture. Stronger references and
-an untouched amplitude shift come next. Earlier
+Selection and these checks use the same exposed development data. This is a
+promising lead, not untouched validation or a novel architecture. The
+[authors' reference methods](research/fsm-author-reference-qualification.md)
+and an untouched amplitude shift remain to be tested. Earlier
 [selective correction](research/fsm-correction-results.md) and
 [robot observer](research/robot-joint-observer-results.md) experiments failed
 their rules; their complete results remain available.

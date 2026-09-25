@@ -1,9 +1,12 @@
 # Proposed next checks for the FSM residual model
 
-**NOT REGISTERED / NOT EXECUTED.** This note proposes a sequence. No reserved
-measurements have been read under this proposal, and success remains uncertain.
-The residual study passed its development rule and the independent audit agreed.
-That justifies a stronger comparison; exposed-DEV selection remains development.
+**PARTIALLY EXECUTED.** The longer-VARX and folded-affine checks below were
+subsequently [registered](fsm-linear-controls-protocol.md) and
+[passed their development rule](fsm-linear-controls-results.md), with independent
+audit agreement. The author BLA28/NL-LFR adaptation and 300 mV shift remain
+unregistered and unexecuted. No reserved measurements have been read under
+this proposal. The remaining steps below are prospective; exposed-DEV selection
+remains development.
 See the [frozen protocol](fsm-residual-protocol.md) and
 [prior-art limits](fsm-residual-prior-art.md).
 
