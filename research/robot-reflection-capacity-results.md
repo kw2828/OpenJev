@@ -2,7 +2,7 @@
 
 **The capacity candidate fails its frozen rule: 38/69 conditions, comprising 38/67 accuracy and 0/2 compute conditions.** All six fresh fits complete 4,096 updates. Twelve reflections lower selected-recipe mean error by 3.47% / 4.64% versus four reflections, below the required 5% on both development recordings. Simpler dense controls remain more accurate and substantially faster.
 
-This capacity recipe stops here. The next comparison tests observed-history initialization of the stronger dense baseline, with an equal-size local-information control. It is a separate, now registered experiment with no outcome yet, not a demonstrated explanation of the earlier failures.
+This capacity recipe stops here. The next comparison tests observed-history initialization of the stronger dense baseline, with an equal-size local-information control. That separate experiment is now [closed with all five development criteria passing](robot-history-initialization-results.md). It does not identify the cause of the earlier reflection failures.
 
 ![All selected seeds, forecast errors, full-request latency and persistent storage](robot-reflection-capacity-results/benchmark.png)
 
@@ -40,7 +40,7 @@ Twelve reflections improve all six selected seed/file comparisons against four r
 
 Selected learning rates differ between four and twelve reflections. At the common .001 rate, twelve reflections are slightly worse on both files; at .003 they improve both. The result does not establish that reflection rank was the cause of the earlier failure. It supports only a modest selected-recipe improvement under this training budget. Products of Householder reflections also have established [prior art](https://proceedings.mlr.press/v70/mhammedi17a.html), including [DeltaProduct](https://arxiv.org/abs/2502.10297).
 
-The cheaper dense model remains the more useful development starting point. The [prospective history experiment](robot-history-initialization-protocol.md) will compare the original initializer with equal-size affine heads using local features or older observations. Its [implementation qualification](robot-history-initialization-qualification-results/README.md) passes 145 fabricated checks; an effectiveness result is still pending. A useful prefix could encode physical state, causal-filter state or a statistical regularity; this comparison alone cannot distinguish those mechanisms.
+The cheaper dense model remains the more useful development starting point. The subsequent [history experiment](robot-history-initialization-results.md) compares the original initializer with equal-size affine heads using local features or older observations. It passes all five development criteria, with a 5.21% mean error reduction against the equal-size local control, and qualifies a new confirmation protocol. A useful prefix could encode physical state, causal-filter state or a statistical regularity; this comparison alone cannot distinguish those mechanisms.
 
 ## Evidence and limits
 
