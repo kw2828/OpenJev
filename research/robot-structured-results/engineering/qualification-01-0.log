@@ -1,0 +1,37 @@
+UP017 [*] Use `datetime.UTC` alias
+  --> scripts/launch_robot_structured.py:66:43
+   |
+64 |     env.update({key: '1' for key in THREADS})
+65 |     record = {'command': COMMAND, 'prefit_commit': commit,
+66 |               'started_utc': datetime.now(timezone.utc).isoformat(),
+   |                                           ^^^^^^^^^^^^
+67 |               'registration_sha256': descriptor(REGISTRATION)['sha256'],
+68 |               'launcher': descriptor(__file__), 'thread_env': {key: env[key] for key in THREADS},
+   |
+help: Convert to `datetime.UTC` alias
+   |
+8  | import time
+   - from datetime import datetime, timezone
+9  + from datetime import datetime, timezone, UTC
+10 | from pathlib import Path
+--------------------------------------------------------------------------------
+65 |     record = {'command': COMMAND, 'prefit_commit': commit,
+   -               'started_utc': datetime.now(timezone.utc).isoformat(),
+66 +               'started_utc': datetime.now(UTC).isoformat(),
+67 |               'registration_sha256': descriptor(REGISTRATION)['sha256'],
+   |
+
+PLW1510 `subprocess.run` without explicit `check` argument
+  --> scripts/launch_robot_structured.py:75:23
+   |
+73 |     with (ENGINEERING / 'run-process-01.log').open('xb') as log:
+74 |         try:
+75 |             process = subprocess.run(COMMAND, cwd=ROOT, env=env, stdout=log,
+   |                       ^^^^^^^^^^^^^^
+76 |                                      stderr=subprocess.STDOUT,
+77 |                                      timeout=plan['config']['wall_cap_seconds'] + 60)
+   |
+help: Add explicit `check=False`
+
+Found 2 errors.
+[*] 1 fixable with the `--fix` option.

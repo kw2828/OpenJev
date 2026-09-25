@@ -60,33 +60,23 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Research status
 
-The latest [robot transition experiment](research/robot-transition-results.md)
-completes all 24 fits. A small model with a current-state scheduler lowers mean
-forecast error **8.3% / 6.4% versus GRU**, but takes **1.9× the inference time**.
-Adding persistent scheduler memory fails its rule: **27/45 conditions pass**.
-These are development results on previously used recordings; confirmation and
+The latest [compact robot comparison](research/robot-structured-results.md)
+completes all **30 fresh fits**. The four-reflection candidate fails its rule:
+**23/61 conditions pass**. A simpler 590-parameter dense model lowers mean error
+**16.7% / 14.3% versus GRU32**, but takes **1.69× the inference time**. This is a
+development lead, not an established architecture advantage. Confirmation and
 official TEST remain unused.
 
-[![Robot transition forecast errors and measured CPU latency, with every selected seed](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/robot-transition-results/benchmark.png)](research/robot-transition-results.md)
+[![Compact robot forecast errors and measured CPU latency, with every selected seed](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/robot-structured-results/benchmark.png)](research/robot-structured-results.md)
 
-[Results and checkpoints](research/robot-transition-results.md) ·
-[Protocol](research/robot-transition-protocol.md) ·
-[Previous chain-memory result](research/robot-coupling-results.md) ·
+[Results and checkpoints](research/robot-structured-results.md) ·
+[Protocol](research/robot-structured-protocol.md) ·
+[Previous memory comparison](research/robot-transition-results.md) ·
 [All experiments](research/experiment-index.md).
 
-The preceding [Silverbox comparison](research/phase-results.md) also rejected
-the phase-memory candidate. GRU16 and a seven-parameter cubic model performed
-substantially better there.
-
-The preceding [sensor-memory screen](research/sensor-screen-results.md) rejected
-its target because static calibration already left too little headroom.
-
-The earlier [observation-compression baseline](research/measurement-results.md)
-passes all 26 registered checks: a 1,022-byte spectral sketch has zero measured
-decision regret on two long-stream tests. A simple DCT sketch performs almost
-identically, and both are slower than raw buffers there. This is a fixed-grid,
-supplied-model baseline, not a trained architecture. The [RL deletion policy](research/retention-results.md)
-remains a failed study.
+The [Rust inference path](rust/robot_transition/README.md) passes 110 synthetic
+checks, but its [trained-model comparison](research/robot-native-results.md)
+stops at physical-output parity before timing. **No Rust speedup is established.**
 
 Separate engineering studies measured [1.20-1.35x training throughput](research/finite-joint-reuse-throughput-results.md)
 from shared computation and [2.08x scoring speed](research/shared-prefix-results.md)

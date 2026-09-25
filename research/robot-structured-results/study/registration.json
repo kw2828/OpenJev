@@ -1,0 +1,537 @@
+{
+  "config": {
+    "adam_betas": [
+      0.9,
+      0.999
+    ],
+    "adam_eps": 1e-08,
+    "arms": [
+      "householder",
+      "dense_bounded",
+      "dense_unbounded",
+      "dense_mlp",
+      "gru32"
+    ],
+    "batch_reuse": true,
+    "batch_size": 16,
+    "causal_ridge_refit": false,
+    "comparison_arms": [
+      "householder",
+      "dense_bounded",
+      "dense_unbounded",
+      "dense_mlp",
+      "gru32",
+      "legacy_instant"
+    ],
+    "confirmation_access": false,
+    "context": 32,
+    "dev_horizon": 128,
+    "dev_stride": 160,
+    "direct_fit_stride": 32,
+    "direct_history": 16,
+    "direct_noninferiority_ratio": 1.05,
+    "direct_ridges": [
+      1.0,
+      100.0
+    ],
+    "exposed_dev": true,
+    "fit_cap_seconds": 900.0,
+    "gradient_clip": 1.0,
+    "horizons": [
+      64,
+      128
+    ],
+    "joint_harm_ratio": 1.1,
+    "latency_ratio": 0.8,
+    "learning_rates": [
+      0.001,
+      0.003
+    ],
+    "legacy_refit": false,
+    "mean_ratio": 1.02,
+    "normalization_dtype": "float64",
+    "normalization_scope": "all FIT rows after per-recording skip",
+    "official_test_access": false,
+    "paired_ratio": 1.05,
+    "partitions": {
+      "dev": [
+        "recording_2021_12_15_21H_54M.mat",
+        "recording_2021_12_15_22H_10M.mat"
+      ],
+      "fit": [
+        "recording_2021_12_15_20H_29M.mat",
+        "recording_2021_12_15_20H_38M.mat",
+        "recording_2021_12_15_20H_45M.mat",
+        "recording_2021_12_15_21H_11M.mat",
+        "recording_2021_12_15_21H_32M.mat",
+        "recording_2021_12_15_21H_3M.mat",
+        "recording_2021_12_15_21H_41M.mat"
+      ]
+    },
+    "preprocessing_sha256": "d2f5c8480075c9e18a039e080deaa6c8ddd0b67313166bbfac37bd699474a274",
+    "ridge": 1.0,
+    "ridge_dtype": "float64",
+    "seeds": [
+      8101,
+      8102,
+      8103
+    ],
+    "simulation_dtype": "float32",
+    "skip": 64,
+    "storage_ratio": 0.8,
+    "timing_repeats": 20,
+    "timing_warmups": 3,
+    "train_horizon": 128,
+    "updates": 4096,
+    "version": "robot-structured-study-v1",
+    "wall_cap_seconds": 10800.0,
+    "window_seed_offset": 520000
+  },
+  "created_utc": "2026-09-25T00:24:01.269793+00:00",
+  "data": {
+    "dev-data-recording_2021_12_15_21H_54M.mat.npz": {
+      "bytes": 344282,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-coupling-study-v1/dev-data-recording_2021_12_15_21H_54M.mat.npz",
+      "sha256": "3912ccc5c4f93cac40e5ddf03ff9755ba3f22ac710281e0d159f330cacced8c7"
+    },
+    "dev-data-recording_2021_12_15_22H_10M.mat.npz": {
+      "bytes": 344360,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-coupling-study-v1/dev-data-recording_2021_12_15_22H_10M.mat.npz",
+      "sha256": "d7c3d8d70edc80f7f96ec122495431bb3fc8e3c91eb1f79bac03ffb246c1b91f"
+    },
+    "fit-data-recording_2021_12_15_20H_29M.mat.npz": {
+      "bytes": 344120,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-coupling-study-v1/fit-data-recording_2021_12_15_20H_29M.mat.npz",
+      "sha256": "67df15c8dc33cd164fce27d9e13b6b95795ea2dd577397e3fa90a2dae329a431"
+    },
+    "fit-data-recording_2021_12_15_20H_38M.mat.npz": {
+      "bytes": 344392,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-coupling-study-v1/fit-data-recording_2021_12_15_20H_38M.mat.npz",
+      "sha256": "f00509a3f9c622b861994af042eb944cd141dd04cdf4387d20dd660906105ea0"
+    },
+    "fit-data-recording_2021_12_15_20H_45M.mat.npz": {
+      "bytes": 343866,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-coupling-study-v1/fit-data-recording_2021_12_15_20H_45M.mat.npz",
+      "sha256": "8cf79416d1b1f3569938f49dbec9b2ad7e092496e75013d7be8a8df2b24ed51c"
+    },
+    "fit-data-recording_2021_12_15_21H_11M.mat.npz": {
+      "bytes": 344248,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-coupling-study-v1/fit-data-recording_2021_12_15_21H_11M.mat.npz",
+      "sha256": "211fabbbd385cc14d0963a9208968b30f4204558145364df1eb0f6afe71cabdf"
+    },
+    "fit-data-recording_2021_12_15_21H_32M.mat.npz": {
+      "bytes": 344040,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-coupling-study-v1/fit-data-recording_2021_12_15_21H_32M.mat.npz",
+      "sha256": "35f4e6b63f37f547b5b66b4129938930d174d8bb3e27151c50f38b33cc303037"
+    },
+    "fit-data-recording_2021_12_15_21H_3M.mat.npz": {
+      "bytes": 344318,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-coupling-study-v1/fit-data-recording_2021_12_15_21H_3M.mat.npz",
+      "sha256": "9281f9be13b90a8cd98d554356ce3cc6387d156f3b80382969f16b63cb0bbd39"
+    },
+    "fit-data-recording_2021_12_15_21H_41M.mat.npz": {
+      "bytes": 344196,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-coupling-study-v1/fit-data-recording_2021_12_15_21H_41M.mat.npz",
+      "sha256": "c5410e3823d5c2c57ccee221e5784e5dc978909f18ebb078d7884ad6bdc5bf64"
+    },
+    "normalizers.npz": {
+      "bytes": 956,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-coupling-study-v1/normalizers.npz",
+      "sha256": "8725bf3bb17e03fcd7e689ec5fd7a285dfc58f3b067e1379ef5170ab45fe4d2b"
+    },
+    "references.npz": {
+      "bytes": 11327977,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-coupling-study-v1/references.npz",
+      "sha256": "ea2a5cbbff16bbe7e6045405915fc35bbd8e45da2a7b720cb1f6d584a0321089"
+    }
+  },
+  "diagnostic": {
+    "bytes": 163266,
+    "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-transition-mechanism-diagnostic-v1/diagnostic.json",
+    "sha256": "c448dbbe173804077aaf94d3aeb765d5365f9d5ac3ea6dca84be76748186d5e6"
+  },
+  "diagnostic_evidence": {
+    "analysis-01.log": {
+      "bytes": 256,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-transition-mechanism-diagnostic-v1/analysis-01.log",
+      "sha256": "c062f43d063998eafbc2ecd187a35dcb0a9198aa759eb74a22f7a7dadfc0111d"
+    },
+    "analyze.py": {
+      "bytes": 13845,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-transition-mechanism-diagnostic-v1/analyze.py",
+      "sha256": "f6073b7fedcd4159e86129ccff926a5ad130877a9ea1d11815cea6a0a8a74202"
+    },
+    "definition.json": {
+      "bytes": 1896,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-transition-mechanism-diagnostic-v1/definition.json",
+      "sha256": "b17512d79eab8748e57752a4fc5c711a490c2374be2cbb99b8785405f70a42ba"
+    },
+    "diagnostic.json": {
+      "bytes": 163266,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-transition-mechanism-diagnostic-v1/diagnostic.json",
+      "sha256": "c448dbbe173804077aaf94d3aeb765d5365f9d5ac3ea6dca84be76748186d5e6"
+    },
+    "interpretation.md": {
+      "bytes": 3016,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-transition-mechanism-diagnostic-v1/interpretation.md",
+      "sha256": "3ac56f9a0c7d0f0161711269df13172f32f0095b1fb4df4351a4059e7fb4b848"
+    },
+    "launch-01.json": {
+      "bytes": 477,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-transition-mechanism-diagnostic-v1/launch-01.json",
+      "sha256": "2ed2170e29dfc7bfb6ee5256112b5ad1eab2b4d8e9d38d0e453b746b89d03737"
+    },
+    "process-01.json": {
+      "bytes": 621,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-transition-mechanism-diagnostic-v1/process-01.json",
+      "sha256": "8195b8ae65038b107a6bec007f273503940b9db88a3e64d547f376abea2bae0f"
+    },
+    "receipt.json": {
+      "bytes": 68745,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-transition-mechanism-diagnostic-v1/receipt.json",
+      "sha256": "ba9f05b9e5a793ad9fb35059c4dd1f81b8da70dae90dbdc74de3446a167abbfe"
+    }
+  },
+  "environment": {
+    "machine": "arm64",
+    "numpy": "2.5.3",
+    "platform": "macOS-26.6.1-arm64-arm-64bit",
+    "python": "3.12.13 (main, Jul 23 2026, 14:33:47) [Clang 22.1.3 ]",
+    "scipy": "1.18.1",
+    "thread_env": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    },
+    "torch": "2.14.0"
+  },
+  "launcher": {
+    "bytes": 4237,
+    "sha256": "143e6a0e5504b6a7e334c650b821e59a50b10d6382fcaa5e44e68ae9fefd57c2"
+  },
+  "parent_closure": {
+    "audit": {
+      "bytes": 126486,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-transition-audit-v1/audit.json",
+      "sha256": "7a15cca5c114d922de2c842b4b07a019a32b03674585d4c6c62f66f7a5e50754"
+    },
+    "audit_process": {
+      "bytes": 993,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-transition-engineering-v1/audit-process-01.json",
+      "sha256": "35a6ad071df7b08dd54e9fd515d25329b4681e91b2b29dd0fde4f673de60f5ae"
+    },
+    "manifest": {
+      "bytes": 37312,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-transition-study-v1/manifest.json",
+      "sha256": "e5e471c17fb75363ee2c8ffb03616439ae91be4a9de5a241f0d0dd4a5c8a628c"
+    },
+    "process": {
+      "bytes": 592,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-transition-engineering-v1/run-process-01.json",
+      "sha256": "349b4fcd88556e3529349e3cfd53348d460c2a3e3eb4631ea56c4076131fa45b"
+    },
+    "receipt": {
+      "bytes": 362,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-transition-study-v1/receipt.json",
+      "sha256": "3f66b293c6f9d16d45c0dbac42c4bd818f4a5f156ac638730c8bd43ce4c1bc37"
+    }
+  },
+  "parent_payloads": {
+    "batches-8101.npz": {
+      "bytes": 188993,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-transition-study-v1/batches-8101.npz",
+      "sha256": "3c82d5b9703599b7711e135265aca2c461e68f2574bbf501a05805438f487254"
+    },
+    "batches-8102.npz": {
+      "bytes": 189027,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-transition-study-v1/batches-8102.npz",
+      "sha256": "a2c209bd56c018a5faeaeacf90b6f5cd85fab8550850b94828523548acca6506"
+    },
+    "batches-8103.npz": {
+      "bytes": 188917,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-transition-study-v1/batches-8103.npz",
+      "sha256": "d59ea6f544acd762edc9b21f1201eeb4aa0fc7b23c5bbddb969fffcad0660957"
+    },
+    "causal_ridge_1.json": {
+      "bytes": 733,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-transition-study-v1/causal_ridge_1.json",
+      "sha256": "743771fe90154462287c332d741d41dea5d292c79e1ae52001aa49b851bfc826"
+    },
+    "causal_ridge_1.npz": {
+      "bytes": 3439520,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-transition-study-v1/causal_ridge_1.npz",
+      "sha256": "3e2da14f1ba1152374feb4c01ea4950c2dff15a3a1b3c2b73193f0cd059aebf5"
+    },
+    "causal_ridge_100.json": {
+      "bytes": 735,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-transition-study-v1/causal_ridge_100.json",
+      "sha256": "3a7b25be5f890889b89b32afa8c289e6c082bdcbdc3e1cfca9e45baf227e544c"
+    },
+    "causal_ridge_100.npz": {
+      "bytes": 3441910,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-transition-study-v1/causal_ridge_100.npz",
+      "sha256": "ebc0512cb5d61e55e156a1043fdeaffb343c0d411356fedb5d343cf87c81fb29"
+    },
+    "fits.json": {
+      "bytes": 38291,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-transition-study-v1/fits.json",
+      "sha256": "9ef5c2ff0e13e79893840ba34a785afdf00d80ba403e4897bfba8657301bc0e2"
+    },
+    "linear.npz": {
+      "bytes": 1423,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-transition-study-v1/linear.npz",
+      "sha256": "248db5bd0ee09eb3b5eff3c4ea52ea83e9002f90b1e46405493897833448a8c5"
+    },
+    "lpv_instant-8101-lr0/final.npz": {
+      "bytes": 6187,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-transition-study-v1/lpv_instant-8101-lr0/final.npz",
+      "sha256": "acfe4e66c01e02423b86f3be6e5a2dfc0cb0aea13dbb88899a727eef40ca6145"
+    },
+    "lpv_instant-8101-lr0/fit-receipt.json": {
+      "bytes": 1006,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-transition-study-v1/lpv_instant-8101-lr0/fit-receipt.json",
+      "sha256": "be3a9719eb1110e0297b4fb9b294f6f20c6e47d0d25f1de9105e32c5e1fe1259"
+    },
+    "lpv_instant-8101-lr0/initial.npz": {
+      "bytes": 5721,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-transition-study-v1/lpv_instant-8101-lr0/initial.npz",
+      "sha256": "f41cfd995d847c580b15d929f388a25792691877cff190e8a46e8c2ff45a8e3b"
+    },
+    "lpv_instant-8101-lr0/optimizer.npz": {
+      "bytes": 13372,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-transition-study-v1/lpv_instant-8101-lr0/optimizer.npz",
+      "sha256": "02fb3aa2698e257e97e13d29379918da4c8795057364d201a29780c047bc64be"
+    },
+    "lpv_instant-8101-lr0/trace.json": {
+      "bytes": 459576,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-transition-study-v1/lpv_instant-8101-lr0/trace.json",
+      "sha256": "d7fcba4f06c76dcab4f8259c0777b91d2d06d45915fdc2d95fe3866063fe89d9"
+    },
+    "lpv_instant-8101-lr1/final.npz": {
+      "bytes": 6196,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-transition-study-v1/lpv_instant-8101-lr1/final.npz",
+      "sha256": "83c19946b09229e3d16b88cf9ab310404a967c6708d68e861cd7e7a2172f2862"
+    },
+    "lpv_instant-8101-lr1/fit-receipt.json": {
+      "bytes": 1006,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-transition-study-v1/lpv_instant-8101-lr1/fit-receipt.json",
+      "sha256": "17cbc58f1ad280b0af725a64ddcd465227d7d18c09e57405fc3eddc2d3197289"
+    },
+    "lpv_instant-8101-lr1/initial.npz": {
+      "bytes": 5721,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-transition-study-v1/lpv_instant-8101-lr1/initial.npz",
+      "sha256": "f41cfd995d847c580b15d929f388a25792691877cff190e8a46e8c2ff45a8e3b"
+    },
+    "lpv_instant-8101-lr1/optimizer.npz": {
+      "bytes": 13402,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-transition-study-v1/lpv_instant-8101-lr1/optimizer.npz",
+      "sha256": "6601e484bf4bf92335e6b24cf593d8f4a9f76d2274249e51c26515f153a9ee50"
+    },
+    "lpv_instant-8101-lr1/trace.json": {
+      "bytes": 459839,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-transition-study-v1/lpv_instant-8101-lr1/trace.json",
+      "sha256": "54d2930f9deecc59e700d6518411317e21ca3be5d938b7d875612769a19ce804"
+    },
+    "lpv_instant-8102-lr0/final.npz": {
+      "bytes": 6200,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-transition-study-v1/lpv_instant-8102-lr0/final.npz",
+      "sha256": "bacb87356f6b970e0999152278aa66201e314b848dd023714b17d8c404db436f"
+    },
+    "lpv_instant-8102-lr0/fit-receipt.json": {
+      "bytes": 1005,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-transition-study-v1/lpv_instant-8102-lr0/fit-receipt.json",
+      "sha256": "2f282b98d5e6ff1bc8b5ac41cfd49009a322935c1efe9dce56531e19e6a75d94"
+    },
+    "lpv_instant-8102-lr0/initial.npz": {
+      "bytes": 5727,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-transition-study-v1/lpv_instant-8102-lr0/initial.npz",
+      "sha256": "590a129051a8ed814898d069194385483788c697373130906f8d2a91d943cc5f"
+    },
+    "lpv_instant-8102-lr0/optimizer.npz": {
+      "bytes": 13369,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-transition-study-v1/lpv_instant-8102-lr0/optimizer.npz",
+      "sha256": "6aa3038afff68a6f0013b0da145f9aca32429ca4b7fdcf8da13d2ac5938ba555"
+    },
+    "lpv_instant-8102-lr0/trace.json": {
+      "bytes": 459370,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-transition-study-v1/lpv_instant-8102-lr0/trace.json",
+      "sha256": "beb87d75f952f6781d9d5097e3a441130f5b4bcba17ec6022852745094b15d11"
+    },
+    "lpv_instant-8102-lr1/final.npz": {
+      "bytes": 6215,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-transition-study-v1/lpv_instant-8102-lr1/final.npz",
+      "sha256": "94bcebdd0ba147fc84abf07a8bed7052bd521d68d89fcc85d841c77a864745e5"
+    },
+    "lpv_instant-8102-lr1/fit-receipt.json": {
+      "bytes": 1006,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-transition-study-v1/lpv_instant-8102-lr1/fit-receipt.json",
+      "sha256": "128e3d31c8da93dc9a2d5cde32527cd5344819e0ace34d070a09ec7f3a88590d"
+    },
+    "lpv_instant-8102-lr1/initial.npz": {
+      "bytes": 5727,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-transition-study-v1/lpv_instant-8102-lr1/initial.npz",
+      "sha256": "590a129051a8ed814898d069194385483788c697373130906f8d2a91d943cc5f"
+    },
+    "lpv_instant-8102-lr1/optimizer.npz": {
+      "bytes": 13391,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-transition-study-v1/lpv_instant-8102-lr1/optimizer.npz",
+      "sha256": "970d97bc7a18bc60e5d9b3c299c9555488595b0b44ec816e5fb15970ca89d7b4"
+    },
+    "lpv_instant-8102-lr1/trace.json": {
+      "bytes": 459837,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-transition-study-v1/lpv_instant-8102-lr1/trace.json",
+      "sha256": "35fe47582d8cf64285778d2a550a0831e91c27fa595b6fb9aed5994860febada"
+    },
+    "lpv_instant-8103-lr0/final.npz": {
+      "bytes": 6209,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-transition-study-v1/lpv_instant-8103-lr0/final.npz",
+      "sha256": "755ac4a2f2c74d0fc7af8770e49ebd631b6d901613c07872ee51f470b81bf93f"
+    },
+    "lpv_instant-8103-lr0/fit-receipt.json": {
+      "bytes": 1005,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-transition-study-v1/lpv_instant-8103-lr0/fit-receipt.json",
+      "sha256": "60d45782ba0f7233fd999d3b2accc4f62c4e6d03dccb4bee6653ddb9bf7fb00b"
+    },
+    "lpv_instant-8103-lr0/initial.npz": {
+      "bytes": 5718,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-transition-study-v1/lpv_instant-8103-lr0/initial.npz",
+      "sha256": "055efe8db0cd0a726fa14e8a6b62e00fe892bfc899adbf7375550d403077ffa5"
+    },
+    "lpv_instant-8103-lr0/optimizer.npz": {
+      "bytes": 13394,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-transition-study-v1/lpv_instant-8103-lr0/optimizer.npz",
+      "sha256": "ac61421a0f1a24a4e9d93ff496164c9d19c85df3776f630c4f1100272b81f3c9"
+    },
+    "lpv_instant-8103-lr0/trace.json": {
+      "bytes": 459407,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-transition-study-v1/lpv_instant-8103-lr0/trace.json",
+      "sha256": "f657465a5689c8c31b906b08adbdb756ac6ee7743bd0d8a15613445070af2fef"
+    },
+    "lpv_instant-8103-lr1/final.npz": {
+      "bytes": 6209,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-transition-study-v1/lpv_instant-8103-lr1/final.npz",
+      "sha256": "f5f9978fbb464428797ee419fbaf987b4f7d681786793639a8445e7102359753"
+    },
+    "lpv_instant-8103-lr1/fit-receipt.json": {
+      "bytes": 1006,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-transition-study-v1/lpv_instant-8103-lr1/fit-receipt.json",
+      "sha256": "f32372d83c4eefc1f25983968e4e6e0d2e5e065cb4214d0cb1157bffab21b2bf"
+    },
+    "lpv_instant-8103-lr1/initial.npz": {
+      "bytes": 5718,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-transition-study-v1/lpv_instant-8103-lr1/initial.npz",
+      "sha256": "055efe8db0cd0a726fa14e8a6b62e00fe892bfc899adbf7375550d403077ffa5"
+    },
+    "lpv_instant-8103-lr1/optimizer.npz": {
+      "bytes": 13398,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-transition-study-v1/lpv_instant-8103-lr1/optimizer.npz",
+      "sha256": "c180b73b585382f7f32d0dc98c753b39e5e50a782f21ad0f297bf626b93fef11"
+    },
+    "lpv_instant-8103-lr1/trace.json": {
+      "bytes": 459715,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-transition-study-v1/lpv_instant-8103-lr1/trace.json",
+      "sha256": "5cff51c2b29f11537c41e4a5b5e572fbd52e2377873ac9b011a3f4d70da05a53"
+    },
+    "normalizers.npz": {
+      "bytes": 956,
+      "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-transition-study-v1/normalizers.npz",
+      "sha256": "8725bf3bb17e03fcd7e689ec5fd7a285dfc58f3b067e1379ef5170ab45fe4d2b"
+    }
+  },
+  "parent_registration_sha256": "8e12dac5ef2cc6acf95bea68bd8551f3040c103e628fa52697dba0511ed1c52a",
+  "qualification": {
+    "bytes": 5865,
+    "path": "/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/robot-structured-engineering-v1/qualification-02.json",
+    "sha256": "9544a30b6f2a10a50e967816ef9a0a13d570a58e210ca7bbfc9ba3eb280cca4a"
+  },
+  "scope": "New adaptive development campaign; previous DEV exposure disclosed; 30 fresh attempts plus 6 frozen anchors; no raw decode, no CONFIRM/TEST, no retries",
+  "sources": {
+    "research/robot-coupling-protocol.md": {
+      "bytes": 12433,
+      "sha256": "bf9501470701d25eee3d1c6915a55cd773ed6cd7f9476f5d7d75fb51c7f7fe3e"
+    },
+    "research/robot-structured-protocol.md": {
+      "bytes": 10749,
+      "sha256": "d649dff76a9202e016fbfd322b5a9a7d9ac68887346cedb07a1af1a498c6ef86"
+    },
+    "research/robot-transition-protocol.md": {
+      "bytes": 9586,
+      "sha256": "80a836a3c62be85e864f9b785086ee2fe86ce4b9af3beb88665617969d15fe13"
+    },
+    "scripts/robot_coupling_study.py": {
+      "bytes": 40922,
+      "sha256": "99560155d920d02e66b1f470f0f6a33f0d6ed52417de35e7f93840b3d9e191f1"
+    },
+    "scripts/robot_structured_study.py": {
+      "bytes": 27309,
+      "sha256": "12ac0fbf8baa2b615a8399ef8e0343f99b0822d9b5182464f6ac44a645b24ebc"
+    },
+    "scripts/robot_transition_study.py": {
+      "bytes": 21464,
+      "sha256": "4b2c95a5c66dd8cf0b7e9b13d3237772735adda4b243752cbd19681fc4992265"
+    },
+    "src/openjev/research/bounded_robot_transition.py": {
+      "bytes": 12548,
+      "sha256": "a9b147a8cc4ac2d156982fe458a74b961df1649336646c65f0672074db9fe3f2"
+    },
+    "src/openjev/research/causal_robot_ridge.py": {
+      "bytes": 7161,
+      "sha256": "2cbbf4841fafee32a0febb90ccad1e13539ecfc2bfeeee5fea599f404bbbe1d3"
+    },
+    "src/openjev/research/compact_robot_gate.py": {
+      "bytes": 7525,
+      "sha256": "dd1b62429ae8a1da723631d941dda1cd657130756eff4c993866e108ed203780"
+    },
+    "src/openjev/research/industrial_robot_data.py": {
+      "bytes": 7533,
+      "sha256": "3109b46e14323f8f9bc8246776eba3b132d62868a7d890394bb6b45b3822b5aa"
+    },
+    "src/openjev/research/joint_coupling.py": {
+      "bytes": 13528,
+      "sha256": "d6084988938d11f5f7458c454ba336928b2ee93f3c433700b6a28d0bd493b951"
+    },
+    "src/openjev/research/structured_robot_transition.py": {
+      "bytes": 12209,
+      "sha256": "6119a0b57331cfff183acb2f553f45730073bace8cfaff5588cf4c5d520267bf"
+    },
+    "tests/test_bounded_robot_transition.py": {
+      "bytes": 14962,
+      "sha256": "e8b9f33319561dab14879756d253d498ec4721ca51430119f905fdf534cf3c28"
+    },
+    "tests/test_causal_robot_ridge.py": {
+      "bytes": 7517,
+      "sha256": "4e3b0f1eb7604c6d2a2723dac0b8f7004b6d00eb7d90b288d98d41a7dc814859"
+    },
+    "tests/test_compact_robot_gate.py": {
+      "bytes": 9341,
+      "sha256": "8df909676009b9cece4446e76acb9ea33f1fcf4dae7c1ba41e55512fe9317e48"
+    },
+    "tests/test_industrial_robot_data.py": {
+      "bytes": 9362,
+      "sha256": "5f1a7178e180369ec7863eef6e2a89f9f89d8a890e0392a61083f4470724d670"
+    },
+    "tests/test_joint_coupling.py": {
+      "bytes": 16006,
+      "sha256": "4ee6d93912273914e6dad72dd87e8863f4f335f5845e572eb5cedf68e0f97d5f"
+    },
+    "tests/test_robot_coupling_study.py": {
+      "bytes": 27901,
+      "sha256": "84877060d1461e017bc1c0ef94ac345d7981a1bc53644f0718144ff11e262b5c"
+    },
+    "tests/test_robot_structured_study.py": {
+      "bytes": 14161,
+      "sha256": "94fd529464cdbb439fda8d036abfd5b2a5b93b92b7ff6d371b1c94ce3707e9fe"
+    },
+    "tests/test_robot_transition_study.py": {
+      "bytes": 12635,
+      "sha256": "d8d2f69928ad00b25156cb969fdd61726df473c6ed233be3986277932f21ac5d"
+    },
+    "tests/test_structured_robot_transition.py": {
+      "bytes": 13102,
+      "sha256": "6b01008ab72a22b64ab543ff3e52c28c6a4b8d1cd13b98a7fed7b04929b9c58d"
+    }
+  },
+  "version": "robot-structured-study-v1"
+}

@@ -10,6 +10,8 @@ The first compiled qualification passed 88/90 cases. Initialized Householder rol
 
 This establishes numerical qualification on the tested Apple Silicon host, not a speed result or a cross-platform guarantee. The [native benchmark protocol](../../research/robot-native-protocol.md) requires another parity gate on every selected trained checkpoint before any timing.
 
+The [trained-checkpoint attempt](../../research/robot-native-results.md) subsequently stops before timing. Standardized forecasts and final states pass; physical-unit output differences exceed the original fixed tolerance. The failure and all outputs are preserved.
+
 ## Build and test
 
 Use an explicit Rust compiler path and a new output directory. The build helper snapshots sources, records compiler identity and preserves process receipts. It has no dependency downloads or automatic toolchain discovery.

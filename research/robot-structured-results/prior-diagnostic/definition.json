@@ -1,0 +1,49 @@
+{
+  "arithmetic_scope": "Original full-gate baseline uses qualified operations exactly. Interventions use separate weighted sums of matrix action and additive input/bias forcing, in float32, without clipping or repair.",
+  "arm": "lpv_instant",
+  "context": 32,
+  "dev_recordings": [
+    "recording_2021_12_15_21H_54M.mat",
+    "recording_2021_12_15_22H_10M.mat"
+  ],
+  "forecast": 128,
+  "gate_scope": "Recompute dynamic gates causally on each intervened rollout own state. Initial gate means the first forecast transition, after measured-context initialization.",
+  "horizons": [
+    8,
+    32,
+    64,
+    128
+  ],
+  "interventions": {
+    "all_fixed": "Both expert mixtures=(.5,.5).",
+    "fixed_forcing": "Matrix expert weights from current-state scheduler; input-matrix and bias expert weights=(.5,.5).",
+    "fixed_matrix": "Matrix expert weights=(.5,.5); input-matrix and bias expert weights from current-state scheduler.",
+    "full_gate": "Original qualified operation order; require exact saved prediction equality for all six baseline replays before any intervention."
+  },
+  "joints": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "learning_rate": 0.001,
+  "metrics": "Cumulative standardized RMSE and physical RMSE degrees at each horizon, all six individual joint values; arithmetic means of three per-fit RMSEs are not ensembles.",
+  "no_training": true,
+  "posthoc": true,
+  "registration_sha256": "8e12dac5ef2cc6acf95bea68bd8551f3040c103e628fa52697dba0511ed1c52a",
+  "scope": "Descriptive interventions on unchanged trained weights and already-exposed DEV. Not trained ablations, causal physical evidence, a fresh evaluation, or advancement.",
+  "seeds": [
+    8101,
+    8102,
+    8103
+  ],
+  "study": "output/robot-transition-study-v1",
+  "version": "robot-transition-mechanism-diagnostic-v1",
+  "window_starts": {
+    "count": 22,
+    "first": 64,
+    "stride": 160
+  }
+}
