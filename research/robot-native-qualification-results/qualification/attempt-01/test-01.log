@@ -1,0 +1,210 @@
+F...F................................................................... [ 80%]
+..................                                                       [100%]
+=================================== FAILURES ===================================
+_ test_fixed_long_horizon_prediction_and_state_parity[initial-128-householder] _
+
+kind = 'householder', horizon = 128, profile = 'initial'
+library = PosixPath('/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/native-robot-transition-engineering-v1/attempt-01/librobot_transition.dylib')
+
+    @pytest.mark.parametrize('kind', KINDS)
+    @pytest.mark.parametrize('horizon', [128, 512])
+    @pytest.mark.parametrize('profile', ['initial', 'active', 'saturated'])
+    def test_fixed_long_horizon_prediction_and_state_parity(kind, horizon, profile, library):
+        cell = model(kind, profile)
+        q, u, future = inputs(horizon)
+        state = initial_state(cell, q, u)
+        expected = torch_rollout(cell, future, state)
+        native = NativeRobotTransition(cell, library_path=library)
+>       assert_parity(native.rollout(future, state), *expected)
+
+tests/test_native_robot_transition.py:107: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+actual = {'prediction': array([[[-0.10565851, -0.12125995, -0.13319112, -0.14894713,
+         -0.16404563, -0.17474052],
+      ...]], dtype=float32), 'work': {'parameter_validations': 1, 'parameter_preparations': 1, 'ffi_calls': 1, 'batch': 2, ...}}
+expected_prediction = array([[[-0.10565839, -0.12125995, -0.13319112, -0.14894713,
+         -0.16404563, -0.17474054],
+        [-0.10261559,...44029  ,  0.21601044,  0.30445117,  0.24165191,
+          0.21428627,  0.2833522 ]]], shape=(2, 128, 6), dtype=float32)
+expected_state = array([[-0.08556192, -0.11251987, -0.09183307, -0.13144022, -0.15829352,
+        -0.14214464, -0.08019244, -0.08209614...     0.2833522 ,  0.05397705,  0.04447489,  0.04088996,  0.04178159,
+         0.04264772,  0.03646403]], dtype=float32)
+
+    def assert_parity(actual, expected_prediction, expected_state):
+        assert actual['prediction'].dtype == np.float32
+        assert actual['final_state'].dtype == np.float32
+        assert actual['prediction'].shape == expected_prediction.shape
+        assert actual['final_state'].shape == expected_state.shape
+        assert np.isfinite(actual['prediction']).all() and np.isfinite(actual['final_state']).all()
+>       np.testing.assert_allclose(actual['prediction'], expected_prediction, rtol=RTOL, atol=ATOL)
+E       AssertionError: 
+E       Not equal to tolerance rtol=1e-05, atol=1e-05
+E       
+E       Mismatched elements: 95 / 1536 (6.18%)
+E       First 5 mismatches are at indices:
+E        [0, 110, 0]: -0.0827680230140686 (ACTUAL), -0.0827571302652359 (DESIRED)
+E        [0, 111, 0]: -0.07744567841291428 (ACTUAL), -0.0774347335100174 (DESIRED)
+E        [0, 112, 0]: -0.07271037995815277 (ACTUAL), -0.07269934564828873 (DESIRED)
+E        [0, 113, 0]: -0.06913571059703827 (ACTUAL), -0.06912460923194885 (DESIRED)
+E        [0, 114, 0]: -0.06715231388807297 (ACTUAL), -0.067141093313694 (DESIRED)
+E       Max absolute difference among violations: 2.8267503e-05
+E       Max relative difference among violations: 0.00016807
+E        ACTUAL: array([[[-0.105659, -0.12126 , -0.133191, -0.148947, -0.164046,
+E                -0.174741],
+E               [-0.102616, -0.12311 , -0.123464, -0.148738, -0.169   ,...
+E        DESIRED: array([[[-0.105658, -0.12126 , -0.133191, -0.148947, -0.164046,
+E                -0.174741],
+E               [-0.102616, -0.12311 , -0.123464, -0.148738, -0.169   ,...
+
+tests/test_native_robot_transition.py:93: AssertionError
+_ test_fixed_long_horizon_prediction_and_state_parity[initial-512-householder] _
+
+kind = 'householder', horizon = 512, profile = 'initial'
+library = PosixPath('/Users/kevinwu/Documents/research/WikiSkills-RL/OpenJev/output/native-robot-transition-engineering-v1/attempt-01/librobot_transition.dylib')
+
+    @pytest.mark.parametrize('kind', KINDS)
+    @pytest.mark.parametrize('horizon', [128, 512])
+    @pytest.mark.parametrize('profile', ['initial', 'active', 'saturated'])
+    def test_fixed_long_horizon_prediction_and_state_parity(kind, horizon, profile, library):
+        cell = model(kind, profile)
+        q, u, future = inputs(horizon)
+        state = initial_state(cell, q, u)
+        expected = torch_rollout(cell, future, state)
+        native = NativeRobotTransition(cell, library_path=library)
+>       assert_parity(native.rollout(future, state), *expected)
+
+tests/test_native_robot_transition.py:107: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+actual = {'prediction': array([[[-0.10565851, -0.12125995, -0.13319112, -0.14894713,
+         -0.16404563, -0.17474052],
+      ...]], dtype=float32), 'work': {'parameter_validations': 1, 'parameter_preparations': 1, 'ffi_calls': 1, 'batch': 2, ...}}
+expected_prediction = array([[[-0.10565839, -0.12125995, -0.13319112, -0.14894713,
+         -0.16404563, -0.17474054],
+        [-0.10261559,...7140028,  0.14369164,  0.22429562,  0.16473319,
+          0.13691798,  0.20086218]]], shape=(2, 512, 6), dtype=float32)
+expected_state = array([[-0.05697336, -0.08591827, -0.04618312, -0.09446771, -0.11932689,
+        -0.09026177, -0.05479841, -0.05720495...     0.20086218,  0.03739528,  0.02914255,  0.02626698,  0.02847194,
+         0.030544  ,  0.02564012]], dtype=float32)
+
+    def assert_parity(actual, expected_prediction, expected_state):
+        assert actual['prediction'].dtype == np.float32
+        assert actual['final_state'].dtype == np.float32
+        assert actual['prediction'].shape == expected_prediction.shape
+        assert actual['final_state'].shape == expected_state.shape
+        assert np.isfinite(actual['prediction']).all() and np.isfinite(actual['final_state']).all()
+>       np.testing.assert_allclose(actual['prediction'], expected_prediction, rtol=RTOL, atol=ATOL)
+E       AssertionError: 
+E       Not equal to tolerance rtol=1e-05, atol=1e-05
+E       
+E       Mismatched elements: 864 / 6144 (14.1%)
+E       First 5 mismatches are at indices:
+E        [0, 110, 0]: -0.0827680230140686 (ACTUAL), -0.0827571302652359 (DESIRED)
+E        [0, 111, 0]: -0.07744567841291428 (ACTUAL), -0.0774347335100174 (DESIRED)
+E        [0, 112, 0]: -0.07271037995815277 (ACTUAL), -0.07269934564828873 (DESIRED)
+E        [0, 113, 0]: -0.06913571059703827 (ACTUAL), -0.06912460923194885 (DESIRED)
+E        [0, 114, 0]: -0.06715231388807297 (ACTUAL), -0.067141093313694 (DESIRED)
+E       Max absolute difference among violations: 7.806718e-05
+E       Max relative difference among violations: 0.00079492
+E        ACTUAL: array([[[-0.105659, -0.12126 , -0.133191, -0.148947, -0.164046,
+E                -0.174741],
+E               [-0.102616, -0.12311 , -0.123464, -0.148738, -0.169   ,...
+E        DESIRED: array([[[-0.105658, -0.12126 , -0.133191, -0.148947, -0.164046,
+E                -0.174741],
+E               [-0.102616, -0.12311 , -0.123464, -0.148738, -0.169   ,...
+
+tests/test_native_robot_transition.py:93: AssertionError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/test_native_robot_transition.py::test_fixed_long_horizon_prediction_and_state_parity[initial-128-dense_bounded]
+PASSED tests/test_native_robot_transition.py::test_fixed_long_horizon_prediction_and_state_parity[initial-128-dense_unbounded]
+PASSED tests/test_native_robot_transition.py::test_fixed_long_horizon_prediction_and_state_parity[initial-128-dense_mlp]
+PASSED tests/test_native_robot_transition.py::test_fixed_long_horizon_prediction_and_state_parity[initial-512-dense_bounded]
+PASSED tests/test_native_robot_transition.py::test_fixed_long_horizon_prediction_and_state_parity[initial-512-dense_unbounded]
+PASSED tests/test_native_robot_transition.py::test_fixed_long_horizon_prediction_and_state_parity[initial-512-dense_mlp]
+PASSED tests/test_native_robot_transition.py::test_fixed_long_horizon_prediction_and_state_parity[active-128-householder]
+PASSED tests/test_native_robot_transition.py::test_fixed_long_horizon_prediction_and_state_parity[active-128-dense_bounded]
+PASSED tests/test_native_robot_transition.py::test_fixed_long_horizon_prediction_and_state_parity[active-128-dense_unbounded]
+PASSED tests/test_native_robot_transition.py::test_fixed_long_horizon_prediction_and_state_parity[active-128-dense_mlp]
+PASSED tests/test_native_robot_transition.py::test_fixed_long_horizon_prediction_and_state_parity[active-512-householder]
+PASSED tests/test_native_robot_transition.py::test_fixed_long_horizon_prediction_and_state_parity[active-512-dense_bounded]
+PASSED tests/test_native_robot_transition.py::test_fixed_long_horizon_prediction_and_state_parity[active-512-dense_unbounded]
+PASSED tests/test_native_robot_transition.py::test_fixed_long_horizon_prediction_and_state_parity[active-512-dense_mlp]
+PASSED tests/test_native_robot_transition.py::test_fixed_long_horizon_prediction_and_state_parity[saturated-128-householder]
+PASSED tests/test_native_robot_transition.py::test_fixed_long_horizon_prediction_and_state_parity[saturated-128-dense_bounded]
+PASSED tests/test_native_robot_transition.py::test_fixed_long_horizon_prediction_and_state_parity[saturated-128-dense_unbounded]
+PASSED tests/test_native_robot_transition.py::test_fixed_long_horizon_prediction_and_state_parity[saturated-128-dense_mlp]
+PASSED tests/test_native_robot_transition.py::test_fixed_long_horizon_prediction_and_state_parity[saturated-512-householder]
+PASSED tests/test_native_robot_transition.py::test_fixed_long_horizon_prediction_and_state_parity[saturated-512-dense_bounded]
+PASSED tests/test_native_robot_transition.py::test_fixed_long_horizon_prediction_and_state_parity[saturated-512-dense_unbounded]
+PASSED tests/test_native_robot_transition.py::test_fixed_long_horizon_prediction_and_state_parity[saturated-512-dense_mlp]
+PASSED tests/test_native_robot_transition.py::test_finite_affine_overflow_saturates_like_torch[householder]
+PASSED tests/test_native_robot_transition.py::test_finite_affine_overflow_saturates_like_torch[dense_bounded]
+PASSED tests/test_native_robot_transition.py::test_finite_affine_overflow_saturates_like_torch[dense_unbounded]
+PASSED tests/test_native_robot_transition.py::test_finite_affine_overflow_saturates_like_torch[dense_mlp]
+PASSED tests/test_native_robot_transition.py::test_nonfinite_final_gate_logits_fail_after_saturation[householder]
+PASSED tests/test_native_robot_transition.py::test_nonfinite_final_gate_logits_fail_after_saturation[dense_bounded]
+PASSED tests/test_native_robot_transition.py::test_nonfinite_final_gate_logits_fail_after_saturation[dense_unbounded]
+PASSED tests/test_native_robot_transition.py::test_nonfinite_final_gate_logits_fail_after_saturation[dense_mlp]
+PASSED tests/test_native_robot_transition.py::test_causal_suffix_chunk_carry_and_owned_buffers[householder]
+PASSED tests/test_native_robot_transition.py::test_causal_suffix_chunk_carry_and_owned_buffers[dense_bounded]
+PASSED tests/test_native_robot_transition.py::test_causal_suffix_chunk_carry_and_owned_buffers[dense_unbounded]
+PASSED tests/test_native_robot_transition.py::test_causal_suffix_chunk_carry_and_owned_buffers[dense_mlp]
+PASSED tests/test_native_robot_transition.py::test_empty_horizon_batch_shapes_and_owned_state[1-householder]
+PASSED tests/test_native_robot_transition.py::test_empty_horizon_batch_shapes_and_owned_state[1-dense_bounded]
+PASSED tests/test_native_robot_transition.py::test_empty_horizon_batch_shapes_and_owned_state[1-dense_unbounded]
+PASSED tests/test_native_robot_transition.py::test_empty_horizon_batch_shapes_and_owned_state[1-dense_mlp]
+PASSED tests/test_native_robot_transition.py::test_empty_horizon_batch_shapes_and_owned_state[3-householder]
+PASSED tests/test_native_robot_transition.py::test_empty_horizon_batch_shapes_and_owned_state[3-dense_bounded]
+PASSED tests/test_native_robot_transition.py::test_empty_horizon_batch_shapes_and_owned_state[3-dense_unbounded]
+PASSED tests/test_native_robot_transition.py::test_empty_horizon_batch_shapes_and_owned_state[3-dense_mlp]
+PASSED tests/test_native_robot_transition.py::test_physical_request_matches_pipeline_and_ignores_old_history[householder]
+PASSED tests/test_native_robot_transition.py::test_physical_request_matches_pipeline_and_ignores_old_history[dense_bounded]
+PASSED tests/test_native_robot_transition.py::test_physical_request_matches_pipeline_and_ignores_old_history[dense_unbounded]
+PASSED tests/test_native_robot_transition.py::test_physical_request_matches_pipeline_and_ignores_old_history[dense_mlp]
+PASSED tests/test_native_robot_transition.py::test_fresh_preparation_once_per_call_and_no_stale_parameter_cache[householder]
+PASSED tests/test_native_robot_transition.py::test_fresh_preparation_once_per_call_and_no_stale_parameter_cache[dense_bounded]
+PASSED tests/test_native_robot_transition.py::test_fresh_preparation_once_per_call_and_no_stale_parameter_cache[dense_unbounded]
+PASSED tests/test_native_robot_transition.py::test_fresh_preparation_once_per_call_and_no_stale_parameter_cache[dense_mlp]
+PASSED tests/test_native_robot_transition.py::test_each_live_parameter_tensor_is_reexported[householder]
+PASSED tests/test_native_robot_transition.py::test_each_live_parameter_tensor_is_reexported[dense_bounded]
+PASSED tests/test_native_robot_transition.py::test_each_live_parameter_tensor_is_reexported[dense_unbounded]
+PASSED tests/test_native_robot_transition.py::test_each_live_parameter_tensor_is_reexported[dense_mlp]
+PASSED tests/test_native_robot_transition.py::test_invalid_rollout_inputs_fail_without_repair[future_dtype]
+PASSED tests/test_native_robot_transition.py::test_invalid_rollout_inputs_fail_without_repair[state_dtype]
+PASSED tests/test_native_robot_transition.py::test_invalid_rollout_inputs_fail_without_repair[future_shape]
+PASSED tests/test_native_robot_transition.py::test_invalid_rollout_inputs_fail_without_repair[state_shape]
+PASSED tests/test_native_robot_transition.py::test_invalid_rollout_inputs_fail_without_repair[future_nan]
+PASSED tests/test_native_robot_transition.py::test_invalid_rollout_inputs_fail_without_repair[future_inf]
+PASSED tests/test_native_robot_transition.py::test_invalid_rollout_inputs_fail_without_repair[state_nan]
+PASSED tests/test_native_robot_transition.py::test_invalid_rollout_inputs_fail_without_repair[zero_batch]
+PASSED tests/test_native_robot_transition.py::test_invalid_physical_request_fails[q_dtype]
+PASSED tests/test_native_robot_transition.py::test_invalid_physical_request_fails[u_dtype]
+PASSED tests/test_native_robot_transition.py::test_invalid_physical_request_fails[future_dtype]
+PASSED tests/test_native_robot_transition.py::test_invalid_physical_request_fails[q_short]
+PASSED tests/test_native_robot_transition.py::test_invalid_physical_request_fails[q_shape]
+PASSED tests/test_native_robot_transition.py::test_invalid_physical_request_fails[u_nan]
+PASSED tests/test_native_robot_transition.py::test_invalid_physical_request_fails[q_nan]
+PASSED tests/test_native_robot_transition.py::test_invalid_physical_request_fails[norm_key]
+PASSED tests/test_native_robot_transition.py::test_invalid_physical_request_fails[norm_dtype]
+PASSED tests/test_native_robot_transition.py::test_invalid_physical_request_fails[norm_zero]
+PASSED tests/test_native_robot_transition.py::test_invalid_physical_request_fails[norm_nan]
+PASSED tests/test_native_robot_transition.py::test_nonfinite_live_parameters_and_overflow_fail_without_repair
+PASSED tests/test_native_robot_transition.py::test_library_and_exact_float32_model_are_explicit
+PASSED tests/test_native_robot_transition.py::test_request_work_charges_boundary_preparation_and_copies[householder-630-638-528]
+PASSED tests/test_native_robot_transition.py::test_request_work_charges_boundary_preparation_and_copies[dense_bounded-806-806-1208]
+PASSED tests/test_native_robot_transition.py::test_request_work_charges_boundary_preparation_and_copies[dense_unbounded-806-806-1200]
+PASSED tests/test_native_robot_transition.py::test_request_work_charges_boundary_preparation_and_copies[dense_mlp-590-590-1208]
+PASSED tests/test_native_robot_transition.py::test_retained_gradients_are_counted_and_rejected_for_inference
+PASSED tests/test_native_robot_transition.py::test_direct_abi_rejects_bad_extents_aliases_and_domains[length-1]
+PASSED tests/test_native_robot_transition.py::test_direct_abi_rejects_bad_extents_aliases_and_domains[kind-1]
+PASSED tests/test_native_robot_transition.py::test_direct_abi_rejects_bad_extents_aliases_and_domains[null_parameters-2]
+PASSED tests/test_native_robot_transition.py::test_direct_abi_rejects_bad_extents_aliases_and_domains[null_initial-2]
+PASSED tests/test_native_robot_transition.py::test_direct_abi_rejects_bad_extents_aliases_and_domains[output_alias-2]
+PASSED tests/test_native_robot_transition.py::test_direct_abi_rejects_bad_extents_aliases_and_domains[nonfinite_parameter-3]
+PASSED tests/test_native_robot_transition.py::test_direct_abi_rejects_bad_extents_aliases_and_domains[negative_scale-4]
+PASSED tests/test_native_robot_transition.py::test_direct_abi_rejects_bad_extents_aliases_and_domains[zero_reflection-4]
+FAILED tests/test_native_robot_transition.py::test_fixed_long_horizon_prediction_and_state_parity[initial-128-householder]
+FAILED tests/test_native_robot_transition.py::test_fixed_long_horizon_prediction_and_state_parity[initial-512-householder]
+2 failed, 88 passed in 1.26s

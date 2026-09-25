@@ -1,0 +1,36 @@
+{
+  "findings": [
+    "No network download or shell-profile/PATH mutation in installer.",
+    "All bindir/libdir/etc/share paths derive from explicit isolated prefix.",
+    "ldconfig explicitly disabled; no sudo invocation.",
+    "Fresh prefix has no preexisting component manifests to uninstall.",
+    "Option parsing uses eval; only fixed trusted version/path arguments supplied.",
+    "Both installers differ only in their success message."
+  ],
+  "global_environment_changed": false,
+  "installers": {
+    "rust-std": {
+      "installer_bytes": 29290,
+      "installer_member": "rust-std-1.98.1-aarch64-apple-darwin/install.sh",
+      "installer_sha256": "19c56df4d4a3251396a6a97be14daff33465572e4ecc7e37d776dba77b60a9a8",
+      "members": 78,
+      "symlinks": [],
+      "top_level": [
+        "rust-std-1.98.1-aarch64-apple-darwin"
+      ]
+    },
+    "rustc": {
+      "installer_bytes": 29287,
+      "installer_member": "rustc-1.98.1-aarch64-apple-darwin/install.sh",
+      "installer_sha256": "1b1ab708c8de4dbfa345cf1ca8fe3a7796c5e8bd91afd14e55489b75c1260535",
+      "members": 72,
+      "symlinks": [],
+      "top_level": [
+        "rustc-1.98.1-aarch64-apple-darwin"
+      ]
+    }
+  },
+  "prefix": "/Users/kevinwu/.cache/openjev-rust/1.98.1",
+  "scope": "Reviewed generic shell installer, component manifests and archive paths before execution.",
+  "status": "REVIEWED"
+}
