@@ -60,16 +60,18 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Research status
 
-The latest [measured robot experiment](research/robot-coupling-results.md) tests
-small recurrent models across 30 training attempts. Joint-chain memory
-**fails its rule: 20/55 conditions pass**. It trails the GRU and rewired control;
-six polynomial fits are unstable. Confirmation and official TEST remain unused.
+The latest [robot transition experiment](research/robot-transition-results.md)
+completes all 24 fits. A small model with a current-state scheduler lowers mean
+forecast error **8.3% / 6.4% versus GRU**, but takes **1.9× the inference time**.
+Adding persistent scheduler memory fails its rule: **27/45 conditions pass**.
+These are development results on previously used recordings; confirmation and
+official TEST remain unused.
 
-[![Robot forecast errors, failed models and measured CPU latency](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/robot-coupling-results/benchmark.png)](research/robot-coupling-results.md)
+[![Robot transition forecast errors and measured CPU latency, with every selected seed](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/robot-transition-results/benchmark.png)](research/robot-transition-results.md)
 
-[Results and checkpoints](research/robot-coupling-results.md) ·
-[Protocol](research/robot-coupling-protocol.md) ·
-[Next research question](research/robot-coupling-next.md) ·
+[Results and checkpoints](research/robot-transition-results.md) ·
+[Protocol](research/robot-transition-protocol.md) ·
+[Previous chain-memory result](research/robot-coupling-results.md) ·
 [All experiments](research/experiment-index.md).
 
 The preceding [Silverbox comparison](research/phase-results.md) also rejected
