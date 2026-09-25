@@ -7,10 +7,14 @@ audit agreement. The subsequent [FIT-only author BLA28 adaptation](fsm-author-bl
 also completed, with 4/4 continuation checks and independent audit agreement.
 The nonlinear NL-LFR adaptation now has a [frozen protocol](fsm-author-nllfr-protocol.md)
 and [registration](fsm-author-nllfr-registration.json), after 162 fabricated tests
-and a full-size synthetic runtime qualification. It has no audited performance
-result yet. The 300 mV shift remains unregistered and unexecuted.
-No reserved measurements have been read under
-this proposal. The remaining steps below are prospective; exposed-DEV selection
+and a full-size synthetic runtime qualification. Its
+[closed result](fsm-author-nllfr-results.md) is REFERENCE_INCOMPLETE: it reached
+the 10,000-iteration limit, although all 384 diagnostic forecasts replayed exactly.
+This blocks an affirmative survival claim. The 300 mV shift remains unregistered
+and unexecuted. See the separate [publication correction](fsm-author-publication-correction.md)
+for upstream example bytes copied into the prior evidence bundle; numerical
+processing in these documented studies used the admitted FIT/DEV slices.
+The remaining steps below are prospective; exposed-DEV selection
 remains development.
 See the [frozen protocol](fsm-residual-protocol.md) and
 [prior-art limits](fsm-residual-prior-art.md).
@@ -30,7 +34,9 @@ See the [frozen protocol](fsm-residual-protocol.md) and
   This asks whether the nonlinear gain survives stronger linear memory.
 - **Qualify the authors' NL-LFR procedure using FIT data only.**
   BLA28 is now fitted and evaluated under the causal contract; the nonlinear
-  reference is now registered, with performance and independent audit pending.
+  reference was audited but remained incomplete at its training cap.
+  Its diagnostic forecasts do not close this comparison. Any further fit needs
+  a separate protocol; reloading its weights would reset optimizer state.
   Do not use supplied weights fitted with all three amplitudes.
   Freeze any adaptation, initialization and optimization budget in advance;
   record unsupported dependencies or incomplete reproduction honestly.

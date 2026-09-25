@@ -1,5 +1,10 @@
 # FSM author-reference qualification
 
+This is the historical source-only review. Subsequent registered studies produced
+a [completed BLA28 reference](fsm-author-bla-results.md) and an
+[incomplete NL-LFR diagnostic](fsm-author-nllfr-results.md). See also the separate
+[publication correction](fsm-author-publication-correction.md).
+
 **SOURCE REVIEW ONLY. No author control was fitted or executed.** No measurement arrays or supplied model weights were opened. Notebook source cells, repository metadata and primary papers were read; saved notebook outputs were not used. The proposed adaptation below is unregistered and unrun.
 
 The authors provide executable BLA28 and neural NL-LFR recipes. The main remaining work is a restricted FIT reader, a pinned numerical environment and a qualified causal state initializer. Loading their pretrained models or running their notebooks unchanged would not establish a FIT-only comparison.

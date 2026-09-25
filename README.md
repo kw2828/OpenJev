@@ -60,25 +60,26 @@ The GIF is from the earlier, weaker-control study. The [stronger comparison](res
 
 ## Research status
 
-The [recurrent residual model](research/fsm-author-bla-results.md) keeps its
-**26.41% lower error than the best longer-memory linear model** and **22.31%
-lower error than output-only correction**, with its weights unchanged.
-Adding the authors' FIT-only BLA28 reference leaves the strongest comparison
-unchanged. All **4/4 latest continuation checks pass**, with independent audit
-agreement. Better accuracy still costs more computation than VARX96.
+The latest [nonlinear reference check](research/fsm-author-nllfr-results.md) is
+**incomplete**: training reached its 10,000-iteration limit. Its diagnostic error
+was **0.05146**, versus **0.04290** for our unchanged recurrent residual model.
+All 384 diagnostic forecasts replayed exactly, but the frozen continuation rule
+does not pass with an incomplete reference.
 
-[![Author BLA28, VARX96 and recurrent controls: forecast error and descriptive latency](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/fsm-author-bla-results/benchmark.png)](research/fsm-author-bla-results.md)
+[![Incomplete nonlinear reference and fixed controls: forecast error and descriptive latency](https://raw.githubusercontent.com/kw2828/OpenJev/main/research/fsm-author-nllfr-results/benchmark.png)](research/fsm-author-nllfr-results.md)
 
-[Latest results and checkpoints](research/fsm-author-bla-results.md) ·
+[Latest results and checkpoints](research/fsm-author-nllfr-results.md) ·
+[Earlier completed linear reference](research/fsm-author-bla-results.md) ·
 [All fifteen prior control families](research/fsm-linear-controls-results.md) ·
 [Original 36-fit comparison](research/fsm-residual-results.md) ·
 [Next comparison](research/fsm-residual-next.md) ·
 [All experiments](research/experiment-index.md).
 
-Selection and these checks use the same exposed development data. This is a
-promising lead, not untouched validation or a novel architecture. The
-[authors' nonlinear NL-LFR reference](research/fsm-author-reference-qualification.md)
-and an untouched amplitude shift remain to be tested. Earlier
+Selection and these checks use the same exposed development data. The stronger
+reference, scenario shift and architectural novelty remain unresolved. A
+[publication correction](research/fsm-author-publication-correction.md) records
+upstream example data inadvertently included in the earlier evidence bundle.
+Earlier
 [selective correction](research/fsm-correction-results.md) and
 [robot observer](research/robot-joint-observer-results.md) experiments failed
 their rules; their complete results remain available.

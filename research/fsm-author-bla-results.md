@@ -1,5 +1,10 @@
 # The recurrent gain survives a FIT-only author linear reference
 
+Subsequent status: the [nonlinear reference check](fsm-author-nllfr-results.md)
+reached its training cap and remained incomplete. The linear-reference result
+below is historical. A [publication correction](fsm-author-publication-correction.md)
+also documents upstream example data copied into this result's original bundle.
+
 The pooled author BLA28 adaptation completed its fit and all 384 development
 forecasts. It did not remove the fixed recurrent residual's advantage. It also
 did not become our strongest control: longer-memory VARX remains the better
@@ -76,19 +81,24 @@ Maximum normalized prediction difference was **7.55e-15**, below the registered
 [Original process](fsm-author-bla-results/original-process.json) ·
 [Complete evidence and model checkpoints](https://github.com/kw2828/OpenJev/releases/tag/fsm-author-bla-study-v1).
 
-Only the 100/200 mV training archive members were decoded. **All 300 mV and
-official-test measurements and their headers remain unopened.** The original
+Only the 100/200 mV training archive members were decoded by the documented
+numerical pipeline. The broader claim that all reserved files remained unopened
+is withdrawn: the original publication package copied upstream 300 mV train/test
+examples as bytes. See the [correction](fsm-author-publication-correction.md).
+The original
 archive is CC BY 4.0, credited to Merijn Floren, KU Leuven and Floren et al.,
 ISMA-USD 2024. The isolated author integration is GPL-3.0-or-later; see its
 [notices](fsm_author/THIRD_PARTY.md).
 
 This is development evidence on one measured system. Repeated periods share
 a realization, and windows from the same realization are correlated. The candidate was selected on these same
-records in earlier work. The author neural NL-LFR has not been fitted under
-this causal contract, so this result cannot stand in for that nonlinear control.
+records in earlier work. At this result's closure, the author neural NL-LFR had
+not been fitted under this causal contract. Its later diagnostic run remained
+incomplete, so neither result closes that nonlinear comparison.
 It also establishes no new biological mechanism, connectome advantage, control
 performance, untouched transfer or ICLR-ready contribution.
 
-The next useful comparison is a qualified FIT-only NL-LFR with a bounded causal
-state initializer. Keep the candidate fixed. Only after that reference check
-should the reserved 300 mV scenario receive its separately frozen evaluation.
+The planned next comparison was a FIT-only NL-LFR with a bounded causal state
+initializer. Its [later incomplete result](fsm-author-nllfr-results.md) leaves
+that check unresolved. Keep the candidate fixed and do not treat the diagnostic
+checkpoint as permission to proceed to the reserved scenario.
